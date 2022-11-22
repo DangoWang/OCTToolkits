@@ -1,0 +1,208 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "miniToolB.title" "MG迷你工具箱";
+
+MG_displaySC "miniToolB.miniT.hp" "迷你工具箱帮助..";
+MG_displaySC "miniToolB.mgTimer.hp" "MG计时计算器2.0帮助..";
+MG_displaySC "miniToolB.mbma.hp" "MB-MA强制转换器帮助..";
+MG_displaySC "miniToolB.ref.hp" "Reference工具帮助..";
+MG_displaySC "miniToolB.hud.hp" "MG屏幕信息显示帮助..";
+MG_displaySC "miniToolB.anno.hp" "帧数计数器注释帮助..";
+MG_displaySC "miniToolB.stickyS.hp" "固定物体于视图帮助..";
+MG_displaySC "miniToolB.stickyV.hp" "创建固定视图帮助..";
+MG_displaySC "miniToolB.draw.hp" "绘制动画路径曲线帮助..";
+MG_displaySC "miniToolB.motionC.hp" "路径动画计算器帮助..";
+MG_displaySC "miniToolB.insertHirarchy.hp" "插入层级帮助..";
+MG_displaySC "miniToolB.EfficientUndo.hp" "高效率Undo/Redo帮助..";
+
+MG_displaySC "miniToolB.misc.fTitle" "杂项:";
+MG_displaySC "miniToolB.mTimer.annoText" "记录/转换时间及计算:";
+MG_displaySC "miniToolB.mTimer.title" "MG计时计算器 1.0";
+
+MG_displaySC "miniToolB.MBMA.annoText" "强制转换MB,MA文件 : ";
+MG_displaySC "miniToolB.ref.annoText" "Reference导入导出 : ";
+MG_displaySC "miniToolB.refPath.annoText" "查看Reference物体路径.. ";
+
+MG_displaySC "miniToolB.screenDispaly.fTitle" "屏幕信息显示:";
+MG_displaySC "miniToolB.screenDispaly.annoText" "两种屏幕信息开关:";
+MG_displaySC "miniToolB.screenDispaly.mghud" "MG屏幕信息";
+MG_displaySC "miniToolB.screenDispaly.annoFC" "帧数计数器注释..";
+MG_displaySC "miniToolB.hud.folder" "配置文件目录..";
+MG_displaySC "miniToolB.mSticky.fTitle" "固定图钉:";
+MG_displaySC "miniToolB.mSticky.btn" "固定所选物体" ;
+MG_displaySC "miniToolB.mSticky.annoText" "固定物体或视图:" ;
+MG_displaySC "miniToolB.mSticky.remTransform.lal" "记住当前变形信息" ;
+MG_displaySC "miniToolB.mSticky.remTransform.ann" "记住当前固定locator的位移,旋转,缩放,偏移,形状大小及位置等信息以便下次创建时自动应用这些信息." ;
+MG_displaySC "miniToolB.mSticky.remTransform.war" "请先选择用来固定的locator或者被固定物体来记住当前变形信息." ;
+MG_displaySC "miniToolB.mSticky.remTransform.done" "当前变形信息已记住." ;
+
+MG_displaySC "miniToolB.mp.fTitle" "路径动画:" ;
+//MG_displaySC "miniToolB.mp.annoText" "描绘动画路径/计算路径动画:" ;
+
+MG_displaySC "miniToolB.ref.war" "o_o !!!   请选择一个reference物体~" ;
+MG_displaySC "miniToolB.ref.rep" "Reference信息导出完毕.你可以在任何Maya里重新导入它." ;
+MG_displaySC "miniToolB.noRef.war" "o_o !!!   没有Reference信息被导出过!~" ;
+MG_displaySC "miniToolB.imref.rep" "Reference信息导入完毕." ;
+
+MG_displaySC "miniToolB.dupRef.label" "复制Reference" ;
+MG_displaySC "miniToolB.dupRef.anno" "选择reference物体的任一部分 ，点我来复制其Reference（即同样的Reference再叫一个进来。）" ;
+MG_displaySC "miniToolB.dupRef.done.rep" "已完成复制Reference。" ;
+
+MG_displaySC "miniToolB.relRefP.title" "相关的Reference路径:" ;
+MG_displaySC "miniToolB.remRef.rep" "所选的Reference及其占用的Namespace清空完毕  :)" ;
+MG_displaySC "miniToolB.repNS.title" "替换 namespace" ;
+MG_displaySC "miniToolB.repNS.mess" " 为:" ;
+MG_displaySC "miniToolB.repNS.replace" "替换" ;
+MG_displaySC "miniToolB.repNS.cancel" "取消" ;
+MG_displaySC "miniToolB.repNS.war" "你所输入的Namespace跟原来的一样哦,所以啥都没变 :)" ;
+MG_displaySC "miniToolB.repNS.rep" "Namespace的替换工作完毕,请查收 :)" ;
+MG_displaySC "miniToolB.repNS.alrUsed.war"  "目标 namespace \"#\" 已被一个reference使用中!!!" ;
+
+MG_displaySC "miniToolB.annoFC.cleared.rep" "帧数计数注释已从你的场景里清除 :)" ;
+MG_displaySC "miniToolB.annoFC.made.rep" "帧数计数注释生成完毕 :)" ;
+
+MG_displaySC "miniToolB.annoFC.selCam.title" "双击用来固定的摄像机" ;
+MG_displaySC "miniToolB.annoFC.selCam.stick" "固定" ;
+MG_displaySC "miniToolB.annoFC.selCam.Nostick" "不固定" ;
+
+MG_displaySC "miniToolB.annoFC.stick.war" "你的帧数计数注释已经绑定给一个摄像机了,如果要绑给其它的,先点我删除旧的,再点我生成新的." ;
+MG_displaySC "miniToolB.annoFC.ok" "好的" ;
+
+MG_displaySC "miniToolB.HUD.title" "屏幕信息显示选项" ;
+MG_displaySC "miniToolB.HUD.annoText" "提示: 此类型的屏幕信息在Maya 8 之前的版本在跑avi有可能不能正常更新（如帧数计数） :( 下面显示了屏幕十区的选项:" ;
+MG_displaySC "miniToolB.HUD.occupied" "* 被Maya轴向显示占用 *" ;
+MG_displaySC "miniToolB.HUD.Scofig" "保存配置为.." ;
+MG_displaySC "miniToolB.HUD.configFolder" "配置目录.." ;
+MG_displaySC "miniToolB.HUD.loadCFG" "读入配置->" ;
+MG_displaySC "miniToolB.HUD.sDefault" "存为默认" ;
+MG_displaySC "miniToolB.HUD.resetDefault" "归为默认" ;
+MG_displaySC "miniToolB.HUD.allNone" "全部不显示" ;
+MG_displaySC "miniToolB.HUD.clearHUD" "清除MG屏幕信息" ;
+MG_displaySC "miniToolB.HUD.noAffect" "无显示时不删非MG屏幕信息" ;
+MG_displaySC "miniToolB.HUD.bigFont" "大字体" ;
+
+MG_displaySC "miniToolB.HUD.createEdit" "创建/编辑" ;
+MG_displaySC "miniToolB.HUD.close" "关闭" ;
+MG_displaySC "miniToolB.HUD.lColor" "信息标签颜色" ;
+MG_displaySC "miniToolB.HUD.vColor" "信息取值颜色" ;
+
+
+MG_displaySC "miniToolB.HUD.cFrame.ftitle" "当前帧:" ;
+MG_displaySC "miniToolB.HUD.cFrame.cframe" "当前帧数" ;
+MG_displaySC "miniToolB.HUD.cFrame.ctframe" "当前/结束帧" ;
+MG_displaySC "miniToolB.HUD.cFrame.ctFps" "当前/结束帧/帧率" ;
+
+MG_displaySC "miniToolB.HUD.cFrame.label" "标签" ;
+MG_displaySC "miniToolB.HUD.cFrame.fLabel" "Frame:" ;
+
+MG_displaySC "miniToolB.HUD.animator.ftitle" "动画师:" ;
+MG_displaySC "miniToolB.HUD.animator.user" "USER:" ;
+MG_displaySC "miniToolB.HUD.animator.default" "默认" ;
+MG_displaySC "miniToolB.HUD.animator.custom" "自定义:" ;
+MG_displaySC "miniToolB.HUD.animator.value" "名为" ;
+
+MG_displaySC "miniToolB.HUD.sceneN.ftitle" "场景名:" ;
+MG_displaySC "miniToolB.HUD.sceneN.fname" "全名" ;
+MG_displaySC "miniToolB.HUD.sceneN.ext" "扩展名" ;
+MG_displaySC "miniToolB.HUD.sceneN.frm" "从:" ;
+MG_displaySC "miniToolB.HUD.sceneN.to" "到:" ;
+
+MG_displaySC "miniToolB.HUD.camera.ftitle" "摄像机:" ;
+MG_displaySC "miniToolB.HUD.camera.cName" "摄像机名" ;
+MG_displaySC "miniToolB.HUD.camera.cFL" "摄像机名/焦距" ;
+MG_displaySC "miniToolB.HUD.camera.cAR" "摄像机名/长宽比" ;
+
+MG_displaySC "miniToolB.HUD.date.ftitle" "日期:" ;
+
+MG_displaySC "miniToolB.HUD.timeCode.ftitle" "时间码:" ;
+MG_displaySC "miniToolB.HUD.timeCode.startF" "开始帧:" ;
+MG_displaySC "miniToolB.HUD.timeCode.gap" "起算时间(时:分:秒:帧):";
+
+MG_displaySC "miniToolB.HUD.anyString.ftitle" "任意字符窜:";
+
+MG_displaySC "miniToolB.HUD.saveConfig.title" "保存MG屏幕信息配置" ;
+MG_displaySC "miniToolB.HUD.saveConfig.eName" "请输入名字:" ;
+MG_displaySC "miniToolB.HUD.loadConfig.anno" "Click to load configFile: # " ;
+
+MG_displaySC "miniToolB.stickySel.war" "请选择一个位移和旋转可被约束的物体 :)" ;
+MG_displaySC "miniToolB.stickySel.option.title" "固定物体选项" ;
+MG_displaySC "miniToolB.stickySel.option.annoText" "根据什么来固定物体:" ;
+MG_displaySC "miniToolB.stickySel.option.pivot" "轴心" ;
+MG_displaySC "miniToolB.stickySel.option.bb" "视觉中心" ;
+MG_displaySC "miniToolB.stickySel.option.newL" "丢进新层(在下面选层颜色)" ;
+MG_displaySC "miniToolB.stickySel.option.ms" "固定" ;
+
+MG_displaySC "miniToolB.stickView" "创建固定视图";
+
+MG_displaySC "miniToolB.sView.selTrans.war" "请选择一个变形节点 :)" ;
+
+MG_displaySC "miniToolB.1.5.new.title" "其它:";
+//MG_displaySC "miniToolB.1.5.new.title" "MGTools 1.5 新增:";
+MG_displaySC "miniToolB.1.5.new.title.anno" "插入层级  &  无跳切换属性:";
+MG_displaySC "miniToolB.1.5.efficientUndo" "高效率Undo";
+MG_displaySC "miniToolB.1.5.efficientRedo" "高效率Redo";
+MG_displaySC "miniToolB.1.5.efficientUndo.anno" "高效率Undo:将自动跳动空的无意义UNDO项.";
+MG_displaySC "miniToolB.1.5.efficientUndoOption" "高效率Undo选项";
+MG_displaySC "miniToolB.1.5.efficientRedoOption" "高效率Redo选项";
+MG_displaySC "miniToolB.1.5.efficientUndoOption.anno" "基于更多选项的高效率Undo";
+MG_displaySC "miniToolB.1.5.efficientRedoOption.anno" "基于更多选项的高效率Redo";
+
+MG_displaySC "miniToolB.1.5.efUndoOption.times" "Undo次数:";
+MG_displaySC "miniToolB.1.5.efRedoOption.times" "Redo次数:";
+MG_displaySC "miniToolB.1.5.efRedoOption.operation" "操作:";
+
+MG_displaySC "miniToolB.1.5.efUndoOption.stepThrough" "自动跳过:";
+MG_displaySC "miniToolB.1.5.efUndoOption.null" "空的无意义Undo项";
+MG_displaySC "miniToolB.1.5.efRedoOption.null" "空的无意义Redo项";
+MG_displaySC "miniToolB.1.5.efUndoOption.UndoName" "Undo项带有字符:";
+MG_displaySC "miniToolB.1.5.efRedoOption.UndoName" "Redo项带有字符:";
+MG_displaySC "miniToolB.1.5.efUndoOption.query" "查询";
+MG_displaySC "miniToolB.1.5.efUndoOption.query.ann" "查询最新的Undo名字并填入左边的输入框.";
+MG_displaySC "miniToolB.1.5.efRedoOption.query.ann" "查询最新的Redo名字并填入左边的输入框.";
+MG_displaySC "miniToolB.1.5.efUndoOption.rep" "为您撤消了 # 步操作.";
+MG_displaySC "miniToolB.1.5.efRedoOption.rep" "为您重做了 # 步操作.";
+
+MG_displaySC "miniToolB.1.5.option.none" "无显示";
+MG_displaySC "miniToolB.1.5.option.frame"  "帧数计数";
+MG_displaySC "miniToolB.1.5.option.animator"  "动画师";
+MG_displaySC "miniToolB.1.5.option.sceneName"  "场景名称";
+MG_displaySC "miniToolB.1.5.option.camera" "摄像机";
+MG_displaySC "miniToolB.1.5.option.date"  "日期";
+MG_displaySC "miniToolB.1.5.option.timeCode"  "时间码";
+MG_displaySC "miniToolB.1.5.option.anystr"  "任意字符窜";
+
+
+MG_displaySC "miniToolB.undoredo.CurrentFrameC"  "当前帧改变操作";
+MG_displaySC "miniToolB.undoredo.PNFrame"  "前后帧跳转操作";
+MG_displaySC "miniToolB.undoredo.PNKey"  "前后关键帧跳转操作";
+
+MG_displaySC "miniToolB.undoredo.resetOp"  "重置选项";
+MG_displaySC "miniToolB.undoredo.saveOP"  "记住当前选项";
+
+
+//----------------------added in MGTools 3:---------------------------------
+
+MG_displaySC "miniToolB.HUD.cFrame.camSequence" "摄像机序列" ;
+MG_displaySC "miniToolB.HUD.cFrame.sequenceTime" "摄影机序列帧" ;
+MG_displaySC "miniToolB.HUD.cFrame.sequenceTime1" "摄影机序列帧时间" ;
+MG_displaySC "miniToolB.HUD.cFrame.appendDuration" "添加长度信息" ;
+MG_displaySC "miniToolB.HUD.cFrame.endFrameMode.RangeEnd" "结束帧: 范围结束帧" ;
+MG_displaySC "miniToolB.HUD.cFrame.endFrameMode.PlaybackEnd" "结束帧: 播放结束帧";
+
+MG_displaySC "miniToolB.StickerOption.AnnText" "  * 界面上的用户选项将被自动记住.";
+
+MG_displaySC "miniToolB.HUD.anystr.useGlobal.lbl" "使用一个全局函数:" ;
+MG_displaySC "miniToolB.HUD.anystr.useGlobal.ann" "请输入一个以字符窜为返回值的Mel全局Procedure." ;
+MG_displaySC "miniToolB.HUD.anystr.testProc.lbl" "测试执行该函数" ;
+MG_displaySC "miniToolB.HUD.anystr.testProc.ann" "测试执行该函数，如果它打印出您想要的字符窜结果，则是好的，否则会多半会打印出错误。" ;
+
+
+MG_displaySC "miniToolB.fixSave.lbl" "修正学生版Maya保存Bug" ;
+MG_displaySC "miniToolB.fixSave.ann" "修正学生版Maya的Bug: 在file -prompt状态设为0后就无法保存场景的bug." ;

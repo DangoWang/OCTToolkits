@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>浮动授权</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Install,Register,licence,deploy" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "floatinglicence.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">浮动授权</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="distributemgtools.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="mgtoolintroduction.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">浮动授权 vs 固定授权</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">固定授权不可转移，跟机子绑定，不同机子需要不同授权， 一次性支付但需要为大的全新功能更新付费，但授权本身没有时间限制。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">浮动授权可以在任何机子上登陆使用，并且不需要为更新付费，但需要按时间付费，并且需要连接网络，<br />
+即使网络不可用，最低限度也需要对两个特定的授权服务器IP开发访问， 可以通过ping来获得这两个需要支持访问的外网IP：<br />
+ &nbsp; &nbsp; &nbsp; &nbsp;ping ls1.mgland.com</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"> &nbsp; &nbsp; &nbsp; &nbsp;ping ls2.mgland.com</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span></p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> 以浮动授权方式</span><span style="font-weight: bold;">分发MGTools：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">1.</span>到http://mgland.com下载MG-LicenceConnector登陆器独立程序包。</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">2.</span>这些程序是绿色软件， 可以直接解压到服务器。</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">3.</span>到MGTools服务器上程序目录，找到MGTools/MGTools_ServerData/MG_LicenceConnector.txt这个文件。<br />
+用文本编辑软件打开，在 &quot;ConnectorDirectory=&quot; 后面，填入MG_LicenceConnector所在的实际目录。<br />
+可以写相对路径或绝对路径。</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">4.</span>如果这个文件没有被填写，或者填写的路径对于动画师来讲不存在，则动画需要手动右键点击MGTools第一个图标，<br />
+选择“浮动授权/登陆。。”来手动拾取MG_LicenceConnector文件来设置其目录。</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">5.</span>如果你机子的MGTools已注册了固定授权，则无论如何也会优先使用固定授权。<br />
+如果没有发现固定授权，而您已经设置好了MG_LicenceConnector目录，则会自动打开登陆器方便登陆。<br />
+<img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示：在Windows及MacOS, 你可以直接将登陆器关闭或最小化来隐藏它。</span><br />
+<span style="font-size: 9pt;">在Linux，因为所采用桌面环境很杂，Qt不能支持在所有些桌面环境上显示通知栏小图标，所以最小化时，它可能仍然在任务栏上占一个比较大的空间。</span><br />
+<span style="font-size: 9pt;">如果你的桌面环境可以正常显示通知栏小图标，则可以打开“Misc / Hide on minimize”， 这样最小化后就会隐藏。</span></p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">6.</span>如果你已经在登陆器里输入用户名和密码登陆， 但MGTools还是未注册的状态，则再次右键点击MGTools第一个图标，选择“浮动授权/登陆..&quot;来更新状态。<br />
+&nbsp;</p><p style="line-height: 2.0;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> 避免每次手动输入用户名和密码：</span></p>
+<p style="text-indent: -24px; line-height: 2.0; margin: 0px 0px 0px 48px;">在登陆器登陆界面，点上“Remember me”，这样下次就会自动登陆。</p>
+<p style="text-indent: -24px; line-height: 2.0; margin: 0px 0px 0px 48px;">另一种方式，是将用户名和密码写入一个被加密过的文件。请查阅下面帮助。</p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 2.0;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">如果您是系统管理员，并且用户名密码需要对用户保密：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">1.</span>使用MG-LicenceProtector密码保护器，这个程序随MG-LicenceConnector登陆器一同分布并被下载。</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">2.</span>打开保护器，切到MGTools产品，输入用户名，密码。</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">3.</span>在下面，你可以采用一些保护措施，保证您的授权不会被误用：<br />
+使用全局IP限制：输入公司采用的外网IP，这样这个授权只能通过这些IP来连接授权服务器。<br />
+使用用户码限制：采集MGTools用户码，这些用户码就代表着不同的机器。输入这些用户码，这只有这些机器可以连接授权服务器。<br />
+使用日期限制：如果您是自由职业者，只在公司短期时间，可以使用日期限制，这样过期后授权文件自然不能被使用。</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">4.</span>点击Save按钮，将上面信息保存为.mgtoolslic文件。这个文件要被放置在MG-LicenceConnector登陆器旁边的&quot;licences&quot;文件夹里。</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">5.</span>如果需要更新这些限制信息，每次编辑时，都需要重新输入密码，否则无法编辑。</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">6.</span>如果授权文件被正确放置，则每次MG-LicenceConnector登陆器每次启动都会用这些文件自动登陆。<br />
+也可以通过登陆器上的&quot;Login/out / Login All Server Licence(s)..&quot;来手动使用这些授权文件登陆。</p><p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="distributemgtools.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="mgtoolintroduction.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

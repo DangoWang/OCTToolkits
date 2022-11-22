@@ -1,0 +1,65 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Constraint Manager Node</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "sceneconstraintmanagernode_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">Constraint Manager Node</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="constraint_tool_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="copyconstraintbetweenmaya_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span style="font-weight: bold; color: #191817;"> In-Scene Constraint Manager Node: </span><span class="f_ImageCaption" style="font-size: 10pt;"> </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">It is just a normal transform node with a nurbs curve shape.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">The purpose of the node, is to enable you to collect all the constraint switch attributes, onto one single node,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">so you can switch the weights, keyframe them using this one single node. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Actually, you can collect any numeric attributes to this node, not just limit to the constraint switch attributes.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">Where to find this feature:</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#404040;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Right clicking on the constraint tool icon in MGTools tollbar.</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#404040;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Right clicking on most tools in Constraint toolbar.</span></p><p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">How to use it:</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#404040;display:inline-block;width:15px;margin-left:-15px">1.</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Select the nodes that you want to transfer and collect its attributes.</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#404040;display:inline-block;width:15px;margin-left:-15px">2.</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">In MG-ChannelBox or Maya channelbox, select one or more attributes you want to collect.</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#404040;display:inline-block;width:15px;margin-left:-15px">3.</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Use the entries narrated above, input target attribute names and collect these attributes.</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#404040;display:inline-block;width:15px;margin-left:-15px">4.</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">The generated constraint manager node will be locked on currently activated viewport.</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="constraintmanagenode.gif" width="418" height="177" alt="constraintManageNode" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">tips :After the constraint manager node is created, if you want to lock it to the other viewport, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">just active the viewport, use the &quot;Lock ConstraintManager to Active View&quot; to lock the node to it.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">If you do not want to lock the node in viewport, use &quot;Unlock ConstraintManager from View&quot;;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">If you want to scale up or down the constraint manager node, use the &quot;Icon Size&quot; attribute of the node.</span></p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="constraint_tool_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="copyconstraintbetweenmaya_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

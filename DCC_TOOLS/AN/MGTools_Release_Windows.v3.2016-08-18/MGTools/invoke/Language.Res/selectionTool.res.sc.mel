@@ -1,0 +1,247 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "selSet.updateMM.mi" "更新选择集MarkingMenu";
+
+MG_displaySC "selSet.selmask.mi" "选择模式切换";
+MG_displaySC "selSet.normalmode.mi" "正常模式";
+MG_displaySC "selSet.isolatemode.mi" "隔离所选模式";
+MG_displaySC "selSet.quitisolatemode.mi" "取消隔离显示";
+
+
+MG_displaySC "selSet.updateMM.mi.anno" "更新MG通道栏选择集右键MarkingMenu及场景的选择集MarkingMenu.";
+MG_displaySC "selSet.updateMM.rep" "成功更新选择集MarkingMenu.";
+MG_displaySC "selSet.updateMM.notBuilt.war" "选择集MarkingMenu还没有被建立!请点更新选择集MarkingMenu来建立先.";
+
+MG_displaySC "selSet.setUI.set.menu" "选择集";
+MG_displaySC "selSet.setUI.editSel.mi" "编辑所选集";
+MG_displaySC "selSet.setUI.editSel.noitemSel.war" "列表里没有选中一个集.";
+
+MG_displaySC "selSet.setUI.Rename.mi" "重命名所选集";
+MG_displaySC "selSet.setUI.del.mi" "删除所选集";
+MG_displaySC "selSet.setUI.normalMode.mi" "正常模式";
+MG_displaySC "selSet.setUI.isolate.mi" "隔离显示所选集";
+MG_displaySC "selSet.setUI.isolate.rep" "已完成隔离显示:)";
+MG_displaySC "selSet.setUI.isolate.cancel" "取消隔离显示";
+MG_displaySC "selSet.setUI.isolate.mi.anno" "隔离显示所选集里的成员。";
+
+MG_displaySC "selSet.setUI.retargetIsolate.mi" "重定向并隔离显示所选集";
+MG_displaySC "selSet.setUI.IsolateWrongView.war" "如果在错误的模型视图里执行了孤立显示，那么请按空格放大目标视图再来执行我。";
+
+MG_displaySC "selSet.setUI.eval.mi" "使用所选集";
+
+MG_displaySC "selSet.setUI.addeval.mi" "加选到场景选择";
+MG_displaySC "selSet.setUI.addeval.ann" "使用当前所选集并加选到场景选择";
+MG_displaySC "selSet.setUI.excludeeval.mi" "从场景选择减选";
+MG_displaySC "selSet.setUI.excludeeval.ann" "使用当前所选集并从当前场景选择中减选.";
+
+MG_displaySC "selSet.setUI.backup.mi" "将所选集随场景保存";
+MG_displaySC "selSet.setUI.backupA.mi" "将所有选择集随场景保存";
+MG_displaySC "selSet.setUI.retarget.mi" "重定向所选集";
+MG_displaySC "selSet.setUI.toshelf.mi" "将所选集安装到工具架";
+MG_displaySC "selSet.setUI.toshelfA.mi" "所有集安装到工具架";
+MG_displaySC "selSet.setUI.toset.mi" "所有集安装到工具架";
+MG_displaySC "selSet.setUI.switch" "切换长列表/shelf模式";
+MG_displaySC "selSet.setUI.setFolder" "打开选择集文件夹..";
+MG_displaySC "selSet.setUI.case" "案子";
+MG_displaySC "selSet.setUI.case.anno" "直接点击这一栏来选择在MG选择集根目录下的不同文件夹，这意味着你可以用文件夹代表不同的案子来分类你的选择集:) \"*ROOT*\"表示根目录。";
+MG_displaySC "selSet.setUI.toggleMB" "菜单栏开关";
+
+MG_displaySC "selSet.setUI.showInL.mi" "在左列表里列出..";
+MG_displaySC "selSet.setUI.showInR.mi" "在右列表里列出..";
+MG_displaySC "selSet.setUI.newF.prompt.title" "创建新项目(文件夹)";
+MG_displaySC "selSet.setUI.newF.prompt.create" "创建";
+MG_displaySC "selSet.setUI.newF.prompt.war" "文件夹在选择集文件夹下面已存在.";
+
+MG_displaySC "selSet.eval.selNoSet.war" "请在选择集列表里选择一个选择集,谢谢 :)";
+MG_displaySC "selSet.eval.selACurrent" "选择 A:(当前)";
+MG_displaySC "selSet.eval.selAFormer" "选择 A:(上次)";
+MG_displaySC "selSet.eval.selBCurrent" "选择 B:(当前)";
+MG_displaySC "selSet.eval.selBFormer" "选择 B:(上次)";
+MG_displaySC "selSet.eval.load.rep" " # 个物体已加载.";
+
+MG_displaySC "selSet.eval.noexists.war" "在该选择集里没有成员存在于你的场景.";
+MG_displaySC "selSet.eval.rep" " # 个物体被选择 :)";
+MG_displaySC "selSet.eval.war.rep" " #个物体被选择，但是有#个物体被忽略因为它们不存在.";
+
+MG_displaySC "selSet.Addeval.rep" " # 个物体被加选 :)";
+MG_displaySC "selSet.Addeval.war.rep" " #个物体被加选，但是有#个物体被忽略因为它们不存在.";
+
+MG_displaySC "selSet.Exeval.rep" " # 个物体被去选 :)";
+MG_displaySC "selSet.Exeval.war.rep" " #个物体被去选，但是有#个物体被忽略因为它们不存在.";
+
+MG_displaySC "selSet.read.NoExistsF.war" "当前所处的目录（项目）不存在.";
+
+MG_displaySC "selSet.newEditUI.title" "存为新选择集";
+MG_displaySC "selSet.newEditUI.pickIcon.anno" "点击选取一个32X32像素的图标.";
+MG_displaySC "selSet.newEditUI.pickHIcon.mi" "选取鼠标经过图标.";
+MG_displaySC "selSet.newEditUI.purgeHIcon.mi" "去掉鼠标经过图标.";
+MG_displaySC "selSet.newEditUI.resetD.mi" "重置为默认图标";
+MG_displaySC "selSet.newEditUI.ShelfName.mi" "Shelf名:";
+MG_displaySC "selSet.newEditUI.SetName.mi" "选择集名";
+MG_displaySC "selSet.newEditUI.guess" "猜名字";
+MG_displaySC "selSet.newEditUI.guess.anno" "从当前选择集内容中猜选择集名字.";
+MG_displaySC "selSet.newEditUI.fl.label" " # 个物体在场景中被选择.";
+
+MG_displaySC "selSet.newEditUI.sf.anno" 
+														"它显示了你场景里当前的选择物体，你也可以手动敲入物体名字，以空格隔开即可;";
+MG_displaySC "selSet.newEditUI.addsel.mi" "加入场景选择到当前内容";
+MG_displaySC "selSet.newEditUI.exsel.label" "从当前内容中去除场景选择";
+MG_displaySC "selSet.newEditUI.toshelf" "装到工具架 !";
+MG_displaySC "selSet.newEditUI.saveasSet" "存为选择集 !";
+MG_displaySC "selSet.newEditUI.edit" "编辑选择集 !";
+
+MG_displaySC "selSet.renameSet.title" "重命名 \"#\"";
+MG_displaySC "selSet.renameSet.ok" "重命名";
+
+MG_displaySC "selSet.newEditUI.refresh.label" " # 个物体在场景中/选择集中被选择.";
+MG_displaySC "selSet.saveAsList.nothing.war" "在清单里什么都没有哦 :(";
+
+MG_displaySC "selSet.retarget.sel" "重定向场景所选";
+MG_displaySC "selSet.retarget.noNs.war" "只有带Namespace的物体才能被重定向哦.";
+MG_displaySC "selSet.retarget.doit.btn" "重定向并选择!";
+MG_displaySC "selSet.retarget.asnewSet.btn" "重定向并存为新集!";
+
+MG_displaySC "selSet.retarget.doit.war" " #个物体被忽略因为不存在.";
+MG_displaySC "selSet.eval.selAtLestOneSet.war" "请在选择集列表里选择一个或者多个选择集,谢谢 :)";
+MG_displaySC "selSet.backupWithS.rep" "备份工作完成:)";
+
+MG_displaySC "selSet.convetShelfSet.mi" "选择用Shelf到选择集转换器..";
+MG_displaySC "selSet.convetShelfSet.title" "选择用Shelf到选择集转换器";
+MG_displaySC "selSet.convetShelfSet.tabL" "选择用Shelf：";
+MG_displaySC "selSet.convetShelfSet.go" "    转换 !!    ";
+MG_displaySC "selSet.convetShelfSet.annoText" "ctrl加上鼠标中键拖选择用shelf进下面这个区域:";
+MG_displaySC "selSet.convetShelfSet.addPre" "如有必要加一个全局前缀名:";
+
+MG_displaySC "selSet.excude.noselBelong" "场景中选择的物体都不属于当前选择集，所以没有排除任何成员。";
+//MG_displaySC "selM.copyRight" "作者：米高@米古岛动画(2008)";
+MG_displaySC "selM.copyRight.anno" "访问 http://mgland.com 来获取更多好用的工具.";
+
+MG_displaySC "selM.getfromSel.btn" "     从选择猜     ";
+
+MG_displaySC "selM.title" "选择管理器";
+MG_displaySC "selM.sel.menu" "选择";
+MG_displaySC "selM.sel.backupSel.mi" "备份场景所选..";
+MG_displaySC "selM.sel.restoreSel.mi" "使用场景选择备份..";
+MG_displaySC "selM.sel.ex" "导出为.sel文件";
+MG_displaySC "selM.sel.bug" "Bug/需要报告";
+MG_displaySC "selM.sel.A" "选择 A";
+MG_displaySC "selM.sel.B" "选择 B";
+MG_displaySC "selM.sel.list.anno" "右键菜单里有更多的选择操作，双击项目来选择其类型.";
+MG_displaySC "selM.selItem" "选择项目";
+//MG_displaySC "selM.plusSel" "加入场景选择";
+//MG_displaySC "selM.exSel" "排除场景选择";
+MG_displaySC "selM.swap" "AB列表互换";
+MG_displaySC "selM.plus" "AB列表相加";
+MG_displaySC "selM.minus" "AB列表相减";
+MG_displaySC "selM.intersect" "AB列表相交";
+MG_displaySC "selM.exSelItem" "排除所选项目并重选";
+MG_displaySC "selM.retargetSelItem" "重定向并重选";
+MG_displaySC "selM.showNum.anno" "选择选择数目.";
+MG_displaySC "selM.getSel" "获取场景选择";
+
+MG_displaySC "selM.reSel" "重新选择列表";
+MG_displaySC "selM.retargetL" "重定向左列表";
+MG_displaySC "selM.retargetR" "重定向右列表";
+MG_displaySC "selM.copyAnim" "拷贝列表动画";
+MG_displaySC "selM.pAnim" "粘贴列表动画";
+MG_displaySC "selM.backUPList" "备份列表选择..";
+MG_displaySC "selM.restoreList" "恢复选择到列表..";
+MG_displaySC "selM.exList" "导出列表选择..";
+MG_displaySC "selM.imList" "导入到列表..";
+MG_displaySC "selM.clList" "清空列表";
+
+MG_displaySC "selM.copyANim.rangeS" "在时间段 # 内的动画拷贝完毕;";
+MG_displaySC "selM.copyANim.rangeS1" "你没有选择一定的时间段所以将来导动画的时候有可能不会贴在时间指针上(会按源动画数据来)";
+MG_displaySC "selM.copyANim.warL" "左列表是空的.";
+MG_displaySC "selM.copyANim.warR" "右列表是空的.";
+MG_displaySC "selM.copyANim.btn.anno" "你可以在时间滑条上选一个时间段然后点我来拷贝该段内的列表动画.";
+
+MG_displaySC "selM.pANim.warNoCopy" "之前没拷贝过动画哦.";
+MG_displaySC "selM.pANim.noItem" "左/右列表是空的.";
+MG_displaySC "selM.pANim.noneed" "没必要粘贴动画给自己吧.";
+MG_displaySC "selM.pANim.ignore" "忽略 # ;";
+MG_displaySC "selM.pANim.rep" " # 个物体的动画已粘贴.";
+
+MG_displaySC "selM.restoreSel.title" "使用选择备份";
+MG_displaySC "selM.restoreSel.annoText" "选择备份点来恢复:";
+MG_displaySC "selM.restoreSel.delsel" "删除所选备份点";
+MG_displaySC "selM.restoreSel.dela" "删除所有备份点";
+
+MG_displaySC "selM.restoreSel.toScene" "恢复到场景！";
+MG_displaySC "selM.restoreSel.toL" "恢复到左列表！";
+MG_displaySC "selM.restoreSel.toR" "恢复到右列表！";
+
+MG_displaySC "selM.backUPSel.title" "备份场景选择";
+MG_displaySC "selM.backUPSel.L" "备份左列表";
+MG_displaySC "selM.backUPSel.R" "备份右列表";
+MG_displaySC "selM.backUPSel.name" "备份名称:";
+MG_displaySC "selM.backUPSel.doit" "备份 !";
+
+MG_displaySC "selM.backUPSel.doit.nosel" "场景无选择物体.";
+MG_displaySC "selM.backUPSel.doit.noname" "备份点名不能为空.";
+MG_displaySC "selM.backUPSel.doit.nolist" "要备份的目标列表是空的.";
+
+MG_displaySC "selM.selannoText" " #个列表物体.  (类型\:#)";
+MG_displaySC "selM.selannoText1" " #个列表物体.";
+
+MG_displaySC "selM.retarget.titleL" "重定向左列表";
+MG_displaySC "selM.retarget.titleR" "重定向右列表";
+
+MG_displaySC "selM.retarget.doit.btn" "重定向 !";
+
+
+
+MG_displaySC "selM.retarget.notice" "注意罗 !";
+MG_displaySC "selM.retarget.ignore" " # 个物体被忽略因为不存在.";
+
+MG_displaySC "selM.retarget.setMembers" "重定向选择集成员";
+
+MG_displaySC "selM.noexist.ignore" "物体: # 被忽略因为不存在.\n";
+
+MG_displaySC "selM.layout.switch.mi" "左右|上下分割切换";
+MG_displaySC "selM.layout.switch.anno" "决定选择集列表和成员列表是左右分割还是上下分割.";
+
+MG_displaySC "selM.members.text" "成员:";
+MG_displaySC "selM.selAll.mi" "选择全部成员";
+MG_displaySC "selM.keySelect.anno" "K帧所选成员";
+MG_displaySC "selM.selselMem.anno" "在场景里选择所选成员";
+MG_displaySC "selM.isoSceneSel" "隔离显示场景里所选物体";
+MG_displaySC "selM.isoselMem.anno" "在场景里隔离显示所选成员";
+MG_displaySC "selM.tsl.anno" "这个列表显示了当前所选的选择集的所有成员。";
+
+MG_displaySC "selM.removeSelectedMembers.mi" "将所选成员移出集";
+
+MG_displaySC "selM.saveConfig.mi" "保存MG选择集UI配置";
+MG_displaySC "selM.saveConfig.ann" "保存MG选择集UI配置,如菜单栏可见性,显示模式,集列表和成员列表的高宽比例等等";
+
+MG_displaySC "selM.reportWontSelMember.mi" "同时由于当前选择集成员大于500个,为了速度在成员列表里没有为您选择.";
+
+MG_displaySC "selM.plusItemToSel" "将列表物体加选到场景";
+MG_displaySC "selM.exItemToSel" "将列表物体从场景减选";
+
+MG_displaySC "selM.plusSelItemToSel" "将所选列表物体加选到场景";
+MG_displaySC "selM.exSelItemToSel" "将所选列表物体从场景减选";
+MG_displaySC "selM.addSel.btn"  "  场景选择到列表";
+MG_displaySC "selM.minusSel.btn"  "- 场景选择到列表";
+//below add on 2013/06/15:-----------------------------------------------
+
+MG_displaySC "extraPathManager.title" "选择集路径管理器";
+MG_displaySC "extraPathManager.mi" "选择集路径管理器..";
+MG_displaySC "extraPathManager.nameExist.war" "名字: \"#\" 已存在，请取另外名字.";
+MG_displaySC "extraPathManager.pathExist.war" "该路径已存在!";
+MG_displaySC "extraPathManager.inputPath.mes" "请输入一个代表该路径的名称:";
+MG_displaySC "extraPathManager.pathName.lbl" "路径短名称";
+MG_displaySC "extraPathManager.path.lbl" "路径";
+MG_displaySC "extraPathManager.delChecked.lbl" "删除勾选";
+MG_displaySC "extraPathManager.delAllUnavail.lbl" "删除所有不存在的路径项";
+MG_displaySC "extraPathManager.refreshMenu.lbl" "更新菜单";
+MG_displaySC "extraPathManager.readOnly.war" "当前根路径是只读的.";
+MG_displaySC "extraPathManager.createFolder.err" "创建新目录出错.";
+MG_displaySC "extraPathManager.ex.lbl" "排除: ";

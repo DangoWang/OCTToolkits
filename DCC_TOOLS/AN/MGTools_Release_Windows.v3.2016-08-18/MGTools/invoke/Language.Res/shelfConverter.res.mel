@@ -1,0 +1,39 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "shelfConvertor.Title" "MG-ShelfConvertor";
+MG_displayEN "shelfConvertor.mi" "MG-ShelfConvertor..";
+MG_displayEN "shelfConvertor.anno" "Convert higher version shelves file to lower ones.";
+
+MG_displayEN "shelfConvertor.list.anno" "Source Shelves:";
+
+MG_displayEN "shelfConvertor.addFolder" "Add shelves from a directory to the convert list";
+
+
+MG_displayEN "shelfConvertor.add" "Add a shelf file to the convert list";
+MG_displayEN "shelfConvertor.del" "Remove list selection from list";
+
+MG_displayEN "shelfConvertor.targetV" "Target Version";
+MG_displayEN "shelfConvertor.overw" "Save to the Same Folder";
+MG_displayEN "shelfConvertor.toFolder" "To Folder";
+MG_displayEN "shelfConvertor.pick" " Pick.. ";
+MG_displayEN "shelfConvertor.addSub" "Add Subfix:";
+
+
+MG_displayEN "shelfConvertor.convert" "Convert!!";
+MG_displayEN "shelfConvertor.convert.cancel" "Cancel";
+
+MG_displayEN "shelfConvertor.overW.war" "Your choose to save in the same folder and you don't ask for a subfix.Gonna Overwrite all of them?";
+
+MG_displayEN "shelfConvertor.notShelf.war" "Please pick a maya shelf file or a MG-Shelf file!";
+
+MG_displayEN "shelfConvertor.end.rep" "There are # shelf files converted to # version.";
+MG_displayEN "shelfConvertor.end.war" "But # shelves abort because target Maya 7 doesn't support python shelf.";
+MG_displayEN "shelfConvertor.end.title" "Report ~";
+

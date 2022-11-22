@@ -1,0 +1,44 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayTS "footStepSnap.warnSelect.title" "點我點我點我";
+MG_displayTS "footStepSnap.warnSelect.message" "囧 !!!   請您選擇一個物體(自我吸附)或兩個物體(吸附後者) :)";
+MG_displayTS "footStepSnap.rela.warnSelect.message" "囧 !!!   請您選擇兩個物體(相對吸附後者) :)";
+MG_displayTS "footStepSnap.warnSelect.ok" "囧> 好吧..";
+
+MG_displayTS "attrSwitch.ui.title" "無跳屬性切換";
+MG_displayTS "attrSwitch.mi" "無跳屬性切換..";
+MG_displayTS "attrSwitch.anno" "無跳切換一些會引起其它控製器/本身跳動的屬性，如跟不跟隨的屬性，約束權重的屬性。";
+
+MG_displayTS "attrSwitch.nocb.war" "沒有發現通道欄:(";
+MG_displayTS "attrSwitch.attr" "要切換的屬性:";
+MG_displayTS "attrSwitch.attr.anno" "改變值後會導致其它控製器/本身跳掉的屬性，如follow屬性，約束權重屬性。";
+
+MG_displayTS "attrSwitch.attr.get" "從通道欄獲取";
+MG_displayTS "attrSwitch.attr.get.anno" "從通道欄獲取第一個所選的屬性。支援Maya通道欄及MG通道欄.";
+
+MG_displayTS "attrSwitch.value" "要切換的屬性值:";
+MG_displayTS "attrSwitch.value.anno" "要切換的屬性的目標值.";
+
+MG_displayTS "attrSwitch.guessValue" "從屬性猜";
+MG_displayTS "attrSwitch.guessValue.anno" "從要切換的屬性猜，假如該屬性當前值為其最小值，則目標屬性將設為其最大值，反之亦然.";
+
+MG_displayTS "attrSwitch.add" "把場景所選物體加入自動消除跳動的列表";
+MG_displayTS "attrSwitch.del" "把場景所選物體從自動消除跳動的列表裡去掉";
+
+MG_displayTS "attrSwitch.switchObj" "要消除跳動的物體:";
+MG_displayTS "attrSwitch.switchObj.anno" "要消除跳動的物體，目標屬性會引起哪些物體跳動，就把那些物體加進來。";
+
+MG_displayTS "attrSwitch.switch" "切換!";
+
+MG_displayTS "feetSnap.option.clearDeciKey" "清除經過的非整數的位移旋轉幀";
+MG_displayTS "snapTool.name" "吸附工具";
+
+//-------added in MGTools 3-------------------------------------
+MG_displayTS "feetSnap.option.SnapRange" "當時間條上有選擇範圍時吸附整個範圍";

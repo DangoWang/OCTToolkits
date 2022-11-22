@@ -1,0 +1,31 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "keyScanner.realUITitle" "动画帧探测器";
+MG_displaySC "keyScanner.UITitle" "动画帧探测器..";
+MG_displaySC "keyScanner.topAnno" "  将探测当前所选Rig 下的所有控制器";
+MG_displaySC "keyScanner.warn" "当前场景中无选择物体.";
+MG_displaySC "keyScanner.anno" "在根据当前所选的角色,来探测有动画的控制器.";
+MG_displaySC "keyScanner.allFrame" "全部帧";
+MG_displaySC "keyScanner.cFrame" "当前帧";
+MG_displaySC "keyScanner.Frame.anno" "以当前帧是否有动画还是以全局是否有动画为判断条件.";
+MG_displaySC "keyScanner.inf" "包含帧的Infinity";
+MG_displaySC "keyScanner.inf.anno" "在查找有帧的物体时,是否考虑帧的Infinity";
+MG_displaySC "keyScanner.Trans" "只扫描Transform节点";
+MG_displaySC "keyScanner.Trans.anno" "只扫描Transform节点,将忽略掉shape节点等等.";
+MG_displaySC "keyScanner.Probe" "探 测";
+MG_displaySC "keyScanner.Select" "在场景里选择";
+MG_displaySC "keyScanner.SelectAll" "全部项目在场景里选择";
+
+MG_displaySC "keyScanner.mode" "模式";
+MG_displaySC "keyScanner.probeValue" "检查属性值变动";
+MG_displaySC "keyScanner.probeChanged" "只列出跟上一帧比有数值变动的";
+MG_displaySC "keyScanner.probeChanged.ann" "只列出有被Key帧的，且上一帧跟当前帧要有数值变化的对象。";
+
+MG_displaySC "keyScanner.targetToMany.war" "要检测的对象超过30000个，检测过程可能会比较慢，是否继续？";

@@ -1,0 +1,75 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "MGTimer.UI.title" "MG计时计算器 2.0";
+MG_displaySC "MGTimer.UI.unit.mi" "(计时单位)";
+MG_displaySC "MGTimer.UI.record.mi" "计时!!";
+MG_displaySC "MGTimer.UI.stop.mi" "停表!!";
+MG_displaySC "MGTimer.UI.pal.mi" "PAL制";
+MG_displaySC "MGTimer.UI.FILM.mi" "电影";
+MG_displaySC "MGTimer.UI.NTSC.mi" "NTSC制";
+MG_displaySC "MGTimer.UI.Hms.mi" "时:分:秒";
+MG_displaySC "MGTimer.UI.Hour.mi" "小时";
+MG_displaySC "MGTimer.UI.Second.mi" "秒钟";
+MG_displaySC "MGTimer.UI.Minute.mi" "分钟";
+MG_displaySC "MGTimer.UI.CustomFPS.mi" "自定帧率..";
+MG_displaySC "MGTimer.UI.secondOut.btn" "秒 >";
+MG_displaySC "MGTimer.UI.toPal.btn" "> PAL制";
+MG_displaySC "MGTimer.UI.convert.btn" "-> 转换 !";
+MG_displaySC "MGTimer.UI.historyTF.anno" "点击我来显示/隐藏MG计算器及历史信息框";
+MG_displaySC "MGTimer.UI.historyTF.clear" "清空历史记录";
+MG_displaySC "MGTimer.UI.help" "帮助..";
+
+MG_displaySC "MGTimer.UI.record.btn.label" "计时 ->(";
+MG_displaySC "MGTimer.UI.stop.btn.label" "停表 ->(";
+
+MG_displaySC "MGTimer.CustomFPS.prompt.title" "自定帧率";
+MG_displaySC "MGTimer.CustomFPS.prompt.mess" "输入自定义帧率:";
+MG_displaySC "MGTimer.CustomFPS.prompt.ok" "确定";
+MG_displaySC "MGTimer.CustomFPS.prompt.cancel" "取消";
+MG_displaySC "MGTimer.CustomFPS.war" "请只输入数字,谢谢";
+MG_displaySC "MGTimer.Calc.war" "输出结果已经超出最大显示范围限制 !";
+
+MG_displaySC "MGTimer.History.rec" "计时结果:";
+MG_displaySC "MGTimer.History.unit" " (单位:\"";
+MG_displaySC "MGTimer.History.convert" "转换结果: ";
+
+MG_displaySC "MGTimer.convert.war" " 模式应该输入如 \"12:23:23\"这样的格式";
+MG_displaySC "MGTimer.convert.war1" "请合法输入, 只有数字可以被接受哦";
+
+MG_displaySC "MGTimer.calc.tf.ann" "在此输入数学算式（可用小键盘哦），不论加减乘除计算都将从左到右依次进行，不支持小括号。";
+MG_displaySC "MGTimer.calc.timerRes" "<- 计时结果";
+MG_displaySC "MGTimer.calc.timerRes.ann" "将计时结果追加在计算表达式中";
+MG_displaySC "MGTimer.calc.oper.mi" "其它->";
+MG_displaySC "MGTimer.calc.sqrt.mi" "平方根";
+MG_displaySC "MGTimer.calc.square.mi" "平方";
+MG_displaySC "MGTimer.calc.root.mi" "N次方根..";
+MG_displaySC "MGTimer.calc.pow.mi" "N次方..";
+MG_displaySC "MGTimer.calc.abs.mi" "绝对值";
+MG_displaySC "MGTimer.calc.1x.mi" "倒数值";
+MG_displaySC "MGTimer.calc.mulMinus.mi" "乘以-1";
+MG_displaySC "MGTimer.calc.int.mi" "取整";
+MG_displaySC "MGTimer.calc.d31.mi" "除以31";
+MG_displaySC "MGTimer.calc.d30.mi" "除以30";
+MG_displaySC "MGTimer.calc.d20.mi" "除以20";
+MG_displaySC "MGTimer.calc.d60.mi" "除以60";
+MG_displaySC "MGTimer.calc.d24.mi" "除以24";
+MG_displaySC "MGTimer.calc.d25.mi" "除以25";
+MG_displaySC "MGTimer.calc.d29.mi" "除以29.97";
+MG_displaySC "MGTimer.calc.clear.mi" "清空";
+MG_displaySC "MGTimer.calc.backSpace.mi" "退格";
+
+MG_displaySC "MGTimer.calc.root.title" "计算N次方根";
+MG_displaySC "MGTimer.calc.root.enterNum" "输入数字:";
+MG_displaySC "MGTimer.calc.root.root" "N次方根";
+MG_displaySC "MGTimer.calc.pow.title" "计算N次方";
+MG_displaySC "MGTimer.calc.pow.pow" "N次方";
+MG_displaySC "MGTimer.calc.divideZero.war" "除数不能为零哦";
+MG_displaySC "MGTimer.calc.nonValidInput.war" "只有 \"+-*/%\" 这些运算符及数字及小数点允许参与计算，且不能有两个运算符并在一起。";
+

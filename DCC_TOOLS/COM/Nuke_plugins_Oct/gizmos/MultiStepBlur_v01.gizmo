@@ -1,0 +1,414 @@
+Gizmo {
+ inputs 3
+ help "<font size=\"6\">Multistep Blur!</font> \n\nCreates a realistic glow for objects of complicated shape. \n\nGeneral idea is snatched from similar Fusion tool \"Multistep blur\". Description for it here: http://www.vfxpedia.com/index.php?title=Multistep_Blur So, thanx to guys : \nGringo <b>Gregory Charlenko</b> www.compositing.ru \nand <b>Roman Fedotov</b>, who help him to build such a fuse. \nand, ofcourse great Fusion community!..\n\nBy the way, among glow-things, it can create great moist-air feelings.. and feeling of filled spaces.\nSo, let`s do some beautiful with it :)\n\nAnd be careful - make sure that yours mask is in the same format as source image."
+ mapsize {0.2033730159 0.25}
+ addUserKnob {20 Main}
+ addUserKnob {22 about T "text='''\nMultistep Blur! \n\nCreates a realistic glow for objects of complicated shape.\nAmong glow-things, it can create great moist-air feelings.. \nand feeling of filled spaces with aerial perspective. \nSo, let`s do some beautiful with it :)\n\nGeneral idea is snatched from similar Fusion tool \"Multistep blur\". \nDescription for it here: \nhttp://www.vfxpedia.com/index.php?title=Multistep_Blur \nSo, thanx to guys : \n*Gringo (Gregory Charlenko www.compositing.ru) \n*Roman Fedotov, who help him to build such a fuse. \nand ofcourse a great Fusion community!.. \n\nBe careful - make sure that yours mask is in the same \nformat as source image.\n'''\n\nnuke.message(text)" +STARTLINE}
+ addUserKnob {3 blurSteps l "blur steps" t "How many individual blurs you want .\nBlur values ​​are evenly(by default) distributed between these steps.\n\nExample: \nif steps = 3, minBlur = 0, maxBlur = 10 then you got your image blurred three times:\n1) blur size = 0\n2) blur size = 5\n3) blur size = 10\nand then all these three images get merged together with selected operation.\n\nDefault value = 7 \n(thats enough for most cases)\n"}
+ blurSteps 7
+ addUserKnob {22 updateSteps l "update steps" t "You should jab this button EVERY time as you changed steps value, to apply new settings." -STARTLINE T "'''\nv8\nreturn to old style blur distribution (without expressions on curve points)\n'''\n\n\nmain = nuke.thisNode()\nfirstStepBlurKnob = main.knob('firstStepBlur')\nlastStepBlurKnob = main.knob('lastStepBlur')\ninputNode = nuke.toNode('Dot1')\noutputNode = nuke.toNode('Output1')\nmaskNode = nuke.toNode('mask')\nblendNode = nuke.toNode('msb_blend')\nreformatBGNode = nuke.toNode('msb_reformatBG')\ncolorLine = nuke.toNode('msb_stepsColorGradient')\nremapColors = nuke.toNode('msb_remapColors')\nblurBiasNode = nuke.toNode('blurDistributionCurve')\n\n\nblurSteps = main.knob('blurSteps').value()\nmix = main.knob('mix').value()\n\nif blurSteps == 0 :\n    blendCoeff=1\nelse:\n    blendCoeff=1/blurSteps\n\ninputNodeXpos = inputNode.xpos()\ninputNodeYpos = inputNode.ypos()\n#print('input node XY = ', inputNode.xpos(),inputNode.ypos())\n\nnuke.selectAll()\ndelList = nuke.selectedNodes('Merge2')+nuke.selectedNodes('Blur')+nuke.selectedNodes('Multiply')\nfor node in delList:\n    # remove all extra nodes\n    nuke.delete(node)\n\nblurSizeExpression = '''\[python -execlocal \{openBracket\}\nstep = \{step\}\nallSteps = \{blurSteps\}\nvalue = nuke.sample(nuke.toNode('msb_remapBlurValues'),'r',\{step\}+0.5,0)\nret = value\n\{closeBracket\}]'''\n\nmergeOperationExpr = '''\[python -execlocal \{\nallModes=nuke.thisGroup()\['operation'].values()\ncurMode = nuke.thisGroup()\['operation'].value()\nmodeID = allModes.index(curMode)\nret = modeID\n\}]'''\n\nblurBiasExpr = '''\n\[animation lut x 0 0]\n\[animation lut x \[animation lut size]-1 1]\n\[animation lut y 0 group.firstStepBlur]\n\[animation lut y \[animation lut size]-1 group.lastStepBlur]'''\n\n\nblendNode.knob('mix').setExpression(\"\[python nuke.thisGroup()\\\['mix'\\].value()]\")\nreformatBGNode.knob('box_width').setExpression('\{blurSteps\}'.format(blurSteps = max(2,blurSteps)))\n#colorLine.knob('p1').setExpression('\{blurSteps\}'.format(blurSteps = max(0,blurSteps-1)),0)\nremapColors.knob('blackpoint').setExpression('\[value group.firstStepColor.r]*\[value group.firstStepColorGain]',0)\nremapColors.knob('blackpoint').setExpression('\[value group.firstStepColor.g]*\[value group.firstStepColorGain]',1)\nremapColors.knob('blackpoint').setExpression('\[value group.firstStepColor.b]*\[value group.firstStepColorGain]',2)\nremapColors.knob('whitepoint').setExpression('\[value group.lastStepColor.r]*\[value group.lastStepColorGain]',0)\nremapColors.knob('whitepoint').setExpression('\[value group.lastStepColor.g]*\[value group.lastStepColorGain]',1)\nremapColors.knob('whitepoint').setExpression('\[value group.lastStepColor.b]*\[value group.lastStepColorGain]',2)\n\n#\[python nuke.sample(nuke.toNode('Grade1'),\"r\",0,0)] \n\nif blurSteps>0:\n    allmerges=\[]\n    for step in range(blurSteps):\n        #print('step: \{0\}'.format(step))\n        newBlurNode = nuke.nodes.Blur(name = 'blur_step_'+str(step),channels='rgba')\n        newMultiplyNode = nuke.nodes.Multiply(name = 'multiply_'+str(step),channels='rgba')\n        newMergeNode = nuke.nodes.Merge2(operation = 'copy')\n        allmerges.append(newMergeNode)\n        \n        newBlurNode.setInput(0,inputNode)\n        newMultiplyNode.setInput(0,newBlurNode)\n        \n        if step == 0 :            \n            newMergeNode.setInput(0,newMultiplyNode)\n            newMergeNode.setInput(1,newMultiplyNode)\n        else:\n            newMergeNode.setInput(0,allmerges\[step-1])\n            newMergeNode.setInput(1,newMultiplyNode)\n            \n        blendNode.setInput(1,newMergeNode)\n        newBlurNode.setXYpos(inputNode.xpos()+120*(step+1),inputNode.ypos()+80)\n        newMultiplyNode.setXYpos(newBlurNode.xpos(),newBlurNode.ypos()+40)\n        newMergeNode.setXYpos(newMultiplyNode.xpos(),newMultiplyNode.ypos()+40)\n        newBlurNode.knob('size').setExpression(blurSizeExpression.format(step=step, blurSteps=blurSteps, openBracket='\{',closeBracket='\}') )\n        newBlurNode.knob('filter').setExpression('group.filter')\n        newBlurNode.knob('quality').setExpression('group.quality')\n        newBlurNode.knob('crop').setExpression('group.cropToFormat')\n        newMultiplyNode.knob('value').setValue(1,1) # just to set knob to multiple value mode.\n        newMultiplyNode.knob('value').setExpression(\"\[python nuke.sample(nuke.toNode('\{remapColors\}'),'r',\{step\}+0.5,0)]\".format(remapColors=remapColors.name(),step=step),0)\n        newMultiplyNode.knob('value').setExpression(\"\[python nuke.sample(nuke.toNode('\{remapColors\}'),'g',\{step\}+0.5,0)]\".format(remapColors=remapColors.name(),step=step),1)\n        newMultiplyNode.knob('value').setExpression(\"\[python nuke.sample(nuke.toNode('\{remapColors\}'),'b',\{step\}+0.5,0)]\".format(remapColors=remapColors.name(),step=step),2)    \n        newMergeNode.knob('mix').setExpression(\"\{blendCoeff\}*\[expression opacityBiasCurve.lut.master(\{step\}/(\{blurSteps\}-1))]\".format(blendCoeff = blendCoeff, step=step, blurSteps=blurSteps))\n        newMergeNode.knob('operation').setExpression('group.operation')\n"}
+ addUserKnob {4 filter M {box triangle quadratic gaussian}}
+ filter gaussian
+ addUserKnob {3 quality l "" t "blur quality" -STARTLINE}
+ quality 7
+ addUserKnob {6 cropToFormat l "crop to format" -STARTLINE}
+ cropToFormat true
+ addUserKnob {4 operation l "mix operation" t "How to mix all blur steps into final image.\n\nDefault = Plus\nBut you also can enjoy \"Copy\" in some \ncases and other modes." M {atop average color-burn colo-dodge conjoint-over copy difference disjoint-over divide exclusion from geometric hard-light hypot in mask matte max min minus multiply out over overlay plus screen soft-light stencil under xor "" "" "" "" "" ""}}
+ operation plus
+ addUserKnob {26 ""}
+ addUserKnob {7 firstStepBlur l "first step blur" t "Blur value for first step\n\nDefault = 0" R 0 100}
+ addUserKnob {7 lastStepBlur l "last step blur" t "Blur value for last step\n\nDefault = 100" R 0 300}
+ lastStepBlur 200
+ addUserKnob {7 blurBias l "blur bias" t "you can control \"speed\" of blur value changes among all steps, like gamma correction curve.\n\nDefault = 1\nthats mean linear distribution" R 0 5}
+ blurBias 1
+ addUserKnob {26 ""}
+ addUserKnob {18 firstStepColor l "first step color" t "You can create 2-point color gradient, to grade your blurred image.\nWhere two points is a range : \n\[first step color ---> last step color]\n\nColor gradient is evenly distributed among all steps.\n\nDefault value is 1 \nthat mean no color changes occur ."}
+ firstStepColor 1
+ addUserKnob {7 firstStepColorGain l "    first step gain" t "You can play with gain of all steps via gradient\n\[firstStepGain --> lastStepGain]\n\nDefault value = 1\nthat mean no gain changes occur ." -STARTLINE R 0 10}
+ firstStepColorGain 1
+ addUserKnob {18 lastStepColor l "last step color" t "You can create 2-point color gradient, to grade your blurred image.\nWhere two points is a range : \n\[first step color ---> last step color]\n\nColor gradient is evenly distributed among all steps.\n\nDefault value is 1 \nthat mean no color changes occur ."}
+ lastStepColor 1
+ addUserKnob {7 lastStepColorGain l "    last step gain" t "You can play with gain of all steps via gradient\n\[firstStepGain --> lastStepGain]\n\nDefault value = 1\nthat mean no gain changes occur ." -STARTLINE R 0 20}
+ lastStepColorGain 1
+ addUserKnob {7 colorBias l "color bias" t "Color weight(distribution) between first and last steps ." R 0 5}
+ colorBias 1
+ addUserKnob {26 ""}
+ addUserKnob {7 mix}
+ mix 1
+ addUserKnob {26 line l "" +STARTLINE}
+ addUserKnob {22 o T "text = '''\n  She walks in Beauty\n\nSHE walks in beauty, like the night\n  Of cloudless climes and starry skies;\nAnd all that 's best of dark and bright\n  Meet in her aspect and her eyes:\nThus mellow'd to that tender light\n  Which heaven to gaudy day denies.\nOne shade the more, one ray the less,\n  Had half impair'd the nameless grace\nWhich waves in every raven tress,\n  Or softly lightens o'er her face;\nWhere thoughts serenely sweet express\n  How pure, how dear their dwelling-place.\n \nAnd on that cheek, and o'er that brow,\n  So soft, so calm, yet eloquent,\nThe smiles that win, the tints that glow,\n  But tell of days in goodness spent,\nA mind at peace with all below,\n  A heart whose love is innocent!\n  \nGeorge Gordon Byron, Lord Byron. 1788–1824\n'''\nnuke.message(text)" +STARTLINE}
+ addUserKnob {20 opacityBiasTab l "Opacity bias"}
+ addUserKnob {26 opacityBiasText l "" +STARTLINE T "Modify <master> curve to play with opacity \nof each blur step, scaled in to 0-1 range."}
+ addUserKnob {26 ""}
+ addUserKnob {41 lut_1 l "" -STARTLINE T opacityBiasCurve.lut}
+}
+ Input {
+  inputs 0
+  name OutMask
+  xpos 127
+  ypos -242
+  number 1
+ }
+set N1a4bbe30 [stack 0]
+push $N1a4bbe30
+ Shuffle {
+  red white
+  green white
+  blue white
+  alpha white
+  name Shuffle1
+  xpos 127
+  ypos -291
+ }
+ Switch {
+  inputs 2
+  which {{"\[exists parent.input1]" i}}
+  name Switch1
+  xpos 265
+  ypos -242
+ }
+ Input {
+  inputs 0
+  name InMask
+  xpos 138
+  ypos -475
+  number 2
+ }
+set N1a570ad0 [stack 0]
+push $N1a570ad0
+ Shuffle {
+  red white
+  green white
+  blue white
+  alpha white
+  name Shuffle2
+  xpos 138
+  ypos -524
+ }
+ Switch {
+  inputs 2
+  which {{"\[exists parent.input2]" i}}
+  name Switch2
+  xpos 248
+  ypos -475
+ }
+set N452a380 [stack 0]
+push $N452a380
+ Reformat {
+  inputs 0
+  type "to box"
+  box_width {{7.0}}
+  box_height 2
+  box_fixed true
+  clamp true
+  black_outside true
+  name msb_reformatBG
+  xpos 662
+  ypos -694
+ }
+ Expression {
+  channel0 rgb
+  expr0 x/(width-1)
+  channel1 {-rgba.red -rgba.green -rgba.blue}
+  channel2 {-rgba.red -rgba.green -rgba.blue}
+  channel3 {none none none -rgba.alpha}
+  name msb_stepsColorGradient
+  label "make linear gradient"
+  xpos 662
+  ypos -670
+ }
+set N1a4bc7c0 [stack 0]
+ Grade {
+  blackpoint {{"\[value group.firstStepColor.r]*\[value group.firstStepColorGain]"} {"\[value group.firstStepColor.g]*\[value group.firstStepColorGain]"} {"\[value group.firstStepColor.b]*\[value group.firstStepColorGain]"} 1}
+  whitepoint {{"\[value group.lastStepColor.r]*\[value group.lastStepColorGain]"} {"\[value group.lastStepColor.g]*\[value group.lastStepColorGain]"} {"\[value group.lastStepColor.b]*\[value group.lastStepColorGain]"} 1}
+  gamma {{group.colorBias}}
+  reverse true
+  black_clamp false
+  name msb_remapColors
+  label "map user color"
+  xpos 818
+  ypos -587
+ }
+push $N1a4bc7c0
+ Grade {
+  blackpoint {{group.firstStepBlur i}}
+  whitepoint {{group.lastStepBlur i}}
+  gamma {{group.blurBias i}}
+  reverse true
+  black_clamp false
+  name msb_remapBlurValues
+  label "map min and max blur values to 0-1 gradient"
+  xpos 662
+  ypos -634
+ }
+ Copy {
+  inputs 2
+  name rrrrrr
+  xpos 662
+  ypos -587
+ }
+ Input {
+  inputs 0
+  name Input
+  xpos 413
+  ypos -694
+ }
+ Copy {
+  inputs 2
+  name rrr
+  xpos 413
+  ypos -587
+ }
+ Grade {
+  inputs 1+1
+  channels rgba
+  white 0
+  black_clamp false
+  invert_mask true
+  name inputMask_process
+  xpos 413
+  ypos -532
+  disable {{"1-\[exists parent.input2]" i}}
+ }
+ CopyBBox {
+  inputs 2
+  name CopyBBox1
+  label "get BBox from mask"
+  xpos 413
+  ypos -481
+  disable {{"1-\[exists parent.input2]" i}}
+ }
+set N1b0b7cc0 [stack 0]
+ Dot {
+  name Dot1
+  xpos 591
+  ypos -477
+ }
+set N1a4bdae0 [stack 0]
+ Blur {
+  channels rgba
+  size {{"\[python -execlocal \{\nstep = 6\nallSteps = 7.0\nvalue = nuke.sample(nuke.toNode('msb_remapBlurValues'),'r',6+0.5,0)\nret = value\n\}]"}}
+  filter {{group.filter}}
+  quality {{group.quality}}
+  crop {{group.cropToFormat}}
+  name blur_step_6
+  xpos 1431
+  ypos -397
+ }
+ Multiply {
+  channels rgba
+  value {{"\[python nuke.sample(nuke.toNode('msb_remapColors'),'r',6+0.5,0)]"} {"\[python nuke.sample(nuke.toNode('msb_remapColors'),'g',6+0.5,0)]"} {"\[python nuke.sample(nuke.toNode('msb_remapColors'),'b',6+0.5,0)]"} 1}
+  name multiply_6
+  xpos 1431
+  ypos -357
+ }
+push $N1a4bdae0
+ Blur {
+  channels rgba
+  size {{"\[python -execlocal \{\nstep = 5\nallSteps = 7.0\nvalue = nuke.sample(nuke.toNode('msb_remapBlurValues'),'r',5+0.5,0)\nret = value\n\}]"}}
+  filter {{group.filter}}
+  quality {{group.quality}}
+  crop {{group.cropToFormat}}
+  name blur_step_5
+  xpos 1311
+  ypos -397
+ }
+ Multiply {
+  channels rgba
+  value {{"\[python nuke.sample(nuke.toNode('msb_remapColors'),'r',5+0.5,0)]"} {"\[python nuke.sample(nuke.toNode('msb_remapColors'),'g',5+0.5,0)]"} {"\[python nuke.sample(nuke.toNode('msb_remapColors'),'b',5+0.5,0)]"} 1}
+  name multiply_5
+  xpos 1311
+  ypos -357
+ }
+push $N1a4bdae0
+ Blur {
+  channels rgba
+  size {{"\[python -execlocal \{\nstep = 4\nallSteps = 7.0\nvalue = nuke.sample(nuke.toNode('msb_remapBlurValues'),'r',4+0.5,0)\nret = value\n\}]"}}
+  filter {{group.filter}}
+  quality {{group.quality}}
+  crop {{group.cropToFormat}}
+  name blur_step_4
+  xpos 1191
+  ypos -397
+ }
+ Multiply {
+  channels rgba
+  value {{"\[python nuke.sample(nuke.toNode('msb_remapColors'),'r',4+0.5,0)]"} {"\[python nuke.sample(nuke.toNode('msb_remapColors'),'g',4+0.5,0)]"} {"\[python nuke.sample(nuke.toNode('msb_remapColors'),'b',4+0.5,0)]"} 1}
+  name multiply_4
+  xpos 1191
+  ypos -357
+ }
+push $N1a4bdae0
+ Blur {
+  channels rgba
+  size {{"\[python -execlocal \{\nstep = 3\nallSteps = 7.0\nvalue = nuke.sample(nuke.toNode('msb_remapBlurValues'),'r',3+0.5,0)\nret = value\n\}]"}}
+  filter {{group.filter}}
+  quality {{group.quality}}
+  crop {{group.cropToFormat}}
+  name blur_step_3
+  xpos 1071
+  ypos -397
+ }
+ Multiply {
+  channels rgba
+  value {{"\[python nuke.sample(nuke.toNode('msb_remapColors'),'r',3+0.5,0)]"} {"\[python nuke.sample(nuke.toNode('msb_remapColors'),'g',3+0.5,0)]"} {"\[python nuke.sample(nuke.toNode('msb_remapColors'),'b',3+0.5,0)]"} 1}
+  name multiply_3
+  xpos 1071
+  ypos -357
+ }
+push $N1a4bdae0
+ Blur {
+  channels rgba
+  size {{"\[python -execlocal \{\nstep = 2\nallSteps = 7.0\nvalue = nuke.sample(nuke.toNode('msb_remapBlurValues'),'r',2+0.5,0)\nret = value\n\}]" i}}
+  filter {{group.filter i}}
+  quality {{group.quality i}}
+  crop {{group.cropToFormat i}}
+  name blur_step_2
+  xpos 951
+  ypos -397
+ }
+ Multiply {
+  channels rgba
+  value {{"\[python nuke.sample(nuke.toNode('msb_remapColors'),'r',2+0.5,0)]"} {"\[python nuke.sample(nuke.toNode('msb_remapColors'),'g',2+0.5,0)]"} {"\[python nuke.sample(nuke.toNode('msb_remapColors'),'b',2+0.5,0)]"} 1}
+  name multiply_2
+  xpos 951
+  ypos -357
+ }
+push $N1a4bdae0
+ Blur {
+  channels rgba
+  size {{"\[python -execlocal \{\nstep = 1\nallSteps = 7.0\nvalue = nuke.sample(nuke.toNode('msb_remapBlurValues'),'r',1+0.5,0)\nret = value\n\}]" i}}
+  filter {{group.filter i}}
+  quality {{group.quality i}}
+  crop {{group.cropToFormat i}}
+  name blur_step_1
+  xpos 831
+  ypos -397
+ }
+ Multiply {
+  channels rgba
+  value {{"\[python nuke.sample(nuke.toNode('msb_remapColors'),'r',1+0.5,0)]"} {"\[python nuke.sample(nuke.toNode('msb_remapColors'),'g',1+0.5,0)]"} {"\[python nuke.sample(nuke.toNode('msb_remapColors'),'b',1+0.5,0)]"} 1}
+  name multiply_1
+  xpos 831
+  ypos -357
+ }
+push $N1a4bdae0
+ Blur {
+  channels rgba
+  size {{"\[python -execlocal \{\nstep = 0\nallSteps = 7.0\nvalue = nuke.sample(nuke.toNode('msb_remapBlurValues'),'r',0+0.5,0)\nret = value\n\}]" i}}
+  filter {{group.filter i}}
+  quality {{group.quality i}}
+  crop {{group.cropToFormat i}}
+  name blur_step_0
+  xpos 711
+  ypos -394
+ }
+ Multiply {
+  channels rgba
+  value {{"\[python nuke.sample(nuke.toNode('msb_remapColors'),'r',0+0.5,0)]" i} {"\[python nuke.sample(nuke.toNode('msb_remapColors'),'g',0+0.5,0)]" i} {"\[python nuke.sample(nuke.toNode('msb_remapColors'),'b',0+0.5,0)]" i} 1}
+  name multiply_0
+  xpos 711
+  ypos -357
+ }
+set N49a6d1f0 [stack 0]
+push $N49a6d1f0
+ Merge2 {
+  inputs 2
+  operation {{group.operation i}}
+  mix {{"0.142857142857*\[expression opacityBiasCurve.lut.master(0/(7.0-1))]" i}}
+  name Merge1
+  xpos 711
+  ypos -317
+ }
+ Merge2 {
+  inputs 2
+  operation {{group.operation i}}
+  mix {{"0.142857142857*\[expression opacityBiasCurve.lut.master(1/(7.0-1))]" i}}
+  name Merge2
+  xpos 831
+  ypos -317
+ }
+ Merge2 {
+  inputs 2
+  operation {{group.operation i}}
+  mix {{"0.142857142857*\[expression opacityBiasCurve.lut.master(2/(7.0-1))]" i}}
+  name Merge3
+  xpos 951
+  ypos -317
+ }
+ Merge2 {
+  inputs 2
+  operation {{group.operation i}}
+  mix {{"0.142857142857*\[expression opacityBiasCurve.lut.master(3/(7.0-1))]" i}}
+  name Merge4
+  xpos 1071
+  ypos -317
+ }
+ Merge2 {
+  inputs 2
+  operation {{group.operation i}}
+  mix {{"0.142857142857*\[expression opacityBiasCurve.lut.master(4/(7.0-1))]" i}}
+  name Merge5
+  xpos 1191
+  ypos -317
+ }
+ Merge2 {
+  inputs 2
+  operation {{group.operation i}}
+  mix {{"0.142857142857*\[expression opacityBiasCurve.lut.master(5/(7.0-1))]" i}}
+  name Merge6
+  xpos 1311
+  ypos -317
+ }
+ Merge2 {
+  inputs 2
+  operation {{group.operation i}}
+  mix {{"0.142857142857*\[expression opacityBiasCurve.lut.master(6/(7.0-1))]" i}}
+  name Merge7
+  xpos 1431
+  ypos -317
+ }
+push $N1b0b7cc0
+ Keymix {
+  inputs 3
+  channels rgba
+  mix {{"\[python nuke.thisGroup()\\\['mix'\\].value()]"}}
+  name msb_blend
+  xpos 413
+  ypos -242
+ }
+set N1a570140 [stack 0]
+ Output {
+  name Output1
+  xpos 413
+  ypos -193
+ }
+ StickyNote {
+  inputs 0
+  name StickyNote1
+  label "we need 'rrrr..' nodes ONLY to made some \"control\" nodes forced update on each frame..\nwithout it Nuke ignore them unfortunately and as result we lost blur animation \n(if you animate have it) in background rendering mode."
+  note_font_size 23
+  xpos 814
+  ypos -701
+ }
+ ColorLookup {
+  inputs 0
+  channels rgb
+  lut {master {curve C 1 L 1}
+    red {}
+    green {}
+    blue {}
+    alpha {}}
+  name opacityBiasCurve
+  xpos 987
+  ypos -607
+ }
+push $N1a570140
+ Viewer {
+  input_process false
+  name Viewer1
+  selected true
+  xpos 265
+  ypos -218
+ }
+end_group

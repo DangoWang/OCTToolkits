@@ -1,0 +1,1 @@
+float $opacity = `MGPickerItem -q -opacity ""`;	//To-Do: input the button id string to get the opacity of it. 

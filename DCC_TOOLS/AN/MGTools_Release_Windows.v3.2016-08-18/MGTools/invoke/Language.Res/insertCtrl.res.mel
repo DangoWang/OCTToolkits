@@ -1,0 +1,24 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "AddCtl.nosel.war" "No selection found.Select a transform node without its translation & rotation constrained.";
+MG_displayEN "AddCtl.prompt.title" "Insert Hierarchy..";
+MG_displayEN "AddCtl.anno" "Insert Hierarchy onto the scene selection.Notice that current selected object will be constrained.";
+MG_displayEN "AddCtl.prompt.mes" "Hierarchy Number:";
+MG_displayEN "AddCtl.noSence.war" "A hierarchy number below 2 does not make sense.";
+MG_displayEN "AddCtl.constrainted.war" "Can't insert hierarchy cos your selection is constrained already.";
+MG_displayEN "AddCtl.constrainted.noChannel.war" "No translate/Rotate channel is able to be constrained.";
+
+MG_displayEN "AddCtl.finish.rep" " # usable hierarchies have been inserted :)";
+
+MG_displayEN "AddCtl.stickNone.lbl" "Normal Mode";
+MG_displayEN "AddCtl.stickRotate.lbl" "Stick Rotation";
+MG_displayEN "AddCtl.stickRotateComp.lbl" "Stick Rotation Completely";
+MG_displayEN "AddCtl.stickAll.lbl" "Stick All Transform";
+MG_displayEN "AddCtl.addShape.lbl" "Add Visible Shape";

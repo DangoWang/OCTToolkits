@@ -1,0 +1,351 @@
+#! c:/Program Files/Nuke7/Nuke7.0.exe -nx
+version 7.0 v8
+Gizmo {
+ inputs 3
+ addUserKnob {20 User}
+ addUserKnob {13 trans}
+ trans {{"\[python nuke.thisNode().input(2).knob('trans').value(0)]"} {"\[python nuke.thisNode().input(2).knob('trans').value(1)]"} {"\[python nuke.thisNode().input(2).knob('trans').value(2)]"}}
+ addUserKnob {7 scale_1}
+ scale_1 {{"\[python nuke.thisNode().input(2).knob('scale_1').value()]"}}
+ addUserKnob {7 scale_2}
+ scale_2 {{"\[python nuke.thisNode().input(2).knob('scale_2').value()]"}}
+ addUserKnob {7 Emission}
+ Emission {{"\[python nuke.thisNode().input(2).knob('Emission').value()]"}}
+ addUserKnob {7 scale_part}
+ scale_part {{"\[python nuke.thisNode().input(2).knob('scale_part').value()]"}}
+ addUserKnob {7 speed_part}
+ speed_part {{"\[python nuke.thisNode().input(2).knob('speed_part').value()]"}}
+}
+ Input {
+  inputs 0
+  name Cam
+  xpos -480
+  ypos 412
+ }
+ Dot {
+  name Dot5
+  xpos -185
+  ypos 415
+ }
+ Dot {
+  name Dot1
+  xpos -185
+  ypos 596
+ }
+ Dot {
+  name Dot2
+  xpos -5
+  ypos 596
+ }
+ Dot {
+  name Dot3
+  xpos -5
+  ypos 661
+ }
+ Input {
+  inputs 0
+  name Axi
+  xpos -339
+  ypos 379
+  number 1
+ }
+ Dot {
+  name Dot4
+  xpos -71
+  ypos 382
+ }
+ Dot {
+  name Dot25
+  xpos -71
+  ypos 531
+ }
+ Constant {
+  inputs 0
+  channels rgb
+  format "64 64 0 0 64 64 1 sprite_64"
+  name Constant2
+  xpos 270
+  ypos -160
+ }
+ Noise {
+  size 280
+  gain 0.9
+  translate {4705 0}
+  center {32 32}
+  name Noise8
+  xpos 270
+  ypos -88
+ }
+ Roto {
+  output none
+  premultiply rgba
+  curves {{{v x3f99999a}
+  {f 0}
+  {n
+   {layer Root
+    {f 512}
+    {t x42000000 x42000000}
+    {a}
+    {curvegroup Bezier1 576 bezier
+     {{cc
+       {f 8192}
+       {px 1
+        {x4081652c x40ec1f20}
+        {x41bdea8a x42223f78}
+        {xc0816528 xc0ec1f20}
+        {xc0aa86cc x3fb81070}
+        {x41d82a6b x41c3729a}
+        {x4033eed0 xbf233f20}
+        {xc0c41a90 xc09047c8}
+        {x421c9426 x41e1d4e5}
+        {x40a2b990 x40868acc}
+        {x3f549c80 xbfe59e40}
+        {x4241729a x41fb9e6f}
+        {xc12503e8 x41b23735}}}
+      {cc
+       {f 8192}
+       {px 1
+        {x40816530 x40ec1f20}
+        {xc0b92938 x40d50670}
+        {xc081652c xc0ec1f30}
+        {xc09f48a2 x401b8560}
+        {xc0f45c08 xc109d984}
+        {x4015ebf8 xbf7e11e0}
+        {xc0c41aa0 xc09047c8}
+        {x40e59b90 xc129a154}
+        {x40a2b980 x40868ae0}
+        {x3f549b80 xbfe59e00}
+        {x409b6840 x40771648}
+        {xc12503d8 x41b23738}}}}
+     {tx 1 x41ef5c28 x420cf5c2}
+     {a str 1 spx x42000000 spy x42000000 sb 1 nv x40000000 view2 x40000000 tt x40800000 ff x3f51eb85}}}}}}
+  toolbox {selectAll {
+  { selectAll str 1 ssx 1 ssy 1 sf 1 }
+  { createBezier ro 0 go 0 bo 0 ao 0 str 1 ssx 1 ssy 1 sf 1 sb 1 tt 4 }
+  { createBezierCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createBSpline str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createEllipse str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangle str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangleCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { brush str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { eraser src 2 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { clone src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { reveal src 3 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { dodge src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { burn src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { blur src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { sharpen src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { smear src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+} }
+  toolbar_brush_hardness 0.200000003
+  toolbar_source_transform_scale {1 1}
+  toolbar_source_transform_center {32 32}
+  colorOverlay {0 0 0 0}
+  lifetime_type "all frames"
+  feather_falloff 0.8199999928
+  motionblur_shutter_offset_type centred
+  source_black_outside true
+  createNewTrack {{-1} "-1\t(none)\t-1" "1000\tNew Track Layer\t1000"}
+  name Roto23
+  xpos 270
+  ypos -64
+ }
+ Blur {
+  size 4
+  name Blur26
+  xpos 270
+  ypos -25
+ }
+ Grade {
+  gamma 0.45
+  name Grade64
+  xpos 270
+  ypos 8
+ }
+ CheckerBoard2 {
+  inputs 0
+  name CheckerBoard1
+  xpos 94
+  ypos 3
+ }
+ Cube {
+  display wireframe
+  scaling {1 5 1}
+  uniform_scale 0.5
+  name Cube1
+  xpos 94
+  ypos 109
+ }
+set N2d09c300 [stack 0]
+push 0
+ ParticleEmitter {
+  inputs 3
+  start_frame {{parent.Axi_luch2.Emission.left}}
+  emit_channels all
+  emit_from bbox
+  rate {{curve x-50 5 0}}
+  lifetime 20000
+  velocity 0
+  size {{parent.Axi_luch2.skale_part.left}}
+  size_variation 2
+  mass {{parent.Axi_luch2.mass.left}}
+  seed 57
+  name ParticleEmitter3
+  xpos 270
+  ypos 109
+ }
+ ParticleTurbulence {
+  strength {0.0001 -0.0001 0}
+  scale {1 0.0001 1}
+  max_age 0.005
+  name ParticleTurbulence1
+  xpos 270
+  ypos 133
+ }
+ ParticleBounce {
+  out_bounce_mode none
+  out_new_channels all
+  in_new_channels all
+  object cylinder
+  bounceaxis_scaling {1 3 1}
+  translate {0 0 0.8500000238}
+  uniform_scale 3.2
+  name ParticleBounce1
+  xpos 270
+  ypos 169
+ }
+ ParticleBounce {
+  out_bounce_mode none
+  out_new_channels all
+  in_new_channels all
+  bounceaxis_translate {0 1.475000024 2.9286646e-008}
+  bounceaxis_rotate {180 0 0}
+  bounceaxis_uniform_scale 3
+  translate {0 0 0.8500000238}
+  uniform_scale 3.2
+  name ParticleBounce2
+  xpos 270
+  ypos 205
+ }
+ ParticleBounce {
+  out_bounce_mode none
+  out_new_channels all
+  in_new_channels all
+  bounceaxis_translate {0 -1.47500002 2.9286646e-008}
+  bounceaxis_uniform_scale 3
+  translate {0 0 0.8500000238}
+  uniform_scale 3.2
+  name ParticleBounce3
+  xpos 270
+  ypos 241
+ }
+ TimeOffset {
+  time_offset {{-1000*parent.Axi_luch2.mass.left}}
+  name TimeOffset1
+  xpos 270
+  ypos 277
+ }
+ Trilinear {
+  selectable false
+  p0 {{-parent.Konus.scale_2} 0 {-parent.Konus.scale_2}}
+  p1 {{-parent.Konus.scale_1+Konus.trans} {parent.Konus.trans.y} {-parent.Konus.scale_1+Konus.trans}}
+  p2 {{parent.Konus.scale_1+Konus.trans} {parent.Konus.trans.y} {-parent.Konus.scale_1+Konus.trans}}
+  p3 {{parent.Konus.scale_2} 0 {-parent.Konus.scale_2}}
+  p4 {{-parent.Konus.scale_2} 0 {parent.Konus.scale_2}}
+  p5 {{-parent.Konus.scale_1+Konus.trans} {parent.Konus.trans.y} {parent.Konus.scale_1+Konus.trans}}
+  p6 {{parent.Konus.scale_1+Konus.trans} {parent.Konus.trans.y} {parent.Konus.scale_1+Konus.trans}}
+  p7 {{parent.Konus.scale_2} 0 {parent.Konus.scale_2}}
+  src_use_bbox false
+  src0 {-0.4 -1.4 -0.4}
+  src1 {0.4 1.4 0.4}
+  my_reset_counter 1
+  name Trilinear2
+  note_font Verdana
+  xpos 207
+  ypos 414
+ }
+ TransformGeo {
+  inputs 2
+  uniform_scale 500
+  name TransformGeo5
+  xpos 207
+  ypos 528
+ }
+push 0
+add_layer {_P _P.red _P.green _P.blue _P.alpha}
+ ScanlineRender {
+  inputs 3
+  motion_vectors_type distance
+  output_shader_vectors true
+  P_channel _P
+  name ScanlineRender1
+  xpos 207
+  ypos 658
+ }
+set N2d09e8d0 [stack 0]
+ Output {
+  name Output2
+  xpos 207
+  ypos 789
+ }
+push $N2d09c300
+ NoOp {
+  name Konus
+  xpos 94
+  ypos 339
+  addUserKnob {20 User}
+  addUserKnob {13 trans}
+  trans {{parent.Axi_luch2.trans.left} {parent.Axi_luch2.trans.left} {parent.Axi_luch2.trans.left}}
+  addUserKnob {7 scale_1}
+  scale_1 {{parent.Axi_luch2.scale_1.left}}
+  addUserKnob {7 scale_2}
+  scale_2 {{parent.Axi_luch2.scale_2.left}}
+ }
+ Axis2 {
+  inputs 0
+  matrix {
+      {0 0 0 0}
+      {0 0 0 0}
+      {0 0 0 0}
+      {0 0 0 0}
+    }
+  name Axi_luch2
+  xpos -46
+  ypos 137
+  addUserKnob {20 User}
+  addUserKnob {13 trans}
+  trans {{parent.trans.left} {parent.trans.left} {parent.trans.left}}
+  addUserKnob {7 scale_1}
+  scale_1 {{parent.scale_1.left}}
+  addUserKnob {7 scale_2}
+  scale_2 {{parent.scale_2.left}}
+  addUserKnob {7 Emission}
+  Emission {{-200*parent.Emission.left}}
+  addUserKnob {7 skale_part}
+  skale_part {{parent.scale_part.left*0.004}}
+  addUserKnob {7 mass}
+  mass {{5-parent.speed_part.left}}
+  addUserKnob {26 ""}
+  addUserKnob {20 "" l "Local matrix" n 2}
+  addUserKnob {41 useMatrix_1 l "specify matrix" T Axi_luch2.useMatrix}
+  addUserKnob {41 matrix_1 l "" -STARTLINE T Axi_luch2.matrix}
+  addUserKnob {20 "" n -1}
+  addUserKnob {20 "" l "World matrix" n 2}
+  addUserKnob {41 world_matrix_1 l "" -STARTLINE T Axi_luch2.world_matrix}
+  addUserKnob {20 "" n -1}
+ }
+ Input {
+  inputs 0
+  name Input1
+  xpos -603
+  ypos 465
+  number 2
+ }
+push $N2d09e8d0
+ Viewer {
+  input_process false
+  name Viewer1
+  xpos 369
+  ypos 680
+ }
+end_group

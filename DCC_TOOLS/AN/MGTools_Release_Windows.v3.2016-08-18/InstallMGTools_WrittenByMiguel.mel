@@ -1,0 +1,2468 @@
+//==============================================================//
+//         MGtools Installer - MGTools Installation Wizard
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/MGtools_en.html?url=Feedback
+//E-mail: mgtoolspro@gmail.com
+//CopyRight Miguel @ mgland animation studio.
+
+global proc clueForTheMGtoolsCodesPosition ()
+{}
+
+global int $mgtoolsOStype;  $mgtoolsOStype =0;
+if(`about -mac`)$mgtoolsOStype =1;
+else if(`about -li`)$mgtoolsOStype =2;
+
+global proc int InstallMGtools_getMaya2011OrNot ()
+{
+	global int $MGTools_2011_orNot;
+	$MGTools_2011_orNot = 0;  
+  if(`exists "loadUI"`)
+  {
+  	$MGTools_2011_orNot =1;
+    return 1;
+  }    
+  else
+  {
+    return 0;     
+  }	
+}
+global int $MGtoolsInstallMaya2011OrNot;
+$MGtoolsInstallMaya2011OrNot=`InstallMGtools_getMaya2011OrNot`;
+
+global int $MacOSBefore2011 = 0;
+if($mgtoolsOStype==1&&!$MGTools_2011_orNot) $MacOSBefore2011=1;
+
+global int $LinuxBefore2011 = 0;
+if($mgtoolsOStype==2&&!$MGTools_2011_orNot) $LinuxBefore2011=1;
+
+global proc string installMGTools_tellMeWhereAM()
+{
+    global int $MGtoolsInstallMaya2011OrNot;
+	global int $mgtoolsOStype;
+	string $place=`whatIs clueForTheMGtoolsCodesPosition`;
+	$place = `substituteAllString $place "\\" "/"`;
+	string $buffer[];
+ 	int $numTokens = `tokenize $place ":" $buffer`;
+ 	if(!$mgtoolsOStype)
+ 	{
+		if($numTokens >= 3)
+ 	    {
+ 	        $place=strip ($buffer[1]+":"+$buffer[2]);
+ 	    }
+		else
+		{
+		    $place=strip ($buffer[1]);
+		}
+		//print $place;
+		$place=dirname ($place);	
+		//print $place;
+		if(`gmatch $place "*invoke*"`)
+		{
+			$place=`substring $place 1 (size($place)-7)` ;
+		}
+		else
+		{
+			$place=($place+"/MGTools");
+		}
+	}
+	else
+	{
+		$place=dirname (strip ($buffer[1]));
+		if(`endsWith $place "/invoke"`)
+		{
+			$place=`substring $place 1 (size($place)-7)` ;
+		}
+		else
+		{
+			$place=($place+"/MGTools");
+		}
+		
+	}
+	if(!$MGtoolsInstallMaya2011OrNot&&$mgtoolsOStype==1)
+        $place=` substitute "MGtools" $place "MGTools"`;
+  $place += "/";
+  
+	//print $place;
+	return	$place;	
+}
+proc installMGTools_sourceNecessaryFiles()
+{
+	global string $GmgtoolsInstallationFilePath;
+	$GmgtoolsInstallationFilePath =`installMGTools_tellMeWhereAM`;
+	string $loaderMel=($GmgtoolsInstallationFilePath+"MGToolsLoader_WrittenByMiguel.mel");
+	eval ("source \""+$loaderMel+"\"");
+}
+
+//MG_loadMGToolsPlugin;
+proc sourceMinimalLanguageSource ()
+{
+  global int $mgtoolsOStype;
+  //if($mgtoolsOStype)return;
+  global string $GmgtoolsInstallationFilePath;
+	
+	string $lanPath=$GmgtoolsInstallationFilePath+"invoke/Language.Res/";	
+	catch(`eval ("source \""+$lanPath+"installMGtools.res.sc.mel\"")`);	
+	catch(`eval ("source \""+$lanPath+"installMGtools.res.tc.mel\"")`);		
+	print "";
+}
+//string $serviceProcMel=($GmgtoolsInstallationFilePath+"MGToolsLoader_WrittenByMiguel.mel")
+
+installMGTools_sourceNecessaryFiles;
+sourceMinimalLanguageSource;
+
+//==================test if it is chinese system============================
+global proc int chineseSystemOrNot ()
+{
+   	global int $mgtoolsOStype;
+   	if($mgtoolsOStype)return 0;
+	global string $MG_simplifiedChinese_Marker;
+	global string $MG_traditionalChinese_Marker;
+	//return 2;
+	string $feedback = `system ("date")`;
+	if(`startsWith $feedback $MG_simplifiedChinese_Marker`)
+	{
+		if(size($MG_simplifiedChinese_Marker)) return 1;
+	}
+	else if (`startsWith $feedback $MG_traditionalChinese_Marker`)
+	{
+		if(size($MG_traditionalChinese_Marker)) return 2;
+	}
+	return 0;
+}
+
+
+proc markMGtoolsLanguageOption ()
+{
+	global int $MGtoolsLanguageChoice;
+	if(`optionVar -ex MGtoolsDualLeng`)
+	{
+		string $lanConfig = `optionVar -q MGtoolsDualLeng`;
+		if($lanConfig=="ch")
+		{
+			$MGtoolsLanguageChoice =1;
+		}
+		else if($lanConfig =="en")
+		{			
+			$MGtoolsLanguageChoice = 0;
+		}
+		else
+		{			
+			$MGtoolsLanguageChoice = 2;
+		}		
+	}
+	else
+	{
+		$MGtoolsLanguageChoice = `chineseSystemOrNot`;
+
+	}
+}
+markMGtoolsLanguageOption;
+global proc installMGtoolsLanguageOptionCC ()
+{
+	global string $GmgtoolsInstallationFilePath;
+	global int $MacOSBefore2011;
+	global int  $LinuxBefore2011;
+	string $sel = `radioCollection -q -sl MGtoosInstallLanguageOptionRBG`;
+	//int $sel=`radioButtonGrp -q -select MGtoosInstallLanguageOptionRBG`;
+	string $result;	   
+	if($sel=="MGtoolsConfigLanguage_enRB")
+	{
+		$result="en";
+	}
+	else if($sel=="MGtoosInstallLanguage_scRB")
+	{
+		$result="ch";
+	}
+	else
+	{
+		$result="tc";
+	}	
+	optionVar -sv MGtoolsDualLeng $result;
+	markMGtoolsLanguageOption;
+	//========================language global strings ==============================
+	//simplified chinese language source.
+
+	global string $MG_simplifiedChinese_title ;	
+	global string $MG_simplifiedChinese_welcome ;
+	global string $MG_simplifiedChinese_installTo ;
+	global string $MG_simplifiedChinese_currentShelf ;
+	global string $MG_simplifiedChinese_allShelf ;
+	global string $MG_simplifiedChinese_MGtoolsShelf;
+	
+	global string $MG_simplifiedChinese_nextAutoload ;
+	global string $MG_simplifiedChinese_mgtoolsMenu ;
+	global string $MG_simplifiedChinese_mgtoolsBar ;
+	global string $MG_simplifiedChinese_minimize ;
+	global string $MG_simplifiedChinese_mgChannelbox ;
+	global string $MG_simplifiedChinese_mgShelf ;
+	global string $MG_simplifiedChinese_constraint ;
+	global string $MG_simplifiedChinese_keyframeTool ;
+	global string $MG_simplifiedChinese_selection ;
+	
+	global string $MG_simplifiedChinese_afterInstall;
+	global string $MG_simplifiedChinese_afterInstall_mgtools;
+	global string $MG_simplifiedChinese_afterInstall_config;
+	global string $MG_simplifiedChinese_afterInstall_help;
+	
+	global string $MG_simplifiedChinese_notice;
+	global string $MG_simplifiedChinese_uiLan;
+		
+	//traditional chinese language source.
+	global string $MG_traditionalChinese_title ;	
+	global string $MG_traditionalChinese_welcome ;
+	global string $MG_traditionalChinese_installTo ;
+	global string $MG_traditionalChinese_currentShelf ;
+	global string $MG_traditionalChinese_allShelf ;
+	global string $MG_traditionalChinese_MGtoolsShelf;
+	
+	global string $MG_traditionalChinese_nextAutoload ;
+	global string $MG_traditionalChinese_mgtoolsMenu ;
+	global string $MG_traditionalChinese_mgtoolsBar ;
+	global string $MG_traditionalChinese_minimize ;
+	global string $MG_traditionalChinese_mgChannelbox ;
+	global string $MG_traditionalChinese_mgShelf ;
+	global string $MG_traditionalChinese_constraint ;
+	global string $MG_traditionalChinese_keyframeTool ;
+	global string $MG_traditionalChinese_selection ;
+	
+	global string $MG_traditionalChinese_afterInstall;
+	global string $MG_traditionalChinese_afterInstall_mgtools;
+	global string $MG_traditionalChinese_afterInstall_config;
+	global string $MG_traditionalChinese_afterInstall_help;
+	global string $MG_traditionalChinese_notice;
+	global string $MG_traditionalChinese_uiLan;
+		
+  global string $MG_simplifiedChinese_EULA_topLbl;
+  global string $MG_traditionalChinese_EULA_topLbl;
+	
+	global string $MG_simplifiedChinese_101_topLbl;
+	global string $MG_traditionalChinese_101_topLbl;
+	
+  global string $MG_simplifiedChinese_installAsLocal;
+	global string $MG_simplifiedChinese_installAsGlobal;
+  global string $MG_traditionalChinese_installAsLocal;
+	global string $MG_traditionalChinese_installAsGlobal;
+	global string $MG_simplifiedChinese_installAsFullGlobal;
+	global string $MG_traditionalChinese_installAsFullGlobal;
+	
+  global string $MG_simplifiedChinese_autoloadVia;
+  global string $MG_traditionalChinese_autoloadVia; 
+  
+
+  global string $MG_simplifiedChinese_installMode;
+  global string $MG_traditionalChinese_installMode; 
+  
+  global string $MG_simplifiedChinese_afterInstall_register; 
+  global string $MG_traditionalChinese_afterInstall_register; 
+  
+  global string $MG_simplifiedChinese_TIP;
+  global string $MG_traditionalChinese_TIP;
+	//==============================================================================
+	global int $MGtoolsLanguageChoice;
+	string $winTitle,$boldText,$firstText,$radioBLabel1,$radioBLabel2,$radioBLabel3;
+	string 	$secText,$secCBLabel1,$secCBLabel2,$secCBLabel3,$secCBLabel4,$secCBLabel5,$secCBLabel6,$secCBLabel7,$secCBLabel8;
+	string 	$thirdText,$thirdCBLabel1,$thirdCBLabel2,$thirdCBLabel3,$thirdCBLabel4;
+	string $lanradioBLabel;
+
+	string $buyBtnImage,$NextBtnImage,$intallHelpImage,$cancelImage,$lastImage,$goImage;
+	
+	string $eulaAnn, $licenseAnn,$installLocal, $installGlobal,$installFullGlobal, $autoloadVia,$installMode;
+	string $EULA_TIP,$MG_License01_FILENAME,$MG_EULA_FILENAME;
+	if($MGtoolsLanguageChoice==1)	
+	{
+	  
+		$winTitle=$MG_simplifiedChinese_title;	
+		$boldText=$MG_simplifiedChinese_welcome;
+		$firstText=$MG_simplifiedChinese_installTo;
+		$radioBLabel1=$MG_simplifiedChinese_currentShelf;
+		$radioBLabel2=$MG_simplifiedChinese_allShelf ;
+		$radioBLabel3=$MG_simplifiedChinese_MGtoolsShelf;
+		
+		$secText=$MG_simplifiedChinese_nextAutoload;
+		$secCBLabel1=$MG_simplifiedChinese_mgtoolsMenu;
+		$secCBLabel2=$MG_simplifiedChinese_mgtoolsBar;
+		$secCBLabel3=$MG_simplifiedChinese_minimize;
+		$secCBLabel4=$MG_simplifiedChinese_mgChannelbox;
+		$secCBLabel5=$MG_simplifiedChinese_mgShelf;
+		$secCBLabel6=$MG_simplifiedChinese_constraint;
+		$secCBLabel7=$MG_simplifiedChinese_keyframeTool;
+		$secCBLabel8=$MG_simplifiedChinese_selection;
+		
+		$thirdText=$MG_simplifiedChinese_afterInstall;
+		$thirdCBLabel1=$MG_simplifiedChinese_afterInstall_mgtools;
+		$thirdCBLabel2=$MG_simplifiedChinese_afterInstall_config;		
+		$thirdCBLabel3=$MG_simplifiedChinese_afterInstall_help;
+		$thirdCBLabel4=$MG_simplifiedChinese_afterInstall_register;		
+		
+		$lanradioBLabel=$MG_simplifiedChinese_uiLan;
+		
+		$buyBtnImage= `shelfIcon "BGimage/installFristScreen_buy_ch.bmp"`;
+		$NextBtnImage= `shelfIcon "BGimage/installFristScreen_next_ch.bmp"`;
+		$intallHelpImage= `shelfIcon "BGimage/installSecScreen_help_ch.bmp"`;
+		$cancelImage= `shelfIcon "BGimage/installSecScreen_cancel_ch.bmp"`;
+		$goImage= `shelfIcon "BGimage/installSecScreen_go_ch.bmp"`;
+		$lastImage= `shelfIcon "BGimage/installSecScreenLast_ch.bmp"`;	
+				
+	  $eulaAnn = $MG_simplifiedChinese_EULA_topLbl;
+	  $licenseAnn = $MG_simplifiedChinese_101_topLbl;
+	  $installLocal = $MG_simplifiedChinese_installAsLocal;
+	  $installGlobal = $MG_simplifiedChinese_installAsGlobal;
+	  $installFullGlobal = $MG_simplifiedChinese_installAsFullGlobal;
+	  $autoloadVia = $MG_simplifiedChinese_autoloadVia;
+	  $installMode =   $MG_simplifiedChinese_installMode; 
+	  
+	  $MG_EULA_FILENAME = "EULA_CH.txt";
+    $MG_License01_FILENAME = "License101_CH.txt";
+    $EULA_TIP = $MG_simplifiedChinese_TIP;
+	}	
+	else if($MGtoolsLanguageChoice==2)	
+	{
+		$winTitle=$MG_traditionalChinese_title;	
+		$boldText=$MG_traditionalChinese_welcome;
+		$firstText=$MG_traditionalChinese_installTo;
+		$radioBLabel1=$MG_traditionalChinese_currentShelf;
+		$radioBLabel2=$MG_traditionalChinese_allShelf ;
+		$radioBLabel3=$MG_traditionalChinese_MGtoolsShelf;
+		
+		$secText=$MG_traditionalChinese_nextAutoload;
+		$secCBLabel1=$MG_traditionalChinese_mgtoolsMenu;
+		$secCBLabel2=$MG_traditionalChinese_mgtoolsBar;
+		$secCBLabel3=$MG_traditionalChinese_minimize;
+		$secCBLabel4=$MG_traditionalChinese_mgChannelbox;
+		$secCBLabel5=$MG_traditionalChinese_mgShelf;
+		$secCBLabel6=$MG_traditionalChinese_constraint;
+		$secCBLabel7=$MG_traditionalChinese_keyframeTool;
+		$secCBLabel8=$MG_traditionalChinese_selection;
+		
+		$thirdText=$MG_traditionalChinese_afterInstall;
+		$thirdCBLabel1=$MG_traditionalChinese_afterInstall_mgtools;
+		$thirdCBLabel2=$MG_traditionalChinese_afterInstall_config;		
+		$thirdCBLabel3=$MG_traditionalChinese_afterInstall_help;
+		$thirdCBLabel4=$MG_traditionalChinese_afterInstall_register;		
+		
+		$lanradioBLabel=$MG_traditionalChinese_uiLan;
+		
+		$buyBtnImage= `shelfIcon "BGimage/installFristScreen_buy_tc.bmp"`;
+		$NextBtnImage= `shelfIcon "BGimage/installFristScreen_next_ch.bmp"`;
+		$intallHelpImage= `shelfIcon "BGimage/installSecScreen_help_tc.bmp"`;
+		$cancelImage= `shelfIcon "BGimage/installSecScreen_cancel_tc.bmp"`;
+		$goImage= `shelfIcon "BGimage/installSecScreen_go_tc.bmp"`;
+		$lastImage= `shelfIcon "BGimage/installSecScreenLast_ch.bmp"`;	
+		
+	  $eulaAnn = $MG_traditionalChinese_EULA_topLbl;
+	  $licenseAnn = $MG_traditionalChinese_101_topLbl;
+	  $installLocal = $MG_traditionalChinese_installAsLocal;
+	  $installGlobal = $MG_traditionalChinese_installAsGlobal;
+	  $installFullGlobal = $MG_traditionalChinese_installAsFullGlobal;
+	  $autoloadVia = $MG_traditionalChinese_autoloadVia; 
+	  
+	  $installMode =   $MG_traditionalChinese_installMode; 	
+	      
+	  $MG_EULA_FILENAME = "EULA_TC.txt";
+    $MG_License01_FILENAME = "License101_TC.txt";
+    $EULA_TIP = $MG_traditionalChinese_TIP;
+
+
+	}
+	else
+	{
+		$winTitle="MGTools v3+ InstallShield Wizard";	
+		$boldText="Welcome to the InstallShield Wizard for MGTools v3+";
+		$firstText="Add/Update MGTools entry to:";
+		$radioBLabel1="Install to Shelf";
+		$radioBLabel2="Install all to current ShelfTab";
+		$radioBLabel3="Install all to New \"MGtools\" ShelfTab";
+		
+		$secText="Which items U want to be autoloaded when maya starts:";
+		$secCBLabel1="AutoLoad MGTools Menu";
+		$secCBLabel2="AutoLoad MGTools";
+		$secCBLabel3="AutoLoad MGTools Minimized";
+		$secCBLabel4="AutoLoad MGChannelBox";
+		$secCBLabel5="AutoLoad MGShelfBar";
+		$secCBLabel6="AutoLoad ConstraintTools";
+		$secCBLabel7="AutoLoad KeyframeTools";
+		$secCBLabel8="AutoLoad MG-SelectionSet";
+		
+		$thirdText="After installing MGtools:";
+		$thirdCBLabel1="Load MGtools";
+		$thirdCBLabel2="Config MGtools";		
+		$thirdCBLabel3="View Help Doc";
+		$thirdCBLabel4="Register MGtools";		
+		$lanradioBLabel="UI Language:";
+		
+		$buyBtnImage= `shelfIcon "BGimage/installFristScreen_buy_en.bmp"`;
+		$NextBtnImage= `shelfIcon "BGimage/installFristScreen_next_en.bmp"`;
+		$intallHelpImage= `shelfIcon "BGimage/installSecScreen_help_en.bmp"`;
+		$cancelImage= `shelfIcon "BGimage/installSecScreen_cancel_en.bmp"`;
+		$goImage= `shelfIcon "BGimage/installSecScreen_go_en.bmp"`;
+		$lastImage= `shelfIcon "BGimage/installSecScreenLast_en.bmp"`;	 
+
+    $eulaAnn = "   MGTools End User License Agreement:";
+    $licenseAnn = "   MGTools Pro3  License 101:";
+    $installLocal = "Install As A Local Program [ Copy all files to Maya' user script folder ]";
+    $installGlobal = "Install As A Server Program [ Copy only heavily used files to user script folder]";
+    $installFullGlobal = "Install As Full Server Program [ Copy nothing && only user data in user script folder]";
+    $autoloadVia = "Autoload Via File:";
+    $installMode = "Install Mode:";
+    
+    
+    $MG_EULA_FILENAME = "EULA_EN.txt";
+    $MG_License01_FILENAME = "License101_EN.txt";
+    $EULA_TIP = "* Click \"NEXT\" button to accept EULA and continue; \"CANCEL\" button to decline & exit setup.";
+	}
+	string $installHelpDoc=($GmgtoolsInstallationFilePath+"/Help/CH/install_mgtools.htm");
+	if(!$MGtoolsLanguageChoice){$installHelpDoc=($GmgtoolsInstallationFilePath+"/Help/EN/install_mgtools_en.htm");}
+		
+	string $buy=("\"http://mgland.com\"");
+	if(!$MGtoolsLanguageChoice){$buy=("\"http://mgland.com\"");}	
+	//global int $mgtoolsOStype;
+	//if($mgtoolsOStype!=1)
+	//{
+		iconTextButton -e -c ("showHelp -absolute "+$buy) installMGtoolsBuyBtn;	
+	//}
+	//else
+	//{
+	//	button -e -c ("showHelp -absolute "+$buy) installMGtoolsBuyBtn;	
+	//}
+	window -e -title $winTitle  mgtoolInstallUI;
+	//text -e -l $boldText -w 330 MGtoolsInstallTopText;
+
+	//radioButtonGrp -e -label $lanradioBLabel MGtoosInstallLanguageOptionRBG;	//-labelArray2 $lanradioBLabel1 $lanradioBLabel2 
+	text -e -label $firstText installMGEntryAnnoText;	
+			radioButton -e -label $radioBLabel1 installMGEntryToShelfCB;
+			radioButton -e	-label $radioBLabel2 installMGEntryToCurrentShelfTabCB;
+			radioButton -e	-label $radioBLabel3  installMGEntryToNewShelfTabCB;	
+	text -e -l $lanradioBLabel -align "left" MGtoolsConfigLanguage_radioLabel; 	
+	text -e -label $secText installAutoLoadMGtoolsAnnoText;
+		checkBox -e -label $secCBLabel1 installAutoLoadMGtoolsMenuCB;
+		checkBox -e	-label $secCBLabel2	installAutoLoadMGtoolsCB;
+			checkBox -e	-label $secCBLabel3  installautoLoadMinCB;
+			checkBox -e	 -label $secCBLabel4  installAutoLoadChannelBoxCB;	
+			checkBox -e	-label $secCBLabel5  installautoLoadShelfCB;
+			checkBox -e	-label $secCBLabel6  installAutoLoadconstraintToolCB;	
+			checkBox -e	-label $secCBLabel7  installAutoLoadkeyframeToolCB;	
+			checkBox -e	-label $secCBLabel8  installAutoLoadMGselsetCB;	
+	text -e -label $thirdText  afterInstallMGAnnoText;
+		checkBox -e -label $thirdCBLabel1 afterInstallMGviewMGtoolsCB;
+		checkBox -e -label $thirdCBLabel2 afterInstallMGconfigMGtoolsCB;	
+		checkBox -e -label $thirdCBLabel3 afterInstallMGviewDocCB;
+		checkBox -e -label $thirdCBLabel4 afterInstallMGRegisterCB;		
+		
+		iconTextButton -e -i $intallHelpImage -c ("system (\"load "+$installHelpDoc+"\")") installMGtoolsHelpButton;	
+		iconTextButton -e -i $cancelImage  installMGtoolsCancelButton;
+		iconTextButton -e -i $lastImage  installMGtoolsLastButton;
+		iconTextButton -e -i $goImage  installMGtoolsInstallButton;	
+		//iconTextButton -e -i $buyBtnImage  installMGtoolsBuyBtn;
+		//if($mgtoolsOStype!=1)
+		//{
+			iconTextButton -e -i $buyBtnImage installMGtoolsBuyBtn;	
+			iconTextButton -e -i $NextBtnImage installMGtoolsNextBtn;
+				
+			iconTextButton -e -i $NextBtnImage installMGTools_EULA_NextBtn;	
+			iconTextButton -e -i $cancelImage installMGTools_EULA_CancelBtn;
+			iconTextButton -e -i $lastImage installMGTools_EULA_BackBtn;
+			
+			iconTextButton -e -i $NextBtnImage installMGTools_License_NextBtn;	
+			iconTextButton -e -i $cancelImage installMGTools_License_CancelBtn;
+			iconTextButton -e -i $lastImage installMGTools_License_BackBtn;
+		//}
+		
+		text -e -l $eulaAnn insertEULA_TopAnnText;	
+		text -e -l $licenseAnn mgtoolsInstall_Lincese101Text;	
+		text -e -l $installMode installMG_installModeLbl;
+		text -e -l $autoloadVia installAutoLoadViaTxt;
+		radioButton -e -l $installLocal installMGAsLocalCB;
+		radioButton -e -l $installGlobal installMGAsGlobalCB;
+		radioButton -e -l $installFullGlobal installMGAsFullGlobalCB;
+		
+	global string $GmgtoolsInstallationFilePath;	
+  string $EULAFile=($GmgtoolsInstallationFilePath+"invoke/"+$MG_EULA_FILENAME);
+  //print $EULAFile;
+	string $EULAContent;
+	if(`filetest -f $EULAFile`)
+	{
+		string $nextLine ,$getDataString;
+		$readFileID=`fopen $EULAFile "r"`;
+		//skip the first two lines:
+		fgetline $readFileID;
+		fgetline $readFileID;
+		while(!`feof $readFileID`)
+		{
+			$nextLine=`fgetline $readFileID`;
+			if (size($nextLine)>0)
+			{			
+				$EULAContent += $nextLine;
+			}
+		}
+		fclose $readFileID;
+		scrollField -e -text $EULAContent insertEULA_SF;
+	}
+	
+	//print 	$installHelpDoc;
+	string $license101File=($GmgtoolsInstallationFilePath+"invoke/"+$MG_License01_FILENAME);
+  //print $license101File;
+	string $license101Content;
+	if(`filetest -f $license101File`)
+	{
+		string $nextLine ,$getDataString;
+		$readFileID=`fopen $license101File "r"`;
+		//skip the first two lines:
+		fgetline $readFileID;
+		fgetline $readFileID;
+		while(!`feof $readFileID`)
+		{
+			$nextLine=`fgetline $readFileID`;
+			if (size($nextLine)>0)
+			{			
+				$license101Content += $nextLine;
+			}
+		}
+		fclose $readFileID;
+		scrollField -e -text $license101Content mgtoolsInstall_Lincese101SF;
+	}
+  text -e -l $EULA_TIP insertEULA_TipLbl;  			
+}
+
+/*
+global proc installMGTools_ChangeInstallModeCC()
+{
+  if(`radioButton -q -select installMGAsLocalCB`)
+  {
+    return;
+  }
+  if(`radioButton -q -select installMGAsGlobalCB`)
+  {     
+    global string $GmgtoolsInstallationFilePath;   
+    string $nonAscIIChar = `MG_getStringNonAscIIPart $GmgtoolsInstallationFilePath`;       
+    if(`size $nonAscIIChar`)
+    {    
+      string $parentDir = `dirname $GmgtoolsInstallationFilePath`+"/";
+      global int $MGtoolsLanguageChoice;
+      string $nonAscIIReport;
+      if(!$MGtoolsLanguageChoice)
+      {
+        $nonAscIIReport = ("The source MGTools folder for the installation is under the directory: \n\n"+$parentDir+"\n\nIt contains these Non-ASCII characters:   "+$nonAscIIChar+"\n\nTo avoid protential problems this may cause in future, please rename/move the path so that it is composed of pure ASCII characters, otherwise you can't install MGTools as a server program.");
+      }
+      else if($MGtoolsLanguageChoice == 1)
+      {
+        global string $MG_simplifiedChinese_nonAscii_message1;
+        global string $MG_simplifiedChinese_nonAscii_message2;
+        global string $MG_simplifiedChinese_nonAscii_message3;
+        $nonAscIIReport = ($MG_simplifiedChinese_nonAscii_message1+$parentDir+$MG_simplifiedChinese_nonAscii_message2+$nonAscIIChar+$MG_simplifiedChinese_nonAscii_message3);
+      }
+      else
+      {
+        global string $MG_traditionalChinese_nonAscii_message1;
+        global string $MG_traditionalChinese_nonAscii_message2;
+        global string $MG_traditionalChinese_nonAscii_message3;
+        $nonAscIIReport = ($MG_traditionalChinese_nonAscii_message1+$parentDir+$MG_traditionalChinese_nonAscii_message2+$nonAscIIChar+$MG_traditionalChinese_nonAscii_message3);
+        
+      }
+      
+      confirmDialog -title "MGTools Pro3" -message $nonAscIIReport -button "OK";
+      radioButton -e -select installMGAsLocalCB;
+    }
+  }
+}*/
+proc string[] installMGTools_getPresetOptions()
+{
+	string $result[] = {"1",	//index 0: UI Language
+									"1",  //index 1: Install mode4
+									"1",  //install to shelf Mode
+									"12", //autoload setting
+									"1",	//autoload Via
+									"14"	//after installed  
+									};
+	global string $GmgtoolsInstallationFilePath;
+	string $dirName = `dirname $GmgtoolsInstallationFilePath`;
+	string $presetFile = ($dirName+"/InstallMGTools_InstallOptionPresets.txt");
+	if(!`filetest -f $presetFile`)
+	{
+		$presetFile = ($GmgtoolsInstallationFilePath+"invoke/InstallMGTools_InstallOptionPresets.txt");
+	}
+	//print $presetFile;
+	if(!`filetest -f $presetFile`)
+	{
+		return $result;
+	}	
+	int $fileId = `fopen $presetFile "r"`;
+	int $currentIndex = -1;
+	string $cValue = "1";
+	
+	while ( !`feof $fileId` ) 
+	{
+    $nextLine = `fgetline $fileId`;
+    $nextLine = strip($nextLine);
+    if(!size($nextLine))
+    {
+    	continue;
+    }    
+    if(`startsWith $nextLine "#"`)
+    {
+    	continue;
+    }
+    //print ($nextLine+"\n");
+    if(`startsWith $nextLine ">"`)
+    {
+    	if($currentIndex >= 0)
+    	{
+    		$result [$currentIndex] = $cValue;
+    	}
+    	$cValue = "";
+    	$currentIndex ++;
+    }
+    else if(`startsWith $nextLine "("`)
+    {
+    	$cValue = `substring $nextLine 2 2`;
+    }
+    else if(`startsWith $nextLine "["`)
+    {
+    	$cValue += `substring $nextLine 2 2`;
+    }
+	}
+	$result [$currentIndex] = $cValue;
+	fclose $fileId;
+	return $result;
+}
+global proc installMGTools ()
+{
+	string $optionPresets[] =`installMGTools_getPresetOptions`;
+  global string $GmgtoolsInstallationFilePath;
+  
+	global int $MGtoolsInstallMaya2011OrNot;	
+	//int $systemInfo=`chineseSystemOrNot`;
+	global int $MGtoolsLanguageChoice;
+	global int $mgtoolsOStype;
+	global int $MacOSBefore2011;
+	global int  $LinuxBefore2011;
+	
+	global string $MG_simplifiedChinese_OSMismatch_title;
+	global string $MG_simplifiedChinese_OSMismatch_message;
+	
+	global string $MG_traditionalChinese_OSMismatch_title;
+	global string $MG_traditionalChinese_OSMismatch_message;
+	string $mismatchWarTitle = "OS Mismatch !";	
+	string $mismatchWarMess = "Sorry, the MGtools version your are installing is not for this OS platform.";
+	
+	if($MGtoolsLanguageChoice==1)
+	{
+		$mismatchWarTitle = $MG_simplifiedChinese_OSMismatch_title;
+		$mismatchWarMess = $MG_simplifiedChinese_OSMismatch_message;
+	}
+	else if ($MGtoolsLanguageChoice==2)
+	{
+		$mismatchWarTitle = $MG_traditionalChinese_OSMismatch_title;
+		$mismatchWarMess = $MG_traditionalChinese_OSMismatch_message;
+	}
+	string $pluginsPath = ($GmgtoolsInstallationFilePath+"plug-ins/");
+	string $pluginFiles[];clear $pluginFiles;
+	int $mismatch =0;
+	if(!$mgtoolsOStype)
+	{
+			$pluginFiles=`getFileList -fld $pluginsPath -fs "*.mll"`;
+			if(!size($pluginFiles))
+			{
+				 $mismatch =1;
+			}
+	}
+	else if($mgtoolsOStype==1)
+	{
+			$pluginFiles=`getFileList -fld $pluginsPath -fs "*.bundle"`;
+			if(!size($pluginFiles))
+			{
+				$mismatch =1;
+			}
+	}
+	else
+	{
+			$pluginFiles=`getFileList -fld $pluginsPath -fs "*.so"`;
+			if(!size($pluginFiles))
+			{
+				$mismatch =1;
+			}
+	}
+	if($mismatch)
+	{
+		confirmDialog -title $mismatchWarTitle -message $mismatchWarMess
+			 		-button "OK" -defaultButton "OK"
+			 		-cancelButton "OK" -dismissString "OK";	
+					return;
+	}	
+	string $lanLabelPath = ($GmgtoolsInstallationFilePath+"/icon/");
+	if($MGtoolsInstallMaya2011OrNot)$lanLabelPath += "2011/";
+	string $scLable,$tcLable;
+  $scLable = `shelfIcon "languageConfigLabel_sc.bmp"`;
+  $tcLable = `shelfIcon "languageConfigLabel_tc.bmp"`;
+  
+	//float $installBGC []={0.267,0.267,0.267};
+	string $installHelpDoc=($GmgtoolsInstallationFilePath+"/Help/CH/install_mgtools.htm");
+	if(!$MGtoolsLanguageChoice){$installHelpDoc=($GmgtoolsInstallationFilePath+"/Help/EN/install_mgtools_en.htm");}	
+
+	string $buy=("\"http://mgland.com/MGtools_ch.html?url=Buy\"");
+	if(!$MGtoolsLanguageChoice){$buy=("\"http://mgland.com/MGtools_en.html?url=Buy\"");}	
+
+	string $bgImage1=($GmgtoolsInstallationFilePath+"/icon/BGimage/fristScreen_BG.bmp");
+	string $bgImage2Top=($GmgtoolsInstallationFilePath+"/icon/BGimage/secScreenTop_BG.bmp");
+	
+	string $bgImage2Btnp=($GmgtoolsInstallationFilePath+"/icon/BGimage/secScreenBtm_BG.bmp");
+	string $buyBtnImage,$NextBtnImage,$intallHelpImage,$cancelImage,$lastImage,$goImage;
+	
+	string $winTitle,$boldText,$firstText,$radioBLabel1,$radioBLabel2,$radioBLabel3;
+	string 	$secText,$secCBLabel1,$secCBLabel2,$secCBLabel3,$secCBLabel4,$secCBLabel5,$secCBLabel6,$secCBLabel7,$secCBLabel8;
+	string 	$thirdText,$thirdCBLabel1,$thirdCBLabel2,$thirdCBLabel3,$thirdCBLabel4;
+	string $lanradioBLabel,$lanradioBLabel1,$lanradioBLabel2,$lanradioBLabel3;
+		$lanradioBLabel1="English";
+		
+		$lanradioBLabel2="Simplified Chinese -";
+		$lanradioBLabel3="Traditional Chinese -";	
+	//string $warnningMsg;	
+	//========================language global strings ==============================
+	//simplified chinese language source.
+
+	global string $MG_simplifiedChinese_title ;	
+	global string $MG_simplifiedChinese_welcome ;
+	global string $MG_simplifiedChinese_installTo ;
+	global string $MG_simplifiedChinese_currentShelf ;
+	global string $MG_simplifiedChinese_allShelf ;
+	global string $MG_simplifiedChinese_MGtoolsShelf;
+	
+	global string $MG_simplifiedChinese_nextAutoload ;
+	global string $MG_simplifiedChinese_mgtoolsMenu ;
+	global string $MG_simplifiedChinese_mgtoolsBar ;
+	global string $MG_simplifiedChinese_minimize ;
+	global string $MG_simplifiedChinese_mgChannelbox ;
+	global string $MG_simplifiedChinese_mgShelf ;
+	global string $MG_simplifiedChinese_constraint ;
+	global string $MG_simplifiedChinese_keyframeTool ;
+	global string $MG_simplifiedChinese_selection ;
+	
+	global string $MG_simplifiedChinese_afterInstall;
+	global string $MG_simplifiedChinese_afterInstall_mgtools;
+	global string $MG_simplifiedChinese_afterInstall_config;
+	global string $MG_simplifiedChinese_afterInstall_help;
+	global string $MG_simplifiedChinese_afterInstall_register;
+	global string $MG_simplifiedChinese_notice;
+	global string $MG_simplifiedChinese_uiLan;
+	
+	//traditional chinese language source.
+	global string $MG_traditionalChinese_title ;	
+	global string $MG_traditionalChinese_welcome ;
+	global string $MG_traditionalChinese_installTo ;
+	global string $MG_traditionalChinese_currentShelf ;
+	global string $MG_traditionalChinese_allShelf ;
+	global string $MG_traditionalChinese_MGtoolsShelf;
+	
+	global string $MG_traditionalChinese_nextAutoload ;
+	global string $MG_traditionalChinese_mgtoolsMenu ;
+	global string $MG_traditionalChinese_mgtoolsBar ;
+	global string $MG_traditionalChinese_minimize ;
+	global string $MG_traditionalChinese_mgChannelbox ;
+	global string $MG_traditionalChinese_mgShelf ;
+	global string $MG_traditionalChinese_constraint ;
+	global string $MG_traditionalChinese_keyframeTool ;
+	global string $MG_traditionalChinese_selection ;
+	
+	global string $MG_traditionalChinese_afterInstall;
+	global string $MG_traditionalChinese_afterInstall_mgtools;
+	global string $MG_traditionalChinese_afterInstall_config;
+	global string $MG_traditionalChinese_afterInstall_help;
+	global string $MG_traditionalChinese_afterInstall_register;
+	global string $MG_traditionalChinese_notice;
+	global string $MG_traditionalChinese_uiLan;
+	
+	global string $MG_simplifiedChinese_Warning;
+	global string $MG_traditionalChinese_Warning;
+	global string  $MG_simplifiedChinese_TIP;
+	global string  $MG_traditionalChinese_TIP;
+	
+	
+	//global string $MG_simplifiedChinese_EULA_missing;
+	//global string $MG_traditionalChinese_EULA_missing;
+	  
+	string $MG_EULA_FILENAME;
+	string $MG_License01_FILENAME;
+	string $EULA_TIP;
+	//string $eula_missingWar;
+	//string $license101_missingWar;
+	//==============================================================================	
+	if($MGtoolsLanguageChoice==1)	
+	{
+		$winTitle=$MG_simplifiedChinese_title;	
+		$boldText=$MG_simplifiedChinese_welcome;
+		$firstText=$MG_simplifiedChinese_installTo;
+		$radioBLabel1=$MG_simplifiedChinese_currentShelf;
+		$radioBLabel2=$MG_simplifiedChinese_allShelf ;
+		$radioBLabel3=$MG_simplifiedChinese_MGtoolsShelf;
+		
+		$secText=$MG_simplifiedChinese_nextAutoload;
+		$secCBLabel1=$MG_simplifiedChinese_mgtoolsMenu;
+		$secCBLabel2=$MG_simplifiedChinese_mgtoolsBar;
+		$secCBLabel3=$MG_simplifiedChinese_minimize;
+		$secCBLabel4=$MG_simplifiedChinese_mgChannelbox;
+		$secCBLabel5=$MG_simplifiedChinese_mgShelf;
+		$secCBLabel6=$MG_simplifiedChinese_constraint;
+		$secCBLabel7=$MG_simplifiedChinese_keyframeTool;
+		$secCBLabel8=$MG_simplifiedChinese_selection;
+		
+		$thirdText=$MG_simplifiedChinese_afterInstall;
+		$thirdCBLabel1=$MG_simplifiedChinese_afterInstall_mgtools;
+		$thirdCBLabel2=$MG_simplifiedChinese_afterInstall_config;		
+		$thirdCBLabel3=$MG_simplifiedChinese_afterInstall_help;
+		$thirdCBLabel4=$MG_simplifiedChinese_afterInstall_register;		
+		
+		$lanradioBLabel=$MG_simplifiedChinese_uiLan;
+		if($MacOSBefore2011)
+		{
+    		$buyBtnImage=($GmgtoolsInstallationFilePath+"/icon/White/installFristScreen_buy_ch.xpm");
+    		$NextBtnImage=($GmgtoolsInstallationFilePath+"/icon/White/installFristScreen_next_ch.xpm");
+    		$intallHelpImage=($GmgtoolsInstallationFilePath+"/icon/White/installSecScreen_help_ch.xpm");	
+    		$cancelImage=($GmgtoolsInstallationFilePath+"/icon/White/installSecScreen_cancel_ch.xpm");	
+    		$goImage=($GmgtoolsInstallationFilePath+"/icon/White/installSecScreen_go_ch.xpm");
+    		$lastImage=($GmgtoolsInstallationFilePath+"/icon/White/installSecScreenLast_ch.xpm");	
+	  }
+	  else if($LinuxBefore2011)
+		{
+    		$buyBtnImage=($GmgtoolsInstallationFilePath+"/icon/LinuxIcon/installFristScreen_buy_ch.xpm");
+    		$NextBtnImage=($GmgtoolsInstallationFilePath+"/icon/LinuxIcon/installFristScreen_next_ch.xpm");
+    		$intallHelpImage=($GmgtoolsInstallationFilePath+"/icon/LinuxIcon/installSecScreen_help_ch.xpm");	
+    		$cancelImage=($GmgtoolsInstallationFilePath+"/icon/LinuxIcon/installSecScreen_cancel_ch.xpm");	
+    		$goImage=($GmgtoolsInstallationFilePath+"/icon/LinuxIcon/installSecScreen_go_ch.xpm");
+    		$lastImage=($GmgtoolsInstallationFilePath+"/icon/LinuxIcon/installSecScreenLast_ch.xpm");	
+	  }
+	  else
+		{
+    		$buyBtnImage=($GmgtoolsInstallationFilePath+"/icon/installFristScreen_buy_ch.bmp");
+    		$NextBtnImage=($GmgtoolsInstallationFilePath+"/icon/installFristScreen_next_ch.bmp");
+    		$intallHelpImage=($GmgtoolsInstallationFilePath+"/icon/installSecScreen_help_ch.bmp");	
+    		$cancelImage=($GmgtoolsInstallationFilePath+"/icon/installSecScreen_cancel_ch.bmp");	
+    		$goImage=($GmgtoolsInstallationFilePath+"/icon/installSecScreen_go_ch.bmp");
+    		$lastImage=($GmgtoolsInstallationFilePath+"/icon/installSecScreenLast_ch.bmp");	
+	    }
+	    $MG_EULA_FILENAME = "EULA_CH.txt";
+	    $MG_License01_FILENAME = "License101_CH.txt";
+	    //$warnningMsg = $MG_simplifiedChinese_Warning;
+	    $EULA_TIP = $MG_simplifiedChinese_TIP;
+	}	
+	else if($MGtoolsLanguageChoice==2)	
+	{
+		$winTitle=$MG_traditionalChinese_title;	
+		$boldText=$MG_traditionalChinese_welcome;
+		$firstText=$MG_traditionalChinese_installTo;
+		$radioBLabel1=$MG_traditionalChinese_currentShelf;
+		$radioBLabel2=$MG_traditionalChinese_allShelf ;
+		$radioBLabel3=$MG_traditionalChinese_MGtoolsShelf;
+		
+		$secText=$MG_traditionalChinese_nextAutoload;
+		$secCBLabel1=$MG_traditionalChinese_mgtoolsMenu;
+		$secCBLabel2=$MG_traditionalChinese_mgtoolsBar;
+		$secCBLabel3=$MG_traditionalChinese_minimize;
+		$secCBLabel4=$MG_traditionalChinese_mgChannelbox;
+		$secCBLabel5=$MG_traditionalChinese_mgShelf;
+		$secCBLabel6=$MG_traditionalChinese_constraint;
+		$secCBLabel7=$MG_traditionalChinese_keyframeTool;
+		$secCBLabel8=$MG_traditionalChinese_selection;
+		
+		$thirdText=$MG_traditionalChinese_afterInstall;
+		$thirdCBLabel1=$MG_traditionalChinese_afterInstall_mgtools;
+		$thirdCBLabel2=$MG_traditionalChinese_afterInstall_config;		
+		$thirdCBLabel3=$MG_traditionalChinese_afterInstall_help;
+		$thirdCBLabel4=$MG_traditionalChinese_afterInstall_register;		
+		
+		$lanradioBLabel=$MG_traditionalChinese_uiLan;
+		if($MacOSBefore2011)
+		{
+    		$buyBtnImage=($GmgtoolsInstallationFilePath+"/icon/White/installFristScreen_buy_tc.xpm");
+    		$NextBtnImage=($GmgtoolsInstallationFilePath+"/icon/White/installFristScreen_next_ch.xpm");
+    		$intallHelpImage=($GmgtoolsInstallationFilePath+"/icon/White/installSecScreen_help_tc.xpm");	
+    		$cancelImage=($GmgtoolsInstallationFilePath+"/icon/White/installSecScreen_cancel_tc.xpm");	
+    		$goImage=($GmgtoolsInstallationFilePath+"/icon/White/installSecScreen_go_tc.xpm");
+    		$lastImage=($GmgtoolsInstallationFilePath+"/icon/White/installSecScreenLast_ch.xpm");	
+		}
+		else if($LinuxBefore2011)
+		{
+    		$buyBtnImage=($GmgtoolsInstallationFilePath+"/icon/LinuxIcon/installFristScreen_buy_tc.xpm");
+    		$NextBtnImage=($GmgtoolsInstallationFilePath+"/icon/LinuxIcon/installFristScreen_next_ch.xpm");
+    		$intallHelpImage=($GmgtoolsInstallationFilePath+"/icon/LinuxIcon/installSecScreen_help_tc.xpm");	
+    		$cancelImage=($GmgtoolsInstallationFilePath+"/icon/LinuxIcon/installSecScreen_cancel_tc.xpm");	
+    		$goImage=($GmgtoolsInstallationFilePath+"/icon/LinuxIcon/installSecScreen_go_tc.xpm");
+    		$lastImage=($GmgtoolsInstallationFilePath+"/icon/LinuxIcon/installSecScreenLast_ch.xpm");	
+		}
+		else
+		{
+    		$buyBtnImage=($GmgtoolsInstallationFilePath+"/icon/BGimage/installFristScreen_buy_tc.bmp");
+    		$NextBtnImage=($GmgtoolsInstallationFilePath+"/icon/BGimage/installFristScreen_next_ch.bmp");
+    		$intallHelpImage=($GmgtoolsInstallationFilePath+"/icon/BGimage/installSecScreen_help_tc.bmp");	
+    		$cancelImage=($GmgtoolsInstallationFilePath+"/icon/BGimage/installSecScreen_cancel_tc.bmp");	
+    		$goImage=($GmgtoolsInstallationFilePath+"/icon/BGimage/installSecScreen_go_tc.bmp");
+    		$lastImage=($GmgtoolsInstallationFilePath+"/icon/BGimage/installSecScreenLast_ch.bmp");	
+		}
+		
+	    $MG_EULA_FILENAME = "EULA_TC.txt";
+	    $MG_License01_FILENAME = "License101_TC.txt";
+	    //$warnningMsg = $MG_traditionalChinese_Warning;
+			$EULA_TIP = $MG_traditionalChinese_TIP;
+	}
+	else
+	{
+		$winTitle="MGTools v3+ InstallShield Wizard";	
+		$boldText="Welcome to the InstallShield Wizard for MGTools v3+";
+		$firstText="Add/Update MGTools entry to:";
+		$radioBLabel1="Install to Shelf [ 1 Shelf ]";
+		$radioBLabel2="Install all to current ShelfTab [ 80 Shelves]";
+		$radioBLabel3="Install all to New \"MGtools\" ShelfTab [ 80 Shelves]";
+		
+		$secText="Which items U want to be autoloaded when maya starts:";
+		$secCBLabel1="AutoLoad MGTools Menu";
+		$secCBLabel2="AutoLoad MGTools";
+		$secCBLabel3="AutoLoad MGTools Minimized";
+		$secCBLabel4="AutoLoad MGChannelBox";
+		$secCBLabel5="AutoLoad MGShelfBar";
+		$secCBLabel6="AutoLoad ConstraintTools";
+		$secCBLabel7="AutoLoad KeyframeTools";
+		$secCBLabel8="AutoLoad MG-SelectionSet";
+		
+		$thirdText="After installing MGtools:";
+		$thirdCBLabel1="Load MGtools";
+		$thirdCBLabel2="Config MGtools";		
+		$thirdCBLabel3="View Help Doc";
+		$thirdCBLabel4="Register MGTools";		
+		$lanradioBLabel="UI Language:";
+		if($MacOSBefore2011)
+		{
+    		$buyBtnImage=($GmgtoolsInstallationFilePath+"/icon/White/installFristScreen_buy_en.xpm");
+    		$NextBtnImage=($GmgtoolsInstallationFilePath+"/icon/White/installFristScreen_next_en.xpm");
+    		$intallHelpImage=($GmgtoolsInstallationFilePath+"/icon/White/installSecScreen_help_en.xpm");	
+    		$cancelImage=($GmgtoolsInstallationFilePath+"/icon/White/installSecScreen_cancel_en.xpm");	
+    		$goImage=($GmgtoolsInstallationFilePath+"/icon/White/installSecScreen_go_en.xpm");	
+    		$lastImage=($GmgtoolsInstallationFilePath+"/icon/White/installSecScreenLast_en.xpm");	
+    	}
+    	else if($LinuxBefore2011)
+		{
+    		$buyBtnImage=($GmgtoolsInstallationFilePath+"/icon/LinuxIcon/installFristScreen_buy_en.xpm");
+    		$NextBtnImage=($GmgtoolsInstallationFilePath+"/icon/LinuxIcon/installFristScreen_next_en.xpm");
+    		$intallHelpImage=($GmgtoolsInstallationFilePath+"/icon/LinuxIcon/installSecScreen_help_en.xpm");	
+    		$cancelImage=($GmgtoolsInstallationFilePath+"/icon/LinuxIcon/installSecScreen_cancel_en.xpm");	
+    		$goImage=($GmgtoolsInstallationFilePath+"/icon/LinuxIcon/installSecScreen_go_en.xpm");	
+    		$lastImage=($GmgtoolsInstallationFilePath+"/icon/LinuxIcon/installSecScreenLast_en.xpm");	
+    	}
+    	else
+		{
+    		$buyBtnImage=($GmgtoolsInstallationFilePath+"/icon/BGimage/installFristScreen_buy_en.bmp");
+    		$NextBtnImage=($GmgtoolsInstallationFilePath+"/icon/BGimage/installFristScreen_next_en.bmp");
+    		$intallHelpImage=($GmgtoolsInstallationFilePath+"/icon/BGimage/installSecScreen_help_en.bmp");	
+    		$cancelImage=($GmgtoolsInstallationFilePath+"/icon/BGimage/installSecScreen_cancel_en.bmp");	
+    		$goImage=($GmgtoolsInstallationFilePath+"/icon/BGimage/installSecScreen_go_en.bmp");	
+    		$lastImage=($GmgtoolsInstallationFilePath+"/icon/BGimage/installSecScreenLast_en.bmp");	
+    	}
+    	
+	    $MG_EULA_FILENAME = "EULA_EN.txt";
+	    $MG_License01_FILENAME = "License101_EN.txt";
+	    $EULA_TIP = "* Click \"NEXT\" button to accept EULA and continue; \"CANCEL\" button to decline & exit setup.";
+	    //$warnningMsg = "WARNING: This program is protected by copyright law and international treaties.\n"+
+	    //								"Unauthorized reproduction or distribution of this program,or any portion of it,may result in severe civil and criminal penalties,and will be prosecuted to the maximum extent possible under law.";
+	}
+    
+	string $EULAFile=($GmgtoolsInstallationFilePath+"invoke/"+$MG_EULA_FILENAME);
+	string $EULAContent;
+	if(`filetest -f $EULAFile`)
+	{
+		string $nextLine ,$getDataString;
+		$readFileID=`fopen $EULAFile "r"`;
+		//skip the first two lines:
+		fgetline $readFileID;
+		fgetline $readFileID;
+		while(!`feof $readFileID`)
+		{
+			$nextLine=`fgetline $readFileID`;
+			if (size($nextLine)>0)
+			{			
+				$EULAContent += $nextLine;
+			}
+		}
+		fclose $readFileID;
+	}
+	else
+	{
+	  global string $MG_simplifiedChinese_EULA_missing;
+	  global string $MG_traditionalChinese_EULA_missing;
+	  string $msg = "MGtools's End User License File is missing. Instllation abort.";
+	  if($MGtoolsLanguageChoice==1)	
+	  {
+	    $msg = $MG_simplifiedChinese_EULA_missing;
+	  }
+	  else if($MGtoolsLanguageChoice==2)	
+	  {
+	    $msg = $MG_traditionalChinese_EULA_missing;
+	  }
+		confirmDialog -t "MGTools" -m $msg -button "OK";
+		if (`window -exists mgtoolInstallUI`){deleteUI mgtoolInstallUI;}
+			return;
+	}
+	//print 	$installHelpDoc;
+	string $license101File=($GmgtoolsInstallationFilePath+"invoke/"+$MG_License01_FILENAME);
+	string $license101Content;
+	if(`filetest -f $license101File`)
+	{
+		string $nextLine ,$getDataString;
+		$readFileID=`fopen $license101File "r"`;
+		//skip the first two lines:
+		fgetline $readFileID;
+		fgetline $readFileID;
+		while(!`feof $readFileID`)
+		{
+			$nextLine=`fgetline $readFileID`;
+			if (size($nextLine)>0)
+			{			
+				$license101Content += $nextLine;
+			}
+		}
+		fclose $readFileID;
+	}
+	else
+	{
+	  global string $MG_simplifiedChinese_101_missing;
+	  global string $MG_traditionalChinese_101_missing;
+	  string $msg = "MGtools's Lincense 101 file is missing. Instllation abort.";
+	  if($MGtoolsLanguageChoice==1)	
+	  {
+	    $msg = $MG_simplifiedChinese_101_missing;
+	  }
+	  else if($MGtoolsLanguageChoice==2)	
+	  {
+	    $msg = $MG_traditionalChinese_101_missing;
+	  }
+		confirmDialog -t "MGTools" -m $msg -button "OK";
+		if (`window -exists mgtoolInstallUI`){deleteUI mgtoolInstallUI;}
+			return;
+	}
+	
+	if (`window -exists mgtoolInstallUI`){deleteUI mgtoolInstallUI;}
+	
+	window  -title $winTitle -in $winTitle  -mxb 0 -s 1 mgtoolInstallUI;
+	string $totalForm=`formLayout`;	
+	//=============first step ui========================================================	
+	string $firstForm=`formLayout InstallFirstFormLayout`;
+	string $clforFirst,$firstIM,$buyICB,$nextICB;
+	
+	if($MGtoolsInstallMaya2011OrNot)
+	{
+		$clforFirst=`columnLayout`;
+		if($mgtoolsOStype!=1)
+		{	
+			$firstIM=`iconTextStaticLabel -i $bgImage1 -w 527 -h 276`;
+			setParent ..;
+			$buyICB=`iconTextButton -mw 0 -mh 0 -i $buyBtnImage -c ("showHelp -absolute "+$buy) -w 88 -h 23 installMGtoolsBuyBtn`;
+			$nextICB=`iconTextButton -mw 0 -mh 0 -i $NextBtnImage -c "InstallMGtoolsNextStep 1" -w 88 -h 23 installMGtoolsNextBtn`;	
+		formLayout -e
+			-af 	$clforFirst "top" 0
+			-af 	$clforFirst "left" 0
+			-af 	$clforFirst "bottom" 0
+			
+			-af 	$buyICB "top" 241
+			-af 	$buyICB "left" 18
+			
+			-af 	$nextICB "top" 241
+			-af 	$nextICB "left" 424					
+			$firstForm	;		
+		}
+		else
+		{
+			$firstIM=`image -i $bgImage1 -w 525 -h 237`;
+			setParent ..;
+			//string $theSep =`separator -st "in"`;
+			$buyICB=`iconTextButton -mw 0 -mh 0 -i $buyBtnImage -c ("showHelp -absolute "+$buy) -w 88 -h 23 installMGtoolsBuyBtn`;
+			$nextICB=`iconTextButton -mw 0 -mh 0 -i $NextBtnImage -c "InstallMGtoolsNextStep 1" -w 88 -h 23 installMGtoolsNextBtn`;	
+			formLayout -e
+				-af 	$clforFirst "top" 0
+				-af 	$clforFirst "left" 0		
+				
+				-af 	$buyICB "top" 241
+				-af 	$buyICB "left" 18
+				
+				-af 	$nextICB "top" 241
+				-af 	$nextICB "left" 424					
+				$firstForm	;	
+		}
+
+
+	}
+	else
+	{
+
+		if($mgtoolsOStype!=1)
+		{		
+			$buyICB=`iconTextButton -mw 0 -mh 0 -i $buyBtnImage -c ("showHelp -absolute "+$buy) -w 88 -h 23 installMGtoolsBuyBtn`;
+			$nextICB=`iconTextButton -mw 0 -mh 0 -i $NextBtnImage -c "InstallMGtoolsNextStep 1" -w 88 -h 23 installMGtoolsNextBtn`;
+			$clforFirst=`image -i $bgImage1 -w 525 -h 274`;
+		formLayout -e		
+					
+					-af 	$buyICB "top" 241
+					-af 	$buyICB "left" 18
+					
+					-af 	$nextICB "top" 241
+					-af 	$nextICB "left" 424		
+					
+					-af 	$clforFirst "top" 0
+					-af 	$clforFirst "left" 0
+					-af 	$clforFirst "bottom" 0			
+					$firstForm	;	
+		}
+		else
+		{
+			$buyICB=`button -l "Buy.."  -c ("showHelp -absolute "+$buy) -w 88 -h 23 installMGtoolsBuyBtn`;
+			$nextICB=`button  -l "Next ->" -c "InstallMGtoolsNextStep 1" -w 88 -h 23 installMGtoolsNextBtn`;	
+			$clforFirst=`image -i $bgImage1 -w 525 -h 237`;
+					formLayout -e		
+					
+					-af 	$buyICB "top" 241
+					-af 	$buyICB "left" 18
+					
+					-af 	$nextICB "top" 241
+					-af 	$nextICB "left" 424		
+					
+					-af 	$clforFirst "top" 0
+					-af 	$clforFirst "left" 0	
+					$firstForm	;	
+		}
+		//	setParent ..;
+		
+	}
+  //=============inserted first step ui========================================================	
+	setParent $totalForm;	
+	string $insertedFirstForm=`formLayout -vis 0 InstallInsertedFirstFormLayout`;
+	string $insertColumnLayout = `columnLayout -adj 1 -rs 3`;
+	  
+	  
+  global string $MG_simplifiedChinese_EULA_topLbl;
+  global string $MG_traditionalChinese_EULA_topLbl;
+  $l = "   MGTools End User License Agreement:";
+  if($MGtoolsLanguageChoice==1)	
+  {
+    $l = $MG_simplifiedChinese_EULA_topLbl;
+  }
+  else if($MGtoolsLanguageChoice==2)	
+  {
+    $l = $MG_traditionalChinese_EULA_topLbl;
+  }
+	  
+	text  -h 20 -en 1 -align "left" -l $l -fn "boldLabelFont" insertEULA_TopAnnText;
+	scrollField -h 370 -ed 0 -text $EULAContent -ww 1 insertEULA_SF;		
+	//scrollField -w 525 -ed 0 -text $warnningMsg -ww 1 -h 100 ;
+	text -align "left" -w 525 -l $EULA_TIP insertEULA_TipLbl;
+	setParent..;
+	formLayout insertMGtoolsButtonsFL;
+//	print ("system (\"load "+$installHelpDoc+"\")");
+	if($MGtoolsInstallMaya2011OrNot)
+	{
+		string $insertCl=`columnLayout`;
+		if($mgtoolsOStype!=1)
+			image -i $bgImage2Btnp -w 525 -h 32;
+		else
+			separator -st "in"	-w 525;
+		setParent ..;		
+		
+			string $acceptButton=`iconTextButton -mw 0 -mh 0 -i $NextBtnImage -c "InstallMGtoolsNextStep 1" -w 88 -h 23 installMGTools_EULA_NextBtn`;	
+			string $declineButton = `iconTextButton -mw 0 -mh 0  -i $cancelImage  -c "deleteUI mgtoolInstallUI" installMGTools_EULA_CancelBtn`;
+		  string $toFirstBtn = `iconTextButton -mw 0 -mh 0 -w 88 -h 23 -i $lastImage  -c "InstallMGtoolsNextStep 0" installMGTools_EULA_BackBtn`;
+	
+		formLayout -e
+			-af $insertCl "left" 0
+			-af $insertCl "right" 0
+			-af $insertCl "top" 0
+					
+			-af $declineButton "top" 5	
+			-af $declineButton "left" 18
+			
+			-af $toFirstBtn "left" 324
+			-af $toFirstBtn "top" 5
+			
+			-af $acceptButton "left" 424
+			-af $acceptButton "top" 5					
+			insertMGtoolsButtonsFL;
+	}
+	else
+	{		
+			string $acceptButton=`iconTextButton -mw 0 -mh 0  -w 88 -h 23 -i $NextBtnImage -c "InstallMGtoolsNextStep 1"  installMGTools_EULA_NextBtn`;	
+			string $declineButton = `iconTextButton -mw 0 -mh 0  -w 68 -h 23  -i $cancelImage  -c "deleteUI mgtoolInstallUI"  installMGTools_EULA_CancelBtn`;
+		  string $toFirstBtn = `iconTextButton -mw 0 -mh 0 -w 88 -h 23 -i $lastImage  -c "InstallMGtoolsNextStep 0"  installMGTools_EULA_BackBtn`;		  			
+		if($mgtoolsOStype!=1)
+		{
+			string $insertCl=`image -i $bgImage2Btnp -w 525 -h 32`;
+	
+			formLayout -e					
+				-af $declineButton "top" 5	
+				-af $declineButton "left" 18				
+				
+				-af $toFirstBtn "left" 324
+				-af $toFirstBtn "top" 5			
+		
+				-af $acceptButton "top" 5	
+				-af $acceptButton "left" 424
+							
+				-af $insertCl "left" 0
+				-af $insertCl "top" 0
+					insertMGtoolsButtonsFL;
+		}
+		else
+		{
+			string $insertCl=`separator -st "in"`;
+			formLayout -e					
+				-af $declineButton "top" 5	
+				-af $declineButton "left" 18
+				
+				-af $toFirstBtn "left" 324
+				-af $toFirstBtn "top" 5			
+		
+				-af $acceptButton  "top" 5	
+				-af $acceptButton "left" 424
+							
+				-af $insertCl "left" 0
+				-af $insertCl "top" 0
+					insertMGtoolsButtonsFL;
+		}
+		
+		
+	}	
+		formLayout -e
+			-af 	$insertColumnLayout "top" 3
+			-af 	$insertColumnLayout "left" 3
+			-af 	$insertColumnLayout "right" 3
+			-ac 	$insertColumnLayout "bottom" 5 insertMGtoolsButtonsFL
+			
+			-af 	insertMGtoolsButtonsFL "bottom" 3
+			-af 	insertMGtoolsButtonsFL "left" 3
+			-af 	insertMGtoolsButtonsFL "right" 3
+			$insertedFirstForm	;		
+	//=============second step ui========================================================	
+	
+	setParent $totalForm;			
+	columnLayout  -rowSpacing 3 -vis 0 -adj 1 mgtoolsInstall_Lincese101Col;
+	    //columnLayout -adj 1 -rs 2;
+	    global string $MG_simplifiedChinese_101_topLbl;
+      global string $MG_traditionalChinese_101_topLbl;
+      $l = "   MGTools Pro3  License 101:";
+      if($MGtoolsLanguageChoice==1)	
+      {
+        $l = $MG_simplifiedChinese_101_topLbl;
+      }
+      else if($MGtoolsLanguageChoice==2)	
+      {
+        $l = $MG_traditionalChinese_101_topLbl;
+      }
+	    text  -h 20 -en 1 -align "left" -l $l -fn "boldLabelFont" mgtoolsInstall_Lincese101Text;
+	    scrollField -ww 1 -en 1 -ed 0 -h 370 -text $license101Content mgtoolsInstall_Lincese101SF;
+	
+	setParent mgtoolsInstall_Lincese101Col;	
+  formLayout MGToolsInstallOptionFL;
+//	print ("system (\"load "+$installHelpDoc+"\")");
+
+	if($MGtoolsInstallMaya2011OrNot)
+	{		
+  		string $insertCl=`columnLayout`;  			
+  		if($mgtoolsOStype!=1)
+  			image -i $bgImage2Btnp -w 525 -h 32;
+  		else
+  			separator -st "in"	-w 525;
+  		setParent ..;		
+			string $acceptButton=`iconTextButton -mw 0 -mh 0 -i $NextBtnImage -c "InstallMGtoolsNextStep 1" -w 88 -h 23 installMGTools_License_NextBtn`;	
+			string $declineButton = `iconTextButton -mw 0 -mh 0  -i $cancelImage  -c "deleteUI mgtoolInstallUI" installMGTools_License_CancelBtn`;
+		  string $toFirstBtn = `iconTextButton -mw 0 -mh 0 -w 88 -h 23 -i $lastImage  -c "InstallMGtoolsNextStep 0" installMGTools_License_BackBtn`;
+	
+		formLayout -e					
+			-af $declineButton "top" 5	
+			-af $declineButton "left" 18
+			
+			-af $toFirstBtn "left" 324
+			-af $toFirstBtn "top" 5
+			
+			-af $acceptButton "left" 424
+			-af $acceptButton "top" 5	
+			
+			-af $insertCl "left" 0
+			-af $insertCl "top" 0				
+			MGToolsInstallOptionFL;
+	}
+	else
+	{		
+			string $acceptButton=`iconTextButton -mw 0 -mh 0  -w 88 -h 23 -i $NextBtnImage -c "InstallMGtoolsNextStep 1" installMGTools_License_NextBtn`;	
+			string $declineButton = `iconTextButton -mw 0 -mh 0  -w 68 -h 23  -i $cancelImage  -c "deleteUI mgtoolInstallUI" installMGTools_License_CancelBtn`;
+		  string $toFirstBtn = `iconTextButton -mw 0 -mh 0 -w 88 -h 23 -i $lastImage  -c "InstallMGtoolsNextStep 0" installMGTools_License_BackBtn`;		  			
+		if($mgtoolsOStype!=1)
+		{	
+			string $insertCl=`image -i $bgImage2Btnp -w 525 -h 32`;	
+			formLayout -e					
+				-af $declineButton "top" 5	
+				-af $declineButton "left" 18				
+				
+				-af $toFirstBtn "left" 324
+				-af $toFirstBtn "top" 5			
+		
+				-af $acceptButton "top" 5	
+				-af $acceptButton "left" 424
+				
+				-af $insertCl "left" 0
+				-af $insertCl "top" 0
+					MGToolsInstallOptionFL;
+		}
+		else
+		{
+			string $insertCl=`separator -st "in"`;
+			formLayout -e					
+				-af $declineButton "top" 5	
+				-af $declineButton "left" 18
+				
+				-af $toFirstBtn "left" 324
+				-af $toFirstBtn "top" 5			
+		
+				-af $acceptButton  "top" 5	
+				-af $acceptButton "left" 424
+					MGToolsInstallOptionFL;
+		}		
+		
+	}	
+	//	checkBox -align "left"	-label "Check for Updates" afterInstallMGviewMGtoolsCB;
+		//separator -st "in" -w 500 -height 10;
+		
+		
+	//=============last step ui========================================================	
+	
+	setParent $totalForm;			
+	columnLayout  -rowSpacing 5 -vis 0 -adj 2 mgtoolsInstall_optionAndSettingCL;
+  
+	image -i $bgImage2Top -w 525 -h 39 mgtoolsInstallSecStepTopImage;
+	if(!$MGtoolsInstallMaya2011OrNot&&$mgtoolsOStype==1)
+	    image -e -vis 0 mgtoolsInstallSecStepTopImage;
+		//separator -hr 0 -style "none" -w 8;
+	columnLayout -adj 1 -rowSpacing 1  contentCol;
+	//text -align "left" -font "boldLabelFont" -l $boldText -w 330 MGtoolsInstallTopText;
+	rowLayout -nc 2 -columnWidth2 10 330;
+	separator -hr 0 -style "none" -w 12;
+	columnLayout -adj 1 -rowSpacing 4 CLforInstallProgressAttach;
+	columnLayout -adj 1 -rowSpacing 4 CLforInstallProgressDisable;
+		
+	int $Preset_langChoice = $optionPresets[0];
+	if(!$Preset_langChoice)
+	{
+		$Preset_langChoice = 1;
+	}
+	
+ 	radioCollection MGtoosInstallLanguageOptionRBG;
+ 		rowLayout -nc 2 -cw2 100 110 -cl2 "left" "left";
+ 			text -l $lanradioBLabel -align "left" -fn "boldLabelFont" MGtoolsConfigLanguage_radioLabel; 	
+ 			radioButton -label "English" -align "left" -cc "installMGtoolsLanguageOptionCC" MGtoolsConfigLanguage_enRB;
+ 			if($Preset_langChoice == 1)radioButton -e -sl MGtoolsConfigLanguage_enRB;
+			setParent..;
+		rowLayout -nc 5 -cw5 100 110 80 115 80 -cl5 "left" "left" "left" "left" "left";
+			text -l "";
+		int $enableCN =1;	
+     	//if($mgtoolsOStype)$enableCN =0;
+ 		radioButton -en $enableCN -w 110 -label "Simplified Chinese -"  -align "left" -cc "installMGtoolsLanguageOptionCC"  MGtoosInstallLanguage_scRB;
+ 			if($Preset_langChoice == 2)radioButton -e -sl MGtoosInstallLanguage_scRB;
+ 			iconTextStaticLabel -w 50 -h 16 -mw 0 -mh 0  -i $scLable;
+ 		radioButton  -en $enableCN  -w 115  -label "Traditional Chinese -" -align "left" -cc "installMGtoolsLanguageOptionCC"  MGtoosInstallLanguage_tcRB;
+ 			if($Preset_langChoice==3)radioButton -e -sl MGtoosInstallLanguage_tcRB;
+ 			iconTextStaticLabel -w 50 -h 16 -mw 0 -mh 0 -i $tcLable;
+ 		setParent..;
+ 		
+	separator -st "in" -w 500;
+		
+    global string $MG_simplifiedChinese_installAsLocal;
+	  global string $MG_simplifiedChinese_installAsGlobal;
+	  global string $MG_simplifiedChinese_installAsFullGlobal;
+    global string $MG_traditionalChinese_installAsLocal;
+	  global string $MG_traditionalChinese_installAsGlobal;
+	  global string $MG_traditionalChinese_installAsFullGlobal;
+    global string $MG_simplifiedChinese_autoloadVia;
+	  global string $MG_traditionalChinese_autoloadVia;
+    global string $MG_simplifiedChinese_installMode;
+	  global string $MG_traditionalChinese_installMode;
+	  
+	  string $installAsLocal = "Install As A Local Program [ Copy all files to Maya' user script folder ]";
+    string $installAsGlobal = "Install As A Server Program [ Copy only heavily used files to user script folder]";
+    string $installAsFullGlobal = "Install As Full Server Program [ Copy nothing && only user data in user script folder]";
+    
+	  string $autoLoadVia = "Autoload Via File:";
+	  string $installMode = "Install Mode:";
+	  if($MGtoolsLanguageChoice==1)	
+	  {
+	    $installAsLocal = $MG_simplifiedChinese_installAsLocal;
+	    $installAsGlobal = $MG_simplifiedChinese_installAsGlobal;
+	    $installAsFullGlobal = $MG_simplifiedChinese_installAsFullGlobal;
+	    $autoLoadVia =$MG_simplifiedChinese_autoloadVia;
+	    $installMode = $MG_simplifiedChinese_installMode;
+	  }
+	  else if($MGtoolsLanguageChoice==2)	
+	  {
+	    $installAsLocal = $MG_traditionalChinese_installAsLocal;
+	    $installAsGlobal = $MG_traditionalChinese_installAsGlobal;
+	    $installAsFullGlobal = $MG_traditionalChinese_installAsFullGlobal;
+	    $autoLoadVia =$MG_traditionalChinese_autoloadVia;
+	    $installMode = $MG_traditionalChinese_installMode;
+	  }	
+	  int $Preset_installMode = $optionPresets[1];
+		if(!$Preset_installMode)
+		{
+			$Preset_installMode = 1;
+		}
+	  text -label $installMode -align "left" -fn "boldLabelFont" installMG_installModeLbl;
+		radioCollection installMGtoolsModeRC;			
+			radioButton -align "left"	-label $installAsLocal installMGAsLocalCB;	  //-cc "installMGTools_ChangeInstallModeCC" 
+			radioButton  -align "left"	-label $installAsGlobal installMGAsGlobalCB;
+			radioButton  -align "left"	-label $installAsFullGlobal installMGAsFullGlobalCB;
+			if($Preset_installMode == 1)
+			{
+				radioButton -e -sl installMGAsLocalCB;
+			}		
+			else if($Preset_installMode == 2)
+			{
+				radioButton -e -sl installMGAsGlobalCB;
+			}		
+			else
+			{
+				radioButton -e -sl installMGAsFullGlobalCB;
+			}
+	separator -st "in" -w 500;
+		int $Preset_installShelfMode = $optionPresets[2];
+		if(!$Preset_installShelfMode)
+		{
+			$Preset_installShelfMode = 1;
+		}
+		text -label $firstText -align "left" -fn "boldLabelFont" installMGEntryAnnoText;
+		radioCollection installMGtoolsEntryRC;
+			radioButton -align "left"	-label $radioBLabel3 installMGEntryToNewShelfTabCB;
+			radioButton -align "left"	-label $radioBLabel2 installMGEntryToCurrentShelfTabCB;
+			radioButton -align "left"	-label $radioBLabel1 installMGEntryToShelfCB;			
+			if($Preset_installShelfMode == 1)
+			{
+				radioButton -e -sl installMGEntryToNewShelfTabCB;
+			}		
+			else if($Preset_installShelfMode == 2)
+			{
+				radioButton -e -sl installMGEntryToCurrentShelfTabCB;
+			}	
+			else
+			{
+				radioButton -e -sl installMGEntryToShelfCB;
+			}
+		
+		separator -style "in" -height 5  -w 500;
+		text -label $secText -align "left" 
+						-fn "boldLabelFont"
+						//-bgc $installBGC[0] $installBGC[1]  $installBGC[2]  
+						installAutoLoadMGtoolsAnnoText;
+						
+		string $autoloadOptionString = $optionPresets[3];
+		if(!size($autoloadOptionString))
+		{
+			$autoloadOptionString = "12";
+		}
+		int $autoloadMenu = `gmatch $autoloadOptionString "*1*"`;
+		int $autoloadMGTools = `gmatch $autoloadOptionString "*2*"`;
+		int $autoloadMGToolsMinimized = `gmatch $autoloadOptionString "*3*"`;
+		int $autoloadMGCB = `gmatch $autoloadOptionString "*4*"`;
+		int $autoloadMGShelfBar = `gmatch $autoloadOptionString "*5*"`;
+		int $autoloadCons = `gmatch $autoloadOptionString "*6*"`;
+		int $autoloadKeyframeTool = `gmatch $autoloadOptionString "*7*"`;
+		int $autoloadSelSet = `gmatch $autoloadOptionString "*8*"`;
+						
+		checkBox -align "left"	-v $autoloadMenu -label $secCBLabel1 -enable 1 installAutoLoadMGtoolsMenuCB;
+		rowLayout -cw2 150 300 -nc 2 -cl2 "left" "left";
+		checkBox -align "left"	-v $autoloadMGTools 	-label $secCBLabel2
+				-onCommand "checkBox	-e -enable 1 installautoLoadMinCB;"
+				-offCommand "checkBox -e -enable 0 installautoLoadMinCB;"
+				installAutoLoadMGtoolsCB;
+			checkBox -align "left"	-label $secCBLabel3 -v $autoloadMGToolsMinimized  installautoLoadMinCB;
+			setParent..;
+			checkBox -align "left"	-label $secCBLabel4 -enable 1 -v $autoloadMGCB installAutoLoadChannelBoxCB;	
+			checkBox -align "left"	-label $secCBLabel5 -enable 1 -v $autoloadMGShelfBar installautoLoadShelfCB;
+			checkBox -align "left"	-label $secCBLabel6 -enable 1 -v $autoloadCons installAutoLoadconstraintToolCB;
+			checkBox -align "left"	-label $secCBLabel7 -enable 1 -v $autoloadKeyframeTool installAutoLoadkeyframeToolCB;	
+			checkBox -align "left"	-label $secCBLabel8 -v $autoloadSelSet installAutoLoadMGselsetCB;	
+
+		separator -style "in" -height 5  -w 500;			
+			rowLayout -nc 3 -cw3 150 110 1 -cl3 "left" "left"  "left" -adj 3;
+		    text -label $autoLoadVia -align "left" -fn "boldLabelFont" installAutoLoadViaTxt;
+		    int $Preset_autoloadVia = $optionPresets[4];
+				if(!$Preset_autoloadVia)
+				{
+					$Preset_autoloadVia = 1;
+				}
+		    radioCollection installMGtoolsViaFileRC;
+		    radioButton -l "UserSetup.mel" -sl installAutoLoadViaUsersetupMELRB;
+		    radioButton -l "UserSetup.py" installAutoLoadViaUsersetupPYRB;
+				if($Preset_autoloadVia == 1)
+				{
+					radioButton -e -sl installAutoLoadViaUsersetupMELRB;
+				}		
+				else if($Preset_autoloadVia == 2)
+				{
+					radioButton -e -sl installAutoLoadViaUsersetupPYRB;
+				}	
+		  setParent ..;
+		separator -style "in" -height 3  -w 500;
+		text -label $thirdText -align "left" -fn "boldLabelFont" afterInstallMGAnnoText;
+		rowLayout -nc 2 -cw2 150 200 -cl2 "left" "left";
+		string $afterInstallOptionString = $optionPresets[5];
+		if(!size($afterInstallOptionString))
+		{
+			$afterInstallOptionString = "14";
+		}
+		int $afterInstallLoadMG = `gmatch $afterInstallOptionString "*1*"`;
+		int $afterInstallViewDoc = `gmatch $afterInstallOptionString "*2*"`;
+		int $afterInstallConfig = `gmatch $afterInstallOptionString "*3*"`;
+		int $afterInstallRegMG = `gmatch $afterInstallOptionString "*4*"`;
+		columnLayout -adj 1;
+			checkBox -w 150 -align "left"	-v $afterInstallLoadMG -label $thirdCBLabel1 afterInstallMGviewMGtoolsCB;
+			checkBox -w 150 -align "left"	-v $afterInstallConfig -label $thirdCBLabel2 afterInstallMGconfigMGtoolsCB;	
+		setParent..;
+		columnLayout -adj 1;
+			checkBox -align "left"	-v $afterInstallViewDoc -label $thirdCBLabel3 afterInstallMGviewDocCB;
+			checkBox -align "left"	-v $afterInstallRegMG -label $thirdCBLabel4 afterInstallMGRegisterCB;	
+
+	setParent mgtoolsInstall_optionAndSettingCL;
+	//separator  -style "in" ;
+	formLayout installMGtoolsButtonsFL;
+//	print ("system (\"load "+$installHelpDoc+"\")");
+	if($MGtoolsInstallMaya2011OrNot)
+	{
+		string $lastCl=`columnLayout`;
+		if($mgtoolsOStype!=1)
+			image -i $bgImage2Btnp -w 525 -h 32;
+		else
+			separator -st "in"	-w 525;
+		setParent ..;
+		iconTextButton -mw 0 -mh 0 -i $intallHelpImage -c ("system (\"load "+$installHelpDoc+"\")") installMGtoolsHelpButton;	
+		iconTextButton -mw 0 -mh 0  -i $cancelImage  -c "deleteUI mgtoolInstallUI"installMGtoolsCancelButton;
+		iconTextButton -mw 0 -mh 0 -w 88 -h 23 -i $lastImage  -c "InstallMGtoolsNextStep 0" installMGtoolsLastButton;
+		iconTextButton -mw 0 -mh 0  -i $goImage  -c "installMGtoolsDoIt" installMGtoolsInstallButton;
+
+		formLayout -e
+			-af $lastCl "left" 0
+			-af $lastCl "top" 0
+					
+			-af installMGtoolsHelpButton "top" 5	
+			-af installMGtoolsHelpButton "left" 18
+			
+			-af installMGtoolsCancelButton "left" 99
+			-af installMGtoolsCancelButton "top" 5
+			
+			-af installMGtoolsLastButton "left" 324
+			-af installMGtoolsLastButton "top" 5	
+				
+			-af installMGtoolsInstallButton "top" 5	
+			-af installMGtoolsInstallButton "left" 424
+			installMGtoolsButtonsFL;
+	}
+	else
+	{					
+		iconTextButton -mw 0 -mh 0 -w 68 -h 23  -i $intallHelpImage -c ("system (\"load "+$installHelpDoc+"\")") installMGtoolsHelpButton;	
+		iconTextButton -mw 0 -mh 0 -w 68 -h 23 -i $cancelImage  -c "deleteUI mgtoolInstallUI" installMGtoolsCancelButton;
+		iconTextButton -mw 0 -mh 0 -w 88 -h 23 -i $lastImage  -c "InstallMGtoolsNextStep 0" installMGtoolsLastButton;
+		iconTextButton -mw 0 -mh 0 -w 88 -h 23 -i $goImage  -c "installMGtoolsDoIt" installMGtoolsInstallButton;
+		if($mgtoolsOStype!=1)
+		{
+			string $lastCl=`image -i $bgImage2Btnp -w 525 -h 32`;
+	
+			formLayout -e					
+				-af installMGtoolsHelpButton "top" 5	
+				-af installMGtoolsHelpButton "left" 18
+				
+				-af installMGtoolsCancelButton "left" 99
+				-af installMGtoolsCancelButton "top" 5
+				
+				-af installMGtoolsLastButton "left" 324
+				-af installMGtoolsLastButton "top" 5			
+		
+				-af installMGtoolsInstallButton "top" 5	
+				-af installMGtoolsInstallButton "left" 424
+							
+				-af $lastCl "left" 0
+				-af $lastCl "top" 0
+					installMGtoolsButtonsFL;
+		}
+		else
+		{
+			string $lastCl=`separator -st "in"`;
+			formLayout -e					
+				-af installMGtoolsHelpButton "top" 5	
+				-af installMGtoolsHelpButton "left" 18
+				
+				-af installMGtoolsCancelButton "left" 99
+				-af installMGtoolsCancelButton "top" 5
+				
+				-af installMGtoolsLastButton "left" 324
+				-af installMGtoolsLastButton "top" 5			
+		
+				-af installMGtoolsInstallButton "top" 5	
+				-af installMGtoolsInstallButton "left" 424
+							
+				-af $lastCl "left" 0
+				-af $lastCl "top" 0
+					installMGtoolsButtonsFL;
+		}
+		
+		
+	}	
+	formLayout -e
+		-af $firstForm "left" 0
+		-af $firstForm "right" 0
+		-af $firstForm "top" 0
+		-af $firstForm "bottom" 0
+		
+		-af $insertedFirstForm "left" 0
+		-af $insertedFirstForm "right" 0
+		-af $insertedFirstForm "top" 0
+		-af $insertedFirstForm "bottom" 0
+		
+		-af mgtoolsInstall_Lincese101Col "left" 0
+		-af mgtoolsInstall_Lincese101Col "right" 0
+		-af mgtoolsInstall_Lincese101Col "top" 0
+		-af mgtoolsInstall_Lincese101Col "bottom" 0
+		
+		-af mgtoolsInstall_optionAndSettingCL "left" 0
+		-af mgtoolsInstall_optionAndSettingCL "right" 0
+		-af mgtoolsInstall_optionAndSettingCL "top" 0
+		-af mgtoolsInstall_optionAndSettingCL "bottom" 0
+		$totalForm;	
+	showWindow mgtoolInstallUI;
+	//window -q -wh mgtoolInstallUI;
+	if($MGtoolsInstallMaya2011OrNot||$LinuxBefore2011)
+	{
+		window -e -wh  525 275  mgtoolInstallUI;
+	}
+	else
+	{
+		window -e -wh  532 312  mgtoolInstallUI;
+	}	
+	installMGtoolsLanguageOptionCC;	
+		
+}
+global proc InstallMGtoolsNextStep (int $mode)
+{
+	//mode 0: last
+	//mode 1: NextBtnImage
+	global int $MGtoolsInstallMaya2011OrNot;
+	global int $mgtoolsOStype;
+	global int  $LinuxBefore2011;
+	if($mode)
+	{
+		if(`formLayout -q -vis InstallInsertedFirstFormLayout`)	//it is at the EULA page
+		{
+				layout -e -vis 0 InstallInsertedFirstFormLayout;
+				layout -e -vis 1 mgtoolsInstall_Lincese101Col;
+				image -e -vis 1 mgtoolsInstallSecStepTopImage;
+				layout -e -vis 0 mgtoolsInstall_optionAndSettingCL;
+				if($MGtoolsInstallMaya2011OrNot)
+				{
+					window -e -wh  525 435  mgtoolInstallUI;		
+				}
+				else if($LinuxBefore2011)
+				{ 
+					window -e -wh  525 450  mgtoolInstallUI;		
+				}
+				else
+				{
+				    if($mgtoolsOStype!=1)   //not mac
+				        window -e -wh  532 460  mgtoolInstallUI;
+				    else
+				        window -e -wh  532 490  mgtoolInstallUI;		     
+				}
+		}	
+		else if(`layout -q -vis mgtoolsInstall_Lincese101Col`)	//in the license 101 page
+		{
+		  //print "Goto this\n";
+				layout -e -vis 0 InstallInsertedFirstFormLayout;
+				layout -e -vis 0 mgtoolsInstall_Lincese101Col;
+				image -e -vis 1 mgtoolsInstallSecStepTopImage;
+				layout -e -vis 1 mgtoolsInstall_optionAndSettingCL;
+				if($MGtoolsInstallMaya2011OrNot)
+				{
+					window -e -wh  525 615  mgtoolInstallUI;		
+				}
+				else if($LinuxBefore2011)
+				{ 
+					window -e -wh  525 590  mgtoolInstallUI;		
+				}
+				else
+				{
+				    if($mgtoolsOStype!=1)   //not mac
+				        window -e -wh  532 590  mgtoolInstallUI;
+				    else
+				        window -e -wh  532 690  mgtoolInstallUI;		    
+				}
+		}	
+		else		//at first page
+		{
+				layout -e -vis 0 InstallFirstFormLayout;
+				layout -e -vis 1 InstallInsertedFirstFormLayout;
+				layout -e -vis 0 mgtoolsInstall_optionAndSettingCL;
+				if($MGtoolsInstallMaya2011OrNot)
+				{
+					window -e -wh  525 460  mgtoolInstallUI;		
+				}
+				else if($LinuxBefore2011)
+				{ 
+					window -e -wh  525 470  mgtoolInstallUI;		
+				}
+				else
+				{
+				    if($mgtoolsOStype!=1)  //not mac
+				        window -e -wh  532 505  mgtoolInstallUI;
+				    else
+				        window -e -wh  532 490  mgtoolInstallUI;		    
+				}
+		}
+	}
+	else
+	{
+		if(`layout -q -vis mgtoolsInstall_Lincese101Col`)		//current at the license 101 page
+		{
+			layout -e -vis 1 InstallInsertedFirstFormLayout;			
+			layout -e -vis 0 mgtoolsInstall_Lincese101Col;
+			if($MGtoolsInstallMaya2011OrNot)
+			{
+				window -e -wh  525 460  mgtoolInstallUI;		
+			}
+			else if($LinuxBefore2011)
+			{ 
+				window -e -wh  525 470  mgtoolInstallUI;		
+			}
+			else
+			{
+			    if($mgtoolsOStype!=1)  //not mac
+			        window -e -wh  532 505  mgtoolInstallUI;
+			    else
+			        window -e -wh  532 490  mgtoolInstallUI;		    
+			}
+		}
+		else if(`layout -q -vis mgtoolsInstall_optionAndSettingCL`)	//in the installation option page
+		{
+				layout -e -vis 0 InstallInsertedFirstFormLayout;
+				layout -e -vis 1 mgtoolsInstall_Lincese101Col;
+				image -e -vis 1 mgtoolsInstallSecStepTopImage;
+				layout -e -vis 0 mgtoolsInstall_optionAndSettingCL;
+				if($MGtoolsInstallMaya2011OrNot)
+				{
+					window -e -wh  525 435  mgtoolInstallUI;		
+				}
+				else if($LinuxBefore2011)
+				{ 
+					window -e -wh  525 450  mgtoolInstallUI;		
+				}
+				else
+				{
+				    if($mgtoolsOStype!=1)   //not mac
+				        window -e -wh  532 460  mgtoolInstallUI;
+				    else
+				        window -e -wh  532 490  mgtoolInstallUI;		     
+				}
+		}	
+		else	//current at the EULA page
+		{
+			formLayout -e -vis 0 InstallInsertedFirstFormLayout;	
+			formLayout -e -vis 1 InstallFirstFormLayout;
+			layout -e -vis 0 mgtoolsInstall_Lincese101Col;
+			if($MGtoolsInstallMaya2011OrNot|| $LinuxBefore2011)window -e -wh  525 275  mgtoolInstallUI;		
+			else{window -e -wh  532 312  mgtoolInstallUI;}
+		}
+	}	
+}
+global proc  installMGtoolsDoIt ()
+{	
+    global string $GmgtoolsInstallationFilePath;
+    string $newServFile = $GmgtoolsInstallationFilePath +"/invoke/serveProc_WrittenByMiguel.mel";
+    eval ("source \""+$newServFile+"\"");
+    print "\n";
+    
+	//installMGTools_sourceNecessaryFiles;
+	MGtools_testAndUnloadPluginForUpdate;
+	//if(!`MGtools_testAndUnloadPluginForUpdate`)
+	//{
+	//	return;
+	//}
+	string $title,$progressText00,$progressText000,$progressText01,$progressText02,$progressText03,$progressText04,$progressText05,$progressText06,$progressText07;
+	global int $MGtoolsLanguageChoice;
+	//int $systemInfo=`chineseSystemOrNot`;
+	
+	string $aboutImage=($GmgtoolsInstallationFilePath+"/icon/BGimage/About_BG.bmp");
+		
+	global string $MG_simplifiedChinese_wip_title;
+	global string $MG_simplifiedChinese_wip_00;
+	global string $MG_simplifiedChinese_wip_01;
+	global string $MG_simplifiedChinese_wip_02;
+	global string $MG_simplifiedChinese_wip_03;
+	global string $MG_simplifiedChinese_wip_04;
+	global string $MG_simplifiedChinese_wip_05;
+	global string $MG_simplifiedChinese_wip_06;
+	global string $MG_simplifiedChinese_wip_07;
+	
+	global string $MG_traditionalChinese_wip_title;
+	global string $MG_traditionalChinese_wip_00;
+	global string $MG_traditionalChinese_wip_01;
+	global string $MG_traditionalChinese_wip_02;
+	global string $MG_traditionalChinese_wip_03;
+	global string $MG_traditionalChinese_wip_04;
+	global string $MG_traditionalChinese_wip_05;
+	global string $MG_traditionalChinese_wip_06;
+	global string $MG_traditionalChinese_wip_07;
+	
+	if($MGtoolsLanguageChoice==1)	
+	{
+		$title= $MG_simplifiedChinese_wip_title;
+		$progressText00=$MG_simplifiedChinese_wip_00;
+		$progressText01=$MG_simplifiedChinese_wip_01;		
+		$progressText02=$MG_simplifiedChinese_wip_02;	
+		$progressText03=$MG_simplifiedChinese_wip_03;
+		$progressText04=$MG_simplifiedChinese_wip_04;
+		$progressText05=$MG_simplifiedChinese_wip_05;
+		$progressText06=$MG_simplifiedChinese_wip_06;
+		$progressText07=$MG_simplifiedChinese_wip_07;		
+	}	
+	else if($MGtoolsLanguageChoice==2)	
+	{
+		$title= $MG_traditionalChinese_wip_title;
+		$progressText00=$MG_traditionalChinese_wip_00;
+		$progressText01=$MG_traditionalChinese_wip_01;		
+		$progressText02=$MG_traditionalChinese_wip_02;	
+		$progressText03=$MG_traditionalChinese_wip_03;
+		$progressText04=$MG_traditionalChinese_wip_04;
+		$progressText05=$MG_traditionalChinese_wip_05;
+		$progressText06=$MG_traditionalChinese_wip_06;
+		$progressText07=$MG_traditionalChinese_wip_07;		
+	}
+	else
+	{
+		$title= "Installing, please standBy :P";
+		$progressText00="Current MGTools Install progress:\n\n";	
+		$progressText01="  Step01: Gathering file information";	
+		$progressText02="  Step02: Preparing to copy MGTools program files";	
+		$progressText03="  Step03: Install corresponding MGtools shelves";		
+		$progressText04="  Step04: Build autoLoad system";		
+		$progressText05="  Step05: Necessary installtion completed,Booting tools..";
+		$progressText06="Done!!";		
+		$progressText07="MGtools installed. For more info please visit mgland.com :)";		
+	}	
+	columnLayout -e -enable  0 mgtoolsInstall_Lincese101Col;
+  if(`window -q -ex installMGtoolsProgressUI`)
+  {
+    deleteUI installMGtoolsProgressUI;
+  }
+	window -s 0 -title $title -toolbox 1 installMGtoolsProgressUI;
+ 		columnLayout -adj 1 -rowSpacing 0 installMGtoolsProgressUIMCL;
+		//image -w 600 -h 170 -image $aboutImage;
+		//text  -font "boldLabelFont"  -l $progressText00 -align  "left";
+		separator -st "none" -h 5;
+		progressBar -maxValue 100 -width 300 installMGtoolsProgressBar;
+		separator -st "none" -h 3;
+		text  -align  "left"  -l $progressText01 installInfoPresentText;
+ 	
+ 	showWindow installMGtoolsProgressUI;
+	window -e -wh 320 70 installMGtoolsProgressUI;
+	string $shelfConfigSL=`radioCollection -q -select installMGtoolsEntryRC`;
+	int $afterLoadMGtools,$afterLoadConfig,$afterLoadHelp,$afterLoadRegister;
+		$afterLoadMGtools=`checkBox -q -v afterInstallMGviewMGtoolsCB`;
+		$afterLoadConfig=`checkBox -q -v afterInstallMGconfigMGtoolsCB`;		
+		$afterLoadHelp=`checkBox -q -v afterInstallMGviewDocCB`;
+		$afterLoadRegister=`checkBox -q -v afterInstallMGRegisterCB`;
+	int $addMenu = `checkBox -q -v installAutoLoadMGtoolsMenuCB`;
+	global string $GmgtoolsInstallationFilePath;
+	
+	//makeUI changement:
+	global string $progressControl ="installMGtoolsProgressBar";
+ 	progressBar -edit -progress 100 $progressControl;
+ 	
+ 	progressBar -edit -progress 0 $progressControl;
+	if(!`cleanUpMGTools2_OldFiles`) 	
+	{
+	  deleteUI installMGtoolsProgressUI;
+	  return;
+	}
+	//if it is global program mode, we clean up the local MGTools program files.
+	cleanUpMGTools3LocalProgramFiles_ForServerProgramInstallation;
+	progressBar -edit -progress 0 $progressControl;
+	
+	//return;
+	text  -e -l $progressText02 installInfoPresentText;
+	refresh;
+	copyMGtoolsFiles;
+    
+	text  -e -l $progressText03 installInfoPresentText;
+	progressBar -edit -progress 0 $progressControl;
+	//Install shelf:
+	
+	eval (`shelfCommand "MGtools_config_about_WrittenByMiguel.mel" ""`);
+	
+	//print "install shelves.";	
+	if($shelfConfigSL=="installMGEntryToShelfCB")
+	{
+	    installSpecialMGtoolToShelf 1;
+	}
+	else if($shelfConfigSL=="installMGEntryToCurrentShelfTabCB")
+	{
+	    installAllMGtoolsToShelf 0;
+	}
+	else if($shelfConfigSL=="installMGEntryToNewShelfTabCB")
+	{
+	    installAllMGtoolsToShelf 1;
+	}
+	progressBar -edit -progress 20 $progressControl;
+
+	text  -e -l $progressText04 installInfoPresentText;
+	
+	int $toUserSetupPY = `radioButton -q -sl installAutoLoadViaUsersetupPYRB`;
+	optionVar -iv "MGTools_Autoload_Via_UsersetupPY" $toUserSetupPY;
+	saveMGToolsAutoLoadSettingViaConfigOrInstallation 0;
+	
+	progressBar -edit -progress 40 $progressControl;
+	text  -e -l $progressText05 installInfoPresentText;
+	
+	eval (`shelfCommand "MGTools_WrittenByMiguel.mel" ""`);
+	if($addMenu )
+	{
+	    MG_buildMGtoolsMenu_Doit;
+	}
+	
+	if($afterLoadMGtools)
+	{
+	  
+		MGtools;
+		global int $mgtoolsOStype; 
+		if(!$mgtoolsOStype)MGExcuteEmbedStyle 1 mgToolUI MGtoolsMainGridLayout;
+		else MGExcuteEmbedStyle 3 mgToolUI MGtoolsMainGridLayout;		
+		rememberStyle mgToolUI;
+	}
+	progressBar -edit -progress 50 $progressControl;
+	if($afterLoadConfig)
+	{
+		mgtoolConfig;
+	}
+	progressBar -edit -progress 60 $progressControl;
+	if($afterLoadHelp)
+	{	
+		MGtoolsHelp "index.html";
+	}
+	progressBar -edit -progress 70 $progressControl;
+	if($afterLoadRegister)
+	{	
+		eval(`shelfCommand "MGLicenseReminder_WrittenByMiguel.mel" "MGLicenseReminder_registerDialog"`);
+	}	
+	progressBar -edit -progress 80 $progressControl;
+	for($n=91; $n<100; $n++) 
+	{
+ 		progressBar -edit -progress $n $progressControl;
+ 	}
+ 	catch(`MGTools_init_PyUtilModule`);
+ 	
+	text  -e -l $progressText06 installInfoPresentText;
+	string $lanConfig = `optionVar -q MGtoolsDualLeng`;
+	sourceUIStringResBaseOnLangChoice $lanConfig;
+	progressBar -edit -progress 100 $progressControl;
+	
+	//recover the modified file by mgtools v2:
+	if(`exists "MG_recover_OldGEPluginModifiedFile"`)
+		MG_recover_OldGEPluginModifiedFile;
+	
+	if (`window -exists mgtoolInstallUI`){deleteUI mgtoolInstallUI;}
+	deleteUI installMGtoolsProgressUI;
+	
+ 	confirmDialog -title $progressText06 -message $progressText07
+ 		-button "OK" -defaultButton "Yes"
+ 		-cancelButton "OK" -dismissString "OK";
+
+}
+proc int installMGTools_testOldVersionMGTools()
+{
+  string $scriptDir = `internalVar -usd`;
+  string $oldMGToolsDir = $scriptDir + "/MGTools/";
+  string $mgtoolsMelFile = ($oldMGToolsDir + "MGTools_WrittenByMiguel.mel");
+  if(!`filetest -f $mgtoolsMelFile`)
+  {
+    return 0;
+  }
+  string $pluginFolder = $oldMGToolsDir + "/plug-ins";
+  if(`filetest -d $pluginFolder`)  //it is MGTools2
+  {
+    return 2;
+  }
+  else    //it is MGTools1
+  {
+    return 1;
+  }
+}
+global proc cleanUpMGTools3LocalProgramFiles_ForServerProgramInstallation()
+{
+  if(`radioButton -q -sl installMGAsLocalCB`)  
+  {
+    return;
+  }
+  global string $MG_simplifiedChinese_cleanUpOld;
+  global string $MG_traditionalChinese_cleanUpOld;
+  string $lbl = "Clear up MGTools3 local files.";
+  global int $MGtoolsLanguageChoice;
+  if($MGtoolsLanguageChoice==1)	
+  {
+    $lbl = $MG_simplifiedChinese_cleanUpOld;
+  }
+  else if($MGtoolsLanguageChoice==2)	
+  {
+    $lbl = $MG_traditionalChinese_cleanUpOld;
+  }
+  text  -e -l $lbl installInfoPresentText;
+  
+  string $scriptDir = `internalVar -usd`;
+  string $targetMGToolsDir = $scriptDir + "/MGTools/";
+  string $olds[] = `getFileList -fld $targetMGToolsDir`;
+  string $cPath;
+  for($o in $olds)
+  {
+    $cPath = ($targetMGToolsDir + $o);
+    if( $o == "MGTools_LocalData")
+    {
+      continue;
+    }
+    if(`filetest -d $cPath`)
+    {
+      MG_DeleteFolder $cPath  installMGtoolsProgressBar "" 0 0 ;
+    }
+    else
+    {
+      sysFile -del $cPath;
+    }
+  }
+}
+global proc string[] installMGTools_SplitString(string $str, string $sep, int $keepEmptyPart)
+{
+  int $strSize = size($str);
+  if(!$strSize)
+  {
+    return {};
+  }
+  int $sepSize = size($sep);
+  if(!$sepSize)
+  {
+    return {$str};
+  }
+  if($sepSize > 1)
+  {
+    $sep = `substring $sep 1 1`;
+  }
+  int $count = 0;
+  string $cPart;
+  string $result[];
+  string $cChar;
+  for($i=1; $i<=$strSize; $i++)
+  {
+    $cChar = `substring $str $i $i`;
+    if($cChar == $sep)
+    {
+      if(!$keepEmptyPart && $i==1 )
+      {
+        continue;
+      }
+      if(!$keepEmptyPart && !size($cPart))
+      {
+        continue;
+      }
+      $result[size($result)] = $cPart;
+      $cPart = "";
+    }
+    else
+    {
+      $cPart +=  $cChar;
+    }
+  }
+  if($cChar != $sep)
+  {
+      $result[size($result)] = $cPart;
+  }
+  else if($keepEmptyPart)
+  {
+    $result[size($result)] = "";
+  }
+  return $result;
+  
+}
+proc installMGTools_TransferOldDBFile(string $oldDBFile,string $newDBFile)
+{
+  int $isProj = `basenameEx $oldDBFile` == "project";
+  if($isProj)
+  {
+    string $dirName = `dirname $newDBFile`;
+    string $proj = `basenameEx $dirName`;
+    $newDBFile = ($dirName+"/"+$proj+".assetproj");
+  }
+  if(`filetest -f $newDBFile`)
+  {
+    return;
+  }
+  
+  string $oldContent;    
+  $readFileID=`fopen $oldDBFile "r"`;
+	while(!`feof $readFileID`)
+	{
+		$nextLine=`fgetline $readFileID`;
+		$oldContent += $nextLine;
+	}
+	$oldContent = strip($oldContent);
+	fclose $readFileID;
+	string $content = "";	
+  if($isProj)
+  {
+		$temp = `stringToStringArray $oldContent "{"`;
+		
+    $content = "Global_Project_Root = \n";
+    $content += "State = \n";
+    $content += "[Description]\n";
+    $content += strip($temp[0]);
+  }
+  else
+  {
+    string $datas []= `stringToStringArray $oldContent "}"`;
+    int $dataSize = size($datas);
+    for($i=0;$i<$dataSize; $i++)
+    {
+      $eachAssetItem = $datas[$i];
+      $temp = `installMGTools_SplitString $eachAssetItem "{" 1`;
+      string $images = $temp[6];
+			string $ann = $temp[5];			
+      $ann = `substituteAllString $ann "{" "\\*?["`;
+    	$ann = `substituteAllString $ann "}" "\\*?]"`;
+    	$ann = `substituteAllString $ann "\n" "\\*?m"`;
+    	
+			$temp[5] = $images;
+			$temp[6] = "";
+			if(`startsWith $ann "DB:"`)
+			{
+			  $ann = "";
+			}
+			$temp[7] = $ann; 
+			$content += (`stringArrayToString $temp "{"` + "}");
+			if($i != ($dataSize-1))
+			{
+			  $content += "\n";
+			}
+    }
+  }
+  $writeFileID=`fopen $newDBFile "w"`;
+  fprint $writeFileID $content;
+  fflush $writeFileID;
+  fclose $writeFileID;
+}
+proc installMGTools_TransferOldAssetLibrary(string $oldDir,string $globalDir)
+{
+  string $entrys[]= `getFileList -fld ($oldDir+"/")`;
+  string $cFolder;
+  string $targetProjFolder;
+  string $dbs[];
+  string $assetFileName;
+  for($each in $entrys)
+  {
+    $cFolder = ($oldDir+"/"+$each);
+    if(`filetest -d $cFolder`)
+    {
+      $cFolder += "/";
+      $dbs= `getFileList -fld $cFolder -fs "*.db"`;
+      if(size($dbs))
+      {
+        //first build the folder
+        $targetProjFolder = ($globalDir+"/"+$each);
+        sysFile -md $targetProjFolder;
+        
+        //update to asset file:
+        for($eachDB in $dbs)
+        {
+          $assetFileName = (`basenameEx $eachDB`+".asset");
+          installMGTools_TransferOldDBFile ($cFolder+$eachDB) ($targetProjFolder+"/"+$assetFileName);
+        }
+      }
+    }
+  }
+}
+global proc int cleanUpMGTools2_OldFiles()
+{
+  int $oldMGToolsState = `installMGTools_testOldVersionMGTools`;
+  if(!$oldMGToolsState)
+  {
+    return 1;
+  }
+  global string $MG_simplifiedChinese_cleanUp_lbl;
+  global string $MG_simplifiedChinese_cleanUp_cont;
+  global string $MG_simplifiedChinese_cleanUp_cancel;
+  global string $MG_simplifiedChinese_cleanUp_theOld;
+  global string $MG_simplifiedChinese_cleanUp_war;
+  global string $MG_simplifiedChinese_cleanUp_uninstalling_scripts;
+  global string $MG_simplifiedChinese_cleanUp_uninstalling_folders;
+  global string $MG_simplifiedChinese_cleanUp_uninstalling_folder_rep;
+  global string $MG_simplifiedChinese_cleanUp_uninstalling_transfering_rep;
+  global string $MG_simplifiedChinese_cleanUp_uninstalling_shelfHotkeys;
+  
+  global string $MG_traditionalChinese_cleanUp_lbl;
+  global string $MG_traditionalChinese_cleanUp_cont;
+  global string $MG_traditionalChinese_cleanUp_cancel;
+  global string $MG_traditionalChinese_cleanUp_theOld;
+  global string $MG_traditionalChinese_cleanUp_war;
+  global string $MG_traditionalChinese_cleanUp_uninstalling_scripts;
+  global string $MG_traditionalChinese_cleanUp_uninstalling_folders;
+  global string $MG_traditionalChinese_cleanUp_uninstalling_folder_rep;
+  global string $MG_traditionalChinese_cleanUp_uninstalling_transfering_rep;
+  global string $MG_traditionalChinese_cleanUp_uninstalling_shelfHotkeys;
+
+  string $MG_cleanUp_lbl = "Preparing to uninstall old MGTools v";
+  string $MG_cleanUp_cont = "Continue";
+  string $MG_cleanUp_cancel = "Cancel";
+  string $MG_cleanUp_theOld = "The old MGTools v";
+  string $MG_cleanUp_war = " is detected. \nContinue installation will uninstall the old MGTools program files, while keep the old config files. \n\nContinue ?";
+  string $MG_cleanUp_uninstalling_scripts = "Uninstalling old MGTools scripts.";
+  string $MG_cleanUp_uninstalling_folders = "Uninstalling old MGTools folders.";
+  string $MG_cleanUp_uninstalling_folder_rep = "Uninstalling old folder: ";
+  string $MG_cleanUp_uninstalling_transfering_rep = "Transferring MGTools Old Configs.";
+  string $MG_cleanUp_uninstalling_shelfHotkeys = "Cleanup old MGTools shelves and update hotkeys.";
+    
+	text  -e -l ($MG_cleanUp_lbl+$oldMGToolsState) installInfoPresentText;
+	refresh;
+  string $proceed = $MG_cleanUp_cont;
+  string $cancel = $MG_cleanUp_cancel;
+  string $mes = $MG_cleanUp_theOld+$oldMGToolsState+$MG_cleanUp_war;
+  string $answer = `confirmDialog -title "MGTools v3" -message $mes -button $cancel -dismissString $cancel -button $proceed  -defaultButton $proceed`;
+  if($answer != $proceed)
+  {
+    return 0;
+  }
+  string $progressCtl = "installMGtoolsProgressBar";
+  string $progressTextCtl = "installInfoPresentText";
+  
+  string $scriptDir = `internalVar -usd`;
+  string $oldMGToolsDir = $scriptDir + "/MGTools/";  
+                            
+  //remove all old mels:                          
+  string $mels [] = `getFileList -fld $oldMGToolsDir -fs "*.mel"`;
+  int $currentSize = size($mels);
+  float $currentSizeFloat = $currentSize;
+  int $percent; 
+  text -e -label $MG_cleanUp_uninstalling_scripts $progressTextCtl;                         
+  for($m=0; $m<$currentSize; $m++)
+  {
+    sysFile -del ($oldMGToolsDir+$mels [$m]);
+    $percent = (($m+1)/$currentSizeFloat) * 100;
+    progressBar -edit -progress $percent $progressCtl;
+  } 
+  progressBar -edit -progress 0 $progressCtl;
+  
+  //remove unused folders:  
+  text -e -label $MG_cleanUp_uninstalling_folders $progressTextCtl; 
+  string $dirsToRemove[] = {"BGimage","Help","icon",
+                            "invoke","plug-ins"};  
+  string $cPath;      
+  $currentSize = size($dirsToRemove);      
+  for($d=0; $d<$currentSize; $d++)
+  {
+    $cPath = ($oldMGToolsDir+$dirsToRemove[$d]);
+    if(`filetest -d $cPath`)
+    {
+      text -e -label ($MG_cleanUp_uninstalling_folder_rep+$dirsToRemove[$d]) $progressTextCtl;     
+      MG_DeleteFolder $cPath $progressCtl "" 0 0;  
+    }
+  } 
+  
+  //now transfer the configs: 
+  sysFile -md ($oldMGToolsDir+"MGTools_LocalData");
+  string $assetLibRootDir = (`internalVar  -userAppDir`+"MGTools_GlobalData/MG_AssetLib");
+  sysFile -md $assetLibRootDir;
+  
+  text -e -label $MG_cleanUp_uninstalling_transfering_rep $progressTextCtl;  
+  progressBar -edit -progress 0 $progressCtl;   
+  string $dirsToRenameSrc[] = {"MGDB",
+                                "Animation_Bank",
+                                "MG_DisplaySet",
+                                "MG_HUDConfig",
+                                "MG_SelectionSet",
+                                "MG_Shelves",
+                                "User_Icon"};
+  string $dirsToRenameTgt[] = {$assetLibRootDir,
+                                "MGTools_LocalData/MG_AnimationBank",
+                                "MGTools_LocalData/MG_DisplaySet",
+                                "MGTools_LocalData/MG_HUDConfig",
+                                "MGTools_LocalData/MG_SelectionSet",
+                                "MGTools_LocalData/MG_Shelves",
+                                "MGTools_LocalData/MG_UserIcon"
+                                };
+                            
+  $currentSize = size($dirsToRenameSrc);
+  $currentSizeFloat = $currentSize;
+  string $cPathScr,$cPathTgt;
+  for($r=0; $r<$currentSize; $r++)
+  {
+    $cPathScr = ($oldMGToolsDir+$dirsToRenameSrc[$r]);  
+    if(!$r) //transfer old mgdb files
+    {
+      string $target =  $assetLibRootDir;
+      installMGTools_TransferOldAssetLibrary $cPathScr $target;
+      MG_DeleteFolder $cPathScr "" "" 0 0;
+    }
+    else
+    {  
+      if(`filetest -d $cPathScr`)
+      {
+        $cPathTgt = ($oldMGToolsDir+$dirsToRenameTgt[$r]);
+        sysFile -rename $cPathTgt $cPathScr;
+      }
+    }
+    $percent = (($r+1)/$currentSizeFloat) * 100;
+    progressBar -edit -progress $percent $progressCtl;
+  } 
+  progressBar -edit -progress 88 $progressCtl;
+   
+  //now transfer the toolConfig: 
+  string $tolCfgDir = ($oldMGToolsDir+"toolConfig");
+  if(!`filetest -d $tolCfgDir`)
+  {
+    return 1;
+  }
+  string $srcFolder = ($oldMGToolsDir+"toolConfig/ViewSwitchConfig");
+  string $tgtFolder = ($oldMGToolsDir+"MGTools_LocalData/MG_ViewSwitchConfig");
+  sysFile -rename $tgtFolder $srcFolder;
+  
+  sysFile -md ($oldMGToolsDir+"MGTools_LocalData/MG_OpenDirectoryConfig");
+  sysFile -md ($oldMGToolsDir+"MGTools_LocalData/MG_OpenExternalFileConfig");
+  sysFile -md ($oldMGToolsDir+"MGTools_LocalData/MG_UIConfig");
+  sysFile -md ($oldMGToolsDir+"MGTools_LocalData/MG_CamSwitchConfig");
+  
+  if(`filetest -f ($tolCfgDir+"/openDirectory.cfg")`)
+  {
+    sysFile -copy ($oldMGToolsDir+"MGTools_LocalData/MG_OpenDirectoryConfig/openDirectory.cfg") ($tolCfgDir+"/openDirectory.cfg");
+  }
+  if(`filetest -f ($tolCfgDir+"/externalToolConfig.cfg")`)
+  {
+    sysFile -copy ($oldMGToolsDir+"MGTools_LocalData/MG_OpenExternalFileConfig/externalToolConfig.cfg") ($tolCfgDir+"/externalToolConfig.cfg");
+  }
+  if(`filetest -f ($tolCfgDir+"/mgCamSwitch.cfg")`)
+  {
+    sysFile -copy ($oldMGToolsDir+"MGTools_LocalData/MG_CamSwitchConfig/mgCamSwitch.cfg") ($tolCfgDir+"/mgCamSwitch.cfg");
+  }
+  
+  string $temps []= `getFileList -fld ($tolCfgDir +"/") -fs "*.tmp"`;
+  for($each in $temps)
+  {
+    sysFile -copy ($oldMGToolsDir+"MGTools_LocalData/MG_UIConfig/"+$each) ($tolCfgDir+"/"+$each);
+  }
+  
+  MG_DeleteFolder $tolCfgDir $progressCtl "" 0 0;
+  progressBar -edit -progress 100 $progressCtl;
+  
+  //remove all old mgtools shelves:
+  text -e -label $MG_cleanUp_uninstalling_shelfHotkeys $progressTextCtl;
+  refresh;  
+  progressBar -edit -progress 0 $progressCtl;  
+  uninstallAllMGToolsShelves 0;
+  uninstallUpdateMGToolsHotkeys 1;  
+  progressBar -edit -progress 100 $progressCtl;
+  
+  return 1;
+}
+global proc  copyMGtoolsFiles ()
+{
+	global string $GmgtoolsInstallationFilePath;
+	global int $mgtoolsOStype;
+	global int $MGtoolsLanguageChoice;
+	//print $GmgtoolsInstallationFilePath;
+  int $installMode = 1;
+  string $sourceFolderToCopy;
+  string $scriptDir = `internalVar -usd`;
+  string $targetMGToolsDir = $scriptDir + "/MGTools";
+  string $targetDir;
+  string $loaderFile;
+  string $servFile;
+  
+  global string $MG_simplifiedChinese_errorReplace_oldFiles;
+  global string $MG_traditionalChinese_errorReplace_oldFiles;
+  string $err = "Error replacing the old file :";
+  if($MGtoolsLanguageChoice==1)	
+  {
+    $err = $MG_simplifiedChinese_errorReplace_oldFiles;
+  }
+  else if($MGtoolsLanguageChoice==2)	
+  {
+    $err = $MG_traditionalChinese_errorReplace_oldFiles;
+  }
+	  
+  if(`radioButton -q -sl installMGAsLocalCB`)
+  {
+    $installMode = 1;
+    $sourceFolderToCopy = $GmgtoolsInstallationFilePath;
+    $targetDir = $targetMGToolsDir;
+    $loaderFile = $targetDir +"/MGToolsLoader_WrittenByMiguel.mel";
+    $servFile = $targetDir +"/invoke/serveProc_WrittenByMiguel.mel";
+  }
+  else if(`radioButton -q -sl installMGAsGlobalCB`)
+  {
+    $installMode = 2;
+    $sourceFolderToCopy = $GmgtoolsInstallationFilePath+"MGTools_LocalData";
+    $targetDir = $targetMGToolsDir +"/MGTools_LocalData";    
+    $loaderFile = $GmgtoolsInstallationFilePath +"/MGToolsLoader_WrittenByMiguel.mel";
+    $servFile = $GmgtoolsInstallationFilePath +"/invoke/serveProc_WrittenByMiguel.mel";
+    
+    string $extraPluginFiles[] = `getMGToolsPluginsFileList ($GmgtoolsInstallationFilePath+"/plug-ins/")`;
+    string $targetPluginDir = ($targetMGToolsDir+"/plug-ins");
+    sysFile -md $targetPluginDir;
+    int $percentage = 0;
+    int $count = size($extraPluginFiles);
+    if($count)
+    {
+      float $floatCount =  $count;
+      string $csource, $ctarget;
+      for($i=0; $i<$count; $i++)
+      {
+        $percentage  = (($i+1)/$floatCount )*100;
+        $csource = ($GmgtoolsInstallationFilePath+"/plug-ins/"+$extraPluginFiles[$i]);
+        $ctarget = ($targetPluginDir+"/"+$extraPluginFiles[$i]);
+        if(!`sysFile -cp $ctarget $csource`)
+        {
+          warning ($err+$extraPluginFiles[$i]);
+        } 
+        progressBar -edit -progress $percentage installMGtoolsProgressBar;
+      }
+    }
+  } 
+  else
+  {
+    $installMode = 3;
+    $sourceFolderToCopy = $GmgtoolsInstallationFilePath+"MGTools_LocalData";
+    $targetDir = $targetMGToolsDir +"/MGTools_LocalData";  
+    $loaderFile = $GmgtoolsInstallationFilePath +"/MGToolsLoader_WrittenByMiguel.mel";  
+    $servFile = $GmgtoolsInstallationFilePath +"/invoke/serveProc_WrittenByMiguel.mel";
+  }
+  
+  progressBar -edit -progress 0 installMGtoolsProgressBar;
+  int $fullServerMode = `radioButton -q -sl installMGAsFullGlobalCB`;
+  
+  int $failed = catch (`MG_CopyFolder $targetDir $sourceFolderToCopy installMGtoolsProgressBar installInfoPresentText 0 0`);  
+  if($installMode == 1)
+  {
+    string $licenseFolder = ($targetDir+"/MGTools_LicenseData");
+    if(!`endsWith $targetDir "/"`)
+    {
+      $targetDir += "/";
+    }
+    if(`filetest -d ($targetDir+ "MGTools_LicenseData")`)
+    {
+      MG_DeleteFolder $licenseFolder "" "" 0 0;
+    }
+  }
+  if($failed)
+  {
+    return;
+  }
+	eval ("source \""+$servFile+"\"");
+	eval ("source \""+$loaderFile+"\"");
+	eval `shelfCommand "cam2dViewer_WrittenByMiguel.mel" "MG_cam2dViewer_updateIcon 1"`;
+	MG_loadMGToolsPlugin;
+	
+	//------------now register the user code in the server side----------
+	if($installMode == 2)
+	{	  
+	  MG_submitUserCodeToServerSide 1;
+  }
+}
+installMGTools;

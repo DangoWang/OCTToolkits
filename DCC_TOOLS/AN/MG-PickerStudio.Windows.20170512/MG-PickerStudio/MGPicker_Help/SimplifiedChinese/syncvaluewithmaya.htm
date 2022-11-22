@@ -1,0 +1,62 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>跟Maya同步</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "syncvaluewithmaya.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="codesnippets.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="customeloaderandlister.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">对于控制着maya属性的属性按钮及滑条 来讲：</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">这种picker对象会自动随maya属性变更而更新，所以无需写任何代码。</span><br />
+<span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">只有少部分情况下两者不会同步： 在picker加载后才创建的maya节点， 或者在picker加载后才load进来的reference。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">对于这些情况，你只需要将你的鼠标移进picker视图，它会自我修正，在以后都会自动更新。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">那么对于没有控制maya属性的属性按钮及命令按钮呢?</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">对于没有控制任何maya属性的dummy属性按钮，或者只是用代码控制着maya属性的命令按钮来讲，需要编写代码来根据maya属性来同步按钮的状态。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">比如，你用一个命令按钮来通地它的命令来控制灯光的开/关，如果这个灯光在maya里手动被更改了呢？这时候命令的图标或标签就可能不准确。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">这时你可以在编辑工具状态下，右键Picker视图，选择&quot;编辑Picker加载及进入命令…&quot;，然后在鼠标进入命令这一栏的代码编辑器中写更新同步的代码，这些代码每次鼠标进入picker视图里会被执行。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="warning.gif" width="16" height="16" alt="Warning" style="border:none" /><span style="font-size: 9pt; color: #ff0000;"> &nbsp;超级注意，不要在鼠标进入命令里编写执行慢的代码，你只能用它来获取某些maya属性状态，然后调用MG-Picker工作室API命令来编辑picker对象的状态。</span></p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="codesnippets.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="customeloaderandlister.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

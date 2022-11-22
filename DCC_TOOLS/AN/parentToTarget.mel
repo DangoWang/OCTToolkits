@@ -1,0 +1,36 @@
+global proc whr_parentToTarget()
+{
+	string $sels[] = `ls -sl -tr`;
+	if(`size($sels)`> 1)
+	{
+		string $pos_ctrl = `curve -n ("POS_CTRL_"+$sels[size($sels)-1]) -d 1 -p 0 0 -3 -p 0.5 0 -2.666667 -p 0 0 -4.833333 -p -0.5 0 -2.666667 -p 0 0 -3 -p 0 0 3 -p -0.5 0 2.666667 -p 0 0 4.833333 -p 0.5 0 2.666667 -p 0 0 3 -p 0 0 0 -p -3 0 0 -p -2.666667 0 -0.5 -p -4.833333 0 0 -p -2.666667 0 0.5 -p -3 0 0 -p 3 0 0 -p 2.666667 0 0.5 -p 4.833333 0 0 -p 2.666667 0 -0.5 -p 3 0 0 -p 0 0 0 -p 0 3 0 -p -0.5 2.666667 0 -p 0 4.833333 0 -p 0.5 2.666667 0 -p 0 3 0 -p 0 -3 0 -p -0.5 -2.666667 0 -p 0 -4.833333 0 -p 0.5 -2.666667 0 -p 0 -3 0 -p 0 0 0 -p -3 0 0 -p -2.666667 0.5 0 -p -4.833333 0 0 -p -2.666667 -0.5 0 -p -3 0 0 -p 3 0 0 -p 2.666667 -0.5 0 -p 4.833333 0 0 -p 2.666667 0.5 0 -p 3 0 0 -p 0 0 0 -p 0 3 0 -p 0 2.666667 0.5 -p 0 4.833333 0 -p 0 2.666667 -0.5 -p 0 3 0 -p 0 -3 0 -p 0 -2.666667 0.5 -p 0 -4.833333 0 -p 0 -2.666667 -0.5 -p 0 -3 0 -p 0 0 0 -p 0 0 -3 -p 0 0.5 -2.666667 -p 0 0 -4.833333 -p 0 -0.5 -2.666667 -p 0 0 -3 -p 0 0 3 -p 0 0.5 2.666667 -p 0 0 4.833333 -p 0 -0.5 2.666667 -p 0 0 3 -k 0 -k 1 -k 2 -k 3 -k 4 -k 5 -k 6 -k 7 -k 8 -k 9 -k 10 -k 11 -k 12 -k 13 -k 14 -k 15 -k 16 -k 17 -k 18 -k 19 -k 20 -k 21 -k 22 -k 23 -k 24 -k 25 -k 26 -k 27 -k 28 -k 29 -k 30 -k 31 -k 32 -k 33 -k 34 -k 35 -k 36 -k 37 -k 38 -k 39 -k 40 -k 41 -k 42 -k 43 -k 44 -k 45 -k 46 -k 47 -k 48 -k 49 -k 50 -k 51 -k 52 -k 53 -k 54 -k 55 -k 56 -k 57 -k 58 -k 59 -k 60 -k 61 -k 62 -k 63 -k 64`;
+		float $t[] = `xform -q  -ws -t $sels[size($sels)-1]`;
+		float $r[] = `xform -q  -ws -ro $sels[size($sels)-1]`;
+		setAttr ($pos_ctrl+".tx") $t[0];
+		setAttr ($pos_ctrl+".ty") $t[1];
+		setAttr ($pos_ctrl+".tz") $t[2];
+		setAttr ($pos_ctrl+".rx") $r[0];
+		setAttr ($pos_ctrl+".ry") $r[1];
+		setAttr ($pos_ctrl+".rz") $r[2];
+		parent $sels[size($sels)-1] $pos_ctrl;
+		int $i;
+		for($i=0; $i<size($sels)-1; $i++)
+		{
+			float $t[] = `xform -q -ws -t $sels[$i]`;
+			float $r[] = `xform -q -ws -ro $sels[$i]`;
+			print $t;
+			print $r;
+			string $con_obj = `curve -n ("con_OBJ_"+$sels[$i]) -d 1 -p 0 2.277225 -1.169053 -p -0.0948625 -0.251098 3.604275 -p 0.0948625 -0.251098 3.604275 -p 0 2.277225 -1.169053 -p 1.264161 -0.251098 -1.264161 -p 0.0948625 -0.251098 3.604275 -p -0.0948625 -0.251098 3.604275 -p -1.264161 -0.251098 -1.264161 -p 0 2.277225 -1.169053 -p 1.264161 -0.251098 -1.264161 -p -1.264161 -0.251098 -1.264161 -k 0 -k 1 -k 2 -k 3 -k 4 -k 5 -k 6 -k 7 -k 8 -k 9 -k 10`;
+			setAttr ($con_obj+".tx") $t[0];
+			setAttr ($con_obj+".ty") $t[1];
+			setAttr ($con_obj+".tz") $t[2];
+			setAttr ($con_obj+".rx") $r[0];
+			setAttr ($con_obj+".ry") $r[1];
+			setAttr ($con_obj+".rz") $r[2];
+			parent $con_obj $pos_ctrl;
+			parentConstraint -mo -weight 1 $con_obj $sels[$i];
+			connectAttr -f ($con_obj+".scalePivot") ($sels[$i]+".scalePivot");
+			connectAttr -f ($con_obj+".rotatePivot") ($sels[$i]+".rotatePivot");
+		}
+	}
+}

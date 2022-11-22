@@ -1,0 +1,68 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>MB-MA文件转换</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Convert,File" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "mb_ma_covertor.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span style="font-weight: bold; color: #191817;">MB-MA文件转换</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="mgsaver.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="reference_tool.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #191817;">MB-MA文件转换按钮功能：</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:51px; padding:0px;"><p style="text-align: center;"><span class="f_ImageCaption"> &nbsp; &nbsp; <img src="mb2maicon.gif" width="32" height="32" alt="MB2MAicon" style="border:none" /></span></p>
+</td>
+<td style="vertical-align:middle; width:13px; padding:0px;"><br />
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">直接点击将展开对话，将MB另存为MA，或将MA转为MB。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">有时Maya另存格式会失败，这时让它帮你。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">2.5版本里遇到一些特殊情况无法另存的bug。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #191817;">用法：</span><br />
+<span style="font-weight: bold; color: #191817;">&nbsp;</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">1.</span><span style="color: #3c3c39;">首先尝试Maya默认的另存功能，如果失效，再尝试这个功能。</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">2.</span><span style="color: #3c3c39;">点击工具箱MB-MA强制转换，或MGTools最后一图标上点右键/相同功能。</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">3.</span><span style="color: #3c3c39;">工具将首先测试场景未知节点是否存在，如果有，则弹出对话框让用户确认。</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">4.</span><span style="color: #3c3c39;">用户如果点确认，则工具将清除这些无法识别的节点。（有的是没安装/加载的插件留下的，有的是文件部分损坏的节点）</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">5.</span><span style="color: #3c3c39;">如果这个未知节点来自外部reference文件，工具将unload该reference.</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">6.</span><span style="color: #3c3c39;">弹出另存对话框，这时应该可以正常另存。</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">7.</span><span style="color: #3c3c39;">提示你转格式成功。</span></p>
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="mgsaver.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="reference_tool.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

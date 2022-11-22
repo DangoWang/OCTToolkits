@@ -1,0 +1,80 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>使用资产库</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Asset,DB,Reference" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "assetlib_useasset.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">使用资产库</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="assetlib_sharing.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="assetlib_melapi.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p>&nbsp;</p>
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #191817;">生成MA档：  &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p>&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span>在主界面上勾选一些要Reference资产项，然后下面方式任选一种来打开生成MA档对话框:</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 48px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>点击主界面下方的生成MA按钮。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 48px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>主界面操作菜单/ 生成MA..</p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;">生成MA档对话框：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="assetlibmakema_ch.gif" width="787" height="318" alt="assetLibMakeMA_ch" style="border:none" /></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 48px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">左侧列表</span>，列出了勾选上的资产项。在这里还可以通过勾选不勾选来决定，这个资产项是否要reference在该ma档。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 48px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">左侧下方的Ref次数输入框和滑条</span>，可以设置上方选中的资产项reference的次数。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 48px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">右侧区域</span>，会根据左侧列表的设置，呈现不同的内容。<br />
+这个区域，实际是模拟，当你用selective preload方式开maya场景时，出来的reference preload对话框的内容。<br />
+勾上的项，即将来开这个ma档会直接load进的reference.<br />
+没有勾上的，就是会defer loaded的reference。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 48px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">编辑模式</span>：<span style="font-weight: bold;">简单模式</span>：只是列出左侧列表的资产项。<br />
+<span style="font-weight: bold;">高级模式</span>：会真的去读取资产项的maya文件，如果里面又有嵌套的reference，将会以层级方式列出来。<br />
+ &nbsp; &nbsp; &nbsp; &nbsp; 这个模式比较慢。如果你不需要定制资产项内容的reference defer状况时，不需要这个模式。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 48px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>点击<span style="font-weight: bold;">继续按钮</span>，来指定生成ma档的路径，然后生成MA档。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 48px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>点<span style="font-weight: bold;">取消按钮</span>，关闭对话框，取消生成MA档的操作。</p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #191817;">其它使用资产库方式：<a id="other"></a> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p>&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">使用资产项，即以Reference/导入/开档的方式使用这些资产文件。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">在2.5版里这些操作将追随maya的选项设置。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">事实上，删除所选资产项也与这些操作共享同一个对话框界面，所以集合在一起，以最常用到的Reference操作来说明。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">在使用它们前，要先在相应资产项前打勾。然后点击资产库工具上的<img src="mgdbmanager_reference.gif" width="68" height="20" alt="MGdbManager_reference" style="border:none" />等按钮，弹出下面对话框：</p>
+<p style="margin: 0px 0px 0px 48px;"><img src="mgdb_usedb_ch.gif" width="631" height="299" alt="MGDB_useDB_ch" style="border:none" /><br />
+&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">图中第一行说明文字中的&quot;(2次)&quot;代表这个操作将被执行两次，每个资产文件被Reference两次进来的意思。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">接下来涉及到几个类别的asset, 在上图中就会出现几列列表。<br />
+&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">之所以要再出现上面的对话框确认，是因为它会使用当前工程的所有类别里勾上的资产项，而非仅仅当前显示的类别。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">并且读档这种事在Maya里有时很费时间，比较缓慢，所以还是再确认下比较好！<br />
+不过你也可以勾上&quot;不要再确认&quot;， 这样下次就不会再确认了。如果想要重新让它确认，可以重新勾选上 操作菜单/ 操作前确认。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><img src="warning.gif" width="16" height="16" alt="Warning" style="border:none" /><span class="f_ImageCaption"> &nbsp; </span><span style="font-size: 9pt; color: #ff0000;">如果是开档操作，则次数设置无效，任何时候都只开档勾上的第一个资产B项一次。(连续开档多个档案/开一个档案多次都是无意义的吧。。。)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">按继续按钮来真正执行这些操作，按取消按钮来取消此次操作。</span></p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="assetlib_sharing.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="assetlib_melapi.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

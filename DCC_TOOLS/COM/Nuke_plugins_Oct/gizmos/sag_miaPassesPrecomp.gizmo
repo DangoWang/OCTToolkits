@@ -1,0 +1,265 @@
+#! C:/Tikibot/nuke5.2v3/Nuke5.2.exe -nx
+version 5.2300
+Gizmo {
+ tile_color 0xff5100ff
+}
+ Input {
+  inputs 0
+  name IN
+  xpos -186
+  ypos -274
+ }
+ Dot {
+  name Dot9
+  xpos -152
+  ypos -208
+ }
+set N1ec98250 [stack 0]
+ Dot {
+  name Dot3
+  xpos -42
+  ypos -208
+ }
+set N1ec984a0 [stack 0]
+ Dot {
+  name Dot11
+  xpos 68
+  ypos -208
+ }
+set N1ec986f0 [stack 0]
+ Dot {
+  name Dot2
+  xpos 207
+  ypos -208
+ }
+set N1ec98940 [stack 0]
+ Dot {
+  name Dot10
+  xpos 317
+  ypos -208
+ }
+set N1ec98b90 [stack 0]
+ Dot {
+  name Dot12
+  xpos 434
+  ypos -208
+ }
+set N1ec98de0 [stack 0]
+add_layer {spec_level spec_level.red spec_level.green spec_level.blue}
+ Shuffle {
+  in spec_level
+  alpha alpha2
+  name spec_level
+  xpos 400
+  ypos -58
+ }
+push $N1ec98de0
+ Dot {
+  name Dot13
+  xpos 544
+  ypos -208
+ }
+add_layer {spec_raw spec_raw.red spec_raw.green spec_raw.blue}
+ Shuffle {
+  in spec_raw
+  alpha alpha2
+  name spec_raw
+  xpos 510
+  ypos -106
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  name Merge8
+  xpos 510
+  ypos -58
+ }
+ Dot {
+  name Dot14
+  xpos 544
+  ypos 46
+ }
+push $N1ec98940
+add_layer {refl_level refl_level.red refl_level.green refl_level.blue}
+ Shuffle {
+  in refl_level
+  alpha alpha2
+  name refl_level
+  xpos 173
+  ypos -58
+ }
+push $N1ec98b90
+add_layer {refl_raw refl_raw.red refl_raw.green refl_raw.blue}
+ Shuffle {
+  in refl_raw
+  alpha alpha2
+  name refl_raw
+  xpos 283
+  ypos -106
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  name Merge5
+  xpos 283
+  ypos -58
+ }
+ Dot {
+  name Dot7
+  xpos 317
+  ypos 20
+ }
+push $N1ec984a0
+add_layer {refr_level refr_level.red refr_level.green refr_level.blue}
+ Shuffle {
+  in refr_level
+  alpha alpha2
+  name refr_level
+  xpos -76
+  ypos -58
+ }
+push $N1ec986f0
+add_layer {refr_raw refr_raw.red refr_raw.green refr_raw.blue}
+ Shuffle {
+  in refr_raw
+  in2 rgba
+  alpha alpha2
+  name refr_raw
+  xpos 34
+  ypos -106
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  name Merge4
+  xpos 34
+  ypos -58
+ }
+ Dot {
+  name Dot8
+  xpos 68
+  ypos -6
+ }
+push $N1ec98250
+ Dot {
+  name Dot4
+  xpos -228
+  ypos -208
+ }
+set N1ec9ae40 [stack 0]
+add_layer {diffuse_level diffuse_level.red diffuse_level.green diffuse_level.blue}
+ Shuffle {
+  in diffuse_level
+  alpha alpha2
+  name diffuse_level
+  xpos -262
+  ypos -58
+ }
+push $N1ec9ae40
+ Dot {
+  name Dot5
+  xpos -338
+  ypos -208
+ }
+set N1ec9b2e0 [stack 0]
+ Dot {
+  name Dot1
+  xpos -448
+  ypos -208
+ }
+set N1ec9b530 [stack 0]
+ Dot {
+  name Dot6
+  xpos -528
+  ypos -208
+ }
+add_layer {diffuse_raw diffuse_raw.red diffuse_raw.green diffuse_raw.blue}
+ Shuffle {
+  in diffuse_raw
+  alpha alpha2
+  name diffuse_raw
+  xpos -562
+  ypos -84
+ }
+push $N1ec9b530
+add_layer {indirect_raw indirect_raw.red indirect_raw.green indirect_raw.blue}
+ Shuffle {
+  in indirect_raw
+  alpha alpha2
+  name indirect_raw
+  xpos -482
+  ypos -110
+ }
+push $N1ec9b2e0
+add_layer {ao_raw ao_raw.red ao_raw.green ao_raw.blue}
+ Shuffle {
+  in ao_raw
+  in2 rgba
+  alpha alpha2
+  name ao_raw
+  xpos -372
+  ypos -158
+ }
+add_layer {rgb rgb.red rgb.green rgb.blue rgb.alpha}
+ Merge2 {
+  inputs 2
+  operation multiply
+  output rgb
+  name Merge1
+  xpos -372
+  ypos -110
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  output rgb
+  name Merge2
+  xpos -372
+  ypos -84
+ }
+set N1ec9c310 [stack 0]
+ Merge2 {
+  inputs 2
+  operation multiply
+  output rgb
+  name Merge3
+  xpos -372
+  ypos -58
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  output rgb
+  name Merge7
+  xpos -372
+  ypos -10
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  output rgb
+  name Merge6
+  xpos -372
+  ypos 16
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  output rgb
+  name Merge9
+  selected true
+  xpos -372
+  ypos 42
+ }
+ Output {
+  name OUT
+  xpos -372
+  ypos 110
+ }
+push $N1ec9c310
+ Viewer {
+  name Viewer1
+  xpos -139
+  ypos -137
+ }
+end_group

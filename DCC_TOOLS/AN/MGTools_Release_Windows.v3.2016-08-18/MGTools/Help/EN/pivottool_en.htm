@@ -1,0 +1,143 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>PivotTool</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Animation,Bar,Keyframe,New,Pivot,Snap,Style" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "pivottool_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span style="font-weight: bold; color: #191817;">Pivot Tool</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="relative_snap_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="pivot_stuff_manager_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold; color: #191817;">Pivot animation tool:</span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:51px; padding:0px;"><p style="text-align: center; line-height: 1.50;"><img src="pivottoolicon.gif" width="32" height="32" alt="pivotToolIcon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:13px; padding:0px;"><p style="line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">Click to load pivot tool. </span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">The main feature of this tool is ,it gives animator the ability to animate the selected object's pivot for any times without a pop.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">The tool is respired by tutorial &quot;animator Friendly Rigging&quot; presented by Jason the superman.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">The difference is , he embed this feature into rig file ,what I does is to create a independent hierarchy to constraint the selected object which enable the latter's pivot animatable.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">U can group your object of course, but once the workflow is reference based ,u cant do this.When u need rotate a object in different pivot position in different time section, </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">U can load pivot tool or right mouse button clicking on pivot icon of MGTools then all this features could be visited. Read on to know:</p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> Pivot Tool UI : </span></p>
+<div style="text-align: left; text-indent: -24px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:43px; padding:0px;"><p style="line-height: 1.50;"><img src="pivottoolui.gif" width="50" height="172" alt="pivotToolUI" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:991px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">The buttons from top to bottom are:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle" style="color: #404040;"> The first button: </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">Similar to MGTools icon in MGTools UI. It is used to manage the bar itself. Click it to minimize / restore Shelf bar. </span><a href="mgtoolintroduction_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">Create new pivot stuff: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Select the object that u want to animate its pivot , make sure the object has an parent hierarchy and this object has translation and rotation attributes settable. Then u can click the button to create a pivot stuff for this object . The pivot stuff will be constrained by the parent hierarchy , and itself &nbsp;will constraint the selected object.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">Select all three pivot stuffs: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Pick one of the three pivot stuff and click it will select all three pivot stuffs. U need to select the three stuffs to edit the animation.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">Snap the pivot to pivot_mov:  </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Snap the pivot to the position of pivot_mov. Read on to know more.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> Tips: <span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Read on to know more.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> How pivot tools works:</span></p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#404040;display:inline-block;width:15px;margin-left:-15px">1.</span><span class="f_MI_TitleStyle" style="color: #404040;"> </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Select the object that u want to animate its pivot , make sure the object has an parent hierarchy and this object has translation and rotation attributes settable.</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#404040;display:inline-block;width:15px;margin-left:-15px">2.</span>Click the button <img src="createpivotstufficon.gif" width="32" height="32" alt="createPivotStuffIcon" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span>to create a pivot stuff.  <span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">The pivot stuff will be constrained by the parent hierarchy, and itself will constraint the selected object</span><br />
+All pivot stuff controller are these three: Pivot , Pivot_MOV, Roll .<br />
+<img src="pivotstuff_example.gif" width="395" height="238" alt="PivotStuff_Example" style="border:none" /><br />
+&nbsp;<br />
+As it is shown above, The object wants to be animated in pivot is pCube1. Then the three pivot stuff controller will be pCube1_Pivot, pCube1_Pivot_mov, pCube1_Roll.<br />
+<span class="f_MI_TitleStyle" style="color: #404040;">pCube1_Roll : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">This is the actual object whose pivot could be animated for any times. U gonna use it to rotate pCube1 because it constraints &nbsp;pCube1.</span><br />
+<span class="f_MI_TitleStyle" style="color: #404040;">pCube1_Pivot_mov : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">The plus shape indicate that u gonna use to tell mel to snap the pivot Roll to right position . Moving it will not effect the pivot of Roll, but when snapping the pivot to a new position ,it will be used as reference.</span><br />
+<span class="f_MI_TitleStyle" style="color: #404040;">pCube1_Pivot : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">It stands for the actual pivot of </span>pCube1_<span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Roll. Once </span>pCube1_<span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Roll is animated , moving it will end up with all floating / popping stuff. So don't move it , use snap pivot button to move it..</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#404040;display:inline-block;width:15px;margin-left:-15px">3.</span>When u first rotating the Roll controller, it is ok , just keyframe it. </p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#404040;display:inline-block;width:15px;margin-left:-15px">4.</span>Once u want pCube1_Roll's pivot to be at a new position in current frame, manipulate the pCube1_Pivot_mov, keyframe it in the former frame, and move it to the position u want the pivot to be in current frame.</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#404040;display:inline-block;width:15px;margin-left:-15px">5.</span>Click the snap pivot button ,it will auto keyframe the pCube1_Roll and <span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">pCube1_Pivot</span> . There will be floating and popping actually happen on pCube1_Roll but u wont be able to notice it, because mel snaps back the pCube1_Roll &nbsp;and pCube1_Pivot and keyframes them. &nbsp; </p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#404040;display:inline-block;width:15px;margin-left:-15px">6.</span>So right now all three pivot stuffs are keyframed both at last frame and current frame, the pivot of pCube1_Roll are snapped to the new place ,and everything stays fine, no popping. &nbsp;Animate the pCube1_Roll on.</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#404040;display:inline-block;width:15px;margin-left:-15px">7.</span>Once u want to adjust the pivot of pCube1_Roll again to a new place, do this again: keyframe and move pCube1_Pivot_MOV, use snap button to actually move the pivot of pCube1_Roll.</p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> Tips: When u are animating the pivot, it is actually quite straight forward, but when u are editing it , take care that u should use the select pivot button to select all three stuff and move the keyframe of all of them. Because they are snapped in on frame. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_ImageCaption" style="font-size: 10pt;"> Features of the right mouse button clicking popup menu on all these three buttons:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">Popup menu on the button <img src="createpivotstufficon.gif" width="32" height="32" alt="createPivotStuffIcon" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">:</span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:186px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="mi_createpivotstuff_en.gif" width="218" height="161" alt="MI_createPivotStuff_en" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:1092px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">Delete pivot stuff : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Pick one of the pivot stuff ,and use it to delete all the three pivot stuff specialized to the object.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">Bind to selection :</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Select a new object that u want to animate its pivot , make sure the object has an parent hierarchy and this object has translation and rotation attributes settable, and add select one of the pivot stuff, Use it to create bind relation. It is ok to create more than one pivot stuffs in your scene, but just one pivot stuffs per object. It will come in handy when u have selected the wrong hierarchy &nbsp;to create pivot stuff. use it to correct that.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">PivotStuff lister :</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> Load pivot stuff lister to manager the pivot stuffs in your scene. </span><a href="pivot_stuff_manager_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">Export Pivot Positon :</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> Export current object's pivot position so it could be used in future. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">Import Pivot Positon :</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> Import the pivot position that was previous exported and apply to current selected object.  </span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">Popup menu on the button <img src="selectpivotstufficon.gif" width="32" height="32" alt="selectPivotStuffIcon" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">:</span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:186px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="mi_selectpivotstuff_en.gif" width="225" height="202" alt="MI_selectPivotStuff_en" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:1092px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> &nbsp;PivotStuff lister:</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> Load pivot stuff lister to manager the pivot stuffs in your scene. </span><a href="pivot_stuff_manager_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle" style="color: #404040;"> Select Pivot&amp;Roll: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Pick one controller, use it to select the controller Pivot and Roll .</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;">Select Pivot_mov :</span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Pick one controller, use it to select the controller Pivot_mov .</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">Select Pivot :</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Pick one controller, use it to select the controller Pivot .</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">Select Roll : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Pick one controller, use it to select the controller Roll .</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">Export Pivot Positon :</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> Export current object's pivot position so it could be used in future. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">Import Pivot Positon :</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> Import the pivot position that was previous exported and apply to current selected object.  </span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">Popup menu on the button <img src="snappivotstufficon.gif" width="32" height="32" alt="snapPivotStuffIcon" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">:</span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:186px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="mi_snappivotstuff_en.gif" width="272" height="156" alt="MI_snapPivotStuff_en" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:1092px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle" style="color: #404040;"> BackWord Snap:</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> A normal snapping pivot action will keyframe the roll and pivot in last frame ,and move the pivot to new position in current frame. This is just the opposite, it will keyframe the roll and pivot controller at current frame and use the last frame position of pivot_mov &nbsp;as reference, &nbsp;and snap the pivot and roll at the last frame. This will come in handy when u are happy with current pivot ,but want to adjust last position of the roll pivot. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle" style="color: #404040;"> Snap to first Selection : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">A normal snapping pivot action will use pivot_mov as a position reference as the future pivot position. What this does is to use another object 's pivot as the reference:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Select the object u want to snap the roll pivot to ,and add select one of the pivot stuff, then select this feature to snap the roll pivot to the first selection's pivot position.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">Export Pivot Positon :</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> Export current object's pivot position so it could be used in future. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">Import Pivot Positon :</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> Import the pivot position that was previous exported and apply to current selected object.  </span></p>
+</td>
+</tr>
+</table>
+</div>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="relative_snap_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="pivot_stuff_manager_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

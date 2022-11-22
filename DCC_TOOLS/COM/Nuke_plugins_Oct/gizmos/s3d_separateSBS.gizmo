@@ -1,0 +1,51 @@
+#! c:/Program Files/Nuke6.3v8/Nuke6.3.exe -nx
+version 6.3 v8
+Gizmo {
+ note_font Verdana
+ mapsize {0.15 0.15}
+ addUserKnob {20 User}
+ addUserKnob {4 sourceMode l "souce mode" M {vertical horizontal "" "" ""}}
+ sourceMode horizontal
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos 265
+  ypos -85
+ }
+ Dot {
+  name Dot1
+  xpos 294
+  ypos -45
+ }
+set Nb753ab0 [stack 0]
+ Crop {
+  box {{sourceMode==0?0:input.width/2} 0 {input.width} {sourceMode==0?input.height/2:input.height}}
+  reformat true
+  crop false
+  name R_s3d_separateSBS
+  xpos 390
+  ypos 48
+ }
+push $Nb753ab0
+ Crop {
+  box {0 {sourceMode==0?input.height/2:0} {sourceMode==0?input.width:input.width/2} {input.height}}
+  reformat true
+  crop false
+  name L_s3d_separateSBS
+  xpos 265
+  ypos 49
+ }
+ JoinViews {
+  inputs 2
+  name s3d_separateSBS_JoinViews1
+  xpos 265
+  ypos 110
+  viewassoc "left\nright"
+ }
+ Output {
+  name Output1
+  xpos 265
+  ypos 210
+ }
+end_group

@@ -1,0 +1,36 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+//`MG_DualLan "keyScaler.title"`
+	
+MG_displaySC "keyScaler.title" "动画帧缩放工具";
+MG_displaySC "keyScaler.fl.title" " 帧率转换:";
+MG_displaySC "keyScaler.from" "      从";
+MG_displaySC "keyScaler.Get" "获取";
+MG_displaySC "keyScaler.Get.ann" "获取当前场景的帧率.";
+MG_displaySC "keyScaler.To" "      到";
+MG_displaySC "keyScaler.Calc" "计算";
+MG_displaySC "keyScaler.Calc.ann" "计算不同帧率间的动画缩放倍数.";
+MG_displaySC "keyScaler.scalePivot" "    缩放轴心";
+MG_displaySC "keyScaler.mul" "       倍数";
+MG_displaySC "keyScaler.Objects" "     对象:";
+MG_displaySC "keyScaler.Objects.all" "所有Key 帧物体";
+MG_displaySC "keyScaler.Objects.selRig" "所选Rig下的所有物体";
+MG_displaySC "keyScaler.Objects.selObj" "所选物体";
+MG_displaySC "keyScaler.Range" "     范围:";
+MG_displaySC "keyScaler.Range.all" "全部";
+MG_displaySC "keyScaler.Range.selRange" "所选时间范围";
+MG_displaySC "keyScaler.getPivot" "获取轴心";
+MG_displaySC "keyScaler.getPivot.ann" "将当前帧设置为缩放轴心.";
+MG_displaySC "keyScaler.autoSnap" "缩放后自动吸附到整数帧";
+MG_displaySC "keyScaler.go" "缩放!!";
+
+MG_displaySC "keyScaler.noSence" "缩放值 \"1\" 没有任何意义，所以任务提前完成:P";
+MG_displaySC "keyScaler.go" "缩放!!";
+
+MG_displaySC "keyScaler.noKeyframObjs" "场景里无物体被Key帧.";

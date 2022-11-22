@@ -1,0 +1,46 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "openFile.AddUI.title" "添加你自己的文件快捷方式";
+MG_displaySC "openFile.AddUI.textAnno" "你添加了下列的文件:";
+MG_displaySC "openFile.AddUI.openAnno" "打开";
+MG_displaySC "openFile.AddUI.MIAnno" "要在右键菜单里显示的名字:";
+MG_displaySC "openFile.AddUI.MIAnno1" "工具架标签:";
+MG_displaySC "openFile.AddUI.saveAsDefault" "保存为默认";
+MG_displaySC "openFile.AddUI.saveToMenu" "保存到右键菜单";
+MG_displaySC "openFile.AddUI.saveToShelf" "安装到工具架";
+MG_displaySC "openFile.AddUI.close" "关闭";
+
+MG_displaySC "openFile.pickPath.pickAFile" "请您在下面选择一个文件:";
+MG_displaySC "openFile.EditUI.defaultAnno" "点击来打开 ";
+MG_displaySC "openFile.EditUI.useddefaultAnno" "\"打开 ";
+
+MG_displaySC "openFile.EditUI.title" "文件快捷方式编辑器";
+MG_displaySC "openFile.EditUI.misc.menu" "杂项";
+MG_displaySC "openFile.EditUI.reload.mi" "重加载";
+MG_displaySC "openFile.EditUI.addNew.mi" "添加..";
+MG_displaySC "openFile.EditUI.setDefault.mi" "设为默认";
+MG_displaySC "openFile.EditUI.removeDefault.mi" "移除默认";
+MG_displaySC "openFile.EditUI.DefaultAction" "默认将打开:";
+MG_displaySC "openFile.EditUI.help.mi" "帮助";
+MG_displaySC "openFile.EditUI.MenuName" "菜单名:";
+MG_displaySC "openFile.EditUI.FilePath" "文件路径:";
+MG_displaySC "openFile.EditUI.Annotation" "注释:";
+MG_displaySC "openFile.EditUI.edit" "编辑";
+MG_displaySC "openFile.EditUI.mUp" "上移";
+MG_displaySC "openFile.EditUI.mDn" "下移";
+MG_displaySC "openFile.EditUI.del" "删除";
+MG_displaySC "openFile.EditMenu.title" "编辑区:";
+MG_displaySC "openFile.EditMenu.text" "  编辑菜单:";
+MG_displaySC "openFile.EditMenu.submit.btn" "提交当前内容编辑";
+MG_displaySC "openFile.EditMenu.appAllEdit.btn" "保存全部编辑";
+MG_displaySC "openFile.EditMenu.close.btn" "关闭";
+
+MG_displaySC "openFile.selectItem.war" "请在列表选一个项目 :(";
+

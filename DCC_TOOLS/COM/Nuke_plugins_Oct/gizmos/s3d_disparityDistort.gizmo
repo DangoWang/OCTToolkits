@@ -1,0 +1,43 @@
+Gizmo {
+ inputs 2
+ help "This tool will distort source Image based on disparity values.\nPrimary utilization of this tool is - applying mask from one stereo view to another.\n\nInputs:\n    Image\nimage you want to distort.\n    Disparity\nimage, that contain \"Disparity\" data channel.\n"
+}
+ Input {
+  inputs 0
+  name Disparity
+  xpos -310
+  ypos 225
+  number 1
+ }
+ Input {
+  inputs 0
+  name Image
+  xpos -178
+  ypos 153
+ }
+ Copy {
+  inputs 2
+  from0 disparityL.x
+  to0 disparityL.x
+  from1 disparityL.y
+  to1 disparityL.y
+  name s3d_copyDisparityFromSource
+  xpos -178
+  ypos 213
+ }
+ IDistort {
+  uv disparity
+  uv_scale {(default {{direction}} right {{direction==0?1:0}})}
+  name s3d_disparityDistort_math
+  selected true
+  xpos -68
+  ypos 219
+  addUserKnob {20 User}
+  addUserKnob {4 direction l "Distortion direction" M {"Left to Right" "Right to Left"}}
+ }
+ Output {
+  name Output1
+  xpos -68
+  ypos 319
+ }
+end_group

@@ -1,0 +1,45 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "footStepSnap.warnSelect.title" "ClickMeClickMe!!!";
+MG_displayEN "footStepSnap.warnSelect.message" "  O__O !! Please select one object to selfSnap or two objects to snap the second to the first one! ";
+MG_displayEN "footStepSnap.rela.warnSelect.message" "  O__O !! Please select exactly two objects to relative snap the second to the first one! ";
+MG_displayEN "footStepSnap.warnSelect.ok" "OK";
+
+MG_displayEN "attrSwitch.ui.title" "Attr-Switcher without Popping";
+MG_displayEN "attrSwitch.mi" "Attr-Switcher without Popping..";
+MG_displayEN "attrSwitch.anno" "Switch attribute whose changement will cause popping of the others/self without popping.Could be helpful when switching \"follow\"/\"constraint weight\" attributes.";
+
+MG_displayEN "attrSwitch.nocb.war" "No channalBox found:(";
+MG_displayEN "attrSwitch.attr" "Attribute to Switch:";
+MG_displayEN "attrSwitch.attr.anno" "The attribute whose changement will cause a popping to something.";
+
+MG_displayEN "attrSwitch.attr.get" "GetFromChannelBox";
+MG_displayEN "attrSwitch.attr.get.anno" "Get the selected attribute from Maya ChannelBox/MGChannelBox.";
+
+MG_displayEN "attrSwitch.value" "Target Value to Switch to:";
+MG_displayEN "attrSwitch.value.anno" "The target value to Switch to.";
+
+MG_displayEN "attrSwitch.guessValue" "Guess From Attribute";
+MG_displayEN "attrSwitch.guessValue.anno" "Guess from target attribute,If currentTime it is minValue of the attribute,then it will set target value to max value and vice versa.";
+
+MG_displayEN "attrSwitch.add" "Add scene selection into autoSnapping list";
+MG_displayEN "attrSwitch.del" "Remove scene selection from autoSnapping list";
+
+MG_displayEN "attrSwitch.switchObj" "Obj to autoSnap:";
+MG_displayEN "attrSwitch.switchObj.anno" "Objects which need to be autoSnapped. Use add button to add objs into the list.";
+
+MG_displayEN "attrSwitch.switch" "Switch!";
+
+MG_displayEN "feetSnap.option.clearDeciKey" "Clear Decimal (Transformation) Keys Passed Through";
+
+MG_displayEN "snapTool.name" "Snapping";
+
+//-------added in MGTools 3-------------------------------------
+MG_displayEN "feetSnap.option.SnapRange" "Snap the whold range if there's time range highlighted.";

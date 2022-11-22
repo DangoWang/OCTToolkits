@@ -1,0 +1,49 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+//`MG_DualLan "animRecorder.Title01"`
+MG_displayTS "MGSaver.ToolName" "MG-儲存器";
+MG_displayTS "MGSaver.preSaveToolName" "MG-儲存前預處理";
+
+MG_displayTS "MGSaver.catelog" "MG-場景儲存";
+
+MG_displayTS "MGSaver.cResult" "當前結果: ";
+MG_displayTS "MGSaver.eg" "  例: \"";
+MG_displayTS "MGSaver.errorOnUserScript.war" "在執行使用者自定義的儲存前指令碼出錯.請檢視指令碼編輯器來獲得更多訊息.";
+MG_displayTS "MGSaver.presave.ann" "在儲存場景前清理下場景的顯示.";
+MG_displayTS "MGSaver.saver.ann" "清理場景顯示及給場景名稱加版本號然後儲存場景.";
+MG_displayTS "MGSaver.installToShelf.rep" "工具: # 已被安裝到當前的Maya工具架.";
+
+MG_displayTS "MGSaver.preSaveOption.title" "儲存前預處理選項";
+MG_displayTS "MGSaver.preSaveOption.sNone" "去掉任何物體顯示";
+MG_displayTS "MGSaver.preSaveOption.displayMode" "顯示模式:";
+MG_displayTS "MGSaver.preSaveOption.displayLayer" "所有的顯示層:";
+MG_displayTS "MGSaver.preSaveOption.displayLayer.off" "關";
+MG_displayTS "MGSaver.preSaveOption.displayLayer.on" "開";
+MG_displayTS "MGSaver.preSaveOption.renderLayer" "設定Masterlayer為當前的渲染層";
+MG_displayTS "MGSaver.preSaveOption.gotoFrame" "前往幀數:";
+
+MG_displayTS "MGSaver.installShelf" "安裝到工具架";
+MG_displayTS "MGSaver.setHotkey" "設定快捷鍵";
+
+MG_displayTS "MGSaver.preSaveOption.uScript" "使用者指令碼:";
+MG_displayTS "MGSaver.preSaveOption.excute.last" "最後執行";
+MG_displayTS "MGSaver.preSaveOption.excute.first" "最先執行";
+MG_displayTS "MGSaver.preSaveOption.uScript.test" "測試";
+
+MG_displayTS "MGSaver.versionUp.title" "版本添加選項";
+MG_displayTS "MGSaver.versionUp.sep" "分隔符";
+MG_displayTS "MGSaver.versionUp.numPad" "傾向的數字位數";
+MG_displayTS "MGSaver.mayaOption.lbl" "Maya場景儲存選項..";
+MG_displayTS "MGSaver.saveit.lbl" "儲存場景";
+
+MG_displayTS "MGSaver.save.exist.war" "目標檔案 :\n# 已存在.請問你需要要如何處理?";
+MG_displayTS "MGSaver.save.findnext" "使用下一個可用名稱";
+MG_displayTS "MGSaver.save.override" "覆蓋";
+MG_displayTS "MGSaver.save.cancel" "取消";

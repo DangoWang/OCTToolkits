@@ -1,0 +1,379 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>MGPickerService Command</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="API,MGPickerService command" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "mgpickerservice.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="mgpickermenuitem.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="mgimageprocesser.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; height:8px; padding:1px;"><p><span style="font-family: 'Times New Roman'; font-weight: bold;">命令</span><span style="font-family: 'Times New Roman';"> (MEL/Python)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; height:5px; padding:1px;"><h1 class="p_Heading1" style="margin: 19px 0px 19px 0px;"><span class="f_Heading1" style="font-size: 24pt; font-family: 'Times New Roman';">MGPickerService</span></h1>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 14px 0px 0px 0px;"><span style="font-family: 'Times New Roman';">跳转到: </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#synopsis" class="topiclink">MEL概要</a>. <a href="mgpicker.htm#pysynopsis" class="topiclink">Python概要</a>. <a href="mgpicker.htm#returnvalue" class="topiclink">返回值</a>. <a href="mgpicker.htm#flags" class="topiclink">标签</a>. <a href="mgpicker.htm#examples" class="topiclink">MEL例子</a>. <a href="mgpickeritem.htm#pyexamples" class="topiclink">Python例子</a>.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="synopsis"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">MEL概要</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">MGPickerService [-<a href="mgpickerservice.htm#cleannamespacemix" class="topiclink">cleanNamespaceMix</a>] [-<a href="mgpickerservice.htm#getviewcoordinate" class="topiclink">getViewCoordinate</a>] [-<a href="mgpickerservice.htm#modeleditorsize" class="topiclink">modelEditorSize</a>] [-<a href="mgpickerservice.htm#namespacefromselection" class="topiclink">namespaceFromSelection</a>] [-<a href="mgpickerservice.htm#namespace" class="topiclink">namespace</a>] [-<a href="mgpickerservice.htm#oslanguage" class="topiclink">osLanguage</a>] [-<a href="mgpickerservice.htm#resolvepath" class="topiclink">resolvePath</a>] [-<a href="mgpickerservice.htm#translate" class="topiclink">translate</a>] [-<a href="mgpickerservice.htm#translate1" class="topiclink">translate1</a>] [-<a href="mgpickerservice.htm#translate2" class="topiclink">translate2</a>] [-<a href="mgpickerservice.htm#unzip" class="topiclink">unzip</a>] [-<a href="mgpickerservice.htm#zipfilefolder" class="topiclink">zipFileFolder</a>]</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="pysynopsis"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">Python概要</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">MGPickerService (string, [<a href="mgpickerservice.htm#cleannamespacemix" class="topiclink">cleanNamespaceMix</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string]</span><span style="font-family: 'Courier New';">],[<a href="mgpickerservice.htm#getviewcoordinate" class="topiclink">getViewCoordinate</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, float, float, float]</span><span style="font-family: 'Courier New';">], [<a href="mgpickerservice.htm#modeleditorsize" class="topiclink">modelEditorSize</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickerservice.htm#namespacefromselection" class="topiclink">namespaceFromSelection</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpickerservice.htm#namespace" class="topiclink">namespace</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickerservice.htm#oslanguage" class="topiclink">osLanguage</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">],[<a href="mgpickerservice.htm#resolvepath" class="topiclink">resolvePath</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickerservice.htm#translate" class="topiclink">translate</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickerservice.htm#translate1" class="topiclink">translate1</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, string]</span><span style="font-family: 'Courier New';">], [<a href="mgpickerservice.htm#translate2" class="topiclink">translate2</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, string, string]</span><span style="font-family: 'Courier New';">], [<a href="mgpickerservice.htm#unzip" class="topiclink">unzip</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickerservice.htm#zipfilefolder" class="topiclink">zipFileFolder</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">])</span><br />
+<span style="font-family: 'Courier New';">&nbsp;</span></p>
+<p style="margin: 0px 0px 14px 0px;"><span style="font-size: 9pt; font-family: 'Times New Roman'; font-style: italic;">备注: Strings在使用zip相关标签时代表zip文件完整路径, 而参数则必须以逗号分隔。这是在概要里没有说明的。</span></p>
+<p style="margin: 14px 0px 14px 0px;"><span style="font-size: 11pt; font-family: 'Times New Roman';">MGPickerService</span><span style="font-size: 11pt; font-family: 'Times New Roman'; font-weight: bold;">不可撤消</span><span style="font-size: 11pt; font-family: 'Times New Roman';">, 可以查询且可以编辑</span><span style="font-size: 11pt; font-family: 'Times New Roman';">。</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';">这个命令用来提供压缩及解压zip包，翻译，坐标转换等服务，主要供工具内部使用。</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="returnvalue"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">返回值</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 19px 0px 0px 0px;"><table style="border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:100%; padding:1px;"><p><span style="font-size: 11pt; font-family: 'Times New Roman';">取决于使用的标签，可能返回字符窜等类型的返回值。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 19px 0px 19px 0px;"><a id="flags"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">标签</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickerservice.htm#cleannamespacemix" class="topiclink">cleanNamespaceMix</a>, <a href="mgpickerservice.htm#getviewcoordinate" class="topiclink">getViewCoordinate</a>, <a href="mgpickerservice.htm#modeleditorsize" class="topiclink">modelEditorSize</a>, <a href="mgpickerservice.htm#namespacefromselection" class="topiclink">namespaceFromSelection</a>, <a href="mgpickerservice.htm#namespace" class="topiclink">namespace</a>, <a href="mgpickerservice.htm#oslanguage" class="topiclink">osLanguage</a>, <a href="mgpickerservice.htm#resolvepath" class="topiclink">resolvePath</a>, <a href="mgpickerservice.htm#translate" class="topiclink">translate</a>, <a href="mgpickerservice.htm#translate1" class="topiclink">translate1</a>, <a href="mgpickerservice.htm#translate2" class="topiclink">translate2</a>, <a href="mgpickerservice.htm#unzip" class="topiclink">unzip</a>, <a href="mgpickerservice.htm#zipfilefolder" class="topiclink">zipFileFolder</a></span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-family: 'Times New Roman'; font-weight: bold;">长名 (短名)</span></p>
+</td>
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-family: 'Times New Roman'; font-style: italic; font-weight: bold;">参数类型</span></p>
+</td>
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-family: 'Times New Roman'; font-weight: bold;">属性</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="cleannamespacemix"></a><span style="font-family: 'Courier New'; font-weight: bold;">-cleanNamespaceMix</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-cnm</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">去除dag路径中没有带namespace的开头部分，如：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">|path|to|myChar:control|myChar:subControl将变成myChar:control|myChar:subControl</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">而myChar:control|myChar:subControl|the|control将维持不变</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="getviewcoordinate"></a><span style="font-family: 'Courier New'; font-weight: bold;">-getViewCoordinate</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-gvc</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string float float float</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">这个标签只能用于查询模式，用来获取指定世界坐标的屏幕坐标。您需要指定modelEditor名称及x,y,z世界坐标。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">这个标签将返回一个整数数组，第一个元素是0或1, 代表坐标是否在modelEditor的屏幕范围内，其它两个整数元素分别是屏幕x, y坐标值。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="modeleditorsize"></a><span style="font-family: 'Courier New'; font-weight: bold;">-modelEditorSize</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-mes</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">这个标签只能用于查询模式，来获取指定modelEditor的长宽。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="namespacefromselection"></a><span style="font-family: 'Courier New'; font-weight: bold;">-namespaceFromSelection</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-nfs</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 11pt; font-family: 'Times New Roman';">从所选对象中获取其命名空间，指定True代表即使第一个所选物体没有包含命名空间，则往下找第二个，指定False则代表不管第一个有没有都返回.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="namespace"></a><span style="font-family: 'Courier New'; font-weight: bold;">-namespace</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ns</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">从字符窜里获取命名空间.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="oslanguage"></a><span style="font-family: 'Courier New'; font-weight: bold;">-osLanguage</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-osl</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">这个标签只能用于查询模式，来获取当前操作系统偏向使用的语言名称。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="resolvepath"></a><span style="font-family: 'Courier New'; font-weight: bold;">-resolvePath</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-rp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p><span style="font-size: 11pt; font-family: 'Times New Roman';">将带环境变量的路径解析成实际的路径。环境变量由$或${}表示。</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';">第一个参数需要指定要解析的路径，第二个参数是要解析的picker节点，这个是可选的，一般指定为空字符窜，只有当路径中含有</span><span style="font-size: 12pt; font-family: 'Times New Roman';"> ${M_CURRENT_ASSET_DIR} 时需要指定。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="translate"></a><span style="font-family: 'Courier New'; font-weight: bold;">-translate</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-tr</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">仅供内部使用，只能用于查询模式来获取指定字符窜id的翻译结果。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="translate1"></a><span style="font-family: 'Courier New'; font-weight: bold;">-translate1</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-tr1</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">仅供内部使用，只能用于查询模式来获取指定字符窜id及替换字符窜的翻译结果。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="translate2"></a><span style="font-family: 'Courier New'; font-weight: bold;">-translate2</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-tr2</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">仅供内部使用，只能用于查询模式来获取指定字符窜id及2个替换字符窜的翻译结果。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="unzip"></a><span style="font-family: 'Courier New'; font-weight: bold;">-unzip</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-uzp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" style="border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将目标zip包解压到指定目标目录。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="zipfilefolder"></a><span style="font-family: 'Courier New'; font-weight: bold;">-zipFileFolder</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-zip</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" style="border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; height:42px; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">在查询模式下这个标签将列出目标zip包里所有的文件及文件夹。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">在创建模式下，这个标签用于将指定目录或文件压缩成目标的zip档。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr style="height:2px; color:#cccccc; border-width:0px; background-color:#cccccc;" /><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 10px 0px 0px 0px;"><table style="background-color:#eeeeee; border:none; border-spacing:1px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:4px;"><p><img src="create.gif" width="13" height="16" alt="create" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-family: 'Times New Roman';">标签可以在创建模式中使用</span></p>
+</td>
+<td style="vertical-align:top; padding:4px;"><p><img src="edit.gif" width="13" height="16" alt="edit" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-family: 'Times New Roman';">标签可以在编辑模式中使用</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:4px;"><p><img src="query.gif" width="13" height="16" alt="query" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-family: 'Times New Roman';">标签可以在查询模式中使用</span></p>
+</td>
+<td style="vertical-align:top; padding:4px;"><p><img src="multiuse.gif" width="13" height="16" alt="multiuse" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-family: 'Times New Roman';">标签可以在一条命令中多次使用</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 19px 0px 0px 0px;"><a id="examples"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">MEL例子</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">//zip&nbsp;the&nbsp;folder&nbsp;into&nbsp;a&nbsp;zip&nbsp;package:</span><br />
+<span style="font-family: 'Courier New';">MGPickerService&nbsp;-zipFileFolder&nbsp;&quot;D:/test&quot;&nbsp;&quot;D:/test.zip&quot;;</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">//list&nbsp;out&nbsp;the&nbsp;zip&nbsp;package&nbsp;content:</span><br />
+<span style="font-family: 'Courier New';">print&nbsp;&quot;The&nbsp;contents&nbsp;in&nbsp;test.zip:\n&quot;;</span><br />
+<span style="font-family: 'Courier New';">print&nbsp;`MGPickerService&nbsp;-q&nbsp;-zip&nbsp;&quot;D:/test.zip&quot;`;</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">//unzip&nbsp;to&nbsp;another&nbsp;directory:</span><br />
+<span style="font-family: 'Courier New';">MGPickerService&nbsp;-unzip&nbsp;&quot;D:/test/unzipped/&quot;&nbsp;&quot;D:/test.zip&quot;;</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="pyexamples"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">Python例子</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">import maya.cmds as cmd</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">cmd.MGPickerService(&quot;D:/test.zip&quot;, zipFileFolder=&quot;D:/test&quot;)</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">#list&nbsp;out&nbsp;the&nbsp;zip&nbsp;package&nbsp;content:</span><br />
+<span style="font-family: 'Courier New';">print&nbsp;(&quot;The&nbsp;contents&nbsp;in&nbsp;test.zip:\n&quot;)</span><br />
+<span style="font-family: 'Courier New';">print&nbsp;(cmd.MGPickerService(&quot;D:/test.zip&quot;,&nbsp;q=True,zip=True))</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">#unzip&nbsp;to&nbsp;another&nbsp;directory:</span><br />
+<span style="font-family: 'Courier New';">cmd.MGPickerService(&quot;D:/test.zip&quot;,&nbsp;unzip=&quot;D:/test/unzipped/&quot;)</span></p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="mgpickermenuitem.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="mgimageprocesser.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

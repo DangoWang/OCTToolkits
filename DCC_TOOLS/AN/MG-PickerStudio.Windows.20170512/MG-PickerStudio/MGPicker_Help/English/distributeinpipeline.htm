@@ -1,0 +1,86 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Distribute Pickers in Pipeline</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="distribute picker,pipeline" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "distributeinpipeline.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="editing.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="pickertoolintergration.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">MG-Picker Studio searchs 3 Basic paths and any count of other paths for the desired picker:</span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span><span style="font-weight: bold;">Fully Inside maya scene.</span><br />
+The picker could be stored in nodes, which is of maya's build-in type &quot;subdivSurfaceVarGroup&quot;, and usually has a node name ends with suffix &quot;_MGPIKR&quot;;<br />
+The image used by a in-scene picker node will be stored in maya scene directory/ pickerimages folder.<br />
+&nbsp;</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span><span style="font-weight: bold;">Partially Inside maya scene.</span><br />
+From MG-Picker Studio v 1.7, The picker nodes does not contain any picker contents, instead it contains just a file path attribute, that points to a picker file.<br />
+This is preferable way to distribute your picker, since the edit and maintainence of the picker file is separated with your rig maya scene,<br />
+yet your picker can be loaded with the clue in the picker node. <br />
+The file path support environment variables denoted by &quot;$&quot; or &quot;${}&quot;, as well as 3 predefined variables:</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span style="font-size: 9pt;">${M_PROJ_DIR}: Current Maya project dicrectory.</span></p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span style="font-size: 9pt;">${MAYA_CURRENT_SCENE_DIR}: Current Maya scene directory.</span></p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span style="font-size: 9pt;">${M_CURRENT_ASSET_DIR}: Current asset maya scene directory. Say the asset is referenced, it will still give you the asset scene directory instead current maya scene directory.</span></p><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table style="border:none;border-spacing:0px;padding:0px;line-height: 1.50;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:24px"></td><td style="border:none;padding:0">Examples:</td></tr></table></div><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span style="font-size: 9pt;">$M_PROJ_DIR/picker/pickerName/pickerfile.mgpkr</span></p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span style="font-size: 9pt;">${M_SCENE_DIR}_picker/pickerName/pickerfile.mgpkr</span></p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span style="font-size: 9pt;">D:/workarea/projects/${MyProjectName}/pickerName/pickerfile.mgpkr</span></p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span style="font-size: 9pt;">/path/to/$MyProjectName/$MyPickerName/${MyPickerName}.mgpkr</span><br />
+<span style="font-size: 9pt;">&nbsp;</span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span><span style="font-weight: bold;">maya scene directory / pickers subfolder. </span><br />
+You could publish your picker data and images within &quot;maya scene directory / pickers / PickerName&quot; &nbsp;folder and will be auto-searched.<br />
+&nbsp;</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span><span style="font-weight: bold;">maya user applicaton directory / MG_PickerData / Picker Project.</span><br />
+In Windows, its My Document/maya/MG_PickerData/. Picker datas store within the current project name will be auto-searched.<br />
+&nbsp;</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span><span style="font-weight: bold;">Other paths added in MG-Picker Studio Preference dialog.</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;"> </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> </span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">These searching paths setting are actually stored in as a file called &quot;SearchingPathConfig.ini&quot; &nbsp;in &quot;maya/version/scripts/MG-PickerStudio/MGPicker_UserConfig&quot; directory.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">Share this file among the pipeline so everybody shares the same searching rule.</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">How to distribute picker files / nodes in pipeline</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;">Since now you know the search paths MG-Picker Studio use to search and load the pickers, you know how to distribute your picker data in the pipeline.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">Notice that only the in-scene picker node could be auto-loadable when a new scene is opened.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">But wait, there are more ways:</p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-weight: bold;">Using programming way, which is the most customizable, but need bit of programming .</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">You can define two class inherit from MGP.loader.</span><span class="f_Heading1" style="font-size: 9pt;">MGPickerRigListerBase</span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;"> &nbsp;and MGP.loader.</span><span class="f_Heading1" style="font-size: 9pt;">MGPickerLoaderBase</span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;"> .</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">MGPickerRigListerBase is for listing out all the rig asset names in your maya scene, or certain category of assets, such as characters, props, etc.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">MGPickerLoaderBase is for returning a picker full path for an asset name, so it can be loaded.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">With these two classes, you enable MG-Picker studio to auto-load pickers for all assets in your maya scene, also auto-load picker for a specific rig based on selection.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">Check out <a href="customeloaderandlister.htm" class="topiclink">here</a> for more information.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">The Portability of Picker Images:</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">There are several image properties for picker item, such as background image for panel, item image for select-button, command-button and slider handle, and menu icons.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">MG-Picker Studio will try its best to set all these image path to relative path, by copying the image to the same directory the picker files stays, or the asset maya file directory/pickerimages folder when it is a picker node.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">The same way, for a relative image path, MG-Picker Studio will try to solve the relative image path to absolute path in background by searching the image in the picker file directory or the asset maya file directory/pickerimages directory.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">With that being said, if it is a picker file, the folder that contains the file should also contain the picker images it use,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">if it is a picker node, there must be a folder called pickerimages beside the maya scene file. When the asset is referenced, MG-Picker Studio will still try to find the image in the asset file directory/pickerimages folder.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> If a mgpicker node been opened, and you assigned some images to it, then at the moment these paths will remain absolute path.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">To copy these images to proper folder and convert these path to relative, go to &quot;Picker menu / Process images To Relative Path..&quot;.</span></p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="editing.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="pickertoolintergration.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

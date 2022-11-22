@@ -1,0 +1,72 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Distribute MGTools</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="deploy,licence" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "distributemgtools_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">Distribute MGTools</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="install_mgtools_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="floatinglicence_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">If you just want to install MGTools in one single machine, check out the &quot;Install MGTools&quot; section at the left.  </span><a href="install_mgtools_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a> </p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">Distributing MGTools for Node-Locked License：</span>Means installing MGTools to all the machines in your animation production, and batch register them, also make them easy to be updated.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">They are much easier than it looks, all are pretty easy to understand and follow.</p>
+<p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">1.</span>Visit http://twincodes.com to download the latest MGTools Pro package, extract it to a server directory. (Called it MGTools server source)</p><p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 72px;">The server directory should be readable to all the animators' machine, of course you can make it non-writable to them but please keep the folder &quot;MGTools_LicenseData&quot; within writable to them.</p>
+<p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">2.</span>Find a file called &quot;InstallMGTools_InstallOptionPresets.txt&quot; in the MGTools server source.<br />
+The file setups an initial installation option presets. It 's content is the same as the installation option page of the installation wizard.<br />
+With the file been setup, &nbsp;you no longer need to customize the install options in the installation wizard.<br />
+The most critical thing to do, is to change the option &quot;&gt; Install Mode:&quot; to &quot;Install As Server Program&quot; or &quot;Install As Full Server Program&quot;.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">3.</span>Save the change to the InstallMGTools_InstallOptionPresets.txt.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">4.</span>Make sure the &quot;MGTools_LicenseData&quot; folder is writable to all the machines that need the MGTools.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">5.</span>Install MGTools in every machine with the file &quot;InstallMGTools_WrittenByMiguel.mel&quot;, in the installation wizard just keep clicking the next button and install.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">6.</span>If the MGTools_LicenseData folder in MGTools server source is writable to the machine, the installation will auto-submit a file to it.<br />
+The file contains the IP, userName, MGTools usercode info. Don't worry because these files are just for batch registering purpose. <br />
+They are submitted to your server, not mgland.com. &nbsp;And only usercodes are needed when purchasing MGTools later.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">7.</span>With all machines installed, the software manager, pick one of the machine, right click on the first icon of MGTools toolbar, select Register/Batch Register MGTools..</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">8.</span>With an security confirmation dialog being clicked, the batch register dialog shows up:<br />
+<img src="batchregmgtools_en.gif" width="845" height="339" alt="batchRegMGTools_en" style="border:none" /></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">9.</span> Assuming MGTools are installed to 3 machine, as shown above, section 1 and section 2 show three computer information and usercodes.<br />
+If you find some machines haven't submitted the user code, go to that machine, and click on the first icon of MGtools/Register/Submit userCode to Server.. &nbsp;to manually submit it. </p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">10.</span>Click the &quot;Copy&quot; button to copy the usercodes in section 2 to clipboard. If this failed, just select the usercodes in section 2 and ctrl+c to manually copy them.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">11.</span>Go to mgland.com or twincodes.com to purchase MGTools Pro3 licenses, attach these usercodes when doing this, or email them to <a href="mailto:mgtoolspro@gmail.com" class="weblink">mgtoolspro@gmail.com</a> afterward. </p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">12.</span>When you receive the authorization codes from <a href="mailto:mgtoolspro@gmail.com" class="weblink">mgtoolspro@gmail.com</a>, the info will be of this form:<br />
+ &nbsp; &nbsp; &nbsp;UserCode1 &nbsp;&gt; AuthorizationCode1<br />
+ &nbsp; &nbsp; &nbsp;UserCode2 &nbsp;&gt; AuthorizationCode2<br />
+ &nbsp; &nbsp; &nbsp;....</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">13.</span>Copy these text, keep the form, and go back to the &quot;2. Paste And Match And Batch Register&quot; tab.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">14.</span>Paste the text in the section 2. Press &quot;2.Match -&gt;&quot; button and the authorization code should be matched the computers correctly in section1.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">15.</span>Press the &quot;3. Apply Register !!&quot; button to actually write the register data into the files in the &quot;MGTools_LicenseData&quot; folder.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">16.</span>Restart Maya in every machine, the MGTools will be registered automatically.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">17.</span>Once locally registered, the register files in server source no longer needed by the local machines, you could make it non-writable to these machines, and keep it as the MGTools user list to help out the software management.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">18.</span>All done.</p><p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">Tips: When there is a update for MGTools, pick an online machine to online update the server source, and for other offline machines, if you installed it as Full server mode, you need nothing but a restart of Maya. If you installed it as server mode, just let user right click on MGTools' first icon/Update/Update MGTools From server.. , this will get the latest program files from server. </span> <a href="updatefromserver_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a><br />
+&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">Distributing MGTools for Floating License：</span>You could just follow the 1~6 steps above to deploy MGTools in your pipeline.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">To use floating license, <a href="floatinglicence_en.htm" class="topiclink">checkout here.</a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="install_mgtools_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="floatinglicence_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

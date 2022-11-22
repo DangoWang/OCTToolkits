@@ -1,0 +1,1764 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>MGPicker Command</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="API,MGPicker command" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "mgpicker.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="programmer.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="mgpickerview.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; height:8px; padding:1px;"><p><span style="font-family: 'Times New Roman'; font-weight: bold;">command</span><span style="font-family: 'Times New Roman';"> (MEL/Python)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; height:5px; padding:1px;"><h1 class="p_Heading1" style="margin: 19px 0px 19px 0px;"><span class="f_Heading1" style="font-size: 24pt; font-family: 'Times New Roman';">MGPicker</span></h1>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 14px 0px 0px 0px;"><span style="font-size: 12pt; font-family: 'Times New Roman';">Go to: <a href="mgpicker.htm#synopsis" class="topiclink">MEL synopsis</a>. <a href="mgpicker.htm#pysynopsis" class="topiclink">Python synopsis</a>. <a href="mgpicker.htm#returnvalue" class="topiclink">Return value</a>. <a href="mgpicker.htm#flags" class="topiclink">Flags</a>. <a href="mgpicker.htm#examples" class="topiclink">MEL examples</a>. <a href="mgpickeritem.htm#pyexamples" class="topiclink">Python examples</a>.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="synopsis"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">MEL Synopsis</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">MGPicker [-<a href="mgpicker.htm#about" class="topiclink">about</a>] [-<a href="mgpicker.htm#aboutcurrentpicker" class="topiclink">aboutCurrentPicker</a>] [-<a href="mgpicker.htm#activate" class="topiclink">activate</a>] [-<a href="mgpicker.htm#addgenericpicker" class="topiclink">addGenericPicker</a>] [-<a href="mgpicker.htm#activepickerarea" class="topiclink">activePickerArea</a>] [-<a href="mgpicker.htm#activepanelindex" class="topiclink">activePanelIndex</a>] [-<a href="mgpicker.htm#activepickerview" class="topiclink">activePickerView</a>] [-<a href="mgpicker.htm#appendrecentpickerfile" class="topiclink">appendRecentPickerFile</a>] [-<a href="mgpicker.htm#appendrecentpickernode" class="topiclink">appendRecentPickerNode</a>][-<a href="mgpicker.htm#addsearchpath" class="topiclink">addSearchPath</a>] [-<a href="mgpicker.htm#author" class="topiclink">author</a>] [-<a href="mgpicker.htm#closeall" class="topiclink">closeAll</a>] [-<a href="mgpicker.htm#currentattributename" class="topiclink">currentAttributeName</a>] [-<a href="mgpicker.htm#config" class="topiclink">config</a>] [-<a href="mgpicker.htm#currentitem" class="topiclink">currentItem</a>] [-<a href="mgpicker.htm#close" class="topiclink">close</a>] [-<a href="mgpicker.htm#createpicker" class="topiclink">createPicker</a>] [-<a href="mgpicker.htm#currentpickerview" class="topiclink">currentPickerView</a>] [-<a href="mgpicker.htm#createtemppicker" class="topiclink">createTempPicker</a>] [-<a href="mgpicker.htm#deletegenericpicker" class="topiclink">deleteGenericPicker</a>] [-<a href="mgpicker.htm#dockpanelvisible" class="topiclink">dockPanelVisible</a>] [-<a href="mgpicker.htm#deletesearchpath" class="topiclink">deleteSearchPath</a>] [-<a href="mgpicker.htm#evenlydistributepickers" class="topiclink">evenlyDistributePickers</a>] [-<a href="mgpicker.htm#email" class="topiclink">email</a>] [-<a href="mgpicker.htm#exportpathtonode" class="topiclink">exportPathToNode</a>] [-<a href="mgpicker.htm#exist" class="topiclink">exist</a>] [-<a href="mgpicker.htm#fallbackpicker" class="topiclink">fallbackPicker</a>] [-<a href="mgpicker.htm#findpickerview" class="topiclink">findPickerView</a>] [-<a href="mgpicker.htm#getidfromname" class="topiclink">getIdFromName</a>] [-<a href="mgpicker.htm#genericpickers" class="topiclink">genericPickers</a>] [-<a href="mgpicker.htm#hotkeyoutliner" class="topiclink">hotkeyOutliner</a>] [-<a href="mgpicker.htm#interactivemode" class="topiclink">interactiveMode</a>] [-<a href="mgpicker.htm#listallpickerviews" class="topiclink">listAllPickerViews</a>] [-<a href="mgpicker.htm#listlinks" class="topiclink">listLinks</a>] [-<a href="mgpicker.htm#list" class="topiclink">list</a>] [-<a href="mgpicker.htm#menuitemcommand" class="topiclink">menuItemCommand</a>] [-<a href="mgpicker.htm#mirrorselection" class="topiclink">mirrorSelection</a>] [-<a href="mgpicker.htm#message" class="topiclink">message</a>] [-<a href="mgpicker.htm#namespace" class="topiclink">namespace</a>] [-<a href="mgpicker.htm#openpicker" class="topiclink">openPicker</a>] [-<a href="mgpicker.htm#parent" class="topiclink">parent</a>] [-<a href="mgpicker.htm#pickerareacount" class="topiclink">pickerAreaCount</a>] [-<a href="mgpicker.htm#progressbar" class="topiclink">progressBar</a>] [-<a href="mgpicker.htm#popupcoloredit" class="topiclink">popupColorEdit</a>] [-<a href="mgpicker.htm#pickerdirpath" class="topiclink">pickerDirPath</a>] [-<a href="mgpicker.htm#pickerentercommand" class="topiclink">pickerEnterCommand</a>] [-<a href="mgpicker.htm#pickerfilepath" class="topiclink">pickerFilePath</a>] [-<a href="mgpicker.htm#pickerloaded" class="topiclink">pickerLoaded</a>] [-<a href="mgpicker.htm#pickerloadcommand" class="topiclink">pickerLoadCommand</a>] [-<a href="mgpicker.htm#pickerlayout" class="topiclink">pickerLayout</a>] [-<a href="mgpicker.htm#pickermode" class="topiclink">pickerMode</a>] [-<a href="mgpicker.htm#popupnamespace" class="topiclink">popupNamespace</a>] [-<a href="mgpicker.htm#pickerproject" class="topiclink">pickerProject</a>] [-<a href="mgpicker.htm#pickertoshelf" class="topiclink">pickerToShelf</a>] [-<a href="mgpicker.htm#removeall" class="topiclink">removeAll</a>] [-<a href="mgpicker.htm#readpickerfile" class="topiclink">readPickerFile</a>] [-<a href="mgpicker.htm#readscenepicker" class="topiclink">readScenePicker</a>] [-<a href="mgpicker.htm#saveasscenenode" class="topiclink">saveAsSceneNode</a>] [-<a href="mgpicker.htm#saveastemplate" class="topiclink">saveAsTemplate</a>] [-<a href="mgpicker.htm#savecurrentas" class="topiclink">saveCurrentAs</a>] [-<a href="mgpicker.htm#selectionhelper" class="topiclink">selectionHelper</a>] [-<a href="mgpicker.htm#select" class="topiclink">select</a>] [-<a href="mgpicker.htm#selectpickerbuttons" class="topiclink">selectPickerButtons</a>] [-<a href="mgpicker.htm#selectpanelbuttons" class="topiclink">selectPanelButtons</a>] [-<a href="mgpicker.htm#setpickerclean" class="topiclink">setPickerClean</a>] [-<a href="mgpicker.htm#selectpanelindexbuttons" class="topiclink">selectPanelIndexButtons</a>] [-<a href="mgpicker.htm#searchpaths" class="topiclink">searchPaths</a>] [-<a href="mgpicker.htm#syncpickervalue" class="topiclink">syncPickerValue</a>] [-<a href="mgpicker.htm#searchui" class="topiclink">searchUi</a>] [-<a href="mgpicker.htm#savetofolder" class="topiclink">saveToFolder</a>] [-<a href="mgpicker.htm#savewithinscenefolder" class="topiclink">saveWithinSceneFolder</a>] [-<a href="mgpicker.htm#tablabel" class="topiclink">tabLabel</a>][-<a href="mgpicker.htm#updatesceneboundary" class="topiclink">updateSceneBoundary</a>] [-<a href="mgpicker.htm#version" class="topiclink">version</a>] [-<a href="mgpicker.htm#visible" class="topiclink">visible</a>] [-<a href="mgpicker.htm#website" class="topiclink">website</a>]</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="pysynopsis"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">Python Synopsis</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">MGPicker ([<a href="mgpicker.htm#about" class="topiclink">about</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#aboutcurrentpicker" class="topiclink">aboutCurrentPicker</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#activate" class="topiclink">activate</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, string]</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#addgenericpicker" class="topiclink">addGenericPicker</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, int]</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#activepickerarea" class="topiclink">activePickerArea</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[int]</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#activepanelindex" class="topiclink">activePanelIndex</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#activepickerview" class="topiclink">activePickerView</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#appendrecentpickerfile" class="topiclink">appendRecentPickerFile</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#appendrecentpickernode" class="topiclink">appendRecentPickerNode</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">][<a href="mgpicker.htm#addsearchpath" class="topiclink">addSearchPath</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, int]</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#author" class="topiclink">author</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#closeall" class="topiclink">closeAll</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#currentattributename" class="topiclink">currentAttributeName</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#config" class="topiclink">config</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, string]</span><span style="font-family: 'Courier New';">], <a href="mgpicker.htm#currentitem" class="topiclink">[currentItem</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#close" class="topiclink">close</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, boolean, string]</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#createpicker" class="topiclink">createPicker</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, string, string, string]</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#currentpickerview" class="topiclink">currentPickerView</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[boolean]</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#createtemppicker" class="topiclink">createTempPicker</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#deletegenericpicker" class="topiclink">deleteGenericPicker</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#dockpanelvisible" class="topiclink">dockPanelVisible</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#deletesearchpath" class="topiclink">deleteSearchPath</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#evenlydistributepickers" class="topiclink">evenlyDistributePickers</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#email" class="topiclink">email</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#exportpathtonode" class="topiclink">exportPathToNode</a>=[</span><span style="font-family: 'Courier New'; font-style: italic;">string, string]</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#exist" class="topiclink">exist</a>=[</span><span style="font-family: 'Courier New'; font-style: italic;">boolean]</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#fallbackpicker" class="topiclink">fallbackPicker</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#findpickerview" class="topiclink">findPickerView</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string, int, string</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#getidfromname" class="topiclink">getIdFromName</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#genericpickers" class="topiclink">genericPickers</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#hotkeyoutliner" class="topiclink">hotkeyOutliner</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#interactivemode" class="topiclink">interactiveMode</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#listallpickerviews" class="topiclink">listAllPickerViews</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#listlinks" class="topiclink">listLinks</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#list" class="topiclink">list</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#menuitemcommand" class="topiclink">menuItemCommand</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#mirrorselection" class="topiclink">mirrorSelection</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#message" class="topiclink">message</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#namespace" class="topiclink">namespace</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], <a href="mgpicker.htm#openpicker" class="topiclink">[openPicker</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#parent" class="topiclink">parent</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#pickerareacount" class="topiclink">pickerAreaCount</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#progressbar" class="topiclink">progressBar</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#popupcoloredit" class="topiclink">popupColorEdit</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#pickerdirpath" class="topiclink">pickerDirPath</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#pickerentercommand" class="topiclink">pickerEnterCommand</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string, string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#pickerfilepath" class="topiclink">pickerFilePath</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#pickerloaded" class="topiclink">pickerLoaded</a>=[</span><span style="font-family: 'Courier New'; font-style: italic;">string, string]</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#pickerloadcommand" class="topiclink">pickerLoadCommand</a>=[</span><span style="font-family: 'Courier New'; font-style: italic;">string, string]</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#pickerlayout" class="topiclink">pickerLayout</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#pickermode" class="topiclink">pickerMode</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#popupnamespace" class="topiclink">popupNamespace</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#pickerproject" class="topiclink">pickerProject</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#pickertoshelf" class="topiclink">pickerToShelf</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#removeall" class="topiclink">removeAll</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], <a href="mgpicker.htm#readpickerfile" class="topiclink">[readPickerFile</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, boolean]</span><span style="font-family: 'Courier New';">], <a href="mgpicker.htm#readscenepicker" class="topiclink">[readScenePicker</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, string, string, string]</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#saveasscenenode" class="topiclink">saveAsSceneNode</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#saveastemplate" class="topiclink">saveAsTemplate</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#savecurrentas" class="topiclink">saveCurrentAs</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#selectionhelper" class="topiclink">selectionHelper</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#select" class="topiclink">select</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int,stringArray</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#selectpickerbuttons" class="topiclink">selectPickerButtons</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#selectpanelbuttons" class="topiclink">selectPanelButtons</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#setpickerclean" class="topiclink">setPickerClean</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#selectpanelindexbuttons" class="topiclink">selectPanelIndexButtons</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[int, int]</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#searchpaths" class="topiclink">searchPaths</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">],<a href="mgpicker.htm#syncpickervalue" class="topiclink">[syncPickerValue</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#searchui" class="topiclink">searchUi</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#savetofolder" class="topiclink">saveToFolder</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#savewithinscenefolder" class="topiclink">saveWithinSceneFolder</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#tablabel" class="topiclink">tabLabel</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#updatesceneboundary" class="topiclink">updateSceneBoundary</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#version" class="topiclink">version</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#visible" class="topiclink">visible</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#website" class="topiclink">website</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">])</span></p>
+<p style="margin: 14px 0px 14px 0px;"><span style="font-size: 12pt; font-family: 'Times New Roman';">MGPicker is </span><span style="font-size: 12pt; font-family: 'Times New Roman'; font-weight: bold;">NOT undoable</span><span style="font-size: 12pt; font-family: 'Times New Roman';">, </span><span style="font-size: 12pt; font-family: 'Times New Roman';">queryable, and editable.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">This command queries / edit the picker document level attributes and states, as well as some program related attributes. </span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">In creation mode, this command is used to create the MG-Picker widget, only one widget instance is allowed at a time, you will never need to use the command in creation mode.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="returnvalue"></a><span style="font-size: 18pt; font-family: 'Times New Roman'; font-weight: bold;">Return value</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 19px 0px 0px 0px;"><table style="border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:100%; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Depend on the flag, the return value could be string, boolean, etc.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 19px 0px 19px 0px;"><a id="flags"></a><span style="font-size: 18pt; font-family: 'Times New Roman'; font-weight: bold;">Flags</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#about" class="topiclink">about</a>, <a href="mgpicker.htm#aboutcurrentpicker" class="topiclink">aboutCurrentPicker</a>, <a href="mgpicker.htm#activate" class="topiclink">activate</a>,</span><span style="font-size: 12pt; font-family: 'Times New Roman';"> <a href="mgpicker.htm#addgenericpicker" class="topiclink">addGenericPicker</a>, <a href="mgpicker.htm#activepickerarea" class="topiclink">activePickerArea</a>,</span><span style="font-size: 12pt; font-family: 'Times New Roman';"> <a href="mgpicker.htm#activepanelindex" class="topiclink">activePanelIndex</a>, <a href="mgpicker.htm#activepickerview" class="topiclink">activePickerView</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#appendrecentpickerfile" class="topiclink">appendRecentPickerFile</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#appendrecentpickernode" class="topiclink">appendRecentPickerNode</a>, <a href="mgpicker.htm#addsearchpath" class="topiclink">addSearchPath</a>, <a href="mgpicker.htm#author" class="topiclink">author</a>, <a href="mgpicker.htm#closeall" class="topiclink">closeAll</a>, <a href="mgpicker.htm#currentattributename" class="topiclink">currentAttributeName</a>, <a href="mgpicker.htm#config" class="topiclink">config</a>, <a href="mgpicker.htm#currentitem" class="topiclink">currentItem</a>, <a href="mgpicker.htm#close" class="topiclink">close</a>, <a href="mgpicker.htm#createpicker" class="topiclink">createPicker</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#currentpickerview" class="topiclink">currentPickerView</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#createtemppicker" class="topiclink">createTempPicker</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#deletegenericpicker" class="topiclink">deleteGenericPicker</a>,</span><span style="font-size: 12pt; font-family: 'Times New Roman';"> <a href="mgpicker.htm#dockpanelvisible" class="topiclink">dockPanelVisible</a>, <a href="mgpicker.htm#deletesearchpath" class="topiclink">deleteSearchPath</a>, <a href="mgpicker.htm#evenlydistributepickers" class="topiclink">evenlyDistributePickers</a>, <a href="mgpicker.htm#email" class="topiclink">email</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#exportpathtonode" class="topiclink">exportPathToNode</a>, <a href="mgpicker.htm#exist" class="topiclink">exist</a>, <a href="mgpicker.htm#fallbackpicker" class="topiclink">fallbackPicker</a>,</span><span style="font-size: 12pt; font-family: 'Times New Roman';"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';"> <a href="mgpicker.htm#findpickerview" class="topiclink">findPickerView</a>, <a href="mgpicker.htm#getidfromname" class="topiclink">getIdFromName</a>,</span><span style="font-size: 12pt; font-family: 'Times New Roman';"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#genericpickers" class="topiclink">genericPickers</a>, <a href="mgpicker.htm#hotkeyoutliner" class="topiclink">hotkeyOutliner</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#interactivemode" class="topiclink">interactiveMode</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#listallpickerviews" class="topiclink">listAllPickerViews</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#listlinks" class="topiclink">listLinks</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#list" class="topiclink">list</a>, <a href="mgpicker.htm#menuitemcommand" class="topiclink">menuItemCommand</a>, <a href="mgpicker.htm#mirrorselection" class="topiclink">mirrorSelection</a>,</span><span style="font-size: 12pt; font-family: 'Times New Roman';"> <a href="mgpicker.htm#message" class="topiclink">message</a>, <a href="mgpicker.htm#namespace" class="topiclink">namespace</a>, <a href="mgpicker.htm#openpicker" class="topiclink">openPicker</a>, <a href="mgpicker.htm#parent" class="topiclink">parent</a>, <a href="mgpicker.htm#pickerareacount" class="topiclink">pickerAreaCount</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#progressbar" class="topiclink">progressBar</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#popupcoloredit" class="topiclink">popupColorEdit</a>, <a href="mgpicker.htm#pickerdirpath" class="topiclink">pickerDirPath</a>,</span><span style="font-size: 12pt; font-family: 'Times New Roman';"> <a href="mgpicker.htm#pickerentercommand" class="topiclink">pickerEnterCommand</a>,</span><span style="font-size: 12pt; font-family: 'Times New Roman';"> <a href="mgpicker.htm#pickerfilepath" class="topiclink">pickerFilePath</a>, <a href="mgpicker.htm#pickerloaded" class="topiclink">pickerLoaded</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#pickerloadcommand" class="topiclink">pickerLoadCommand</a>,</span><span style="font-size: 12pt; font-family: 'Times New Roman';"> <a href="mgpicker.htm#pickerlayout" class="topiclink">pickerLayout</a>, <a href="mgpicker.htm#pickermode" class="topiclink">pickerMode</a>, <a href="mgpicker.htm#popupnamespace" class="topiclink">popupNamespace</a>, <a href="mgpicker.htm#pickerproject" class="topiclink">pickerProject</a>, <a href="mgpicker.htm#pickertoshelf" class="topiclink">pickerToShelf</a>, <a href="mgpicker.htm#removeall" class="topiclink">removeAll</a>, <a href="mgpicker.htm#readpickerfile" class="topiclink">readPickerFile</a>, <a href="mgpicker.htm#readscenepicker" class="topiclink">readScenePicker</a>,<a href="mgpicker.htm#saveasscenenode" class="topiclink">saveAsSceneNode</a>,<a href="mgpicker.htm#saveastemplate" class="topiclink">saveAsTemplate</a>, <a href="mgpicker.htm#savecurrentas" class="topiclink">saveCurrentAs</a>, <a href="mgpicker.htm#selectionhelper" class="topiclink">selectionHelper</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#select" class="topiclink">select</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#selectpickerbuttons" class="topiclink">selectPickerButtons</a>, <a href="mgpicker.htm#selectpanelbuttons" class="topiclink">selectPanelButtons</a>, <a href="mgpicker.htm#setpickerclean" class="topiclink">setPickerClean</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#selectpanelindexbuttons" class="topiclink">selectPanelIndexButtons</a>, <a href="mgpicker.htm#searchpaths" class="topiclink">searchPaths</a>, <a href="mgpicker.htm#syncpickervalue" class="topiclink">syncPickerValue</a>, <a href="mgpicker.htm#searchui" class="topiclink">searchUi</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#savetofolder" class="topiclink">saveToFolder</a>, <a href="mgpicker.htm#savewithinscenefolder" class="topiclink">saveWithinSceneFolder</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#tablabel" class="topiclink">tabLabel</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"> <a href="mgpicker.htm#updatesceneboundary" class="topiclink">updateSceneBoundary</a>, <a href="mgpicker.htm#version" class="topiclink">version</a>, <a href="mgpicker.htm#visible" class="topiclink">visible</a>, <a href="mgpicker.htm#website" class="topiclink">website</a></span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman'; font-weight: bold;">Long name (short name)</span></p>
+</td>
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic; font-weight: bold;">Argument types</span></p>
+</td>
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman'; font-weight: bold;">Properties</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="about"></a><span style="font-family: 'Courier New'; font-weight: bold;">-about</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-abt</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p>&nbsp;</p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Show &quot;About MG-Picker Studio&quot; dialog.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="aboutcurrentpicker"></a><span style="font-family: 'Courier New'; font-weight: bold;">-aboutCurrentPicker</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-acp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Show &quot;About Current Picker&quot; dialog. The dialog shows the name, email, website and message of picker designer.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="activate"></a><span style="font-family: 'Courier New'; font-weight: bold;">-activate</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-act</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">In query mode, this returns if a provided picker file path / node is activated.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">In Edit mode, you active a picker tab by assign a picker file path / picker node name. If the picker file / node has not been opened yet, this will won't open it. Return 1 if a picker tab been activated, 0 if failed.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Specify namespace string for the second parameter, if namespace is not empty, when checking to activate the picker view, it will check if the namespaces match too. Use empty namespace string if you don't want to check the namespace.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Alternatively, record the picker view id when you create it, and call this instead to activate it:</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">  </span><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp;MGPickerView -e -activate viewID; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="addgenericpicker"></a><span style="font-family: 'Courier New'; font-weight: bold;">-addGenericPicker</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-agp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This always affects only current picker project. Use it to add a generic picker name for current picker project. Specify a picker file name(without extension) and an int value stands for index. Specify index of -1 will append the picker name at the end, specify 0 to insert at the head. If the picker name already added to generic before, it will first remove it, and then insert it with the index you specified. The generic picker menu will update itself after the change.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="activepickerarea"></a><span style="font-family: 'Courier New'; font-weight: bold;">-activePickerArea</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-apa</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p class="p_MelArgTable"><span class="f_MelArgTable">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Active picker area of specified area index, ranging from 0~3. The maximum of multiple picker view areas are 4, so the maximum of index value is 3. </span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">However, there probably less than 4 views, so this maximum index value could be even smaller than 3, setting a index larger than supposed will just active the maximum index number.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="activepanelindex"></a><span style="font-family: 'Courier New'; font-weight: bold;">-activePanelIndex</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-api</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p class="p_MelArgTable"><span class="f_MelArgTable">int</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;MGPickerView -e -activePanelIndex index; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="activepickerview"></a><span style="font-family: 'Courier New'; font-weight: bold;">-activePickerView</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-apv</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">In query mode this return currently active picker view id, the id then could be used in MGPickerView command.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">In edit mode, this activate the picker view specified by view id, for this purpose, MGPickerView is more suggested:</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 11pt; font-family: 'Times New Roman';">MGPickerView -e -activate viewID; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="appendrecentpickerfile"></a><span style="font-family: 'Courier New'; font-weight: bold;">-appendRecentPickerFile</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-arf</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Append a picker file path to the &quot;Recent Picker Files&quot; menu.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="appendrecentpickernode"></a><span style="font-family: 'Courier New'; font-weight: bold;">-appendRecentPickerNode</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-arn</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Append a picker node to the &quot;Recent Picker Nodes&quot; menu.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="addsearchpath"></a><span style="font-family: 'Courier New'; font-weight: bold;">-addSearchPath</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-asp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This always affects only current picker project. Use it to add a custom picker searching path into the searching list for current picker project. </span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Specify a path string and an int value stands for searching priority. Specify priority of -1 will append the search path to the last to be the last searched, specify 0 to be the first to be searched.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="author"></a><span style="font-family: 'Courier New'; font-weight: bold;">-author</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ath</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -q -</span><span style="font-family: 'Courier New'; font-weight: bold;">author</span><span style="font-size: 11pt; font-family: 'Times New Roman';">; </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -</span><span style="font-family: 'Courier New'; font-weight: bold;">author</span><span style="font-size: 11pt; font-family: 'Times New Roman';"> &quot;Your Name&quot;; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="closeall"></a><span style="font-family: 'Courier New'; font-weight: bold;">-closeAll</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ca</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:944px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Close all opened picker. Specify a 0~1 value to make the program close all the picker by force without any unsaved warning even in designer mode. </span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Be aware that in Animator mode, this won't warn any unsaved edit but close all pickers directly.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="currentattributename"></a><span style="font-family: 'Courier New'; font-weight: bold;">-currentAttributeName</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-can</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:944px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Return the namespace:node.attribute string of current interacting attribute button. </span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">For use with pre/post change command of attribute-button. If not argument or an &nbsp;argument of 1 provided, the returned attribute will include the namespace, argument value of 0 will return attribute without namespace.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="config"></a><span style="font-family: 'Courier New'; font-weight: bold;">-config</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-cfg</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Internal use only. For setting the specific user config. In query mode, this return the string array of for all the user configs if no arguments provided, otherwise, if you provide two arguments to query, it will return the specific config.</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';">eg. MGPicker -q -config &quot;language&quot; &quot;&quot;;</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="currentitem"></a><span style="font-family: 'Courier New'; font-weight: bold;">-currentItem</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ci</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Return the current interacting picker item id. For use in the picker item's change command, to query the item id the script belong to.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="close"></a><span style="font-family: 'Courier New'; font-weight: bold;">-close</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-cl</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string boolean string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Specify a picker path / picker node to close, specify an empty string to close current picker file/node. </span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Specify a 0~1 value as the secondary argument to make the program close the picker by force without any unsaved warning even in designer mode. </span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Specify a namespace string as the third argument, it it is not an empty string, when finding the target picker view to close, it will match the namespaces and close the picker view only if it has the same namespace.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Use empty namespace string if you don't want to check the namespace.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Be aware that in Animator mode, this won't warn any unsaved edit but close the picker directly.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="createpicker"></a><span style="font-family: 'Courier New'; font-weight: bold;">-createPicker</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-cp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string string string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Specify the picker name, namespace, an optional picker file path or an optional picker node name, to create a new picker and return its id string.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">For use in the picker converter, to create a new picker to contain the converted picker items.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="currentpickerview"></a><span style="font-family: 'Courier New'; font-weight: bold;">-currentPickerView</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-cpv</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Query only flag. Like -currentItem flag, this return current interacting picker view id.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">For use in the picker's load command and mouse enter command, to query the view id the script belong to.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Be careful to distinguish with -activePickerView flag, this current view only valid during picker load command and mouse enter command.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="createtemppicker"></a><span style="font-family: 'Courier New'; font-weight: bold;">-createTempPicker</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ctp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Create a temporary picker view and return its id string, the view is untitled but with the &quot;:Temp#&quot; as tab label.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">The temporary picker is for animator use only to contain their temporary picker items created in simple edit mode.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="deletegenericpicker"></a><span style="font-family: 'Courier New'; font-weight: bold;">-deleteGenericPicker</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-dgp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Delete a picker name from the generic pickers list. Specify an empty string to clear all the generic picker names. The generic picker menu will update itself after the change.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="dockpanelvisible"></a><span style="font-family: 'Courier New'; font-weight: bold;">-dockPanelVisible</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-dpv</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:944px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Internal use only.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="deletesearchpath"></a><span style="font-family: 'Courier New'; font-weight: bold;">-deleteSearchPath</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-dsp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:944px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Delete a custom search path from the picker searching directories list. Specify an empty string to clear all the custom searching paths. </span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">The default searching path item, such as *[In-Scene], *[Scene/pickers], *[local] are not deletable.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="evenlydistributepickers"></a><span style="font-family: 'Courier New'; font-weight: bold;">-evenlyDistributePickers</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-edp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:944px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Evenly distribute the picker tabs for all the visible picker view areas, so each picker layout area has a approximate number of picker tabs.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="email"></a><span style="font-family: 'Courier New'; font-weight: bold;">-email</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-eml</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -q -</span><span style="font-family: 'Courier New'; font-weight: bold;">email</span><span style="font-size: 11pt; font-family: 'Times New Roman';">; </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -</span><span style="font-family: 'Courier New'; font-weight: bold;">email</span><span style="font-size: 11pt; font-family: 'Times New Roman';"> &quot;email@gmail.com&quot;; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="exportpathtonode"></a><span style="font-family: 'Courier New'; font-weight: bold;">-exportPathToNode</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-epn</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 11pt; font-family: 'Times New Roman';">Export picker file path to a picker node. Bascially it store a file path to a picker file, in pickerFilePath attribute in picker node.</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';">When picker node is loaded, the picker file will be loaded instead. The file path support environment variable denoted by $ or ${}</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';">Specify the node name to export / edit and the picker file path as arguments.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="exist"></a><span style="font-family: 'Courier New'; font-weight: bold;">-exist</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ex</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 11pt; font-family: 'Times New Roman';">Check if the picker ui exists.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="fallbackpicker"></a><span style="font-family: 'Courier New'; font-weight: bold;">-fallbackPicker</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-fbp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">When queried, this flag returns the fallback picker name.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">With fallback picker name been set, if program cann't find any matched picker to maya selection, it will load fallback picker instead.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="findpickerview"></a><span style="font-family: 'Courier New'; font-weight: bold;">-findPickerView </span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-fpv</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string boolean string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Query only. This flag find and return a picker view id string, by searching and matching picker name and namespace. You must specify the picker file name / node name as first argument, a boolean to control whether to match namespace or not, and the namespace string.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="getidfromname"></a><span style="font-family: 'Courier New'; font-weight: bold;">-getIdFromName </span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-gin</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; string $ids [] = `MGPickerView -q -</span><span style="font-family: 'Courier New'; font-weight: bold;">getIdFromName &quot;name&quot;`</span><span style="font-size: 11pt; font-family: 'Times New Roman';">; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="genericpickers"></a><span style="font-family: 'Courier New'; font-weight: bold;">-genericPickers </span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-gps</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Return string array containing all generic files in query mode, in edit mode, specify generic picker names joined by '|' to set the generic picker settings.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">The generic picker menu will update itself after the change. Alternatively, use this to query / set the generic pickers:</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;global string $MGPicker_Config_GenericPickerID; &nbsp; &nbsp; // Don't change this value, it already defined.</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;MGPicker -q -config $MGPicker_Config_GenericPickerID &quot;&quot;; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// This will return a string joined by '|'</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;MGPicker -e -config $MGPicker_Config_GenericPickerID &quot;genericPickerName1|genericPickerName2&quot;; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // This will set the generic pickers. Notice that it won't update the menu.  </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="hotkeyoutliner"></a><span style="font-family: 'Courier New'; font-weight: bold;">-hotkeyOutliner </span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ho</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Popup hotkey outliner, to checkout the hotkey set for MG-Picker Studio animator mode &amp; designer mode.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Actually the hotkey outliner is also made by a mgpicker file.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="interactivemode"></a><span style="font-family: 'Courier New'; font-weight: bold;">-interactiveMode</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-im</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">For internal use. When queried, this flag returns current tool index in animator mode, setting this flag will switch current tools in MG-Picker Studio.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Since this flag only works on animator mode, so current valid value range is [0~1], 0 for preview tool, 1 for simple edit tool. </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="listallpickerviews"></a><span style="font-family: 'Courier New'; font-weight: bold;">-listAllPickerViews</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-lav</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Query only flag. Return all the picker view id string array.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="listlinks"></a><span style="font-family: 'Courier New'; font-weight: bold;">-listLinks</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ll</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; string $links [] = `MGPickerView -q -listLinks &quot;parentLink&quot;`; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="list"></a><span style="font-family: 'Courier New'; font-weight: bold;">-list</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ls</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; string $btns [] = `MGPickerView -q -list &quot;selectButton|slider|sliderHandle&quot;`; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="menuitemcommand"></a><span style="font-family: 'Courier New'; font-weight: bold;">-menuItemCommand</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-mic</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Query only flag. Internal used only, to support the mel/python menu item command for each picker item.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="mirrorselection"></a><span style="font-family: 'Courier New'; font-weight: bold;">-mirrorSelection</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ms</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -mirrorSelection 1; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="message"></a><span style="font-family: 'Courier New'; font-weight: bold;">-message</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-msg</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:947px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -message &quot;Thanks for using the picker I designed!&quot;; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="namespace"></a><span style="font-family: 'Courier New'; font-weight: bold;">-namespace</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ns</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:944px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -namespace &quot;MyNS:SubNS&quot;; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="openpicker"></a><span style="font-family: 'Courier New'; font-weight: bold;">-openPicker</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-opp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Show file dialog to picker .mgpkr file to be opened / activated.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Use -rpf/-readPickerFile flag to open a picker file directly, or use &nbsp;-rsp/-readScenePicker flag to read a in-scene picker node directly.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="parent"></a><span style="font-family: 'Courier New'; font-weight: bold;">-parent</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-p</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Internal use only. Use in creation mode to assign the picker widget's parent layout.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickerareacount"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerAreaCount</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pac</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Query only flag to get the visible count of picker area. </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="progressbar"></a><span style="font-family: 'Courier New'; font-weight: bold;">-progressBar</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pb</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Specify 0~100 int value to show the progress bar in ui and set the percentage value, specify -1 to hide the progress bar.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="popupcoloredit"></a><span style="font-family: 'Courier New'; font-weight: bold;">-popupColorEdit</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pce</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Internal use only. Pop up the color edit in simple edit mode. 0 for the item fill color, 1 for the item label color.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickerdirpath"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerDirPath</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pdp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; string $dirPath = `MGPickerView -q -pickerDirPath`; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickerentercommand"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerEnterCommand</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pec</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; string $enterCommand[] = `MGPickerView -q -pickerEnterCommand`;  </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickerfilepath"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerFilePath</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pfp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; string $dirFilePath = `MGPickerView -q -pickerFilePath`; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickerloaded"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerLoaded</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pl</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:944px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a query only flag that can be used to query for if a picker file or node is loaded. </span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Specify a picker file path or a node name for the first parameter, specify namespace string for the second parameter, if namespace is not empty, when checking if a picker loaded, it will check if the namespaces match too.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Use empty namespace string if you don't want to check the namespace.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickerloadcommand"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerLoadCommand</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-plc</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:944px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; string $loadCommand[] = `MGPickerView -q -pickerLoadCommand`; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickerlayout"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerLayout</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ply</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:34px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:781px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Query / specify the picker view layout. In edit mode, valid string values are: &quot;Single&quot;，&quot;Column2&quot;，&quot;Column3&quot;，&quot;Column4&quot;，&quot;Row2&quot;,&quot;Row3&quot;,&quot;Row4&quot;,&quot;Col2SplitLeft&quot;,&quot;Col2SplitRight&quot;,&quot;Row2SplitTop&quot;,&quot;Row2SplitBottom&quot;,&quot;GridVerticalUnified&quot;,&quot;GridHorizontalUnified&quot;,&quot;GridBothUnified&quot;.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickermode"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerMode</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pm</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Internal use only. &nbsp;In query mode this return if current is in Animator mode / Designer mode. </span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">The edit mode is only used to assistant the switch of the mode, you don't need to use this flag.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="popupnamespace"></a><span style="font-family: 'Courier New'; font-weight: bold;">-popupNamespace</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pns</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:940px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Pop up the namespace setting dialog to change the namespace of current picker.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickerproject"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerProject</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ppj</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:940px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">In query mode this return current picker project name, by default it is &quot;Default&quot;.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">In edit mode, this edit current picker project. The picker project is used when searching for a related picker file for scene selection.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">If the target picker project name does not exist, this will create the project folder and set as current picker project.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickertoshelf"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerToShelf</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pts</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:940px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Pop up the &quot;Convert Picker Items To Shelves&quot; dialog, which you could use to convert picker items to maya's shelves.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="removeall"></a><span style="font-family: 'Courier New'; font-weight: bold;">-removeAll</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ra</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:938px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -removeAll; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="readpickerfile"></a><span style="font-family: 'Courier New'; font-weight: bold;">-readPickerFile</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-rpf</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:939px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a edit only flag that can be used to read and load the picker file and return the picker view id string. </span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">If it is already opened, and the second parameter is false or 0, this will activate the tab and return. </span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">If the second parameter is specified to true or 1, it will read the picker into new picker view anyway.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Use -opp/-openPicker to provide user a file dialog to picker a picker file.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="readpickernode"></a><span style="font-family: 'Courier New'; font-weight: bold;">-readPickerNode</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-rsp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:938px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a edit only flag that can be used to read and load the in-scene picker node and return the picker view id string.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Specify a picker node name to read, if the node already loaded in picker view, it will activate it and return the view id string.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="readscenepicker"></a><span style="font-family: 'Courier New'; font-weight: bold;">-readScenePicker</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-rsp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string string string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:938px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a edit only flag that can be used to read and load the in-scene picker node and return the picker view id string.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Instead of simply specify a picker node name, you must get the datas in mel/python, and specify the node name, picker name, namespace and the picker xml data string to read the and load the picker node.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="saveasscenenode"></a><span style="font-family: 'Courier New'; font-weight: bold;">-saveAsSceneNode</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sas</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:937px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -saveAsSceneNode &quot;sceneNodeName&quot; 0; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="saveastemplate"></a><span style="font-family: 'Courier New'; font-weight: bold;">-saveAsTemplate</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sat</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:937px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -saveAsTemplate &quot;myTemplate&quot; 0; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="savecurrentas"></a><span style="font-family: 'Courier New'; font-weight: bold;">-saveCurrentAs</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sca</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:937px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -saveAs &quot;newPickerName&quot; 0; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="selectionhelper"></a><span style="font-family: 'Courier New'; font-weight: bold;">-selectionHelper</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-seh</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:937px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Create a show a MG-Select Helper window.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="select"></a><span style="font-family: 'Courier New'; font-weight: bold;">-select</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sel</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int stringArray</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:937px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -select &quot;selectButton1&quot; -select &quot;commandButton1&quot; -selectMode 1; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="selectpickerbuttons"></a><span style="font-family: 'Courier New'; font-weight: bold;">-selectPickerButtons</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-skb</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:936px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -selectPickerButtons 1; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="selectpanelbuttons"></a><span style="font-family: 'Courier New'; font-weight: bold;">-selectPanelButtons</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-spb</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:938px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -selectPanelButtons 0; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="setpickerclean"></a><span style="font-family: 'Courier New'; font-weight: bold;">-setPickerClean</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-spc</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:936px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -setClean; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="selectpanelindexbuttons"></a><span style="font-family: 'Courier New'; font-weight: bold;">-selectPanelIndexButtons</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-spi</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int int </span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:936px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -selectPanelIndexButtons 1 0; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="searchpaths"></a><span style="font-family: 'Courier New'; font-weight: bold;">-searchPaths</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sps</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:936px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">In query mode this returns string array of searching paths for current picker project.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">In edit mode, specify paths joined with character '|' to be the search paths. Notice that these values are always there: *[In-Scene], *[Scene/pickers], *[Local]</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="syncpickervalue"></a><span style="font-family: 'Courier New'; font-weight: bold;">-syncPickerValue</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-spv</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:936px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -syncPickerValue; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="searchui"></a><span style="font-family: 'Courier New'; font-weight: bold;">-searchUi</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sru</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:936px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">In edit mode, this shows / hides the node/attribute searching UI in animator mode. </span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">In query mode this return the visibility of searching UI.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="savetofolder"></a><span style="font-family: 'Courier New'; font-weight: bold;">-saveToFolder</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-stf</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:934px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -saveToFolder &quot;/path/to/folder&quot; 1; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="savewithinscenefolder"></a><span style="font-family: 'Courier New'; font-weight: bold;">-saveWithinSceneFolder</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sws</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:934px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -saveWithinSceneFolder 0; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="tablabel"></a><span style="font-family: 'Courier New'; font-weight: bold;">-tabLabel</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-tl</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:934px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -tabLabel &quot;pickerTab&quot;; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="updatesceneboundary"></a><span style="font-family: 'Courier New'; font-weight: bold;">-updateSceneBoundary</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-usb</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:935px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -updateSceneBoundary; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="version"></a><span style="font-family: 'Courier New'; font-weight: bold;">-version</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-v</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:932px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a query only flag that can be used to query for the float version of current MG-Picker Studio.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="visible"></a><span style="font-family: 'Courier New'; font-weight: bold;">-visible</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-vis</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:930px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Internal use only. Set the visibility of the picker widget.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="website"></a><span style="font-family: 'Courier New';">-website(-www)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:932px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Will be obsolete. Please use MGPickerView command instead:</span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -website &quot;http://mgland.com&quot;; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><p>&nbsp;</p>
+</td>
+</tr>
+</table>
+</div>
+<hr style="height:2px; color:#cccccc; border-width:0px; background-color:#cccccc;" /><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 10px 0px 0px 0px;"><table style="background-color:#eeeeee; border:none; border-spacing:1px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:4px;"><p><img src="create.gif" width="13" height="16" alt="create" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';">Flag can appear in Create mode of command</span></p>
+</td>
+<td style="vertical-align:top; padding:4px;"><p><img src="edit.gif" width="13" height="16" alt="edit" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';">Flag can appear in Edit mode of command</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:4px;"><p><img src="query.gif" width="13" height="16" alt="query" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';">Flag can appear in Query mode of command</span></p>
+</td>
+<td style="vertical-align:top; padding:4px;"><p><img src="multiuse.gif" width="13" height="16" alt="multiuse" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';">Flag can be used more than once in a command.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 19px 0px 0px 0px;"><a id="examples"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">MEL examples</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">//&nbsp;create&nbsp;a&nbsp;new&nbsp;picker&nbsp;named&nbsp;&quot;myPicker&quot;</span></p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">string&nbsp;$view&nbsp;=&nbsp;`MGPicker&nbsp;-e&nbsp;-createPicker&nbsp;&quot;myPicker&quot;&nbsp;&quot;wrongNamespace&quot;&nbsp;&quot;&quot;&nbsp;&quot;&quot;`;&nbsp;&nbsp;&nbsp;//it&nbsp;is&nbsp;a&nbsp;untitled&nbsp;picker,&nbsp;not&nbsp;refer&nbsp;to&nbsp;a&nbsp;picker&nbsp;file&nbsp;/&nbsp;node.</span></p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">MGPickerView&nbsp;-e&nbsp;-namespace&nbsp;&quot;rightNamespace&quot;&nbsp;$view;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//edit&nbsp;the&nbsp;namespace&nbsp;of&nbsp;the&nbsp;picker.</span></p>
+<p style="white-space: nowrap;">&nbsp;</p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">//To-Do:&nbsp;use&nbsp;MGPickerItem&nbsp;command&nbsp;to&nbsp;created&nbsp;picker&nbsp;items.</span></p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">//....</span></p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">//if&nbsp;you&nbsp;does&nbsp;create&nbsp;any&nbsp;picker&nbsp;items,&nbsp;this&nbsp;picker&nbsp;view&nbsp;will&nbsp;be&nbsp;completely&nbsp;empty.</span></p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">MGPickerView&nbsp;-e&nbsp;-author&nbsp;&quot;Miguel&quot;&nbsp;</span></p>
+<p style="white-space: nowrap;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">-website&nbsp;&quot;http://twincodes.com&quot;&nbsp;</span></p>
+<p style="white-space: nowrap;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">-email&nbsp;&quot;mgpickerstudio@gmail.com&quot;</span></p>
+<p style="white-space: nowrap;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">-message&nbsp;&quot;Feel&nbsp;free&nbsp;to&nbsp;send&nbsp;feedback&nbsp;to&nbsp;me!&quot;&nbsp;</span></p>
+<p style="white-space: nowrap;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">$view;&nbsp;&nbsp;//edit&nbsp;the&nbsp;meta&nbsp;info&nbsp;of&nbsp;the&nbsp;current&nbsp;picker&nbsp;file.</span></p>
+<p style="white-space: nowrap;">&nbsp;</p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">MGPickerView&nbsp;-e&nbsp;-updateSceneBoundary&nbsp;$view;&nbsp;&nbsp;//update&nbsp;the&nbsp;scene&nbsp;boundary&nbsp;to&nbsp;show&nbsp;all&nbsp;the&nbsp;picker&nbsp;items.</span></p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">MGPickerView</span><span style="font-family: 'Courier New';">&nbsp;-e&nbsp;-</span><span style="font-family: 'Courier New';">setClean&nbsp;</span><span style="font-family: 'Courier New';">$view</span><span style="font-family: 'Courier New';">;&nbsp;&nbsp;&nbsp;//set&nbsp;the&nbsp;picker&nbsp;we&nbsp;just&nbsp;created&nbsp;clean.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="pyexamples"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">Python examples</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">import maya.cmds as cmd</span><br />
+<span style="font-family: 'Courier New';">#Create a new picker named &quot;myPicker&quot;</span><br />
+<span style="font-family: 'Courier New';">#it is a untitled picker, not refer to a picker file / node.</span><br />
+<span style="font-family: 'Courier New';">viewId = cmds.MGPicker (edit=True,createPicker=(&quot;myPicker&quot;,&quot;wrongNamespace&quot;,&quot;&quot;,&quot;&quot;))</span><br />
+<span style="font-family: 'Courier New';">cmds.MGPickerView(viewId, edit=True,namespace=&quot;rightNamespace&quot;) &nbsp; &nbsp;#edit the namespace of the picker.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">#To-Do: use MGPickerItem command to created picker items.</span><br />
+<span style="font-family: 'Courier New';">#....</span><br />
+<span style="font-family: 'Courier New';">#if you does create any picker items, this picker view will be completely empty.</span><br />
+<span style="font-family: 'Courier New';">cmds.MGPickerView(viewId, edit=True, author=&quot;Miguel&quot;, </span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">website=&quot;http://twincodes.com&quot;, </span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';"><a href="mailto:email=%22mgpickerstudio@gmail.com%22" class="weblink" style="font-size: 10pt; font-family: 'Courier New'; font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;">email=&quot;mgpickerstudio@gmail.com&quot;</a>,</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">message=&quot;Feel free to send feedback to me!&quot;) &nbsp;#edit the meta info of the current picker file.</span><br />
+<span style="font-family: 'Courier New';">cmds.MGPickerView(viewId, edit=True, updateSceneBoundary=True) &nbsp;#update the scene boundary to show all the picker items.</span><br />
+<span style="font-family: 'Courier New';">cmds.MGPickerView(viewId, edit=True, setClean=True) &nbsp; #set the picker we just created clean.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="color: #000000;">&nbsp;</span></p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="programmer.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="mgpickerview.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

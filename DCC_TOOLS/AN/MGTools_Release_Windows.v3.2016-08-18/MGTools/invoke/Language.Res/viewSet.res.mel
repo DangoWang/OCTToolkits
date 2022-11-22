@@ -1,0 +1,43 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "viewSet.defaultConfigChanged" "Default config changed :)";
+MG_displayEN "viewSet.Configsaved" "Config saved :)";
+MG_displayEN "viewSet.saveConfigAs.prompt.title" "Save config as:";
+MG_displayEN "viewSet.saveConfigAs.prompt.message" "Enter ConfigName:";
+MG_displayEN "viewSet.saveConfigAs.prompt.ok" "OK";
+MG_displayEN "viewSet.saveConfigAs.prompt.cancel" "Cancel";
+
+MG_displayEN "viewSet.openConfigAs.anno" "Click to open configFile: # ";
+
+MG_displayEN "viewSet.noActivePanel.war" "Your active View is not a modelPanel.";
+
+MG_displayEN "viewSet.configUI.title" "ViewSwitch config editor";
+MG_displayEN "viewSet.configUI.tab1" "Config 1";
+MG_displayEN "viewSet.configUI.tab2" "Config 2";
+MG_displayEN "viewSet.configUI.tab3" "Config 3";
+MG_displayEN "viewSet.configUI.disableAnno" "Diabled";
+MG_displayEN "viewSet.configUI.affectActive" "Affect active viewport";
+MG_displayEN "viewSet.configUI.affectAll" "Affect All visible viewports";
+MG_displayEN "viewSet.configUI.disableC3" "Disable Config 3";
+MG_displayEN "viewSet.configUI.openConfig.btn" "Open config ->";
+MG_displayEN "viewSet.configUI.openConfigDir.btn" "Open config directory..";
+MG_displayEN "viewSet.configUI.saveAsConfig.btn" "Save config as..";
+MG_displayEN "viewSet.configUI.saveConfig.btn" "Save config";
+MG_displayEN "viewSet.configUI.resetoreToDef.btn" "Reset to Default";
+MG_displayEN "viewSet.configUI.saveAsDefault.btn" "Save as default";
+MG_displayEN "viewSet.configUI.help.btn" "Help..";
+MG_displayEN "viewSet.configUI.close.btn" "Close";
+
+MG_displayEN "viewSet.configUI.preset" "Presets:";
+MG_displayEN "viewSet.configUI.PlayBlast" "PlayBlast";
+MG_displayEN "viewSet.configUI.Animation" "Animation";
+MG_displayEN "viewSet.configUI.Modeling" "Modeling";
+MG_displayEN "viewSet.configUI.Effect" "Effect";
+MG_displayEN "viewSet.configUI.Lighting" "Lighting";

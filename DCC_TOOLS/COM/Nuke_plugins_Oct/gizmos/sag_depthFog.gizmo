@@ -1,0 +1,202 @@
+Gizmo {
+ inputs 2
+ tile_color 0xffcf3fff
+ addUserKnob {20 controls l Controls}
+ addUserKnob {6 fxOnly l "Effect Only" +STARTLINE}
+ addUserKnob {26 ""}
+ addUserKnob {7 farClip l "Far Clip" R 0 100000}
+ farClip 25000
+ addUserKnob {22 autoFar l "Auto Far Clip" T "thisNode = nuke.thisNode()\n\nmaxDepth = 0\nfor x in xrange( thisNode.width() ):\n    for y in xrange( thisNode.height() ):\n        maxDepth = max( maxDepth, thisNode.sample( 'z', x, y ) )\n\nthisNode\[ 'farClip' ].setValue( int( maxDepth + 1.0 ) )" +STARTLINE}
+ addUserKnob {26 ""}
+ addUserKnob {7 contrast l Contrast R 0 10}
+ contrast 1
+ addUserKnob {4 blend l "Blend Type" M {over plus}}
+ blend plus
+ addUserKnob {3 aa l Anti-Aliasing}
+ addUserKnob {26 ""}
+ addUserKnob {7 density l Density}
+ density 0.5
+ addUserKnob {18 tone l Tone}
+ tone 1
+}
+ Input {
+  inputs 0
+  name mask
+  xpos 251
+  ypos -432
+  number 1
+ }
+ Dot {
+  name Dot4
+  xpos 285
+  ypos -151
+ }
+ Input {
+  inputs 0
+  name image
+  xpos 368
+  ypos -432
+ }
+ Grade {
+  white 0
+  name effectOnly_grade
+  xpos 368
+  ypos -335
+  disable {{"1 - parent.fxOnly"}}
+ }
+ Dot {
+  name Dot1
+  xpos 402
+  ypos -289
+ }
+set N2d808c50 [stack 0]
+ Shuffle {
+  in depth
+  in2 rgba
+  alpha alpha2
+  name zAlpha_shuffle
+  xpos 368
+  ypos -249
+ }
+set N2d808fc0 [stack 0]
+push $N2d808fc0
+ Constant {
+  inputs 0
+  channels rgb
+  color {{parent.farClip}}
+  format "256 256 0 0 256 256 1 square_256"
+  name farPlane_constant
+  xpos 498
+  ypos -273
+  postage_stamp false
+ }
+ Reformat {
+  type "to box"
+  box_width {{image.width}}
+  box_height {{image.height}}
+  box_fixed true
+  box_pixel_aspect {{image.pixel_aspect}}
+  name Reformat1
+  xpos 498
+  ypos -249
+ }
+ Shuffle {
+  alpha white
+  name Shuffle1
+  xpos 498
+  ypos -225
+ }
+ Keymix {
+  inputs 3
+  channels rgb
+  name Keymix1
+  xpos 498
+  ypos -201
+ }
+push $N2d808fc0
+ ShuffleCopy {
+  inputs 2
+  red red
+  green green
+  blue blue
+  name ShuffleCopy1
+  xpos 368
+  ypos -201
+ }
+ Grade {
+  multiply {{1/farPlane_constant.color}}
+  gamma {{parent.contrast}}
+  white_clamp true
+  name normalize_grade
+  xpos 368
+  ypos -179
+ }
+ Grade {
+  white {{parent.tone} {parent.tone} {parent.tone} 1}
+  name tone_grade
+  xpos 368
+  ypos -155
+ }
+ Matrix {
+  channels rgb
+  matrix {
+      {{parent.aa-1} {matrix.0>0?matrix.0*2:1} {matrix.0}}
+      {{matrix.1} {matrix.1*2} {matrix.1}}
+      {{matrix.0} {matrix.1} {matrix.0}}
+    }
+  normalize true
+  name fakeAA_matrix
+  xpos 368
+  ypos -131
+  disable {{parent.aa==0 x1 1}}
+ }
+ Merge2 {
+  inputs 2
+  operation mask
+  name Merge2
+  xpos 368
+  ypos -88
+  disable {{"1-\[exists parent.input1]"}}
+ }
+set N2d80a0f0 [stack 0]
+push $N2d808c50
+ Dot {
+  name Dot2
+  xpos 219
+  ypos -289
+ }
+ Merge2 {
+  inputs 2
+  mix {{parent.density}}
+  name Merge11
+  xpos 185
+  ypos -88
+ }
+set N2d9847b0 [stack 0]
+push $N2d80a0f0
+push $N2d808c50
+ Dot {
+  name Dot3
+  xpos 602
+  ypos -287
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  mix {{parent.density}}
+  name Merge1
+  xpos 568
+  ypos -88
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy1
+  xpos 568
+  ypos -64
+ }
+ Dot {
+  name Dot5
+  xpos 602
+  ypos 15
+ }
+push $N2d9847b0
+ Dot {
+  name Dot6
+  xpos 219
+  ypos 15
+ }
+ Switch {
+  inputs 2
+  which {{parent.blend}}
+  name Switch1
+  xpos 369
+  ypos 12
+ }
+ Output {
+  name Output1
+  xpos 369
+  ypos 112
+ }
+end_group

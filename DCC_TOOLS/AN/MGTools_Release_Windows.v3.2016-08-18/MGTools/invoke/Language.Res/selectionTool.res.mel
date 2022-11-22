@@ -1,0 +1,244 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "selSet.updateMM.mi" "Update SelSet MarkingMenu";
+
+MG_displayEN "selSet.selmask.mi" "SelectMask Switch";
+MG_displayEN "selSet.normalmode.mi" "Normal mode";
+MG_displayEN "selSet.isolatemode.mi" "Isolate Selected Set";
+MG_displayEN "selSet.quitisolatemode.mi" "Quit Isolation";
+
+
+MG_displayEN "selSet.updateMM.mi.anno" "Update selSet popupMenu and MarkingMenu.";
+MG_displayEN "selSet.updateMM.rep" "MG_selectionSet MarkingMenu was successfully updated.";
+MG_displayEN "selSet.updateMM.notBuilt.war" "MG selection set markingMenu hasn't been built yet!";
+
+MG_displayEN "selSet.setUI.set.menu" "Set";
+MG_displayEN "selSet.setUI.editSel.mi" "Edit selected set";
+MG_displayEN "selSet.setUI.editSel.noitemSel.war" "No set itmes selected.";
+
+MG_displayEN "selSet.setUI.Rename.mi" "Rename selected set";
+MG_displayEN "selSet.setUI.del.mi" "Delete selected set";
+MG_displayEN "selSet.setUI.normalMode.mi" "Normal Mode";
+MG_displayEN "selSet.setUI.isolate.mi" "Isolate Selected Set";
+MG_displayEN "selSet.setUI.isolate.rep" "Isolation done:)";
+MG_displayEN "selSet.setUI.isolate.cancel" "Quit Isolation";
+MG_displayEN "selSet.setUI.isolate.mi.anno" "Eval Selected Set and then isolate view only set memembers in current active viewport.";
+
+MG_displayEN "selSet.setUI.retargetIsolate.mi" "Retarget & Isolate Selected Set";
+MG_displayEN "selSet.setUI.IsolateWrongView.war" "If the wrong view gose into the isolated mode,try press space key in your keyboard to make the desired viewport the single view then try me again.";
+
+MG_displayEN "selSet.setUI.eval.mi" "Eval selected set";
+
+MG_displayEN "selSet.setUI.addeval.mi" "Add to scene selection";
+MG_displayEN "selSet.setUI.addeval.ann" "Use current selected selectionset, and add to scene selection.";
+MG_displayEN "selSet.setUI.excludeeval.mi" "Exclude from scene selection";
+MG_displayEN "selSet.setUI.excludeeval.ann" "Use current selected selectionset, and exculde the set member from scene selection.";
+
+MG_displayEN "selSet.setUI.backup.mi" "BackUp set with scenes";
+MG_displayEN "selSet.setUI.backupA.mi" "BackUp all sets with scenes";
+MG_displayEN "selSet.setUI.retarget.mi" "Retarget selected set";
+MG_displayEN "selSet.setUI.toshelf.mi" "Selected set to shelf";
+MG_displayEN "selSet.setUI.toshelfA.mi" "All sets to shelf";
+MG_displayEN "selSet.setUI.toset.mi" "All sets to shelf";
+MG_displayEN "selSet.setUI.switch" "List/Shelf mode";
+MG_displayEN "selSet.setUI.setFolder" "Open set folder..";
+MG_displayEN "selSet.setUI.case" "Case";
+MG_displayEN "selSet.setUI.case.anno" "Click it to select different folder in MGselectionSet root folder.This means that U can build your own category of your selection set base on different project :) \"*ROOT*\" means the root directory.";
+MG_displayEN "selSet.setUI.toggleMB" "MenuBar toggle";
+
+MG_displayEN "selSet.setUI.showInL.mi" "Show in L..";
+MG_displayEN "selSet.setUI.showInR.mi" "Show in R..";
+MG_displayEN "selSet.setUI.newF.prompt.title" "Create New Folder(Case)";
+MG_displayEN "selSet.setUI.newF.prompt.create" "Create";
+MG_displayEN "selSet.setUI.newF.prompt.war" "The Folder already exists in MG_SelectionSet folder.";
+
+MG_displayEN "selSet.eval.selNoSet.war" "Please select a selection set below :)";
+MG_displayEN "selSet.eval.selACurrent" "selection A:(current)";
+MG_displayEN "selSet.eval.selAFormer" "selection A:(former)";
+MG_displayEN "selSet.eval.selBCurrent" "selection B:(current)";
+MG_displayEN "selSet.eval.selBFormer" "selection B:(former)";
+MG_displayEN "selSet.eval.load.rep" " # objects loaded.";
+
+MG_displayEN "selSet.eval.noexists.war" "No objects from set exist in your scene.";
+MG_displayEN "selSet.eval.rep" " # objects selected :)";
+MG_displayEN "selSet.eval.war.rep" " # objects selected, but # objects ignored because dose not exist.";
+
+MG_displayEN "selSet.Addeval.rep" " # objects added to selection :)";
+MG_displayEN "selSet.Addeval.war.rep" " # objects added to selection, but # objects ignored because dose not exist.";
+
+MG_displayEN "selSet.Exeval.rep" " # objects excluded from selection:)";
+MG_displayEN "selSet.Exeval.war.rep" " # objects excluded from selection, but # objects ignored because dose not exist.";
+
+MG_displayEN "selSet.read.NoExistsF.war" "Current Folder(Case) not exists.";
+
+MG_displayEN "selSet.newEditUI.title" "Save as new Set";
+MG_displayEN "selSet.newEditUI.pickIcon.anno" "Click to pick a 32X32 icon.";
+MG_displayEN "selSet.newEditUI.pickHIcon.mi" "Pick HighLight Icon..";
+MG_displayEN "selSet.newEditUI.purgeHIcon.mi" "Purge HighLight Icon";
+MG_displayEN "selSet.newEditUI.resetD.mi" "Reset to default";
+MG_displayEN "selSet.newEditUI.ShelfName.mi" "ShelfName:";
+MG_displayEN "selSet.newEditUI.SetName.mi" "SetName:";
+MG_displayEN "selSet.newEditUI.guess" "Guess";
+MG_displayEN "selSet.newEditUI.guess.anno" "Guess set name from current set content.";
+MG_displayEN "selSet.newEditUI.fl.label" " # objects selected in your scenes.";
+
+MG_displayEN "selSet.newEditUI.sf.anno" "It show your current selection from your scenes,you can type in new content as well,separator with single whitespace;";
+MG_displayEN "selSet.newEditUI.addsel.mi" "Add current selection to list";
+MG_displayEN "selSet.newEditUI.exsel.label" "Exclude current selection from list";
+MG_displayEN "selSet.newEditUI.toshelf" "To shelf !";
+MG_displayEN "selSet.newEditUI.saveasSet" "Save as set !";
+MG_displayEN "selSet.newEditUI.edit" "Edit set!";
+
+MG_displayEN "selSet.renameSet.title" "Rename \"#\"";
+MG_displayEN "selSet.renameSet.ok" "Rename";
+
+MG_displayEN "selSet.newEditUI.refresh.label" " # objects selected in your scenes/Set.";
+MG_displayEN "selSet.saveAsList.nothing.war" "You have nothing in the list :(";
+
+MG_displayEN "selSet.retarget.sel" "Retarget selection";
+MG_displayEN "selSet.retarget.noNs.war" "Select objects with namespaces to retarget.";
+MG_displayEN "selSet.retarget.doit.btn" "ReTarget and select!";
+MG_displayEN "selSet.retarget.asnewSet.btn" "ReTarget to NewSet!";
+
+MG_displayEN "selSet.retarget.doit.war" " # objects ignored because they do not exist.";
+MG_displayEN "selSet.eval.selAtLestOneSet.war" "Please select one or more set in the list :)";
+MG_displayEN "selSet.backupWithS.rep" "BackUp is done,Check selectionSet|locator's note.";
+
+MG_displayEN "selSet.convetShelfSet.mi" "Shelf to SelectionSet Converter..";
+MG_displayEN "selSet.convetShelfSet.title" "Shelf to SelectionSet Converter";
+MG_displayEN "selSet.convetShelfSet.tabL" "Shelf Container";
+MG_displayEN "selSet.convetShelfSet.go" "    Convert !!    ";
+MG_displayEN "selSet.convetShelfSet.annoText" "Ctrl+Mid Drag in  your shelves use for selection into area below:";
+MG_displayEN "selSet.convetShelfSet.addPre" "Add a global prefix if you want:";
+
+MG_displayEN "selSet.excude.noselBelong" "No selection in your scenes belong to current selSet.No members will be excluded.";
+MG_displayEN "selM.copyRight.anno" "Visit http://mgland.com to get more mel tools.";
+
+MG_displayEN "selM.getfromSel.btn" "GetFromSelection";
+
+MG_displayEN "selM.title" "selectionManager";
+MG_displayEN "selM.sel.menu" "selection";
+MG_displayEN "selM.sel.backupSel.mi" "BackUp Sel..";
+MG_displayEN "selM.sel.restoreSel.mi" "Restore Sel..";
+MG_displayEN "selM.sel.ex" "Export to .sel file..";
+MG_displayEN "selM.sel.bug" "Report bug/need..";
+MG_displayEN "selM.sel.A" "selection A:";
+MG_displayEN "selM.sel.B" "selection B:";
+MG_displayEN "selM.sel.list.anno" "Right click to do more operation; Double click the item to query its type.";
+MG_displayEN "selM.selItem" "Select selected Item in scene";
+
+MG_displayEN "selM.swap" "A  <---->  B";
+MG_displayEN "selM.plus" "listA + listB";
+MG_displayEN "selM.minus" "listA - listB";
+MG_displayEN "selM.intersect" "listA X listB";
+MG_displayEN "selM.exSelItem" "Exclude and Reselect";
+MG_displayEN "selM.retargetSelItem" "ReTarget and Reselect";
+MG_displayEN "selM.showNum.anno" "Show the selection number.";
+MG_displayEN "selM.getSel" "Get selection";
+
+
+MG_displayEN "selM.reSel" "Reselect list";
+MG_displayEN "selM.retargetL" "ReTarget Llist";
+MG_displayEN "selM.retargetR" "ReTarget Rlist";
+MG_displayEN "selM.copyAnim" "Copy Animation";
+MG_displayEN "selM.pAnim" "Paste Animation";
+MG_displayEN "selM.backUPList" "BackUp Sel..";
+MG_displayEN "selM.restoreList" "Restore Sel..";
+MG_displayEN "selM.exList" "Export..";
+MG_displayEN "selM.imList" "Import..";
+MG_displayEN "selM.clList" "Clear all";
+
+MG_displayEN "selM.copyANim.rangeS" "Animation in the timeRange # copyed;";
+MG_displayEN "selM.copyANim.rangeS1" "Since no timeRange selected so animation may not be pasted in currentFrame in future.";
+MG_displayEN "selM.copyANim.warL" "No items in L list.";
+MG_displayEN "selM.copyANim.warR" "No items in R list.";
+MG_displayEN "selM.copyANim.btn.anno" "Select a timeRange and click me to copy animation of the list items.";
+
+MG_displayEN "selM.pANim.warNoCopy" "No animatData copyed before.";
+MG_displayEN "selM.pANim.noItem" "No items in L / R list.";
+MG_displayEN "selM.pANim.noneed" "No need to self-paste.";
+MG_displayEN "selM.pANim.ignore" "Ignore # ;";
+MG_displayEN "selM.pANim.rep" " # objects animation from list pasted.";
+
+MG_displayEN "selM.restoreSel.title" "Restore BackUP";
+MG_displayEN "selM.restoreSel.annoText" "Select backup to restore:";
+MG_displayEN "selM.restoreSel.delsel" "Delete SelectedItem";
+MG_displayEN "selM.restoreSel.dela" "Delete All";
+
+MG_displayEN "selM.restoreSel.toScene" "Restore to Scenes!";
+MG_displayEN "selM.restoreSel.toL" "Restore to Llist!";
+MG_displayEN "selM.restoreSel.toR" "Restore to Rlist!";
+
+MG_displayEN "selM.backUPSel.title" "Backup Scenes Selection";
+MG_displayEN "selM.backUPSel.L" "Backup Llist";
+MG_displayEN "selM.backUPSel.R" "Backup Rlist";
+MG_displayEN "selM.backUPSel.name" "BackUP name:";
+MG_displayEN "selM.backUPSel.doit" "BackUp !";
+
+MG_displayEN "selM.backUPSel.doit.nosel" "No selection found.";
+MG_displayEN "selM.backUPSel.doit.noname" "Fill in the selectionSet name please.";
+MG_displayEN "selM.backUPSel.doit.nolist" "Target list is emply.";
+
+MG_displayEN "selM.selannoText" " # objects in list.  (type\:#)";
+MG_displayEN "selM.selannoText1" " # objects in list.";
+
+MG_displayEN "selM.retarget.titleL" "Retarget Llist";
+MG_displayEN "selM.retarget.titleR" "Retarget Rlist";
+
+MG_displayEN "selM.retarget.doit.btn" "ReTarget !";
+
+
+
+MG_displayEN "selM.retarget.notice" "Notice!";
+MG_displayEN "selM.retarget.ignore" " # objects ignored because they do not exist.";
+
+MG_displayEN "selM.retarget.setMembers" "Retarget SetMembers";
+
+MG_displayEN "selM.noexist.ignore" "Object: #  ignored because it does not exist.\n";
+
+MG_displayEN "selM.layout.switch.mi" "Horizone2-Vertical2 switch";
+MG_displayEN "selM.layout.switch.anno" "Switch the Set/Members lists between upDown divided and leftRight deived.";
+
+MG_displayEN "selM.members.text" "Members:";
+MG_displayEN "selM.selAll.mi" "Select All";
+MG_displayEN "selM.keySelect.anno" "Keyframe selected members.";
+MG_displayEN "selM.selselMem.anno" "Select selected members in scene.";
+MG_displayEN "selM.isoSceneSel" "Isloate selection in scenes.";
+MG_displayEN "selM.isoselMem.anno" "Isolate selected members in scene.";
+MG_displayEN "selM.tsl.anno" "This list shows the members of current selected SelSet.";
+
+MG_displayEN "selM.removeSelectedMembers.mi" "Remove SelectedMembers from Set";
+
+MG_displayEN "selM.saveConfig.mi" "Save selSet UI config";
+MG_displayEN "selM.saveConfig.ann" "Save MG-SelectionSet UI config,including the menubar visability, display mode, panelayout percentage.";
+
+MG_displayEN "selM.reportWontSelMember.mi" "Meanwhile the set members is large than 500 so for speed sake not selected in the list.";
+
+MG_displayEN "selM.plusItemToSel" "Add All Items to Selection";
+MG_displayEN "selM.exItemToSel" "Exclude All Items from selection";
+
+MG_displayEN "selM.plusSelItemToSel" "Add Selected Items to Selection";
+MG_displayEN "selM.exSelItemToSel" "Exclude Selected Items from selection";
+MG_displayEN "selM.addSel.btn" "+ Selection";
+MG_displayEN "selM.minusSel.btn" "- Selection";
+//below add on 2013/06/15:-----------------------------------------------
+MG_displayEN "extraPathManager.title" "SelectionSet Path Manager";
+MG_displayEN "extraPathManager.mi" "SelectionSet Path Manager..";
+MG_displayEN "extraPathManager.nameExist.war" "The name: \"#\" already exists, pls assign another name.";
+MG_displayEN "extraPathManager.pathExist.war" "The path already exists!";
+MG_displayEN "extraPathManager.inputPath.mes" "Input a name stands for the path:";
+MG_displayEN "extraPathManager.pathName.lbl" "PlaceHolder Name";
+MG_displayEN "extraPathManager.path.lbl" "Path";
+MG_displayEN "extraPathManager.delChecked.lbl" "Delete Checked";
+MG_displayEN "extraPathManager.delAllUnavail.lbl" "Delete All Unavailable";
+MG_displayEN "extraPathManager.refreshMenu.lbl" "Refresh Menu";
+MG_displayEN "extraPathManager.readOnly.war" "Current sectionSet path is read only.";
+MG_displayEN "extraPathManager.createFolder.err" "Error creating new folder.";
+MG_displayEN "extraPathManager.ex.lbl" "Excluded: ";

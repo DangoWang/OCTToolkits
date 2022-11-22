@@ -1,0 +1,463 @@
+//==============================================================//
+//                   MGtoolsLoader - Loading MGTools
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/MGtools_en.html?url=Feedback
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+//first , a dummy proc for finding the MGTools dir ---------------------------------------
+global proc MGTools_GPS()
+{
+  //am a critical dummy, so just leave me alone.
+}
+//==================codes to find where MGTools is =======================
+global proc string MG_GetMGToolsPathViaProcName(string $procName)
+{	
+	global int $mgtoolsOStype;
+	$mgtoolsOStype =0;
+	if(`about -mac`)$mgtoolsOStype =1;
+	else if(`about -li`)$mgtoolsOStype =2;
+	
+	global int $MGTools_2011_orNot;
+	string $place=`whatIs $procName`;
+	$place = `substituteAllString $place "\\" "/"`;
+	string $buffer[];
+ 	$numTokens = `tokenize $place ":" $buffer`;
+ 	if(!$mgtoolsOStype)
+ 	{
+		if($numTokens >= 3)
+ 	    {
+ 	        $place=strip ($buffer[1]+":"+$buffer[2]);
+ 	    }
+		else
+		{
+		    $place=strip ($buffer[1]);
+		}
+		//print $place;
+		$place=dirname ($place);	
+		//print $place;
+		if(`gmatch $place "*invoke*"`)    //`endsWith $place "/invoke"`
+		{
+			$place=`substring $place 1 (size($place)-7)` ;
+		}
+		//else
+		//{
+			//$place=($place+"/MGTools");
+		//}
+	}
+	else
+	{
+		$place=dirname (strip ($buffer[1]));
+		if(`endsWith $place "/invoke"`)
+		{
+			$place=`substring $place 1 (size($place)-7)` ;
+		}
+		//else
+		//{
+		//	$place=($place+"/MGTools");
+		//}
+		
+	}
+	if(!$MGTools_2011_orNot && $mgtoolsOStype==1)
+	{
+     $place=` substitute "MGtools" $place "MGTools"`;
+  }
+	//print $place;
+	return	$place;	
+}
+// now init the global variable $GmgtoolsPath, this is supposed to be the only place that initialize the $GmgtoolsPath:
+global proc initMGToolsGlobalPositionVars()
+{
+  global string $GmgtoolsPath;
+  $GmgtoolsPath = (`MG_GetMGToolsPathViaProcName "MGTools_GPS"`+"/");  
+  
+  global string $GmgtoolsLocalPath;  //for configs
+  $GmgtoolsLocalPath = `internalVar -usd`+"MGTools/";
+  //==============source serveProc_WrittenByMiguel if necessary=========================
+  //if(!`exists "shelfCommand"`)
+  //{
+  eval ("source \""+$GmgtoolsPath+"invoke/serveProc_WrittenByMiguel.mel\"");
+  //}
+  //writeIntoConfig("MG_LocationConfig/MGTools_Position.txt", $GmgtoolsPath);
+}
+initMGToolsGlobalPositionVars;
+
+//===================load MGTools plugin==============================================
+global proc int MG_loadMGToolsPlugin ()
+{	
+  global string $GmgtoolsLocalPath;
+  global string $GmgtoolsPath;
+	if(!`exists "MGTools"`)
+	{
+	  string $localPlugin = $GmgtoolsLocalPath + "plug-ins/" + `getMGToolsMllFileName "MGTools"`;
+	  if(!`filetest -f $localPlugin `)
+	  {
+	    $localPlugin = $GmgtoolsPath + "plug-ins/" + `getMGToolsMllFileName "MGTools"`;
+	  }
+	  if(`filetest -f $localPlugin `)
+	  {
+	    return `loadNormal_MllPlugin 1 $localPlugin`;
+	  }
+	  else
+	  {
+	    if(!`MG_getCurrentMGToolsMLL`)
+	    {
+	      return 0;
+	    }
+	    if(!`filetest -f $localPlugin `)
+	    {
+	      return 0;
+	    }
+		  return `loadMG_MllPlugin 1 "MGTools"`;
+	  }		
+	}
+	return 1;
+}
+
+//=============== tools autoload mel codes===========================================
+global proc AutoLoadMGtools ()
+{
+  evalDeferred (`shelfCommand "MGTools_WrittenByMiguel.mel" "MGtools"`);
+}
+global proc AutoLoadMGChannelBox ()
+{
+  eval (`shelfCommand "MGChannelBox_WrittenByMiguel.mel" "MGChannelBox"`);
+}
+global proc AutoLoadMGSelset ()
+{
+  eval (`shelfCommand "selectionTool_WrittenByMiguel.mel" "selSetUI"`);
+}
+global proc AutoLoadMGShelfBar ()
+{
+	global int $LinuxBefore2011;
+	if($LinuxBefore2011)
+	{
+	  return;
+	}
+	eval (`shelfCommand "MGshelf_WrittenByMiguel.mel" "MGshelf_v2"`);
+}
+global proc AutoLoadMGConstraintTool ()
+{
+	eval (`shelfCommand "ConstrainTools_WrittenByMiguel.mel" "MG_constraintTool"`);
+}
+global proc AutoLoadKeyframeTool ()
+{
+	eval (`shelfCommand "KeyFrameTool_WrittenByMiguel.mel" "MGKeyframeTool"`);
+}
+
+global proc AutoLoadGEplugin ()
+{
+	eval (`shelfCommand "GE_PlugIn_writtenByMiguel.mel" "AutoLoadGEPlugIN_doit 1 0"`);
+}
+//========================autoload animRescue codes====================================
+global proc string getAnimRescueUsrDirForWindows()
+{ 
+	string $result = "D:/animRescue/";
+	int $Davailable = 1;
+	if(!`filetest -d "D:/"`)
+	{
+	  $Davailable = 0;
+	}
+	else
+	{
+	  if(`filetest -d $result`)
+	  {
+	    $Davailable =  `MG_TestFolderWritable $result`;
+	  }
+	  else
+	  {
+	    $Davailable =  `MG_TestFolderWritable "D:/"`;
+	  }
+	}
+	if(!$Davailable)
+	{
+		string $mayaDir = `internalVar -userAppDir`;
+		$result=($mayaDir+"animRescue/");	
+	}
+	return $result;
+}
+global proc string getAnimRescueUsrDirForUnix()
+{ 
+    string $original = `internalVar  -userAppDir`;
+    string $buffer[];clear $buffer;
+    int $token =`tokenize $original "/" $buffer`;
+    int $times = $token -2;
+    for($i=0;$i<$times;$i++)
+    {
+      $original = dirname ($original);
+    }
+    return $original;
+}
+global proc animRescue_MGautoLoadAutoSave ()
+{
+	int $enable =`optionVar -q autoSaveEnable`;
+	if(!$enable)return;
+	
+	if(!`exists "MGautoSave"`)
+	{
+		int $success =`loadMG_MllPlugin 1 "MGautoSave"`;		
+		if(!$success)	return;
+	}
+	//print "Load autosave!!\n";
+	global int $MGTools_2011_orNot;	
+	string $autoSaveCmd = "MGautoSave ";
+	if($MGTools_2011_orNot)
+	{
+			$autoSaveCmd = "autoSave ";
+	}	
+	if(!$enable)
+	{
+		$autoSaveCmd += "-en 0 ";
+		if($MGTools_2011_orNot)
+		{
+				$autoSaveCmd += (";MGautoSave -envFor2011 0");	
+		}	
+	}	
+	else
+	{
+		$autoSaveCmd += "-en 1 ";
+		int $prompt =`optionVar -q autoSavePrompt`;	
+		global int $gMGTools_MayaStudentVersion;
+		if($gMGTools_MayaStudentVersion)	
+		{
+			$prompt = 1;
+		}
+		
+		$autoSaveCmd += ("-prompt "+$prompt+" ");
+		
+		int $limit =`optionVar -q autoSaveLimitBackups`;
+		$autoSaveCmd += ("-limitBackups "+$limit+" ");	
+				
+		int $max =`optionVar -q autoSaveMaxBackups`;
+		if(!`optionVar -ex autoSaveMaxBackups`)$limit=10;
+		$autoSaveCmd += ("-maxBackups "+$max+" ");
+		
+		int $time =(`optionVar -q autoSaveInterval`*60);
+		if(!`optionVar -ex autoSaveInterval`)$time=600;
+		$autoSaveCmd += ("-interval "+$time+" ");
+		
+		int $mode =`optionVar -q autoSaveDestination`;		
+		$autoSaveCmd += ("-destination "+$mode+" ");
+		
+		string $nameFolder =`optionVar -q autoSaveFolder`;
+		$autoSaveCmd += ("-folder \""+$nameFolder+"\" ");	
+		
+		if($MGTools_2011_orNot)
+		{
+				$autoSaveCmd += (";MGautoSave -envFor2011 1");	
+		}								
+	}
+	eval $autoSaveCmd;
+}
+
+global int $supportAnimRescueOrNot;
+global proc animRescue_MGautoLoadAnimRescue()
+{
+	global int $supportAnimRescueOrNot;
+	if(!$supportAnimRescueOrNot)return;
+	int $enable =`optionVar -q MGrealTimeSaveAnimEnable`;	
+	if(!$enable)return;
+	string $root =`optionVar -q MGrealTimeSaveAnimRoot`;
+	if(!`filetest -d $root`)
+	{
+		confirmDialog -title `MG_DualLan "aR.shortName"`	-m `MG_DualLanFormat_1 "aR.dirNotValid" $root` -button "OK";
+		return;
+	}
+	if(!`exists "animRescue"`)
+	{
+		int $success =`loadMG_MllPlugin 1 "animRescue"`;
+		if(!$success)	return;
+	}
+	//print "Load animRescue!!\n";
+	
+	animRescue -en $enable -dir $root;
+	int $backupConsOrNot =`optionVar -q animRescueBackupConstraintOrNot`;
+	animRescue -con $backupConsOrNot;
+}
+global proc updateAnimRescueConditonIconDoit (string $miniToolsIcon)
+{	
+	if(`control -ex miniToolBox_MGtoolsButton`)
+	{
+ 		iconTextButton 	-e -image $miniToolsIcon	miniToolBox_MGtoolsButton ;	
+	}
+	global string $gShelfTopLevel;
+	if (`tabLayout -exists $gShelfTopLevel`)
+	{
+		string $ca[]=`layout -q -ca $gShelfTopLevel`;
+		for($each in $ca)
+		{
+				if($each == "MGtools")
+				{
+					string $mgtoolsShelfL=$each;
+					string $children []=`shelfLayout -q -ca $mgtoolsShelfL`;
+					for($eachC in $children)
+					{
+					  if(!size($eachC))
+					  {
+					    continue;
+					  }
+						if(`shelfButton -q -l $eachC`=="MiniToolBox")
+						{
+								shelfButton -e -i $miniToolsIcon $eachC;
+								break;break;
+						}	
+					}
+				}
+		}
+	}		
+}
+global proc changeMinitoolBoxIcon_via_backupState ()
+{
+	//change MGtools minitoolbox icon;
+	global int $MGTools_2011_orNot;
+	string $miniToolsIcon = `shelfIcon miniToolBoxIcon_bothOff.bmp`;
+	int $enableAnimRescue =0;
+	int $enableMGAutoSave =0;
+	if(`exists "animRescue"`)
+	{
+		$enableAnimRescue =`animRescue -q -en`;
+	}	
+	string $autoSaveCmd = "MGautoSave";
+	if($MGTools_2011_orNot)
+	{
+			$autoSaveCmd = "autoSave";
+	}		
+	if(`exists $autoSaveCmd`)
+	{
+		$enableMGAutoSave =eval($autoSaveCmd+" -q -en");
+	}	
+	if($enableAnimRescue&&$enableMGAutoSave)
+	{
+		$miniToolsIcon = `shelfIcon miniToolBoxIcon_bothOn.bmp`;	
+	}	
+	else if($enableAnimRescue)
+	{
+		$miniToolsIcon = `shelfIcon miniToolBoxIcon_animRescueOn.bmp`;	
+	}
+	else if($enableMGAutoSave)
+	{
+		$miniToolsIcon = `shelfIcon miniToolBoxIcon_autoSaveOn.bmp`;	
+	}	
+	updateAnimRescueConditonIconDoit $miniToolsIcon;
+}
+
+global proc buildMGtoolsMenu ()
+{
+	eval `shelfCommand "MGTools_WrittenByMiguel.mel" "MG_buildMGtoolsMenu_Doit"`;
+}
+global proc MGTools_init_PyUtilModule()
+{
+		if(!`exists "python"`)
+		{
+			return;
+		}
+    global string $GmgtoolsPath;
+    string $pyUtilPath = $GmgtoolsPath + "invoke";
+    python("import sys\nif not sys.path.count('"+$pyUtilPath +"'):\n    sys.path.append('"+$pyUtilPath+"')");
+    python("import MG_PyUtil");
+}
+//=========================================== MGTools autoloading mainProc =====================================================
+global proc MGToolsAutoLoader()
+{
+  print "\n";
+  catch (`MGTools_init_PyUtilModule`);
+  if(!`MG_loadMGToolsPlugin`)
+  {
+    print ("[MGTools] \n"+`MG_DualLan "loader.loadMGToolsPlugin.err"`);
+    return;
+  }
+  catch (`animRescue_MGautoLoadAutoSave`);
+  catch (`animRescue_MGautoLoadAnimRescue`);
+  catch (`changeMinitoolBoxIcon_via_backupState`);
+  
+  string $autoLoadCfgStr = `readFormConfig "MG_AutoLoadConfig/MGTools_AutoloadConfig.txt"`;  
+  string $cfgs[];
+  tokenize $autoLoadCfgStr "\n" $cfgs;
+  if(!size($autoLoadCfgStr))
+  {
+    $cfgs = {"AutoLoad MGTools MainUI = 1","AutoLoad MGToolsMenu = 1"};
+  }
+  string $cLine;
+  int $loadMGTools = 0;
+  global int $gMGToolsAutoloadConfigArray [];
+  $gMGToolsAutoloadConfigArray ={0,0,0,0,0,0,0,0,0};
+  print "\n[MGTools] Start Autoloading MGTools------------------\n";
+  for($each in $cfgs)
+  {
+    $cLine = strip($each);
+    if(!`endsWith $cLine "1"`)
+    {
+      continue;
+    }
+    int $autoLoaded = 0;
+    if(`startsWith $cLine "AutoLoad MGTools MainUI"`)
+    {
+      AutoLoadMGtools;
+      $loadMGTools = 1;
+      $autoLoaded = 1;
+      $gMGToolsAutoloadConfigArray [0] = 1;
+    }
+    else if(`startsWith $cLine "Load MGTools Minimized"`)
+    {
+      if($loadMGTools)
+      {
+        evalDeferred "minimize mgToolUI MGtoolsMainGridLayout minMaxBtn";
+        $autoLoaded = 1;
+      }
+      $gMGToolsAutoloadConfigArray [1] = 1;
+    }
+    else if(`startsWith $cLine "AutoLoad MGToolsMenu"`)
+    {
+      evalDeferred ("buildMGtoolsMenu");
+      $autoLoaded = 1;
+      $gMGToolsAutoloadConfigArray [2] = 1;
+    }
+    else if(`startsWith $cLine "AutoLoad MG-ChannelBox"`)
+    {
+      AutoLoadMGChannelBox;
+      $autoLoaded = 1;
+      $gMGToolsAutoloadConfigArray [3] = 1;
+    }
+    else if(`startsWith $cLine "AutoLoad MG-ShelfBar"`)
+    {
+      AutoLoadMGShelfBar;
+      $autoLoaded = 1;
+      $gMGToolsAutoloadConfigArray [4] = 1;
+    }
+    else if(`startsWith $cLine "AutoLoad MG-SelectionSet"`)
+    {
+      AutoLoadMGSelset;
+      $autoLoaded = 1;
+      $gMGToolsAutoloadConfigArray [5] = 1;
+    }
+    else if(`startsWith $cLine "AutoLoad MG-ConstraintTools"`)
+    {
+      AutoLoadMGConstraintTool;
+      $autoLoaded = 1;
+      $gMGToolsAutoloadConfigArray [6] = 1;
+    }
+    else if(`startsWith $cLine "AutoLoad MG-KeyframeTools"`)
+    {
+      AutoLoadKeyframeTool;
+      $autoLoaded = 1;
+      $gMGToolsAutoloadConfigArray [7] = 1;
+    }
+    else if(`startsWith $cLine "AutoLoad MG-GE-Plugin"`)
+    {
+      global int $gMGTools_noGELicenceWarning;
+      $gMGTools_noGELicenceWarning = 1;
+      AutoLoadGEplugin;
+      $gMGTools_noGELicenceWarning = 0;
+      $autoLoaded = 1;
+      $gMGToolsAutoloadConfigArray [8] = 1;
+    }
+    if($autoLoaded)
+    {
+      print ("[MGTools] "+$cLine + "\n");
+    }
+  }
+  print "[MGTools] End autoloading MGTools--------------------\n";
+  print "// ==================================== MGTools pro Load Info End =====================================\n\n";
+}

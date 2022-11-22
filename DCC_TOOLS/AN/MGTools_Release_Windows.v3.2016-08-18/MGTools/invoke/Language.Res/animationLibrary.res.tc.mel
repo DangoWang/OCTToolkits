@@ -1,0 +1,160 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+ MG_displayTS "animLib.backUPAnim.war" "請選擇一些物體來備份動畫";
+ MG_displayTS "animLib.backUPAnim.noc" "請注意";
+ MG_displayTS "animLib.versionHigher.mess" "該動畫檔案的Maya版本比當前Maya版本要高,讀取任務取消.";
+ MG_displayTS "animLib.versionHigher.ok" "好吧";
+ MG_displayTS "animLib.numnomatch.war" " #個物體被忽略因為不存在.";
+
+ MG_displayTS "animLib.backUPAnim.mes" " # 個物體的動畫已備份，忽略了# 個物體因為它們無動畫.";
+
+ MG_displayTS "animLib.restoreAnim.war" "請選擇一些物體來還原動畫";
+ MG_displayTS "animLib.restoreAnim.noBp.war" "您所選的物體之前沒有備份過動畫哦 :(";
+ MG_displayTS "animLib.restoreAnim.more1.cmd" "confirmDialog -title \"注意了\" -message \"檢測到該物體不止一個備份, 請選擇其中一個:\" -button \"取消\" -cancelButton \"取消\" -dismissString \"取消\"";
+ MG_displayTS "animLib.restoreAnim.rep" " # 個物體的動畫已還原. :)";
+ MG_displayTS "animLib.clearBP.rep" "備份的動畫資料已清除.";
+
+ MG_displayTS "animLib.exAnim.rep" "動畫匯出工作已經完成 : # ";
+ MG_displayTS "animLib.exAnim.option.TWC" "整個角色";
+ MG_displayTS "animLib.exAnim.option.sel" "所選部分";
+ MG_displayTS "animLib.exAnim.option.tr.all" "全部";
+ MG_displayTS "animLib.exAnim.option.tr.SelectRange" "所選時間段";
+ MG_displayTS "animLib.exAnim.option.tr.SE" "開始／結束";
+ MG_displayTS "animLib.exAnim.noSel.war" "沒發現選擇物體，請檢視下你的場景選擇.";
+ MG_displayTS "animLib.exAnim.onlyOne.war" 	"在 \"整個角色\" 模式, 你一次只能匯出一個角色的動畫. 所以在這種模式下,請只選擇來自同一個角色的控製器.";
+ MG_displayTS "animLib.exAnim.noExport.war" "沒匯出任何動畫，請所選的物體是否有動畫.";
+ MG_displayTS "animLib.exAnim.done.rep1" "層級模式: #; 時間模式: #; ";
+ MG_displayTS "animLib.exAnim.done.rep2" " #; # 個物體的動畫要被匯出 :)";
+ MG_displayTS "animLib.exAnim.exBrw.anno" "匯出動畫";
+
+ MG_displayTS "animLib.imAnim.imBrw.anno" "選擇";
+
+ MG_displayTS "animLib.imAnim.clear.rep" "讀入的動畫資料已清除.";
+
+ MG_displayTS "animLib.imAnim.notStd.war.title" "來自MG動畫銀行的資訊";
+ MG_displayTS "animLib.imAnim.notStd.war.mess" "所選的MA檔並非MG動畫檔案,讀取動作取消 :(";
+ MG_displayTS "animLib.imAnim.dataRead.rep" "資訊已讀取 :)";
+
+ MG_displayTS "animLib.imAnim.preRead.rep1"	"================ 源動畫資料 ==================\n動畫開始時間:# 結束:# 長度:# 物體個數:#\n---------------------------------------------------------\n# ";
+ MG_displayTS "animLib.imAnim.preRead.rep2" "================ 源動畫資料 ==================\n動畫無固定開始結束時間. 物體個數:#\n---------------------------------------------------------\n# " ;
+ MG_displayTS "animLib.imAnim.noNS.war" "沒檢測到namespace.";
+
+ MG_displayTS "animLib.libUI.title" "MG動畫銀行";
+ MG_displayTS "animLib.libUI.resetLibP" "重置動畫銀行路徑到默認路徑";
+ MG_displayTS "animLib.libUI.saveLibP" "儲存當前路徑為默認路徑";
+ MG_displayTS "animLib.libUI.endProgress" "結束進度條進度";
+ MG_displayTS "animLib.libUI.path" "路徑:";
+ MG_displayTS "animLib.libUI.browse" " 瀏覽 ";
+ MG_displayTS "animLib.libUI.cFloder" "創建資料夾..";
+ MG_displayTS "animLib.libUI.refresh" "重新整理";
+ MG_displayTS "animLib.libUI.browseDot" "瀏覽..";
+ MG_displayTS "animLib.libUI.paste" "貼上";
+ MG_displayTS "animLib.libUI.Hierarchy" "層級";
+ MG_displayTS "animLib.libUI.guess" "從選擇猜";
+ MG_displayTS "animLib.libUI.guess.anno" "如果你的選擇物體有namespace那麼把它填進來，將來在導動畫時候可以更好地導給其它角色。如果沒有namespace則請把它留空.";
+ MG_displayTS "animLib.libUI.tRange" "時間模式";
+ MG_displayTS "animLib.libUI.ex" "匯出 !!";
+ MG_displayTS "animLib.libUI.animFile" "動畫檔案:";
+ MG_displayTS "animLib.libUI.repick" "重選取";
+ MG_displayTS "animLib.libUI.ch" "角色模式:";
+ MG_displayTS "animLib.libUI.ch.op1" "同一角色 / 無Namesapce";
+ MG_displayTS "animLib.libUI.ch.op2" "對映到其它角色";
+ MG_displayTS "animLib.libUI.nstype" "Namespace 類型";
+ MG_displayTS "animLib.libUI.testE" "測試是否存在";
+ MG_displayTS "animLib.libUI.testE.anno" "測試匯入物件在當前選項情況下是否存在";
+ MG_displayTS "animLib.libUI.selectInputCtl" "選擇匯入物件";
+ MG_displayTS "animLib.libUI.selectInputCtl.anno" "選擇在當前選項配置下將被匯入動畫的物件。";
+ MG_displayTS "animLib.libUI.NoselectInputCtl.war" "沒有發現將被匯入動畫的物件。";
+ MG_displayTS "animLib.libUI.NoanimData.war" "沒有發現任何動畫資料。";
+
+ MG_displayTS "animLib.libUI.Method" "方法";
+ MG_displayTS "animLib.libUI.Replace" "替代";
+ MG_displayTS "animLib.libUI.Insert" "插入";
+ MG_displayTS "animLib.libUI.ReplaceA" "替代全部";
+ MG_displayTS "animLib.libUI.PasteI" "貼上在";
+ MG_displayTS "animLib.libUI.Cframe" "當前幀";
+ MG_displayTS "animLib.libUI.iData" "源資料位置";
+ MG_displayTS "animLib.libUI.copyT" "拷貝次數:";
+
+ MG_displayTS "animLib.libUI.preserveSel" "保留所選物體動畫";
+ MG_displayTS "animLib.libUI.onlySel" "只導所選物體動畫";
+ MG_displayTS "animLib.libUI.inputAndSel.anno" 	"保留所選物體: 不導場景所選控製器動畫。 只導所選物體：只匯入場景所選控製器的動畫";
+
+ MG_displayTS "animLib.libUI.im" "匯入 !!";
+ MG_displayTS "animLib.libUI.tab1" "匯出動畫";
+ MG_displayTS "animLib.libUI.tab2" "匯入動畫";
+ MG_displayTS "animLib.libUI.startEnd" "開始和結束";
+
+ MG_displayTS "animLib.libUI.toParent" "雙擊回到上層資料夾.";
+ MG_displayTS "animLib.libUI.getIn" "雙擊進入該資料夾.";
+ MG_displayTS "animLib.libUI.rename" "重新命名" ;
+ MG_displayTS "animLib.libUI.copyFF" "複製" ;
+ MG_displayTS "animLib.libUI.cut" "剪下" ;
+ MG_displayTS "animLib.libUI.paste" "貼上" ;
+ MG_displayTS "animLib.libUI.Delete" "刪除" ;
+ MG_displayTS "animLib.libUI.read.anno" "雙擊來讀取該動畫銀行資料." ;
+
+ MG_displayTS "animLib.libUI.cFloder.title" "新建資料夾";
+ MG_displayTS "animLib.libUI.cFloder.anno" "請輸入資料夾名:";
+ MG_displayTS "animLib.libUI.cFloder.empty.war" "資料夾名不能是空的哦.";
+ MG_displayTS "animLib.libUI.cFloder.exists.war" "資料夾 # 已存在哦.";
+
+ MG_displayTS "animLib.libUI.pickLib.anno" "在下面選擇定你的動畫銀行根目錄:";
+
+ MG_displayTS "animLib.libUI.rename.title" "重新命名資料夾/檔案";
+ MG_displayTS "animLib.libUI.rename.mess" "輸入新名字:";
+ MG_displayTS "animLib.libUI.cFloder.Fexists.war" "檔案 # 已存在哦.";
+ MG_displayTS "animLib.libUI.del.confirm.title" "確認";
+
+ MG_displayTS "animLib.libUI.browse.file" "檔案";
+ MG_displayTS "animLib.libUI.browse.folder" "資料夾";
+ MG_displayTS "animLib.libUI.del.confirm.mess" "Are you sure to delete the # \"#\"?";
+
+ MG_displayTS "animLib.libUI.copy.same.war" "目標資料夾與源資料夾是同一個地方哦.";
+ MG_displayTS "animLib.libUI.copy.existsFile.war" "目標ma檔案已存在，你是要:.";
+ MG_displayTS "animLib.libUI.copy.exists.ow" "覆蓋";
+ MG_displayTS "animLib.libUI.copy.existsFolder.war" "目標資料夾已存在，你是要:.";
+
+ MG_displayTS "animLib.libUI.import.done.rep" "成功匯入動畫: # \n";
+ MG_displayTS "animLib.libUI.import.ignore.rep" "忽略: # \n";
+ MG_displayTS "animLib.libUI.import.alldone.rep" "動畫匯入工作完成。一共有 # 個物體被匯入動畫。";
+
+ MG_displayTS "animLib.libUI.match.cong" "恭喜!!";
+ MG_displayTS "animLib.libUI.match.cong.mess" "^0^ 源動畫檔案的資料與你的場景完美吻合!! ^0^";
+ MG_displayTS "animLib.libUI.match.rep.title" "測試報告";
+ MG_displayTS "animLib.libUI.match.noE.war" "下列物體在你的場景裡不存在:";
+ MG_displayTS "animLib.libUI.match.import.title" "匯入動畫報告";
+ MG_displayTS "animLib.libUI.match.import.war" "下列物體被忽略因為它們在你的場景裡不存在:";
+
+ MG_displayTS "animLib.copyValue.war" "場景裡無選擇物體.";
+ MG_displayTS "animLib.noCB.war" "沒有發現通道欄.";
+ MG_displayTS "animLib.copyValue.rep1" "全部 # 個屬性值已拷貝,你可以任何maya裡使用它們.";
+ MG_displayTS "animLib.copyValue.rep2" "所選的 # 個屬性值已拷貝,你可以任何maya裡使用它們.";
+
+ MG_displayTS "animLib.pasteV.war1" "你還沒有選擇任何物體來貼上數值! :(";
+ MG_displayTS "animLib.pasteV.war2" "你還沒有拷貝過數值! :(";
+ MG_displayTS "animLib.ignore" "忽略 ";
+ MG_displayTS "animLib.pasteV.rep" " # 個屬性已貼上.";
+
+ MG_displayTS "MGShelf.ex.unknownNodes.title" "提醒!";
+ MG_displayTS "MGShelf.ex.unknownNodes.mes"  "MG動畫銀行必須是MA檔,您當前場景並非ma檔且含有maya認不到的節點,可能會導致導動畫失敗.\n是否先強制另存為ma檔?(將刪除所有未知節點)";
+ MG_displayTS "MGShelf.ex.unknownNodes.yes" "好,轉存為MA先";	
+ MG_displayTS "MGShelf.ex.unknownNodes.try" "不,仍試試匯出動畫";	
+ MG_displayTS "MGShelf.ex.unknownNodes.no" "取消匯出動畫";
+
+ MG_displayTS "MGShelf.ex.preparing.no" ">> 正在收集動畫資訊..請耐心等待:)";
+ MG_displayTS "MGShelf.ex.exporting.no" ">> 正在匯出... :)";
+ MG_displayTS "MGShelf.ex.reading.no" ">> 正在預讀動畫資訊..請耐心等待:)";
+ MG_displayTS "MGShelf.ex.importing.no" ">> 正在匯入動畫..請耐心等待:)";
+ MG_displayTS "MGShelf.ex.treating.no" ">> 正在處理: ";
+ MG_displayTS "MGShelf.ex.doneImport.no" ">> 操作完成:)";
+ MG_displayTS "MGShelf.ex.error.no" ">> 有狀況發生. 請檢視scriptEditor提示來瞭解狀況.";
+ MG_displayTS "MGShelf.status.anno" "這一欄將顯示操作狀態資訊 :)";
+

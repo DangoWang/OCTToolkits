@@ -1,0 +1,117 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "GEplug.warnNoAttrSelected.message" "囧 !!!   请您在通道栏里选择一些属性先..";
+MG_displaySC "GEplug.warnNoGraphEditor.message" "囧 !!!   我没发现你有开曲线编辑器啊..";
+MG_displaySC "GEplug.FilterIcon.anno" " # 动画曲线过滤器.";
+MG_displaySC "GEplug.channelFilter.anno" "只显示 # 通道.";
+MG_displaySC "GEplug.channelFilterAdd.anno" "加显/去显 # 通道.";
+MG_displaySC "GEplug.selectedChannelFilter.anno" "只显示在通栏栏/曲线编辑器所选属性的动画曲线.";
+
+MG_displaySC "GEplug.selectedMayaChannelFilter.mi" "只显示Maya通栏栏所选属性";
+MG_displaySC "GEplug.selectedMGChannelFilter.mi" "只显示MG通栏栏所选属性";
+MG_displaySC "GEplug.selectedGEFilter.mi" "只显示曲线编辑器所选属性";
+
+MG_displaySC "GEplug.selectedFilter.mayaC.mi" "按钮基于Maya通道栏";
+MG_displaySC "GEplug.selectedFilter.MGC.mi" "按钮基于MG通道栏";
+MG_displaySC "GEplug.selectedFilter.geC.mi" "按钮基于曲线编辑器";
+
+MG_displaySC "GEplug.selectedFilter.base.mi.anno" "决定这个显示过滤是基于哪个界面所选的属性";
+
+MG_displaySC "GEplug.selectKeyToDefault.anno" "将所选Key归为各自默认值.";
+MG_displaySC "GEplug.selectKeyToZero.anno" "将所选Key归零.";
+
+MG_displaySC "GEplug.noKey.war" "没有选中任何key啊你:P";
+
+MG_displaySC "GEplug.align.anno" "把当前所选的所有帧数值对齐为最后所选的帧数值.";
+MG_displaySC "GEplug.alignPrevious.mi" "对齐到各自上一帧";
+MG_displaySC "GEplug.alignPrevious.ann" "把当前所选的帧数值对齐为其各自的上一帧数值.如果没有上一帧存在则对齐到各自选中的第一帧.";
+MG_displaySC "GEplug.alignNext.mi" "对齐到各自下一帧";
+MG_displaySC "GEplug.alignNext.ann" "把当前所选的帧数值对齐为其各自的下一帧数值.如果没有下一帧存在则对齐到各自选中的最后一帧.";
+
+
+MG_displaySC "GEplug.exception.war" "忽略: # 时间点:#\n";
+
+MG_displaySC "GEplug.switchAnimObj.mi" "隔离显示所选动画曲线";
+MG_displaySC "GEplug.switchAnimObj.anno" "将所选的动画曲线隔离显示以便调节，再执行一次则恢复。";
+
+MG_displaySC "GEplug.autoload.mi" "自动启动该插件";
+MG_displaySC "GEplug.autoload.ann" "该选项决定了每次Maya曲线编辑器启动时该曲线编辑器插件是否自动启动";
+MG_displaySC "GEplug.autoload.on.rep" "自动启动设置完毕,曲线编辑器插件以后将随曲线编辑器启动而启动.";
+MG_displaySC "GEplug.autoload.off.rep" "自动启动设置完毕,曲线编辑器插件以后将不会自动启动.";
+MG_displaySC "GEplug.autoload.config.label" "自动启动曲线编辑器插件";
+
+MG_displaySC "GEplug.overshoot.ann" "决定是生成/编辑为极张还是BD.";
+MG_displaySC "GEplug.fs.ann" "拖动滑条来实时决定BD/极张的数值百分比.";
+
+MG_displaySC "GEplug.nokeyorNosel.war" "请先在场景里选择有K帧的物体:)";
+
+MG_displaySC "GEplug.setDefaultTangent.lbl" "默认切线类型: # ";
+MG_displaySC "GEplug.setDefaultTangent.ann" "设置默认的动画曲线切线类型为: # ";
+MG_displaySC "GEplug.setDefaultTangent.done.rep"  "动画曲线的默认切线类型已设置为 : # ";
+MG_displaySC "GEplug.setDefaultTangent.ui.ann" "点击设置动画曲线的默认切线类型.";
+
+//========================== new 20120626================
+MG_displaySC "GEplug.toolName" "曲线编辑器插件";
+MG_displaySC "GEplug.toolName.short" "曲线编辑器插件";
+MG_displaySC "GEplug.option.title" "选项..";
+MG_displaySC "GEplug.uioption.title" "界面选项..";
+
+MG_displaySC "GEplug.TVfield.ann" "右键点击我来设置是针对时间还是数值进行数学计算.";
+MG_displaySC "GEplug.TVfield.time" "时间";
+MG_displaySC "GEplug.TVfield.time.ann" "数学去运算将运用在时间.";
+MG_displaySC "GEplug.TVfield.value" "数值";
+MG_displaySC "GEplug.TVfield.value.ann" "数学去运算将运用在数值.";
+
+MG_displaySC "GEplug.setKey.eachKey"  "在每个关键帧处设Key";
+MG_displaySC "GEplug.setKey.eachGap"  "隔一定时间设key..";
+
+MG_displaySC "GEplug.clean.mi"  "关键帧清理";
+MG_displaySC "GEplug.clean.ann"  "在不影响场景动画的情况下,尽可能地清理掉多余的关键帧.";
+ 
+MG_displaySC "GEplug.snap.mi"  "吸附为整数关键帧";
+MG_displaySC "GEplug.snap.ann"  "吸附非整数的关键帧为整数帧,支持时间滑条时间范围的选择.";
+
+MG_displaySC "GEplug.setkey.input.m"  "请输出时间间隔:";
+
+MG_displaySC "GEplug.clean.op.lbl" "对于无动态通道的关键帧清理: ";
+MG_displaySC "GEplug.clean.op.leaveBoth" "保留最前最后帧";
+MG_displaySC "GEplug.clean.op.leaveFirst" "保留最前帧";
+MG_displaySC "GEplug.clean.op.leaveLast" "保留最后帧";
+MG_displaySC "GEplug.clean.op.leaveNone" "清除动画";
+
+MG_displaySC "GEplug.channelFilter.op.lbl" "通道过滤器";
+MG_displaySC "GEplug.channelFilter.op.isoChannel" "隔离显示通道";
+MG_displaySC "GEplug.channelFilter.op.selChannel" "选择通道";
+
+
+MG_displaySC "GEplug.tv.op.lbl" "时间数值 数学";
+MG_displaySC "GEplug.tv.op.staticPlusMinus.lbl" "在做+-运算时如果没选择帧: " ;
+MG_displaySC "GEplug.tv.op.staticMulDivide.lbl" "在做*/运算时如果没选择帧: " ;
+MG_displaySC "GEplug.tv.op.static.all" "影响全部" ;
+MG_displaySC "GEplug.tv.op.static.rightSide" "影响右边" ;
+MG_displaySC "GEplug.tv.op.static.clean" "自动清理非整数关键帧" ;
+
+MG_displaySC "GEplug.ui.topL" "左上角" ;
+MG_displaySC "GEplug.ui.topR" "右上角" ;
+MG_displaySC "GEplug.ui.L" "左边" ;
+MG_displaySC "GEplug.ui.R" "右边" ;
+MG_displaySC "GEplug.ui.stock" "-->库存<--" ;
+MG_displaySC "GEplug.ui.B" "底部" ;
+MG_displaySC "GEplug.ui.save" "保存并刷新界面" ;
+MG_displaySC "GEplug.ui.tab1.behavior" "工具行为" ;
+MG_displaySC "GEplug.ui.tab2.arrangement" "界面布局" ;
+
+MG_displaySC "GEplug.clean.rep" "\n# 个关键帧被清理.";
+MG_displaySC "GEplug.clean.tol" "清理容差值: ";
+
+MG_displaySC "GEplug.bd.option.lbl" "BD工具";
+MG_displaySC "GEplug.bd.option.mi" "BD工具选项..";
+MG_displaySC "GEplug.bd.option.includeStartEnd.lbl" "当处于或超出首/尾帧时仍处理";
+MG_displaySC "GEplug.bd.option.includeStatic.lbl" "即使是静止的动画曲线仍处理";

@@ -1,0 +1,71 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+MG_displaySC "MGtools.Folder.mi.currentRef" "打开当前所选reference文件夹..";
+
+MG_displaySC "refTool.win" "Reference工具箱..";
+MG_displaySC "refTool.win.ann" "点击打开Reference工具箱.";
+MG_displaySC "refTool.title" "Reference工具箱 v1.0";
+
+MG_displaySC "refTool.source" "  源: ";
+MG_displaySC "refTool.source.sel" "场景所选对象";
+MG_displaySC "refTool.source.refEditor" "Reference编辑器所选项目";
+MG_displaySC "refTool.copyPaste.title" "复制/粘贴Reference";
+MG_displaySC "refTool.copyPaste.copy" "复制";
+MG_displaySC "refTool.copyPaste.paste" "粘贴";
+MG_displaySC "refTool.copyPaste.seltivepaste" "选择性粘贴..";
+MG_displaySC "refTool.copyPaste.keepDefer" "保持Defer信息";
+
+MG_displaySC "refTool.expImp.title" "导入/导出Reference信息";
+MG_displaySC "refTool.expImp.toMa" "导出为MA档 ..";
+MG_displaySC "refTool.expImp.fromMa" "从MA档读取 ...";
+
+MG_displaySC "refTool.action.title" "Reference操作:";
+MG_displaySC "refTool.action.editor" "Reference编辑器..";
+MG_displaySC "refTool.reload.editor" "重载Reference";
+MG_displaySC "refTool.unload.editor" "去载Reference";
+
+MG_displaySC "refTool.info.title" "Reference信息:";
+MG_displaySC "refTool.info.showFolder" "在文件夹中显示..";
+MG_displaySC "refTool.info.man" "手动";
+MG_displaySC "refTool.info.auto" "自动";
+MG_displaySC "refTool.info.get" "获取";
+
+MG_displaySC "refTool.info.loaded" "  已加载: ";
+
+MG_displaySC "refTool.ex.ref" "导出Reference";
+MG_displaySC "refTool.im.ref" "读取Reference";
+MG_displaySC "refTool.rep.ref" "替换Reference";
+
+MG_displaySC "refTool.refeditor.war" "Reference编辑器未开启.";
+MG_displaySC "refTool.filenoexist.war" "文件不存在.";
+
+MG_displaySC "refTool.ref.loaded.mid" " 个references已加载, ";
+MG_displaySC "refTool.ref.loaddeffered.mid" " 个references已延迟加载, ";
+MG_displaySC "refTool.ref.ignored.mid" " 个references已忽略, ";
+MG_displaySC "refTool.ref.failed.mid" " 以下references加载失败:\n ";	
+
+MG_displaySC "ref.preload.title" "Reference预读";
+MG_displaySC "ref.preload.mf" "Maya档: ";
+MG_displaySC "ref.preload.coff" "未勾上: "; 
+MG_displaySC "ref.preload.def" "延迟"; 
+MG_displaySC "ref.preload.ig" "忽略"; 
+MG_displaySC "ref.preload.allLoad" "全部勾上"; 
+MG_displaySC "ref.preload.allDef" "全部去选"; 
+MG_displaySC "ref.preload.rev" "反转"; 
+
+MG_displaySC "ref.preload.cref" " 当前Reference:";
+
+MG_displaySC "ref.preload.useNS" "使用Namespace: ";
+MG_displaySC "ref.preload.userp" "使用RenamePrefix: ";
+
+MG_displaySC "ref.preload.path" "路径: " ;
+MG_displaySC "ref.preload.repick" "重拾取.." ;
+MG_displaySC "ref.preload.imRef" "导入Reference信息" ;
+MG_displaySC "ref.preload.pRef" "粘贴Reference信息" ;
+MG_displaySC "ref.preload.cancel" "取消" ;

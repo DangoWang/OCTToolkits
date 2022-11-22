@@ -1,0 +1,111 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayTS "GEplug.warnNoAttrSelected.message" "囧 !!!   請您在通道欄里選擇一些屬性先..";
+MG_displayTS "GEplug.warnNoGraphEditor.message" "囧 !!!   我沒發現你有開曲線編輯器啊..";
+MG_displayTS "GEplug.FilterIcon.anno" " # 動畫曲線過濾器.";
+MG_displayTS "GEplug.channelFilter.anno" "只顯示 # 通道.";
+MG_displayTS "GEplug.channelFilterAdd.anno" "加顯/去顯 # 通道.";
+MG_displayTS "GEplug.selectedChannelFilter.anno" "只顯示在通欄欄/曲線編輯器所選屬性的動畫曲線.";
+
+MG_displayTS "GEplug.selectedMayaChannelFilter.mi" "只顯示Maya通欄欄所選屬性";
+MG_displayTS "GEplug.selectedMGChannelFilter.mi" "只顯示MG通欄欄所選屬性";
+MG_displayTS "GEplug.selectedGEFilter.mi" "只顯示曲線編輯器所選屬性";
+
+MG_displayTS "GEplug.selectedFilter.mayaC.mi" "按鈕基于Maya通道欄";
+MG_displayTS "GEplug.selectedFilter.MGC.mi" "按鈕基于MG通道欄";
+MG_displayTS "GEplug.selectedFilter.geC.mi" "按鈕基于曲線編輯器";
+
+MG_displayTS "GEplug.selectedFilter.base.mi.anno" "決定這個顯示過濾是基于哪個界面所選的屬性";
+
+MG_displayTS "GEplug.selectKeyToDefault.anno" "將所選Key歸為各自默認值.";
+MG_displayTS "GEplug.selectKeyToZero.anno" "將所選Key歸零.";
+
+MG_displayTS "GEplug.noKey.war" "沒有選中任何key啊你:P";
+
+MG_displayTS "GEplug.align.anno" "把當前所選的所有幀數值對齊為最后所選的幀數值.";
+MG_displayTS "GEplug.alignPrevious.mi" "對齊到各自上一幀";
+MG_displayTS "GEplug.alignPrevious.ann" "把當前所選的幀數值對齊為其各自的上一幀數值.如果沒有上一幀存在則對齊到各自選中的第一幀.";
+MG_displayTS "GEplug.alignNext.mi" "對齊到各自下一幀";
+MG_displayTS "GEplug.alignNext.ann" "把當前所選的幀數值對齊為其各自的下一幀數值.如果沒有下一幀存在則對齊到各自選中的最后一幀.";
+
+
+MG_displayTS "GEplug.exception.war" "忽略: # 時間點:#\n";
+
+MG_displayTS "GEplug.switchAnimObj.mi" "切換選擇物體/動畫節點";
+MG_displayTS "GEplug.switchAnimObj.anno" "在物體/動畫節點間切換選擇，在Maya2008可用來使被約束的通道在GraphEditor里顯示地干凈些。（不顯示約束父物體的動畫曲線）";
+
+MG_displayTS "GEplug.autoload.mi" "自動啟動該插件";
+MG_displayTS "GEplug.autoload.ann" "該選項決定了每次Maya曲線編輯器啟動時該曲線編輯器插件是否自動啟動";
+MG_displayTS "GEplug.autoload.on.rep" "自動啟動設置完畢,曲線編輯器插件以后將隨曲線編輯器啟動而啟動.";
+MG_displayTS "GEplug.autoload.off.rep" "自動啟動設置完畢,曲線編輯器插件以后將不會自動啟動.";
+MG_displayTS "GEplug.autoload.config.label" "自動啟動曲線編輯器插件";
+
+MG_displayTS "GEplug.overshoot.ann" "決定是生成/編輯為極張還是BD.";
+MG_displayTS "GEplug.fs.ann" "拖動滑條來實時決定BD/極張的數值百分比.";
+
+MG_displayTS "GEplug.nokeyorNosel.war" "請先在場景里選擇有K幀的物體:)";
+
+MG_displayTS "GEplug.setDefaultTangent.lbl" "默認切線類型: # ";
+MG_displayTS "GEplug.setDefaultTangent.ann" "設置預設的動畫曲線切線類型為: # ";
+MG_displayTS "GEplug.setDefaultTangent.done.rep"  "動畫曲線的預設切線類型已設置為 : # ";
+MG_displayTS "GEplug.setDefaultTangent.ui.ann" "點擊設置動畫曲線的預設切線類型.";
+
+//========================== new 20120626================
+MG_displayTS "GEplug.toolName" "曲線編輯器外掛程式";
+MG_displayTS "GEplug.toolName.short" "曲線編輯器外掛程式";
+MG_displayTS "GEplug.option.title" "選項..";
+MG_displayTS "GEplug.uioption.title" "介面選項..";
+
+MG_displayTS "GEplug.TVfield.ann" "右鍵點擊我來設置是針對時間還是數值進行數學計算.";
+MG_displayTS "GEplug.TVfield.time" "時間";
+MG_displayTS "GEplug.TVfield.time.ann" "數學去運算將運用在時間.";
+MG_displayTS "GEplug.TVfield.value" "數值";
+MG_displayTS "GEplug.TVfield.value.ann" "數學去運算將運用在數值.";
+
+MG_displayTS "GEplug.setKey.eachKey"  "在每個關鍵幀處設Key";
+MG_displayTS "GEplug.setKey.eachGap"  "隔一定時間設key..";
+
+MG_displayTS "GEplug.clean.mi"  "關鍵幀清理";
+MG_displayTS "GEplug.clean.ann"  "在不影響場景動畫的情況下,盡可能地清理掉多餘的關鍵幀.";
+ 
+MG_displayTS "GEplug.snap.mi"  "吸附為整數關鍵幀";
+MG_displayTS "GEplug.snap.ann"  "吸附非整數的關鍵幀為整數幀,支援時間滑條時間範圍的選擇.";
+
+MG_displayTS "GEplug.setkey.input.m"  "請輸出時間間隔:";
+
+MG_displayTS "GEplug.clean.op.lbl" "對於無動態通道的關鍵幀清理: ";
+MG_displayTS "GEplug.clean.op.leaveBoth" "保留最前最後幀";
+MG_displayTS "GEplug.clean.op.leaveFirst" "保留第前幀";
+MG_displayTS "GEplug.clean.op.leaveLast" "保留第後幀";
+MG_displayTS "GEplug.clean.op.leaveNone" "清除動畫";
+
+MG_displayTS "GEplug.channelFilter.op.lbl" "通道篩檢程式";
+MG_displayTS "GEplug.channelFilter.op.isoChannel" "隔離顯示通道";
+MG_displayTS "GEplug.channelFilter.op.selChannel" "選擇通道";
+
+
+MG_displayTS "GEplug.tv.op.lbl" "時間數值 數學";
+MG_displayTS "GEplug.tv.op.staticPlusMinus.lbl" "在做+-運算是如果沒選擇幀: " ;
+MG_displayTS "GEplug.tv.op.staticMulDivide.lbl" "在做*/運算是如果沒選擇幀: " ;
+MG_displayTS "GEplug.tv.op.static.all" "影響全部" ;
+MG_displayTS "GEplug.tv.op.static.rightSide" "影響右邊" ;
+MG_displayTS "GEplug.tv.op.static.clean" "自動清理非整數關鍵幀" ;
+
+MG_displayTS "GEplug.ui.topL" "左上角" ;
+MG_displayTS "GEplug.ui.topR" "右上角" ;
+MG_displayTS "GEplug.ui.L" "左邊" ;
+MG_displayTS "GEplug.ui.R" "右邊" ;
+MG_displayTS "GEplug.ui.stock" "-->庫存<--" ;
+MG_displayTS "GEplug.ui.B" "底部" ;
+MG_displayTS "GEplug.ui.save" "保存並刷新介面" ;
+MG_displayTS "GEplug.ui.tab1.behavior" "工具行為" ;
+MG_displayTS "GEplug.ui.tab2.arrangement" "介面佈局" ;
+
+MG_displayTS "GEplug.clean.rep" "\n# 個關鍵幀被清理.";

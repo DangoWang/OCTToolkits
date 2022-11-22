@@ -1,0 +1,76 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Bio-Constraint</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "bioconstraint_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">Bio-Constraint</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="uvconstraint_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="findjointviavertex_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> Bio-Constraint</span><span style="font-weight: bold; color: #191817;">: </span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:51px; padding:0px;"><p style="text-align: center; line-height: 1.50;"><img src="bioconstrainticon.gif" width="32" height="32" alt="bioConstraintIcon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:13px; padding:0px;"><p style="line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">Generate a mechanism that bio-constrain two transform nodes based on Maya's default nodes.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> Bio-Constraint Workflow:</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">1.</span><span style="color: #3c3c39;">Select two constrainable transform nodes. The first selected transform node will first be the constraint master.</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">2.</span><span style="color: #3c3c39;">Click the bio constraint button </span><img src="bioconstrainticon.gif" width="32" height="32" alt="bioConstraintIcon" style="border:none" /><span style="color: #3c3c39;">, &nbsp;or the menu item in the right clicking menu of constraint tool icon in MGTools bar.</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">3.</span><span style="color: #3c3c39;">Two cross controller will be generated in the two transform nodes' pivot positions. The controllers are supposed to be keyframed if you need to.</span></p><p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> Tips: &nbsp;The Bio-Constraint are just composed of two parent constraints.</p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 72px;">The first selected transform node, it's cross controller will have an attribute called &quot;BioConstraint_Weight&quot;, this is the attribute you use to switch who constrain whom. </p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 72px;">Both the cross controllers have an attribute called: BioConstraint_Master, this is an informational attribute, &quot;Yes&quot; means now it is the constraint master, </p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 72px;">&quot;No&quot; means it is now being constrained.</p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> More Tips:  </p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-weight: bold;">To avoid popping</span> when the BioConstraint_Weight is switched: Select the two cross controllers, set keyframe them before the switch.</p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-weight: bold;">Don't worry about destroying the old hierarchies</span>: If the two transform nodes have their parent hierarchies, the generated cross controllers will respect this, and also be driven by their parent hierarchies.</p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-weight: bold;">To escape of the bio-constraint relationship:</span>The original transform nodes, they are just normally parent constrained by the cross controllers. </p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 96px;">You can escape the relationship by just turn off the parent constraint weight. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="warning.gif" width="16" height="16" alt="Warning" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> &nbsp; </span><span style="color: #ff0000;">The colors of the cross controllers: Will be green by default, because they all have constrain and set keyframe at frame -1.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="color: #ff0000;">Please keep these keyframes, to avoid the weird recursive transform when switching the bioconstraint.</span></p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="uvconstraint_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="findjointviavertex_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

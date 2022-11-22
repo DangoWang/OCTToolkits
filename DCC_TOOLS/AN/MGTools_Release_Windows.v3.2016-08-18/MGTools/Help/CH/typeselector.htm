@@ -1,0 +1,89 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>类型选择器</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Selection,Typeselector" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "typeselector.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">类型选择器</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="selection_manager.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="constraint_tool.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #191817;">类型选择器按钮功能：</span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:51px; padding:0px;"><p style="text-align: center; line-height: 1.50;"><img src="typeselectoricon.gif" width="32" height="32" alt="typeSelectorIcon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:13px; padding:0px;"><p style="line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">对场景中的物体作一定条件的筛选并选择。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">类似于Max按H弹出的按名称选择的功能。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">注意，它只针对场景内所有的DAG节点物体。非DAG节点不在筛选范围内。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_ImageCaption" style="font-size: 10pt;">存在理由</span><span style="font-weight: bold;">：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">便于选择场景里所有的具有一定共性的DAG节点物体。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">如，选择场景中所有有key帧的物体，选择某Rig 下的所有物体，选择所有的模型，所有的曲线等等。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span style="font-weight: bold; color: #191817;">类型选择器界面:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="typeselector_ch.gif" width="342" height="512" alt="typeSelector_ch" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> </span><span class="f_MI_TitleStyle" style="color: #404040;">A区条件按钮：</span><span style="color: #3c3c39;">每个按钮点击后，都将在场景选择所有符合该按钮所标示的条件的节点。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="color: #3c3c39;">只有勾选上该按钮左边的复选框，在界面最下方的选择按钮在执行时，才会考虑到该条件。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">是/否被Key帧物体: </span><span style="font-size: 9pt;">只能在两者间勾选一项或全不选。筛选的条件是该节点是否有被Key帧。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">是/否Reference物体: </span><span style="font-size: 9pt;">只能在两者间勾选一项或全不选。筛选的条件是该物体是否是Reference物体。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">是/否被隐藏物体: </span><span style="font-size: 9pt;">只能在两者间勾选一项或全不选。筛选的条件是该节点是否被隐藏。(即visibility属性为0)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">是/否是被约束物体: </span><span style="font-size: 9pt;">只能在两者间勾选一项或全不选。筛选的条件是该节点是否被其它节点约束。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">有/否是场景所选Rig物体: </span><span style="font-size: 9pt;">只能在两者间勾选一项或全不选。筛选的条件是该节点是否和当前场景所选的节点同处于一个最高层级下。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">有/否是所选物体: </span><span style="font-size: 9pt;">只能在两者间勾选一项或全不选。筛选的条件是该节点在场景是否被选择。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">类型过滤: </span><span style="font-size: 9pt;">只有勾选后才会出现B区类型列表。用来在满足上面勾选条件的同时，通过Maya的类别定义再做筛选。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">全选/去选/反选: </span><span style="font-size: 9pt;">将B区的列表项全选/全不选/反选。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> </span><span class="f_MI_TitleStyle" style="color: #404040;">B区节点类型按钮：</span><span style="color: #3c3c39;">每个按钮点击后，都将在场景选择所有属于该类型的节点。只有勾选上，在界面最下方的选择按钮在执行时，才会考虑到该条件。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">自定义 : </span><span style="font-size: 9pt;">勾上后旁边的输入框才会有效。在输入框输入自定义的类别名称用做筛选。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">&lt;- 获取 : </span><span style="font-size: 9pt;">获取当前场景选择的第一个物体的类型名称并在左边的输入框输入。方便用户在不知道节点类型名称拼写的情况下使用。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">下面的类型按钮 :  </span><span style="font-size: 9pt;">(里面的(T)代表其要找的是该类型对应的变形节点(transform)，(S)找的是该类型节点，一般是形节点(shape)。)</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 120px;"><span style="font-size:9pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Transform: </span><span style="font-size: 9pt;">变形节点</span></p><p style="text-align: left; padding: 0px 0px 0px 133px; margin: 0px 0px 0px 0px;"><span style="font-size:9pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">ImagePlane: </span><span style="font-size: 9pt;">ImagePlane节点</span></p><p style="text-align: left; padding: 0px 0px 0px 133px; margin: 0px 0px 0px 0px;"><span style="font-size:9pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">All Geometry(T): </span><span style="font-size: 9pt;">所有的几何体类型的节点所对应的变形节点。包含多边形，细分模型及nurbs所对应的变形节点。</span></p><p style="text-align: left; padding: 0px 0px 0px 133px; margin: 0px 0px 0px 0px;"><span style="font-size:9pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">All Geometry(S): </span><span style="font-size: 9pt;">所有的几何体类型的节点。包含多边形，细分模型及nurbs。</span></p><p style="text-align: left; padding: 0px 0px 0px 133px; margin: 0px 0px 0px 0px;"><span style="font-size:9pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">...(其它具体见Maya帮助，应该按字面就能了解意思)</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 选择:  </span><span style="font-size: 9pt;">按整个界面里勾选上的条件，A区条件之前是&quot;且&quot;的关系，B区的类型条件是&quot;或&quot;的关系，来在场景中选择出符合条件的节点。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">关闭 :  </span><span style="font-size: 9pt;">关掉类型选择器。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="warning.gif" width="16" height="16" alt="Warning" style="border:none" /><span class="f_ImageCaption"> &nbsp; </span><span style="font-size: 9pt; color: #ff0000;">注意，这个类型选择器的筛选对象只包括DAG节点物体，非DAG节点不会被选择。（非DAG节点，就是在outliner大纲视图里，去掉DAG Objects Only 勾选后新显示出来的节点。）</span></p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="selection_manager.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="constraint_tool.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

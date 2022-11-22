@@ -1,0 +1,235 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+//MG_DualLan
+MG_displayTS "animRescue.recoveryWizard.doitAnnT" "請點選 \"恢復!!\"按鈕開始恢復! 祝你好運!!";
+MG_displayTS "animRescue.recoveryWizard.done.rep"  "恢復操作完成!! 希望它幫上忙 !";
+
+MG_displayTS "animRescue.recoveryWizard.doit.btn" "恢復!!";
+
+MG_displayTS "animRescue.aR.next.btn.lbl" "下一步 ->";
+MG_displayTS "animRescue.aR.prev.btn.lbl" "<- 上一步";
+MG_displayTS "animRescue.aR.finish.btn.lbl" "完成";
+MG_displayTS "animRescue.aR.finish.save.lbl"  "儲存設定 !!" ;
+
+MG_displayTS "animRescue.advancedRecovery.ui.title" "AnimRescue v2.0 高階恢復嚮導";
+MG_displayTS "animRescue.aR.rescuePoint.menu" "恢復點";
+
+MG_displayTS "animRescue.aR.usedRoot.lbl" "備份根目錄:";
+MG_displayTS "animRescue.aR.usedRoot.ann" "這裡的備份點根目錄不會影響實際的備份目錄,而是恢復時搜索恢復點的目錄.";
+MG_displayTS "animRescue.aR.rep.lbl" "  替換..  ";
+MG_displayTS "animRescue.aR.rep.ann" "將當前用來搜索備份點的根目錄設為新目錄.";
+MG_displayTS "animRescue.aR.buCons.lbl" "備份約束";
+MG_displayTS "animRescue.aR.buCons.ann" "決定在備份動畫的同時是否一起備份約束.";
+
+MG_displayTS "animRescue.aR.add.lbl" "  添加..  ";
+MG_displayTS "animRescue.aR.add.ann" "添加新目錄到當前搜索恢復點的目錄列表裡.";
+MG_displayTS "animRescue.aR.brow.lbl" " 拾取.. ";
+
+MG_displayTS "animRescue.aR.filter.lbl" "步驟 1: 設定搜索條件";
+MG_displayTS "animRescue.aR.filter.ann" "設定搜索條件來限定搜索到的恢復點.";
+MG_displayTS "animRescue.aR.ns.lbl" "名字:";
+MG_displayTS "animRescue.aR.ns.ann" "輸入一個名字來限定搜索範圍,一般都是要恢復的場景名稱,用\" <- \"按鈕來快速獲取.";
+
+MG_displayTS "animRescue.aR.laterThan.lbl" "晚於:";
+MG_displayTS "animRescue.aR.laterThan.ann" "輸入一個完整日期字元(年月日-時分秒),工具將只搜索晚於該日期的恢復點.";
+MG_displayTS "animRescue.aR.ymdHms.lbl" "(年月日-時分秒)";
+MG_displayTS "animRescue.aR.inputDate.ann" "快速輸入當前場景日期";
+
+MG_displayTS "animRescue.aR.rescuep.lbl" "步驟 2: 恢復點篩選";
+MG_displayTS "animRescue.aR.rescuep.ann" "篩選出要用的恢復點,打勾的項目纔會被使用.";
+MG_displayTS "animRescue.aR.addRP.ann" "點選來手動拾取一個目錄來作為一個恢復點.";
+
+MG_displayTS "animRescue.aR.firstStep.annText" "* 所有恢復點打上勾後纔會在恢復過程中被使用 *";
+
+
+
+MG_displayTS "animRescue.aR.nsMap.step" "3: Namespace篩選及對映";
+MG_displayTS "animRescue.aR.nsMap.ann" "你可以通過這裡決定是否恢復特定角色,及恢復動畫到另外的角色.";
+MG_displayTS "animRescue.aR.cons.step" "4: 約束篩選";
+MG_displayTS "animRescue.aR.cons.ann" "來決定要恢復哪些約束節點.";
+
+MG_displayTS "animRescue.aR.before.annText" "* 所有恢復操作不可undo,不過請務必等恢復完後才儲存場景(避免影響當前場景日期) *";
+
+MG_displayTS "animRescue.reWizard.ui.title" "AnimRescue v2.0 自動恢復嚮導";
+
+MG_displayTS "aR.reWizard.step1.anntext01" "<< 點選左圖示選擇進入動畫恢復模式.";
+MG_displayTS "aR.reWizard.step1.anntext02" "  *  它將使用所有之前備份的恢復點.";
+MG_displayTS "aR.reWizard.step1.anntext03" "  *  你必須事先有開啟動畫實時備份.(使用動畫備份嚮導)";
+MG_displayTS "aR.reWizard.step1.anntext04" "  *  點選 \"下一步->\" 按鈕來繼續.";
+
+MG_displayTS "aR.reWizard.step2.anntext01" "* 如果你要恢復自動備份場景模式的場景:";
+MG_displayTS "aR.reWizard.step2.anntext02" "  *  直接在你之前所設定的場景定時備份目錄下找到相應的Maya場景.";
+MG_displayTS "aR.reWizard.step2.anntext03"  "  *  它會在\"工程目錄/autosave\",\"自定義目錄\"或者\"場景目錄/autosave\".";
+MG_displayTS "aR.reWizard.step2.anntext04" "  *  你必須事先有開啟場景自動儲存備份.";
+
+MG_displayTS "aR.reWizard.step3.anntext01" "<< 點選左圖示選擇進入連線恢復模式.";
+MG_displayTS "aR.reWizard.step3.anntext02" "  *  它搜索場景所有無連線的動畫節點,並連回到相對應的物體屬性.";
+MG_displayTS "aR.reWizard.step3.anntext03"  "  *  在場景可以被開啟但是動畫卻丟失了的情況有可能會有用.";
+
+MG_displayTS "aR.reWizard.step4.anntext01" "* 要恢復動畫,選擇下面模式的一種:";
+
+MG_displayTS "aR.reWizard.autoMode.lbl" "自動恢復模式";
+MG_displayTS "aR.reWizard.autoMode.anntext01" "* 在maya崩潰,場景動畫未儲存的狀況時使用.";
+MG_displayTS "aR.reWizard.autoMode.anntext02" 	"* 它將當前場景日期與恢復點日期進行比較,只要比當\n   前場景日期更晚的恢復點纔會被使用來恢復.";
+MG_displayTS "aR.reWizard.autoMode.anntext03" 	"* 恢復完成後,你可能需要手動完成一些未key幀的屬\n   性值改變.";
+MG_displayTS "aR.reWizard.autoMode.anntext04" 	"* 恢復完成後,可能需要手動完成除K幀,約束外的操作.";
+
+
+MG_displayTS "aR.reWizard.advMode.lbl" "高階恢復模式";
+MG_displayTS "aR.reWizard.advMode.anntext01" "* 在這個模式裡你可以自定時間閥值,將動畫恢復給不\n   同角色及自定義其它高階選項.";
+
+MG_displayTS "aR.reWizard.connMode.lbl" "* 動畫連線恢復模式";
+MG_displayTS "aR.reWizard.connMode.anntext00"  "* 有時場景是可以開啟並且動畫節點有被儲存.但由於一\n    些原因, 節點與相應屬性的連線斷掉了.(有時是因為某\n    reference角色讀不進來,或者是場景沒有被儲存完整)";
+MG_displayTS "aR.reWizard.connMode.anntext01"  "* 不能保證它有用,因為那取決於當前場景還有多少可恢\n    復的動畫節點隨場景實際儲存著.";
+MG_displayTS "aR.reWizard.connMode.anntext02"  "* 下面狀況下該模式比較有用:場景裡某reference讀不\n    進來, 所以你需要叫一個新的進來,結果需要把舊動畫\n    連到新叫進的reference物件上.(使用接下來的namespace\n    對映設定)"	;				
+MG_displayTS "aR.reWizard.connMode.anntext03" "* 這個工具只恢復一般的動畫節點而非驅動關鍵幀節點\n    的連線.";
+//656
+MG_displayTS "aR.reWizard.autoMode.step1.lbl" "1: 開啟你所能拿到的最新的場景.";
+MG_displayTS "aR.reWizard.autoMode.step1.anntext01"   "-> 直接恢復完成前都不要重新儲存該場景, 因為那樣\n     做會使當前場景的日期被改變.";
+MG_displayTS "aR.reWizard.autoMode.step1.anntext02"  "-> 點選右邊接鈕來快速開啟那個場景.(如果還未開啟)";
+
+MG_displayTS "aR.reWizard.autoMode.step2.lbl" "2: 選擇搜索恢復點的路徑.(如果需要)";
+MG_displayTS "aR.reWizard.autoMode.step2.anntext01"  "-> 這個設定不會影響你實際的實時備份路徑,這個只是暫用的\n     恢復點搜索路徑.";
+
+MG_displayTS "aR.reWizard.autoMode.step3.lbl" "3: 輸入一個篩選字元竄:";
+MG_displayTS "aR.reWizard.autoMode.step3.anntext00" "-> 這個字元竄將用來搜索恢復點. 請輸入一個不含版本號的\n    場景名稱,如果想篩選嚴格點,則包含版本號.";
+MG_displayTS "aR.reWizard.autoMode.step3.anntext01" "-> 點選左邊按鈕來快速獲取恢復點的預計數目.點選\n    \"獲取\" 按鈕來快速將當前場景的名稱輸入.";
+MG_displayTS "aR.reWizard.autoMode.get.lbl" "獲取";
+
+MG_displayTS "aR.reWizard.autoMode.predi.cdate.lbl" "當前場景日期 : N/A";
+MG_displayTS "aR.reWizard.autoMode.predi.rescuep.lbl" "恢復點 : N/A";
+MG_displayTS "aR.reWizard.autoMode.predi.anicf.lbl" "動畫節點 : N/A";
+MG_displayTS "aR.reWizard.autoMode.predi.consf.lbl" "約束節點 : N/A";
+
+MG_displayTS "aR.reWizard.autoMode.predi.cdate.rep" "當前場景日期 : ";
+MG_displayTS "aR.reWizard.autoMode.predi.rescuep.rep" "恢復點 : ";
+MG_displayTS "aR.reWizard.autoMode.predi.anicf.rep" "動畫節點 : ";
+MG_displayTS "aR.reWizard.autoMode.predi.consf.rep" "約束節點 : ";
+
+
+MG_displayTS "aR.reWizard.connMode.findL.lbl" "* 發現下面動畫節點無連線:";
+MG_displayTS "aR.reWizard.connMode.sns.lbl" "源Namespace";
+MG_displayTS "aR.reWizard.connMode.tns.lbl" "對映Namespace";
+MG_displayTS "aR.reWizard.connMode.keepLinked.lbl" "如果屬性已有動畫則不連線";
+MG_displayTS "aR.reWizard.connMode.keepLinked.ann" "如果目標屬性已有動畫連線則不要替換那個連線.";
+MG_displayTS "aR.reWizard.connMode.beforeDoit.annText" "* 點選 \"下一步 ->\" 按鈕開始連線恢復.";
+MG_displayTS "aR.reWizard.connMode.noWild.war"  "沒有發現需要重新連線的動畫節點 :(";
+MG_displayTS "aR.reWizard.connMode.stat.skip.Pref" "忽略動畫節點:";
+MG_displayTS "aR.reWizard.connMode.stat.reconn.Pref" "已恢復連線:";
+MG_displayTS "aR.reWizard.connMode.stat.skip.detail" "忽略動畫節點 (目標屬性不存在): ";
+MG_displayTS "aR.reWizard.connMode.stat.skip.alreadyKey" "忽略動畫節點 (目標屬性已有動畫連線): ";
+
+MG_displayTS "aR.reWizard.connMode.done.rep" "因為某些原因,有一些無連線的動畫節點被忽略.檢視指令碼編輯器的歷史來瞭解更多.";
+
+//1075
+MG_displayTS "aR.buWizard.mainUI.title.lbl"  "AnimRescue v2.0 備份嚮導";
+MG_displayTS "aR.buWizard.mainUI.fiveK.lbl" "  >> 五個保您場景平安的關鍵:";
+MG_displayTS "aR.buWizard.mainUI.fiveK.text01" "         1: 養成另存習慣,多存是福.";
+MG_displayTS "aR.buWizard.mainUI.fiveK.text02" "         2: 點選\"實時備份需知..\"按鈕來瞭解備份注意事項.";
+MG_displayTS "aR.buWizard.mainUI.fiveK.text03" "         3: 不要手動修改備份檔案及其目錄(會改變掉日期).";	
+MG_displayTS "aR.buWizard.mainUI.fiveK.text04" "         4: 平日多行善積德積累人品以便老天保佑.";
+
+MG_displayTS "aR.buWizard.range.war.btn.lbl"  "<!> 實時備份需知";
+MG_displayTS "aR.buWizard.range.war.btn.lbl1" "實時備份需知..";
+MG_displayTS "aR.buWizard.range.anText01" "* 動畫實時備份只實時備份動畫節點資訊.\n* 如果你開啟備份約束選項,它也會同時備份約束節點資訊.";
+MG_displayTS "aR.buWizard.range.anText02"  "* 以下操作/節點當前尚不在備份範圍:";
+MG_displayTS "aR.buWizard.range.noRecList" ("1: 用\"Break Connections\"(打斷連線)方式在通道欄裡刪幀的動作.\n"+
+																									"2: 未Key幀的屬性值改變.\n"+
+																									"3: Maya2009新加入的動畫層.\n"+	
+																									"4: Character Set的動畫.\n"+	
+																									"5: Maya2012新加入的路徑方式動畫.\n"+
+																									"6: 曲線編輯器選單裡的複製/剪下/貼上幀的功能(時間軸,通道欄的複製貼上動畫是備份的).")	;
+
+MG_displayTS "aR.buWizard.range.warning" "* 潛在風險警告:";
+MG_displayTS "aR.buWizard.range.war.content" ("動畫實時備份工具在開發MGTools蘋果版的時候經歷了大重寫跟改進."+
+																						"目前已經變地相當穩定了.經過測試,這是唯一的風險: \n"+
+																						"當你開啟了約束備份,然後執行一些約束操作很密集的命令,如一堆的約束創建和刪除,然後你快速地按z鍵撤消,再飛快地按shift+z鍵重做,"+
+																						"那麼maya有可能就會被你玩死了. \n\n總之在maya裡飛快地撤消然後接著飛快地重做是比較危險的事,請謹慎嘗試.\n");
+
+MG_displayTS "aR.buWizard.mainUI.currentStat.off.lbl" "當前: 關";
+MG_displayTS "aR.buWizard.mainUI.currentStat.on.lbl" "當前: 開";
+
+MG_displayTS "aR.buWizard.mainUI.animRescueStat.off.lbl" "動畫備份: 關";
+MG_displayTS "aR.buWizard.mainUI.animRescueStat.on.lbl" "動畫備份: 開";
+MG_displayTS "aR.buWizard.mainUI.autosaveStat.off.lbl"  "場景備份: 關";
+MG_displayTS "aR.buWizard.mainUI.autosaveStat.on.lbl" "場景備份: 開";
+
+MG_displayTS "aR.buWizard.mainUI.ar.annText" "<< 點選左圖示來開/關動畫實時後臺備份.";
+MG_displayTS "aR.buWizard.mainUI.ar.annText1" "* 設定備份檔案(恢復點)的根目錄: (不要頻繁地更改這個設定)";
+MG_displayTS "aR.buWizard.mainUI.ar.annText2" "* 它將幫您在後臺實時備份您所作的動作修改.";
+MG_displayTS "aR.buWizard.mainUI.ar.annText3" "* 這個模式只儲存動畫及約束節點,它完全後臺運行,調動畫時\n毫不受影響.";
+
+MG_displayTS "aR.buWizard.mainUI.restart.war" "      * 第一次開啟時必須重啟Maya生效,以後不用.";
+MG_displayTS "aR.buWizard.mainUI.sas.annText" "<< 點選左圖示來開/關maya場景定時儲存.";
+MG_displayTS "aR.buWizard.mainUI.sas.prompt" "儲存前提醒";
+MG_displayTS "aR.buWizard.mainUI.sas.limCB" "限制儲存個數";
+MG_displayTS "aR.buWizard.mainUI.sas.max" "儲存最大個數:";
+MG_displayTS "aR.buWizard.mainUI.sas.timeLap"	"時間間隔(分鐘):";
+MG_displayTS "aR.buWizard.mainUI.sas.dest" "目標模式:";
+MG_displayTS "aR.buWizard.mainUI.sas.dest.proj" "工程目錄";
+MG_displayTS "aR.buWizard.mainUI.sas.dest.cus" "自定義目錄";
+MG_displayTS "aR.buWizard.mainUI.sas.dest.sc" "場景目錄";
+MG_displayTS "aR.buWizard.mainUI.notSupport.war" "* 不支援當前Maya版本,\n  只支援Maya8.5及以後的版本.";
+MG_displayTS "aR.buWizard.mainUI.notSupport.lal" "* 動畫實時備份功能只支援Maya8.5及以後的版本.";
+
+
+MG_displayTS "aR.buWizard.mainUI.sas.annText1" "*  該功能與Maya 2011的定時儲存功能是一樣的,除了特有的 \"場景目錄\"\n  模式外.(該模式將自動儲存場景在\"場景目錄/autosave\"下面)";
+MG_displayTS "aR.buWizard.mainUI.sas.annText2" "*  在Maya 2011及其後版本,它實際上是使用maya自帶的自動儲存\n  功能,只是把第三個模式\"Env Var\"內部更改為 \"場景目錄\"模式.";
+MG_displayTS "aR.buWizard.mainUI.sas.annText3" "* 這個模式定時儲存整個場景,不過它在前臺運行,所以儲存時用\n  戶需要等待操作完成.";
+
+MG_displayTS "aR.buWizard.nostr.war" "無輸入字元";
+MG_displayTS "aR.buWizard.bkFile.war.subf" 	":  備份檔案不存在.";
+MG_displayTS "aR.buWizard.slave.war.subf" ":  被約束體不存在: ";
+MG_displayTS "aR.buWizard.master.war.subf" ":  約束體不存在: ";
+
+MG_displayTS "aR.buWizard.cons.skip.war" "忽略約束節點:";
+MG_displayTS "aR.buWizard.cons.done.rep" "恢復約束節點:";
+
+MG_displayTS "aR.buWizard.anic.skip.war" "忽略動畫在該屬性:";
+MG_displayTS "aR.buWizard.anic.done.rep" "恢復動畫在該屬性:";
+
+MG_displayTS "aR.recovWizard.errRep.ui.title""有一些備份檔案被忽略了:";
+MG_displayTS "aR.recovWizard.errRep.cons.skip.lbl" "這些約束節點被忽略了:";
+MG_displayTS "aR.recovWizard.errRep.attr.skip.lbl" "這些屬性的動畫被忽略了:";
+
+MG_displayTS "aR.miniToolBox.backup.help.title" "動畫備份嚮導幫助..";
+MG_displayTS "aR.miniToolBox.recover.help.title" "動畫自動恢復嚮導幫助..";
+MG_displayTS "aR.miniToolBox.recoverAdv.help.title" "動畫高階恢復嚮導幫助..";
+
+MG_displayTS "aR.miniToolBox.feature.fl.title" "動畫備份及場景備份..";
+MG_displayTS "aR.miniToolBox.backup.btn.title" "動畫備份嚮導..";
+MG_displayTS "aR.miniToolBox.autoRecover.btn.title" "自動恢復嚮導..";
+MG_displayTS "aR.miniToolBox.advRecover.btn.title""高階恢復嚮導..";
+
+MG_displayTS "aR.miniToolBox.recoverDoit.nothing.war" "沒有發現可以用來恢復的動畫/約束資料!";
+
+
+MG_displayTS "aR.clearRescue.war.title" "你確定嗎??";
+MG_displayTS "aR.clearRescue.war.01" "將要清除備份根目錄下的所有備份點,繼續?";
+MG_displayTS "aR.clearRescue.war.02"  "將要清除備份根目錄下除了當前場景備份點之外的所有備份點,繼續?";
+MG_displayTS "aR.clearRescue.war.sorry" "抱歉~!";
+MG_displayTS "aR.clearRescue.war.03" "有些備份點目錄沒有被清除.(可能是因為裡面含有備份資訊之外的檔案)你可以手動清除他們.";
+MG_displayTS "aR.clearRescue.manualClear" "手動清除..";
+
+MG_displayTS "aR.clearRescue.mi01" "清除所有備份點..";
+MG_displayTS "aR.clearRescue.mi01.ann" "清除當前備份目錄下的全部恢復點";
+MG_displayTS "aR.clearRescue.mi02" "清除除當前場景外所有恢復點..";
+MG_displayTS "aR.clearRescue.mi02.ann" "清除除了當前開啟場景的恢復點外的所有場景恢復點.";
+
+MG_displayTS "aR.clearRescue.menu" "清除";
+MG_displayTS "aR.clearRescue.lbl" "清除 ->";
+
+MG_displayTS "aR.pickPath.ann" "請您在下面選擇一個目錄:(不支援帶中文的路徑,抱歉)";
+
+MG_displayTS "aR.untitled.war" "如果你要給一個未命名的場景進行恢復,你必須使用高階恢復模式來進行恢復.";
+MG_displayTS "aR.untitled.advMode.lbl" " 使用高階恢復模式 ";
+MG_displayTS "aR.untitled.cancel" " 取消 ";
+
+MG_displayTS "aR.shortName" "MG動畫實時備份";
+MG_displayTS "aR.dirNotValid" "你設定為備份點的存儲根目錄: # \n當前不可用!!";

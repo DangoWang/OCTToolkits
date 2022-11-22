@@ -1,0 +1,66 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "motionPathCalc.UI.title" "MotionPath Calculator";
+MG_displayEN "motionPathCalc.mpManager.mi" "MotionPath Manager..";
+MG_displayEN "motionPathCalc.sampleFoot" "the sample foot object:";
+MG_displayEN "motionPathCalc.sampleFoot.anno" "Fill in the foot translate controller or select it then press GetFromSelection";
+MG_displayEN "motionPathCalc.cycleExtreme" "CycleExtreme start&end:";
+MG_displayEN "motionPathCalc.cycleExtreme.anno" "Fill in Foot extreme pose start&end frame num and walking direction,the last textField will show the step distance.";
+MG_displayEN "motionPathCalc.directAxis.anno" "Select the walking direction axis.";
+MG_displayEN "motionPathCalc.stepLen.anno" "footStep Distance";
+MG_displayEN "motionPathCalc.refresh" "Refresh";
+MG_displayEN "motionPathCalc.getFromSel" "      GetFromSelection      ";
+MG_displayEN "motionPathCalc.animLen.input" "Walking frame start&end:";
+MG_displayEN "motionPathCalc.animLen.input.anno" "Fill in the walking start frame and end frame";
+MG_displayEN "motionPathCalc.usePathLen" "use MotionPathLength";
+MG_displayEN "motionPathCalc.usePathLen.anno" "If on ,walking will use full motionPath length,if off,it will count for start and end frame.";
+MG_displayEN "motionPathCalc.globalObj" "the Global object:";
+MG_displayEN "motionPathCalc.globalObj.anno" "Fill in globalObject or select it then press GetFromSelection to tell mel which global obj to be used.";
+MG_displayEN "motionPathCalc.globalFrontAxis" "         the Global Front Axis:";
+MG_displayEN "motionPathCalc.selectGlobalFrontAxis.anno" "Select the Global front direction axis.";
+MG_displayEN "motionPathCalc.GupAsis" "  Up Axis:";
+MG_displayEN "motionPathCalc.GupAsis.anno" "Select the Global Up direction axis.";
+MG_displayEN "motionPathCalc.pathLen" "  PathLength:";
+MG_displayEN "motionPathCalc.pathLen.anno" "  Length of the motion path curve";
+MG_displayEN "motionPathCalc.MPname" "the motionPath:";
+MG_displayEN "motionPathCalc.MPname.anno" "Fill in motionPath object or select it then press GetFromSelection to tell mel which motionPath obj to be used.";
+MG_displayEN "motionPathCalc.result" "Result-->    EndFrame: ";
+MG_displayEN "motionPathCalc.Uvalue" "End U Value: ";
+MG_displayEN "motionPathCalc.apply" "Apply Calculation";
+MG_displayEN "motionPathCalc.readFromScene" "Read from scene";
+MG_displayEN "motionPathCalc.reset" "Reset";
+
+MG_displayEN "motionPathCalc.footSticker" "POsnap(F)";
+
+MG_displayEN "motionPathCalc.noFoot.war.title" "Come on Guys...";
+MG_displayEN "motionPathCalc.noFoot.war.mess" "0_o||| Select the walkingFoot translate controller please!!";
+MG_displayEN "motionPathCalc.noSel.war.mess" "0_o||| Select a transform node please!!";
+MG_displayEN "motionPathCalc.noCurve.war.mess" "0_o||| Select a nurbsCurve node please!!";
+MG_displayEN "motionPathCalc.ok" "OK";
+
+MG_displayEN "motionPathCalc.Manager.title" "MotionPath Manager";
+MG_displayEN "motionPathCalc.Manager.annoText" "MpSticker nodes in your scene:";
+MG_displayEN "motionPathCalc.Manager.readInClac" "Read in Calculator";
+MG_displayEN "motionPathCalc.Manager.select" "Select the node";
+MG_displayEN "motionPathCalc.Manager.del" "Delete";
+MG_displayEN "motionPathCalc.Manager.reload" "Reload";
+
+MG_displayEN "motionPathCalc.DrawKey.title" "Drew Curve via keyframe Option";
+MG_displayEN "motionPathCalc.DrawKey.annoText" "* You can select a range in timeSlider to draw the curve";
+MG_displayEN "motionPathCalc.DrawKey.drawMethod" "Draw method:";
+MG_displayEN "motionPathCalc.DrawKey.drawMethod.l1" "Keyframes";
+MG_displayEN "motionPathCalc.DrawKey.drawMethod.l2" "All frames";
+MG_displayEN "motionPathCalc.DrawKey.curveDegree" "Curve Degree:   ";
+MG_displayEN "motionPathCalc.DrawKey.motionPath" "MotionPath:";
+MG_displayEN "motionPathCalc.DrawKey.CmotionPath" "Create MotionPath";
+MG_displayEN "motionPathCalc.DrawKey.Draw" "Draw";
+MG_displayEN "motionPathCalc.DrawKey.Close" "Close";
+MG_displayEN "motionPathCalc.DrawKey.progress.sta" "Progress: 0%";
+MG_displayEN "motionPathCalc.DrawKey.progress.head" "Progress: ";

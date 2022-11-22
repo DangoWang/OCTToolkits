@@ -1,0 +1,2 @@
+//Set keyframe on the attributes only if their are already keyframed.
+MGP_SetKeyframeForOnlyKeyframed; 

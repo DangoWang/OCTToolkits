@@ -1,0 +1,464 @@
+=========================================================================
+    MGtools Pro3 (c) Copyright 2008-2017 MGLAND animation studio.
+    All rights reserved.
+    Author: Miguel Winfield (WenFeng Gao)
+    URL: http://mgland.com  | http://twincodes.com
+=========================================================================
+10/08/2016--------------------------------------------------------------------
+    > Fix bug that unable to install MGTools in windows server address.
+    > Fix bug so old draw curve via key works in maya2016 & later.
+
+08/18/2016--------------------------------------------------------------------
+    > Fix bug that unable to install MGTools in Maya2016ex2SP1.
+
+08/14/2016--------------------------------------------------------------------
+    > Fix "version mismatch error" for node-lock license registering.
+
+08/10/2016--------------------------------------------------------------------
+    > Some minor fixes.
+
+07/18/2016--------------------------------------------------------------------
+    > Add flat color icon
+    > Add floating licence support
+    > Add Maya2016ex2 support
+    > Fix HUD config save & read issue.
+
+10/12/2015--------------------------------------------------------------------    
+    > Fix MG-Picker Studio v1.0 entry, so when picker studio is installed in place other than script folder,
+      MGTools will still find it.
+    > Fix bug on Time code HUD.
+    > Asset Library now remember its display mode, if it was switched to icon mode, 
+      it will still be icon mode next time it loads up.
+    > Fix bug on Bio-Contraint feature.
+    > Fix bug on Anim-Recorder feature.
+    > Fix other minor bugs.
+    
+07/15/2015--------------------------------------------------------------------
+    MGTools Pro3 now supports Maya2016 in three OS platforms: Windows, MacOS, Linux.
+    > Add MG-Picker Studio v1.0 entry.
+    > Fix bug on Bio-Contraint feature.
+    > Fix MG-AnimRecorder bugs.
+    > Fix other minor bugs.
+
+08/24/2014--------------------------------------------------------------------
+    MGTools Pro3 has now been released in three OS platforms: Windows, MacOS, Linux.
+    Windows Version: Supports Maya7.0~Maya2015 all x86 and x64 versions, 
+                    although some new features are only supported in Maya2011~later Maya version.
+    MacOS/Linux Version: Supports Maya2011~Maya2015 x64 version.
+    
+    > The whold framework been redesigned, source been closed, new colorfull ui provided.
+      The license now is bound to machine, a 20 days full featured trial is provided.
+    > Maya 2015 support in all the three OS platforms.
+    > New Feature: MG-PoseAnim Library. 
+            User could use the tool to build up and manage the pose and animation libraries.
+            The old MG-AnimLibrary is renamed to MG-AnimationBank.
+            This feature is only available in Maya2011 and later maya version.
+    > New Feature: MG-Asset Library. It is based on the old DB-Manager, but totally rewritten.
+            This tool is supposed to be a bridge that connects the asset and layout pipeline.
+            This feature is only available in Maya2011 and later maya version.
+    > New Feature: Copy/Paste Constraint between Maya: with two button clicking, 
+           transfer the constraint and its animation between different Maya scenes.
+    > New Feature:  In-Scene Constraint manage node. It is a simple maya transform node with a nurbs curve shape.
+            You can use tool to collect all the toggle attributes to this node, 
+            and manage their values and animation without picking and selecting many hierarchies.
+    > New Feature:  Bio-Constraint node. A bio-constraint system based on maya's default nodes.
+            The two objects could constraint each other, but at one time, only one object could control the other.    
+    > New Feature:  Offline Update and Update from Server features. More ways to keep your MGTools latest.
+    > For Maya student version user,a new feature added in miniToolBox: "Fix Maya Student-Version Save Issue".
+            When in Maya of student license, using MG-AnimationBank to input some data may cause the scene not savable.
+            This is a general bug of Maya only happened on student license holder. 
+            MG-Animation Bank tool has fixed the issue, 
+            also the fix feature provided in miniToolBox, in case other tools you use cause the same issue.
+    > Feature Improvement:
+        a. PO-Snap Forward now supports time-range selection, with a time range preselected, 
+            this tool snaps the whole time range.
+        b. MG-Hud now supports cam-sequencer, time length info is also added.
+		Also in anystring mode, it suports a user MEL global proc name, 
+                the string returned by this proc serves as the HUD content.
+		With this improvement, MG-HUD now can be deeply customizable.
+        c. Super Undo/Redo now prints out the undo/redo info.    
+        d. Stick object to viewport feature: The stick option now will be remembered.
+        e. MG-ChannelBox got new editor buttons, and mouse drag speed setting button.
+        f. More MGTools related commands can be set hotkey. In MG-Config window, you can search through these commands.
+        g. You can choose to store the MGTools autoloading codes into userSetup.mel or userSetup.py.
+           New MGTools uninstallation wizard.
+        h. Setkey Changed Channel: The new keys' tangents will favor the default tangent setting.
+           Setkey Keyframed: Each new key tangent will favor the each previous key's tangent.
+           Setkey Each Keytick: The new keys' tangents will favor the default tangent setting.
+           Setkey Each Certain Frame..:The new keys' tangents will favor the default tangent setting.
+        i: MG-ViewSwitch tools now has all the view options of Maya2015.
+        j: Namespace corrector now supports multiple-layered namespace modification.
+	k: BD-Tool: Also works if current frame is the start/end frame of an animCurve, or it goes beyond the start/end frame.
+		This feature is turned on by default, but configable.
+		Also insert keys if it is static animCurve.This feature is turned off by default, but configable.
+		New BD Tool Option entry in MG-Config tool configuration list.
+	l: KeyframeProbe: Now could probe any attribute value changed even it is not keyframed.
+	m: MGShelf v2 now adds the "MGTools/MGTools_LocalData/MG_UserIcon" dir as its icon searching dir.
+	
+        
+    > Bug fixes:
+        a. MG-AnimRecorder: fix a recording bug, this bug may cause the recored object pops.
+        b. Fix the "Open Current Reference Nodes Dir.." feature.  
+        c. Fix the Keyframe Scale tool.
+        d. Fix the MG-PathTracker bug, the bug causes the tool not recognise the existed tracking path in your scene.
+        e. Fix the bugs in MG-SelectionSet tool, when making new folders.
+        f. Fix the "Insert hierarchy.." dialog's width.
+        g. Fix the fatal bug that in MG-AnimationBank tool, rename/delete/copy/cut/paste file may crash Maya.
+             Also fix the bug that the tool sometime ignores the first frame when exporting the animation.
+             Also the bug that cause the scene not savable in Maya student version.
+        h. Fix MG-ChannelBox bug, the bug causes the bottom buttons disappear, 
+             also fix the bug that the UI may become super wide and not scalable sometime.
+        i. Fix the Snap keyframe tool bug, the bug is, when there are keyframes selected in Graph Editor, 
+           the snap fature may fail.
+	j. Fix the bug that MGShelf v2, will hide the other section below when you active a section.
+
+    > Still there are lots of feature advices not been coverred in this release. 
+      These features will probably come with the future update.	
+
+06/15/2013--------------------------------------------------------------------
+    > Maya2014 Support added: All platforms: Windows,MacOS,Linux;
+    > SelectionSet: Now you can add more folders as selectionSet root folders beside the one within the local MGtools folder.
+            Which means in Massive-production, team leader builds all neccessary selection sets,store them in server, and share among pipeline.
+            Click on the top textField area and you will know how to use it.
+            Fix UI bug while in Shelf Mode.(Windows becomes very long)
+            Some tiny bug fixes in this tool too.
+    > GE-Plugin: After using some tools in GE-Plugins,tangent wont be changed to flat tangent if the tangent is stepped.
+            Some tiny UI bugs fixed.
+    > New Feature: "SetKey keyframed" added. Visit through right clicking on MGchannelBox.
+    > MG-HUD: Fix bug: when you input "r" or "n", it wont become a new line anymore.
+    > Keyframe Scaler: Tiny bug fixed.
+    > AnimRescue: Connection recovery mode UI bug fixed.
+    > Super Snapping Tool: Totally rewritten. Make sure there are no non-integer keyframes after executing this tool.
+    
+02/07/2013--------------------------------------------------------------------
+    > Brand new tool: Reference ToolBox added. Open it from MG-minitoolbox.
+    > Fix bug on copy/Paste pro tool.
+    > Other small fixes.
+
+08/11/2012--------------------------------------------------------------------
+    > MGtools for Linux version is finally released!
+    > Fix bug of animRescue when D:/ drive is not available for writing in windows OS.
+    > Will auto-set focus to Maya's 3D view after some operations in selectionSet tool and keyframe Tool.This allow you to keep moving without manually click on Maya's 3D view.
+    > A small bug fix in typeSelector tool for some small typo malfunction.
+    > Other tiny bug fixes.
+        
+07/20/2012--------------------------------------------------------------------
+    > Fix UI bug of GE-Plugin for Maya2010 and earlier Maya versions.
+
+07/16/2012--------------------------------------------------------------------
+    > Fix Bug on animRescue in MGtools for Maya2013 in Windows platform.
+    > Fix GraphEditor-MGchannelBox channel sync feature.
+    > Brand new feature: MG-Saver 1.0. Which quickly help you to version up and save your maya scene.It supports certain Pre-Save scene clean up action.
+    > New option for MG-Snap foreword/backword features: Clean up decimal transformation keyframe while doing the snap. (Set it through MG-Config window!)
+    > Efficient Undo/Redo now support more undo/redo items to skip.
+    > Anim-Recorder: More options available while applying the record. And the hierarchy order while adding them as the record items no longer matters. Thanks to Zach Gray's MatchBox for the hierarchy sorting algorithm! 
+    > New "Tool Options" tab in MG-Config window. So all MGtools options could be found and set in this window.
+    > New GraphEditor-Plugin. More tool buttons added into GE-Plugin. Such as Time/Value Math buttons, which you can push/pull the timing or the value of the selected keyframes. New keyframe buttons, and new feature keyframeCleaner, which you can easily clean up the keyframes while keep the animation unchagned with a tolerance value settable. If you feel some buttons you don't need, just right click on these buttons, and choose "UI Option..", where you can decide the UI layout of GE-Plugin.
+    > New Options for "Insert hierarchy" tool. Now you can use it say to separate head controller's rotation from root control while keep the translation follow. (If your rig doesn't provide such feature.)
+    > Fix bugs that "setting keyframe between certain frames" featue which flated your animation curve before.
+    > Add BD slider in Keyframe Tool UI, just like the same one in GraphEditor-Plugin.
+    The speed of inserting a BD now has been greatly imporved!
+    > Some tiny bug fixes.
+    > MGtools for Linux is about to be released!
+    
+05/15/2012--------------------------------------------------------------------
+    > MGtools for Mac version released! Applicable for Maya 2009~2013 in Mac.
+    > MGtools adds Maya 2013 support.
+    > New mgland.com is published. New domain "twincodes.com" get into use.
+    > AnimRescue 2.0 and MG-autoSave released. New animRescue is stable now.
+    > Add "Reset All" feature in MG-Channelbox, which resets all attributes of selection objects to their default values. 
+    > Add a quick access to set the default tangent type in GE-Plugin.
+    > Fix bug when you switch mini/normal mode in MG-Shelf, the UI will become very large.
+    > Other tiny fix.    
+
+04/03/2012--------------------------------------------------------------------
+
+    > Add auto-sync between MG-channelbox and Grapheditor selection. Turn on the GE button at the top right corner of MGchannelbox UI, and selection on MGchannelbox will automatically reflect on the Grpaheditor. Notice it is mutex with Maya's own Sync feature, use one of the sync will automatically turn off the other one. And now you can use this sync feauture from Maya 7.0~2012!
+
+02/25/2012--------------------------------------------------------------------
+    > New feature called MG-AnimRecorder added. It is a recorder records the world / local  transformation of the objects, 
+         and you can reapply back to them anytime.
+         Pretty handy when you want to eliminate animation of master objects without affecting the local animations. 
+         Helps in fighting with the counter animation.
+    
+
+    > BDtool won't auto-smooth your curves when adding BD keyframes durning the blocking phase, It will keep the stepped tangent as you wish. 
+
+    > Some Bugs fixed.  
+    
+01/18/2012--------------------------------------------------------------------
+    > MG-DBmanager Update:
+      Left clicking on the title bar of the data area,such as the "Name","File Path" label,
+          there is new markingmenu available. You can sort the db items, widen/tighten the singl data display width.
+
+12/24/2011--------------------------------------------------------------------
+    > New Option window for MG-DBmanager. Access it through right clicking on MG-DBmanager icon.
+      now you can set the DB info path to any path. which is good for reading the shared DB information in server.
+      "Enable Edit" option also available in option window.
+
+    > Fix bugs on some UI language issues.
+
+    > Improve the UI of MG-selectionManager. Some new features added in and some bug fixed.
+
+12/12/2011--------------------------------------------------------------------
+    > Version up to 2.5.
+
+    > Brand new feature : AnimRescue & MG-autosave tool added.
+
+    > Add Traditional Chinese language support.
+    
+    > GraphEditor plugin update:Aligning each previous/next key value features added.(be accessed by right clicking the align button).
+
+    > GraphEditor plugin update:Reseting valure button will auto-flat the tangent.    
+
+    > GraphEditor plugin update:curve tangents autosmoothing uses brand new algorithm.    
+    
+    > Double clicking the item on selection manager will select the corresponding node in your scene.
+
+    > Will give you a warning dialog once you create a shelf without any category available in MGshelf Manager.
+
+    > The docking condition of MGchannelbox now can be configed in channelbox option UI and remembered Maya. Some bug fixed when using MGchannelbox layer markingmenu.
+
+    > Remember transformation feature added in "Make it sticky" tool.
+
+    > Fix bug on keyframe Probe tool on "select all" button.
+
+    > "Exclude from scene selection" feature added in MG-selection Set tool.
+
+    > Fix bug on Attr-switch tool.
+
+    > Fix bug on UV constraint.
+
+
+07/24/2011--------------------------------------------------------------------
+    > Fix the bug that MG-animationLibrary tool skipped some animation on custom attributes.Now it wont.
+    
+    > GraphEditor plugin update:Aligning value will auto set the tangent to flat.
+
+    > GraphEditor plugin update:Dragging the BD/Extreme slider wont do the actual edit until you release mouse button. For compressing undos.    
+    
+    > Fix the fatal bug that in MGshelf drag and drop an category onto the delete button will crash Maya.
+
+    > Fix bug on the CopyPastePro tool's retarget and select clipboard objects feature.
+
+    > MGchannelbox now are dockable in maya 2011 or later version.
+
+06/19/2011--------------------------------------------------------------------
+    > Fix bug that launching MGchannelBox will crash maya. It is safe now.
+
+05/21/2011--------------------------------------------------------------------
+    > Fix bug that in maya2011 when you use enter key to confirm a backup selection dialog, maya will crash. It is safe now.
+
+    > When viewSwitch use "Affect All Viewports" as option, sometime there are tons of modelviews in your scene, using viewSwitch to affect all view will cause maya to "sleep". So now "Affect All Viewport" option has been changed to "Affect All visible Viewports" which is safe.
+
+    > In Keyframe tool, some improvements / bugfixs are made:
+            > Fix bug that SetKey Tool's "Each Key" feature will make all keyframes the same value. But as a cost, "Key each key" requires a run through your timeRange.
+        > Each time you change a timespacing, you can now directly use Z key to undo.(without activing viewport using mouse)
+            > If you want to invoke timespacing feature in your own markingmenu, you can now use these codes:
+            //Change timeSpacing in absolute way:
+            MG_timeingSpacer_changeSpace_doit 0 absoluteTimeSpacingValue  
+            //Change timeSpacing in relative way:
+             MG_timeingSpacer_changeSpace_doit 1 relativeTimeSpacingChangeValue 
+
+    > Fix bug that in Maya2011, the animation library exporting not refreshing the status area in animation library tool UI.
+
+    > In Selection set tool, some improvements are made:
+            > The objects not exist in your scenes will not be selected in member list either.
+            > For UI performance,If  the member list is display too short in width/height, the member list will not be refreshed through selecting a set item. 
+        > For UI performance,If a selection set has members more than 300, when using the set,the members in member list will not be selected for you.
+            > The selection markingmenu maintain by selection tools now supports Simplified Chinese in Maya version later than 7.0 .
+
+    > cam2dViewer tool now is put far away from viewSwitch tool in MGtools mainUI, cos their icons looks similar from each other.
+
+    > Fix bugs to avoid MB-MA force saving failure.
+
+04/23/2011--------------------------------------------------------------------
+    > Fix popupmenu problem in Maya 2012.
+
+    > Add 2012 version cam2dViewer mll file. 
+
+    > Fix the error occurs when linking a constrained camera in PathTracker.
+
+    > Fix the error occurs when using maya configuration button after displaying model view in MGchannelbox.
+
+    > Fix bug on polysmooth switch tool,which occurs when the actual smooth value exceeds the switch value range.
+
+04/09/2011--------------------------------------------------------------------
+    > You can realtime create/edit BD/extreme in GE-plugin now.
+
+    > "Add scene selection" and "Exclude scene selection" buttons are add in new/edit selectionSet dialog. (Were in right click menu before)
+
+    > When add new tracking in pathTracker,the tracking time range will initially set to current timeRange/Selected timeRange.
+
+    > Select keyframeProbe result buttons are added in keyframeProbe tool UI.(Were in right click menu before)
+
+04/07/2011--------------------------------------------------------------------
+    > Fix bug that copy/paste anim/pose between maya tools sometimes doesn't work in copy animation only mode.
+
+    > Fix bug that polySmoothSwitch sometimes misses some polysmooth items. 
+
+    > Fix some bugs on PathTracker in Maya 7,but in maya 7, tracking still need manually updating sometimes.
+
+    > Fix the fatal bug that when user manually unload cam2dViewer tool in Maya 2011, saving a scenes will crash Maya.
+         Now it is save to unload cam2dViewer plugin (although it is nonsense to do so).
+         This tool is still not available in Maya 7.0.
+
+04/03/2011--------------------------------------------------------------------
+    This is the 3rd update of MGtools 2.0 pro. Mainly focus on some bug fix,and some small improvement.
+    
+    > MG-DBmanager now shares the same options as Maya's reference/import/open action options. 
+      And Option buttons are added in UI.
+
+    > Bugs fixed on autoloading GE-Plugin with Maya's Grapheditor. 
+
+    > Fix some bug on PathTracker, speed up the update process with camera linked. 
+      Manually update scene selection feature added.
+
+    > Fix the problem that some user machines can't use cam2Dviewer tool. 
+      You can now set a hotkey for reseting the viewport.
+      Temporarily disable this tool in Maya 7.0 cos some fatal bug in this maya version found.
+      (No problem in other supported Maya version).
+
+    > Fix the smoothSwitch item UI bug.
+
+03/20/2011--------------------------------------------------------------------
+    This is the second update,which is the biggest updating package as well:)
+
+    > New Feature: cam2dViewer 1.0
+
+    > New Feature: pathTracker 1.0
+
+    > New Feature: shelfConvertor (between different Maya version)
+
+    > New Feature: you can directly drag shelf to MGshelf main UI and save it now.
+    
+    > New Feature: UV constraint.    
+
+    > More shortcut to maya folder in folder shortcut feature.
+
+    > More option in MG-HUD tool,such as timecode, frameRate and any string display.
+
+    > Value align tool added in GE-Plugin.
+
+    > Close MG-DBmanager UI will clear the temp preview cameras. and some bugs fixed.
+
+    > Bugs fixed in copy / paste anim / pose tool.
+
+    > Retarget and select clipboard objects added in MG-Clipboard.
+
+    > Fix naming problem of draw curve via key tool.
+
+    > Fix some bugs on MG-animationLibrary.
+
+    > Fix some bugs on copyPaste value feature in MGchannelBox.
+    
+    > The help system updated .
+
+01/03/2011--------------------------------------------------------------------
+    This is the first update of MGtools 2.0 pro. Mainly focus on some bug fix,and some small improvement.
+
+    > Fix bug on autosmooth animCurve feature.
+
+    > GE-Plugin can now be set to autoloaded with Maya's Grapheditor. Set the option at MG-config UI's autoload area, RMB clicking on MG-ChannelBox or Keyframe Tool icon/Autoload GEplugin with GraphEditor.
+
+    > Fix some fatal bug on MG-Shelf.
+
+    > Press the "<- TimerResult" button on MG-TimeClac,will automatically set focus on the expression area,which will be easy for you to imput on expression.
+
+    > When MG-Typeselector do the "Constrained" objects selection,will ignore the constraint node itself.
+
+    > The progressBar is deleted in MG-animationLibrary, use status text instead.
+
+    > "Add to scene selection" feature is added to MGselectionSet. (MMB on the set list)
+The percentage of two lists' width & height will remembered using MMB on setList/Save selSet UI config.
+
+11/10/2010--------------------------------------------------------------------
+  MGtools v2.0 pro:
+
+    > New MGtools 2.0 is updatable through the internet and update passward.
+        
+    > UI & Features is fully compatible with maya2011 .
+
+    > Copy&paste animation/pose between different maya.
+
+    > MG-smoothSwitch; (Support polysmooth only).
+
+    > MG-attributeSwitch: switch a attribute without popping.
+
+    > Embed a calculator into MGtimer.
+
+    > MGDBmanager; Use and browse your DB in a convenient way.
+
+    > MG-scaleKey ,translate keyframes between difference frameRates.
+
+    > Add isolate memebers feature to MGselset.
+
+    > MG-snapKeyframe.
+
+    > MGkeyframeTool.
+
+    > MGshelf 2.0;Add category support.
+
+    > MG-typeSelector,select objects in your scene under centern conditions.
+
+    > MG-superUndo/Redo, a undo/redo command with a autoSkipping of null undo/redo.
+
+    > vertex constrainter. no smooth problem.
+
+    > Set constraint offset.Make translate/rotate control for constrainted object. 
+
+    > MG-CamSwitcher.
+
+    > MG-relocator, Relocate objects universally even that they are keyframed.
+
+    > select between constriant slave/master.
+
+    > Add autoSmooth animCurve in GE-Plugin.
+
+    > insertHierarchy in animation phase;
+
+    > MG-animationLibrary file support MB file.
+
+    > Some new options added into the old tools.
+
+    Thanks to my wife emily for her great support:)
+
+01/17/2010--------------------------------------------------------------------
+    > The keyFrame probed feature added.
+
+10/14/2009--------------------------------------------------------------------
+  MGtools v 1.0: 
+    > MGtools becomes a English/Chinese Dual-Language tool.
+      U can customize the language Option in MG-Config.
+      Before u set it ,the language will be chosen by your system.
+    > Add in the AnimationLibrary tool.
+    > Embed more feature into MG_channelBox.
+    > Add "copy animation from L/R list" feature to selectionManager.
+	> Generate / realTime update a selection set markingMenu.
+	  U can invoke it through assigning a hotkey for it.
+	  Add "Category" supporting in Selection-Set tool.
+	> Fix some bug.
+
+07/11/2009-------------------------------------------------------------------
+  MGtools v0.9 beta.	
+	> all tools are recoded to make it case-independency.
+	> add future: 	selectionSet
+			ConstraintTool
+			viewSet Tool & DisplayLayerSet
+		      	RelativeSnap
+			MG_timer
+			BackUp/Restore animation
+			MGHUD tool
+			StickyObject & StickyViewPort
+			MGtoolsShelfInstaller
+			MGtoolsMenu
+			Html-based Help system
+
+
+04/10/2008---------------------------------------------------------------------
+  MGtools ver 0.5 beta: 
+
+    	> Thanks Master Pan for great help :)
+
+  	> Why date "04/10/2008" is chosen?
+    	  Because it is my lunar birthday! :P 

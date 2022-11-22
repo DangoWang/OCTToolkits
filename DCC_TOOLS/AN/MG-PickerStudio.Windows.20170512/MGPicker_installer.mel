@@ -1,0 +1,1303 @@
+//==============================================================//
+//         MG-PickerStudio Installation Wizard
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback E-mail: mgtoolspro@gmail.com
+//CopyRight Miguel @ mgland animation studio.
+
+global proc clueForPickerInstallerPosition ()
+{}
+
+proc initGlobalVariables()
+{
+	global int $MGPKR_OStype =0;
+	if(`about -mac`)$MGPKR_OStype =1;
+	else if(`about -li`)$MGPKR_OStype =2;
+	
+	global string $MGPKR_InstallationInfo;
+	$MGPKR_InstallationInfo = "MGPKR_InstallationInfo";
+}
+initGlobalVariables;
+
+proc int mgp_isMaya2017OrLater()
+{
+    return `exists "workspaceControl"`;
+}
+global proc string installMGPickers_tellPosition()
+{
+	global int $MGPKR_OStype;
+	string $place=`whatIs clueForPickerInstallerPosition`;
+	string $buffer[];
+ 	$numTokens = `tokenize $place ":" $buffer`;
+ 	if(!$MGPKR_OStype)
+ 	{
+		if($numTokens >= 3)
+ 	    {
+ 	        $place=strip ($buffer[1]+":"+$buffer[2]);
+ 	    }
+		else
+		{
+		    $place=strip ($buffer[1]);
+		}
+		//print $place;
+		$place=dirname ($place);		
+		//print $place;
+	}
+	else
+	{
+		$place=dirname (strip ($buffer[1]));		
+	}
+	if(`endsWith $place "/Installer"`)
+	{
+		$place=dirname ($place);	
+		$place=dirname ($place);
+	}
+	else
+	{
+		$place=($place+"/MG-PickerStudio");
+	}
+  $place += "/";
+	//print $place;
+	return	$place;	
+}
+proc installMGPickers_sourceNecessaryFiles()
+{
+	global string $gMGPickerInstallationFilePath;
+	$gMGPickerInstallationFilePath =`installMGPickers_tellPosition`;
+	
+	string $pickerMel = ($gMGPickerInstallationFilePath+"MGPicker_Program/MGPicker_WrittenByMiguel.mel");
+	eval ("source \""+$pickerMel+"\"");
+}
+
+installMGPickers_sourceNecessaryFiles;
+
+proc string getInstallPluginDir()
+{	
+	global string $gMGPickerInstallationFilePath;
+	string $pluginsPath = ($gMGPickerInstallationFilePath + "MGPicker_Program/Plug-ins/");	
+	return $pluginsPath;
+}
+
+proc sourceTargetInstallLanguageSource ()
+{
+  global int $MGPKR_OStype;
+  global string $gMGPickerInstallationFilePath;	
+	global string $MGPickerLanguageChoice;	
+	string $lanPath=$gMGPickerInstallationFilePath+"MGPicker_Program/LanguageRes/";
+	string $defaultLan = ("source \""+$lanPath+"English.Installer.mel\"");
+	//print $MGPickerLanguageChoice;
+	if($MGPickerLanguageChoice == "English")
+	{
+		catch(`eval $defaultLan`);
+	}
+	else
+	{
+		string $ex = ".Installer.mel";
+		if(!$MGPKR_OStype)
+		{
+			$ex = ".Installer.Win.mel";
+		}
+		string $cLanFile = ($lanPath+$MGPickerLanguageChoice+$ex);
+		if(`filetest -f $cLanFile`)
+		{
+			string $cmd = ("source \""+$cLanFile+"\"");
+			catch(`eval $cmd`);
+		}
+		else
+		{
+			catch(`eval $defaultLan`);	
+		}
+	}
+	//print "\n";
+}
+
+proc initAllUILanguageResource()
+{
+	global string $gMGPickerInstallationFilePath;
+	global string $gMGPicker_UILanguageResources [];
+	clear $gMGPicker_UILanguageResources;
+	string $dir = ($gMGPickerInstallationFilePath+"MGPicker_Program/LanguageRes/");
+	string $langs[] = `getFileList -fld $dir -fs "*.qm"`;
+	for($lang in $langs)
+	{
+		$gMGPicker_UILanguageResources[size($gMGPicker_UILanguageResources)] = ($dir + $lang);
+	}
+}
+initAllUILanguageResource;
+
+proc markMGPickersLanguageOption ()
+{
+	//global int $MGPKR_OS_IsChinese;
+	//$MGPKR_OS_IsChinese = `chineseSystemOrNot`;
+	
+	global string $MGPickerLanguageChoice;
+	if(!`size $MGPickerLanguageChoice`)
+	{
+		$MGPickerLanguageChoice = "English";
+		if(`exists "MGPicker"`)
+		{
+			global string $MGPicker_Config_LanID;    
+			string $configs[] = `MGPicker -q -config`;
+			for($i=0; $i<size($configs); $i+=2)
+	    {
+	        if($configs[$i] == $MGPicker_Config_LanID)
+	        {
+	            $MGPickerLanguageChoice = $configs[$i+1];
+	            break;
+	        }
+	    }
+		}
+		else
+		{
+			//if MGTools is installed, we follow MGTools language choice.
+			if(`optionVar -ex MGtoolsDualLeng`)
+			{
+				global int $MGtoolsLanguageChoice;
+				if($MGtoolsLanguageChoice == 1)
+				{
+					$MGPickerLanguageChoice = "SimplifiedChinese";
+				}
+				else if($MGtoolsLanguageChoice == 2)
+				{
+					$MGPickerLanguageChoice = "TraditionalChinese";
+				}
+			}
+			/*
+			else
+			{
+				if($MGPKR_OS_IsChinese == 1)
+				{
+					$MGPickerLanguageChoice = "SimplifiedChinese";
+				}
+				else if($MGPKR_OS_IsChinese == 2)
+				{
+					$MGPickerLanguageChoice = "TraditionalChinese";
+				}
+			}
+			*/
+		}
+	}
+	sourceTargetInstallLanguageSource;
+	//print $MGPickerLanguageChoice;
+}
+markMGPickersLanguageOption;
+
+proc string readEULA()
+{
+	global int $MGPKR_OStype;
+  global string $gMGPickerInstallationFilePath;
+	global string $MGPickerLanguageChoice;
+	string $failEULA = "EULA_English.txt";	
+	string $MG_EULA_FILENAME = ("EULA_"+$MGPickerLanguageChoice+".txt");	
+	if(!$MGPKR_OStype)
+	{
+		if(`gmatch $MGPickerLanguageChoice "*Chinese"`)
+		{
+			$MG_EULA_FILENAME = ("EULA_"+$MGPickerLanguageChoice+".Win.txt");	
+		} 
+	}  
+	string $EULAFile=($gMGPickerInstallationFilePath+"MGPicker_Program/Terms/"+$MG_EULA_FILENAME);
+	if(!`filetest -f $EULAFile`)
+	{
+		$EULAFile=($gMGPickerInstallationFilePath+"MGPicker_Program/Terms/"+$failEULA);
+	}
+	string $EULAContent;
+	if(`filetest -f $EULAFile`)
+	{
+		string $nextLine ,$getDataString;
+		$readFileID=`fopen $EULAFile "r"`;
+		//skip the first two lines:
+		fgetline $readFileID;
+		fgetline $readFileID;
+		while(!`feof $readFileID`)
+		{
+			$nextLine=`fgetline $readFileID`;
+			if (size($nextLine)>0)
+			{			
+				$EULAContent += $nextLine;
+			}
+		}
+		fclose $readFileID;
+	}
+	return $EULAContent;
+}
+proc string readLicense101()
+{
+	global int $MGPKR_OStype;
+  global string $gMGPickerInstallationFilePath;
+	global string $MGPickerLanguageChoice;
+	
+	string $failLicense01 = "License101_English.txt";
+	string $MG_License01_FILENAME = ("License101_"+$MGPickerLanguageChoice+".txt");
+	if(!$MGPKR_OStype)
+	{
+		if(`gmatch $MGPickerLanguageChoice "*Chinese"`)
+		{
+			$MG_License01_FILENAME = ("License101_"+$MGPickerLanguageChoice+".Win.txt");	
+		} 
+	}
+	string $license101File=($gMGPickerInstallationFilePath+"MGPicker_Program/Terms/"+$MG_License01_FILENAME);
+	if(!`filetest -f $license101File`)
+	{
+		$license101File=($gMGPickerInstallationFilePath+"MGPicker_Program/Terms/"+$failLicense01);
+	}
+	string $license101Content;
+	if(`filetest -f $license101File`)
+	{
+		string $nextLine ,$getDataString;
+		$readFileID=`fopen $license101File "r"`;
+		//skip the first two lines:
+		fgetline $readFileID;
+		fgetline $readFileID;
+		while(!`feof $readFileID`)
+		{
+			$nextLine=`fgetline $readFileID`;
+			if (size($nextLine)>0)
+			{			
+				$license101Content += $nextLine;
+			}
+		}
+		fclose $readFileID;
+	}
+	return $license101Content;
+}
+
+global proc installMGPickerStudioLanguageOptionCC ()
+{
+	global string $MGPickerLanguageChoice;
+	$MGPickerLanguageChoice = `optionMenuGrp -q -v mgpickerInstallLanguageOptionOMG`;
+	if(!size($MGPickerLanguageChoice))
+	{
+		$MGPickerLanguageChoice = "English";
+	}
+	sourceTargetInstallLanguageSource;
+	//========================language global strings ==============================	
+		
+	global string $Install_MGPKR_APPName;
+	global string $Install_MGPKR_OSMismatch_message;		
+	global string $Install_MGPKR_WinTitle;		
+	global string $Install_MGPKR_UILang;
+	global string $Install_MGPKR_autoLoadLbl;
+	global string $Install_MGPKR_loadTool;
+	global string $Install_MGPKR_animMode;
+	global string $Install_MGPKR_designerMode;
+	global string $Install_MGPKR_afterInstall;
+	global string $Install_MGPKR_EULA_TIP;
+	global string $Install_MGPKR_EULA_missing;
+	global string $Install_MGPKR_101_missing;
+	
+  global string $Install_MGPKR_EULA_TopLbl;
+	global string $Install_MGPKR_101_TopLbl;	
+	global string $Install_MGPKR_autoloadVia;
+	
+	global string $Install_MGPKR_Btn_Buy;
+	global string $Install_MGPKR_Btn_Next;
+	global string $Install_MGPKR_Btn_Previous;
+	global string $Install_MGPKR_Btn_Accept;	
+	global string $Install_MGPKR_Btn_Decline;
+	global string $Install_MGPKR_Btn_Cancel;		
+	global string $Install_MGPKR_Btn_Help;
+	global string $Install_MGPKR_Btn_Install;
+	
+  global string $Install_MGPKR_installMode;	
+ 	global string $Install_MGPKR_installAsLocal;
+  global string $Install_MGPKR_installAsGlobal;
+ 	global string $Install_MGPKR_installAsLocal_Tip;
+  global string $Install_MGPKR_installAsGlobal_Tip;
+  int $maya2017 = `mgp_isMaya2017OrLater`;
+	
+	global string $gMGPickerInstallationFilePath;
+	int $currentSelectChinese = `endsWith $MGPickerLanguageChoice "Chinese"`;
+	string $installHelpDoc = ($gMGPickerInstallationFilePath+"/MGPicker_Help/SimplifiedChinese/install.htm");	
+	if(!$currentSelectChinese)
+	{
+		$installHelpDoc=($gMGPickerInstallationFilePath+"/MGPicker_Help/English/install.htm");
+	}	
+	iconTextButton -e -l $Install_MGPKR_Btn_Help -c ("system (\"load "+$installHelpDoc+"\")") installMGPickerStudioHelpButton;	
+
+	string $buy=("\"http://twincodes.com/MGPicker_ch.html?url=Buy\"");
+	if(!$currentSelectChinese){$buy=("\"http://twincodes.com/MGPicker_en.html?url=Buy\"");}	
+	iconTextButton -e -l $Install_MGPKR_Btn_Buy -c ("showHelp -absolute "+$buy) installMGPickerStudioBuyBtn;
+	
+	window -e -title $Install_MGPKR_WinTitle -in $Install_MGPKR_WinTitle  mgpickerInstallWizard;
+	iconTextButton -e -l $Install_MGPKR_Btn_Next installMGPickerStudioNextBtn;
+	iconTextButton  -e -l $Install_MGPKR_Btn_Next installMGPickerStudioNextBtn;
+	
+	text  -e -l ("   "+$Install_MGPKR_APPName+" "+$Install_MGPKR_EULA_TopLbl) mgpInsertEULA_TopAnnText;		
+	string $EULAContent = `readEULA`;
+	if(size($EULAContent))
+	{
+		scrollField -e -text $EULAContent mgpInsertEULA_SF;
+	}
+	text -e -l $Install_MGPKR_EULA_TIP mgpInsertEULA_TipLbl;
+	iconTextButton -e -l $Install_MGPKR_Btn_Accept installMGPickerStudio_EULA_NextBtn;	
+	iconTextButton -e -l $Install_MGPKR_Btn_Decline installMGPickerStudio_EULA_CancelBtn;
+	iconTextButton -e -l $Install_MGPKR_Btn_Previous installMGPickerStudio_EULA_BackBtn;
+	
+	text  -e -l ("   "+$Install_MGPKR_APPName+" "+$Install_MGPKR_101_TopLbl) mgpickerInstall_Lincese101Text;
+	string $license101Content = `readLicense101`;
+	if(size($license101Content))
+	{
+		scrollField -e -text $license101Content mgpickerInstall_Lincese101SF;
+	}
+	iconTextButton -e -l $Install_MGPKR_Btn_Next installMGPickerStudio_License_NextBtn;	
+	iconTextButton -st "textOnly" -e -l $Install_MGPKR_Btn_Cancel  installMGPickerStudio_License_CancelBtn;
+	iconTextButton  -st "textOnly" -e -l $Install_MGPKR_Btn_Previous  installMGPickerStudio_License_BackBtn;
+	
+	optionMenuGrp -e -l $Install_MGPKR_UILang mgpickerInstallLanguageOptionOMG;
+	if(!$maya2017)
+	{
+	    checkBoxGrp -e -l $Install_MGPKR_autoLoadLbl 
+						-l1 $Install_MGPKR_loadTool 
+						installAutoLoadMGPickerCBG;
+	
+    	menuItem -e -l $Install_MGPKR_animMode installAutoLoadMGPickerMode_AnimatorMI;
+    	menuItem -e -l $Install_MGPKR_designerMode installAutoLoadMGPickerMode_DesignerMI;
+    		
+    	radioButtonGrp -e -l $Install_MGPKR_autoloadVia installAutoLoadViaUsersetupMELRBG;
+	}
+	
+	checkBoxGrp -e -l $Install_MGPKR_afterInstall 
+						-l1 $Install_MGPKR_loadTool 
+						afterInstallLoadMGPickerCBG;	
+	menuItem -e -l $Install_MGPKR_animMode installAfterMGPickerMode_AnimatorMI;
+	menuItem -e -l $Install_MGPKR_designerMode installAfterMGPickerMode_DesignerMI;		
+	
+	iconTextButton -e -l $Install_MGPKR_Btn_Cancel  installMGPickerStudioCancelButton;
+	iconTextButton -e -l $Install_MGPKR_Btn_Previous  installMGPickerStudioLastButton;
+	iconTextButton -e -l $Install_MGPKR_Btn_Install installMGPickerStudioInstallButton;
+	
+	radioButtonGrp -e -l $Install_MGPKR_installMode -label1 $Install_MGPKR_installAsLocal 
+						-ann $Install_MGPKR_installAsLocal_Tip 
+					mgpickerInstallAsLocalRBG;
+	radioButtonGrp -e
+						-label1 $Install_MGPKR_installAsGlobal 
+						-ann $Install_MGPKR_installAsGlobal_Tip
+						mgpickerInstallAsGlobalRGB;	
+	//text -e -label $Install_MGPKR_installMode mgpickerInstallModeLbl;
+	//radioButton -e  -label $Install_MGPKR_installAsLocal -ann $Install_MGPKR_installAsLocal_Tip mgpickerInstallAsLocalCB;	
+	//radioButton -e -label $Install_MGPKR_installAsGlobal -ann $Install_MGPKR_installAsGlobal_Tip  mgpickerInstallAsGlobalCB;
+	
+}
+proc string installerIcon(string $icon)
+{
+	global string $gMGPickerInstallationFilePath;
+	return  ($gMGPickerInstallationFilePath+"MGPicker_Program/Icons/Installer/"+$icon);
+}
+proc int preInstallCheckPickerVersion()
+//0: already install no need to copy file.
+//1: need install.
+//-1: new version found.
+{
+	global string $gMGPickerInstallationFilePath;
+	string $installVerFile = ($gMGPickerInstallationFilePath+"MGPicker_Program/MGPicker.ver");
+	float $ver = 1;
+	int $buildDate = 20150410;
+	if(!`filetest -f $installVerFile`)
+	{
+		return 0;
+	}
+	else
+	{
+		int $readVerID=`fopen $installVerFile "r"`;
+		$ver = `fgetline $readVerID`;
+		$buildDate = `fgetline $readVerID`;
+		fclose $readVerID;
+	}
+	//global string $MGPicker_ProgramPath;
+	//string $existVerFile = ($MGPicker_ProgramPath+"MGPicker_Program/MGPicker.ver");
+	string $existVerFile = (`internalVar -usd`+"MGPicker_Program/MGPicker.ver");
+	if($existVerFile == $installVerFile)
+	{
+		return 0;
+	}
+	if(!`filetest -f $existVerFile`)
+	{
+		return 1;
+	}
+	int $existVerID=`fopen $existVerFile "r"`;
+	float	$existVer = `fgetline $existVerID`;
+	int $existBuildDate = `fgetline $existVerID`;
+	fclose $existVerID;
+	
+	if($existBuildDate <= $buildDate)
+	{
+		return 1;
+	}
+	global string $Install_MGPKR_APPName;
+	global string $Install_MGPKR_Btn_OK;
+	global string $Install_MGPKR_Btn_Cancel;
+	global string $Install_MGPKR_SameVer_War1;
+	global string $Install_MGPKR_SameVer_War2;
+	string $answer = `confirmDialog -title $Install_MGPKR_APPName 
+														-message ($Install_MGPKR_SameVer_War1+$existVer+", build"+$existBuildDate+"\n"+$Install_MGPKR_SameVer_War2+$ver+", build"+$buildDate)
+														-button $Install_MGPKR_Btn_Cancel -button $Install_MGPKR_Btn_OK
+														-defaultButton $Install_MGPKR_Btn_Cancel -dismissString $Install_MGPKR_Btn_Cancel`;
+	if($answer == $Install_MGPKR_Btn_Cancel)
+	{
+		return -1;
+	}					
+	else
+	{
+		return 1;
+	}								
+}
+proc int testCurrentMayaIsSupported()
+{
+	string $pluginFileNeeded = `MGP_getPluginFileForCurrentMaya`;
+	string $pluginFN = `basename $pluginFileNeeded ""`;
+	string $pluginPath = `getInstallPluginDir` + $pluginFN;
+	return `filetest -f $pluginPath`;
+}
+global proc installMGPickerStudio ()
+{
+  global string $gMGPickerInstallationFilePath;
+  
+	//int $systemInfo=`chineseSystemOrNot`;
+	global string $MGPickerLanguageChoice;
+	global int $MGPKR_OStype;
+	int $currentSelectChinese = `endsWith $MGPickerLanguageChoice "Chinese"`;
+	
+	global string $Install_MGPKR_APPName;
+	global string $Install_MGPKR_OSMismatch_message;		
+	global string $Install_MGPKR_WinTitle;		
+	global string $Install_MGPKR_UILang;
+	global string $Install_MGPKR_autoLoadLbl;
+	global string $Install_MGPKR_loadTool;
+	global string $Install_MGPKR_animMode;
+	global string $Install_MGPKR_designerMode;
+	global string $Install_MGPKR_afterInstall;
+	global string $Install_MGPKR_EULA_TIP;
+	global string $Install_MGPKR_EULA_missing;
+	global string $Install_MGPKR_101_missing;
+	
+  global string $Install_MGPKR_EULA_TopLbl;
+	global string $Install_MGPKR_101_TopLbl;	
+	global string $Install_MGPKR_autoloadVia;
+	
+	global string $Install_MGPKR_Btn_Buy;
+	global string $Install_MGPKR_Btn_Next;
+	global string $Install_MGPKR_Btn_Previous;
+	global string $Install_MGPKR_Btn_Accept;	
+	global string $Install_MGPKR_Btn_Decline;
+	global string $Install_MGPKR_Btn_Cancel;		
+	global string $Install_MGPKR_Btn_Help;
+	global string $Install_MGPKR_Btn_Install;
+	
+	global string $Install_MGPKR_Btn_OK;
+	
+	//test if maya 2011 or later			
+	if(!`exists loadUI`)
+	{
+		global string $Install_MGPKR_MayaVersion_War;
+		confirmDialog -title $Install_MGPKR_APPName 
+					-message $Install_MGPKR_MayaVersion_War
+			 		-button $Install_MGPKR_Btn_OK 
+			 		-defaultButton $Install_MGPKR_Btn_OK
+			 		-cancelButton $Install_MGPKR_Btn_OK
+			 		-dismissString $Install_MGPKR_Btn_OK;	
+					return;
+	}
+	
+	//test if OS platform matches:
+	string $pluginsPath = `getInstallPluginDir`;	
+	string $pluginFiles[];
+	clear $pluginFiles;
+	int $mismatch =0;
+	if(!$MGPKR_OStype)
+	{
+			$pluginFiles=`getFileList -fld $pluginsPath -fs "*.mll"`;
+			if(!size($pluginFiles))
+			{
+				 $mismatch =1;
+			}
+	}
+	else if($MGPKR_OStype==1)
+	{
+			$pluginFiles=`getFileList -fld $pluginsPath -fs "*.bundle"`;
+			if(!size($pluginFiles))
+			{
+				$mismatch =1;
+			}
+	}
+	else
+	{
+			$pluginFiles=`getFileList -fld $pluginsPath -fs "*.so"`;
+			if(!size($pluginFiles))
+			{
+				$mismatch =1;
+			}
+	}
+	if($mismatch)
+	{
+		confirmDialog -title $Install_MGPKR_APPName 
+					-message $Install_MGPKR_OSMismatch_message
+			 		-button $Install_MGPKR_Btn_OK 
+			 		-defaultButton $Install_MGPKR_Btn_OK
+			 		-cancelButton $Install_MGPKR_Btn_OK
+			 		-dismissString $Install_MGPKR_Btn_OK;	
+					return;
+	}	
+	
+	//test if the installation source support currnet maya:
+	if(!`testCurrentMayaIsSupported`)
+	{
+		global string $Install_MGPKR_GoWebsite;
+		global string $Install_MGPKR_NotSupported;
+		string $msg = $Install_MGPKR_NotSupported + "http://mgland.com | http://twincodes.com";
+		string $answer = `confirmDialog -title $Install_MGPKR_APPName 
+																		-message $msg
+																 		-button $Install_MGPKR_Btn_OK 
+																 		-button $Install_MGPKR_GoWebsite
+																 		-defaultButton $Install_MGPKR_GoWebsite
+																 		-cancelButton $Install_MGPKR_Btn_OK
+																 		-dismissString $Install_MGPKR_Btn_OK`;	
+		if($answer == $Install_MGPKR_GoWebsite)
+		{
+			showHelp -absolute "http://mgland.com";
+		}
+		return;
+	}
+			
+  //test if it is picker studio even old version:
+	int $testPluginVersion = `preInstallCheckPickerVersion`;
+	if(!$testPluginVersion)
+	{
+		global string $Install_MGPKR_SameVer_War3;
+		confirmDialog -title $Install_MGPKR_APPName 
+					-message $Install_MGPKR_SameVer_War3 
+					-button $Install_MGPKR_Btn_OK
+					-defaultButton $Install_MGPKR_Btn_OK
+			 		-cancelButton $Install_MGPKR_Btn_OK
+			 		-dismissString $Install_MGPKR_Btn_OK;
+			 		return;
+	}
+	
+	string $bgImage1,$bgImage2Top, $bgImage2Btnp;
+  $bgImage1 = `installerIcon "installFristScreen.png"`;
+  $bgImage2Top = `installerIcon "secScreenTop_BG.png"`;
+  //$bgImage2Btnp = `installerIcon "secScreenTop_BG.png"`;   
+	//float $installBGC []={0.267,0.267,0.267};
+	string $installHelpDoc=($gMGPickerInstallationFilePath+"/MGPicker_Help/SimplifiedChinese/install.htm");	
+	if(!$currentSelectChinese)
+	{
+		$installHelpDoc=($gMGPickerInstallationFilePath+"/MGPicker_Help/English/install.htm");
+	}	
+
+	string $buy=("\"http://twincodes.com/MGPicker_ch.html?url=Buy\"");
+	if(!$currentSelectChinese){$buy=("\"http://twincodes.com/MGPicker_en.html?url=Buy\"");}	
+	
+   
+	string $EULAContent = `readEULA`;
+	if(!size($EULAContent))
+	{
+		confirmDialog -t $Install_MGPKR_APPName -m $Install_MGPKR_EULA_missing -button "OK";
+		if (`window -exists mgpickerInstallWizard`){deleteUI mgpickerInstallWizard;}
+			return;
+	}
+	//print 	$installHelpDoc;
+	string $license101Content = `readLicense101`;
+	if(!size($license101Content))
+	{
+		confirmDialog -t $Install_MGPKR_APPName -m $Install_MGPKR_101_missing -button "OK";
+		if (`window -exists mgpickerInstallWizard`){deleteUI mgpickerInstallWizard;}
+		return;
+	}
+	
+	if (`window -exists mgpickerInstallWizard`){deleteUI mgpickerInstallWizard;}
+	
+	window  -title $Install_MGPKR_WinTitle -in $Install_MGPKR_WinTitle  -mxb 0 -s 1 mgpickerInstallWizard;
+	string $totalForm=`formLayout mgpickerInstallWizardMainForm`;	
+	//=============first step ui========================================================	
+	string $firstForm=`formLayout InstallFirstFormLayout`;
+	string $clforFirst,$firstIM,$buyICB,$nextICB;
+	
+	$clforFirst=`columnLayout -adj 1`;
+	if($MGPKR_OStype!=1)
+	{	
+		$firstIM=`iconTextStaticLabel -i $bgImage1 -w 527 -h 276`;
+		setParent ..;
+		$buyICB=`iconTextButton -st "textOnly" -bgc 0.267 0.267 0.267 -l $Install_MGPKR_Btn_Buy -c ("showHelp -absolute "+$buy) -w 88 -h 23 installMGPickerStudioBuyBtn`;
+		$nextICB=`iconTextButton -st "textOnly" -bgc 0.267 0.267 0.267 -l $Install_MGPKR_Btn_Next -c "installMGPickerStudioNextStep 1" -w 88 -h 23 installMGPickerStudioNextBtn`;	
+		formLayout -e
+			-af 	$clforFirst "top" 0
+			-af 	$clforFirst "left" 0
+			-af 	$clforFirst "bottom" 0
+			
+			-af 	$buyICB "top" 241
+			-af 	$buyICB "left" 18
+			
+			-af 	$nextICB "top" 241
+			-af 	$nextICB "left" 424					
+			$firstForm	;		
+	}
+	else
+	{
+		$firstIM=`image -i $bgImage1 -w 525 -h 237`;
+		setParent ..;
+		//string $theSep =`separator -st "in"`;
+		$buyICB=`iconTextButton -st "textOnly" -bgc 0.267 0.267 0.267 -l $Install_MGPKR_Btn_Buy -c ("showHelp -absolute "+$buy) -w 88 -h 23 installMGPickerStudioBuyBtn`;
+		$nextICB=`iconTextButton  -st "textOnly" -bgc 0.267 0.267 0.267 -l $Install_MGPKR_Btn_Next -c "installMGPickerStudioNextStep 1" -w 88 -h 23 installMGPickerStudioNextBtn`;	
+		formLayout -e
+			-af 	$clforFirst "top" 0
+			-af 	$clforFirst "left" 0		
+			
+			-af 	$buyICB "top" 241
+			-af 	$buyICB "left" 18
+			
+			-af 	$nextICB "top" 241
+			-af 	$nextICB "left" 424					
+			$firstForm	;	
+	}
+
+
+  //=============EULA ui========================================================	
+	setParent $totalForm;	
+	string $insertedFirstForm=`formLayout -vis 0 InstallInsertedFirstFormLayout`;
+	string $insertColumnLayout = `columnLayout -adj 1 -rs 3`;	  
+	  
+  	  
+	text  -h 20 -en 1 -align "center" -l ("   "+$Install_MGPKR_APPName+" "+$Install_MGPKR_EULA_TopLbl) -fn "boldLabelFont" mgpInsertEULA_TopAnnText;
+	scrollField -h 370 -ed 0 -text $EULAContent -ww 1 mgpInsertEULA_SF;		
+	//scrollField -w 525 -ed 0 -text $warnningMsg -ww 1 -h 100 ;
+	text -align "left" -w 525 -h 22 -l $Install_MGPKR_EULA_TIP mgpInsertEULA_TipLbl;
+	setParent..;
+	formLayout insertMGPButtonsFL;
+//	print ("system (\"load "+$installHelpDoc+"\")");
+
+	string $insertCl=`columnLayout -w 525 -h 5`;
+		int $topGap = 5;
+	if($MGPKR_OStype!=1)
+	{
+		//image -i $bgImage2Btnp -w 525 -h 32;
+		columnLayout -e -bgc 0.1 0.1 0.1 -h 32 $insertCl;
+	}
+	else
+	{
+		separator -st "in"	-w 525 -h 5;
+		formLayout -e -h 40 insertMGPButtonsFL;
+			$topGap = 10;
+	}
+	setParent ..;		
+		string $acceptButton1=`iconTextButton -st "textOnly" -bgc 0.267 0.267 0.267 -l $Install_MGPKR_Btn_Accept -c "installMGPickerStudioNextStep 1" -w 88 -h 23 installMGPickerStudio_EULA_NextBtn`;	
+		string $declineButton1 = `iconTextButton -st "textOnly" -bgc 0.267 0.267 0.267 -l $Install_MGPKR_Btn_Decline  -c "deleteUI mgpickerInstallWizard" -w 88 -h 23 installMGPickerStudio_EULA_CancelBtn`;
+	  string $toFirstBtn1 = `iconTextButton -st "textOnly" -bgc 0.267 0.267 0.267 -l $Install_MGPKR_Btn_Previous -c "installMGPickerStudioNextStep 0" -w 88 -h 23 installMGPickerStudio_EULA_BackBtn`;
+	
+	formLayout -e
+		-af $insertCl "left" 0
+		-af $insertCl "right" 0
+		-af $insertCl "top" 0
+				
+		-af $declineButton1 "top" $topGap	
+		-af $declineButton1 "left" 18
+		
+		-af $toFirstBtn1 "left" 324
+		-af $toFirstBtn1 "top" $topGap
+		
+		-af $acceptButton1 "left" 424
+		-af $acceptButton1 "top" $topGap					
+		insertMGPButtonsFL;
+
+	
+	formLayout -e
+		-af 	$insertColumnLayout "top" 3
+		-af 	$insertColumnLayout "left" 3
+		-af 	$insertColumnLayout "right" 3
+		-ac 	$insertColumnLayout "bottom" 5 insertMGPButtonsFL
+		
+		-af 	insertMGPButtonsFL "bottom" 3
+		-af 	insertMGPButtonsFL "left" 3
+		-af 	insertMGPButtonsFL "right" 3
+		$insertedFirstForm	;	
+		
+			
+	//============= License 101 ui========================================================	
+	
+	setParent $totalForm;			
+	columnLayout  -rowSpacing 3 -vis 0 -adj 1 mgpickerInstall_Lincese101Col;
+		
+  text  -h 20 -en 1 -align "center" -l ("   "+$Install_MGPKR_APPName+" "+$Install_MGPKR_101_TopLbl) -fn "boldLabelFont" mgpickerInstall_Lincese101Text;
+  scrollField -ww 1 -en 1 -ed 0 -h 370 -text $license101Content mgpickerInstall_Lincese101SF;
+	
+	setParent mgpickerInstall_Lincese101Col;	
+  formLayout mgpickerInstall_OptionFL;
+//	print ("system (\"load "+$installHelpDoc+"\")");
+  		string $insertCl101=`columnLayout -w 525 -h 4`; 
+  		if($MGPKR_OStype!=1)
+			{
+				//image -i $bgImage2Btnp -w 525 -h 32;
+				columnLayout -e -bgc 0.1 0.1 0.1 -h 32 $insertCl101;
+			}
+  		setParent ..;		
+			string $acceptButton=`iconTextButton -st "textOnly" -bgc 0.267 0.267 0.267 -l $Install_MGPKR_Btn_Next -c "installMGPickerStudioNextStep 1" -w 88 -h 23 installMGPickerStudio_License_NextBtn`;	
+			string $declineButton = `iconTextButton -st "textOnly" -bgc 0.267 0.267 0.267  -l $Install_MGPKR_Btn_Cancel  -c "deleteUI mgpickerInstallWizard" -w 88 -h 23 installMGPickerStudio_License_CancelBtn`;
+		  string $toFirstBtn = `iconTextButton  -st "textOnly" -bgc 0.267 0.267 0.267 -l $Install_MGPKR_Btn_Previous  -c "installMGPickerStudioNextStep 0" -w 88 -h 23 installMGPickerStudio_License_BackBtn`;
+	
+		formLayout -e					
+			-af $declineButton "top" 5	
+			-af $declineButton "left" 12
+			
+			-af $toFirstBtn "left" 324
+			-af $toFirstBtn "top" 5
+			
+			-af $acceptButton "left" 424
+			-af $acceptButton "top" 5	
+			
+			-af $insertCl101 "left" 0
+			-af $insertCl101 "top" 0				
+			mgpickerInstall_OptionFL;
+
+	//	checkBox -align "left"	-label "Check for Updates" afterInstallMGviewMGtoolsCB;
+		//separator -st "in" -w 500 -height 10;
+		
+		
+	//=============last step ui========================================================	
+	
+	setParent $totalForm;	
+	global string $gMGPicker_UILanguageResources [];
+			
+	columnLayout  -rowSpacing 5 -vis 0 -adj 2 mgpickerInstall_optionAndSettingCL;
+  
+	image -i $bgImage2Top -w 525 -h 39 mgpickerInstall_SecStepTopImage;
+	
+	columnLayout -adj 1 -rowSpacing 1  contentCol;
+	//text -align "left" -font "boldLabelFont" -l $boldText -w 330 mgpickerInstall_TopText;
+	rowLayout -nc 2 -columnWidth2 10 330;
+	separator -hr 0 -style "none" -w 12;
+	columnLayout -adj 1 -rowSpacing 4 CLforInstallProgressAttach;
+	columnLayout -adj 1 -rowSpacing 4 CLforInstallProgressDisable;
+		
+	
+	optionMenuGrp -cw2 100 110 -l $Install_MGPKR_UILang -cc "installMGPickerStudioLanguageOptionCC" mgpickerInstallLanguageOptionOMG;
+	int $gotLang =0;
+	string $fallBack = "English";
+	for($lan in $gMGPicker_UILanguageResources)
+	{
+		string $fn = `basenameEx $lan`;
+		menuItem -l $fn;
+		if($fn == $MGPickerLanguageChoice)
+		{
+			$gotLang = 1;
+		}
+	}
+	if($gotLang)
+	{
+		optionMenuGrp -e -v $MGPickerLanguageChoice mgpickerInstallLanguageOptionOMG;
+	}
+	else
+	{
+		optionMenuGrp -e -v $fallBack mgpickerInstallLanguageOptionOMG;	
+	}
+	
+	separator -st "in" -w 500;	
+	
+ 	//install mode----------------------------------------------------------	
+  global string $Install_MGPKR_installMode;	
+ 	global string $Install_MGPKR_installAsLocal;
+  global string $Install_MGPKR_installAsGlobal;
+ 	global string $Install_MGPKR_installAsLocal_Tip;
+  global string $Install_MGPKR_installAsGlobal_Tip;
+	
+	/*
+	rowLayout -nc 2 -cw2 100 1 -adj 2 -cl2 "right" "left";		  
+	text -label $Install_MGPKR_installMode -align "right" mgpickerInstallModeLbl;
+		radioCollection mgpickerInstallModeRC;			
+			radioButton -align "left"	-sl -label $Install_MGPKR_installAsLocal 
+					-ann $Install_MGPKR_installAsLocal_Tip 
+					-collection mgpickerInstallModeRC
+					mgpickerInstallAsLocalCB;	
+	setParent ..;
+	rowLayout -nc 2 -cw2 100 1 -adj 2  -cl2 "right" "left";
+			text -l "";
+			radioButton -align "left"	-label $Install_MGPKR_installAsGlobal 
+					-ann $Install_MGPKR_installAsGlobal_Tip  
+					-collection mgpickerInstallModeRC
+					mgpickerInstallAsGlobalCB;
+	setParent ..;		
+	*/
+	radioButtonGrp 
+						-cw 1 100 
+						-cw 2 180 
+						-sl 1 
+						-l $Install_MGPKR_installMode
+						-numberOfRadioButtons 1
+						-label1 $Install_MGPKR_installAsLocal 
+						-ann $Install_MGPKR_installAsLocal_Tip 
+					mgpickerInstallAsLocalRBG;
+	radioButtonGrp 
+						-cw 1 100 
+						-cw 2 180 
+						-l ""
+						-numberOfRadioButtons 1
+						-label1 $Install_MGPKR_installAsGlobal 
+						-ann $Install_MGPKR_installAsGlobal_Tip
+						-shareCollection  mgpickerInstallAsLocalRBG
+						mgpickerInstallAsGlobalRGB;	
+	
+	
+	separator -style "in" -height 5  -w 500;
+	//autoloading mechnism:	
+	int $maya2017 = `mgp_isMaya2017OrLater`;	
+	if(!$maya2017)
+	{
+	    string $autoLoadRL = `rowLayout -nc 2 -adj 2 -cw2 280 1`;	
+		checkBoxGrp -l $Install_MGPKR_autoLoadLbl 
+						-cw 1 100 
+						-cw 2 180 
+						-l1 $Install_MGPKR_loadTool 
+						-v1 1
+						installAutoLoadMGPickerCBG;
+		optionMenu -l "" installAutoLoadMGPickerModeOM;
+			menuItem -l $Install_MGPKR_animMode installAutoLoadMGPickerMode_AnimatorMI;
+			menuItem -l $Install_MGPKR_designerMode installAutoLoadMGPickerMode_DesignerMI;
+				
+		setParent ..;			
+		radioButtonGrp -l $Install_MGPKR_autoloadVia 
+						-cw 1 100 
+						-cw 2 180 
+						-numberOfRadioButtons  2 
+						-labelArray2   "UserSetup.mel" "UserSetup.py"
+						-sl 1 
+						installAutoLoadViaUsersetupMELRBG;
+		  setParent ..;
+		separator -style "in" -height 3  -w 500;
+	}
+	rowLayout -nc 2 -adj 2 -cw2 280 1;	
+	checkBoxGrp -l $Install_MGPKR_afterInstall 
+					-cw 1 100 
+					-cw 2 180 
+					-l1 $Install_MGPKR_loadTool 
+					-v1 1
+					-en 0
+					afterInstallLoadMGPickerCBG;	
+	optionMenu -l "" installAfterMGPickerModeOM;
+		menuItem -l $Install_MGPKR_animMode installAfterMGPickerMode_AnimatorMI;
+		menuItem -l $Install_MGPKR_designerMode installAfterMGPickerMode_DesignerMI;		
+			
+    
+	setParent mgpickerInstall_optionAndSettingCL;
+	
+	text -l "" -h 5;
+	//separator  -style "in" ;
+	formLayout installMGPickerStudioButtonsFL;
+//	print ("system (\"load "+$installHelpDoc+"\")");	
+	
+		string $lastCl=`columnLayout  -w 525 -h 4` ;
+		if($MGPKR_OStype!=1)
+		{
+			//image -i $bgImage2Btnp -w 525 -h 32;
+			columnLayout -e -bgc 0.1 0.1 0.1 -h 32 $lastCl;
+		}
+		else
+		{
+			separator -st "in"	-w 525 -h 4;
+		}
+		setParent ..;
+		iconTextButton -st "textOnly" -bgc 0.267 0.267 0.267 -w 88 -h 23 -l $Install_MGPKR_Btn_Help -c ("system (\"load "+$installHelpDoc+"\")") installMGPickerStudioHelpButton;	
+		iconTextButton -st "textOnly" -bgc 0.267 0.267 0.267 -w 88 -h 23 -l $Install_MGPKR_Btn_Cancel  -c "deleteUI mgpickerInstallWizard"installMGPickerStudioCancelButton;
+		iconTextButton -st "textOnly" -bgc 0.267 0.267 0.267 -w 88 -h 23 -l $Install_MGPKR_Btn_Previous -c "installMGPickerStudioNextStep 0" installMGPickerStudioLastButton;
+		iconTextButton -st "textOnly" -bgc 0.267 0.267 0.267 -w 88 -h 23 -l $Install_MGPKR_Btn_Install -c "installMGPickerStudioDoIt" installMGPickerStudioInstallButton;
+
+		formLayout -e
+			-af $lastCl "left" 0
+			-af $lastCl "top" 0
+					
+			-af installMGPickerStudioHelpButton "top" 5	
+			-af installMGPickerStudioHelpButton "left" 12
+			
+			-ac installMGPickerStudioCancelButton "left" 10 installMGPickerStudioHelpButton
+			-af installMGPickerStudioCancelButton "top" 5
+			
+			-af installMGPickerStudioLastButton "left" 324
+			-af installMGPickerStudioLastButton "top" 5	
+				
+			-af installMGPickerStudioInstallButton "top" 5	
+			-ac installMGPickerStudioInstallButton "left" 10 installMGPickerStudioLastButton
+			installMGPickerStudioButtonsFL;
+	
+	formLayout -e
+		-af $firstForm "left" 0
+		-af $firstForm "right" 0
+		-af $firstForm "top" 0
+		-af $firstForm "bottom" 0
+		
+		-af $insertedFirstForm "left" 0
+		-af $insertedFirstForm "right" 0
+		-af $insertedFirstForm "top" 0
+		-af $insertedFirstForm "bottom" 0
+		
+		-af mgpickerInstall_Lincese101Col "left" 0
+		-af mgpickerInstall_Lincese101Col "right" 0
+		-af mgpickerInstall_Lincese101Col "top" 0
+		-af mgpickerInstall_Lincese101Col "bottom" 0
+		
+		-af mgpickerInstall_optionAndSettingCL "left" 0
+		-af mgpickerInstall_optionAndSettingCL "right" 0
+		-af mgpickerInstall_optionAndSettingCL "top" 0
+		-af mgpickerInstall_optionAndSettingCL "bottom" 0
+		$totalForm;	
+	showWindow mgpickerInstallWizard;
+	//window -q -wh mgpickerInstallWizard;
+	
+	window -e -wh  525 273  mgpickerInstallWizard;	
+	installMGPickerStudioLanguageOptionCC;	
+		
+}
+global proc installMGPickerStudioNextStep (int $mode)
+{
+	//mode 0: last
+	//mode 1: NextBtnImage
+	global int $MGPKR_OStype;
+	int $maya2017 = `mgp_isMaya2017OrLater`;
+	if($mode)
+	{
+		if(`formLayout -q -vis InstallInsertedFirstFormLayout`)	//it is at the EULA page
+		{
+				layout -e -vis 0 InstallInsertedFirstFormLayout;
+				layout -e -vis 1 mgpickerInstall_Lincese101Col;
+				image -e -vis 1 mgpickerInstall_SecStepTopImage;
+				layout -e -vis 0 mgpickerInstall_optionAndSettingCL;
+				window -e -wh  525 435  mgpickerInstallWizard;	
+		}	
+		else if(`layout -q -vis mgpickerInstall_Lincese101Col`)	//in the license 101 page
+		{
+		  //print "Goto this\n";
+    		layout -e -vis 0 InstallInsertedFirstFormLayout;
+    		layout -e -vis 0 mgpickerInstall_Lincese101Col;
+    		image -e -vis 1 mgpickerInstall_SecStepTopImage;
+    		layout -e -vis 1 mgpickerInstall_optionAndSettingCL;
+    		
+    		if($MGPKR_OStype==1)
+    		{
+    			if(!$maya2017)
+                {
+                    window -e -wh  525 285  mgpickerInstallWizard;
+                }
+                else
+                {
+                    window -e -wh  525 220  mgpickerInstallWizard;
+                }                
+    		}
+    		else
+    		{
+    		    if(!$maya2017)
+                {
+                    window -e -wh  525 300  mgpickerInstallWizard;
+                }
+                else
+                {
+                    window -e -wh  525 230 mgpickerInstallWizard;	  //last step ui size.
+                }
+    		}
+				
+		}	
+		else		//at first page
+		{
+			layout -e -vis 0 InstallFirstFormLayout;
+			layout -e -vis 1 InstallInsertedFirstFormLayout;
+			layout -e -vis 0 mgpickerInstall_optionAndSettingCL;
+			window -e -wh  525 460  mgpickerInstallWizard;
+			if($MGPKR_OStype==1)
+			{
+				window -e -wh  525 475  mgpickerInstallWizard;
+			}
+		}
+	}
+	else
+	{
+		if(`layout -q -vis mgpickerInstall_Lincese101Col`)		//current at the license 101 page
+		{
+			layout -e -vis 1 InstallInsertedFirstFormLayout;			
+			layout -e -vis 0 mgpickerInstall_Lincese101Col;
+			window -e -wh  525 460  mgpickerInstallWizard;	
+		}
+		else if(`layout -q -vis mgpickerInstall_optionAndSettingCL`)	//in the installation option page
+		{
+				layout -e -vis 0 InstallInsertedFirstFormLayout;
+				layout -e -vis 1 mgpickerInstall_Lincese101Col;
+				image -e -vis 1 mgpickerInstall_SecStepTopImage;
+				layout -e -vis 0 mgpickerInstall_optionAndSettingCL;
+				window -e -wh  525 435  mgpickerInstallWizard;	
+		}	
+		else	//current at the EULA page
+		{
+			formLayout -e -vis 0 InstallInsertedFirstFormLayout;	
+			formLayout -e -vis 1 InstallFirstFormLayout;
+			layout -e -vis 0 mgpickerInstall_Lincese101Col;
+			window -e -wh  525 273  mgpickerInstallWizard;	
+		}
+	}	
+}
+proc int preInstallUnloadPlugin()
+{
+	global string $Install_MGPKR_APPName;
+	global string $Install_MGPKR_UnloadError;
+	global string $Install_MGPKR_Btn_OK;
+	string $pluginFile = `MGP_getPluginFileForCurrentMaya`;	
+	if(!`filetest -f $pluginFile`)
+	{
+		return 1;
+	}
+	if(`exists "MGPicker"`)
+	{
+		int $unload = `MGP_LoadUnloadPlugin 0`;
+		if(!$unload)
+		{
+			global string $Install_MGPKR_APPName;
+			confirmDialog -title $Install_MGPKR_APPName 
+					-message $Install_MGPKR_UnloadError 
+					-button $Install_MGPKR_Btn_OK
+					-defaultButton $Install_MGPKR_Btn_OK
+			 		-cancelButton $Install_MGPKR_Btn_OK
+			 		-dismissString $Install_MGPKR_Btn_OK;
+			return 0;
+		}
+	}
+	//now test the writability of the plugin file:
+	string $newFile = $pluginFile+".writable";
+	int $writable = `sysFile -rename $newFile $pluginFile`;
+	if(!$writable)
+	{
+		global string $Install_MGPKR_UsedByOtherInstance1;
+		global string $Install_MGPKR_UsedByOtherInstance2;
+		string $msg = (`basenameEx $pluginFile`+$Install_MGPKR_UsedByOtherInstance1 + "\n" + $Install_MGPKR_UsedByOtherInstance2);
+			confirmDialog -title $Install_MGPKR_APPName 
+					-message $msg 
+					-button $Install_MGPKR_Btn_OK
+					-defaultButton $Install_MGPKR_Btn_OK
+			 		-cancelButton $Install_MGPKR_Btn_OK
+			 		-dismissString $Install_MGPKR_Btn_OK;
+			return 0;		
+	}
+	//rename back:
+	sysFile -rename $pluginFile  $newFile;
+	return 1;
+}
+proc int copyMGPickerFiles ()
+{
+	global string $gMGPickerInstallationFilePath;
+	global string $gMGPickerScriptFolderRoot;
+	
+	global int $MGPKR_OStype;
+	global string $MGPickerLanguageChoice;
+	//global string $MGPicker_ProgramPath;
+	string $sourceDir = $gMGPickerInstallationFilePath;
+	string $targetDir = $gMGPickerScriptFolderRoot;
+	
+	if(!`filetest -d $targetDir`)
+	{
+		if(!`sysFile -md $targetDir`)
+		{
+			return  0;
+		}
+	}
+	string $subFiles[]=`getFileList -fld $sourceDir`;
+	int $result = 1;
+	for($f in $subFiles)
+	{
+		string $sf = $sourceDir + $f;
+		string $tf = $targetDir + $f;
+		if(`filetest -f $sf`)
+		{
+			if(!`sysFile -cp $tf $sf`)
+			{
+				$result = 0;
+			}
+		}
+		else
+		{
+			if($f == "MG_PickerData")
+			{
+				string $appDir = `internalVar -uad`;
+				if(!`endsWith $appDir "/"`)
+				{
+					$appDir += "/";
+				}
+				$tf = $appDir + $f;
+			}
+			if(!`MGP_CopyFolder_Ex $targetDir $sourceDir "installMGPickerStudioProgressBar" "installInfoPresentText" 1 0`)
+			{
+				$result = 0;
+			}
+		}
+	}
+	return $result;
+}
+proc deleteUIBeforeInstall()
+{    
+    global string $MGPicker_WindowName;	
+    global string $MGPicker_DockControlName;
+    if(`control -q -ex $MGPicker_DockControlName`)
+    {
+        deleteUI -control $MGPicker_DockControlName;	
+    }
+    if(`window -q -ex $MGPicker_WindowName`)
+    {
+        deleteUI $MGPicker_WindowName;	
+    }
+}
+global proc  installMGPickerStudioDoIt ()
+{	
+    deleteUIBeforeInstall;
+    evalDeferred("installMGPickerStudioDoIt_go");
+}
+global proc  installMGPickerStudioDoIt_go ()
+{	
+    //deleteUIBeforeInstall;
+    global string $gMGPickerInstallationFilePath;
+	int $cleanUp = `preInstallUnloadPlugin`;
+	if(!$cleanUp)
+	{
+		return;
+	}
+	global string $Install_MGPKR_APPName;
+	global string $Install_MGPKR_Btn_OK;
+	global string $MGPickerLanguageChoice;
+	global string $Install_MGPKR_PGS_title;
+	global string $Install_MGPKR_PGS_CopyFiles;	
+	global string $Install_MGPKR_PGS_InstallShelf;		
+	global string $Install_MGPKR_PGS_InstallAutoload;
+	global string $Install_MGPKR_PGS_Booting;
+	global string $Install_MGPKR_PGS_Done;
+		
+	layout -e -enable  0 mgpickerInstallWizardMainForm;
+      if(`window -q -ex installMGPickerStudioProgressUI`)
+      {
+        deleteUI installMGPickerStudioProgressUI;
+      }
+      
+	window -s 0 -title $Install_MGPKR_PGS_title -toolbox 1 installMGPickerStudioProgressUI;
+ 		columnLayout -adj 1 -rowSpacing 0 installMGPickerStudioProgressUIMCL;
+		//image -w 600 -h 170 -image $aboutImage;
+		//text  -font "boldLabelFont"  -l $progressText00 -align  "left";
+		separator -st "none" -h 5;
+		progressBar -maxValue 100 -width 300 installMGPickerStudioProgressBar;
+		separator -st "none" -h 3;
+		text  -align  "left"  -l $Install_MGPKR_PGS_CopyFiles installInfoPresentText;
+ 	
+ 	showWindow installMGPickerStudioProgressUI;
+	window -e -wh 320 70 installMGPickerStudioProgressUI;
+	
+	
+	//get options:	
+	int $afterLoadPickerInAnimatorMode = 0;
+	int $afterLoadPickerInDesignerMode = 0;
+	
+	global string $gMGPickerInstallationFilePath;
+		
+ 	global string $gMGPickerScriptFolderRoot;
+ 	global string $MGPicker_FolderName;
+ 	$gMGPickerScriptFolderRoot = `internalVar -usd`+$MGPicker_FolderName+"/";
+ 	
+	//now copy files;
+	global string $progressControl ="installMGPickerStudioProgressBar";	
+	
+	//if it is local mode, we need to copy file.
+	string $content = "LoadCommand=MG_PickerStudio\n";
+    $content += "AnimatorMode=1\n";
+    $content += "DesignerMode=0";
+	if(`radioButtonGrp -q -select mgpickerInstallAsLocalRBG`)
+	{
+	 	progressBar -edit -progress 0 $progressControl;
+		refresh;	
+		copyMGPickerFiles;
+		
+		//re-source the loader mel:
+		string $pickerMel = ($gMGPickerScriptFolderRoot+"MGPicker_Program/MGPicker_WrittenByMiguel.mel");
+		eval ("source \""+$pickerMel+"\"");
+	    $content = "LoaderMel="+$pickerMel+"\n" + $content;
+	}
+	else	//if it is remote mode, and if MGTools is installed, we need to tell MGTools where the picker studio is.
+	{
+		string $PkrMGToolsConfigDir = `internalVar -usd`+ "MGTools/MGTools_LocalData";
+		if(`filetest -d $PkrMGToolsConfigDir`)
+		{
+			$PkrMGToolsConfigDir += "/MG_PickerStudio";
+			if(!`filetest -d $PkrMGToolsConfigDir`)
+			{
+				sysFile -md $PkrMGToolsConfigDir;				
+			}
+			string $file = $PkrMGToolsConfigDir + "/info.cfg";
+			int $writeID=`fopen $file "w"`;
+			string $pickerMel = ($gMGPickerInstallationFilePath+"MGPicker_Program/MGPicker_WrittenByMiguel.mel");
+			$content = "LoaderMel="+$pickerMel+"\n" + $content;
+			fwrite $writeID $content;
+			fclose $writeID;
+		}		
+	}
+    global string $MGPKR_InstallationInfo;	
+	optionVar -sv $MGPKR_InstallationInfo $content;
+    
+	//Install shelf:
+	text  -e -l $Install_MGPKR_PGS_InstallShelf installInfoPresentText;
+	progressBar -edit -progress 0 $progressControl;
+	//install shelf
+	MGP_InstallMGPickerToCurrentShelf();
+		
+	progressBar -edit -progress 20 $progressControl;
+
+	//built usetSetup.mel/py:
+	
+	text  -e -l $Install_MGPKR_PGS_InstallAutoload installInfoPresentText;	
+	
+	int $maya2017 = `mgp_isMaya2017OrLater`;
+	if(!$maya2017)
+	{	    
+    	int $autoloadUIMode = `optionMenu -q -sl installAutoLoadMGPickerModeOM`;
+    	if($autoloadUIMode == 2)
+    	{
+    		$autoloadUIMode = 0;
+    	}
+    	int $toUserSetupPY = `radioButtonGrp -q -sl installAutoLoadViaUsersetupMELRBG`;
+    	if(!`checkBoxGrp -q -v1 installAutoLoadMGPickerCBG`)
+    	{
+    		$toUserSetupPY = 0;
+    	}
+    	if(catch (`MGP_BuildUserSetupAutoloading $toUserSetupPY $autoloadUIMode`))
+    	{
+    		print "\n";
+    	}
+    }
+    else // for maya 2017 and later version, do not need to use autoloading code since maya's workspace takes care of that.
+    {
+        MGP_BuildUserSetupAutoloading 0 0;
+    }
+	
+	//booting tool in centain mode.
+	int $bootTool = `checkBoxGrp -q -v1 afterInstallLoadMGPickerCBG`;	
+	if($bootTool)
+	{
+		progressBar -edit -progress 40 $progressControl;
+		text  -e -l $Install_MGPKR_PGS_Booting installInfoPresentText;
+		int $mode = `optionMenu -q -select installAfterMGPickerModeOM`;
+		if($mode == 2)
+		{
+			$mode = 0;
+		}
+		MG_PickerStudio $mode;
+		
+		//now init language option:
+		global string $MGPicker_Config_LanID;
+		string $lan = `optionMenuGrp -q -v mgpickerInstallLanguageOptionOMG`;
+		MGPicker -e -config $MGPicker_Config_LanID $lan;
+	}
+	progressBar -edit -progress 100 $progressControl; 	
+		
+	if (`window -exists mgpickerInstallWizard`)
+	{
+		deleteUI mgpickerInstallWizard;
+	}
+	deleteUI installMGPickerStudioProgressUI;
+
+			
+	string $msg = $Install_MGPKR_PGS_Done + "http://mgland.com | http://twincodes.com";
+
+ 	confirmDialog -title $Install_MGPKR_APPName
+ 		-message $msg
+ 		-button $Install_MGPKR_Btn_OK -defaultButton $Install_MGPKR_Btn_OK
+ 		-cancelButton $Install_MGPKR_Btn_OK -dismissString $Install_MGPKR_Btn_OK;
+}
+
+
+installMGPickerStudio;

@@ -1,0 +1,19 @@
+			MGTools Pro  License 101
+
+>> Trial License: --------------------------------------------
+If MGTools Pro is not registered as either student or commercial license before, you will get into the 20 days trial period (if not yet). it is a full featured trial except the online update. Also in the period there will be a reminder dialog that pops up for each certain days, also a friendly headsUpMessge that reminds you the days left each time Maya loads.
+
+>> Student License: ----------------------------------------
+You can purchase MGTools student license in lower price, as long as you are student currently learning animation.
+The license is full featured but with 1000 days limitation, also a reminder dialog each certain days and a friendly headsUpMessage reminder each time Maya loads.
+
+>> Trial/Student License Expired: -----------------------------
+Lots of features will be locked, meanwhile, a reminder dialog per day and a friendly headsUpMessage reminder each time Maya loads.
+Purchasing a commercial lincese to activate all the features would be recommanded.
+
+>> Commercial Node-Locked License: -----------------------------
+No feature or time limitation, no popups, one license for one single machine, free to update except for the main version update, such as 3.0 to 3.5, 3.5 to 4.0, your have to pay a certain amount of fee to use the new feature that these upgrade bring you. 
+For either Student or Commecial License, different computer need different license, Different type of OS in the same computer also need different license, such as Windows, MacOS, Linux, they needs different license. For same OS type, same computer, one license could apply to different Maya versions.
+
+>> Commercial Floating License: -----------------------------
+No feature or time limitation, no popups, free to upgrade within the license period, free to use in any machines, the concurrent connections are limited to the license count. Charge per license period.

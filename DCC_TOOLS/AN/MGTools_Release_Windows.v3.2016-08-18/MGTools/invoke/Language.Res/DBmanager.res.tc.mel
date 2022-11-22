@@ -1,0 +1,514 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+//`MG_DualLan "MGdbManager.noDataCheckOn.war"`
+//`MG_DualLanFormat_1 "" `
+//$annoString=`MG_DualLan "MGdbManager.doubleClickEdit.anno"`;
+MG_displayTS "MGdbManager.title.mi" "MG資產庫..";
+MG_displayTS "MGdbManager.coverPy" "MG資產庫已載入:)";
+
+MG_displayTS "MGdbManager.browseLib" "開啟MG資產庫目錄..";
+MG_displayTS "MGdbManager.unknown" "未知";
+
+MG_displayTS "MGdbManager.noProj.notice" "注意";
+MG_displayTS "MGdbManager.noProj.build" "去新建一個工程";
+MG_displayTS "MGdbManager.noProj.mes" "執行該操作前必須要有一個工程被設立，是否現在新建一個?";
+MG_displayTS "MGdbManager.menu.setProjectTo.mi" "設定當前庫工程為";
+
+MG_displayTS "MGdbManager.noDataToImport.war" "沒有可匯入的資料:(";
+MG_displayTS "MGdbManager.noDataCheckOn.war" "沒有被勾上的資產項:(";
+MG_displayTS "MGdbManager.noImageDataCheckOn.war" "沒有被勾上的預覽圖資料:(";
+MG_displayTS "MGdbManager.noActiveData.war" "沒有當前被啟用的資產項（粗體字顯示的資產項）:(";
+
+MG_displayTS "MGdbManager.file.ano" "檔案：";
+MG_displayTS "MGdbManager.ver.ano" "版本：";
+MG_displayTS "MGdbManager.size.ano" "大小：";
+MG_displayTS "MGdbManager.date.ano" "日期：";
+
+MG_displayTS "MGdbManager.pickMfile.anno" "選取一個Maya檔";
+MG_displayTS "MGdbManager.pickMfile.lbl" "選取";
+
+MG_displayTS "MGdbManager.doubleClickEdit.anno" "請雙擊我來編輯我:P";
+MG_displayTS "MGdbManager.doubleClickEdit.2011.anno" "請單擊右邊的編輯按鈕來編輯我:P";
+MG_displayTS "MGdbManager.addNewItem.title" "添加一個新的資產項:";
+
+MG_displayTS "MGdbManager.treat.confirm" "請確認!";
+MG_displayTS "MGdbManager.del.confirm" "你真的要刪除下面的資產項嗎 :";
+MG_displayTS "MGdbManager.ref.confirm" "你真的要Reference下面的資產項嗎 :(#次)";
+MG_displayTS "MGdbManager.imp.confirm" "你真的要匯入下面的資產項嗎 :(#次)";
+MG_displayTS "MGdbManager.open.confirm" "你真的要讀取該資產項嗎（此項操作只支援單個資產項一次）:";
+
+MG_displayTS "MGdbManager.sceneNotSaved.war" "當前場景未儲存，你是要：";
+MG_displayTS "MGdbManager.saveOpen.label" "儲存並繼續";
+MG_displayTS "MGdbManager.justOpen.label" "不管,繼續";
+MG_displayTS "MGdbManager.cancel.rep" "該操作已取消!";
+
+MG_displayTS "MGdbManager.changeNotSaved.war" "有對資產庫工程的編輯未儲存，你是要：";
+
+MG_displayTS "MGdbManager.goon.label" "繼續";
+MG_displayTS "MGdbManager.del.rep" "所選資產項已移除！";
+
+MG_displayTS "MGdbManager.ProjName.title" "庫工程名稱";
+MG_displayTS "MGdbManager.defaultProjAnno" "項目:\n客戶:\n註釋:";
+MG_displayTS "MGdbManager.projDes.label" "項目描述:";
+
+MG_displayTS "MGdbManager.editDes.label" "編輯庫工程";
+MG_displayTS "MGdbManager.newDes.label" "新建庫工程";
+
+MG_displayTS "MGdbManager.emptyString.war" "輸入的字元竄不能為空.";
+
+MG_displayTS "MGdbManager.repick.anno" "重新拾取資產項的檔案.";
+MG_displayTS "MGdbManager.repick.anno.lbl" "重拾取";
+
+MG_displayTS "MGdbManager.ignoreDate.war" "忽略日期資訊.";
+
+MG_displayTS "MGdbManager.scanData.title" "從資料夾裡批量讀入資產項";
+
+MG_displayTS "MGdbManager.scanData.scanSub.label" "掃描子目錄";
+MG_displayTS "MGdbManager.scanData.latest.label" "同名則只用最新";
+
+MG_displayTS "MGdbManager.preview.current.label" "當前預覽圖: #";
+MG_displayTS "MGdbManager.preview.no.label" "無預覽圖.";
+
+MG_displayTS "MGdbManager.checkBox.anno" "許多操作如刪除，reference,匯入，開檔等都需要先通過勾上我才起作用哦.";
+
+MG_displayTS "MGdbManager.pathTF.anno" "這一欄顯示了資產檔案的路徑";
+MG_displayTS "MGdbManager.repickFile.anno" "點我來為該資產項重新指定一個maya檔，同時資產項的大小/版本/日期等資訊將更新";
+MG_displayTS "MGdbManager.sizeTF.anno" "這一欄顯示資產檔案的大小，單位是KB";
+MG_displayTS "MGdbManager.dateTF.anno" "這一欄顯示資產檔案的最近修改日期，顯示的格式可能因系統不一樣而不同";
+MG_displayTS "MGdbManager.verTF.anno"  "顯示資產檔案的Maya版本，如果你用的8.0前的Maya版本，那麼MB檔的版本無法自動獲取，需要手動輸入。";
+MG_displayTS "MGdbManager.avail.anno" "這一欄顯示了資產檔案是否實際存在";
+MG_displayTS "MGdbManager.editEnableDis.anno" "允許/禁止對該資產項的編輯動作";
+MG_displayTS "MGdbManager.browse.anno" "用資源管理器開啟該資產檔案的路徑";
+
+MG_displayTS "MGdbManager.title" "MG-資產庫 v2.0";
+MG_displayTS "MGdbManager.ann" "開啟MG-資產庫 v2.0。使用它來快速Reference/匯入/開檔資產檔案，同時你可以看到一些資產的狀態資訊，對於Layout/Animation階段很方便。";
+
+MG_displayTS "MGdbManager.newProject.menu" "庫工程";
+MG_displayTS "MGdbManager.newProject.mi" "新建庫工程..";
+MG_displayTS "MGdbManager.editProject.mi" "編輯當前庫工程..";
+MG_displayTS "MGdbManager.delProject.mi" "刪除庫工程";
+MG_displayTS "MGdbManager.delTheProject.mi" "刪除該庫工程";
+MG_displayTS "MGdbManager.delTheProject.mess" "你確定要刪除庫工程\"#\"?";
+
+MG_displayTS "MGdbManager.setProject.mi" "設定當前庫工程為";
+
+MG_displayTS "MGdbManager.category.menu" "類別";
+MG_displayTS "MGdbManager.setcategory1.mi" "設定所勾資產項類別為:角色";
+MG_displayTS "MGdbManager.setcategory2.mi" "設定所勾資產項類別為:道具";
+MG_displayTS "MGdbManager.setcategory3.mi" "設定所勾資產項類別為:場景";
+MG_displayTS "MGdbManager.setcategory4.mi" "設定所勾資產項類別為:其它";
+
+MG_displayTS "MGdbManager.dbitem.menu" "資產項";
+MG_displayTS "MGdbManager.scanFolder.mi" "從資料夾批量獲取資產資訊..";
+MG_displayTS "MGdbManager.scanimage.mi" "從資料夾批量獲取資產預覽圖..";
+MG_displayTS "MGdbManager.scanimage.TITLE" "從資料夾批量獲取資產預覽圖";
+MG_displayTS "MGdbManager.newItem.mi" "新建資產項..";
+MG_displayTS "MGdbManager.delItem.mi" "刪除勾上的資產項..";
+
+MG_displayTS "MGdbManager.sel.menu" "選擇";
+MG_displayTS "MGdbManager.selAll.mi" "選擇全部(當前類別)";
+MG_displayTS "MGdbManager.selNone.mi" "去選全部(當前類別)";
+MG_displayTS "MGdbManager.selInvert.mi" "反選(當前類別)";
+
+MG_displayTS "MGdbManager.operation.menu" "操作";
+MG_displayTS "MGdbManager.saveAllEdit.mi" "儲存所有編輯";
+MG_displayTS "MGdbManager.ref.mi" "Reference所有當前勾上的資產項";
+MG_displayTS "MGdbManager.Import.mi" "匯入所有當前勾上的資產項";
+MG_displayTS "MGdbManager.open.mi" "開啟勾上的第一個資產項";
+
+MG_displayTS "MGdbManager.porjEditCtl.anno" "雙擊我可重新命名庫工程名稱";
+
+MG_displayTS "MGdbManager.porjEditDetail.anno" "編輯庫工程名稱有描述";
+MG_displayTS "MGdbManager.newProject.anno" "新建庫工程，同時你也可以給庫工程添加描述";
+MG_displayTS "MGdbManager.viewmode.anno" "資產庫顯示模式切換.(純列表模式|帶預覽圖模式)";
+MG_displayTS "MGdbManager.scanFoldder.anno" "從資料夾批量掃描MB/MA資訊並匯入，這是建立你自己的資產資訊庫最快的方法。";
+MG_displayTS "MGdbManager.scanImage.anno" "從資料夾批量掃描圖片，通過可定製的自動匹配設定，可供當前庫工程已有資產項使用為資產預覽圖.";
+MG_displayTS "MGdbManager.newitem.anno" "選擇一個Reference物體，然後點我來將其資訊創建為一個資產項.";
+MG_displayTS "MGdbManager.delItem.anno" "刪除所有被勾上的資產項";
+MG_displayTS "MGdbManager.refreshAll.anno" "更新當前庫工程所有資產項的大小/日期/版本/可用性資訊.";
+MG_displayTS "MGdbManager.refreshCheck.anno" "更新當前庫工程勾上的資產項的大小/日期/版本/可用性資訊.";
+MG_displayTS "MGdbManager.saveall.anno" "儲存所有對當前庫工程所做的修改";
+MG_displayTS "MGdbManager.saveall.mi" "更新當前庫工程所有資產項的資訊";
+MG_displayTS "MGdbManager.savecheck.mi" "更新當前庫工程勾上的資產項的資訊";
+MG_displayTS "MGdbManager.time.anno" "設定Reference/匯入操作的次數";
+//3417
+MG_displayTS "MGdbManager.refActive.mi" "Reference當前資產項";
+MG_displayTS "MGdbManager.ImportActive.mi" "匯入當前資產項";
+MG_displayTS "MGdbManager.openActive.mi" "開啟當前資產項";
+MG_displayTS "MGdbManager.checkOnOff.mi" "勾上/不勾當前資產項";
+MG_displayTS "MGdbManager.zoomin.mi" "放大";
+MG_displayTS "MGdbManager.zoomout.mi" "縮小";
+MG_displayTS "MGdbManager.cw.mi" "順時針旋轉";
+MG_displayTS "MGdbManager.ccw.mi" "逆時針旋轉";
+MG_displayTS "MGdbManager.nextPix.mi" "下張圖";
+MG_displayTS "MGdbManager.lastPix.mi" "上張圖";
+MG_displayTS "MGdbManager.nextItem.mi" "下個資產項";
+MG_displayTS "MGdbManager.lastItem.mi" "上個資產項";
+MG_displayTS "MGdbManager.addPreview.mi" "給當前資產項添加預覽圖";
+MG_displayTS "MGdbManager.delPreview.mi" "刪除預覽圖";
+//`MG_DualLan "MGdbManager.save.rep.title"`
+MG_displayTS "MGdbManager.help.anno" "點選檢視幫助..";
+MG_displayTS "MGdbManager.save.rep.title" "庫工程: \"#\"的所有資產項已儲存:)";
+MG_displayTS "MGdbManager.save.category.rep.title""類別: #的所有資產項已儲存:)";
+
+MG_displayTS "MGdbManager.scanImage.anno.label" "預覽圖掃描及自動與資產項匹配選項";
+MG_displayTS "MGdbManager.scanImage.supportFormat" " 要掃描的圖片格式：";
+MG_displayTS "MGdbManager.scanImage.matchCondi" " 自動匹配條件：";
+MG_displayTS "MGdbManager.scanImage.cusCondi.label" "自定義:" ;
+
+MG_displayTS "MGdbManager.scanImage.cusCondi.anno" " 預覽圖與資產項自動匹配表示式.\"資產\"兩字代表資產項的字首名，可用*號通配符代表其它任何字母，支援所有gmatch命令支援的正規表示式。";
+MG_displayTS "MGdbManager.scanImage.eg1" "如： 預覽圖\"Killer.jpg\" 將會與資產項 \"Killer\"自動匹配";
+MG_displayTS "MGdbManager.scanImage.eg2" "如： 預覽圖\"Killer.previewImage.jpg\" 將會與資產項 \"Killer\"自動匹配";
+MG_displayTS "MGdbManager.scanImage.eg3" "如： 預覽圖\"Killer.previewImage.jpg\" 將會與資產項 \"Killer\"自動匹配";
+MG_displayTS "MGdbManager.scanImage.eg4" "如： 預覽圖\"Killer.jpg\" 將會與資產項 \"Killer\"自動匹配";
+MG_displayTS "MGdbManager.scanImage.begin.anno" " 拾取目錄並開始掃描" ;
+MG_displayTS "MGdbManager.scanImage.input.anno" " 匯入勾上的預覽圖資料到資產庫" ;
+MG_displayTS "MGdbManager.scanImage.ready.rep" "已準備好掃描預覽圖:P" ;
+
+MG_displayTS "MGdbManager.checkbox.anno" "過後的匯入動作只會對打上勾的資產項才起作用哦." ;
+MG_displayTS "MGdbManager.ns.anno" "這一欄顯示了資產項";
+MG_displayTS "MGdbManager.preimagePath.anno" "這一欄顯示了該資產項對應的預覽圖地址";
+MG_displayTS "MGdbManager.repickimagePath.anno" "點我來重新拾取一個預覽用圖片";
+MG_displayTS "MGdbManager.delmagePath.anno" "捨棄當前的預覽圖資料";
+
+MG_displayTS "MGdbManager.update.all.rep" "當前庫工程所有資產項的大小/日期/版本/可用性資訊已更新";
+
+MG_displayTS "MGdbManager.update.sel.rep" "當前庫工程所選資產項的大小/日期/版本/可用性資訊已更新";
+
+
+MG_displayTS "MGdbManager.option.ref.ann" "開啟MG資產工具的Reference場景選項,注意它和Maya共享該選項.";
+MG_displayTS "MGdbManager.option.imp.ann" "開啟MG資產工具的匯入場景選項,注意它和Maya共享該選項.";
+MG_displayTS "MGdbManager.option.open.ann" "開啟MG資產工具的開啟場景選項,注意它和Maya共享該選項.";
+
+MG_displayTS "MGdbManager.option.annoText" "注意:如果開啟\"Use namespaces\"，MG資產工具都將使用其介面上所顯示的字首名.";
+
+MG_displayTS "MGdbManager.configRoot.confirmCopy.message" "你需要把舊路徑下的配置檔案拷到新路徑下嗎?";
+MG_displayTS "MGdbManager.configRoot.done" "MG-資產庫的配置檔案路徑已被成功變更.";
+MG_displayTS "MGdbManager.op.title" "MG-資產庫選項";
+MG_displayTS "MGdbManager.op.path.lbl" "資產資訊配置檔案路徑:";
+MG_displayTS "MGdbManager.op.path.pick" "拾取";
+MG_displayTS "MGdbManager.op.path.pick.ann" "拾取一個用來儲存資產資訊的新目錄";
+MG_displayTS "MGdbManager.op.enableEdit" "允許編輯";
+MG_displayTS "MGdbManager.op.enableEdit.ann" "如果你不應該編輯大家一起共享的資產資訊庫,請不要開啟允許編輯的選項,以免相互覆蓋.";
+
+MG_displayTS "MGdbManager.ask.enableEdit.mes" "你是否親自需要編輯資產資訊庫?還是隻需要讀取/使用別人準備好的資產資訊庫?\n過後你仍然可以編輯這個選項.(通過右鍵點選MG-資產庫圖示來訪問其選項視窗)";
+MG_displayTS "MGdbManager.ask.enableEdit.no" "只需要讀取並使用";
+
+MG_displayTS "MGdbManager.sort.assending" "升序排列";
+MG_displayTS "MGdbManager.sort.descending" "降序排列";
+MG_displayTS "MGdbManager.width.widen" "變寬";
+MG_displayTS "MGdbManager.width.tighten" "變窄";
+ 
+ 
+//MGTools3======================================================
+MG_displayTS "MGdbManager.local" "(本地)";
+MG_displayTS "MGdbManager.clearLibContent.local" "清除庫內容(本地)";
+MG_displayTS "MGdbManager.clearLibContent.global" "清除庫內容(全局)";
+MG_displayTS "MGdbManager.rename.cate.mi" "重新命名當前類別..";
+MG_displayTS "MGdbManager.del.cate.mi" "刪除當前類別...";
+MG_displayTS "MGdbManager.batch.makeimages.mi" "批量生成預覽圖..";
+MG_displayTS "MGdbManager.saveCate.mi" "儲存當前類別";
+
+MG_displayTS "MGdbManager.checkOn.highlightItems.mi" "勾選所選項";
+MG_displayTS "MGdbManager.invert.highlightItems.mi" "反轉所選項的勾選";
+MG_displayTS "MGdbManager.checkOff.highlightItems.mi" "去掉所選項的勾選";
+MG_displayTS "MGdbManager.highlightAllItems.mi" "選擇所有項";
+
+MG_displayTS "MGdbManager.searchReplace.mi" "查找和替換..";
+MG_displayTS "MGdbManager.searchReplace.title" "查找和替換";
+MG_displayTS "MGdbManager.updnload.menu" "上傳/下載";
+MG_displayTS "MGdbManager.updnload.checkItems.cCate.mi" "上傳/下載當前類別裡勾選的項";
+MG_displayTS "MGdbManager.updnload.checkItems.allCate.mi" "上傳/下載所有類別裡勾選的項";
+MG_displayTS "MGdbManager.updnload.cCate.mi" "上傳/下載當前類別";
+MG_displayTS "MGdbManager.updnload.allCate.mi" "上傳/下載所有類別";
+MG_displayTS "MGdbManager.updnload.projFile.mi" "上傳/下載庫工程檔案";
+MG_displayTS "MGdbManager.updnload.previewImages.mi" "上傳/下載所有預覽圖";
+MG_displayTS "MGdbManager.makeMA.mi" "生成MA..";
+MG_displayTS "MGdbManager.makeMA.lbl" "生成MA";
+ 
+
+MG_displayTS "MGdbManager.showCateStat.mi" "顯示當前類別的統計資訊";
+MG_displayTS "MGdbManager.switch.localGlobal.mi" "點選在本地/全局間切換當前庫.";
+
+MG_displayTS "MGdbManager.checkAll.mi" "勾選所有項";
+MG_displayTS "MGdbManager.checkNone.mi" "去掉所有項勾選";
+MG_displayTS "MGdbManager.checkInvert.mi" "反轉所有項勾選";
+
+MG_displayTS "MGdbManager.name.prefix" "名字: #   \t當前可用: ";
+MG_displayTS "MGdbManager.name.lbl" "名字";
+MG_displayTS "MGdbManager.path.lbl" "路徑";
+MG_displayTS "MGdbManager.state.lbl" "狀態";
+MG_displayTS "MGdbManager.ver.lbl" "版本";
+MG_displayTS "MGdbManager.size.lbl" "尺寸";
+MG_displayTS "MGdbManager.date.lbl" "日期";
+
+MG_displayTS "MGdbManager.relation.equal.lbl" "等於";
+MG_displayTS "MGdbManager.relation.largerThan.lbl" "大於";
+MG_displayTS "MGdbManager.relation.smallThan.lbl" "小於";
+MG_displayTS "MGdbManager.relation.euqalLarger.lbl" "等於 / 大於";
+MG_displayTS "MGdbManager.relation.equalSmaller.lbl" "等於 / 小於";
+
+MG_displayTS "MGdbManager.makeMA.ann" "生成MA檔案，以勾選上的項為reference.";
+
+MG_displayTS "MGdbManager.warn.prefix" "警告: ";
+MG_displayTS "MGdbManager.err.prefix" "錯誤: ";
+
+MG_displayTS "MGdbManager.toolName" "MG-資產庫";
+
+MG_displayTS "MGdbManager.noWriteAccess.war" "當前全局目錄您沒有寫許可權.";
+
+MG_displayTS "MGdbManager.renameToValid.lbl" "重新命名為合法名稱";
+MG_displayTS "MGdbManager.cateFileName.notValid.war" "類別檔案: # 非法. \n它應該以\"_\"或英文字母開頭，且只由\"_\",英文字母及數字組成. \n您是想要：";
+
+MG_displayTS "MGdbManager.yes.lbl" "是";
+MG_displayTS "MGdbManager.no.lbl" "否";
+MG_displayTS "MGdbManager.annoContent.prefix" "資產: #\t    當前可用: ";
+MG_displayTS "MGdbManager.path.notExist.war" "路徑 :# 不存在.";
+
+MG_displayTS "MGdbManager.noDrag.war" "中鍵拖放將會把資料弄地一團糟。\n如果你已經用它重新排序過了，請拖放回來.";
+MG_displayTS "MGdbManager.scene.contain.nonStortable.chars.mi" "場景檔案包含非法字元，比如";
+MG_displayTS "MGdbManager.newItem.makePreview.lbl" "創建預覽圖";
+
+MG_displayTS "MGdbManager.unsetable.lbl" "不可設定";
+
+MG_displayTS "MGdbManager.makeMA.readRefPreload.lbl" "正在讀取Reference預載入資訊..";
+MG_displayTS "MGdbManager.makeMA.loadRefReload.lbl" "載入Reference預載入..";
+MG_displayTS "MGdbManager.makeMA.readRefNSInfo.lbl" "正在讀取Reference名稱空間資訊..";
+MG_displayTS "MGdbManager.makeMA.done.lbl" "已完成";
+MG_displayTS "MGdbManager.makeMA.done.rep" "Maya Ascii檔案: # 已生成.";
+
+MG_displayTS "MGdbManager.makeMA.editMode.lbl" "編輯模式 ";
+MG_displayTS "MGdbManager.makeMA.simpleMode.lbl" "簡單模式";
+MG_displayTS "MGdbManager.makeMA.advancedMode.lbl" "高階模式";
+
+MG_displayTS "MGdbManager.makeMA.highRef.deferred.lbl" "所選Reference不載入";
+MG_displayTS "MGdbManager.makeMA.highRef.load.lbl" "所選Reference載入";
+MG_displayTS "MGdbManager.makeMA.allRef.deferred.lbl" "所有Reference不載入";
+MG_displayTS "MGdbManager.makeMA.allRef.load.lbl" "所有Reference載入";
+
+MG_displayTS "MGdbManager.makeMA.ns.lbl" "名稱空間" ;
+MG_displayTS "MGdbManager.makeMA.setNS.lbl" " 設定名稱空間 " ;
+MG_displayTS "MGdbManager.makeMA.dialog.title" "輸入Reference為MA檔案";
+
+MG_displayTS "MGdbManager.moveCheckTo.mi" "移動勾選上的項到: ";
+MG_displayTS "MGdbManager.copyCheckTo.mi" "複製勾選上的項到: ";
+MG_displayTS "MGdbManager.renameCate.mi" "重新命名類別: ";
+MG_displayTS "MGdbManager.delCate.mi" "刪除類別: ";
+MG_displayTS "MGdbManager.showStat.mi" "顯示統計: ";
+
+
+MG_displayTS "MGdbManager.proj.stateLblPreset.lbl" "狀態預置:";
+MG_displayTS "MGdbManager.setStateTo.mi" "設定狀態為: ";
+MG_displayTS "MGdbManager.proj.addStatePreset.lbl" "添加狀態預置" ;
+MG_displayTS "MGdbManager.proj.addStatePreset.btn" "添加狀態預置";
+MG_displayTS "MGdbManager.proj.removeStatePreset.lbl" "刪除狀態預置";
+MG_displayTS "MGdbManager.proj.addStatePresetArraw.lbl" "添加所選狀態預置到工程  ->";
+MG_displayTS "MGdbManager.proj.state.color.lbl" "狀態顏色";
+MG_displayTS "MGdbManager.proj.state.pickColor.lbl" "拾取顏色:";
+MG_displayTS "MGdbManager.proj.state.assignColor.lbl" "指定顏色 ->" ;
+MG_displayTS "MGdbManager.proj.projState.lbl" "庫工程狀態";
+MG_displayTS "MGdbManager.proj.delHighlightState.ann" "刪除所選狀態";
+MG_displayTS "MGdbManager.proj.stateSetting.lbl" "資產項狀態設定";
+MG_displayTS "MGdbManager.proj.description.lbl" "庫工程描述";
+MG_displayTS "MGdbManager.proj.path.customGlobalRoot.lbl" "自定義全局根目錄: " ;
+MG_displayTS "MGdbManager.reset.lbl" "重置";
+
+MG_displayTS "MGdbManager.scanFolder.import" "輸入資料到當前庫工程..";
+MG_displayTS "MGdbManager.scroll.pageUP.mi" "向上翻頁";
+MG_displayTS "MGdbManager.scroll.pageDn.mi" "向下翻頁";
+MG_displayTS "MGdbManager.scroll.toTop.mi" "回到頭部";
+MG_displayTS "MGdbManager.scroll.toBottom.mi" "去到底部";
+
+MG_displayTS "MGdbManager.scan.scaning.lbl"  "正在掃描...";
+MG_displayTS "MGdbManager.scan.processing.lbl"  "正在處理...";
+MG_displayTS "MGdbManager.scan.loading.lbl" "正在載入資料...";
+
+MG_displayTS "MGdbManager.delProj.msg1" "整個本地庫工程將被擦除.";
+MG_displayTS "MGdbManager.delProj.msg2" "全局目錄下的內容可能會被保留. 使用 \"庫工程/清除庫內容(全局)\" 來清除全局內容.";
+
+MG_displayTS "MGdbManager.local.lowerCase" "本地";
+MG_displayTS "MGdbManager.global.lowerCase" "全局";
+MG_displayTS "MGdbManager.delProj.war" "整個庫工程 # 的內容: # 將被清除. \n您是想要:";
+MG_displayTS "MGdbManager.delProj.delPreviews.war" "你是否想要一起刪除 \"Preview_Images\" 目錄?";
+
+MG_displayTS "MGdbManager.search.wrapped.war" "搜索已到底.";
+MG_displayTS "MGdbManager.search.noMatch.war" "沒有發現匹配." ;
+
+MG_displayTS "MGdbManager.search.empty.war" "搜索字元竄為空." ;
+MG_displayTS "MGdbManager.search.invalidChars.war" "搜索字元竄不能包含下面任一字母:";
+MG_displayTS "MGdbManager.search.invalidReplaceChars.war" "替換字元竄不能包含下面任一字母:";
+MG_displayTS "MGdbManager.search.same.war" "搜索跟替換字元竄是一樣的." ;
+MG_displayTS "MGdbManager.replace.count.rep" " 個資產項被替代.";
+
+MG_displayTS "MGdbManager.search.cate.lbl" "搜索類別";
+MG_displayTS "MGdbManager.search.cCate.lbl" "當前類別";
+MG_displayTS "MGdbManager.search.allCate.lbl" "所有類別";
+MG_displayTS "MGdbManager.search.str.lbl" "搜索字元竄";
+MG_displayTS "MGdbManager.search.prev.lbl" "搜索上一個";
+MG_displayTS "MGdbManager.search.next.lbl" "搜索下一個";
+
+MG_displayTS "MGdbManager.replace.with.lbl" "替代成";
+MG_displayTS "MGdbManager.replace.prev.lbl" "替代上一個";
+MG_displayTS "MGdbManager.replace.next.lbl" "替代下一個";
+MG_displayTS "MGdbManager.replace.all.lbl" "替代全部";
+MG_displayTS "MGdbManager.search.filter.lbl" "隔離顯示搜索結果";
+MG_displayTS "MGdbManager.search.toggleCheck.lbl" "開關勾選";
+MG_displayTS "MGdbManager.search.caseSensitive.lbl" "區分大小寫";
+
+MG_displayTS "MGdbManager.saveCate.done.rep" "資產類別 : # 已被儲存.";
+MG_displayTS "MGdbManager.cate.nameLength.war" "  * 類別的字元竄長度最好是小大於11個字元.";
+
+MG_displayTS "MGdbManager.create.lbl" "創建";
+MG_displayTS "MGdbManager.renameCate.war"  "重新命名類別失敗.";
+MG_displayTS "MGdbManager.renameCate.prefix" "重新命名類別: ";
+MG_displayTS "MGdbManager.cateExists.war" "類別 :# 已存在，您是想要： ";
+MG_displayTS "MGdbManager.delCate.war" "您真的要刪除類別 :#?";
+MG_displayTS "MGdbManager.delCate.cancel.war" "類別刪除動作被使用者取消.";
+MG_displayTS "MGdbManager.delCate.subfix" "類別刪除動作失敗.";
+MG_displayTS "MGdbManager.noCateActived.war" "當前沒有啟用任何類別.";
+
+MG_displayTS "MGdbManager.total.lbl" "全部共";
+MG_displayTS "MGdbManager.cates.lbl" "個類別";
+MG_displayTS "MGdbManager.cCate.assetCount.lbl" "當前類別資產項個數";
+MG_displayTS "MGdbManager.checkOn.mid" "被勾選: ";
+MG_displayTS "MGdbManager.cateExists1.war" "類別檔案不存在:";
+
+MG_displayTS "MGdbManager.projNotExist.war" "庫工程檔案不存在:";
+
+MG_displayTS "MGdbManager.imageFile.ext.lbl" "預覽圖檔案";
+
+MG_displayTS "MGdbManager.scanImage.matchCount.subfix" " 個匹配被發現.";
+MG_displayTS "MGdbManager.scanImage.importing.lbl" "匯入資料...";
+MG_displayTS "MGdbManager.sort.done.rep" "資產項已排序!!";
+
+MG_displayTS "MGdbManager.batchMakeImage.log1" "開始批量生成預覽圖.";
+MG_displayTS "MGdbManager.batchMakeImage.log2" "\n正在處理 : ";
+MG_displayTS "MGdbManager.batchMakeImage.itemNoExist.war" " 資產項: # 不存在.";
+MG_displayTS "MGdbManager.batchMakeImage.fileNoExist.war" " 資產項Maya場景檔案: # 不存在.";
+MG_displayTS "MGdbManager.batchMakeImage.openMA.rep" "開Maya檔 : ";
+MG_displayTS "MGdbManager.batchMakeImage.errorRead.rep" "讀取Maya檔錯誤 : ";
+MG_displayTS "MGdbManager.batchMakeImage.applyDefaultBookmark.rep" "應用默認攝像機書籤並返回，這樣你可以進一步調整檢視.";
+MG_displayTS "MGdbManager.batchMakeImage.applyTheBookmark.rep" "應用攝像機書籤: ";
+MG_displayTS "MGdbManager.batchMakeImage.applyDefaultBookmark.rep" "應用默認攝像機書籤.";
+MG_displayTS "MGdbManager.batchMakeImage.clearOldPreviewImage.lbl" "清除資產項的舊預覽圖檔案: ";
+MG_displayTS "MGdbManager.batchMakeImage.making.lbl" "正在生成預覽圖檔案給 : ";
+MG_displayTS "MGdbManager.batchMakeImage.failed.lbl" "預覽圖檔案生成失敗: ";
+MG_displayTS "MGdbManager.batchMakeImage.made.lbl" "預覽圖檔案已生成:";
+MG_displayTS "MGdbManager.batchMakeImage.saveTheCate.lbl" "儲存類別: ";
+MG_displayTS "MGdbManager.batchMakeImage.finished.lbl" "已完成對該資產項的處理: ";
+MG_displayTS "MGdbManager.batchMakeImage.makeNewScene.lbl" "開新檔.";
+MG_displayTS "MGdbManager.batchMakeImage.log.lbl" "日誌";
+MG_displayTS "MGdbManager.batchMakeImage.log.clear.lbl" "清除日誌";
+MG_displayTS "MGdbManager.batchMakeImage.autosave.lbl" "每次圖片生成自動儲存改變";
+MG_displayTS "MGdbManager.batchMakeImage.beforeSnapshot.lbl" "拍屏之前";
+MG_displayTS "MGdbManager.batchMakeImage.chooseCamBookmark.lbl" "停住這樣我可以選擇一個檢視攝像機書籤";
+MG_displayTS "MGdbManager.batchMakeImage.useDefaultCamBookmark.lbl" "使用默認檢視攝像機書籤";
+MG_displayTS "MGdbManager.batchMakeImage.useBookmark.lbl" "使用檢視攝像機書籤:";
+MG_displayTS "MGdbManager.batchMakeImage.fileMode.lbl" "檔案模式";
+MG_displayTS "MGdbManager.batchMakeImage.append.lbl" "追加到既有預覽圖";
+MG_displayTS "MGdbManager.batchMakeImage.replace.lbl" "替換既有預覽圖";
+
+MG_displayTS "MGdbManager.batchMakeImage.saveScene.war" "當前Maya場景還未被儲存.\n批量生成圖示將會用當前Maya以不提示的方式直接開啟不同的Maya場景.\n\n您是否要儲存當前場景?";
+MG_displayTS "MGdbManager.batchMakeImage.save.lbl" "儲存";
+MG_displayTS "MGdbManager.batchMakeImage.saveAs.lbl" "另存為..";
+MG_displayTS "MGdbManager.batchMakeImage.donotSave.lbl" "不儲存";
+MG_displayTS "MGdbManager.batchMakeImage.saved.lbl" "當前場景已儲存.";
+MG_displayTS "MGdbManager.batchMakeImage.title" "批量生成資產項預覽圖";
+
+MG_displayTS "MGdbManager.noActiveProj.war" "沒有當前工程.";
+MG_displayTS "MGdbManager.dnup.downloaded.lbl" "已下載";
+MG_displayTS "MGdbManager.dnup.downloading.lbl" "正下載";
+MG_displayTS "MGdbManager.dnup.uploaded.lbl" "已上傳";
+MG_displayTS "MGdbManager.dnup.uploading.lbl" "正上傳";
+MG_displayTS "MGdbManager.dnup.confirmProjFileUpload.war" "你真的要上傳並共享您的庫工程檔案?";
+MG_displayTS "MGdbManager.dnup.same.war" "本地和全局的目錄是一樣的.";
+MG_displayTS "MGdbManager.dnup.done.rep" "庫工程檔案: #已被";
+MG_displayTS "MGdbManager.dnup.err.war" "錯誤發生：#庫工程檔案";
+
+MG_displayTS "MGdbManager.error.image.war" "錯誤發生： #預覽圖檔案: ";
+MG_displayTS "MGdbManager.dnup.cateHasBeen.prefix" "類別: # 已被";
+MG_displayTS "MGdbManager.dnup.cate.err.war" "錯誤發生：#類別: ";
+MG_displayTS "MGdbManager.dnup.tolocal.lbl" "到本地資產庫?";
+MG_displayTS "MGdbManager.dnup.toglobal.lbl" "到全局資產庫?";
+
+MG_displayTS "MGdbManager.dnup.doReally.war" "您真的要";
+MG_displayTS "MGdbManager.dnup.checkInCCate.mid" " 當前類別勾選上的資產項 ";
+MG_displayTS "MGdbManager.dnup.checkInAllCate.mid" " 所有類別勾選上的資產項 ";
+MG_displayTS "MGdbManager.dnup.wholeCate.mid" " 整個當前類別: ";
+MG_displayTS "MGdbManager.dnup.allCates.mid" " 所有類別: ";
+
+MG_displayTS "MGdbManager.dnup.upCate.lbl" "更新類別";
+MG_displayTS "MGdbManager.dnup.repCate.lbl" "替換類別";
+
+MG_displayTS "MGdbManager.dnup.upAllCate.lbl" "更新所有類別";
+MG_displayTS "MGdbManager.dnup.repAllCate.lbl" "替換所有類別";
+
+MG_displayTS "MGdbManager.dnup.noChecked.lbl" "沒有勾選上的資產項.";
+MG_displayTS "MGdbManager.dnup.upImages.confirm" "您真的要上傳並共享您的資產項預覽影象檔案?";
+
+MG_displayTS "MGdbManager.dnup.upImages.war" "你真的要上傳所有在Preview_Images目錄裡的預覽影象檔案到目標Preview_Images目錄?";
+MG_displayTS "MGdbManager.dnup.err.war" "錯誤發生: # 庫工程檔案 ";
+
+MG_displayTS "MGdbManager.warnProjInvalidName.war" "庫工程名稱: # 非法. 轉換成 :";
+MG_displayTS "MGdbManager.warnProjExist.war" "庫工程 :# 在你的本地庫目錄裡已存在.";
+MG_displayTS "MGdbManager.warnProjNotExist.lbl" "庫工程 :# 不存在. 在添加類別前需要先創建庫工程.";
+MG_displayTS "MGdbManager.warnProjNotExist1.lbl" "庫工程  :# 不存在.";
+MG_displayTS "MGdbManager.warnCateNotExist.lbl" "類別 :# 在該項止不存在: ";
+MG_displayTS "MGdbManager.warnCateNotWrite.lbl" "類別 :# 對您來說不可寫入.";
+MG_displayTS "MGdbManager.warnProjNotExist2.lbl" "庫工程 :# 不存在. 在添加狀態前需要先創建庫工程.";
+MG_displayTS "MGdbManager.noStateToAdd.lbl" "沒有要添加到工程的狀態: ";
+MG_displayTS "MGdbManager.warnProjNotReadable.lbl" "庫工程檔案:# 不可讀.";
+MG_displayTS "MGdbManager.warnProjNotWritable.lbl" "庫工程檔案:# 對您來說不可寫入.";
+MG_displayTS "MGdbManager.warnCateNotExist1.lbl" "類別 :# 在您的庫工程中不存在: #. 在添加資產項前你必須先添加類別.";
+
+MG_displayTS "MGdbManager.warnCateNotWritable.lbl" "類別檔案:# 對您來說不可寫入.";
+MG_displayTS "MGdbManager.makeMA.notSupportMB.war" "Maya二進位制場景檔案不支援:";
+MG_displayTS "MGdbManager.makeMA.alreadyExist.override.war" "Maya場景檔案: # 已存在並且你已選擇不要覆蓋它.";
+
+
+MG_displayTS "MGdbManager.makeMA.refTimes.lbl" "Ref次數";
+MG_displayTS "MGdbManager.makeMA.top.ann" "這些資產將會被以Reference方式包含在生成的MA裡:";
+
+
+//===============for the python api=================================================
+MG_displayTS "AssetPyAPI.searchDir.err.prefix" "該搜索目錄: ";
+MG_displayTS "AssetPyAPI.searchDir.err.subfix" "不存在.";
+MG_displayTS "MGdbManager.patternPara.notString.error" "參數patternStr應該是一個str類型.";
+MG_displayTS "MGdbManager.patternPara.empty.error" "參數patternStr是空字元竄.";
+MG_displayTS "MGdbManager.neither.mbma.war" "你不可以把參數searchMA及searchMB都設為False.";
+MG_displayTS "MGdbManager.return.maExists.war" "因為ma檔已存在所以返回: ";
+MG_displayTS "MGdbManager.onlyMa.war" "該函數只支援MA檔案.";
+
+MG_displayTS "MGdbManager.invalidProjObj.war" "該庫工程物件非法";
+MG_displayTS "MGdbManager.invalidProj.war" "該庫工程非法.";
+MG_displayTS "MGdbManager.invalidProjName.empty.war" "非法的庫工程名稱. 它是不是空字元竄??";
+MG_displayTS "MGdbManager.initViaExistProj.lbl" "該庫工程已存在. 將用已存在的庫工程檔案來初始化MGAssetProj物件.";
+MG_displayTS "MGdbManager.newStatePresets.parameterEmpty.war" "參數newStatePresets是空的.";
+MG_displayTS "MGdbManager.categoryName.parameterEmpty.war" "參數categoryName是空的.";
+
+MG_displayTS "MGdbManager.cateAdded.war" "類別已添加.";
+MG_displayTS "MGdbManager.invalidCateObj.war" "參數categoryObject是一個非法的MGAssetCategory物件.";
+MG_displayTS "MGdbManager.noCateToWrite.war" "沒有要寫入的類別物件.";
+MG_displayTS "MGdbManager.invalidCateObj.war1" "有非法的類別物件.";
+MG_displayTS "MGdbManager.param.categoryName.invalid.war" "參數非法 :categoryName, 它應該是str或MGAssetCategory類型.";
+MG_displayTS "MGdbManager.proj.prefix" "庫工程: ";
+MG_displayTS "MGdbManager.cate.prefix" "類別: ";
+MG_displayTS "MGdbManager.state.prefix" "庫工程狀態: ";
+MG_displayTS "MGdbManager.ann.prefix" "庫工程註釋: ";
+
+MG_displayTS "MGdbManager.not2011.war" "抱歉，MG資產庫只能在Maya2011及以後的Maya版本運行，造成不便還請見諒.";
+
+MG_displayTS "MGdbManager.searchDepth.lbl" "搜索深度:";
+MG_displayTS "MGdbManager.searchDepth.ann" "搜索資料夾的深度，只搜索當前資料夾意味著深度值為1.";
+MG_displayTS "MGdbManager.setSearchCate.lbl" "設定";
+MG_displayTS "MGdbManager.setSearchCate.ann" "設定列表所選的項類別為左邊的類別。";
+
+MG_displayTS "MGdbManager.confirmBefore.lbl" "操作前確認";
+MG_displayTS "MGdbManager.noGlobal.war" "當前庫工程沒有全局庫.如果您需要，請點選\"編輯當前庫工程..\"按鈕來指定一個庫工程全局目錄.";

@@ -1,0 +1,75 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>使用Pose库</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Pose" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "poseanim_usepose.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">使用Pose库</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="poseanim_previewpanel.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="poseanim_useanim.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> 使用Pose库</span><span style="font-weight: bold; color: #191817;">：</span></p>
+<p style="text-indent: 21px; line-height: 1.50;">主界面下方，是库的应用选项。<br />
+ &nbsp; &nbsp; &nbsp; <img src="applyposeoption_ch.gif" width="556" height="174" alt="applyPoseOption_ch" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;">点击模式</span><span style="color: #191817;">：</span><br />
+<span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-weight: bold; color: #191817;">库管理：</span><span style="color: #191817;">这一模式用来管理库，它可以支持ctrl及shift键多选，用来编辑，上传下载，删除库等。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-weight: bold; color: #191817;">简单应用：</span><span style="color: #191817;">这一模式下，直接单击相应的pose项按钮，来应用pose到当前场景所选。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-weight: bold; color: #191817;">高级应用：</span><span style="color: #191817;">这一模式下，要先在内容区选择相应的pose项，然后调整下方的应用选项，再点&quot;高级应用&quot;按钮。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> &nbsp;提示：</span><span style="font-size: 9pt; color: #191817;">下面的选项在处于简单应用，高级应用模式时才会出现： &nbsp;  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;">[ Ctrl点击：]：</span><span style="color: #191817;">这一栏输入的百分比，决定了每次按Ctrl键同时点击项按钮或者高级模式下的“高级应用”按钮时，应用Pose的程度百分比。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #191817;">没有ctrl键的点击，即是100%应用。 </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;">命名空间使用：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 54px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#191817;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold; color: #191817;">所选物件命名空间</span><span style="color: #191817;">： 将把当前场景所选物件的命名空间(namespace)抓出来，替换pose里的控制器的命名空间，得出的映射过的名称，即是要应用pose的对象。</span><br />
+<span style="color: #191817;">简单说来，假设导出pose时选的是charA:body, charA:hand, 导入时你选的是charB:foot, 则会被导入pose的是charB:body,charB:hand.</span></p><p style="text-align: left; padding: 0px 0px 0px 54px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#191817;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold; color: #191817;">Pose命名空间</span><span style="color: #191817;">：原原本本找到pose被创建时涉及到的控制器，作为应用pose的对象。</span></p><p style="text-align: left; padding: 0px 0px 0px 54px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#191817;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold; color: #191817;">自定义</span><span style="color: #191817;">： 选上以后，右边的输入框可用。你可以手动输入命名空间来作映射。也可以在场景里选择一个对象，用&quot;&lt;选择&quot;按钮将其namespace放进去。</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> 提示：</span><span style="font-size: 9pt; color: #191817;">目前MG-Pose动作库，在抓取要应用pose或动作的目标对象时，是通过抓名字的方式而不是直接应用于场景所选择的物件。</span><br />
+<span style="width:24px">&nbsp;</span><span style="font-size: 9pt; color: #191817;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;所以如果pose库里涉及到的控制器就是你要应用的对象，你甚至可以不选任何对象就直接来应用。</span><br />
+<span style="font-size: 9pt; color: #191817;">&nbsp;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> 提示：</span><span style="font-size: 9pt; color: #191817;">下面的选项在处于高级应用模式时才会出现：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt; color: #191817;"> &nbsp; </span><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;">筛选对象：</span><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="color: #191817;">决定经过上面规则映射出来的应用对象，是否还要再筛选。</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 54px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#191817;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold; color: #191817;">不筛选：</span><span style="color: #191817;"> 直接按上面的规则，抓目标对象来应用Pose及动作。</span></p><p style="text-align: left; padding: 0px 0px 0px 54px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#191817;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold; color: #191817;">只有所选物件：</span><span style="color: #191817;">按上面的规则映射出来的应用对象，只有当前在场景里被选择的，才会被应用Pose.</span></p><p style="text-align: left; padding: 0px 0px 0px 54px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#191817;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold; color: #191817;">忽略所选物件：</span><span style="color: #191817;"> 按上面的规则映射出来的应用对象，如果在场景中被选择，就不会被应用Pose.</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt; color: #191817;"> &nbsp; </span><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;">筛选属性：</span><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="color: #191817;">在经过上面规则映射并筛选过后的应用对象，再对其被应用的属性进行筛选。</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 54px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#191817;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold; color: #191817;">不筛选：</span><span style="color: #191817;"> 应用于对象上的所有属性。（当然限于有记录pose的属性。）</span></p><p style="text-align: left; padding: 0px 0px 0px 54px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#191817;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold; color: #191817;">只有所选属性</span><span style="color: #191817;">：应用对象在通道栏上所选的属性，才会被应用Pose.</span></p><p style="text-align: left; padding: 0px 0px 0px 54px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#191817;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold; color: #191817;">忽略所选属性</span><span style="color: #191817;">： 应用对象在通道栏上所选的属性，会被忽略不被应用Pose.</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt; color: #191817;"> &nbsp; </span><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;">通道栏按钮：</span><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="color: #191817;">点击来切换，筛选属性是基于Maya通道栏还是MG通道栏所选属性。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt; color: #191817;"> &nbsp; </span><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;">应用选项：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 54px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#191817;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold; color: #191817;">到当前帧</span><span style="color: #191817;">：pose应用于当前帧。</span></p><p style="text-align: left; padding: 0px 0px 0px 54px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#191817;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold; color: #191817;">到Pose创建帧</span><span style="color: #191817;">：pose创建时在哪一帧，应用时就应用在哪一帧。</span></p><p style="text-align: left; padding: 0px 0px 0px 54px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#191817;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold; color: #191817;">应用于世界坐标</span><span style="color: #191817;">：pose在创建时，只要是变形节点，都会被导出世界坐标的变形信息。</span><br />
+<span style="color: #191817;">所以应用时，可以以世界坐标的方式来应用这些位移，旋转。</span><br />
+<span style="color: #191817;">这样即使变形节点的父节点在不同位置，被应用pose的变形节点也会在世界空间的同一位置上。</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt; color: #191817;"> &nbsp; </span><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;">高级应用按钮：</span><span style="color: #191817;">在高级模式下，你必须先在内容区选择一个项按钮，然后点这个按钮来实际应用。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt; color: #191817;"> &nbsp; </span><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;">滑条：</span><span style="color: #191817;">在高级应用按钮下面，你可以直接拖动滑条，来实时地以0%~100%间应用pose.  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="poseanim_previewpanel.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="poseanim_useanim.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

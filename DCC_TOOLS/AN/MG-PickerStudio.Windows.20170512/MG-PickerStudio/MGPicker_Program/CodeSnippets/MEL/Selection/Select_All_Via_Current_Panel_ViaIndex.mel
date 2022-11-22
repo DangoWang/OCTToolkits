@@ -1,0 +1,4 @@
+//Select all selectButton & Slider members of the picker panel with the panel index. 
+//The first int arg stands for the selection mode, 0 for replace selection,1 for add selection, 2 for remove selection, 3 for invert selection.
+//the second int arg stands for the target picker panel index.
+MGP_EvalPanelAllSelectButtons_viaPanelIndex 0 0;

@@ -1,0 +1,1 @@
+string $currentPickerNamespace = `MGP_GetCurrentPickerNamespace`;  //get the namespace of current picker file/node.

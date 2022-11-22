@@ -1,0 +1,49 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+//`MG_DualLan "animRecorder.Title01"`
+MG_displaySC "MGSaver.ToolName" "MG-保存器";
+MG_displaySC "MGSaver.preSaveToolName" "MG-保存前预处理";
+
+MG_displaySC "MGSaver.catelog" "MG-场景保存";
+
+MG_displaySC "MGSaver.cResult" "当前结果: ";
+MG_displaySC "MGSaver.eg" "  例: \"";
+MG_displaySC "MGSaver.errorOnUserScript.war" "在执行用户自定义的保存前脚本出错.请查看脚本编辑器来获得更多消息.";
+MG_displaySC "MGSaver.presave.ann" "在保存场景前清理下场景的显示.";
+MG_displaySC "MGSaver.saver.ann" "清理场景显示及给场景名称加版本号然后保存场景.";
+MG_displaySC "MGSaver.installToShelf.rep" "工具: # 已被安装到当前的Maya工具架.";
+
+MG_displaySC "MGSaver.preSaveOption.title" "保存前预处理选项";
+MG_displaySC "MGSaver.preSaveOption.sNone" "去掉任何物体显示";
+MG_displaySC "MGSaver.preSaveOption.displayMode" "显示模式:";
+MG_displaySC "MGSaver.preSaveOption.displayLayer" "所有的显示层:";
+MG_displaySC "MGSaver.preSaveOption.displayLayer.off" "关";
+MG_displaySC "MGSaver.preSaveOption.displayLayer.on" "开";
+MG_displaySC "MGSaver.preSaveOption.renderLayer" "设置Masterlayer为当前的渲染层";
+MG_displaySC "MGSaver.preSaveOption.gotoFrame" "前往帧数:";
+
+MG_displaySC "MGSaver.installShelf" "安装到工具架";
+MG_displaySC "MGSaver.setHotkey" "设置快捷键";
+
+MG_displaySC "MGSaver.preSaveOption.uScript" "用户脚本:";
+MG_displaySC "MGSaver.preSaveOption.excute.last" "最后执行";
+MG_displaySC "MGSaver.preSaveOption.excute.first" "最先执行";
+MG_displaySC "MGSaver.preSaveOption.uScript.test" "测试";
+
+MG_displaySC "MGSaver.versionUp.title" "版本添加选项";
+MG_displaySC "MGSaver.versionUp.sep" "分隔符";
+MG_displaySC "MGSaver.versionUp.numPad" "倾向的数字位数";
+MG_displaySC "MGSaver.mayaOption.lbl" "Maya场景保存选项..";
+MG_displaySC "MGSaver.saveit.lbl" "保存场景";
+
+MG_displaySC "MGSaver.save.exist.war" "目标文件 :\n# 已存在.请问你需要要如何处理?";
+MG_displaySC "MGSaver.save.findnext" "使用下一个可用名称";
+MG_displaySC "MGSaver.save.override" "覆盖";
+MG_displaySC "MGSaver.save.cancel" "取消";

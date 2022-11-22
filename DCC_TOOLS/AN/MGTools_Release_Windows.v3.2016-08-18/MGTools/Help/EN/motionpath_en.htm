@@ -1,0 +1,92 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>MotionPath sticker</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Animation,Curve,Keyframe,MotionPath,Option,Reset,Snap" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "motionpath_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">MotionPath sticker</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="draw_curve_via_key_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="posnap_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> Motion Path calculator:</span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:51px; padding:0px;"><p style="text-align: center; line-height: 1.50;"><img src="pathanimicon.gif" width="32" height="32" alt="pathAnimIcon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:13px; padding:0px;"><p style="line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">It will calculate the proper U value of motion path to keep character foot from sliding in minimum when character is moving. </span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">How to call it ( Do one of the following ) :</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>click the  <img src="pathanimicon.gif" width="32" height="32" alt="pathAnimIcon" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span>icon in your Maya shelves (If U have installed all the MGTools shelves into Maya shelves) .</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="color: #3c3c39;">Right mouse button clicking on the button </span><img src="minitoolboxicon.gif" width="32" height="32" alt="minitoolboxIcon" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="color: #3c3c39;">of &nbsp;MGTools,select MotionPath sticker..</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="color: #3c3c39;">Click the MotionPath sticker.. button of miniToolBox.</span></p><p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> When to use it:</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">1.</span>U have done a walk / run cycle for the character and u decide to use global hierarchy to move it out instead of using local controller.</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">2.</span>Character need to move through scenes , which motion path type animation is coming handy.</p><p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> How to use it:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">Click the button or select the menu item to load the motion path calculator:<br />
+<img src="motionpathstickerui.gif" width="443" height="249" alt="MotionPathStickerUI" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">Ui looks messy. but it is quite straight forward.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">This is how it works: It will use these data : the length of one step, the length of the motion path , and the time length of the walking. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">these are the information u got to offer for calculating the proper motion path u value:<br />
+<span class="f_MI_TitleStyle" style="color: #404040;">the sample foot object:</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> Offer the walking character 's foot controller name. U can do this quickly by selecting the foot controller and click the </span>GetFromSelection <span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">button.</span><br />
+<span class="f_MI_TitleStyle" style="color: #404040;">CycleExtreme start&amp;end: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Input the start and end frames of the planting foot , and following option tells the axis. These are for calculating the length of a step .</span><br />
+<span class="f_MI_TitleStyle" style="color: #404040;">？button: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Click to view the help doc.</span><br />
+<span class="f_MI_TitleStyle" style="color: #404040;">Walking frame start &amp; end :</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">The starting and ending frame of your character's walking.</span><br />
+<span class="f_MI_TitleStyle" style="color: #404040;">the Global object: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Offer the walking character 's global controller name which u want to attach to motion path. U can do this quickly by selecting the global controller and click the </span>GetFromSelection <span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">button.</span><br />
+<span class="f_MI_TitleStyle" style="color: #404040;">the Global Front Axis : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">The axis that points along the path.</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;"> (Z axis, often)</span><br />
+<span class="f_MI_TitleStyle" style="color: #404040;">Up Axis: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">The up axis of the global controller.</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">(Y axis, often)</span><br />
+<span class="f_MI_TitleStyle" style="color: #404040;">the motionPath: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Offer the curve which is the &nbsp;motion path. U can do this quickly by selecting the curve and click the </span>GetFromSelection <span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">button.</span><br />
+<span class="f_MI_TitleStyle" style="color: #404040;">PathLength : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Once the curve is picked, this field will automatically show the length of it.</span><br />
+<span class="f_MI_TitleStyle" style="color: #404040;">Result -&gt; </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">This row will show the calculation results. They are at which proper frame should motion path ends and what u value better to be at that frame.</span><br />
+<span class="f_MI_TitleStyle" style="color: #404040;">Apply motionPath Sticker:</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> If u haven't create motion path animation,click this to automatically create it. If it has motion path animation already, click it to set the proper u value.</span><br />
+<span class="f_MI_TitleStyle" style="color: #404040;">Read from scene: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Read the existed motion path information. If there are more than one of them, it will pop up a window which shows the existed motion path node. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">u can double click the list item to read the motion path message.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">footSticker:</span> I place it here just for convenience sake. After setting the proper u value ,there will still be more or less sliding on your character feet.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"> (Depending to the path of the moving) .So use PO snapping forward or other snapping tools (in the right mouse button clicking popup menu) to get rid of the sliding. <a href="posnap_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Reset:</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> Reset all input field to none.</span><br />
+<img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> Tips: about how to understand the <span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">CycleExtreme start &amp; end , maybe the diagram below will help. The diagram actually shows the Z axis animcurve of the foot controller.:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="motionpathpic.gif" width="396" height="93" alt="motionPathPic" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">The red cycle stands for the CycleExtreme start &amp; end , it is provided for calculating the length of the step. Input the two frames into the CycleExtreme start &amp; end int field.</span></p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="draw_curve_via_key_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="posnap_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationPackage SchemaVersion="1.0"
+	ProductType="Application"
+
+	AutodeskProduct="Maya"
+	Name="ngSkinTools"
+	Description="ngSkinTools - advanced skinning"
+	AppVersion="1.7.9"
+	Author="ngSkinTools.com"
+	AppNameSpace="com.ngskintools.ngskintools"
+	HelpFile="./Contents/docs/index.html"
+	OnlineDocumentation="http://www.ngskintools.com/documentation/userguide/"
+
+	ProductCode="*"
+	UpgradeCode="{993c3cfc-565f-4d19-80cf-36c13168813a}" >
+	
+	<CompanyDetails Name="ngskintools.com"
+		Phone=" "
+		Url="http://www.ngskintools.com/"
+		Email="support@ngskintools.com" />
+
+	<!-- python scripts, shelves, load script -->
+	<Components>
+		<RuntimeRequirements SupportPath="./Contents/docs" OS="win64|macOS|linux" Platform="Maya" />
+		<MayaEnv expr="MAYA_SHELF_PATH+:=shelves" />
+		<ComponentEntry ModuleName="./Contents/scripts/ngSkinTools_load.mel" />		
+		<ComponentEntry ModuleName="./Contents/shelves/ngSkinTools_shelf.mel" />		
+	</Components>
+
+	
+        <Components>
+            <RuntimeRequirements SupportPath="./Contents/docs" OS="win64" Platform="Maya" SeriesMin="2014" SeriesMax="2014" />
+            <MayaEnv expr="MAYA_PLUG_IN_PATH+:=plug-ins/2014" />
+            <ComponentEntry ModuleName="./Contents/plug-ins/2014/ngSkinTools.mll" />
+        </Components>
+        
+
+        <Components>
+            <RuntimeRequirements SupportPath="./Contents/docs" OS="win64" Platform="Maya" SeriesMin="2015" SeriesMax="2015" />
+            <MayaEnv expr="MAYA_PLUG_IN_PATH+:=plug-ins/2015" />
+            <ComponentEntry ModuleName="./Contents/plug-ins/2015/ngSkinTools.mll" />
+        </Components>
+        
+
+        <Components>
+            <RuntimeRequirements SupportPath="./Contents/docs" OS="win64" Platform="Maya" SeriesMin="2016" SeriesMax="2016" />
+            <MayaEnv expr="MAYA_PLUG_IN_PATH+:=plug-ins/2016" />
+            <ComponentEntry ModuleName="./Contents/plug-ins/2016/ngSkinTools.mll" />
+        </Components>
+        
+
+        <Components>
+            <RuntimeRequirements SupportPath="./Contents/docs" OS="win64" Platform="Maya" SeriesMin="2016.5" SeriesMax="2016.5" />
+            <MayaEnv expr="MAYA_PLUG_IN_PATH+:=plug-ins/2016.5" />
+            <ComponentEntry ModuleName="./Contents/plug-ins/2016.5/ngSkinTools.mll" />
+        </Components>
+        
+
+        <Components>
+            <RuntimeRequirements SupportPath="./Contents/docs" OS="win64" Platform="Maya" SeriesMin="2017" SeriesMax="2017" />
+            <MayaEnv expr="MAYA_PLUG_IN_PATH+:=plug-ins/2017" />
+            <ComponentEntry ModuleName="./Contents/plug-ins/2017/ngSkinTools.mll" />
+        </Components>
+        
+
+        <Components>
+            <RuntimeRequirements SupportPath="./Contents/docs" OS="win64" Platform="Maya" SeriesMin="2018" SeriesMax="2018" />
+            <MayaEnv expr="MAYA_PLUG_IN_PATH+:=plug-ins/2018" />
+            <ComponentEntry ModuleName="./Contents/plug-ins/2018/ngSkinTools.mll" />
+        </Components>
+        
+
+        <Components>
+            <RuntimeRequirements SupportPath="./Contents/docs" OS="win64" Platform="Maya" SeriesMin="2019" SeriesMax="2019" />
+            <MayaEnv expr="MAYA_PLUG_IN_PATH+:=plug-ins/2019" />
+            <ComponentEntry ModuleName="./Contents/plug-ins/2019/ngSkinTools.mll" />
+        </Components>
+        
+
+</ApplicationPackage>

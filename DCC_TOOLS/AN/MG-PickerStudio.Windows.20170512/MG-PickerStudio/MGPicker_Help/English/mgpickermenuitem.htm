@@ -1,0 +1,569 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>MGPickerMenuItem Command</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="API,menu,menuItem,MGPickerMenuItem &nbsp;command" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "mgpickermenuitem.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="mgpickermenu.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="mgpickerservice.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; height:8px; padding:1px;"><p><span style="font-family: 'Times New Roman'; font-weight: bold;">command</span><span style="font-family: 'Times New Roman';"> (MEL/Python)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; height:48px; padding:1px;"><h1 class="p_Heading1" style="margin: 19px 0px 19px 0px;"><span class="f_Heading1" style="font-size: 24pt; font-family: 'Times New Roman';">MGPickerMenuItem</span></h1>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 14px 0px 0px 0px;"><span style="font-size: 12pt; font-family: 'Times New Roman';">Go to: <a href="mgpickermenuitem.htm#synopsis" class="topiclink">MEL synopsis</a>. <a href="mgpickermenuitem.htm#pysynopsis" class="topiclink">Python synopsis</a>. <a href="mgpickermenuitem.htm#returnvalue" class="topiclink">Return value</a>. <a href="mgpickermenuitem.htm#flags" class="topiclink">Flags</a>. <a href="mgpickermenuitem.htm#examples" class="topiclink">MEL examples</a>. <a href="mgpickermenuitem.htm#pyexamples" class="topiclink">Python examples</a>.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="synopsis"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">MEL Synopsis</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">MGPickerMenuItemItem [-<a href="mgpickermenuitem.htm#addsubmenuitem" class="topiclink">addSubMenuItem</a>] [-<a href="mgpickermenuitem.htm#command" class="topiclink">command</a>] [-<a href="mgpickermenuitem.htm#commandtype" class="topiclink">commandType</a>] [-<a href="mgpickermenuitem.htm#divider" class="topiclink">divider</a>] [-<a href="mgpickermenuitem.htm#dividerlabel" class="topiclink">dividerLabel</a>] [-<a href="mgpickermenuitem.htm#exist" class="topiclink">exist</a>] [-<a href="mgpickermenuitem.htm#image" class="topiclink">image</a>] [-<a href="mgpickermenuitem.htm#insertsubmenuitem" class="topiclink">insertSubMenuItem</a>] [-<a href="mgpickermenuitem.htm#label" class="topiclink">label</a>] [-<a href="mgpickermenuitem.htm#longdivider" class="topiclink">longDivider</a>] [-<a href="mgpickermenuitem.htm#numberofsubitems" class="topiclink">numberOfSubItems</a>] [-<a href="mgpickermenuitem.htm#parent" class="topiclink">parent</a>] [-<a href="mgpickermenuitem.htm#radialposition" class="topiclink">radialPosition</a>] [-<a href="mgpickermenuitem.htm#subitemarray" class="topiclink">subItemArray</a>] [-<a href="mgpickermenuitem.htm#submenu" class="topiclink">subMenu</a>] [-<a href="mgpickermenuitem.htm#submenuitem" class="topiclink">subMenuItem</a>] [-<a href="mgpickermenuitem.htm#view" class="topiclink">view</a>] menuItemIDString</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="pysynopsis"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">Python Synopsis</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">MGPickerMenuItem (menuItemIDString, [<a href="mgpickermenuitem.htm#addsubmenuitem" class="topiclink">addSubMenuItem</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">(string, string, string, string, string)</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#command" class="topiclink">command</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#commandtype" class="topiclink">commandType</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#divider" class="topiclink">divider</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#dividerlabel" class="topiclink">dividerLabel</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#exist" class="topiclink">exist</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#image" class="topiclink">image</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#insertsubmenuitem" class="topiclink">insertSubMenuItem</a>=(int, </span><span style="font-family: 'Courier New'; font-style: italic;">string, string, string, string, string)</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#label" class="topiclink">label</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#longdivider" class="topiclink">longDivider</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#numberofsubitems" class="topiclink">numberOfSubItems</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">],[<a href="mgpickermenuitem.htm#parent" class="topiclink">parent</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">],[<a href="mgpickermenuitem.htm#radialposition" class="topiclink">radialPosition</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#subitemarray" class="topiclink">subItemArray</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#submenu" class="topiclink">subMenu</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#submenuitem" class="topiclink">subMenuItem</a>=int], [<a href="mgpickermenuitem.htm#view" class="topiclink">view</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">])</span></p>
+<p style="margin: 14px 0px 14px 0px;"><span style="font-size: 12pt; font-family: 'Times New Roman';">MGPickerMenuItem is </span><span style="font-size: 12pt; font-family: 'Times New Roman'; font-weight: bold;">NOT undoable</span><span style="font-size: 12pt; font-family: 'Times New Roman';">, </span><span style="font-size: 12pt; font-family: 'Times New Roman';">queryable, and editable.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">This command create / queries / edits picker menu.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">You always need to specify the picker menu id string to query / edit it. </span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">In create mode, it will add a picker menu item for the parent menu / menuitem specified by -parent flag.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">A picker menu item id string is something like:</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Times New Roman';">commandButton1.rightmenu[0] &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//The first menu item in right click menu for the picker item of id &quot;commandButton1&quot;</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Times New Roman';">selectButton1.leftmenu[1][3] &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//The 4th sub menu item in second menuitem in left click menu for the picker item of id &quot;selectButton1&quot;</span></p>
+<p><span style="color: #000000;">&nbsp;</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">For now in picker &amp; in API, only one level of sub menu supported.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="returnvalue"></a><span style="font-size: 18pt; font-family: 'Times New Roman'; font-weight: bold;">Return value</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 19px 0px 0px 0px;"><table style="border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:100%; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Usually it returns the menu item id string or the sub-menu item id string if it is for adding / inserting sub menu item.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 19px 0px 19px 0px;"><a id="flags"></a><span style="font-size: 18pt; font-family: 'Times New Roman'; font-weight: bold;">Flags</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickermenuitem.htm#addsubmenuitem" class="topiclink">addSubMenuItem</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickermenuitem.htm#command" class="topiclink">command</a>, <a href="mgpickermenuitem.htm#commandtype" class="topiclink">commandType</a>, <a href="mgpickermenuitem.htm#divider" class="topiclink">divider</a>, <a href="mgpickermenuitem.htm#dividerlabel" class="topiclink">dividerLabel</a>, <a href="mgpickermenuitem.htm#exist" class="topiclink">exist</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickermenuitem.htm#image" class="topiclink">image</a>, <a href="mgpickermenuitem.htm#insertsubmenuitem" class="topiclink">insertSubMenuItem</a>, <a href="mgpickermenuitem.htm#label" class="topiclink">label</a>, <a href="mgpickermenuitem.htm#longdivider" class="topiclink">longDivider</a>, <a href="mgpickermenuitem.htm#numberofsubitems" class="topiclink">numberOfSubItems</a></span><span style="font-size: 12pt; font-family: 'Times New Roman';">, <a href="mgpickermenuitem.htm#parent" class="topiclink">parent</a>, <a href="mgpickermenuitem.htm#radialposition" class="topiclink">radialPosition</a>, <a href="mgpickermenuitem.htm#subitemarray" class="topiclink">subItemArray</a>, <a href="mgpickermenuitem.htm#submenu" class="topiclink">subMenu</a>, <a href="mgpickermenuitem.htm#submenuitem" class="topiclink">subMenuItem</a>, <a href="mgpickermenuitem.htm#view" class="topiclink">view</a>, </span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman'; font-weight: bold;">Long name (short name)</span></p>
+</td>
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic; font-weight: bold;">Argument types</span></p>
+</td>
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman'; font-weight: bold;">Properties</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="addsubmenuitem"></a><span style="font-family: 'Courier New'; font-weight: bold;">-addSubMenuItem</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-asi</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string string script string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Add a sub menu item to current menu item. If current menu item is already a sub menu item, it will do nothing and return empty id string, since MGPicker only support one level of sub-menu.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Specify label, icon path, command type (&quot;mel&quot; or &quot;python&quot;), command and the radial position for marking menu position (&quot;N&quot;, &quot;NW&quot;, &quot;W&quot;, &quot;SW&quot;, &quot;S&quot;, &quot;SE&quot;, &quot;E&quot; or &quot;NE&quot;).</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">* Keep in mind that, if this flag is used in create mode, it will still return the added sub-menu item id instead of current menu item id.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">* Also if current menu item is already a sub menu item, this flag won't work and just return empty id.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="command"></a><span style="font-family: 'Courier New'; font-weight: bold;">-command</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-c</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">The command of menu item.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="commandtype"></a><span style="font-family: 'Courier New'; font-weight: bold;">-commandType</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ct</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">The command type of menu item: &quot;mel&quot; or &nbsp;&quot;python&quot;.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="divider"></a><span style="font-family: 'Courier New'; font-weight: bold;">-divider</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-d</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">The menu item is a separator or not.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="deleteallsubitems"></a><span style="font-family: 'Courier New'; font-weight: bold;">-deleteAllSubItems</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-dai</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Delete all sub menu items of current menu item.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="dividerlabel"></a><span style="font-family: 'Courier New'; font-weight: bold;">-dividerLabel</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-dl</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">The divider label of current menu item. Only shown when menu item is a separator (dividier=True).</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="exist"></a><span style="font-family: 'Courier New'; font-weight: bold;">-exist</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ex</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a query only flag that can be used to query for the existence of a specific picker menu item.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="image"></a><span style="font-family: 'Courier New'; font-weight: bold;">-image</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-i</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">The icon path for the menu item.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="insertsubmenuitem"></a><span style="font-family: 'Courier New'; font-weight: bold;">-insertSubMenuItem</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-isi</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int string string string script string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Insert a sub-menu item to current picker menu item at certain index. Specify index small than 0 will just prepend sub-menu item at first index, index larger than last item index will just append sub-menu item.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Specify index, label, icon path, command type (&quot;mel&quot; or &quot;python&quot;), command and the radial position for marking menu position (&quot;N&quot;, &quot;NW&quot;, &quot;W&quot;, &quot;SW&quot;, &quot;S&quot;, &quot;SE&quot;, &quot;E&quot; or &quot;NE&quot;).</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">* Keep in mind that, if this flag is used in create mode, it will still return the inserted sub-menu item id instead of current menu item id.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="label"></a><span style="font-family: 'Courier New'; font-weight: bold;">-label</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-l</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">The label string of the menu item.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="longdivider"></a><span style="font-family: 'Courier New'; font-weight: bold;">-longDivider</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ld</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Whether or not it should be a long divider if the menu item is a separator (dividier=True).</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="numberofsubitems"></a><span style="font-family: 'Courier New'; font-weight: bold;">-numberOfSubItems</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-nsi</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">The number of sub menu items.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="parent"></a><span style="font-family: 'Courier New'; font-weight: bold;">-parent</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-p</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">In query mode, it returns the picker menu / menu item id this menu item belong to. In create mode, this is a must have flag, to specify for which menu / menu item we wanna add a menu item.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="radialposition"></a><span style="font-family: 'Courier New'; font-weight: bold;">-radialPosition</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-rp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 12pt; font-family: 'Times New Roman';">The radial position for the menu item: &quot;N&quot;, &quot;NW&quot;, &quot;W&quot;, &quot;SW&quot;, &quot;S&quot;, &quot;SE&quot;, &quot;E&quot; or &quot;NE&quot;. You still need to turn on the markingMenu flag for the menu to make it take effect.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="subitemarray"></a><span style="font-family: 'Courier New'; font-weight: bold;">-subItemArray</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sia</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 12pt; font-family: 'Times New Roman';">Return list of sub menu item id string array.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="submenu"></a><span style="font-family: 'Courier New'; font-weight: bold;">-subMenu</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sm</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Decide current menu item should be a sub menu that can contain sub-menu items. If current menu item is already a sub-menu item, this flag takes no effect.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="submenuitem"></a><span style="font-family: 'Courier New'; font-weight: bold;">-subMenuItem</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-smi</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a query only flag, for retrieving the sub menu item id string at specific index.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="view"></a><span style="font-family: 'Courier New'; font-weight: bold;">-view</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-v</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 12pt; font-family: 'Times New Roman';">Specify which picker view we wanna create / edit / query the picker menu item. </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+</tr>
+</table>
+</div>
+<hr style="height:2px; color:#cccccc; border-width:0px; background-color:#cccccc;" /><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 10px 0px 0px 0px;"><table style="background-color:#eeeeee; border:none; border-spacing:1px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:4px;"><p><img src="create.gif" width="13" height="16" alt="create" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';">Flag can appear in Create mode of command</span></p>
+</td>
+<td style="vertical-align:top; padding:4px;"><p><img src="edit.gif" width="13" height="16" alt="edit" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';">Flag can appear in Edit mode of command</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:4px;"><p><img src="query.gif" width="13" height="16" alt="query" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';">Flag can appear in Query mode of command</span></p>
+</td>
+<td style="vertical-align:top; padding:4px;"><p><img src="multiuse.gif" width="13" height="16" alt="multiuse" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';">Flag can be used more than once in a command.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 19px 0px 0px 0px;"><a id="examples"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">MEL examples</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">//&nbsp;You&nbsp;must&nbsp;make&nbsp;sure&nbsp;the&nbsp;picker&nbsp;item:&nbsp;commandButton1&nbsp;is&nbsp;already&nbsp;in&nbsp;scene&nbsp;in&nbsp;order&nbsp;to&nbsp;test&nbsp;these&nbsp;codes.</span><br />
+<span style="font-family: 'Courier New';">//&nbsp;To&nbsp;form&nbsp;a&nbsp;picker&nbsp;menu&nbsp;id,&nbsp;use&nbsp;pickerItemId.leftmenu&nbsp;/&nbsp;pickerItemId.rightmenu</span><br />
+<span style="font-family: 'Courier New';">string&nbsp;$cmdButton&nbsp;=&nbsp;&quot;commandButton1&quot;;</span><br />
+<span style="font-family: 'Courier New';">string&nbsp;$rightMenu&nbsp;=&nbsp;`MGPickerMenu&nbsp;-p&nbsp;$cmdButton&nbsp;-m&nbsp;&quot;rightmenu&quot;`; &nbsp; &nbsp; &nbsp; &nbsp;//This&nbsp;just&nbsp;retrieves&nbsp;the&nbsp;id&nbsp;&quot;commandButton1.rightmenu&quot;&nbsp;instead&nbsp;of&nbsp;creating&nbsp;it.</span><br />
+<span style="font-family: 'Courier New';">&nbsp;</span><br />
+<span style="font-family: 'Courier New';">//&nbsp;We&nbsp;get&nbsp;a&nbsp;menu&nbsp;item&nbsp;id&nbsp;via&nbsp;-addMenuItem&nbsp;or&nbsp;-insertMenuItem&nbsp;flag&nbsp;of&nbsp;MGPickerMenu&nbsp;command:</span><br />
+<span style="font-family: 'Courier New';">string&nbsp;$menuItem0&nbsp;=&nbsp;`MGPickerMenu&nbsp;-e&nbsp;-addMenuItem&nbsp;&quot;First&nbsp;Menu&nbsp;Item&quot;&nbsp;&quot;/path/to/icon0.png&quot;&nbsp;&quot;mel&quot;&nbsp;&quot;print&nbsp;\&quot;It&nbsp;works!\&quot;&quot;&nbsp;&quot;N&quot;&nbsp;$rightMenu`;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;</span><br />
+<span style="font-family: 'Courier New';">//&nbsp;We&nbsp;can&nbsp;add&nbsp;a&nbsp;menu&nbsp;item&nbsp;using&nbsp;MGPickerMenuItem&nbsp;command:</span><br />
+<span style="font-family: 'Courier New';">string&nbsp;$menuItem1&nbsp;=&nbsp;`MGPickerMenuItem&nbsp;-parent&nbsp;$rightMenu&nbsp;</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">&nbsp;&nbsp;-label&nbsp;&quot;Second&nbsp;Menu&nbsp;Item&quot;&nbsp;</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">&nbsp;&nbsp;-image&nbsp;&quot;/path/to/icon1.png&quot;&nbsp;</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">&nbsp;&nbsp;-commandType&nbsp;&quot;mel&quot;&nbsp;</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">&nbsp;&nbsp;-command&nbsp;&quot;print&nbsp;\&quot;The&nbsp;MGPickerMenuItem&nbsp;in&nbsp;create&nbsp;mode&nbsp;works&nbsp;!\&quot;&quot;&nbsp;</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">&nbsp;&nbsp;-radialPosition&nbsp;&quot;N&quot;`;</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">//&nbsp;We&nbsp;can&nbsp;also&nbsp;make&nbsp;a&nbsp;menu&nbsp;item&nbsp;a&nbsp;sub&nbsp;menu:</span><br />
+<span style="font-family: 'Courier New';">MGPickerMenuItem&nbsp;-e&nbsp;-subMenu&nbsp;1&nbsp;$menuItem0;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;</span><br />
+<span style="font-family: 'Courier New';">//&nbsp;Like&nbsp;we&nbsp;did&nbsp;above,&nbsp;add&nbsp;submenu&nbsp;items:</span><br />
+<span style="font-family: 'Courier New';">string&nbsp;$subMenuItem1&nbsp;=&nbsp;`MGPickerMenuItem&nbsp;-e&nbsp;-addSubMenuItem&nbsp;&quot;First&nbsp;SubMenu&nbsp;Item&quot;&nbsp;&quot;/path/to/icon.png&quot;&nbsp;&quot;python&quot;&nbsp;&quot;print&nbsp;'Sub&nbsp;menu&nbsp;item&nbsp;works!'&quot;&nbsp;&quot;&quot;&nbsp;$menuItem0`;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;</span><br />
+<span style="font-family: 'Courier New';">//&nbsp;We&nbsp;can&nbsp;also&nbsp;add&nbsp;a&nbsp;sub-menu&nbsp;item&nbsp;using&nbsp;MGPickerMenuItem&nbsp;command:</span><br />
+<span style="font-family: 'Courier New';">string&nbsp;$subMenuItem2&nbsp;=&nbsp;`MGPickerMenuItem&nbsp;-parent&nbsp;$menuItem0&nbsp;</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">&nbsp;&nbsp;-label&nbsp;&quot;Second&nbsp;SubMenu&nbsp;Item&quot;&nbsp;</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">&nbsp;&nbsp;-image&nbsp;&quot;/path/to/icon.png&quot;&nbsp;</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">&nbsp;&nbsp;-commandType&nbsp;&quot;python&quot;&nbsp;</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">&nbsp;&nbsp;-command&nbsp;&quot;print&nbsp;'The&nbsp;MGPickerMenuItem&nbsp;in&nbsp;create&nbsp;mode&nbsp;also&nbsp;works&nbsp;for&nbsp;submenu&nbsp;item!'&quot;`;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="pyexamples"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">Python examples</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">import maya.cmds as cmd</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">#&nbsp;You&nbsp;must&nbsp;make&nbsp;sure&nbsp;the&nbsp;picker&nbsp;item:&nbsp;commandButton1&nbsp;is&nbsp;already&nbsp;in&nbsp;scene&nbsp;in&nbsp;order&nbsp;to&nbsp;test&nbsp;these&nbsp;codes.</span><br />
+<span style="font-family: 'Courier New';">#&nbsp;To&nbsp;form&nbsp;a&nbsp;picker&nbsp;menu&nbsp;id,&nbsp;use&nbsp;pickerItemId.leftmenu&nbsp;/&nbsp;pickerItemId.rightmenu</span><br />
+<span style="font-family: 'Courier New';">cmdButton&nbsp;=&nbsp;'commandButton1'</span><br />
+<span style="font-family: 'Courier New';">rightMenu&nbsp;=&nbsp;cmds.MGPickerMenu(p=cmdButton,&nbsp;mode='rightmenu')&nbsp;#&nbsp;This&nbsp;just&nbsp;retrieves&nbsp;the&nbsp;id&nbsp;&quot;commandButton1.rightmenu&quot;&nbsp;instead&nbsp;of&nbsp;creating&nbsp;it.</span><br />
+<span style="font-family: 'Courier New';">&nbsp;</span><br />
+<span style="font-family: 'Courier New';">#&nbsp;&nbsp;We&nbsp;get&nbsp;a&nbsp;menu&nbsp;item&nbsp;id&nbsp;via&nbsp;-addMenuItem&nbsp;or&nbsp;-insertMenuItem&nbsp;flag&nbsp;of&nbsp;MGPickerMenu&nbsp;command:</span><br />
+<span style="font-family: 'Courier New';">menuItem0&nbsp;=&nbsp;cmds.MGPickerMenu(rightMenu,&nbsp;e=True,&nbsp;addMenuItem=('First&nbsp;Menu&nbsp;Item',&nbsp;'/path/to/icon0.png',&nbsp;'mel',&nbsp;'print&nbsp;&quot;It&nbsp;works!&quot;',&nbsp;'N'))</span><br />
+<span style="font-family: 'Courier New';">#&nbsp;We&nbsp;can&nbsp;add&nbsp;a&nbsp;menu&nbsp;item&nbsp;using&nbsp;MGPickerMenuItem&nbsp;command:</span><br />
+<span style="font-family: 'Courier New';">menuItem1&nbsp;=&nbsp;cmds.MGPickerMenuItem(parent=rightMenu,&nbsp;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label='Second&nbsp;Menu&nbsp;Item',&nbsp;&nbsp;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image='/path/to/icon1.png',&nbsp;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;commandType='mel',&nbsp;&nbsp;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;command='print&nbsp;&quot;The&nbsp;MGPickerMenuItem&nbsp;in&nbsp;create&nbsp;mode&nbsp;works&nbsp;!&quot;')</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">#&nbsp;We&nbsp;can&nbsp;also&nbsp;make&nbsp;a&nbsp;menu&nbsp;item&nbsp;a&nbsp;sub&nbsp;menu:</span><br />
+<span style="font-family: 'Courier New';">cmds.MGPickerMenuItem(menuItem0,&nbsp;e=True,&nbsp;subMenu=True)</span><br />
+<span style="font-family: 'Courier New';">&nbsp;</span><br />
+<span style="font-family: 'Courier New';">#&nbsp;Like&nbsp;we&nbsp;did&nbsp;above,&nbsp;add&nbsp;submenu&nbsp;items:</span><br />
+<span style="font-family: 'Courier New';">subMenuItem1&nbsp;=&nbsp;cmds.MGPickerMenuItem(menuItem0,&nbsp;e=True,&nbsp;addSubMenuItem=('First&nbsp;SubMenu&nbsp;Item',&nbsp;'/path/to/icon0.png',&nbsp;'mel',&nbsp;'print&nbsp;&quot;Sub&nbsp;menu&nbsp;works!&quot;',&nbsp;''))</span><br />
+<span style="font-family: 'Courier New';">&nbsp;</span><br />
+<span style="font-family: 'Courier New';">#&nbsp;We&nbsp;can&nbsp;also&nbsp;add&nbsp;a&nbsp;sub-menu&nbsp;item&nbsp;using&nbsp;MGPickerMenuItem&nbsp;command:</span><br />
+<span style="font-family: 'Courier New';">subMenuItem2&nbsp;=&nbsp;cmds.MGPickerMenuItem(parent=menuItem0,&nbsp;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label='Second&nbsp;SubMenu&nbsp;Item',&nbsp;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image='/path/to/icon.png',&nbsp;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;commandType='python',&nbsp;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;command=&quot;print&nbsp;'The&nbsp;MGPickerMenuItem&nbsp;in&nbsp;create&nbsp;mode&nbsp;also&nbsp;works&nbsp;for&nbsp;submenu&nbsp;item!'&quot;)</span></p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="mgpickermenu.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="mgpickerservice.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

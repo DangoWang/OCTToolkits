@@ -1,0 +1,71 @@
+#! D:/Nuke/5.2v3_x32/Nuke5.2.exe -nx
+version 5.2300
+Gizmo {
+ inputs 2
+ tile_color 0xff0000ff
+ addUserKnob {20 ctrl l Controls}
+ addUserKnob {41 chan l Channel T Shuffle1.in}
+ addUserKnob {6 norm l Normalize +STARTLINE}
+ norm true
+}
+ Input {
+  inputs 0
+  name A
+  xpos -291
+  ypos -147
+ }
+ Shuffle {
+  name Shuffle1
+  xpos -291
+  ypos -107
+ }
+ set C10203d68 [stack 0]
+set N10203d68 [stack 0]
+ Input {
+  inputs 0
+  name B
+  xpos -408
+  ypos -147
+  number 1
+ }
+clone $C10203d68 {
+  xpos -408
+  ypos -107
+  selected false
+ }
+set N1017c5b0 [stack 0]
+ MergeExpression {
+  inputs 2
+  expr0 abs(Br-Ar)>0?1:0
+  expr1 abs(Bg-Ag)>0?1:0
+  expr2 abs(Bb-Ab)>0?1:0
+  expr3 abs(Ba-Aa)>0?1:0
+  name MergeExpression1
+  xpos -291
+  ypos -66
+ }
+push $N10203d68
+push $N1017c5b0
+ MergeExpression {
+  inputs 2
+  expr0 abs(Br-Ar)
+  expr1 abs(Bg-Ag)
+  expr2 abs(Bb-Ab)
+  expr3 abs(Ba-Aa)
+  name MergeExpression2
+  xpos -408
+  ypos -65
+ }
+ Switch {
+  inputs 2
+  which {{norm}}
+  name Switch1
+  xpos -348
+  ypos -13
+ }
+ Output {
+  name Output1
+  xpos -348
+  ypos 55
+ }
+end_group

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Picker Tool Intergration</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="distribute picker,pipeline" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "pickertoolintergration.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="distributeinpipeline.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="publishinternet.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">Tips for controlling different MG-Picker Studio versions:</span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span><span style="font-weight: bold;">Why we need to that:</span><br />
+Big studio might has their own software packing &amp; managing tool and version controlling system. <br />
+So they need to able to update MG-Picker Studio to use the newly-downloaded latest version, or roll back to the older version of it.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span><span style="font-weight: bold;">The problem we face:</span><br />
+<span style="font-size: 9pt;">Currently in maya 2017+, MG-Picker Studio use maya's workspace control to autoload itself for a new maya session.</span><br />
+<span style="font-size: 9pt;">Problem is, for the ui script, it was hard-coded to the actually path to the loader mel, it source the mel and call a mel procedure to launch the UI.</span><br />
+<span style="font-size: 9pt;">Next time you change to use new version of MG-Picker Studio, but the workspace control config still point to the old mel path.</span><br />
+<span style="font-size: 9pt;">So that means in maya, you might have the old version already loaded, yet try to load new version of tool, which might results in error. </span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span><span style="font-weight: bold;">How to solve the problem:</span><br />
+Starting from MG-Picker Studio v1.83, setup env variable called: &nbsp;MGPICKER_PROGRAM_FILE_DIR , <br />
+set its value to the path to MGPicker_Program directory, which contains the loader mel file called &quot;MGPicker_WrittenByMiguel.mel&quot;.<br />
+The test of env is included in ui script of workspaceControl so will be used prior to original mel path. example in python code:<br />
+<span style="color: #748c43;">import os</span><br />
+<span style="color: #748c43;">os.environ[&quot;MGPICKER_PROGRAM_FILE_PATH&quot;] = '/path/to/MGPicker_Program'</span><br />
+* For maya 2016 or earlier, the feature is not supported, you need to uninstall and reinstall the tool.</p><p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px -11px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">How to setup different config root dir:</span><br />
+Starting from MG-Picker Studio v1.83, setup env variable called: &nbsp;MGPICKER_USER_CONFIG_DIR , to determine where the configuration files go.<br />
+you can also setup in MGPicker_Program/ServerConfig/UserConfig_Position.txt, but setting the env has higher precedence over the setting in UserConfig_Position.txt.<br />
+Possible value for the environment variables are:<br />
+Any absolute path<br />
+<span style="font-size: 9pt;">$UserAppDir : &nbsp; &nbsp;Result directory might be &quot;My Documents/maya/MG_PickerUserConfig&quot;, it takes effects to all local maya versions.</span><br />
+<span style="font-size: 9pt;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 9pt;">$UserScriptDir: &nbsp;Result directory might be &quot;My Documents/maya/2016/scripts/MG-PickerStudio/MGPicker_UserConfig&quot;, as shown in the example, it only take effects to local maya 2016.</span><br />
+* You must restart maya in order to make that take effect.</p><p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px -11px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">How to setup MG-LicenceConnector dir:</span><br />
+Starting from MG-Picker Studio v1.83, setup env variable called: &nbsp;MGPICKER_FLOAT_LIC_CONNECTOR_DIR , to the path that contains MG-LicenceConnector executable.<br />
+you can also setup in MGPicker_Program/ServerConfig/MG_LicenceConnector.txt, but setting the env has higher precedence over the setting in MG_LicenceConnector.txt.</p>
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="distributeinpipeline.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="publishinternet.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

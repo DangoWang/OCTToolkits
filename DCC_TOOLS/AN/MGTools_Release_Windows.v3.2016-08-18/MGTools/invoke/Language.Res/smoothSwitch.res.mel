@@ -1,0 +1,33 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+//`MG_DualLan "relocator.refresh"`
+//`MG_DualLanFormat_1 "smoothSwitch.noExists.war" repVar`
+MG_displayEN "smoothSwitch.title" "MG-SmothSwitch..";
+MG_displayEN "smoothSwitch.anno" "Switch PolySmooth values of your scene quickly.";
+MG_displayEN "smoothSwitch.uiTitle" "MG-SmothSwitch";
+MG_displayEN "smoothSwitch.allItem" "AllItem";
+MG_displayEN "smoothSwitch.onlyS" "OnlySmooth:";
+MG_displayEN "smoothSwitch.ignore" "Ignore:";
+MG_displayEN "smoothSwitch.refAnno" " the reference path include:";
+MG_displayEN "smoothSwitch.allOn" "All On";
+MG_displayEN "smoothSwitch.allOff" "All Off";
+MG_displayEN "smoothSwitch.Invert" "Invert";
+MG_displayEN "smoothSwitch.allOn.mi" "Check All On";
+MG_displayEN "smoothSwitch.allOff.mi" "Check All Off";
+MG_displayEN "smoothSwitch.Invert.mi" "Check All Invert";
+MG_displayEN "smoothSwitch.clear" "Clear Keyframe on Smooth Attribute";
+MG_displayEN "smoothSwitch.between" "Between";
+MG_displayEN "smoothSwitch.and" "and";
+MG_displayEN "smoothSwitch.Switch" "Switch !!";
+MG_displayEN "smoothSwitch.SelNode" "Select Node";
+MG_displayEN "smoothSwitch.noExists.war" "The object \"#\" is no longer exists.";
+MG_displayEN "smoothSwitch.noAttrExists.war" "No attribute called  \"#\" exists.";
+MG_displayEN "smoothSwitch.attrNoSettable.war" "The attribute # is not settable.";
+MG_displayEN "smoothSwitch.noItemCheck.war" "No items checked on.";

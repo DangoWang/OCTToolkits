@@ -1,0 +1,74 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>互相约束</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Constraint" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "bioconstraint.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">互相约束</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="uvconstraint.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="findjointviavertex.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p>&nbsp;</p>
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 11pt;"> 互相约束功能</span><span style="font-weight: bold; color: #191817;">：</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:51px; padding:0px;"><p style="text-align: center;"><img src="bioconstrainticon.gif" width="32" height="32" alt="bioConstraintIcon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:13px; padding:0px;"><br />
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;">用Maya默认的节点生成一个装置系统，让两个物件产生互相约束的关系.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> 访问方式：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#3c3c39;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="color: #3c3c39;">在MGTools主工具条的约束工具图标上右键，可以访问到。</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#3c3c39;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="color: #3c3c39;">在约束工具条上点击</span><img src="bioconstrainticon.gif" width="32" height="32" alt="bioConstraintIcon" style="border:none" /><span style="color: #3c3c39;">图标。</span></p><p style="line-height: 1.50;">&nbsp;</p>
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #191817;">用法：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">1.</span><span style="color: #3c3c39;">选择要互相约束的两个变形节点，即可被约束及约束的两个对象。先选择的对象将先默认为约束体。</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">2.</span><span style="color: #3c3c39;">点击</span><img src="bioconstrainticon.gif" width="32" height="32" alt="bioConstraintIcon" style="border:none" /><span style="color: #3c3c39;">按钮，生成互相约束的装置。</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">3.</span><span style="color: #3c3c39;">场景里两个物件的轴心位置，分别生成两个十字架。这是用来key帧及切换约束关系的控制器。</span><br />
+<span style="color: #3c3c39;">&nbsp;</span></p><p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示：先选择对象那边的新控制器，会有一个属性BioConstraint_Weight，这个为1则为当前控制器约束另一控制器，0则表示被约束。</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">两个新控制器上都有一个示意性的属性： BioConstraint_Master, 值为Yes则表示当前为约束体，No则表示当前为被约束体。</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="warning.gif" width="16" height="16" alt="Warning" style="border:none" /><span class="f_ImageCaption"> &nbsp; </span><span style="font-size: 9pt; color: #ff0000;">互相约束在实际动画流程中要注意的：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 26px;"><span style="font-size:9pt; font-family: 'Arial';color:#ff0000;display:inline-block;width:13px;margin-left:-13px">1.</span><span style="font-size: 9pt; color: #ff0000;">避免权重切换的跳动： 要避免在切换互相约束权重在切换时的跳动，可以选择两个十字架控制器，在要切换的那一帧同时set key。这样再切换就不会跳了;</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 26px;"><span style="font-size:9pt; font-family: 'Arial';color:#ff0000;display:inline-block;width:13px;margin-left:-13px">2.</span><span style="font-size: 9pt; color: #ff0000;">不用担心原先层级： 如果两个初始选择对象，都有上层级，则生成的控制器也会受其上层级控制器; &nbsp; &nbsp; </span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 26px;"><span style="font-size:9pt; font-family: 'Arial';color:#ff0000;display:inline-block;width:13px;margin-left:-13px">3.</span><span style="font-size: 9pt; color: #ff0000;">生成控制器的通道栏颜色： 默认会是绿色，因为在第-1帧有key一个帧。请保持这个帧的存在，这样在切换时才不会产生奇怪的递进跳动现象。</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 26px;"><span style="font-size:9pt; font-family: 'Arial';color:#ff0000;display:inline-block;width:13px;margin-left:-13px">4.</span><span style="font-size: 9pt; color: #ff0000;">如果想让物体脱离约束关系： 原始所选的两个物件，被加上的都只是正常的父子约束，你可以像对待正常约束那样，切换相应权重，让其脱离这种互为约束的关系。</span></p>
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="uvconstraint.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="findjointviavertex.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

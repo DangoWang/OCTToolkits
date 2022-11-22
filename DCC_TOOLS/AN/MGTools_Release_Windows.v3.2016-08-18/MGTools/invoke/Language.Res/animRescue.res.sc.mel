@@ -1,0 +1,235 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+//MG_DualLan
+MG_displaySC "animRescue.recoveryWizard.doitAnnT" "请点击 \"恢复!!\"按钮开始恢复! 祝你好运!!";
+MG_displaySC "animRescue.recoveryWizard.done.rep"  "恢复操作完成!! 希望它帮上忙 !";
+
+MG_displaySC "animRescue.recoveryWizard.doit.btn" "恢复!!";
+
+MG_displaySC "animRescue.aR.next.btn.lbl" "下一步 ->";
+MG_displaySC "animRescue.aR.prev.btn.lbl" "<- 上一步";
+MG_displaySC "animRescue.aR.finish.btn.lbl" "完成";
+MG_displaySC "animRescue.aR.finish.save.lbl"  "保存设置 !!" ;
+
+MG_displaySC "animRescue.advancedRecovery.ui.title" "AnimRescue v2.0 高级恢复向导";
+MG_displaySC "animRescue.aR.rescuePoint.menu" "恢复点";
+
+MG_displaySC "animRescue.aR.usedRoot.lbl" "备份根目录:";
+MG_displaySC "animRescue.aR.usedRoot.ann" "这里的备份点根目录不会影响实际的备份目录,而是恢复时搜索恢复点的目录.";
+MG_displaySC "animRescue.aR.rep.lbl" "  替换..  ";
+MG_displaySC "animRescue.aR.rep.ann" "将当前用来搜索备份点的根目录设为新目录.";
+MG_displaySC "animRescue.aR.buCons.lbl" "备份约束";
+MG_displaySC "animRescue.aR.buCons.ann" "决定在备份动画的同时是否一起备份约束.";
+
+MG_displaySC "animRescue.aR.add.lbl" "  添加..  ";
+MG_displaySC "animRescue.aR.add.ann" "添加新目录到当前搜索恢复点的目录列表里.";
+MG_displaySC "animRescue.aR.brow.lbl" " 拾取.. ";
+
+MG_displaySC "animRescue.aR.filter.lbl" "步骤 1: 设定搜索条件";
+MG_displaySC "animRescue.aR.filter.ann" "设定搜索条件来限定搜索到的恢复点.";
+MG_displaySC "animRescue.aR.ns.lbl" "名字:";
+MG_displaySC "animRescue.aR.ns.ann" "输入一个名字来限定搜索范围,一般都是要恢复的场景名称,用\" <- \"按钮来快速获取.";
+
+MG_displaySC "animRescue.aR.laterThan.lbl" "晚于:";
+MG_displaySC "animRescue.aR.laterThan.ann" "输入一个完整日期字符(年月日-时分秒),工具将只搜索晚于该日期的恢复点.";
+MG_displaySC "animRescue.aR.ymdHms.lbl" "(年月日-时分秒)";
+MG_displaySC "animRescue.aR.inputDate.ann" "快速输入当前场景日期";
+
+MG_displaySC "animRescue.aR.rescuep.lbl" "步骤 2: 恢复点筛选";
+MG_displaySC "animRescue.aR.rescuep.ann" "筛选出要用的恢复点,打勾的项目才会被使用.";
+MG_displaySC "animRescue.aR.addRP.ann" "点击来手动拾取一个目录来作为一个恢复点.";
+
+MG_displaySC "animRescue.aR.firstStep.annText" "* 所有恢复点打上勾后才会在恢复过程中被使用 *";
+
+
+
+MG_displaySC "animRescue.aR.nsMap.step" "3: Namespace筛选及映射";
+MG_displaySC "animRescue.aR.nsMap.ann" "你可以通过这里决定是否恢复特定角色,及恢复动画到另外的角色.";
+MG_displaySC "animRescue.aR.cons.step" "4: 约束筛选";
+MG_displaySC "animRescue.aR.cons.ann" "来决定要恢复哪些约束节点.";
+
+MG_displaySC "animRescue.aR.before.annText" "* 所有恢复操作不可undo,不过请务必等恢复完后才保存场景(避免影响当前场景日期) *";
+
+MG_displaySC "animRescue.reWizard.ui.title" "AnimRescue v2.0 自动恢复向导";
+
+MG_displaySC "aR.reWizard.step1.anntext01" "<< 点击左图标选择进入动画恢复模式.";
+MG_displaySC "aR.reWizard.step1.anntext02" "  *  它将使用所有之前备份的恢复点.";
+MG_displaySC "aR.reWizard.step1.anntext03" "  *  你必须事先有打开动画实时备份.(使用动画备份向导)";
+MG_displaySC "aR.reWizard.step1.anntext04" "  *  点击 \"下一步->\" 按钮来继续.";
+
+MG_displaySC "aR.reWizard.step2.anntext01" "* 如果你要恢复自动备份场景模式的场景:";
+MG_displaySC "aR.reWizard.step2.anntext02" "  *  直接在你之前所设置的场景定时备份目录下找到相应的Maya场景.";
+MG_displaySC "aR.reWizard.step2.anntext03"  "  *  它会在\"工程目录/autosave\",\"自定义目录\"或者\"场景目录/autosave\".";
+MG_displaySC "aR.reWizard.step2.anntext04" "  *  你必须事先有打开场景自动保存备份.";
+
+MG_displaySC "aR.reWizard.step3.anntext01" "<< 点击左图标选择进入连接恢复模式.";
+MG_displaySC "aR.reWizard.step3.anntext02" "  *  它搜索场景所有无连接的动画节点,并连回到相对应的物体属性.";
+MG_displaySC "aR.reWizard.step3.anntext03"  "  *  在场景可以被打开但是动画却丢失了的情况有可能会有用.";
+
+MG_displaySC "aR.reWizard.step4.anntext01" "* 要恢复动画,选择下面模式的一种:";
+
+MG_displaySC "aR.reWizard.autoMode.lbl" "自动恢复模式";
+MG_displaySC "aR.reWizard.autoMode.anntext01" "* 在maya崩溃,场景动画未保存的状况时使用.";
+MG_displaySC "aR.reWizard.autoMode.anntext02" 	"* 它将当前场景日期与恢复点日期进行比较,只要比当\n   前场景日期更晚的恢复点才会被使用来恢复.";
+MG_displaySC "aR.reWizard.autoMode.anntext03" 	"* 恢复完成后,你可能需要手动完成一些未key帧的属\n   性值改变.";
+MG_displaySC "aR.reWizard.autoMode.anntext04" 	"* 恢复完成后,可能需要手动完成除K帧,约束外的操作.";
+
+
+MG_displaySC "aR.reWizard.advMode.lbl" "高级恢复模式";
+MG_displaySC "aR.reWizard.advMode.anntext01" "* 在这个模式里你可以自定时间阀值,将动画恢复给不\n   同角色及自定义其它高级选项.";
+
+MG_displaySC "aR.reWizard.connMode.lbl" "* 动画连接恢复模式";
+MG_displaySC "aR.reWizard.connMode.anntext00"  "* 有时场景是可以打开并且动画节点有被保存.但由于一\n    些原因, 节点与相应属性的连接断掉了.(有时是因为某\n    reference角色读不进来,或者是场景没有被保存完整)";
+MG_displaySC "aR.reWizard.connMode.anntext01"  "* 不能保证它有用,因为那取决于当前场景还有多少可恢\n    复的动画节点随场景实际保存着.";
+MG_displaySC "aR.reWizard.connMode.anntext02"  "* 下面状况下该模式比较有用:场景里某reference读不\n    进来, 所以你需要叫一个新的进来,结果需要把旧动画\n    连到新叫进的reference对象上.(使用接下来的namespace\n    映射设置)"	;				
+MG_displaySC "aR.reWizard.connMode.anntext03" "* 这个工具只恢复一般的动画节点而非驱动关键帧节点\n    的连接.";
+//656
+MG_displaySC "aR.reWizard.autoMode.step1.lbl" "1: 打开你所能拿到的最新的场景.";
+MG_displaySC "aR.reWizard.autoMode.step1.anntext01"   "-> 直接恢复完成前都不要重新保存该场景, 因为那样\n     做会使当前场景的日期被改变.";
+MG_displaySC "aR.reWizard.autoMode.step1.anntext02"  "-> 点击右边接钮来快速打开那个场景.(如果还未打开)";
+
+MG_displaySC "aR.reWizard.autoMode.step2.lbl" "2: 选择搜索恢复点的路径.(如果需要)";
+MG_displaySC "aR.reWizard.autoMode.step2.anntext01"  "-> 这个设置不会影响你实际的实时备份路径,这个只是暂用的\n     恢复点搜索路径.";
+
+MG_displaySC "aR.reWizard.autoMode.step3.lbl" "3: 输入一个筛选字符窜:";
+MG_displaySC "aR.reWizard.autoMode.step3.anntext00" "-> 这个字符窜将用来搜索恢复点. 请输入一个不含版本号的\n    场景名称,如果想筛选严格点,则包含版本号.";
+MG_displaySC "aR.reWizard.autoMode.step3.anntext01" "-> 点击左边按钮来快速获取恢复点的预计数目.点击\n    \"获取\" 按钮来快速将当前场景的名称输入.";
+MG_displaySC "aR.reWizard.autoMode.get.lbl" "获取";
+
+MG_displaySC "aR.reWizard.autoMode.predi.cdate.lbl" "当前场景日期 : N/A";
+MG_displaySC "aR.reWizard.autoMode.predi.rescuep.lbl" "恢复点 : N/A";
+MG_displaySC "aR.reWizard.autoMode.predi.anicf.lbl" "动画节点 : N/A";
+MG_displaySC "aR.reWizard.autoMode.predi.consf.lbl" "约束节点 : N/A";
+
+MG_displaySC "aR.reWizard.autoMode.predi.cdate.rep" "当前场景日期 : ";
+MG_displaySC "aR.reWizard.autoMode.predi.rescuep.rep" "恢复点 : ";
+MG_displaySC "aR.reWizard.autoMode.predi.anicf.rep" "动画节点 : ";
+MG_displaySC "aR.reWizard.autoMode.predi.consf.rep" "约束节点 : ";
+
+
+MG_displaySC "aR.reWizard.connMode.findL.lbl" "* 发现下面动画节点无连接:";
+MG_displaySC "aR.reWizard.connMode.sns.lbl" "源Namespace";
+MG_displaySC "aR.reWizard.connMode.tns.lbl" "映射Namespace";
+MG_displaySC "aR.reWizard.connMode.keepLinked.lbl" "如果属性已有动画则不连接";
+MG_displaySC "aR.reWizard.connMode.keepLinked.ann" "如果目标属性已有动画连接则不要替换那个连接.";
+MG_displaySC "aR.reWizard.connMode.beforeDoit.annText" "* 点击 \"下一步 ->\" 按钮开始连接恢复.";
+MG_displaySC "aR.reWizard.connMode.noWild.war"  "没有发现需要重新连接的动画节点 :(";
+MG_displaySC "aR.reWizard.connMode.stat.skip.Pref" "忽略动画节点:";
+MG_displaySC "aR.reWizard.connMode.stat.reconn.Pref" "已恢复连接:";
+MG_displaySC "aR.reWizard.connMode.stat.skip.detail" "忽略动画节点 (目标属性不存在): ";
+MG_displaySC "aR.reWizard.connMode.stat.skip.alreadyKey" "忽略动画节点 (目标属性已有动画连接): ";
+
+MG_displaySC "aR.reWizard.connMode.done.rep" "因为某些原因,有一些无连接的动画节点被忽略.查看脚本编辑器的历史来了解更多.";
+
+//1075
+MG_displaySC "aR.buWizard.mainUI.title.lbl"  "AnimRescue v2.0 备份向导";
+MG_displaySC "aR.buWizard.mainUI.fiveK.lbl" "  >> 五个保您场景平安的关键:";
+MG_displaySC "aR.buWizard.mainUI.fiveK.text01" "         1: 养成另存习惯,多存是福.";
+MG_displaySC "aR.buWizard.mainUI.fiveK.text02" "         2: 点击\"实时备份需知..\"按钮来了解备份注意事项.";
+MG_displaySC "aR.buWizard.mainUI.fiveK.text03" "         3: 不要手动修改备份文件及其目录(会改变掉日期).";	
+MG_displaySC "aR.buWizard.mainUI.fiveK.text04" "         4: 平日多行善积德积累人品以便老天保佑.";
+
+MG_displaySC "aR.buWizard.range.war.btn.lbl"  "<!> 实时备份需知";
+MG_displaySC "aR.buWizard.range.war.btn.lbl1" "实时备份需知..";
+MG_displaySC "aR.buWizard.range.anText01" "* 动画实时备份只实时备份动画节点信息.\n* 如果你打开备份约束选项,它也会同时备份约束节点信息.";
+MG_displaySC "aR.buWizard.range.anText02"  "* 以下操作/节点当前尚不在备份范围:";
+MG_displaySC "aR.buWizard.range.noRecList" ("1: 用\"Break Connections\"(打断连接)方式在通道栏里删帧的动作.\n"+
+																									"2: 未Key帧的属性值改变.\n"+
+																									"3: Maya2009新加入的动画层.\n"+	
+																									"4: Character Set的动画.\n"+	
+																									"5: Maya2012新加入的路径方式动画.\n"+
+																									"6: 曲线编辑器菜单里的复制/剪切/粘贴帧的功能(时间轴,通道栏的复制粘贴动画是备份的).")	;
+
+MG_displaySC "aR.buWizard.range.warning" "* 潜在风险警告:";
+MG_displaySC "aR.buWizard.range.war.content" ("动画实时备份工具在开发MGTools苹果版的时候经历了大重写跟改进."+
+																						"目前已经变地相当稳定了.经过测试,这是唯一的风险: \n"+
+																						"当你打开了约束备份,然后执行一些约束操作很密集的命令,如一堆的约束创建和删除,然后你快速地按z键撤消,再飞快地按shift+z键重做,"+
+																						"那么maya有可能就会被你玩死了. \n\n总之在maya里飞快地撤消然后接着飞快地重做是比较危险的事,请谨慎尝试.\n");
+
+MG_displaySC "aR.buWizard.mainUI.currentStat.off.lbl" "当前: 关";
+MG_displaySC "aR.buWizard.mainUI.currentStat.on.lbl" "当前: 开";
+
+MG_displaySC "aR.buWizard.mainUI.animRescueStat.off.lbl" "动画备份: 关";
+MG_displaySC "aR.buWizard.mainUI.animRescueStat.on.lbl" "动画备份: 开";
+MG_displaySC "aR.buWizard.mainUI.autosaveStat.off.lbl"  "场景备份: 关";
+MG_displaySC "aR.buWizard.mainUI.autosaveStat.on.lbl" "场景备份: 开";
+
+MG_displaySC "aR.buWizard.mainUI.ar.annText" "<< 点击左图标来开/关动画实时后台备份.";
+MG_displaySC "aR.buWizard.mainUI.ar.annText1" "* 设置备份文件(恢复点)的根目录: (不要频繁地更改这个设置)";
+MG_displaySC "aR.buWizard.mainUI.ar.annText2" "* 它将帮您在后台实时备份您所作的动作修改.";
+MG_displaySC "aR.buWizard.mainUI.ar.annText3" "* 这个模式只保存动画及约束节点,它完全后台运行,调动画时\n毫不受影响.";
+
+MG_displaySC "aR.buWizard.mainUI.restart.war" "      * 第一次打开时必须重启Maya生效,以后不用.";
+MG_displaySC "aR.buWizard.mainUI.sas.annText" "<< 点击左图标来开/关maya场景定时保存.";
+MG_displaySC "aR.buWizard.mainUI.sas.prompt" "保存前提醒";
+MG_displaySC "aR.buWizard.mainUI.sas.limCB" "限制保存个数";
+MG_displaySC "aR.buWizard.mainUI.sas.max" "保存最大个数:";
+MG_displaySC "aR.buWizard.mainUI.sas.timeLap"	"时间间隔(分钟):";
+MG_displaySC "aR.buWizard.mainUI.sas.dest" "目标模式:";
+MG_displaySC "aR.buWizard.mainUI.sas.dest.proj" "工程目录";
+MG_displaySC "aR.buWizard.mainUI.sas.dest.cus" "自定义目录";
+MG_displaySC "aR.buWizard.mainUI.sas.dest.sc" "场景目录";
+MG_displaySC "aR.buWizard.mainUI.notSupport.war" "* 不支持当前Maya版本,\n  只支持Maya8.5及以后的版本.";
+MG_displaySC "aR.buWizard.mainUI.notSupport.lal" "* 动画实时备份功能只支持Maya8.5及以后的版本.";
+
+
+MG_displaySC "aR.buWizard.mainUI.sas.annText1" "*  该功能与Maya 2011的定时保存功能是一样的,除了特有的 \"场景目录\"\n  模式外.(该模式将自动保存场景在\"场景目录/autosave\"下面)";
+MG_displaySC "aR.buWizard.mainUI.sas.annText2" "*  在Maya 2011及其后版本,它实际上是使用maya自带的自动保存\n  功能,只是把第三个模式\"Env Var\"内部更改为 \"场景目录\"模式.";
+MG_displaySC "aR.buWizard.mainUI.sas.annText3" "* 这个模式定时保存整个场景,不过它在前台运行,所以保存时用\n  户需要等待操作完成.";
+
+MG_displaySC "aR.buWizard.nostr.war" "无输入字符";
+MG_displaySC "aR.buWizard.bkFile.war.subf" 	":  备份文件不存在.";
+MG_displaySC "aR.buWizard.slave.war.subf" ":  被约束体不存在: ";
+MG_displaySC "aR.buWizard.master.war.subf" ":  约束体不存在: ";
+
+MG_displaySC "aR.buWizard.cons.skip.war" "忽略约束节点:";
+MG_displaySC "aR.buWizard.cons.done.rep" "恢复约束节点:";
+
+MG_displaySC "aR.buWizard.anic.skip.war" "忽略动画在该属性:";
+MG_displaySC "aR.buWizard.anic.done.rep" "恢复动画在该属性:";
+
+MG_displaySC "aR.recovWizard.errRep.ui.title""有一些备份文件被忽略了:";
+MG_displaySC "aR.recovWizard.errRep.cons.skip.lbl" "这些约束节点被忽略了:";
+MG_displaySC "aR.recovWizard.errRep.attr.skip.lbl" "这些属性的动画被忽略了:";
+
+MG_displaySC "aR.miniToolBox.backup.help.title" "动画备份向导帮助..";
+MG_displaySC "aR.miniToolBox.recover.help.title" "动画自动恢复向导帮助..";
+MG_displaySC "aR.miniToolBox.recoverAdv.help.title" "动画高级恢复向导帮助..";
+
+MG_displaySC "aR.miniToolBox.feature.fl.title" "动画备份及场景备份..";
+MG_displaySC "aR.miniToolBox.backup.btn.title" "动画备份向导..";
+MG_displaySC "aR.miniToolBox.autoRecover.btn.title" "自动恢复向导..";
+MG_displaySC "aR.miniToolBox.advRecover.btn.title""高级恢复向导..";
+
+MG_displaySC "aR.miniToolBox.recoverDoit.nothing.war" "没有发现可以用来恢复的动画/约束数据!";
+
+
+MG_displaySC "aR.clearRescue.war.title" "你确定吗??";
+MG_displaySC "aR.clearRescue.war.01" "将要清除备份根目录下的所有备份点,继续?";
+MG_displaySC "aR.clearRescue.war.02"  "将要清除备份根目录下除了当前场景备份点之外的所有备份点,继续?";
+MG_displaySC "aR.clearRescue.war.sorry" "抱歉~!";
+MG_displaySC "aR.clearRescue.war.03" "有些备份点目录没有被清除.(可能是因为里面含有备份信息之外的文件)你可以手动清除他们.";
+MG_displaySC "aR.clearRescue.manualClear" "手动清除..";
+
+MG_displaySC "aR.clearRescue.mi01" "清除所有备份点..";
+MG_displaySC "aR.clearRescue.mi01.ann" "清除当前备份目录下的全部恢复点";
+MG_displaySC "aR.clearRescue.mi02" "清除除当前场景外所有恢复点..";
+MG_displaySC "aR.clearRescue.mi02.ann" "清除除了当前打开场景的恢复点外的所有场景恢复点.";
+
+MG_displaySC "aR.clearRescue.menu" "清除";
+MG_displaySC "aR.clearRescue.lbl" "清除 ->";
+
+MG_displaySC "aR.pickPath.ann" "请您在下面选择一个目录:(不支持带中文的路径,抱歉)";
+
+MG_displaySC "aR.untitled.war" "如果你要给一个未命名的场景进行恢复,你必须使用高级恢复模式来进行恢复.";
+MG_displaySC "aR.untitled.advMode.lbl" " 使用高级恢复模式 ";
+MG_displaySC "aR.untitled.cancel" " 取消 ";
+
+MG_displaySC "aR.shortName" "MG动画实时备份";
+MG_displaySC "aR.dirNotValid" "你设置为备份点的存储根目录: # \n当前不可用!!";

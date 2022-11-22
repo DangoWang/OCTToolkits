@@ -1,0 +1,238 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+//MG_DualLan
+MG_displayEN "animRescue.recoveryWizard.doitAnnT" " Press the \"Recover!!\" button to start recovering !! Wish you a good luck baby! ";
+MG_displayEN "animRescue.recoveryWizard.done.rep"  "Done ! Check if it helps ! ";
+
+MG_displayEN "animRescue.recoveryWizard.doit.btn" "Recover!!";
+
+MG_displayEN "animRescue.aR.next.btn.lbl" "Next ->";
+MG_displayEN "animRescue.aR.prev.btn.lbl" "<- Previous";
+MG_displayEN "animRescue.aR.finish.btn.lbl" "Finish";
+MG_displayEN "animRescue.aR.finish.save.lbl" "Save Config !!"  ;
+
+MG_displayEN "animRescue.advancedRecovery.ui.title" "AnimRescue v2.0 Advanced Recovery ";
+MG_displayEN "animRescue.aR.rescuePoint.menu" "RescuePoints";
+
+MG_displayEN "animRescue.aR.usedRoot.lbl" "BackupRoot:";
+MG_displayEN "animRescue.aR.usedRoot.ann" "It wont affect the actual backup root setting,but only the directories that this tool searches for the rescuePoints.";
+MG_displayEN "animRescue.aR.rep.lbl" " Replace.. ";
+MG_displayEN "animRescue.aR.rep.ann" "Replace the current root directories with a new one.";
+MG_displayEN "animRescue.aR.buCons.lbl" "Backup Constraint";
+MG_displayEN "animRescue.aR.buCons.ann" "Toggle on/off constraint backup beside animNode backup.";
+
+MG_displayEN "animRescue.aR.add.lbl" " Add.. ";
+MG_displayEN "animRescue.aR.add.ann" "Add a new root directory to current root directory list.";
+MG_displayEN "animRescue.aR.brow.lbl" "  Browse..  ";
+
+MG_displayEN "animRescue.aR.filter.lbl" "Step 1: Searching Filtering";
+MG_displayEN "animRescue.aR.filter.ann" "Set up the namestring and date condition for rescuePoints searching.";
+MG_displayEN "animRescue.aR.ns.lbl" "NameString:";
+MG_displayEN "animRescue.aR.ns.ann" "Input a nameString,generally it is your scene name without version,include version string to clamp the searching range more.";
+
+MG_displayEN "animRescue.aR.laterThan.lbl" "Later than:";
+MG_displayEN "animRescue.aR.laterThan.ann" "Input a date string (YMD-HMS),then the tool will only search the rescuePoints that are later than that date.";
+MG_displayEN "animRescue.aR.ymdHms.lbl" "(YMD-HMS)";
+MG_displayEN "animRescue.aR.inputDate.ann" "Input the date of current scene.";
+
+MG_displayEN "animRescue.aR.rescuep.lbl" "Step 2: RescuePoints Filtering";
+MG_displayEN "animRescue.aR.rescuep.ann" "Filter out the used rescuePoints, only the ticked items are used.";
+MG_displayEN "animRescue.aR.addRP.ann" "Click to pick a folder manually to add as a rescuePoint.";
+
+MG_displayEN "animRescue.aR.firstStep.annText" "* Only the greenly-ticked RescuePoints will be used *";
+
+
+
+MG_displayEN "animRescue.aR.nsMap.step" "3: Namespace Filtering & Mapping";
+MG_displayEN "animRescue.aR.nsMap.ann" "Your can decide to ignore certain character and map the namespace here.";
+MG_displayEN "animRescue.aR.cons.step" "4: Constraint Filtering";
+MG_displayEN "animRescue.aR.cons.ann" "Decide to constraint to recover.";
+
+MG_displayEN "animRescue.aR.before.annText" "* All Operations are not undoable,but don't save scene until the recovery is done *";
+
+MG_displayEN "animRescue.reWizard.ui.title" "AnimRescue v2.0 Recovery Wizard";
+
+MG_displayEN "aR.reWizard.step1.anntext01" "<< Click the icon left for Animation Recovery mode";
+MG_displayEN "aR.reWizard.step1.anntext02" "  *  It uses the rescue points that were realtime saved before.";
+MG_displayEN "aR.reWizard.step1.anntext03" "  *  You must turn on the animation backup mode before.";
+MG_displayEN "aR.reWizard.step1.anntext04" "  *  Click on the \"Next ->\" button to go on.";
+
+MG_displayEN "aR.reWizard.step2.anntext01" "* If want to recovery maya scene from Autosave mode:";
+MG_displayEN "aR.reWizard.step2.anntext02" "  *  Find the right file in autosave folder depanding on your autosave mode.";
+MG_displayEN "aR.reWizard.step2.anntext03"  "  *  It could be \"projectDir/autosave\", \"nameFolder\" or \"sceneDir/autosave\" .";
+MG_displayEN "aR.reWizard.step2.anntext04" "  *  You must turn on the scene backup mode before.";
+
+MG_displayEN "aR.reWizard.step3.anntext01" "<< Select the Icon left for Connection Recovery mode";
+MG_displayEN "aR.reWizard.step3.anntext02" "  *  It searches all wild animCurve nodes, reconnect them back to attributes.";
+MG_displayEN "aR.reWizard.step3.anntext03"  "  *  This could be helpful if a scene is openable but some animation lost.";
+
+MG_displayEN "aR.reWizard.step4.anntext01" "* To recover animation, select one mode below first:";
+
+MG_displayEN "aR.reWizard.autoMode.lbl" "Automatic Mode";
+MG_displayEN "aR.reWizard.autoMode.anntext01" "* Use when Maya is crashed without scene saved.";
+MG_displayEN "aR.reWizard.autoMode.anntext02" "* It gets the scene date and compare it with rescuePoints',\n   only the datas later than current scene will be recovered.";
+MG_displayEN "aR.reWizard.autoMode.anntext03" "* You may need to manually change some non-keyable \n   attributes after the recovery is done.";
+MG_displayEN "aR.reWizard.autoMode.anntext04" "* You may need to manually do some action except \n   keyframing and constraining.";
+
+
+MG_displayEN "aR.reWizard.advMode.lbl" "Advanced Mode";
+MG_displayEN "aR.reWizard.advMode.anntext01" "* With this mode you can set the date threshold,\n   Namespace mapping and other advanced options."	;
+
+MG_displayEN "aR.reWizard.connMode.lbl" "* Connection Rescue Mode";
+MG_displayEN "aR.reWizard.connMode.anntext00"  "* Sometime the scene is openable and animCurve nodes are \n    actually stored with it. But for some reasons, the connections\n    between the animNodes and the corresponding attributes \n    are broken.";
+MG_displayEN "aR.reWizard.connMode.anntext01"  "* I won't guarantee this will work because that depands on \n    how many animNodes are luckily stored in your scene.";
+MG_displayEN "aR.reWizard.connMode.anntext02"  "* It will be more helpful if a reference is not able to be loaded, \n    so you must reference a new one and inherit the animation\n    from the bad one. (Using the namespace mapping feature \n    later on)"	;				
+MG_displayEN "aR.reWizard.connMode.anntext03" "* This only works on normal animNodes rather than drivenKey\n    type animNodes.";
+//656
+MG_displayEN "aR.reWizard.autoMode.step1.lbl" "1: Open the latest scene as you can.";
+MG_displayEN "aR.reWizard.autoMode.step1.anntext01"  "-> Don't save it again until the recovery is done, because\n     that will change the date of the scene." ;
+MG_displayEN "aR.reWizard.autoMode.step1.anntext02"  "-> Press the button left to quickly open the scene if you \n    haven't done so.";
+
+MG_displayEN "aR.reWizard.autoMode.step2.lbl" "2: Choose the backup files rootDirectory: (If necessary)";
+MG_displayEN "aR.reWizard.autoMode.step2.anntext01"  "-> This setting is independent of the animRescue backup directory.\n     It is just a setting to tell the tool where to find these \n     rescuePoint files.";
+
+MG_displayEN "aR.reWizard.autoMode.step3.lbl" "3: Input the scene name to filter:";
+MG_displayEN "aR.reWizard.autoMode.step3.anntext00" "-> The string will be used to find the rescuePoints. Input a general \n    string without version to include more rescuePoints.";
+MG_displayEN "aR.reWizard.autoMode.step3.anntext01" "-> Press the button left to refresh the rescue prediction right away.\n    Press the \"Get\" button to quickly guess a scene string.";
+MG_displayEN "aR.reWizard.autoMode.get.lbl" "Get";
+
+MG_displayEN "aR.reWizard.autoMode.predi.cdate.lbl" "CurrentScene Date : N/A";
+MG_displayEN "aR.reWizard.autoMode.predi.rescuep.lbl" "RescuePoints: N/A";
+MG_displayEN "aR.reWizard.autoMode.predi.anicf.lbl" "AnimCurve Files : N/A";
+MG_displayEN "aR.reWizard.autoMode.predi.consf.lbl" "Constraint Files : N/A";
+
+MG_displayEN "aR.reWizard.autoMode.predi.cdate.rep" "CurrentScene Date : ";
+MG_displayEN "aR.reWizard.autoMode.predi.rescuep.rep" "RescuePoints: " ;
+MG_displayEN "aR.reWizard.autoMode.predi.anicf.rep" "AnimCurve Files : " ;
+MG_displayEN "aR.reWizard.autoMode.predi.consf.rep" "Constraint Files : ";
+
+
+MG_displayEN "aR.reWizard.connMode.findL.lbl" "* These wild animNodes are found:";
+MG_displayEN "aR.reWizard.connMode.sns.lbl" "Source Namespace";
+MG_displayEN "aR.reWizard.connMode.tns.lbl" "Mapping Namespace";
+MG_displayEN "aR.reWizard.connMode.keepLinked.lbl" "Don't affect Keyframed Attribute";
+MG_displayEN "aR.reWizard.connMode.keepLinked.ann" "If the target attribute has animCurve node already connected with it, then ignore this reconnection.";
+MG_displayEN "aR.reWizard.connMode.beforeDoit.annText" "* Click the \"Next ->\" button to begin reconnecting. ";
+MG_displayEN "aR.reWizard.connMode.noWild.war" " No wild animNodes found :( " ;
+MG_displayEN "aR.reWizard.connMode.stat.skip.Pref" "Skipped animNode: ";
+MG_displayEN "aR.reWizard.connMode.stat.reconn.Pref" "Reconnected animNode: ";
+MG_displayEN "aR.reWizard.connMode.stat.skip.detail" "Skipped animNode (Target attribute not found): ";
+MG_displayEN "aR.reWizard.connMode.stat.skip.alreadyKey" "Skipped animNode (Target attribute already keyframed): ";
+
+MG_displayEN "aR.reWizard.connMode.done.rep" "There are some animNode skipped because some reasons.Check scriptEditor to know more.";
+
+
+MG_displayEN "aR.buWizard.mainUI.title.lbl" "AnimRescue v2.0 Backup Wizard"	;
+MG_displayEN "aR.buWizard.mainUI.fiveK.lbl" "  >> Five key things to keep your animation scene safe:"	;
+MG_displayEN "aR.buWizard.mainUI.fiveK.text01" "         1: Be a \"Save Scene As..\" guy."	;
+MG_displayEN "aR.buWizard.mainUI.fiveK.text02" "         2: Click the \"Backup 101..\" button to read the realtime Backup 101."	;
+MG_displayEN "aR.buWizard.mainUI.fiveK.text03" "         3: Don't modify the animation rescue files and their folders manually. (*.anic & *.cons)";	
+MG_displayEN "aR.buWizard.mainUI.fiveK.text04" "         4: Help the others everyday so your god blesses you."	;
+
+MG_displayEN "aR.buWizard.range.war.btn.lbl" "<!> Backup 101"	;
+MG_displayEN "aR.buWizard.range.war.btn.lbl1" "Backup 101.."	;
+MG_displayEN "aR.buWizard.range.anText01" "* AnimRescue backup only backup animCurve node.\n* It will backup constraint node if you have constraint backukp turned on."	;
+MG_displayEN "aR.buWizard.range.anText02" "* Action/nodes currently not in the backup list:"	;
+MG_displayEN "aR.buWizard.range.noRecList" ("1: Use \"Break Connections\" to delete attribute animation in channelBox.\n"	+
+																									"2: Unkeyframed attribute value change.\n"+
+																									"3: Animation Layer since Maya2009.\n"+
+																									"4: Keyframing within Character Set .\n"+
+																									"5: Motion Trail animation since Maya2012.\n"+	
+																									"6: Copy/Paste keyframe through GraphEditor menu.")																								
+																									;
+
+MG_displayEN "aR.buWizard.range.warning" "* Potential Risk Warning:"	;
+MG_displayEN "aR.buWizard.range.war.content" ("AnimRescue has been totally rewritten and improved at the chance of MGTools for MacOS version developing."+
+																						"It has been pretty stable now, yet here is the risk: \n"+
+																						"When you turn on the constraint backup, and do some operations which containt lots of constraint creation /deleting command , "+
+																						"then you press z to undo very fast and press shift+z to redo really fast,then maya may be freek out and faint and dead.\n\n"+
+																						"Anyway, keep in mind that undo or redo too fast is not pretty safe in Maya.")
+																						;
+
+MG_displayEN "aR.buWizard.mainUI.currentStat.off.lbl" "Current: Off"	;
+MG_displayEN "aR.buWizard.mainUI.currentStat.on.lbl" "Current: On"	;
+
+MG_displayEN "aR.buWizard.mainUI.animRescueStat.off.lbl" "AnimRescue : Off"	;
+MG_displayEN "aR.buWizard.mainUI.animRescueStat.on.lbl" "AnimRescue : On";
+MG_displayEN "aR.buWizard.mainUI.autosaveStat.off.lbl" "MGautoSave : Off"	;
+MG_displayEN "aR.buWizard.mainUI.autosaveStat.on.lbl" "MGautoSave : On"	;
+
+MG_displayEN "aR.buWizard.mainUI.ar.annText" "<< Click the Icon left to on/off Animation Backup mode";
+MG_displayEN "aR.buWizard.mainUI.ar.annText1" "* Set up the root directory for backupFiles: (Don't change frequently)";
+MG_displayEN "aR.buWizard.mainUI.ar.annText2" "* It will realtime save the changed animation data for you.";
+MG_displayEN "aR.buWizard.mainUI.ar.annText3" "* This mode only saves animNodes and constraint nodes,It completely\nworks background and you won't even feel it.";
+
+MG_displayEN "aR.buWizard.mainUI.restart.war" "      * You must restart Maya The first time you use it.";
+MG_displayEN "aR.buWizard.mainUI.sas.annText" "<< Click the Icon left to on/off Scene Backup mode";
+MG_displayEN "aR.buWizard.mainUI.sas.prompt" "Prompt before save"	;
+MG_displayEN "aR.buWizard.mainUI.sas.limCB" "Limit autosaves";
+MG_displayEN "aR.buWizard.mainUI.sas.max" "Number of autosaves:";
+MG_displayEN "aR.buWizard.mainUI.sas.timeLap" "intervar(minutes):"	;
+MG_displayEN "aR.buWizard.mainUI.sas.dest" "Autosave Dest.:";
+MG_displayEN "aR.buWizard.mainUI.sas.dest.proj" "Project";
+MG_displayEN "aR.buWizard.mainUI.sas.dest.cus" "Named folder";
+MG_displayEN "aR.buWizard.mainUI.sas.dest.sc" "Scene folder";
+MG_displayEN "aR.buWizard.mainUI.notSupport.war" "* Current Maya version not supported.\n  Only supports Maya version after 8.0x64";
+MG_displayEN "aR.buWizard.mainUI.notSupport.lal" "* AnimRescue backup only supports Maya version after 8.0x64.";
+
+
+MG_displayEN "aR.buWizard.mainUI.sas.annText1" "*  It is the same as Maya 2011's autosave feature except \"Scene \nfolder\"mode (which autosaves in current scene directory/autosave).";
+MG_displayEN "aR.buWizard.mainUI.sas.annText2" "*  After Maya 2011, it uses maya's own autosave feature except \nmorphing the 3rd option \"Env Var\" to \"Scene folder\".";
+MG_displayEN "aR.buWizard.mainUI.sas.annText3" "*  This mode saves the whole scene after certain minutes, but it works \nforeground, so you must wait durning a saving.";
+
+MG_displayEN "aR.buWizard.nostr.war" "No String input in the field.";
+MG_displayEN "aR.buWizard.bkFile.war.subf" ":  Backup file not found.";
+MG_displayEN "aR.buWizard.slave.war.subf" ":  Slave object not found : ";
+MG_displayEN "aR.buWizard.master.war.subf" ":  Master object not found : ";
+
+MG_displayEN "aR.buWizard.cons.skip.war" "Skip Constraint: ";
+MG_displayEN "aR.buWizard.cons.done.rep" "Done with Constraint: ";
+
+MG_displayEN "aR.buWizard.anic.skip.war" "Skip animNode on: ";
+MG_displayEN "aR.buWizard.anic.done.rep" "Done with animation on: ";
+
+MG_displayEN "aR.recovWizard.errRep.ui.title" "Some backups skipped: ";
+MG_displayEN "aR.recovWizard.errRep.cons.skip.lbl" "These Constraints are skipped:";
+MG_displayEN "aR.recovWizard.errRep.attr.skip.lbl" "These attributes's animation are skipped:";
+
+MG_displayEN "aR.miniToolBox.backup.help.title" "AnimRescue Backup Help..";
+MG_displayEN "aR.miniToolBox.recover.help.title" "AnimRescue Automatic Recovery Help..";
+MG_displayEN "aR.miniToolBox.recoverAdv.help.title" "AnimRescue Advanced Recovery Help..";
+
+MG_displayEN "aR.miniToolBox.feature.fl.title" "AnimRescue & MGautoSave";
+MG_displayEN "aR.miniToolBox.backup.btn.title" "AnimRescue Backup Wizard..";
+MG_displayEN "aR.miniToolBox.autoRecover.btn.title" "Automatic Recovery Wizard..";
+MG_displayEN "aR.miniToolBox.advRecover.btn.title" "Advanced Recovery Wizard..";
+
+MG_displayEN "aR.miniToolBox.recoverDoit.nothing.war" "No Animation/Constraint to recover!";
+
+
+MG_displayEN "aR.clearRescue.war.title" "Are you sure??";
+MG_displayEN "aR.clearRescue.war.01"  "Gonna delete all animRescue files, proceed? ";
+MG_displayEN "aR.clearRescue.war.02"  "Gonna delete all animRescue files except those for current opened scene, proceed? "	;
+MG_displayEN "aR.clearRescue.war.sorry" "Sorry~!";
+MG_displayEN "aR.clearRescue.war.03" "Some directory has left undeleted. Manualy delete it if you want.";
+MG_displayEN "aR.clearRescue.manualClear" "Manually clear..";
+
+MG_displayEN "aR.clearRescue.mi01" "Clear All RescuePoints..";
+MG_displayEN "aR.clearRescue.mi01.ann" "Clear All rescuePoints on current backup root directory.";
+MG_displayEN "aR.clearRescue.mi02" "Clear All Except Current Scene..";
+MG_displayEN "aR.clearRescue.mi02.ann" "Clear the rescuePoints except those for the current scene.";
+
+MG_displayEN "aR.clearRescue.menu" "Clear";
+MG_displayEN "aR.clearRescue.lbl" "Clear ->";
+
+MG_displayEN "aR.pickPath.ann" "Please pick a folder below(no local Language contained directory):";
+
+MG_displayEN "aR.untitled.war" "If you want to recover for a untitled scene, you must use the Advanced mode to mannually pick the rescue points.";
+MG_displayEN "aR.untitled.advMode.lbl" " Use Advanced Mode ";
+MG_displayEN "aR.untitled.cancel" " Cancel ";
+
+MG_displayEN "aR.shortName" "AnimRescue";
+MG_displayEN "aR.dirNotValid" "The folder you set as the root directory for animRescue is currently invalid:\n # ";

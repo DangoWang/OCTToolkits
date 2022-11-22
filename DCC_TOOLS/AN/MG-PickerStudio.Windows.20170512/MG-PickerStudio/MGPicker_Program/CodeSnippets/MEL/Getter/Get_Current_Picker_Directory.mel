@@ -1,0 +1,1 @@
+string $currentPickerDir = `MGP_GetCurrentPickerDirectory`;  //get the dierctory path of current picker file.

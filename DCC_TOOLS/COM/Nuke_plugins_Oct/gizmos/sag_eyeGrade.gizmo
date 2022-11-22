@@ -1,0 +1,512 @@
+#------------------------------------------------------------------nuke-
+# file: sag_eyeGrade.gizmo
+# version: 0.70
+# date: 2013.11.15
+# author: Arkadiy Demchenko (sagroth@sigillarium.com)
+#-----------------------------------------------------------------------
+# 2013.11.15 (v0.70) - fixed iris edge blur to avoid eyelids and lashes
+# 2013.11.13 (v0.60) - added controls for cc iris/sclera, masked blur,
+#                      outputs are blurred accordingly now
+# 2013.11.12 (v0.50) - main release
+#-----------------------------------------------------------------------
+# Eyes correction based on two masks (RGB and HSV).
+#-----------------------------------------------------------------------
+
+Gizmo {
+ inputs 3
+ addUserKnob {20 ctrl l Controls}
+ addUserKnob {6 preview l Preview +STARTLINE}
+ addUserKnob {7 rot l Rotation}
+ rot 0.85
+ addUserKnob {26 ""}
+ addUserKnob {7 ring_gamma l "Ring Gamma"}
+ ring_gamma 0.07
+ addUserKnob {26 ""}
+ addUserKnob {7 depth_gamma l "Depth Gamma"}
+ depth_gamma 0.7
+ addUserKnob {7 depth_gain l "Depth Gain"}
+ depth_gain 1
+ addUserKnob {7 depth_fade l "Depth Fade"}
+ depth_fade 1
+ addUserKnob {26 ""}
+ addUserKnob {7 leak_size l "Leak Size" R 0 50}
+ leak_size 35
+ addUserKnob {7 leak_intensity l "Leak Intensity"}
+ leak_intensity 1
+ addUserKnob {26 ""}
+ addUserKnob {26 ""}
+ addUserKnob {7 gain l "Overall Gain"}
+ gain 0.8
+ addUserKnob {7 iris_gain l "Iris Gain"}
+ iris_gain 1
+ addUserKnob {7 sclera_gain l "Sclera Gain"}
+ sclera_gain 1
+ addUserKnob {26 ""}
+ addUserKnob {7 brightGrade l "Brighten Crescent" R 0 12}
+ brightGrade 6
+ addUserKnob {7 darkGrade l "Darken Crescent"}
+ darkGrade 0.1
+ addUserKnob {26 ""}
+ addUserKnob {7 irisBlur l "Iris Edge Blur" R 0 10}
+ irisBlur 1
+ addUserKnob {7 irisBorderBlur l "Affect Eyelid Edge"}
+ irisBorderBlur 0.5
+}
+ Input {
+  inputs 0
+  name RGB
+  xpos -115
+  ypos -198
+  number 1
+ }
+ Dot {
+  name Dot7
+  xpos -81
+  ypos -81
+ }
+set N42c41740 [stack 0]
+ Grade {
+  gamma 0.4545
+  name Grade2
+  xpos -115
+  ypos -32
+ }
+ Dot {
+  name Dot3
+  xpos -81
+  ypos 163
+ }
+set N42c41e20 [stack 0]
+ Dot {
+  name Dot4
+  xpos 38
+  ypos 163
+ }
+ Dilate {
+  size 1
+  name Dilate1
+  xpos 4
+  ypos 193
+ }
+ Dot {
+  name Dot5
+  xpos 38
+  ypos 345
+ }
+set N430210c0 [stack 0]
+push $N430210c0
+push $N42c41e20
+ Input {
+  inputs 0
+  name HSV
+  xpos -512
+  ypos -194
+  number 2
+ }
+ Colorspace {
+  colorspace_out HSV
+  name toHSV
+  xpos -512
+  ypos -59
+ }
+set N430217a0 [stack 0]
+ Dot {
+  name Dot1
+  xpos -232
+  ypos -56
+ }
+ Expression {
+  temp_name0 val
+  temp_expr0 "lerp( -offset, 1-offset, r )"
+  expr0 val<0?1-abs(val):val
+  name lerp_expr1
+  xpos -266
+  ypos -1
+  addUserKnob {20 User}
+  addUserKnob {7 offset l Offset}
+  offset {{0.5+parent.rot>1?-0.5+parent.rot:0.5+parent.rot}}
+ }
+set N43021e80 [stack 0]
+ Invert {
+  name Invert2
+  xpos -376
+  ypos 28
+ }
+push $N43021e80
+ Merge2 {
+  inputs 2
+  operation multiply
+  name Merge1
+  xpos -266
+  ypos 34
+ }
+set N43022560 [stack 0]
+ Shuffle {
+  red black
+  blue black
+  alpha black
+  name g_shuffle1
+  xpos -266
+  ypos 86
+ }
+ Grade {
+  white {{parent.depth_gain*4}}
+  gamma {{parent.depth_gamma}}
+  name radial_grade1
+  xpos -266
+  ypos 110
+ }
+push $N43022560
+ Shuffle {
+  red black
+  green red
+  blue black
+  alpha black
+  name r_shuffle1
+  xpos -369
+  ypos 86
+ }
+ Grade {
+  white 4
+  gamma {{parent.ring_gamma}}
+  name ring_grade1
+  xpos -369
+  ypos 110
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  mix {{parent.depth_fade}}
+  name radial_fade1
+  xpos -369
+  ypos 161
+ }
+push $N430217a0
+ Expression {
+  temp_name0 val
+  temp_expr0 "lerp( -offset, 1-offset, r )"
+  expr0 val<0?1-abs(val):val
+  name lerp_expr
+  xpos -512
+  ypos 4
+  addUserKnob {20 User}
+  addUserKnob {7 offset l Offset}
+  offset {{parent.rot}}
+ }
+set N43023a00 [stack 0]
+ Invert {
+  name Invert1
+  xpos -622
+  ypos 33
+ }
+push $N43023a00
+ Merge2 {
+  inputs 2
+  operation multiply
+  name Merge2
+  xpos -512
+  ypos 39
+ }
+set N430240e0 [stack 0]
+ Shuffle {
+  red green
+  green black
+  blue black
+  alpha black
+  name g_shuffle
+  xpos -512
+  ypos 91
+ }
+ Grade {
+  white {{parent.depth_gain*4}}
+  gamma {{parent.depth_gamma}}
+  name radial_grade
+  xpos -512
+  ypos 115
+ }
+push $N430240e0
+ Shuffle {
+  green black
+  blue black
+  alpha black
+  name r_shuffle
+  xpos -615
+  ypos 91
+ }
+ Grade {
+  white 4
+  gamma {{parent.ring_gamma}}
+  name ring_grade
+  xpos -615
+  ypos 115
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  mix {{parent.depth_fade}}
+  name radial_fade
+  xpos -615
+  ypos 165
+ }
+ Dot {
+  name Dot2
+  xpos -581
+  ypos 236
+ }
+ Copy {
+  inputs 2
+  from0 rgba.green
+  to0 rgba.green
+  name Copy2
+  xpos -369
+  ypos 227
+ }
+ Copy {
+  inputs 2
+  from0 rgba.green
+  to0 rgba.alpha
+  name Copy1
+  xpos -115
+  ypos 227
+ }
+ Premult {
+  name Premult1
+  xpos -115
+  ypos 263
+ }
+ Blur {
+  inputs 1+1
+  channels rgba
+  size {{parent.leak_size}}
+  maskChannelMask rgba.blue
+  name leak_size
+  xpos -115
+  ypos 342
+ }
+ Grade {
+  inputs 1+1
+  white {{parent.leak_intensity}}
+  maskChannelMask rgba.blue
+  name leak_grade
+  xpos -115
+  ypos 366
+ }
+ Dot {
+  name Dot6
+  xpos -81
+  ypos 422
+ }
+set N43026a20 [stack 0]
+ Dot {
+  name Dot8
+  xpos -81
+  ypos 872
+ }
+push $N42c41740
+push $N42c41740
+ ChannelMerge {
+  inputs 2
+  A rgba.red
+  operation plus
+  B rgba.green
+  name ChannelMerge1
+  xpos 79
+  ypos -96
+ }
+set N43027100 [stack 0]
+ Dot {
+  name Dot10
+  xpos 113
+  ypos 591
+ }
+set N569e1f90 [stack 0]
+ Dot {
+  name Dot11
+  xpos 3
+  ypos 591
+ }
+ EdgeDetectWrapper {
+  channels alpha
+  name EdgeDetect1
+  xpos -31
+  ypos 737
+ }
+push $N569e1f90
+ Dilate {
+  channels alpha
+  size 2
+  name Dilate2
+  xpos 79
+  ypos 695
+ }
+ Dilate {
+  channels {-rgba.red -rgba.green rgba.blue}
+  size 2
+  name Dilate4
+  xpos 79
+  ypos 731
+ }
+ Premult {
+  channels alpha
+  alpha rgba.blue
+  name Premult2
+  xpos 79
+  ypos 767
+ }
+set N43271a00 [stack 0]
+ Merge2 {
+  inputs 2
+  operation minus
+  Bchannels {-rgba.red -rgba.green -rgba.blue rgba.alpha}
+  name Merge3
+  xpos -31
+  ypos 773
+ }
+ Premult {
+  channels alpha
+  alpha rgba.green
+  name Premult3
+  xpos -31
+  ypos 809
+ }
+push $N43271a00
+ ChannelMerge {
+  inputs 2
+  mix {{parent.irisBorderBlur}}
+  name ChannelMerge3
+  xpos 79
+  ypos 803
+ }
+push $N43026a20
+push $N43027100
+push $N43027100
+ ChannelMerge {
+  inputs 2
+  operation plus
+  B rgba.blue
+  name ChannelMerge2
+  xpos 189
+  ypos -96
+ }
+ Input {
+  inputs 0
+  name image
+  xpos 285
+  ypos -195
+ }
+add_layer {eyeMask eyeMask.bright eyeMask.dark eyeMask.full eyeMask.pupil eyeMask.iris eyeMask.sclera}
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 eyeMask.full
+  from1 rgba.red
+  to1 eyeMask.pupil
+  from2 rgba.green
+  to2 eyeMask.iris
+  from3 rgba.blue
+  to3 eyeMask.sclera
+  name Copy4
+  xpos 285
+  ypos -108
+ }
+ Copy {
+  inputs 2
+  from0 rgba.red
+  to0 eyeMask.bright
+  from1 rgba.green
+  to1 eyeMask.dark
+  name Copy3
+  xpos 285
+  ypos 407
+ }
+ Grade {
+  white {{parent.gain}}
+  maskChannelInput eyeMask.full
+  name full_grade
+  xpos 285
+  ypos 489
+ }
+ Grade {
+  white {{parent.iris_gain}}
+  maskChannelInput eyeMask.iris
+  name iris_grade
+  xpos 285
+  ypos 525
+ }
+ Grade {
+  white {{parent.sclera_gain}}
+  maskChannelInput eyeMask.sclera
+  name sclera_grade
+  xpos 285
+  ypos 561
+ }
+ Grade {
+  white {{parent.brightGrade}}
+  maskChannelMask rgba.red
+  maskChannelInput eyeMask.bright
+  name bright_grade
+  xpos 285
+  ypos 636
+ }
+ Grade {
+  white {{parent.darkGrade}}
+  maskChannelMask rgba.green
+  maskChannelInput eyeMask.dark
+  name dark_grade
+  xpos 285
+  ypos 672
+ }
+ Dot {
+  name Dot9
+  xpos 319
+  ypos 725
+ }
+set N4326f7a0 [stack 0]
+ Remove {
+  operation keep
+  channels {eyeMask.bright eyeMask.dark eyeMask.full eyeMask.sclera}
+  channels2 {-eyeMask.bright -eyeMask.dark -eyeMask.full eyeMask.iris}
+  channels4 rgb
+  name Remove1
+  xpos 191
+  ypos 716
+ }
+ Blur {
+  inputs 1+1
+  size {{parent.irisBlur}}
+  name iris_blur
+  xpos 191
+  ypos 809
+ }
+push $N4326f7a0
+ Copy {
+  inputs 2
+  from0 eyeMask.bright
+  to0 eyeMask.bright
+  from1 eyeMask.dark
+  to1 eyeMask.dark
+  from2 eyeMask.iris
+  to2 eyeMask.iris
+  from3 eyeMask.sclera
+  to3 eyeMask.sclera
+  channels rgb
+  maskChannelInput eyeMask.full
+  name Copy5
+  xpos 285
+  ypos 785
+  disable {{parent.irisBlur==0}}
+ }
+ Merge2 {
+  inputs 2
+  output rgb
+  name preview_over
+  xpos 285
+  ypos 869
+  disable {{1-parent.preview}}
+ }
+ Output {
+  name Output1
+  xpos 285
+  ypos 948
+ }
+end_group

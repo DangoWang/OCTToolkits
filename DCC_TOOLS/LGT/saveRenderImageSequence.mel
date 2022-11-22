@@ -1,0 +1,107 @@
+//***********************************************************************************************************
+//
+//    This script saves out all the images in Maya's Render View window as an image sequence.
+//    If you want to stop a rendering in progress, Hit the Esc key.
+//
+//    Created by Takayuki Kondo.
+//    2016.07.28 Ver 1.0
+//
+//   Usage:
+//    1. Open the Render Window.
+//    2. source "saveRenderImageSequence.mel";
+//
+//***********************************************************************************************************//
+global proc RWS_saveRenderImageSequence()
+{
+	string $tmp[];
+	global string $gRWS_sd, $gRWS_fm, $gRWS_pc, $gRWS_tx;
+
+	$tmp = `treeView -q -si ("RenderLayerTabRenderLayerEditor")`;
+	string $curLayer = $tmp[0];
+	if ( $curLayer == "" )
+		$curLayer = "masterLayer";
+
+	int $startf = `getAttr "defaultRenderGlobals.startFrame"`;
+	int $endf = `getAttr "defaultRenderGlobals.endFrame"`;
+	int $max = $endf - $startf;
+	progressBar -edit -beginProgress  -minValue $startf -maxValue $endf  -status "Example Calculation ..."  $gRWS_pc;
+
+	for ($i = $startf; $i <= $endf; $i++ ) {
+		currentTime $i;
+
+		renderWindowRender redoPreviousRender renderView;
+
+		if ( $i < 10 )
+			$n = "000" + $i;
+		else
+			$n = "00" + $i;
+		string $file = $gRWS_sd +"/"+$curLayer+"."+$n+".exr";
+		string $mess = "Rendering and Save a image to \"" + $file + "\"";
+		print $mess;
+		renderWindowSaveImageCallback "renderView" $file "EXR";
+
+		if(`progressBar -q -ic $gRWS_pc`) {
+			$i = 99999;
+			break;
+		}
+
+		print ("Finished Renderling Frame.\n");
+		progressBar -edit -progress $i $gRWS_pc;
+	} 
+
+	progressBar -e -endProgress $gRWS_pc;
+	deleteUI $gRWS_fm;
+}
+//************************************************************************************************************
+//
+global proc RWS_initRenderImageSequence()
+{
+	string $tmp[];
+	global string $gRWS_sd, $gRWS_fm, $gRWS_pc, $gRWS_tx;
+
+	string $path = `workspace -q -fn` + "/images/";
+
+	$tmp = `treeView -q -si ("RenderLayerTabRenderLayerEditor")`;
+	string $curLayer = $tmp[0];
+	if ( $curLayer == "" )
+		$curLayer = "masterLayer";
+
+	string $gRWS_sd = $path+$curLayer;
+	if ( !`filetest -d $gRWS_sd` )
+		sysFile -makeDir $gRWS_sd;
+
+	string	$panel[] = `getPanel -scriptType "renderWindowPanel"`;
+	string	$editor = `renderWindowEditor -query -parent $panel[0]`;
+	string	$mainForm = `renderWindowEditor -query -parent $panel[0]`;
+	if ( $editor == "" ) {
+		warning "Please open the Render Window";
+		return;
+	}
+
+	setParent $editor;
+	string	$prevParent = `setParent -q`;
+
+	string $gRWS_fm = `formLayout -numberOfDivisions 100`;
+		$gRWS_pc = `progressBar -w 130 -isMainProgressBar true  -isInterruptable true`;
+		string $mess = "Rendering and Save a image to \"" + $gRWS_sd + "\"";
+		$gRWS_tx = `text  -l $mess  -align "left"`;
+
+		formLayout -e
+			-an $gRWS_pc left
+			-af $gRWS_pc bottom 0
+			-af $gRWS_pc right 0
+			-af $gRWS_tx left 0
+			-af $gRWS_tx right 130
+			-af $gRWS_tx bottom 0
+		$gRWS_fm;
+
+	formLayout -e
+		-af $gRWS_fm left 0
+		-af $gRWS_fm right 0
+		-af $gRWS_fm top 0
+	$editor;
+
+	evalDeferred "RWS_saveRenderImageSequence";
+}
+
+RWS_initRenderImageSequence;

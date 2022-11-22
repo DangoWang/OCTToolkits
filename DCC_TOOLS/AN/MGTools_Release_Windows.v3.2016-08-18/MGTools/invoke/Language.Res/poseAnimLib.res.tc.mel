@@ -1,0 +1,703 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayTS "poseAnimLib.toolName" "MG-Pose動作庫";
+MG_displayTS "poseAnimLib.tool.mi" "MG-Pose動作庫..";
+MG_displayTS "poseAnimLib.tool.ann" "點選載入MG-Pose動作庫. 默認它將載入本地的Pose庫. ";
+MG_displayTS "poseAnimLib.localAnim.ann" "點選載入本地的MG動作庫.";
+MG_displayTS "poseAnimLib.globalPose.ann" "點選載入全局的MG-Pose庫.";
+MG_displayTS "poseAnimLib.globalAnim.ann" "擊載入伺服器的MG動作庫.";
+
+MG_displayTS "poseAnimLib.localPoseLib.mi" "本地Pose庫..";
+MG_displayTS "poseAnimLib.globalPoseLib.mi" "全局Pose庫..";
+MG_displayTS "poseAnimLib.localAnimLib.mi" "本地動作庫..";
+MG_displayTS "poseAnimLib.globalAnimLib.mi" "全局動作庫..";
+
+MG_displayTS "poseAnimLib.war.prefix" "警告: ";
+MG_displayTS "poseAnimLib.err.prefix" "錯誤: ";
+
+
+MG_displayTS "poseAnimLib.localRootBuilt" "本地默認根目錄已建立 : ";
+MG_displayTS "poseAnimLib.noProj.war" "當前沒有任何的庫工程，您是要 :";
+MG_displayTS "poseAnimLib.existProj.war" "該庫工程已存在，您是要 ：";
+MG_displayTS "poseAnimLib.noChar.war" "當前沒有建立任何角色，您是要 :";
+MG_displayTS "poseAnimLib.noCate.war" "當前沒有建立任何類別，您是要 :";
+MG_displayTS "poseAnimLib.createProj" "創建庫工程..";
+MG_displayTS "poseAnimLib.createChar" "創建角色..";
+MG_displayTS "poseAnimLib.addCate" "添加類別..";
+MG_displayTS "poseAnimLib.openProj" "開啟庫工程..";
+MG_displayTS "poseAnimLib.openExProj" "開啟已存在的工程";
+
+MG_displayTS "poseAnimLib.versionUp" "加版本號" ;
+MG_displayTS "poseAnimLib.override" "覆蓋" ;
+MG_displayTS "poseAnimLib.skip" "跳過" ;
+MG_displayTS "poseAnimLib.ignore" "忽略" ;
+MG_displayTS "poseAnimLib.switchTo" "切換到"  ;
+MG_displayTS "poseAnimLib.create" "創建" ;
+MG_displayTS "poseAnimLib.merge" "合併"  ;
+MG_displayTS "poseAnimLib.overrideExistProjSetting" "覆蓋已存在的工程的設定" ;
+MG_displayTS "poseAnimLib.Cancel" "取消";  //`MG_DualLan "poseAnimLib.Cancel"`
+MG_displayTS "poseAnimLib.StopCancel" "停止 && 取消";
+MG_displayTS "poseAnimLib.useSimilarChoice" "使用類似的選擇";
+MG_displayTS "poseAnimLib.ignoreContinue" "忽略 && 繼續";
+MG_displayTS "poseAnimLib.useContinue" "使用 && 繼續";
+MG_displayTS "poseAnimLib.RealDelete" "永久刪除";
+MG_displayTS "poseAnimLib.RecoverableDelete" "可恢復刪除";
+
+MG_displayTS "poseAnimLib.duplicateControlFound.prefix" "發現重名的控製器: ";
+MG_displayTS "poseAnimLib.targetNotExist.prefix" "目標物件不存在: ";
+MG_displayTS "poseAnimLib.attributeNotExist.prefix" "屬性不存在: ";
+MG_displayTS "poseAnimLib.attributeApplied.prefix" "已應用屬性: ";
+MG_displayTS "poseAnimLib.noAttributeNeedApplied.war" "沒有必要應用的屬性.";
+MG_displayTS "poseAnimLib.attributeErrorApply.prefix" "應用屬性時出錯 : ";
+
+MG_displayTS "poseAnimLib.missingItemData.war" "該庫檔案的資料檔案丟失.";
+MG_displayTS "poseAnimLib.missingItemData.prefix" "該庫檔案的資料檔案不存在:";
+MG_displayTS "poseAnimLib.errorReadData.prefix" "讀取檔案出錯:";
+
+MG_displayTS "poseAnimLib.itemIsEmpty.war" "該庫檔案沒有涉及任何控製器!";
+MG_displayTS "poseAnimLib.controlsMatched.rep" "Pose檔案的控製器與您的場景吻合!";
+MG_displayTS "poseAnimLib.theseControlNotExists.rep" "控製器在您的場景裡不存在:";
+MG_displayTS "poseAnimLib.buttonNotExists.war" "庫的按鈕控制項不存在.";
+
+MG_displayTS "poseAnimLib.error.seeScriptEditor.war" "出錯了. 檢視指令碼編輯器來瞭解更多 :(";
+
+MG_displayTS "poseAnimLib.global" "全局";
+MG_displayTS "poseAnimLib.local" "本地";
+MG_displayTS "poseAnimLib.anim" "動作";
+MG_displayTS "poseAnimLib.pose" "Pose";
+MG_displayTS "poseAnimLib.poseAnim" "Pose/動作";
+
+MG_displayTS "poseAnimLib.proj" "庫工程";
+MG_displayTS "poseAnimLib.proj.smallCase" "庫工程";
+MG_displayTS "poseAnimLib.lib" "庫";
+MG_displayTS "poseAnimLib.char" "角色";
+MG_displayTS "poseAnimLib.char.smallCase" "角色";
+MG_displayTS "poseAnimLib.cate" "類別";
+MG_displayTS "poseAnimLib.cate.smallCase" "類別";
+MG_displayTS "poseAnimLib.items" "項(s)";
+MG_displayTS "poseAnimLib.item" "項";
+
+MG_displayTS "poseAnimLib.createFrame" "創建幀";
+MG_displayTS "poseAnimLib.timeRange" "時間範圍";
+MG_displayTS "poseAnimLib.noRange" "沒有範圍";
+MG_displayTS "poseAnimLib.metaInfo" "元資訊";
+MG_displayTS "poseAnimLib.name" "名字";
+MG_displayTS "poseAnimLib.author" "作者";
+MG_displayTS "poseAnimLib.cDate" "創建日期";
+MG_displayTS "poseAnimLib.mayaInfo" "Maya資訊";
+MG_displayTS "poseAnimLib.controls" "涉及控製器";
+MG_displayTS "poseAnimLib.mayaScene" "Maya場景";
+MG_displayTS "poseAnimLib.assets" "涉及資產";
+MG_displayTS "poseAnimLib.noAssets.war" "沒有涉及到資產.";
+MG_displayTS "poseAnimLib.modificateionInfo" "修改歷史";
+MG_displayTS "poseAnimLib.noModi.war" "沒有修改歷史.";
+MG_displayTS "poseAnimLib.modiTimes" "修改次數";
+MG_displayTS "poseAnimLib.modiBy" "修改人員:";
+MG_displayTS "poseAnimLib.modiAt" "修改日期:";
+MG_displayTS "poseAnimLib.reason" "原因:";
+
+MG_displayTS "poseAnimLib.noItemSel.war" "沒有選擇一個庫按鈕.";  //`MG_DualLan "poseAnimLib.noItemSel.war"`
+MG_displayTS "poseAnimLib.noCate.war" "沒發現任何類別存在.";  
+MG_displayTS "poseAnimLib.noChar.war" "沒發現任何角色存在.";  
+MG_displayTS "poseAnimLib.noObjSel.war" "場景裡沒選擇任何物件.";
+MG_displayTS "poseAnimLib.noInputItemName.war" "請輸入一個合法的名稱.";
+MG_displayTS "poseAnimLib.sameAsOld.war" "跟舊名稱一樣，沒有作任何改變.";
+
+MG_displayTS "poseAnimLib.playmovie.ann" "單擊來播放視訊，雙擊播放所有視訊";
+
+MG_displayTS "poseAnimLib.bookmark.inputName.msg" "輸入攝像機書籤的名稱:";
+MG_displayTS "poseAnimLib.bookmark.alreadyExist.war" "該攝像機書籤已存在，您是想：" ;
+
+MG_displayTS "poseAnimLib.toShelf.inputName.msg" "輸入一個pose工具架的短名稱：";
+MG_displayTS "poseAnimLib.toShelf.done.rep" "該pose已被安裝到當前工具架.";
+
+MG_displayTS "poseAnimLib.createItem.getCreateOption" "獲取創建選項.." ;
+MG_displayTS "poseAnimLib.createItem.writingData" "寫入資料檔案:" ;
+MG_displayTS "poseAnimLib.createItem.finished" "庫項目已創建:" ;
+
+MG_displayTS "poseAnimLib.applyItem.start" "開始應用庫項目:";
+MG_displayTS "poseAnimLib.applyItem.startPercentage" "開始應用庫項目: # 百分比: #%";
+MG_displayTS "poseAnimLib.applyItem.goFrame" "跳到庫項目的創建幀: ";
+MG_displayTS "poseAnimLib.applyItem.cancelDueToDuplicate" "因為有重名物件，使用者取消操作: ";
+MG_displayTS "poseAnimLib.applyItem.nonTransformNoNeedWorldApply" " 不是一個transform節點，所以不能應用全局變形資訊.";
+MG_displayTS "poseAnimLib.applyItem.finished" "應用完庫項目:";
+MG_displayTS "poseAnimLib.applyItem.finished.subfix" " 個物件已被應用了動畫.";
+
+MG_displayTS "poseAnimLib.pick" "拾取";
+MG_displayTS  "poseAnimLib.current" "當前";
+MG_displayTS "poseAnimLib.createProj.validName.war" "請輸入一個合法的庫工程名.";
+MG_displayTS "poseAnimLib.readProj.overrideLocal" "覆蓋本地的庫工程: ";
+
+MG_displayTS "poseAnimLib.newCate.topAnn" "* 下面所選的類別將被添加.";
+MG_displayTS "poseAnimLib.newCate.custumCate" "自定義類別: ";
+MG_displayTS "poseAnimLib.newCate.addToPreset" "添加到預設";
+MG_displayTS "poseAnimLib.newCate.add" "添加";
+MG_displayTS "poseAnimLib.newCate.addCate" "添加類別";
+
+MG_displayTS "poseAnimLib.newChar.newChar" "新建角色";
+MG_displayTS "poseAnimLib.newChar.charName" "角色名稱";
+MG_displayTS "poseAnimLib.newChar.addName" "添加角色類別:";
+MG_displayTS "poseAnimLib.newChar.topAnn" "* 下面所選的類別將被同時添加.";
+MG_displayTS "poseAnimLib.newChar.charDup.war" "叫 '#' 的角色已存在。您是要:";
+
+MG_displayTS "poseAnimLib.switchTo.local" "切換到本地";
+MG_displayTS "poseAnimLib.switchTo.global" "切換到全局";
+
+MG_displayTS "poseAnimLib.switchTo.pose" "切換到Pose庫";
+MG_displayTS "poseAnimLib.switchTo.anim" "切換到動作庫";
+
+MG_displayTS "poseAnimLib.newProj" "新建庫工程..";
+MG_displayTS "poseAnimLib.newProjNoDot" "新建庫工程";
+MG_displayTS "poseAnimLib.openProj" "開啟庫工程..";
+MG_displayTS "poseAnimLib.openProjNoDot" "開啟庫工程";
+
+MG_displayTS "poseAnimLib.itemNotSelectable" "在當前應用模式庫項目不可選";
+
+MG_displayTS "poseAnimLib.mi.selItemControl" "選擇庫項目控製器(s)";
+MG_displayTS "poseAnimLib.mi.apply" "應用";
+MG_displayTS "poseAnimLib.mi.percentageApply" "百分比應用";
+MG_displayTS "poseAnimLib.mi.perviewItem" "預覽該項";
+MG_displayTS "poseAnimLib.mi.downloadItem" "下載所選項到本地..";
+MG_displayTS "poseAnimLib.mi.uploadItem" "釋出所選項到全局..";
+MG_displayTS "poseAnimLib.mi.editItem" "編輯項.." ;
+MG_displayTS "poseAnimLib.mi.resnapshotItem" "重新生成項預覽圖.." ;
+
+MG_displayTS "poseAnimLib.mi.selAll" "全選" ;
+MG_displayTS "poseAnimLib.mi.selNone" "去選" ;
+MG_displayTS "poseAnimLib.mi.selInvert" "反選" ;
+
+MG_displayTS "poseAnimLib.mi.delSelItems" "刪除所選項(s) ..";
+MG_displayTS "poseAnimLib.mi.renameSelItems" "重新命名所選項..";
+MG_displayTS "poseAnimLib.mi.moveCopySelItems" "移動/複製所選項(s)..";
+
+MG_displayTS "poseAnimLib.cantSetIcon.rep" "無法設定為圖示.";
+MG_displayTS "poseAnimLib.imageBeenSet.rep" "當前影象 :# 已作為圖示設定給: #";
+
+MG_displayTS "poseAnimLib.playblast.createPreview.start" "創建預覽圖象 / 視訊..";
+MG_displayTS "poseAnimLib.make.writingToTemp" "寫入臨時動畫快取..";
+MG_displayTS "poseAnimLib.noMovie" "沒有要播放的視訊.";
+MG_displayTS "poseAnimLib.movieNotExist.war" "預覽視訊 \"#\" 不存在.";
+
+MG_displayTS "poseAnimLib.clearAnimCache.ignoreNSClearing" "忽略清理名稱空間的步驟.";
+MG_displayTS "poseAnimLib.clearAnimCache.done" "MG動畫快取已被清理.";
+MG_displayTS "poseAnimLib.clearAnimCache.notImported" "MG動畫快取還未被讀入.";
+
+MG_displayTS "poseAnimLib.newProj.name" "庫工程名:";
+MG_displayTS "poseAnimLib.newProj.description" "庫工程描述:";
+MG_displayTS "poseAnimLib.newProj.globalDirSetting" "全局目錄設定";
+MG_displayTS "poseAnimLib.newProj.globalRootSetting" "全局根目錄";
+MG_displayTS "poseAnimLib.newProj.noGlobal" "不需要全局庫";
+MG_displayTS "poseAnimLib.newProj.useCustom" "使用自定義路徑:";
+MG_displayTS "poseAnimLib.newProj.pick" "拾取..";
+MG_displayTS "poseAnimLib.newProj.globalPoseDirSetting" "全局Pose庫設定:";
+MG_displayTS "poseAnimLib.newProj.useUnifiedProjRoot" "使用 [ 全局庫工程目錄 ]";
+MG_displayTS "poseAnimLib.newProj.globalAnimDirSetting" "全局動作庫設定:";
+
+MG_displayTS "poseAnimLib.editProj.done" "庫工程 \"#\" 的設定已儲存.";
+MG_displayTS "poseAnimLib.editProj.localRootchanged" "更動本地根目錄為: \"#\".";
+MG_displayTS "poseAnimLib.editProj.globalRootchanged" "更動全局根目錄為: \"#\".";
+MG_displayTS "poseAnimLib.editProj.localRootReset" "重置本地根目錄為默認.";
+MG_displayTS "poseAnimLib.editProj.globalRootReset" "重置全局根目錄為默認.";
+
+MG_displayTS "poseAnimLib.changedConfig.prefix" "更動配置數值:";
+MG_displayTS "poseAnimLib.imageViewerMode" "影象瀏覽模式";
+MG_displayTS "poseAnimLib.customImageViewer" "自定義圖片瀏覽器";
+MG_displayTS "poseAnimLib.moviePlayerMode" "視訊播放模式";
+MG_displayTS "poseAnimLib.customMoviePlayer" "自定義視訊播放器";
+
+MG_displayTS "poseAnimLib.editItem.errorDeleteBtn" "刪除按鈕時出錯.";
+MG_displayTS "poseAnimLib.editItem.errorGetCate" "獲取當前類別所在目錄時出錯.";
+MG_displayTS "poseAnimLib.editItem.deleteDone" "庫項目: # 被成功刪除.";
+MG_displayTS "poseAnimLib.editItem.deleteDone.rep" " # 個庫項目被刪除, # 個庫項目被忽略.";
+MG_displayTS "poseAnimLib.editItem.deleteFailed" "庫項目: # 刪除失敗. 當前庫您是不是沒有寫許可權?";
+MG_displayTS "poseAnimLib.editItem.deleteConfirm" "庫項目刪除確認:";
+MG_displayTS "poseAnimLib.editItem.deleteCanceled" "庫項目刪除動作被使用者取消.";
+MG_displayTS "poseAnimLib.editItem.deleteWar.mes" "整個 # 將被移除. 您想要: ";
+MG_displayTS "poseAnimLib.editItem.deleteWar.notEmpty.mes" " #  非空. \n所有資料將被永久刪除，繼續?";
+
+MG_displayTS "poseAnimLib.editItem.errDelChar.prefix" "刪除該角色時出錯:";
+MG_displayTS "poseAnimLib.editItem.errDelCate.prefix" "刪除該類別時出錯:";
+
+MG_displayTS "poseAnimLib.uploadDownload.same.war" "當前本地 & 全局庫在同一個目錄，不需要任何的上傳/下載.";
+MG_displayTS "poseAnimLib.uploadDownload.noItemTransfered.war" "沒有選擇任何庫項目來上傳/下載.";
+MG_displayTS "poseAnimLib.uploadDownload.downloaded" "已下載";
+MG_displayTS "poseAnimLib.uploadDownload.download" "下載";
+MG_displayTS "poseAnimLib.uploadDownload.uploaded" "已上傳";
+MG_displayTS "poseAnimLib.uploadDownload.upload" "上傳";
+MG_displayTS "poseAnimLib.uploadDownload.exist.war" "該目標 # 已存在，您是想要： ";
+MG_displayTS "poseAnimLib.uploadDownload.empty.war" "源/目標路徑字元竄是空的.";
+MG_displayTS "poseAnimLib.uploadDownload.exist.war1" "目標已存在. 需要確認 ";
+
+MG_displayTS "poseAnimLib.uploadDownload.from" "從";
+MG_displayTS "poseAnimLib.uploadDownload.to" "到";
+
+MG_displayTS "poseAnimLib.actionCanceled.subfix" " 動作已被使用者取消.";
+MG_displayTS "poseAnimLib.userSkip" "使用者忽略 # 在 : #";
+MG_displayTS "poseAnimLib.success" "成功:";
+MG_displayTS "poseAnimLib.fail" "失敗:";
+MG_displayTS "poseAnimLib.successfully" "成功地";
+MG_displayTS "poseAnimLib.failed" "已失敗";
+MG_displayTS "poseAnimLib.skipped" "已忽略";
+
+
+MG_displayTS "poseAnimLib.renameSkipped" "名字沒改變，忽略重新命名的動作.";
+MG_displayTS "poseAnimLib.errRename" "重新命名該檔案時出錯: ";
+MG_displayTS "poseAnimLib.renamed" "已重新命名: ";
+MG_displayTS "poseAnimLib.rename" "重新命名";
+MG_displayTS "poseAnimLib.rename.canceled" "重新命名的動作被使用者取消.";
+
+MG_displayTS "poseAnimLib.no.actived" "沒有 # 被當前啟用.";
+MG_displayTS "poseAnimLib.current.notExist" "當前 # 不存在.";
+
+MG_displayTS "poseAnimLib.new.existed" "新的 # :# 已存在。您是想要:";
+MG_displayTS "poseAnimLib.errorMerge" "合併兩個目錄時出錯: ";
+MG_displayTS "poseAnimLib.errorDeleteAfterMerge" "命並後刪除 # 出錯:";
+MG_displayTS "poseAnimLib.errorOverridingTarget" "覆蓋目標時出錯: ";
+MG_displayTS "poseAnimLib.errRename1" "重新命名時出錯: ";
+MG_displayTS "poseAnimLib.successRename" "成功重新命名 ";
+MG_displayTS "poseAnimLib.file" "檔案:";
+
+MG_displayTS "poseAnimLib.op.noProjectSel" "在列表裡沒有選擇任何的工程.";
+MG_displayTS "poseAnimLib.op.categoryExist.war" "該項在目標類別裡已存在，您是要：";
+
+MG_displayTS "poseAnimLib.moveCopy.categoryExist.war" "目標類別: \n#\n 不存在. # 動作取消，並將會重新整理介面.";
+MG_displayTS "poseAnimLib.moveCopy.same.war" "目標和源類別一樣，不做任何改變.";
+
+MG_displayTS "poseAnimLib.userCanceled.war" "使用者已取消.";
+MG_displayTS "poseAnimLib.moveCopy.success.rep" "成功地 # 庫項目: # 到路徑: ";
+MG_displayTS "poseAnimLib.moveCopy.faled.rep" "不成功  # 庫項目: # 到路徑: ";
+MG_displayTS "poseAnimLib.moveCopy.done.rep" "成功地 # 庫項目: #,# 個錯誤發生.";
+MG_displayTS "poseAnimLib.moveCopy.newCharCate.mes" "輸入新的 # 名稱:";
+MG_displayTS "poseAnimLib.moveCopy.title" "移動/複製庫項目";
+
+MG_displayTS "poseAnimLib.moveCopy.field" "域";
+MG_displayTS "poseAnimLib.moveCopy.sameAsSource" "跟源相同";
+MG_displayTS "poseAnimLib.moveCopy.copyTo" "複製到";
+MG_displayTS "poseAnimLib.moveCopy.moveTo" "移動到";
+
+
+MG_displayTS "poseAnimLib.imageNotExist" "影象檔案:# 不存在.";
+
+MG_displayTS "poseAnimLib.selectCtl.objNotExist" "物件: # 不存在. 請試試你目標角色的任何一部分再來試試.";
+MG_displayTS "poseAnimLib.selectCtl.objSelected" " #個物件已選擇, # 個因為不存在而忽略.";
+
+MG_displayTS "poseAnimLib.backUp.noBackup.war" "沒有發現任何備份.";
+MG_displayTS "poseAnimLib.backUp.backNotExist.war" "備份出錯: 資料檔案: \n# 不存在.";
+MG_displayTS "poseAnimLib.backUp.noImages.war" "備份出錯: 沒發現任何圖象檔案.";
+MG_displayTS "poseAnimLib.backUp.unableCreateFolder.war" "備份出錯: 無法創建目錄: \n";
+MG_displayTS "poseAnimLib.backUp.unableBackup.war" "備份出錯: 無法備份檔案: \n";
+MG_displayTS "poseAnimLib.backUp.done" "備份到目錄: # 完成 ";
+
+MG_displayTS "poseAnimLib.backUp.error.subfix" "但發生 # 個錯誤. 檢視指令碼編輯器來瞭解更多.";
+MG_displayTS "poseAnimLib.backUp.folderNotExist.war" "備份目錄: # 不存在.";
+MG_displayTS "poseAnimLib.backUp.noDataFound.war" "備份目錄裡沒發現任何資料: ";
+MG_displayTS "poseAnimLib.restore.confirm" "將要從 \"#\" 裡還原, \n舊資料將被覆蓋。您是想要：";
+MG_displayTS "poseAnimLib.restore.onlyData" "只還原資料檔案";
+MG_displayTS "poseAnimLib.restore.onlyImage" "只還原預覽圖";
+MG_displayTS "poseAnimLib.restore.all" "還原全部";
+MG_displayTS "poseAnimLib.restore.restored" "已還原: ";
+MG_displayTS "poseAnimLib.restore.errRestore" "還原時出錯: ";
+
+MG_displayTS "poseAnimLib.restore.noData" "出錯: 沒有任何資料被還原: ";
+MG_displayTS "poseAnimLib.restore.done" "還原備份: # 已完成 ";
+
+MG_displayTS "poseAnimLib.makeIcon.NewDone" "新預覽圖已生成: ";
+MG_displayTS "poseAnimLib.makeIcon.NoDone" "沒生成任何預覽圖!!";
+MG_displayTS "poseAnimLib.makeIcon.wasMade" " 個預覽圖被生成";
+MG_displayTS "poseAnimLib.makeIcon.oldUpdate" " 並且舊預覽檔案被更新.";
+MG_displayTS "poseAnimLib.makeIcon.andAppend" " 並且被更新.";
+MG_displayTS "poseAnimLib.makeIcon.andDelete" " 及 # 箇舊預覽檔案被刪除.";
+
+MG_displayTS "poseAnimLib.advancedEdit.rebuilt" "全新重建.";
+MG_displayTS "poseAnimLib.advancedEdit.remSelListCtl" "移除列表所選控製器.";
+MG_displayTS "poseAnimLib.advancedEdit.remSelSceneCtl" "移除場景所選控製器.";
+MG_displayTS "poseAnimLib.advancedEdit.updateSelSceneCtl" "添加/更新場景所選控製器.";
+
+MG_displayTS "poseAnimLib.rebuild.writeTemp" "寫入動畫快取..";
+MG_displayTS "poseAnimLib.advancedEdit.confirm" "實際編輯資料檔案前需要確認: 是否繼續?" ;
+MG_displayTS "poseAnimLib.advancedEdit.canceled" "資料檔案編輯操作被使用者取消.";
+MG_displayTS "poseAnimLib.advancedEdit.noSelInList" "左邊列表沒有選擇任何項哦。";
+MG_displayTS "poseAnimLib.advancedEdit.noSelInScene" "場景裡沒有選擇任何物件哦。";
+MG_displayTS "poseAnimLib.advancedEdit.successEdit" "庫項目 \"#\" 已編輯。編輯模式: ";
+
+MG_displayTS "poseAnimLib.advancedEditUI.title" "高階編輯";
+MG_displayTS "poseAnimLib.advancedEditUI.editMode" "編輯模式";
+MG_displayTS "poseAnimLib.advancedEditUI.editMode.editData" "編輯項資料";
+MG_displayTS "poseAnimLib.advancedEditUI.editMode.editImage" "編輯項預覽圖";
+MG_displayTS "poseAnimLib.advancedEditUI.selItemInScene" "在場景裡選擇列表所選控製器";
+MG_displayTS "poseAnimLib.advancedEditUI.selAllItemInScene" "在場景裡選擇列表所有控製器";
+MG_displayTS "poseAnimLib.advancedEditUI.switch.ann" "點選來切換模式.";
+MG_displayTS "poseAnimLib.advancedEditUI.setIcon" "設定當前為圖示";
+MG_displayTS "poseAnimLib.advancedEditUI.rename" "重新命名";
+MG_displayTS "poseAnimLib.advancedEditUI.viaList" "基於列表";
+MG_displayTS "poseAnimLib.advancedEditUI.selAllListCtls" "選擇列表所有控製器(s)";
+MG_displayTS "poseAnimLib.advancedEditUI.selSelListCtls" "選擇列表所選控製器(s)";
+MG_displayTS "poseAnimLib.advancedEditUI.remSelListCtls" "移除列表所選控製器(s)";
+MG_displayTS "poseAnimLib.advancedEditUI.viaScene" "基於場景";
+MG_displayTS "poseAnimLib.advancedEditUI.remSelSceneCtls" "移除場景所選控製器(s)";
+MG_displayTS "poseAnimLib.advancedEditUI.updateSelSceneCtls" "添加/更新場景所選控製器(s)";
+MG_displayTS "poseAnimLib.advancedEditUI.rebuildOp" "重建整個資料";
+
+
+MG_displayTS "poseAnimLib.advancedEditUI.mode" "模式";
+MG_displayTS "poseAnimLib.advancedEditUI.selected" "所選物件";
+MG_displayTS "poseAnimLib.advancedEditUI.wholeRig" "整個Rig";
+MG_displayTS "poseAnimLib.advancedEditUI.time.all" "全部";
+MG_displayTS "poseAnimLib.advancedEditUI.time.selRange" "所選範圍";
+MG_displayTS "poseAnimLib.advancedEditUI.time.startEnd" "開始/結束";
+MG_displayTS "poseAnimLib.advancedEditUI.rebuild" "重建整個資料";
+
+MG_displayTS "poseAnimLib.advancedEditUI.imageWriteMode" "圖片覆寫模式";
+MG_displayTS "poseAnimLib.advancedEditUI.replaceExImage" "替換已有影象";
+MG_displayTS "poseAnimLib.advancedEditUI.updateExImage" "更新已有影象";
+MG_displayTS "poseAnimLib.advancedEditUI.appendExImage" "追加到舊影象";
+MG_displayTS "poseAnimLib.advancedEditUI.keepIconIndex" "不影響圖示索引";
+MG_displayTS "poseAnimLib.advancedEditUI.movie" "視訊";
+MG_displayTS "poseAnimLib.advancedEditUI.lbl" "標籤";
+MG_displayTS "poseAnimLib.advancedEditUI.time" "時間";
+MG_displayTS "poseAnimLib.advancedEditUI.makeIcon.go" "生成圖片!!";
+
+MG_displayTS "poseAnimLib.advancedEditUI.resetFromBackUp" "從備份還原 >";
+
+MG_displayTS "poseAnimLib.advancedEditUI.backupData" "備份資料 >";
+MG_displayTS "poseAnimLib.advancedEditUI.backup.both" "備份兩者..";
+MG_displayTS "poseAnimLib.advancedEditUI.backup.data" "備份資料..";
+MG_displayTS "poseAnimLib.advancedEditUI.backup.image" "備份預覽圖..";
+
+MG_displayTS "poseAnimLib.selCtl.rep" " 個庫項目的物件在場景裡被選擇.";
+MG_displayTS "poseAnimLib.dontShowAgain" "不要再確認";
+
+MG_displayTS "poseAnimLib.noCamPresetSel" "列表裡沒有選擇任何攝像機書籤.";
+MG_displayTS "poseAnimLib.renameCamPreset.rename.lowerCase" "重新命名";
+MG_displayTS "poseAnimLib.renameCamPreset.mes" "重新命名攝像機書籤:";
+MG_displayTS "poseAnimLib.renameCamPreset.canceled" "攝像機書籤重新命名動作被使用者取消.";
+MG_displayTS "poseAnimLib.renameCamPreset.delete" "刪除";
+MG_displayTS "poseAnimLib.renameCamPreset.failed" " # 攝像機書籤失敗: ";
+MG_displayTS "poseAnimLib.renameCamPreset.success" "成功地 # 了攝像機書: ";
+
+MG_displayTS "poseAnimLib.optionUI.title" " 選項";
+MG_displayTS "poseAnimLib.optionUI.unifiedLocalRoot" "統一的本地根路徑:";
+MG_displayTS "poseAnimLib.optionUI.unifiedGlobalRoot" "統一的全局根路徑:";
+MG_displayTS "poseAnimLib.optionUI.reset" "重置";
+MG_displayTS "poseAnimLib.optionUI.projs" "庫工程:";
+MG_displayTS "poseAnimLib.optionUI.globalDirSetting" "全局目錄設定";
+MG_displayTS "poseAnimLib.optionUI.globalProjDirSetting" "庫工程全局目錄設定:";
+
+MG_displayTS "poseAnimLib.optionUI.saveProjSetting" "儲存庫工程設定";
+MG_displayTS "poseAnimLib.optionUI.iconSize" "圖示大小";
+
+MG_displayTS "poseAnimLib.optionUI.iconSize.small" "小 [50x50]";
+MG_displayTS "poseAnimLib.optionUI.iconSize.medium" "中 [90x90]";
+MG_displayTS "poseAnimLib.optionUI.iconSize.big" "大 [180x180]";
+MG_displayTS "poseAnimLib.optionUI.iconSize.custom" "自定義大小:";
+MG_displayTS "poseAnimLib.optionUI.iconSize.minMax" "(最小: 32x32, 最大: 512x512)";
+MG_displayTS "poseAnimLib.optionUI.captureAppearance" "拍屏外觀";
+MG_displayTS "poseAnimLib.optionUI.capture.title" "拍屏";
+
+MG_displayTS "poseAnimLib.optionUI.avoidHilite" "自動去除選擇高亮";
+MG_displayTS "poseAnimLib.optionUI.avoidNurbsCurve" "自動隱藏Nurbes曲線";
+MG_displayTS "poseAnimLib.optionUI.captureCam.title" "拍屏攝像機";
+MG_displayTS "poseAnimLib.optionUI.captureCam.userCamPreset" "使用者攝像機書籤";
+MG_displayTS "poseAnimLib.optionUI.captureCam.initialCam.title" "初始攝像機設定";
+MG_displayTS "poseAnimLib.optionUI.captureCam.ann" "不需要做初始攝像機設定，你只需調整攝像然後存為書籤.";
+
+MG_displayTS "poseAnimLib.optionUI.itemDisplaySize.title" "項目顯示大小";
+MG_displayTS "poseAnimLib.optionUI.itemDisplaySize.small" "小尺寸";
+MG_displayTS "poseAnimLib.optionUI.itemDisplaySize.medium" "中等尺寸";
+MG_displayTS "poseAnimLib.optionUI.itemDisplaySize.large" "大尺寸";
+
+MG_displayTS "poseAnimLib.optionUI.confirmation.title" "確認";
+MG_displayTS "poseAnimLib.optionUI.confirmation.beforeDel" "刪除項前確認";
+MG_displayTS "poseAnimLib.optionUI.confirmation.beforeEdit" "編輯項前確認";
+MG_displayTS "poseAnimLib.optionUI.confirmation.beforeUploadDownload" "上傳下載項目遇到已存在則確認";
+
+MG_displayTS "poseAnimLib.optionUI.reportDebug.title" "反饋 & 糾錯";
+MG_displayTS "poseAnimLib.optionUI.reportDebug.statusLine" "狀態列反饋";
+MG_displayTS "poseAnimLib.optionUI.reportDebug.scriptEditor" "指令碼編輯器反饋";
+MG_displayTS "poseAnimLib.optionUI.reportDebug.slience" "沉默";
+MG_displayTS "poseAnimLib.optionUI.reportDebug.intemediate" "適中";
+MG_displayTS "poseAnimLib.optionUI.reportDebug.verbose" "羅嗦";
+
+MG_displayTS "poseAnimLib.optionUI.dir.title" "庫工程";
+MG_displayTS "poseAnimLib.optionUI.misc.title" "雜項";
+
+MG_displayTS "poseAnimLib.optionUI.advancedImageViewer.title" "高階圖象瀏覽器";
+MG_displayTS "poseAnimLib.optionUI.advancedImageViewer.useDefault" "使用作業系統默認";
+MG_displayTS "poseAnimLib.optionUI.advancedImageViewer.useCustom" "使用自定義";
+
+MG_displayTS "poseAnimLib.optionUI.customImageViewer" "自定義圖象瀏覽器:";
+MG_displayTS "poseAnimLib.optionUI.moviePlayer" "視訊播放器";
+MG_displayTS "poseAnimLib.optionUI.moviePlayer.usePoseAnim" "使用工具自帶";
+MG_displayTS "poseAnimLib.optionUI.customMoviePlayer.usePoseAnim" "自定義視訊播放器:";
+MG_displayTS "poseAnimLib.optionUI.external.title" "外部";
+
+MG_displayTS "poseAnimLib.snapshotUI.previewCount" "預覽圖數量:";
+MG_displayTS "poseAnimLib.snapshotUI.iconUse" "圖示使用:";
+MG_displayTS "poseAnimLib.snapshotUI.getActived" "< 設定為當前";
+MG_displayTS "poseAnimLib.snapshotUI.activeToPreset" "啟用檢視 -> 書籤";
+MG_displayTS "poseAnimLib.snapshotUI.allToPreset" "全部4檢視 -> 書籤";
+MG_displayTS "poseAnimLib.snapshotUI.tweakCam" "調整啟用檢視攝像機..";
+
+MG_displayTS "poseAnimLib.snapshotUI.isoSelRig" "隔離顯示所選Rig";
+MG_displayTS "poseAnimLib.snapshotUI.isoAllRig" "隔離顯示所選物件";
+MG_displayTS "poseAnimLib.snapshotUI.cancelIso" "取消隔離";
+
+MG_displayTS "poseAnimLib.main.renameProj" "重新命名庫工程..";
+MG_displayTS "poseAnimLib.main.manageProj" "編輯當前庫工程..";
+MG_displayTS "poseAnimLib.main.downloadUploadCurrentLib" "上傳/下載當前庫..";
+MG_displayTS "poseAnimLib.main.downloadUploadBothLib" "上傳/下載Pose&&動作庫..";
+
+MG_displayTS "poseAnimLib.main.browseProj" "瀏覽當前工程目錄..";
+MG_displayTS "poseAnimLib.main.browseCLib" "瀏覽當前庫目錄..";
+
+MG_displayTS "poseAnimLib.main.newChar" "新建角色..";
+MG_displayTS "poseAnimLib.main.renameChar" "重新命名角色..";
+MG_displayTS "poseAnimLib.main.removeChar" "移除角色..";
+MG_displayTS "poseAnimLib.main.downloadUploadChar" "上傳/下載當前角色..";
+MG_displayTS "poseAnimLib.main.browseChar" "瀏覽當前角色目錄..";
+
+MG_displayTS "poseAnimLib.main.newCate" "新建類別..";
+MG_displayTS "poseAnimLib.main.renameCate" "重新命名類別..";
+MG_displayTS "poseAnimLib.main.removeCate" "移除類別..";
+MG_displayTS "poseAnimLib.main.downloadUploadCate" "上傳/下載當前類別..";
+MG_displayTS "poseAnimLib.main.browseCate" "瀏覽當前類別目錄..";
+
+MG_displayTS "poseAnimLib.main.newItem" "新建項..";
+MG_displayTS "poseAnimLib.main.editItem" "編輯所選項..";
+MG_displayTS "poseAnimLib.main.resnapshotItem" "重新拍屏所選項..";
+MG_displayTS "poseAnimLib.main.renameItem" "重新命名所選項..";
+MG_displayTS "poseAnimLib.main.removeItem" "移除所選項(s)..";
+MG_displayTS "poseAnimLib.main.moveCopyItem" "移動/複製所選項(s)..";
+MG_displayTS "poseAnimLib.main.downloadUploadItem" "上傳/下載所選項(s)..";
+MG_displayTS "poseAnimLib.main.browseItem" "瀏覽當前項目錄..";
+
+MG_displayTS "poseAnimLib.main.selection" "選擇";
+
+MG_displayTS "poseAnimLib.main.Config" "配置";
+MG_displayTS "poseAnimLib.main.Configuration" "配置..";
+
+MG_displayTS "poseAnimLib.main.help" "幫助";
+MG_displayTS "poseAnimLib.main.helpDot" "幫助..";
+
+MG_displayTS "poseAnimLib.main.switch.localGlobal" "切換本地/全局";
+MG_displayTS "poseAnimLib.main.switch.poseAnim" "切換Pose/動作";
+MG_displayTS "poseAnimLib.main.charcolumn" "角色:";
+
+MG_displayTS "poseAnimLib.main.itemClicked" "點選模式";
+MG_displayTS "poseAnimLib.main.itemClicked.libManage" "庫管理";
+MG_displayTS "poseAnimLib.main.itemClicked.simpleApply" "簡單應用";
+MG_displayTS "poseAnimLib.main.itemClicked.advancedApply" "高階應用";
+
+MG_displayTS "poseAnimLib.main.itemClicked.ctrl" "Ctrl點選";
+MG_displayTS "poseAnimLib.main.ns.use" "名稱空間使用: ";
+MG_displayTS "poseAnimLib.main.ns.selNS" "所選物件名稱空間";
+MG_displayTS "poseAnimLib.main.ns.poseNS" "Pose名稱空間";
+MG_displayTS "poseAnimLib.main.ns.custom" "自定義";
+MG_displayTS "poseAnimLib.main.ns.getFromSel" "< 選擇";
+
+MG_displayTS "poseAnimLib.main.testExist" "測試存在";
+MG_displayTS "poseAnimLib.main.selTarget" "選擇控製器";
+
+MG_displayTS "poseAnimLib.main.applyOpl.title" "應用選項: ";
+MG_displayTS "poseAnimLib.main.applyOpl.cFrame" "到當前幀";
+MG_displayTS "poseAnimLib.main.applyOpl.poseFrame" "到pose創建幀 ";
+MG_displayTS "poseAnimLib.main.applyOpl.filterObj.lbl" "篩選物件: ";
+MG_displayTS "poseAnimLib.main.applyOpl.attr.lbl" "屬性: ";
+MG_displayTS "poseAnimLib.main.applyOpl.unfilter" "不篩選";
+MG_displayTS "poseAnimLib.main.applyOpl.onlySelObj" "只有所選物件";
+MG_displayTS "poseAnimLib.main.applyOpl.ignoreSelObj" "忽略所選物件";
+MG_displayTS "poseAnimLib.main.applyOpl.onlySelAttr" "只有所選屬性";
+MG_displayTS "poseAnimLib.main.applyOpl.ignoreSelAttr" "忽略所選屬性";
+MG_displayTS "poseAnimLib.main.applyOpl.fromMayaCBox" "基於Maya通道欄";
+MG_displayTS "poseAnimLib.main.applyOpl.fromMGCBox" "基於MG-通道欄";
+MG_displayTS "poseAnimLib.main.applyOpl.worldSpace" "應用於世界座標";
+MG_displayTS "poseAnimLib.main.applyOpl.advanced" "高階應用";
+
+MG_displayTS "poseAnimLib.createPoseUI.name" "Pose名稱:";
+MG_displayTS "poseAnimLib.createPoseUI.finished" "已完成:";
+MG_displayTS "poseAnimLib.createPoseUI.finished.keepPanel" "保持介面";
+MG_displayTS "poseAnimLib.createPoseUI.finished.hidePanel" "隱藏介面";
+MG_displayTS "poseAnimLib.createPoseUI.finished.PreviewItem" "預覽項";
+
+MG_displayTS "poseAnimLib.toShelf.mi" "安裝Pose到工具架..";
+MG_displayTS "poseAnimLib.toShelf.ann" "安裝當前所選控製器的pose到當前Maya工具架.";
+MG_displayTS "poseAnimLib.createPoseUI.toShelf" "到工具架";
+MG_displayTS "poseAnimLib.createPoseUI.closed" "關閉";
+MG_displayTS "poseAnimLib.createPoseUI.create" "創建!!";
+
+MG_displayTS "poseAnimLib.createPoseUI.animName" "動作名稱";
+MG_displayTS "poseAnimLib.createPoseUI.movie" "視訊";
+MG_displayTS "poseAnimLib.createPoseUI.hierarchy" "層級";
+
+MG_displayTS "poseAnimLib.preview.prevImage" "上一張圖";
+MG_displayTS "poseAnimLib.preview.nextImage" "下一張圖";
+MG_displayTS "poseAnimLib.preview.prevItem" "上一項";
+MG_displayTS "poseAnimLib.preview.nextItem" "下一項";
+MG_displayTS "poseAnimLib.preview.watchAllMovie" "播放所有視訊(s)";
+MG_displayTS "poseAnimLib.preview.watchCMovie" "播放當前視訊";
+MG_displayTS "poseAnimLib.preview.setAsIcon" "設定為圖示";
+
+MG_displayTS "poseAnimLib.statusIdle" ">> 狀態閒置.";
+
+MG_displayTS "poseAnimLib.crateItem.finished" "動作項應用完成.";
+MG_displayTS "poseAnimLib.crateItem.creatingImage" "創建預覽圖..";
+MG_displayTS "poseAnimLib.crateItem.newImageMade.prefix" "新預覽圖已生成: ";
+
+
+
+
+//---------control annotations.-------------------------------------------
+MG_displayTS "poseAnimLib.newCateUI.tsl.ann" "該列表顯示了所有的類別預置.";
+
+MG_displayTS "poseAnimLib.topHierarchyUI.proj.ann" "該按鈕顯示了當前庫工程（如果有）。直接單擊來顯示所有既有庫工程，及新建新的庫工程.";
+MG_displayTS "poseAnimLib.topHierarchyUI.proj.arrow.ann" "直接單擊該箭頭來顯示所有既有庫工程及新建新的庫工程";
+MG_displayTS "poseAnimLib.topHierarchyUI.localGlobalSwitch.ann" "點選來切換本地/全局庫.";
+MG_displayTS "poseAnimLib.topHierarchyUI.poseAnimSwitch.ann" "點選來切換Pose/動作庫.";
+MG_displayTS "poseAnimLib.topHierarchyUI.char.ann" "該按鈕顯示了當前角色（如果有）. 直接單擊來顯示所有既有角色，及新建新的角色.";
+MG_displayTS "poseAnimLib.topHierarchyUI.char.arrow.ann" "直接單擊該箭頭來顯示所有既有角色及新建新的角色.";
+MG_displayTS "poseAnimLib.topHierarchyUI.cate.ann" "該按鈕顯示了當前類別（如果有）. 直接單擊來顯示所有既有類別，及新建新的類別.";
+
+MG_displayTS "poseAnimLib.topHierarchyUI.frameLayout.ann" "該區域顯示了當前類別的完成路徑，右鍵來瀏覽不同層級的目錄.";
+  
+MG_displayTS "poseAnimLib.newProjUI.description.ann" "這一欄是選填的，請輸入一些庫工程的描述.";
+MG_displayTS "poseAnimLib.newProjUI.noGlobal.ann" "採用該選項，則視為放棄全局庫，因為這樣全局庫即等同於本地庫。";
+MG_displayTS "poseAnimLib.newProjUI.customRoot.ann" "採用該選項，則可設定自定義的目錄為該庫工程的全局根目錄。";
+MG_displayTS "poseAnimLib.newProjUI.RootPoseLib.ann" "採用該選項，則採用 [上面所設定的庫全局根目錄]/PoseLib 作為當前Pose庫的全局目錄.";
+MG_displayTS "poseAnimLib.newProjUI.customPoseRoot.ann" "採用該選項，則可設定自定義的目錄為該Pose庫全局目錄。";
+MG_displayTS "poseAnimLib.newProjUI.RootAnimLib.ann" "採用該選項，則採用 [上面所設定的庫全局根目錄]/AnimLib 作為當前動作庫的全局目錄.";
+MG_displayTS "poseAnimLib.newProjUI.customAnimRoot.ann" "採用該選項，則可設定自定義的目錄為該動作庫全局目錄。";
+
+MG_displayTS "poseAnimLib.copyMoveUI.refresh.ann" "點選來重新整理複製/移動視窗，以顯示新的角色及類別.";
+
+MG_displayTS "poseAnimLib.advancedEditUI.frameLayout.ann" "該區域顯示了當前編輯項的完整層級路徑.";
+MG_displayTS "poseAnimLib.advancedEditUI.openDirBtn.ann" "點選瀏覽當前編輯項的所在目錄.";
+MG_displayTS "poseAnimLib.advancedEditUI.editMode.ann" "選擇一個編輯模式: 是要編輯當前pose/動作庫的資料檔案，還是重新拍屏生成預覽圖.";
+MG_displayTS "poseAnimLib.advancedEditUI.list.ann" "這個列表列出了當前項所涉及到的控製器.";
+
+MG_displayTS "poseAnimLib.advancedEditUI.selListItem.ann" "將所選列表項所代表的控製器在場景裡選擇.";
+MG_displayTS "poseAnimLib.advancedEditUI.selAllListItem.ann" "將所有列表項所代表的控製器在場景裡選擇.";
+MG_displayTS "poseAnimLib.advancedEditUI.remListItem.ann" "將所選列表項所代表的控製器從成員列表裡移除.";
+MG_displayTS "poseAnimLib.advancedEditUI.remSceneItem.ann" "將場景所選控製器從成員列表裡移除.";
+MG_displayTS "poseAnimLib.advancedEditUI.updateScenetItem.ann" "在成員列表裡添加/更新場景所選控製器.";
+MG_displayTS "poseAnimLib.advancedEditUI.rebuild.ann" "基於場景所選控製器來重新生成整個資料檔案.";
+MG_displayTS "poseAnimLib.advancedEditUI.backup.ann" "在項被不可撤消編輯之前備份它。";
+
+MG_displayTS "poseAnimLib.advancedEditUI.prevImage.ann" "切換到該項的上一張預覽圖.";
+MG_displayTS "poseAnimLib.advancedEditUI.nextImage.ann" "切換到該項的下一張預覽圖.";
+MG_displayTS "poseAnimLib.advancedEditUI.setIcon.ann" "將當前預覽圖設定為當前項的圖示.";
+MG_displayTS "poseAnimLib.advancedEditUI.renameFiled.ann" "重新命名項.";
+
+MG_displayTS "poseAnimLib.advancedEditUI.animRebuild.hierarchyMode.ann" "為動作資料重建選擇一個層級模式.";
+MG_displayTS "poseAnimLib.advancedEditUI.animRebuild.timeMode.ann" "為動作資料重建選擇一個時間範圍模式.";
+
+MG_displayTS "poseAnimLib.advancedEditUI.imageMode.replace.ann" "全部的預覽檔案將會被移除或被更新.";
+MG_displayTS "poseAnimLib.advancedEditUI.imageMode.update.ann" "更新同樣名稱的舊預覽檔案，其它舊預覽檔案保留.";
+MG_displayTS "poseAnimLib.advancedEditUI.imageMode.append.ann" "保留所有舊預覽檔案，只追求新的預覽檔案.";
+MG_displayTS "poseAnimLib.advancedEditUI.keepIconIndex.ann" "如果開啟，則圖示的採用索引不會被更動.";
+
+MG_displayTS "poseAnimLib.advancedEditUI.movieDimension.ann" "設定視訊的長寬畫素.";
+MG_displayTS "poseAnimLib.advancedEditUI.subfix.ann" "這些欄位設定預覽圖或視訊的字首名.";
+MG_displayTS "poseAnimLib.advancedEditUI.remakeIconGo.ann" "點選來拍屏.";
+
+MG_displayTS "poseAnimLib.dontShowAgain.ann" "如果開啟，則該確認框下次不會再出現。你總是可以再通過\"配置/配置..\"選單來重新開啟。";
+
+MG_displayTS "poseAnimLib.optionUI.unifiedLocalRoot.ann" "設定統一的本地根目錄，不建議您去更動它。";
+MG_displayTS "poseAnimLib.optionUI.unifiedGlobalRoot.ann" "設定統一的全局根目錄. 不同的庫工程可以放到這一個統一的根目錄下面。";
+
+MG_displayTS "poseAnimLib.optionUI.newProj.ann" "點選創建新的庫工程.";
+MG_displayTS "poseAnimLib.optionUI.renameProj.ann" "點選來重新命名列表中高亮的庫工程。";
+MG_displayTS "poseAnimLib.optionUI.projList.ann" "該列表列出了目前在本地庫根目錄中所有的庫工程.";
+MG_displayTS "poseAnimLib.optionUI.resetProjEdit.ann" "重新讀取庫工程檔案，以便重置所有修改.";
+
+MG_displayTS "poseAnimLib.optionUI.avoidHilite.ann" "在拍屏前自動去掉選擇的高亮.";
+MG_displayTS "poseAnimLib.optionUI.avoidNurbsCurves.ann" "在拍屏前自動隱藏nurbs曲線.";
+
+MG_displayTS "poseAnimLib.optionUI.camPreset.rename.ann" "重新命名列表中所選的攝像書籤.";
+MG_displayTS "poseAnimLib.optionUI.camPreset.del.ann" "刪除列表中所選的攝像書籤.";
+
+MG_displayTS "poseAnimLib.optionUI.threeSize.ann" "該欄設定了項按鈕的3個大中小尺寸，主介面的放大鏡圖示將在這三個尺寸間切換.";
+MG_displayTS "poseAnimLib.optionUI.statusReport.ann" "選擇主介面狀態列的反饋羅嗦程度。羅嗦模式將拖慢速度，一般用於糾錯.";
+MG_displayTS "poseAnimLib.optionUI.scriptEditReport.ann" "選擇指令碼編輯器的反饋羅嗦程度。羅嗦模式將拖慢速度，一般用於糾錯.";
+
+MG_displayTS "poseAnimLib.optionUI.advancedImageViewer.ann" "選擇預覽圖片的瀏覽器模式，當前該選項無效.";
+MG_displayTS "poseAnimLib.optionUI.moviePlayer.ann" "選擇預覽視訊的播放器模式，目前你只能使用外部視訊播放器.";
+
+MG_displayTS "poseAnimLib.snapshotUI.previewCount.ann" "點選來設定預覽圖的個數，一次性最多4個.";
+MG_displayTS "poseAnimLib.snapshotUI.iconUse.ann" "點選來設定用來做圖示的檢視索引. \n在四檢視情況下，左上檢視是#1, 右上檢視是#2, 右下檢視是#3, 左下檢視是#4.";
+MG_displayTS "poseAnimLib.snapshotUI.getActiveAsIconUse.ann" "將當前啟用的檢視拍出的預覽圖作為圖示.";
+
+MG_displayTS "poseAnimLib.snapshotUI.camPresetOMG.ann" "選擇一個攝像機書籤來應用到當前啟用檢視。\n以\"~\"開頭的書籤是預置書籤，有\"[4]\"標識的書籤包含全部4個檢視的配置，將應用到4個檢視.";
+MG_displayTS "poseAnimLib.snapshotUI.camPreset.saveActive.ann" "儲存當前啟用檢視的攝像機配置為書籤.";
+MG_displayTS "poseAnimLib.snapshotUI.camPreset.saveAll.ann" "儲存所有4檢視的攝像機配置為書籤.";
+MG_displayTS "poseAnimLib.snapshotUI.camPreset.tweakCam.ann" "開啟屬性編輯器，這樣你可以再細調檢視攝像機.";
+
+MG_displayTS "poseAnimLib.snapshotUI.viewConfig.doubleClick.ann" "雙擊來在4個檢視裡同時開關.";
+MG_displayTS "poseAnimLib.snapshotUI.viewConfig.hud.ann" "開關檢視HUD顯示.";
+MG_displayTS "poseAnimLib.snapshotUI.viewConfig.nurbsCurve.ann" "開關檢視Nurbs曲線顯示.";
+MG_displayTS "poseAnimLib.snapshotUI.viewConfig.nurbsSurface.ann" "開關檢視Nurbs曲面顯示.";
+MG_displayTS "poseAnimLib.snapshotUI.viewConfig.grid.ann" "開關檢視網格顯示.";
+MG_displayTS "poseAnimLib.snapshotUI.viewConfig.highlight.ann" "開關檢視選擇高亮的顯示.";
+MG_displayTS "poseAnimLib.snapshotUI.viewConfig.texture.ann" "開關檢視貼圖顯示.";
+MG_displayTS "poseAnimLib.snapshotUI.viewConfig.wire.ann" "開關檢視模型線框顯示.";
+
+//$ann = `MG_DualLan "poseAnimLib.mainUI.animMode.ann"`;
+MG_displayTS "poseAnimLib.mainUI.openProj.ann" "點選來開啟一個.libproj的庫工程檔案.";
+MG_displayTS "poseAnimLib.mainUI.browse.lib.ann" "瀏覽當前庫根目錄.";
+MG_displayTS "poseAnimLib.mainUI.browse.char.ann" "瀏覽當前角色目錄.";
+MG_displayTS "poseAnimLib.mainUI.browse.cate.ann" "瀏覽當前類別目錄.";
+MG_displayTS "poseAnimLib.mainUI.browse.item.ann" "瀏覽當前所選項所在目錄.";
+
+MG_displayTS "poseAnimLib.mainUI.zoom.ann" "在大中小三個圖示大小預置中切換。這三個尺寸可以通過\"配置/配置..\"選單來設定.";
+MG_displayTS "poseAnimLib.mainUI.rename.ann" "重新命名所選項.";
+MG_displayTS "poseAnimLib.mainUI.moveCopy.ann" "移動/複製所選項(s)到其它類別。";
+MG_displayTS "poseAnimLib.mainUI.del.ann" "刪除所選項(s).";
+MG_displayTS "poseAnimLib.mainUI.add.ann" "新建項.";
+MG_displayTS "poseAnimLib.mainUI.preview.ann" "顯示預覽區以便預覽項的預覽圖及元資訊.";
+MG_displayTS "poseAnimLib.mainUI.switchArea.ann" "該區域標示了當前庫是本地還是全局的，及是Pose庫還是動作庫。點選來切換它們.";
+MG_displayTS "poseAnimLib.mainUI.sizeSlider.ann" "拖動這個滑條來光滑縮放圖示大小.";
+
+MG_displayTS "poseAnimLib.mainUI.poseMode.ann" "庫管理模式，在該模式你無法應用Pose，不過可以用它來管理維護庫.\n簡單應用模式: 直接點選某項來應用Pose. \n高階應用模式: 需要先選擇一個pose按鈕，然後點選 \"高階應用\" 來應用它.";
+MG_displayTS "poseAnimLib.mainUI.poseOption.ctrl.ann" "該欄設定當您按\"Ctrl\"鍵應用時每次應用的百分比.";
+MG_displayTS "poseAnimLib.mainUI.poseOption.selNS.ann" "使用當前場景所選物件的名稱空間.";
+MG_displayTS "poseAnimLib.mainUI.poseOption.poseNS.ann" "使用Pose資料檔案裡記錄的名稱空間.";
+MG_displayTS "poseAnimLib.mainUI.poseOption.customNS.ann" "使用使用者輸入的名稱空間。可以通過在場景選擇個節點，然後點選\"<選擇\" 按鈕來快速填入.";
+MG_displayTS "poseAnimLib.mainUI.testReport.ann" "根據當前名稱空間選項來測試當前目錄控製器在場景裡是否存在。";
+MG_displayTS "poseAnimLib.mainUI.selectTarget.ann" "根據當前名稱空間選項在場景裡選擇相應的pose控製器.";
+MG_displayTS "poseAnimLib.mainUI.poseOption.timeMode.ann" "選擇pose是應用在當前幀還是pose創建時所在的幀.";
+MG_displayTS "poseAnimLib.mainUI.poseOption.onlySelAttr.ann" "只有在Maya通道欄/MG-通道欄裡選擇的屬性纔會被應用，其它屬性不會被變動.";
+MG_displayTS "poseAnimLib.mainUI.poseOption.ignoreSelAttr.ann" "忽略在Maya通道欄/MG-通道欄裡選擇的屬性，這些屬性不會被變動.";
+MG_displayTS "poseAnimLib.mainUI.poseOption.wordspace.ann" "應用到世界座標";
+
+MG_displayTS "poseAnimLib.mainUI.advancedApplyBtn.ann" "點選應用當前項，基於當前的應用選項.";
+MG_displayTS "poseAnimLib.mainUI.applySlider.ann" "拖動來從 0% 到 100% 間應用該Pose.";
+
+MG_displayTS "poseAnimLib.mainUI.animMode.ann" "庫管理模式，在該模式你無法應用動作，不過可以用它來管理維護庫.\n高階應用模式: 需要先選擇一個動作按鈕，然後點選 \"高階應用\" 來應用它.";
+MG_displayTS "poseAnimLib.mainUI.animNSMode.ann" "同一Rig/無名稱空間: 不要對映替換名稱空間. \n對映到其它Rig: 基於使用者的輸入來替換名稱空間.";
+MG_displayTS "poseAnimLib.mainUI.poseOption.timeMode.ann" "選擇動作是應用在當前幀還是動作創建時所在的幀.";
+
+MG_displayTS "poseAnimLib.mainUI.poseOption.times.ann" "設定應用次數，在應用動作迴圈時很有用，如果動作創建時沒有一個時間範圍，則該項無效.";
+
+MG_displayTS "poseAnimLib.mainUI.snapShot.close.ann" "關閉拍屏區域.";
+
+MG_displayTS "poseAnimLib.mainUI.previewArea.pix.ann" "該區域顯示了預覽圖，直接左鍵點選來訪問更多功能.";
+MG_displayTS "poseAnimLib.mainUI.previewMovieButton.ann" "單擊播放視訊，雙擊播放所有視訊.";
+
+
+MG_displayTS "poseAnimLib.mainUI.itemArea.ann" "該區域列出庫的內容. \n在庫管理模式，按鈕支援多選, ctrl及shift鍵可以用來多選.\n在高階應用模式，只支援單選.";
+MG_displayTS "poseAnimLib.mainUI.previewArea.nextItem.ann" "點選預覽下一項.";
+MG_displayTS "poseAnimLib.mainUI.previewArea.prevItem.ann" "點選預覽上一項.";
+
+MG_displayTS "poseAnimLib.mainUI.previewArea.info.ann" "該區顯示了當前項的資訊.";
+MG_displayTS "poseAnimLib.mainUI.refreshBtn.ann" "點選重新整理庫的顯示.";
+
+MG_displayTS "poseAnimLib.not2011.war" "抱歉，MG-Pose動作庫只能在Maya2011及以後的Maya版本運行，造成不便還請見諒.";
+
+
+MG_displayTS "poseAnimLib.noGlobal.war" "當前庫工程沒有全局庫.如果您需要，請點選\"編輯當前庫工程..\"按鈕來指定一個庫工程全局目錄.";

@@ -1,0 +1,98 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+//`MG_DualLan "keyframeTool.title"`
+//`MG_DualLanFormat_1 "ID" repVar`
+//`MG_DualLan "selM.backUPSel.doit.nosel"`
+
+MG_displayEN "keyframeTool.title" "keyFrame Tool";
+MG_displayEN "keyframeTool.title1" "keyFrame Tool..";
+
+MG_displayEN "keyframeTool.ann" "Load KeyFrame Tool,there are whole bunch of tools supporting keyframe animation,such as copy/paste animation/pose between mayas,etc.";
+MG_displayEN "keyframeTool.titleBar.ann" "Click me to switch on/off of the current toolTab.";
+MG_displayEN "keyframeTool.help.ann" "Click me to view helpDoc of the current toolTab.";
+
+MG_displayEN "keyframeTool.misc.tit" "Miscellaneous";
+
+MG_displayEN "keyframeTool.relocator.ann" "Load the MG-Relocator to relocator multiple keyframed objects.";
+MG_displayEN "keyframeTool.switchAttr.mi" "Attr-Switcher without popping..";
+MG_displayEN "keyframeTool.switchAttr.ann" "Load the Attr-Switcher to switch attribute without a popping.";
+MG_displayEN "keyframeTool.snapKeyframe.title" "Super-Keyframe Snapper";
+MG_displayEN "keyframeTool.snapKeyframe.ann" "Load the Super-Keyframe Snapper to snap non-integer keyframe to interger. Selected timeRange is supported when doing the snapping.";
+MG_displayEN "keyframeTool.snapKeyframe.snapGESel" "Snap Grapheditor Selected";
+MG_displayEN "keyframeTool.snapKeyframe.snapSeltimeRange" "Snap TimeSlider Selected";
+MG_displayEN "keyframeTool.snapKeyframe.snaptimeRange" "Snap TimeSlider Range";
+MG_displayEN "keyframeTool.snapKeyframe.snapall" "Snap All";
+
+MG_displayEN "keyframeTool.scaleKeyframe.title" "Keyframe Scaler..";
+MG_displayEN "keyframeTool.scaleKeyframe.ann" "Load the keyframeScaler to translate animation between different frameRates .";
+
+MG_displayEN "keyframeTool.timing.title" "Timing Tool";
+MG_displayEN "keyframeTool.timing.ann" "Timing Tool,Use it to reTiming animation.The keyframes after the current frame will go forward/backward on timeslider uniformly.";
+MG_displayEN "keyframeTool.timing.anTitle01" " Set time of 2Keys:";
+MG_displayEN "keyframeTool.timing.anTitle02" " -/+ time of 2Keys:";
+MG_displayEN "keyframeTool.timing.addSubToV" "Set target timing value by #";
+MG_displayEN "keyframeTool.timing.slider.ann" "Drag the slider to change target timing value.";
+MG_displayEN "keyframeTool.timing.aqire.ann" "Get the current timing value between previous and next key at current frame.";
+MG_displayEN "keyframeTool.timing.intField.ann" "Change the intField value to change target timing value.";
+MG_displayEN "keyframeTool.timing.change.ann" "Actually change the current timing value between previous and next key at current frame to the target value.";
+MG_displayEN "keyframeTool.timing.sliderIncre.ann" "Drag the slider to change the increment/decrement value.";
+MG_displayEN "keyframeTool.timing.intFieldIncre.ann" "Change the intField value to change the increment/decrement value.";
+MG_displayEN "keyframeTool.timing.add.ann" "Actually change the current timing value between previous and next key at current frame by the increment/decrement value.";
+
+MG_displayEN "keyframeTool.setKey.title" "SetKey Tool";
+MG_displayEN "keyframeTool.setKey.everyKey" "Each Key";
+MG_displayEN "keyframeTool.setKey.every" "per";
+MG_displayEN "keyframeTool.setKey.every.ann" "From currentTime on ,set a keyframe at per # frame ";
+MG_displayEN "keyframeTool.setKey.fr" "Fr.";
+MG_displayEN "keyframeTool.setKey.ann" "Press me to either setKeyframe at every keyframe or set keyframe at per # frames.Support timeRange. More features in right clicking popupMenu.";
+MG_displayEN "keyframeTool.setKey.deleteStatic.mi" "Delete Static Channels";
+MG_displayEN "keyframeTool.setKey.deleteStatic" "A quick access to Maya's \"Delete Static Channels\".";
+MG_displayEN "keyframeTool.setKey.nonDefault.mi" "SetKey Changed Channels";
+MG_displayEN "keyframeTool.setKey.nonDefault.ann" "Set Keyframe at any Changed Channels whichs are at different values other than their default values.";
+
+MG_displayEN "keyframeTool.BD.title" "BD Tool";
+MG_displayEN "keyframeTool.BD.ann" "BD Tool.Use it to create the BreakDown pose between two keys for U base on a certain percentage.";
+MG_displayEN "keyframeTool.changeL.ann" "Create a BreakDown pose # near the previous Keyframe Pose";
+MG_displayEN "keyframeTool.changeLarbi.ann" "Create a BreakDown pose of a custom percentige near the previous Keyframe Pose";
+MG_displayEN "keyframeTool.changeR.ann" "Create a BreakDown pose # near the next Keyframe Pose";
+MG_displayEN "keyframeTool.changeRarbi.ann" "Create a BreakDown pose of a custom percentige near the next Keyframe Pose";
+
+MG_displayEN "keyframeTool.isExtre.label" "Extreme";
+MG_displayEN "keyframeTool.isBD.ann" "The pose created will be a inbetween pose.";
+MG_displayEN "keyframeTool.isExtre.ann" "The pose created will be a Extreme pose.";
+MG_displayEN "keyframeTool.avoidOverShoot.label" "Avoid Overshoot";
+MG_displayEN "keyframeTool.avoidOverShoot.ann" "Auto-avoiding overshoot during BD creation.";
+MG_displayEN "keyframeTool.onlySelCurve.label" "Only SelectedCurve";
+MG_displayEN "keyframeTool.onlySelCurve.ann" "Only Create BD key on the Selected Curve";
+MG_displayEN "keyframeTool.onlySelKey.label" "Only SelectedKey";
+MG_displayEN "keyframeTool.onlySelKey.ann" "Only modify the selected key to the certain percentage.";
+
+MG_displayEN "keyframeTool.tangent.title" "Tangent Tool";
+MG_displayEN "keyframeTool.tangent.ann" "A tangent editor base on timeslider.";
+MG_displayEN "keyframeTool.correctOvershoot.mi" "Auto Smooth Keyframe Curve";
+MG_displayEN "keyframeTool.correctOvershoot.ann" "Auto smooth keyframe curve.";
+MG_displayEN "keyframeTool.tanget.left" "Edit the tangent of previous keyframe.";
+MG_displayEN "keyframeTool.tanget.both" "Edit the tangent of previous & next keyframes.";
+MG_displayEN "keyframeTool.tanget.right" "Edit the tangent of next keyframe.";
+MG_displayEN "keyframeTool.tanget.all" "Edit the tangent of all keyframes of current selected objects.";
+MG_displayEN "keyframeTool.tanget.selRange" "Edit the tangent of all keyframes in the selected timeRange of timeSlider.";
+
+MG_displayEN "keyframeTool.notimeRange.war" "No timeRange selected in your timeslider.";
+MG_displayEN "keyframeTool.jobDoneNochange.rep" "Job Done! No Change need to be made.";
+MG_displayEN "keyframeTool.jobDone.rep" "Job Done!";
+MG_displayEN "keyframeTool.notKeyframed.war" "Selection should be keyframed.";
+MG_displayEN "keyframeTool.retiming.war" "This feature only works on the condition that the current time is between the range of previous key and next key";
+MG_displayEN "keyframeTool.retiming.jobDone.rep" "Job Done! The timing between prev/next keys has been changed for # frames :)";
+
+MG_displayEN "keyframeTool.onselShift.lbl" "Only Selected Keys";
+MG_displayEN "keyframeTool.onselShift.ann" "Only shift selected keys foreward/backward base on the relative value you set above.";
+
+MG_displayEN "keyframeTool.keyKeyframed.lbl" "SetKey Keyframed";
+MG_displayEN "keyframeTool.keyKeyframed.ann" "Set Keyframes only for current scene selection's keyframed channels at current frame.";

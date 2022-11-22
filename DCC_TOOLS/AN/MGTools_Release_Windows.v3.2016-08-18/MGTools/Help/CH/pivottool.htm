@@ -1,0 +1,142 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>可动画轴心工具</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Animation,Bar,Keyframe,New,Pivot,Snap,Style" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "pivottool.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span style="font-weight: bold; color: #191817;">可动画轴心工具</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="relative_snap.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="pivot_stuff_manager.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #191817;">可动画轴心工具按钮功能：</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:51px; padding:0px;"><p style="text-align: center;"><span class="f_ImageCaption">  <img src="pivottoolicon.gif" width="32" height="32" alt="pivotToolIcon" style="border:none" /></span></p>
+</td>
+<td style="vertical-align:middle; width:13px; padding:0px;"><br />
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">直接点击将打开MG可动画轴心工具条。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">这个工具主要功能是，让一个单轴心的层级，拥有轴心可动画无数次的能力。同时更动轴心不会跳动。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">这个工具原理启发自Jason牛人的animator Friendly Rigging 教程。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">不同的是，他的是在Rig阶段内置于Rig中，这里创建的是独立装置，通过约束来控制目标物体。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">多轴心动画，主要用在旋转上（位移就没有意义罗），有时需要物体以这个轴心转，过后又以那个轴心转。这时就需要它。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">在上述按钮中点右键，可以访问到工具基本上全部功能，合在工具界面上介绍：</p>
+<p>&nbsp;</p>
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_ImageCaption" style="font-size: 10pt;">轴心动画工具条</span><span style="font-weight: bold; color: #191817;">：</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: -24px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:43px; padding:0px;"><p><img src="pivottoolui.gif" width="50" height="172" alt="pivotToolUI" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:991px; padding:0px;"><p style="margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">MG多动画轴心工具条从上到下的按钮依次为：</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 第一个按钮 ：</span>类似于MGTools工具条，第一个按钮用来管理工具条本身。直接点击来最小化/还原。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 120px;">上面点右键功能也类似，在些不再赘述。<a href="mgtoolintroduction.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">新建可动画轴心装置：</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #191817;">选择一个层级（移动旋转未锁的），点它来产生一个可动画轴心装置。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 120px;"><span class="f_MI_TitleStyle" style="font-weight: normal; color: #191817;">这个装置的上层将被其父层级约束（如果有父层级），装置本身将约束所选层级。所以这个装置将被其上层驱动又驱动当前层级。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">选择轴心共三个装置：</span>选择轴心装置的其中一个，点它三个都会被选，便于动画编辑。 </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">吸附轴心：</span>根据轴心装置的Pivot_mov位置来无跳动吸附Roll控制器。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示：在下面将详细介绍这个装置产生作用的原理。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_ImageCaption" style="font-size: 10pt;">轴心动画实现过程及原理</span><span style="font-weight: bold; color: #191817;">：</span></p>
+<p>&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">1.</span>选择你想要被多轴心动画的对象，这个对象必须自身旋转位移未被锁定。 </p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">2.</span>点<img src="createpivotstufficon.gif" width="32" height="32" alt="createPivotStuffIcon" style="border:none" />图标，新建一个多轴心动画装置。这个装置将被父层级驱动，本身驱动所选层级。如下图为例：<br />
+装置可见的控制器有三个：Pivot，Pivot_MOV，Roll。<br />
+<img src="pivotstuff_example.gif" width="395" height="238" alt="PivotStuff_Example" style="border:none" /><br />
+&nbsp;<br />
+如图中，要做多轴心动画的是pCube1，那么生成的装置命名将是pCube1_Pivot，pCube1_Pivot_mov，pCube1_Roll。<br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">pCube1_Roll：</span> 多轴心指的是它。将来做轴心旋转的也是这个控制器，因为它控制着pCube1.<br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">pCube1_Pivot_mov：</span>它的位置告诉Mel，将要把Roll这个层级的轴心单帧吸附到哪个位置。移动它不会产生影响，但是在吸附过程是参照。<br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">pCube1_Pivot：</span>它代表着Roll控制器的实际轴心。在经过一次动画后，就不能直接移动它。它的移动都由Mel计算单帧执行。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">3.</span>在第一次动画过程中，可以直接移动Pivot/Pivot_mov，Roll不会飘移。对Roll制作旋转动画。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">4.</span>Roll需要调整其它轴心时，手动操作Pivot_mov，把+形控制器移动到新轴心的位置。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">5.</span>按多轴心动画工具条上的最后一个图标，把Pivot控制器吸附到Pivot_mov位置。这时Roll正常会产生奇怪的飘移现象。这个Mel会自动key帧把它抓回来不跳动。<br />
+也就是说其实跳动是存在的，只是吸附时把它抓回来并key帧。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">6.</span>这时Roll的轴心就会单帧切换到这个新轴心位置上。可以继续动画。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">7.</span>以此类推。</p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示：轴心动画在制作时会比较直观和轻松，轴心变换是单帧切换。 在编辑时，就要小心，要用工具条上第三个按钮，来选择装置的三个控制器一起移动。因为正是它们的一起作用才使轴心变动时不飘移。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_ImageCaption" style="font-size: 10pt;">各按钮右键</span><span style="font-weight: bold;">菜单功能：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">在<img src="createpivotstufficon.gif" width="32" height="32" alt="createPivotStuffIcon" style="border:none" />图标上按右键：</p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:186px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="mi_createpivotstuff_ch.gif" width="202" height="168" alt="MI_createPivotStuff_ch" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:1092px; padding:0px;"><p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">删除轴心装置：</span>根据所选的轴心装置一部分，删除整个该装置。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">绑定轴心装置：</span>先选要新绑定的层级，再选轴心装置的一部分，点它来建立控制关系。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 144px;">用来把轴心装置转移控制另一个层级。原来控制的层级将解除控制关系。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">轴心装置管理器：</span>用它来管理场景中所有的轴心装置。当轴心装置建多时这就显得必要。<a href="pivot_stuff_manager.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">在<img src="selectpivotstufficon.gif" width="32" height="32" alt="selectPivotStuffIcon" style="border:none" />图标上按右键：</p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:186px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="mi_selectpivotstuff_ch.gif" width="200" height="202" alt="MI_selectPivotStuff_ch" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:1092px; padding:0px;"><p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> &nbsp;轴心装置管理器：</span>用它来管理场景中所有的轴心装置。当轴心装置建多时这就显得必要。<a href="pivot_stuff_manager.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 选择 Pivot&amp;Roll :</span><span class="f_ImageCaption"> </span>先选择轴心装置的一部分，点它来选择其中的Pivot和Roll控制器。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">选择 Pivot_mov :</span><span class="f_MI_TitleStyle"> </span>先选择轴心装置的一部分，点它来选择Pivot_mov控制器。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">选择 Pivot : </span>先选择轴心装置的一部分，点它来选择Pivot控制器。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">选择 Roll : </span>先选择轴心装置的一部分，点它来选择Roll控制器。</p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">在<img src="snappivotstufficon.gif" width="32" height="32" alt="snapPivotStuffIcon" style="border:none" />图标上按右键：</p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:186px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="mi_snappivotstuff_ch.gif" width="228" height="156" alt="MI_snapPivotStuff_ch" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:1092px; padding:0px;"><p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 向后吸附到Pivot_mov </span><span class="f_MI_TitleStyle">:</span>正常吸附把这一帧的Pivot_mov位置作为新轴心位置参照，这个相反，以上一帧的Pivot_mov位置作为新轴心装置参照，在当前帧key帧装置，然后再跳到上一帧把轴心移到上一帧中的Pivot_mov位置。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 吸附轴心到选择 :</span><span class="f_ImageCaption"> </span>正常吸附是根据Pivot_mov位置作为新轴心位置参照，这个的话你可以先选择一个代表你想要轴心在那里的对象，再选装置一部分，点它将在当前帧把Roll轴心单帧变换到那个对象的轴心处。</p>
+</td>
+</tr>
+</table>
+</div>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="relative_snap.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="pivot_stuff_manager.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

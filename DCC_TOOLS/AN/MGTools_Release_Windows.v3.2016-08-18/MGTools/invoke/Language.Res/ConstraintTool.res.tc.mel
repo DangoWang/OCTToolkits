@@ -1,0 +1,148 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+MG_displayTS "ConsTool.selMaster" "選擇約束物體";
+MG_displayTS "ConsTool.selMaster.anno" "點選幫你來選擇約束當前物體的物體:)";
+MG_displayTS "ConsTool.selMaster.noMaster.war" "你所選擇的物體沒有被約束或者約束體列表為空:(";
+
+MG_displayTS "ConsTool.selSlave" "選擇被約束物體";
+MG_displayTS "ConsTool.selSlave.anno" "點選幫你來選擇被當前物體約束的物體:)";
+MG_displayTS "ConsTool.selSlave.noSlave.war" "你所選擇的物體沒有約束其它任何物體哦 :(";
+
+
+MG_displayTS "ConsTool.findJoint.anno" "點選根據所選軟綁過的頂點來選擇影響它最大的骨頭";
+MG_displayTS "ConsTool.lister.anno" "選擇被約束體然後點我來管理其約束";
+
+MG_displayTS "ConsTool.animConsP" "動畫約束父層級";
+MG_displayTS "ConsTool.animConsP.anno" "用第一選擇物體來動畫約束第二選擇物體的父層級";
+
+MG_displayTS "ConsTool.consWithOffset.anno" "點選來生成自動忽略鎖定通道的# ";
+
+MG_displayTS "ConsTool.option.mi" "選項..";
+
+MG_displayTS "ConsTool.vc.mi" "頂點約束";
+MG_displayTS "ConsTool.vc.mi.anno" "選擇多邊形的頂點/邊/面或Nurbs的控制頂點再點我來生成頂點約束器，該控製器可用來約束其它物體，因為它能代表原來所選次級物件的位置。";
+MG_displayTS "ConsTool.vc.nosel.war" "場景無選擇哦。請先選擇多邊形的頂點/邊/面或Nurbs的控制頂點再來執行俺。";
+MG_displayTS "ConsTool.vc.typeWrong.war" "忽略掉： #。該命令只支援多邊形的頂點/邊/面和Nurbs的控制頂點.\n";
+MG_displayTS "ConsTool.vc.clear.rep" " # 個頂點約束被清除.";
+MG_displayTS "ConsTool.vc.clear.mi" "清除所選頂點約束器";
+MG_displayTS "ConsTool.vc.clear.ann" "要幹凈清除一個頂點約束，你必須先選擇頂點約束控製器(那個nurbsCurve球)然後執行我。";
+
+MG_displayTS "ConsTool.pointConsP.mi" "點約束父層級";
+MG_displayTS "ConsTool.pointConsP.mi.anno" "用第一選擇物體來點約束第二選擇物體的父層級.";
+MG_displayTS "ConsTool.orientConsP.mi" "旋轉約束父層級";
+MG_displayTS "ConsTool.orientConsP.mi.anno" "用第一選擇物體來旋轉約束第二選擇物體的父層級.";
+MG_displayTS "ConsTool.aimConsP.mi" "目標約束父層級";
+MG_displayTS "ConsTool.aimConsP.mi.anno" "用第一選擇物體來目標約束第二選擇物體的父層級.";
+
+MG_displayTS "ConsTool.buildConsGrp.war" "請先選擇一個物體:)";
+
+MG_displayTS "ConsTool.selectCosed.war" "請先選擇一個被約束體:)";
+
+MG_displayTS "ConsTool.noConsSel.war" "場景無選擇。請先選擇約束體:)";
+MG_displayTS "ConsTool.noCondSel.war" "場景無選擇。請先選擇被約束體:)";
+
+MG_displayTS "ConsTool.selectCosedNodeInLeft.war" "請先在左列表裡選擇一個約束節點:)";
+MG_displayTS "ConsTool.selectMasterNodeInRight.war" "請先在右列表裡選擇一個約束物體:)";
+
+MG_displayTS "ConsTool.selectCosedObjToList.war" "請先選擇一個被約束體來管理其約束:)";
+MG_displayTS "ConsTool.ConsLister.title" "約束管理器:)";
+MG_displayTS "ConsTool.CSlave.annoText" "*當前被約束體: #. 雙擊下面列表項目將選擇相應的節點. ";
+
+MG_displayTS "ConsTool.ConsNode" "約束節點:";
+MG_displayTS "ConsTool.MasNode" "約束物體:";
+MG_displayTS "ConsTool.douClickSel.anno" "雙擊來選擇相應的節點.";
+MG_displayTS "ConsTool.ConsLister.select" "選擇";
+MG_displayTS "ConsTool.ConsLister.del" "刪除";
+MG_displayTS "ConsTool.ConsLister.Clear" "清除";
+MG_displayTS "ConsTool.ConsLister.remFromTList" "從目標體列表裡排除";
+MG_displayTS "ConsTool.ConsLister.resel" "重選被約束體並重新整理";
+MG_displayTS "ConsTool.ConsLister.refresh" "重新整理介面";
+MG_displayTS "ConsTool.ConsLister.Close" "關閉";
+MG_displayTS "ConsTool.ConsLister.exOff" "匯出約束偏移..";
+MG_displayTS "ConsTool.ConsLister.imOff" "匯入約束偏移..";
+
+MG_displayTS "ConsTool.ConsLister.noCons.war" "當前選擇物體沒有檢測到約束節點.";
+MG_displayTS "ConsTool.corrctWName" "修正權重屬性名";
+MG_displayTS "ConsTool.selTwoToCons.war" "您至少要選兩個物體才能應用約束哦 :(";
+MG_displayTS "ConsTool.noParent.war" "您的第二選擇物體沒有父層級哦.";
+MG_displayTS "ConsTool.noPchannel.war" "您的約束目標沒有可約束的軸向哦 :(";
+
+MG_displayTS "ConsTool.exportCons.rep" "約束相對距離匯出完成,你可以在任何Maya裡匯入使用它.\n";
+MG_displayTS "ConsTool.exportCons.prompt.title" "匯出 .# 檔案";
+MG_displayTS "ConsTool.exportCons.prompt.Mes" "輸入檔名:";
+MG_displayTS "ConsTool.exportCons.prompt.OK" "匯出";
+
+MG_displayTS "ConsTool.importCons.annoText" "請選擇一個檔案來匯入:";
+MG_displayTS "ConsTool.importCons.delSel" "刪除所選";
+MG_displayTS "ConsTool.importCons.delAll" "刪除所有";
+MG_displayTS "ConsTool.importCons.ImToSS" "導給場景所選";
+MG_displayTS "ConsTool.importCons.ImToLS" "導給列表所選";
+
+MG_displayTS "ConsTool.importCons.selFile.war" "請先檔案列表裡選一個項目";
+MG_displayTS "ConsTool.importCons.numMatch.war" "偏移資訊檔案裡的約束體數目與當前約束節點的約束體數目不匹配.";
+MG_displayTS "ConsTool.importCons.done.rep" "成功匯入 # 的約束偏移值資訊.\n";
+
+MG_displayTS "ConsTool.findJoint.oneV.war" "囧..  請選一個軟綁過的頂點,與想要選擇的骨骼離地最近的一個頂點!!";
+MG_displayTS "ConsTool.findJoint.noSB.war" "囧..  你所選的頂點沒有被軟體綁過!!";
+MG_displayTS "ConsTool.findJoint.done.rep" "為你選到這頂點附近的骨頭了! :)";
+
+MG_displayTS "ConsTool.setRelativeOffset.mi" "設定約束相對位置";
+MG_displayTS "ConsTool.setRelativeOffset.anno" "在檢視位移/旋轉被約束體到想要的狀態，在使Maya重計算前，點我來設定約束相對位置.(先選被約束體再執行我)";
+
+MG_displayTS "ConsTool.makeRelativeOffsetCtl.mi" "添加被約束體位置控製器";
+MG_displayTS "ConsTool.makeRelativeOffsetCtl.anno" "在物體被約束的情況下,給被約束體添加一個位置控製器而不影響約束.(先選被約束體再執行我)";
+
+MG_displayTS "ConsTool.setRelativeOffset.repT" "被約束體\"#\"的相對位移已設定完畢\n";
+MG_displayTS "ConsTool.setRelativeOffset.ignoreT" "忽略：被約束體\"#\"的相對位移\n";
+
+MG_displayTS "ConsTool.setRelativeOffset.repR" "被約束體\"#\"的相對旋轉值已設定完畢\n";
+MG_displayTS "ConsTool.setRelativeOffset.ignoreR" "忽略：被約束體\"#\"的相對旋轉\n";
+
+MG_displayTS "ConsTool.setRelativeOffset.repP" "被約束體\"#\"的相對位置已設定完畢\n";
+MG_displayTS "ConsTool.setRelativeOffset.ignoreP" "忽略：被約束體\"#\"的相對位置\n";
+
+MG_displayTS "ConsTool.confirm.all.label" "全部" ;
+MG_displayTS "ConsTool.confirm.confirm.label" "確認：" ;
+MG_displayTS "ConsTool.confirm.whichNode.message" "請問你要設定哪個約束節點呢?" ;
+MG_displayTS "ConsTool.confirm.whichWeight.message" "請問你要設定該約束節點的哪個權重呢?" ;
+
+MG_displayTS "ConsTool.confirm.whichNodeToControl.message" "請問你將生成的控製器要控制哪個約束節點?" ;
+MG_displayTS "ConsTool.confirm.whichWeightToControl.message" "請問你將生成的控製器要控制該約束節點的哪個權重?" ;
+
+//add in MGtools3========================================================
+MG_displayTS  "ConsTool.bioCons.mi" "互相約束" ;
+MG_displayTS  "ConsTool.bioCons.noSel" "你要選擇兩個物件來互相約束.";
+MG_displayTS  "ConsTool.bioCons.ann" "使用Maya默認的父子約束節點, 建立起兩個物件互相約束的機制，當然同一時間只能是其中一個控製器另一個." ;
+
+MG_displayTS  "ConsTool.bioCons.done.rep" "互相約束的機制已建立。使用互相約束的物件的 \"BioConstraint_Weight\" 屬性來設定某一時間內控制及被控制的關係。" ;
+
+MG_displayTS  "ConsTool.consManagerNode.noPlugs.war" "你必須在 # 上選擇一些屬性通道." ;
+MG_displayTS  "ConsTool.consManagerNode.mgCB" "MG-通道欄" ;
+MG_displayTS  "ConsTool.consManagerNode.mayaCB" "Maya通道欄" ;
+
+MG_displayTS  "ConsTool.consManagerNode.notSupportAttrType.war" "所選屬性的類型是: \"#\"， 但只支援下面的屬性類型：#." ;
+MG_displayTS  "ConsTool.consManagerNode.title" "MG-約束管理節點" ;
+
+MG_displayTS  "ConsTool.consManagerNode.mi" "收集所選屬性到約束管理節點.." ;
+MG_displayTS  "ConsTool.consManagerNode.maya.mi" "收集所選屬性到約束管理節點.. (Maya通道欄)" ;
+MG_displayTS  "ConsTool.consManagerNode.maya.ann" "將Maya通道欄上所選屬性，連線到MG場景約束管理節點上的同名屬性，這樣你可以用一個節點來管理多個屬性。(原屬性動畫將被轉移到新控制屬性。)" ;
+MG_displayTS  "ConsTool.consManagerNode.mg.mi" "收集所選屬性到約束管理節點.. (MG-通道欄)" ;
+MG_displayTS  "ConsTool.consManagerNode.mg.ann" "將MG-通道欄上所選屬性，連線到MG場景約束管理節點上的同名屬性，這樣你可以用一個節點來管理多個屬性。(原屬性動畫將被轉移到新控制屬性。)" ;
+MG_displayTS  "ConsTool.consManagerNode.sep.mi" "添加屬性分隔橫線到約束管理節點" ;
+MG_displayTS  "ConsTool.consManagerNode.sep.ann" "添加屬性分隔橫線到約束管理節點，這樣屬性有分組閱讀起來比較爽。" ;
+MG_displayTS  "ConsTool.consManagerNode.sep.done.rep" "已添加一個屬性分隔橫線到約束管理節點！" ;
+
+MG_displayTS  "ConsTool.consManagerNode.attrName.mes" "請輸入一個屬性名，這個屬性名將作為控制屬性生成在約束管理節點上:" ;
+MG_displayTS  "ConsTool.consManagerNode.attrExist.mes" "該屬性 \"#\" 在約束管理節點已存在，請嘗試輸入其它的名稱。" ;
+MG_displayTS  "ConsTool.consManagerNode.attrLock.mes" "該屬性 \"#\" 要麼被鎖定要麼不可連線." ;
+MG_displayTS  "ConsTool.consManagerNode.done.rep" "該屬性 \"#\" 已被收集到約束管理節點，其控制屬性為 \"#\"." ;
+MG_displayTS  "ConsTool.consManagerNode.pin.notExist.war" "節點: 約束管理節點在你的場景裡不存在。" ;
+
+MG_displayTS  "ConsTool.consManagerNode.pingToViewport.mi" "固定約束管理節點到當前檢視";
+MG_displayTS  "ConsTool.consManagerNode.unping.mi" "解除約束管理節點檢視固定";

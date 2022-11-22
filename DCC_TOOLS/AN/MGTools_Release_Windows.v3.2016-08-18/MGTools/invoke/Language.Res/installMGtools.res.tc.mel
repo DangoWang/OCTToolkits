@@ -1,0 +1,78 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+global string $MG_traditionalChinese_Marker = "當";
+
+global string $MG_traditionalChinese_title = "MGTools Pro3 安裝嚮導";	
+global string $MG_traditionalChinese_welcome = "歡迎啟動MGTools Pro3安裝嚮導";
+global string $MG_traditionalChinese_installTo = "安裝/更新 MGTools shelf 至：";
+global string $MG_traditionalChinese_currentShelf = "裝到當前Shelf工具架";
+global string $MG_traditionalChinese_allShelf = "全部裝到當前Shelf工具架";
+global string $MG_traditionalChinese_MGtoolsShelf = "全部裝到\"MGtools\"工具架(沒有則新建)";
+
+global string $MG_traditionalChinese_nextAutoload = "當Maya下次啟動時要自動載入以下項目：";
+global string $MG_traditionalChinese_mgtoolsMenu = "MGTools 選單欄選單";
+global string $MG_traditionalChinese_mgtoolsBar = "MGTools 工具條";
+global string $MG_traditionalChinese_minimize = "載入工具條後最小化";
+global string $MG_traditionalChinese_mgChannelbox = "MG通道欄";
+global string $MG_traditionalChinese_mgShelf = "MGShelf工具條";
+global string $MG_traditionalChinese_constraint = "約束工具條";
+global string $MG_traditionalChinese_keyframeTool = "幀工具箱";
+global string $MG_traditionalChinese_selection = "MG選擇集工具";
+
+global string $MG_traditionalChinese_afterInstall= "裝完後你想要:";
+global string $MG_traditionalChinese_afterInstall_mgtools= "載入MGTools工具條";
+global string $MG_traditionalChinese_afterInstall_config= "配置MGTools工具條";
+global string $MG_traditionalChinese_afterInstall_help= "檢視MGTools幫助";
+global string $MG_traditionalChinese_uiLan= "UI介面語言:";
+
+global string $MG_traditionalChinese_wip_title= "正在安裝中，可能會花些時間，請耐心等候:)";
+global string $MG_traditionalChinese_wip_00= "  當前MGTools 安裝進度：\n\n";
+global string $MG_traditionalChinese_wip_01= "  步驟一: 獲取相關檔案資訊\n";
+global string $MG_traditionalChinese_wip_02= "  步驟二: 準備拷貝MGTools資料夾到相應目錄\n";
+global string $MG_traditionalChinese_wip_03= "  步驟三: 安裝相應的MGTools工具架\n";
+global string $MG_traditionalChinese_wip_04= "  步驟四: 設定自動載入\n";
+global string $MG_traditionalChinese_wip_05= "  步驟五: 安裝初步完成，正在啟動一些工具\n";
+global string $MG_traditionalChinese_wip_06= "安裝完成 !!";
+global string $MG_traditionalChinese_wip_07= "MGTools安裝完畢，您可以訪問mgland.com來瞭解更多 :)";
+
+
+global string $MG_traditionalChinese_OSMismatch_title= "OS Mismatch | 系統版本錯誤 !";
+global string $MG_traditionalChinese_OSMismatch_message= "Sorry, the MGTools version your are installing is not for this OS platform. \n抱歉,你當前的MGTools版本不適於當前的作業系統.";
+global string $MG_traditionalChinese_nonAscii_message1="源MGTools安裝包是在該目錄: \n\n";
+global string $MG_traditionalChinese_nonAscii_message2="\n\n這個目錄存在著非AscII字元:   ";
+global string $MG_traditionalChinese_nonAscii_message3="\n\n為了避免潛在的程式問題，請重新命名目錄或移到純AscII字元的目錄裡去, 否則您無法以伺服器模式來安裝MGTools.";
+
+global string $MG_traditionalChinese_TIP = "* 點選 \"下一步\" 按鈕來接觸使用者端許可協議並繼續; 點\"取消\" 來拒絕並退出安裝.";
+global string $MG_traditionalChinese_EULA_missing = "MGTools終端使用者許可協議丟失，安裝取消.";
+global string $MG_traditionalChinese_101_missing = "MGTools授權說明檔案丟失，安裝取消.";
+global string $MG_traditionalChinese_EULA_topLbl =  "   MGTools終端使用者許可協議:";
+global string $MG_traditionalChinese_101_topLbl = "   MGTools專業版授權說明:";
+
+global string $MG_traditionalChinese_cleanUpOld = "清除MGTools3本地檔案.";
+global string $MG_traditionalChinese_cleanUp_lbl = "準備解除安裝舊的MGTools v";
+global string $MG_traditionalChinese_cleanUp_cont = "繼續";
+global string $MG_traditionalChinese_cleanUp_cancel = "取消";
+global string $MG_traditionalChinese_cleanUp_theOld = "檢測到舊的MGTools v";
+global string $MG_traditionalChinese_cleanUp_war = " . \n繼續安裝將解除安裝舊的MGTools程式檔案，不過配置檔案將保留. \n\n您要繼續嗎 ?";
+global string $MG_traditionalChinese_cleanUp_uninstalling_scripts = "解除安裝舊的MGTools指令碼.";
+global string $MG_traditionalChinese_cleanUp_uninstalling_folders = "解除安裝舊的MGTools資料夾.";
+global string $MG_traditionalChinese_cleanUp_uninstalling_folder_rep = "正在解除安裝舊資料夾: ";
+global string $MG_traditionalChinese_cleanUp_uninstalling_transfering_rep = "升級MGTools舊的配置檔.";
+global string $MG_traditionalChinese_cleanUp_uninstalling_shelfHotkeys = "清理舊的MGTools工具架並更新快捷鍵.";
+
+global string $MG_traditionalChinese_afterInstall_register = "立即註冊MGTools";
+
+global string $MG_traditionalChinese_errorReplace_oldFiles = "替換舊檔案時出錯 :";
+global string $MG_traditionalChinese_installMode = "安裝模式:";
+global string $MG_traditionalChinese_installAsLocal = "本地模式";
+global string $MG_traditionalChinese_installAsGlobal = "伺服器模式";
+global string $MG_traditionalChinese_installAsFullGlobal = "完全伺服器模式";
+global string $MG_traditionalChinese_autoloadVia = "自動載入基於：";
+

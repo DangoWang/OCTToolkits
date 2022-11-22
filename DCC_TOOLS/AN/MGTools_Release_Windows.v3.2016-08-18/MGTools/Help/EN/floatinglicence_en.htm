@@ -1,0 +1,73 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Floating Licence</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="deploy,licence" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "floatinglicence_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">Floating Licence</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="distributemgtools_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="mgtoolintroduction_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">Node-Locked Licence vs Floating Licence:</span> </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">Node-Locked Licence: Bound to machine, not transferable, need to pay for future brand new features, but the license has no time limitation as long as you are using the same machine. <br />
+Floating licence: Free to login and use MGTools at any machine, no update fee, but you need an internet access and need to pay recursively.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> Tips : If the internet is not totally available, at least you should be able to visit IPs that can be retrieved by &quot;ping ls1.twincodes.com&quot; &nbsp;and &quot;ping ls2.twincodes.com&quot;.</p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">Distributing MGTools under Floating License: </span>You still follow the 1~6 steps to deploy MGTools in your pipeline.<a href="distributemgtools_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">1.</span>Visit http://twincodes.com to download the MG-LicenceConnector &amp; MG-LicenceProtector standalone applications (Available in one package).</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">2.</span>Put the programs in server, those programs are portable, just unzip them to server.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">3.</span>Go to MGTools server program folder, go to MGTools/MGTools_ServerData/MG_LicenceConnector.txt.<br />
+Input the directory path at the right side of &quot;ConnectorDirectory=&quot;, both relative and absolute path are supported.<br />
+If this is not set, then each user has to right click the first icon of MGTools, go to &quot;Floating Licence/login..&quot;, click the option button, and in the dialog, manually pick that executable for one time.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">4.</span>After that, each time you go to &quot;Floating Licence/login..&quot;, the MG-LicenceConnector will be launched.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">5.</span>When MGTools is loaded:<br />
+If a certain machine has node-locked licence, MGTools will use that licence first.<br />
+If not, it will test if the position of MG-LicenceConnector is known. If it is , it will launch the program and try to connect to it.<br />
+<img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> Tips : In Windows &amp; Macos, you could close / minimize the tool to hide it, make the system tray icon visible.<br />
+In Linux, since the desktop environment could be various kinds, sometime tray icon are not supported well by Qt, so by default it won't hide the UI and show tray icon by minimizing or closing it.<br />
+If the system tray icon does show up correctly, you could turn on Misc/Hide On Minimize in the connector menu.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">6.</span>When you have already logged in licence in MG-LicenceConnector, but MGTools still remains unregistered, just go to &quot;Floating Licence/login..&quot; again to remind it.<br />
+&nbsp;</p><p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">To avoid input username / password each time you use MG-LicenceConnector:</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;">Use the &quot;Remember me&quot; option in login ui.</p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;">Another way is to store username and password into a encrypted file generated by MG-LicenceProtector. Checkout info below.</p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">If you are software manager and wanna protect the user name and password as a studio property:</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">1.</span>Use the MG-LicenceProtector. It is a standalone program shipped with MG-LicenceConnector.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">2.</span>Load up the MG-LicenceProtector, switch to product to MGTools, &nbsp;input the user name and password.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">3.</span>Setup some filter:<br />
+Global IP filter: Input the global IPs your studio use, so only computers within your studio could connect to floating licence.<br />
+User-Code filter: Limit which machines could connect to floating licence.<br />
+Date filter: If you are freelancer and only work in studio for short term, use the date limitation, and only during that date range the licence could be connected.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">4.</span>Save it as .mgtoolslic file, the file should be saved to &quot;licences&quot; folder beside MG-LicenceConnector in order it be picked up automatically.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">5.</span>The file is encrypted, to edit it further using MG-LicenceProtector, you have to input password every time.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">6.</span>If the license file is placed correctly, it will be used every time MG-LicenceConnector launched, if not, go to &quot;Log in/out / Login all server licence(s)&quot; menu in MG-LicenceConnector.</p>
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="distributemgtools_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="mgtoolintroduction_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

@@ -1,0 +1,14 @@
+antialiasing = 1
+silhouette = 0
+invert = 0
+grayscale = 1
+brightness = 0
+contrast = -120
+saturation = 0
+blur = 0
+bgcolor = 0,0,0
+opacity = 255
+hTile = 1
+hTileGap = 0
+vTile = 1
+vTileGap = 0

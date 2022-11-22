@@ -1,0 +1,58 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "license.student.expired.war" "您的学生授权已过期，如果你喜欢MGTools，请通过 http://mgland.com 或 http://twincodes.com 来购买.";
+MG_displaySC "license.trial.expired.war" "您的试用期已过期，如果你喜欢MGTools，请通过 http://mgland.com 或 http://twincodes.com 来购买.";
+MG_displaySC "license.trial.hasDay.war" "您的试用期余下 # 天";
+MG_displaySC "license.student.hasDay.war" "您的学生授权余下 # 天.";
+
+MG_displaySC "license.invalid.author.war" "注册码无效.";
+MG_displaySC "license.reg.failed.war" "MGTools专业版注册失败!";
+MG_displaySC "license.trial.title" "MGTools专业版试用期授权";
+MG_displaySC "license.uc.lbl" "用户码:";
+MG_displaySC "license.auc.lbl" "注册码:";
+MG_displaySC "license.stu.auc.lbl" "学生版授权注册码:";
+MG_displaySC "license.comm.auc.lbl" "商业版授权注册码:";
+MG_displaySC "license.activate.lbl" "激活 !!";
+MG_displaySC "license.upgrade.lbl" "升级 !!";
+MG_displaySC "license.purchase.lbl"  "购买商业版授权..";
+MG_displaySC "license.stu.title"  "MGTools专业版学生版授权";
+MG_displaySC "license.comm.title"  "MGTools专业版商业版授权";
+MG_displaySC "license.comm.old.lbl"  "旧的商业版授权注册码:";
+MG_displaySC "license.comm.new.lbl"  "新的商业版授权注册码:";
+MG_displaySC "license.ver.mismatch.war"  "你的注册码是针对旧版本的MGTools专业版的，所以有一些在该版本后推出的全新功能可能会无法使用.";
+MG_displaySC "license.reged.rep"  "MGTools专业版已注册 :)";
+MG_displaySC "license.invalid.uc.war"  "无效的用户码或注册码: ";
+MG_displaySC "license.notServier.war"  "您MGTools并没有以服务器模式安装，将切换到一般的注册对话框.";
+MG_displaySC "license.reg.written.rep"  "注册信息已写入 : # (查看在界面上是否有绿色的勾选符号.)";
+
+MG_displaySC "license.batchReg.top.ann"  "批量注册工具只能由您负责安装注册软件的软件管理员来使用，\n\n请确认您就是负责这个的人:) ";
+MG_displaySC "license.batchReg.goHead.lbl"  "继续";
+MG_displaySC "license.batchReg.cancel.lbl"  "取消";
+MG_displaySC "license.batchReg.noLicense.found.rep"  "没有发现任何注册相关信息.";
+MG_displaySC "license.batchReg.title"  "MGTools批量注册器";
+MG_displaySC "license.batchReg.topAnn"  "* 下面的列表列出了以服务器模式安装MGTools时提交的用户码.";
+MG_displaySC "license.batchReg.search.nameIP.lbl"  "搜索用户/计算机名称//IP:";
+MG_displaySC "license.batchReg.userIP.lbl"  "用户名 @ 计算机名称 [IP]";
+MG_displaySC "license.batchReg.uc.lbl"  "用户码";
+MG_displaySC "license.batchReg.auc.lbl"  "注册码";
+MG_displaySC "license.batchReg.purchase.count"  "  您还需要购买 # 个授权.";
+MG_displaySC "license.batchReg.afterPurchase.ann"  "  购买后，复制并电子邮件这些用户码到 mgtoolsPro@gmail.com来获取注册码.";
+MG_displaySC "license.batchReg.cp.lbl"  "复制";
+MG_displaySC "license.batchReg.close.lbl"  "关闭";
+MG_displaySC "license.batchReg.reg.top.ann"  "  在下面粘贴进注册码，以这样的格式: 用户码 > 注册码; 用户码 > 注册码; ..";
+MG_displaySC "license.batchReg.clear.lbl"  "清除";
+MG_displaySC "license.batchReg.paste.msg"  "1. 粘贴 ->";
+MG_displaySC "license.batchReg.match.msg"  "2. 匹配 ->";
+MG_displaySC "license.batchReg.apply.msg"  "3. 应用注册 !!";
+MG_displaySC "license.batchReg.cpEmail.lbl"  "1. 复制并Email来获取注册码";
+MG_displaySC "license.batchReg.pasteMatch.lbl"  "2. 粘贴并匹配并批量注册";
+
+
+MG_displaySC "license.copyText.ann"  "点击复制文本，如果不管用，则请您选择中文本手中复制.";

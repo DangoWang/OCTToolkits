@@ -1,0 +1,195 @@
+﻿<!DOCTYPE HTML>
+<html><head>
+   <title>MG-Picker工作室帮助</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+   <!-- This line includes the general project style sheet (not required) -->
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+   <!-- This block defines the styles of the TOC headings, change them as needed -->
+   <style type="text/css">
+       .navtitle { font-size: 14pt; font-weight: bold; margin-bottom: 16px; }
+       .navbar   { font-size: 10pt; }
+
+       .heading1 { font-family: Arial,Helvetica; font-weight: normal; font-size: 10pt; color: #000000; text-decoration: none; }
+       .heading2 { font-family: Arial,Helvetica; font-weight: normal; font-size: 9pt; color: #000000; text-decoration: none; }
+       .heading3 { font-family: Arial,Helvetica; font-weight: normal; font-size: 8pt; color: #000000; text-decoration: none; }
+       .heading4 { font-family: Arial,Helvetica; font-weight: normal; font-size: 8pt; color: #000000; text-decoration: none; }
+       .heading5 { font-family: Arial,Helvetica; font-weight: normal; font-size: 8pt; color: #000000; text-decoration: none; }
+       .heading6 { font-family: Arial,Helvetica; font-weight: normal; font-size: 8pt; color: #000000; text-decoration: none; }
+
+       .hilight1 { font-family: Arial,Helvetica; font-weight: normal; font-size: 10pt; color: #FFFFFF; background: #002682; text-decoration: none; }
+       .hilight2 { font-family: Arial,Helvetica; font-weight: normal; font-size: 9pt; color: #FFFFFF; background: #002682; text-decoration: none; }
+       .hilight3 { font-family: Arial,Helvetica; font-weight: normal; font-size: 8pt; color: #FFFFFF; background: #002682; text-decoration: none; }
+       .hilight4 { font-family: Arial,Helvetica; font-weight: normal; font-size: 8pt; color: #FFFFFF; background: #002682; text-decoration: none; }
+       .hilight5 { font-family: Arial,Helvetica; font-weight: normal; font-size: 8pt; color: #FFFFFF; background: #002682; text-decoration: none; }
+       .hilight6 { font-family: Arial,Helvetica; font-weight: normal; font-size: 8pt; color: #FFFFFF; background: #002682; text-decoration: none; }
+
+       TD.toc { padding-bottom: 0px; padding-right: 0px; padding-left: 0px  }
+  body {
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-left: 0px;	
+        }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript">
+     var parentScope = (parent.hmNavigationFrame);
+     if (!parentScope) {
+		      var s = document.createElement("script");
+		      s.setAttribute("type","text/javascript");
+		      s.setAttribute("src", "helpman_navigation.js");
+		      document.getElementsByTagName("head")[0].appendChild(s);
+	    }
+     else {
+       if (initialtocstate != "expandall") parent.hmAddCss(document, "#toc li ul { display: none }");
+     }
+     function loadicons() { var icons = new Array(); for (i=0; i<arguments.length; i++) { icons[i] = new Image(); icons[i].src = arguments[i]; } }
+     function loadtoc() { if (parentScope) parent.loadstate(document.getElementById("toc")); else loadstate(document.getElementById("toc")); }
+     function savetoc() { if (parentScope) parent.savestate(document.getElementById("toc")); else savestate(document.getElementById("toc")); }
+     function clicked(node, event) { deselect(); if (parentScope) parent.hmNodeClicked(node, event); else hmNodeClicked(node, event); }
+     function dblclicked(node) { if (parentScope) parent.hmNodeDblclicked(node); else hmNodeDblclicked(node); }
+     function deselect() { if (window.getSelection) window.getSelection().removeAllRanges(); else if (document.selection) document.selection.empty(); }
+     $(document).ready(function(){
+       loadtoc();
+       $(window).onunload = savetoc;
+     });
+   </script>
+</head>
+<body style="background: #e0e0e0; url(null) fixed no-repeat margin-top: 0px">
+<table  valign="bottom" width="100%"  height="25"  border="0" cellpadding="0" cellspacing="0" bgcolor="#d0d0d0">
+  <tr valign="bottom" align="left">
+    <td valign="bottom"  colspan="0"> 
+<img  border="0" src="../Common/images/MGtoolsHelp_pageInde_ch.gif" width="61" height="25" alt="Contents" /></td>
+<td valign="bottom"  colspan="0"> 
+ <a href="mg-picker_simplifiedchinese_kwindex.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Index_ch_dar.gif" width="56" height="25" alt="Index" /></a></td>
+  <td valign="top" colspan="0" width="100%" align="left"> 
+   <a href="mg-picker_simplifiedchinese_ftsearch.htm"><img  border="0" src="../Common/images/MGtoolsHelp_search_ch_dar.gif" width="66" height="25" alt="Search" /></a></td>
+  </tr>
+</table>
+
+ <p >&nbsp;</p>
+<table  valign="middle" width="100%"  border="0" cellpadding="5" cellspacing="2" bgcolor="#e0e0e0">
+<tr valign="middle" align="left"  cellspacing="2" >
+   <td  cellspacing="2" >
+   <!--<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#d4d4d4">
+  <tr>
+    <td>                                                                      ececec
+ <table height="25" width="100%" border="0" cellspacing="0" cellpadding="2" bgcolor="#D0D0D0">
+  <tr valign="middle">
+    <td align="middle" height="25">
+     <img  border="0" src="images/MGtoolsHelp_manual_ch.gif" width="90" height="24" alt="MGtools manual" />
+    </td>
+  </tr>
+</table>  --> 
+<!--<p class="navtitle">MG-Picker工作室帮助</p>-->
+
+<!--<p class="navbar">
+<b>Contents</b>   --><!--</p><hr size="1" />
+  <!--</td>
+  </tr>
+</table>  <td> -->
+<!-- Place holder for the TOC - this variable is REQUIRED! -->
+
+   <ul id="toc"style="list-style-type:none;display:block;padding-left:0;margin:0">
+<li class="heading1" id="i1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading1" id="a1" href="welcome.htm" target="hmcontent"><span class="heading1" id="s1">欢迎</span></a>
+</li>
+<li class="heading1" id="i2"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading1" id="a2" href="install.htm" target="hmcontent"><span class="heading1" id="s2">安装MG-Picker工作室</span></a>
+</li>
+<li class="heading1" id="i3" data-bg="book.gif;book_open.gif"style="background:url(book_open.gif) no-repeat;cursor:pointer;margin-top:2px;margin-left:0;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a3" href="animator.htm" target="hmcontent"><span class="heading1" id="s3" ondblclick="return dblclicked(this)">动画师帮助</span></a>
+<ul id="ul3"style="list-style-type:none;margin-left:0px;padding:0">
+<li class="heading2" id="i3.1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a3.1" href="loadpicker.htm" target="hmcontent"><span class="heading2" id="s3.1">加载Pickers</span></a>
+</li>
+<li class="heading2" id="i3.2"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a3.2" href="setnamespace.htm" target="hmcontent"><span class="heading2" id="s3.2">设置Namespace</span></a>
+</li>
+<li class="heading2" id="i3.3"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a3.3" href="viewportmanipulation.htm" target="hmcontent"><span class="heading2" id="s3.3">视图操作</span></a>
+</li>
+<li class="heading2" id="i3.4"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a3.4" href="animatorinteractivity.htm" target="hmcontent"><span class="heading2" id="s3.4">Picker交互</span></a>
+</li>
+<li class="heading2" id="i3.5"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a3.5" href="simpleediting.htm" target="hmcontent"><span class="heading2" id="s3.5">简单编辑</span></a>
+</li>
+<li class="heading2" id="i3.6"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a3.6" href="mgselecthelper.htm" target="hmcontent"><span class="heading2" id="s3.6">MG-选择辅助器</span></a>
+</li>
+<li class="heading2" id="i3.7"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a3.7" href="hotkeys_anim.htm" target="hmcontent"><span class="heading2" id="s3.7">快捷键</span></a>
+</li>
+<li class="heading2" id="i3.8"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a3.8" href="tipsforanimator.htm" target="hmcontent"><span class="heading2" id="s3.8">小提示</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i4" data-bg="book.gif;book_open.gif"style="background:url(book_open.gif) no-repeat;cursor:pointer;margin-top:2px;margin-left:0;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a4" href="designer.htm" target="hmcontent"><span class="heading1" id="s4" ondblclick="return dblclicked(this)">设计师帮助</span></a>
+<ul id="ul4"style="list-style-type:none;margin-left:0px;padding:0">
+<li class="heading2" id="i4.1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a4.1" href="quickworkflow.htm" target="hmcontent"><span class="heading2" id="s4.1">快速流程</span></a>
+</li>
+<li class="heading2" id="i4.2"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a4.2" href="designprinciple.htm" target="hmcontent"><span class="heading2" id="s4.2">设计原则</span></a>
+</li>
+<li class="heading2" id="i4.3"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a4.3" href="namespace.htm" target="hmcontent"><span class="heading2" id="s4.3">Namespace</span></a>
+</li>
+<li class="heading2" id="i4.4"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a4.4" href="itemtypes.htm" target="hmcontent"><span class="heading2" id="s4.4">Picker类型</span></a>
+</li>
+<li class="heading2" id="i4.5"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a4.5" href="itemshapes.htm" target="hmcontent"><span class="heading2" id="s4.5">Picker形状</span></a>
+</li>
+<li class="heading2" id="i4.6"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a4.6" href="links.htm" target="hmcontent"><span class="heading2" id="s4.6">Picker连接</span></a>
+</li>
+<li class="heading2" id="i4.7"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a4.7" href="pickermenu.htm" target="hmcontent"><span class="heading2" id="s4.7">Picker菜单</span></a>
+</li>
+<li class="heading2" id="i4.8"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a4.8" href="editing.htm" target="hmcontent"><span class="heading2" id="s4.8">编辑</span></a>
+</li>
+<li class="heading2" id="i4.9"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a4.9" href="distributeinpipeline.htm" target="hmcontent"><span class="heading2" id="s4.9">在线上分发Picker</span></a>
+</li>
+<li class="heading2" id="i4.10"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a4.10" href="pickertoolintergration.htm" target="hmcontent"><span class="heading2" id="s4.10">整合Picker工具</span></a>
+</li>
+<li class="heading2" id="i4.11"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a4.11" href="publishinternet.htm" target="hmcontent"><span class="heading2" id="s4.11">发布到网络</span></a>
+</li>
+<li class="heading2" id="i4.12"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a4.12" href="hotkeys_designer.htm" target="hmcontent"><span class="heading2" id="s4.12">快捷键</span></a>
+</li>
+<li class="heading2" id="i4.13"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a4.13" href="tipsfordesigner.htm" target="hmcontent"><span class="heading2" id="s4.13">小提示</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i5" data-bg="book.gif;book_open.gif"style="background:url(book_open.gif) no-repeat;cursor:pointer;margin-top:2px;margin-left:0;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a5" href="programmer.htm" target="hmcontent"><span class="heading1" id="s5" ondblclick="return dblclicked(this)">程序员帮助</span></a>
+<ul id="ul5"style="list-style-type:none;margin-left:0px;padding:0">
+<li class="heading2" id="i5.1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.1" href="mgpicker.htm" target="hmcontent"><span class="heading2" id="s5.1">MGPicker命令</span></a>
+</li>
+<li class="heading2" id="i5.2"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.2" href="mgpickerview.htm" target="hmcontent"><span class="heading2" id="s5.2">MGPickerView命令</span></a>
+</li>
+<li class="heading2" id="i5.3"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.3" href="mgpickeritem.htm" target="hmcontent"><span class="heading2" id="s5.3">MGPickerItem命令</span></a>
+</li>
+<li class="heading2" id="i5.4"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.4" href="mgpickerlink.htm" target="hmcontent"><span class="heading2" id="s5.4">MGPickerLink命令</span></a>
+</li>
+<li class="heading2" id="i5.5"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.5" href="mgpickermenu.htm" target="hmcontent"><span class="heading2" id="s5.5">MGPickerMenu命令</span></a>
+</li>
+<li class="heading2" id="i5.6"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.6" href="mgpickermenuitem.htm" target="hmcontent"><span class="heading2" id="s5.6">MGPickerMenuItem命令</span></a>
+</li>
+<li class="heading2" id="i5.7"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.7" href="mgpickerservice.htm" target="hmcontent"><span class="heading2" id="s5.7">MGPickerService命令</span></a>
+</li>
+<li class="heading2" id="i5.8"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.8" href="mgimageprocesser.htm" target="hmcontent"><span class="heading2" id="s5.8">MGImageProcesser命令</span></a>
+</li>
+<li class="heading2" id="i5.9"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.9" href="commandbuttonpresets.htm" target="hmcontent"><span class="heading2" id="s5.9">命令按钮预设</span></a>
+</li>
+<li class="heading2" id="i5.10"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.10" href="converters.htm" target="hmcontent"><span class="heading2" id="s5.10">转换器</span></a>
+</li>
+<li class="heading2" id="i5.11"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.11" href="codesnippets.htm" target="hmcontent"><span class="heading2" id="s5.11">代码片段</span></a>
+</li>
+<li class="heading2" id="i5.12"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.12" href="syncvaluewithmaya.htm" target="hmcontent"><span class="heading2" id="s5.12">跟Maya同步</span></a>
+</li>
+<li class="heading2" id="i5.13"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.13" href="customeloaderandlister.htm" target="hmcontent"><span class="heading2" id="s5.13">Loader和Lister</span></a>
+</li>
+<li class="heading2" id="i5.14"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.14" href="tipsforprogrammer.htm" target="hmcontent"><span class="heading2" id="s5.14">小提示</span></a>
+</li>
+<li class="heading2" id="i5.15"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.15" href="q__a.htm" target="hmcontent"><span class="heading2" id="s5.15">Q &amp; A</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i6"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading1" id="a6" href="more_resource.htm" target="hmcontent"><span class="heading1" id="s6">更多资源</span></a>
+</li>
+</ul>
+<script type="text/javascript">loadicons('tag_blue.gif','book_open.gif','book.gif');</script>
+
+<hr size="1"  noshade="noshade" /><p style="font-size: 8pt" color="#666666" >&nbsp;© 2017 MGLAND动画工作室</p>    
+</td>
+ </tr>  
+</table>    
+</body>
+</html>

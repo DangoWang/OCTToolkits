@@ -1,0 +1,74 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Snapshot Component</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "mgsnapshotwidget_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">Snapshot Component</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="poseanim_createposeanim_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="poseanim_manageeditlib_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold; color: #191817;">MGTools Generic Snapshot Component:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #191817;">This component is used in MG-PoseAnim Library and MG-AssetLibrary to create preview images and movies.</span></p>
+<p style="text-indent: 21px; line-height: 1.50;"><img src="snapshotcomponent_en.gif" width="343" height="373" alt="snapshotComponent_en" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle"> </span><span style="font-weight: bold;">PreviewCount: 1~4:</span> Decide how many preview images/movies to make in one go. 4 is the maximum, although you could append more preview images later in PoseAnim Library Tool. &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;"> </span><span style="font-weight: bold;">Icon use: #1~#4:</span> When preview count is 4, there will be 4 3d views below.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;">The top left view is #1, top right view is #2, bottom right view is #3, bottom left view is #4. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;">So, if you set Icon use #1, &nbsp;the image made from the top left view will be the item icon.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;"> </span><span style="font-weight: bold;">&lt; Get Active:</span> Set the current activated view, set its index as the icon index.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;">Which means, the image made by the active view will be set as icon.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;"> </span><span style="font-weight: bold;">Camera bookmark drop down menu:</span> If it is &quot;Current&quot;, nothing will happen.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;">Click and select a camera bookmark to apply it.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;">The bookmark starts with &quot;[4]&quot;, means that the bookmark will apply to all four 3D views.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;">Because it stores all 4 camera information.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;">Without &quot;[4]&quot;, it only apply to currently activated view.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;">A bookmark starts with &quot;~&quot;, means it is factory default bookmark. Which is not editable. &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;"> </span><span style="font-weight: bold;">Bookmark button:</span> Click and select one of these:</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 120px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">Active Camera -&gt; Preset:</span> Record current activated viewport camera to bookmark.</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 120px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">All 4 Cameras -&gt; Preset:</span> Record all 4 viewport cameras to bookmark, the bookmark will starts with &quot;[4]&quot;.</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 120px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">Tweak Current Active Camera..:</span> Open up attribute editor, so you tweak the activated viewport camera in depth.</p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;"> </span><span style="font-weight: bold;">Viewport config buttons:</span> These buttons are used to config the viewport, such as display HUD,grid or not.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;">Single click on these buttons, will toggle the corresponding viewport item on currently activated viewport.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;">Double click to apply to all 4 viewports.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;">These button, being called from left to right: HUD toggle, Nurbs Curve toggle, Nurbs Surface toggle, Grid toggle, Selection Highlighting toggle, Texture toggle, Wireframe on shaded toggle.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;">The last button, is for object isolation. Click to to know more.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> Tips: The camera bookmarks below, except those start with &quot;~&quot;, could be edited and deleted through MG-PoseAnim Library Configuration dialog.  <a href="poseanim_config_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">The camera bookmarks only stores the information of camera, the viewport config, such as display the grid or not, will not recorded.</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="poseanim_createposeanim_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="poseanim_manageeditlib_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

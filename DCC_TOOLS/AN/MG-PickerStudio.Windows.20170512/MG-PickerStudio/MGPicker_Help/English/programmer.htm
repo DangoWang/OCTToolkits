@@ -1,0 +1,113 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>For Programmer</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="coding,programming" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "programmer.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="tipsfordesigner.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="mgpicker.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">MG-Picker Studio could helps you to design powerful picker even you know nothing about programming.</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">Yet if you know MEL / Python scripting in Maya, you picker will because way more powerful.</span><br />
+<span class="f_Heading1" style="font-size: 10pt;">&nbsp;</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">These are several places that your programming skills may helps:</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">- </span><span class="f_Heading1" style="font-size: 10pt;">Programmable properties of picker item. </span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">All these script properties support both mel/python.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; color: #ff0000;">Picker's load command &amp; Enter command: </span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">A load command and a enter command can be set for each picker file/node.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">The load command will be executed once the picker file / node is loaded. It is a good practice to put all the support mel procedures / python functions, class, or some other script importing statement within it, since they will be sourced once after the picker loaded, then for each picker item, you can just invoke these procudure / functions. This will probably make the scripting in picker more confortable.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">An enter command will be executed everytime the mouse hover enter the picker view. Only input light code for enter command, since it will executed frequently.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">The enter command is for syncing the picker items states with the state of Maya scene. Check out the <a href="syncvaluewithmaya.htm" class="topiclink">Sync Value With Maya</a> section at the left.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt; color: #ff0000;">  </span><span style="font-size: 9pt;">You don't need to manually sync the value of slider / attribute button, since it is done automatically whenever the mouse hover into the view.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_Heading1" style="font-size: 10pt;">2 ways to edit the load / enter command of current picker:</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 39px; margin: 0px 0px 0px 96px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">1.</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Go to &quot;Picker&quot; menu and select &quot;Edit Picker Load &amp; Enter Command..&quot;;</span></p><p style="text-align: left; padding: 0px 0px 0px 39px; margin: 0px 0px 0px 96px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">2.</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Activate the edit tool, right click on empty area, select &quot;Edit Picker Load &amp; Enter Command..&quot;</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; color: #ff0000;">Command-Button's command:</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal; color: #ff0000;"> </span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">The command will be executed when you LMB click and release within the command-button in animator mode. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">To edit the command-button's command, activate the edit tool, select the command-button, go to attribute editor and MMB scroll to bottom, there is a code editor for editing the command property.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; color: #ff0000;">Attr-Button's change command:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_Heading1" style="font-size: 10pt;">Pre-Change Command:</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> The command will be executed right before the maya attribute's value change.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">It is a good chance to record some states before the attribute change. Usually use it before a ik/fk switch, to record the states of controls.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_Heading1" style="font-size: 10pt;">Post-Change Command:</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> The command will be executed right after the maya attribute's value actually changes.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">If the actual maya attribute not changed, this command won't be invoked.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><img src="warning.gif" width="16" height="16" alt="Warning" style="border:none" /><span style="font-size: 9pt; color: #ff0000;">  </span><span style="font-size: 9pt; color: #ff0000;">Be careful avoid dead-loop of change command, say:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt; color: #ff0000;">attrButton1: edit attrButton2's attribute value in its change command.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt; color: #ff0000;">attrButton2: also edit attrButton1's attribute value in its change command.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt; color: #ff0000;">This will be a dead-loop and will crash maya probably.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; color: #ff0000;">Slider's change command</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal; color: #ff0000;">:</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> The command will be executed right after the slider attribute values actually change.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">If the actually maya attributes not changed, this command won't be invoked.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; color: #ff0000;">Left / Right clicking menu of each picker item:</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> Each picker item can be attached a maya menu / marking menu.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">To edit its menu, select the picker button, and create/edit the menu in menu editor.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">- </span><span class="f_Heading1" style="font-size: 10pt;">Write converter</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> to read and covert other type of picker node/file into MG-Picker node/file. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> &nbsp;Currently MG-Picker Studio comes with converter for abxPicker nodes and nickPicker nodes. Maya scene with these picker nodes will auto-loaded by default.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">- </span><span class="f_Heading1" style="font-size: 10pt;">Write command button preset scripts</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">, in future you could use them to create command buttons without coding.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">- </span><span class="f_Heading1" style="font-size: 10pt;">Write code snippets</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> to be used in future to speed up the coding.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">- </span><span class="f_Heading1" style="font-size: 10pt;">Write auto-sourcing script</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">, put them into &quot;maya/version/scripts/MG-PickerStudio/MGPicker_UserConfig/AutoSourced/&quot; to be auto-source while MG-Picker Studio loads.  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">This mechanism enables you auto-source some scripts to support your picker functionality.  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">The main API MEL/Python commands provided by MG-Picker Studio are these:</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"><a href="mgpicker.htm" class="topiclink">MGPicker</a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"><a href="mgpickerview.htm" class="topiclink">MGPickerView</a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"><a href="mgpickeritem.htm" class="topiclink">MGPickerItem</a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"><a href="mgpickerlink.htm" class="topiclink">MGPickerLink</a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"><a href="mgpickermenu.htm" class="topiclink">MGPickerMenu</a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"><a href="mgpickermenuitem.htm" class="topiclink">MGPickerMenuItem</a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Beside these command, some more commands are also provided, but they are mainly for internal use:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><a href="mgpickerservice.htm" class="topiclink">MGPickerService</a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><a href="mgimageprocesser.htm" class="topiclink">MGImageProcesser</a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">* MGPickerValue: It is purely internal use. Used to support the undo/redo of the picker items in animator mode.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">* MGPickerSetAttr: It is purely internal use. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">* MGDockControl: It is purely internal use. Kinda the same as maya's dockControl command, with some extra features.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">* MGPickerAttrSyncer: It is purely internal use. For syncing maya scene and picker state.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">* MGPGuiTest: It is purely internal use for gui unittests.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">Other programming related topics:</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><a href="commandbuttonpresets.htm" class="topiclink">Command Button Presets</a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><a href="converters.htm" class="topiclink">Converters</a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><a href="codesnippets.htm" class="topiclink">Code Snippets</a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><a href="syncvaluewithmaya.htm" class="topiclink">Sync Value With Maya</a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><a href="tipsforprogrammer.htm" class="topiclink">Tips For Programmer</a></p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="tipsfordesigner.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="mgpicker.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

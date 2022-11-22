@@ -1,0 +1,12 @@
+1，将整个文件夹（simple_playblast）拷贝至某个文件夹，例如：D:\dango_repo
+
+2，在maya脚本编辑器的python栏里运行(将脚本中的该路径替换成自己的)：
+
+import sys
+sys.path.append(r'D:\dango_repo')
+from simple_playblast import spb_main
+reload(spb_main)
+dsf_playblast_win = spb_main.DsfSimplePlayBlast()
+dsf_playblast_win .show()
+
+3.输入相应信息就可以拍了。

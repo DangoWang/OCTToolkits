@@ -1,0 +1,24 @@
+# Centos 7
+# 存放位置 /usr/lib/systemd/system
+# 开启 systemctl start oct_rpc.service
+# 关闭 systemctl stop oct_rpc.service
+# 开机启动 systemctl enable oct_rpc.service
+# 取消开机启动 system disable oct_rpc.service
+
+[Unit]
+Description=OCT RPC Service
+Wants=network-online.target
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python /usr/local/oct_rpc/server.py
+# Suppress stderr to eliminate duplicated messages in syslog. NM calls openlog()
+# with LOG_PERROR when run in foreground. But systemd redirects stderr to
+# syslog by default, which results in logging each message twice.
+StandardOutput=syslog
+StandardError=null
+
+
+[Install]
+WantedBy=multi-user.target

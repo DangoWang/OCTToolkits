@@ -1,0 +1,17 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "ConsTool.uv.mi" "UV约束器";
+MG_displaySC "ConsTool.uv.mi.anno" "选择多边形的顶点/边/面再点我来生成UV约束器，该控制器可用来约束其它物体，因为它能代表原来所选次级对象的位置(UV位置)。";
+MG_displaySC "ConsTool.uv.nosel.war" "场景无选择哦。请先选择多边形的顶点/边/面再来执行俺。";
+MG_displaySC "ConsTool.uv.typeWrong.war" "忽略掉： #。该命令只支持多边形的顶点/边/面.\n";
+MG_displaySC "ConsTool.uv.done.rep" "生成了 # 个UV约束.";
+
+MG_displaySC "ConsTool.uv.notUnlimited.war" "抱歉,你的maya并不是无限版的,所以无法使用UV约束器 :(";
+

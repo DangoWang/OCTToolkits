@@ -1,0 +1,110 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>程序员帮助</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="coding,programming" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "programmer.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="tipsfordesigner.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="mgpicker.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">MG-Picker工作室尽全力让您设计强大的picker，在不用敲任何代码的情况下。</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">不过如果您有一些mel / python脚本开发经验，那么您设计的picker可以变得更加强大。</span></p><p style="line-height: 1.50;">&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">以下就一些您可以发挥脚本开发能力的地方：</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">- </span><span class="f_Heading1" style="font-size: 9pt;">Picker里可编程的属性. </span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">所有这些属性都支持mel或python语言。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; color: #ff0000;">Picker的load command和Enter Command:</span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">您可以为每个Picker文档/节点编辑添加一个加载命令及一个鼠标进入命令。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">Load Command: 当picker被加载打开后，这个命令会立即被执行。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">比较推荐的作法是，在这个命令script里，你编写声明所有picker功能支持的mel及python函数，因为它们在picker加载后立即被source而可用，</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">这样具体的picker按钮里的命令则只需要调用这边声明的函数即可。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">Enter Command: 每当鼠标进入picker区域，都会执行这个enter command。 查看 <a href="syncvaluewithmaya.htm" class="topiclink">跟maya同步</a> 章节来了解更多。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_Heading1" style="font-size: 9pt;">编辑picker加载命令及鼠标进入命令的两种方式:</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 21px; margin: 0px 0px 0px 96px;"><span style="font-size:9pt; font-family: 'Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">1.</span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">点击&quot;Picker&quot;菜单并选择&quot;编辑Picker加载及进入命令..&quot;;</span></p><p style="text-align: left; padding: 0px 0px 0px 21px; margin: 0px 0px 0px 96px;"><span style="font-size:9pt; font-family: 'Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">2.</span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">激活编辑工具，右键空白处，在菜单里先把&quot;编辑Picker加载命令..&quot;</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; color: #ff0000;">命令按钮命令:</span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal; color: #ff0000;"> </span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">这个按钮命令在你左键点击按钮并在命令按钮内部松开后执行。 </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">要编辑命令按钮命令，选择那个命令按钮，在属性编辑器里拖动到底部，会看到编辑命令的代码编辑器。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; color: #ff0000;">属性按钮的change command:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_Heading1" style="font-size: 9pt;">Pre-Change Command:</span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;"> 该命令在属性值被改变前被执行。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">主要用来在属性值改变之前获取并记录一些状态，通常用在ik/fk切换前，记录一些信息。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_Heading1" style="font-size: 9pt;">Post-Change Command:</span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;"> 该命令在属性值被实际改变后立即被执行。如果属性值没有实际改变则不执行。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><img src="warning.gif" width="16" height="16" alt="Warning" style="border:none" /><span style="font-size: 9pt; color: #ff0000;">  </span><span style="font-size: 9pt; color: #ff0000;">要小心change command可能会造成死循环，比如：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt; color: #ff0000;">attrButton1: 在 change command里编辑了attrButton2的属性值。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt; color: #ff0000;">attrButton2: 在 change command里编辑了attrButton1的属性值。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt; color: #ff0000;">这样就造成死循环，可能导致maya崩掉。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; color: #ff0000;">滑条的 change command</span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal; color: #ff0000;">:</span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;"> 该命令滑条属性值被实际改变后立即被执行。如果属性值没有实际改变则不执行。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; color: #ff0000;">Picker对象的菜单:</span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;"> 　每个picker对象都可以带有一个菜单或marking menu。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">要编辑对象的菜单，选择那个picker对象，然后在菜单编辑器里编辑。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">- 写</span><span class="f_Heading1" style="font-size: 9pt;">其它类型picker到mg-picker的转换器</span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">。目前已自带有abxPicker 及nickPicker的转换器。带有这些类型的picker节点的场景，其picker节点将会自动转换为mgpicker并显示。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">- 编写</span><span class="f_Heading1" style="font-size: 9pt;">命令按钮预设</span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">， 将来你可以用这些预设脚本来快速生成命令按钮而无需再敲代码。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">- 编写</span><span class="f_Heading1" style="font-size: 9pt;">代码片段</span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">，以提高将来敲代码的效率。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">- 编写</span><span class="f_Heading1" style="font-size: 9pt;">自动加载的脚本</span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">，将它们放到&quot;maya/版本/scripts/MG-PickerStudio/MGPicker_UserConfig/AutoSourced/&quot; 里使它跟随MG-Picker工作室加载时而被自动加载。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">这个机制将使您可以保证一些脚本，在您的picker打开时已被加载，以支持到您的picker里的一些命令功能。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">MG-Picker工作室提供的MEL&amp;Python API主要是这三个命令：</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"><a href="mgpicker.htm" class="topiclink">MGPicker</a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"><a href="mgpickerview.htm" class="topiclink">MGPickerView</a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"><a href="mgpickeritem.htm" class="topiclink">MGPickerItem</a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"><a href="mgpickerlink.htm" class="topiclink">MGPickerLink</a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"><a href="mgpickermenu.htm" class="topiclink">MGPickerMenu</a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"><a href="mgpickermenuitem.htm" class="topiclink">MGPickerMenuItem</a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">除了这三个命令，还有其它的命令，不过这些命令主要是供程序内部使用：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;"><a href="mgpickerservice.htm" class="topiclink">MGPickerService</a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;"><a href="mgimageprocesser.htm" class="topiclink">MGImageProcesser</a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">* MGPickerValue: 这个命令则纯粹供内部使用，用来支持picker对象在动画师交互时的undo/redo.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">* MGPickerSetAttr: 这个命令则纯粹供内部使用. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">* MGDockControl: 这个命令则纯粹供内部使用. 跟maya本身的dockControl命令类似，多一些额外的功能.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">* MGPickerAttrSyncer: 这个命令则纯粹供内部使用. 用来同步maya场景及picker的状态.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">* MGPGuiTest: 这个命令则纯粹供内部使用. 用来编辑界面的单元测试.</span><br />
+<span style="font-size: 9pt;">&nbsp;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">其它开发相关帮助主题：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;"><a href="commandbuttonpresets.htm" class="topiclink">命令按钮预设</a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;"><a href="converters.htm" class="topiclink">转换器</a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;"><a href="codesnippets.htm" class="topiclink">代码片段</a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;"><a href="syncvaluewithmaya.htm" class="topiclink">跟Maya同步</a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;"><a href="tipsforprogrammer.htm" class="topiclink">小提示</a></span></p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="tipsfordesigner.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="mgpicker.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

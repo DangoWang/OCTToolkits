@@ -1,0 +1,84 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "up.mainUI.title" "MGTools Online Updater 2.0";
+
+MG_displayEN "up.mainUI.cversionS" "Current MGTools Version:";
+MG_displayEN "up.mainUI.checking" "Checking for available Updates .. You can keep working:)";
+MG_displayEN "up.mainUI.detailAnno" "Press buttons left to show details below:(ctrl+mouseWheel to change font size)";
+MG_displayEN "up.mainUI.go" "Update !!";
+MG_displayEN "up.mainUI.close" "Close";
+MG_displayEN "up.mainUI.errorCheck" "Error occured during checking MGTools UpdateList :(";
+MG_displayEN "up.mainUI.errorUpdate" "Error occured during updating MGTools :(";
+MG_displayEN "up.mainUI.noUpdate" "No Update Needed. Your MGTools copy is the latest :)";
+MG_displayEN "up.mainUI.checkDone" "The available updates are listed below,check it out! :)";
+MG_displayEN "up.mainUI.working" "Downloading & Updating MGTools.. You can continue working :)";
+MG_displayEN "up.mainUI.cong" "Congratulations !!";
+MG_displayEN "up.mainUI.cong.mes" "MGTools has been successfully installed/updated. Press the \"refresh MGTools\" button to do the basic refresh.\nMost of tools only need reopen to refresh.\nThe best way is to restart Maya to ensure all be refreshed.";
+MG_displayEN "up.mainUI.ok" "OK ^_^";
+
+MG_displayEN "up.noPy.title" "Sorry!";
+MG_displayEN "up.noPy.mes" "Online update feature is not available before Maya 8.5.\nIf you are a authorized user of MGTools pro 3.0, \nyour can contact mgtoolspro@gmail.com to obtain the offline update package.";
+MG_displayEN "up.noPy.ok" "O K";	
+								
+MG_displayEN "up.needUnload.title" "Warning!";	
+MG_displayEN "up.needUnload.mess00" "Some c++ plugin from MGTools must be unloaded before installation/update:\n";	
+MG_displayEN "up.needUnload.mess01" "\nThese plugins must not be used by other instances of the current maya verion, they must be unloaded manually in other maya instances.\n";	
+MG_displayEN "up.needUnload.Iknow" "Continue";	
+
+//mgtools 3
+MG_displayEN "up.needUnload.mess02" "After the update, plugins will be loaded back automatically.";	
+
+
+MG_displayEN "up.unreg.lbl" "Not registered";
+MG_displayEN "up.pro.lbl" "Pro";
+
+MG_displayEN "up.errorUnpack.perfix" "Error unpacking the file: ";
+MG_displayEN "up.offline.title" "MGTools Offline Updater";
+MG_displayEN "up.pro.toolname" "MGTools Pro3";
+MG_displayEN "up.trial.expired.war" "Your MGTools trial is expired.";
+MG_displayEN "up.stu.expired.war" "Your MGTools student license is expired.";
+MG_displayEN "up.license.ver.lbl" "License version:";
+MG_displayEN "up.upToNewVer.lbl" "Update To Newer Version";
+MG_displayEN "up.rollToOldVer.lbl" "Undo Update";
+MG_displayEN "up.upNoContinus.war" "Doing discontinuous update may results in program error, that's what MGTools try to avoid.\n\nYou need the extra update package(s) to update to the version '";
+MG_displayEN "up.upNoContinus.without.war" "Without these packages, the latest version you could update to is:  ";
+MG_displayEN "up.upNoContinus.without.no.war" "Without these packages, no valid update currently available for you.";
+
+MG_displayEN "up.rollbackNoContinus.war" "Doing discontinuous undo may results in program error, that's what MGTools try to avoid.\n\nYou need the extra undo data(s) to undo the update '";
+MG_displayEN "up.rollbackNoContinus.without.war" "Without these datas, the earliest update you could undo is:  ";
+MG_displayEN "up.rollbackNoContinus.without.no.war" "Without these packages, no valid undo currently available for you.";
+
+MG_displayEN "up.upToVer.lbl" "Update To ";
+MG_displayEN "up.rollToVer.lbl" "Undo The ";
+MG_displayEN "up.noValidToUpdate.lbl" "No Valid Updates";
+MG_displayEN "up.noValidToRollback.lbl" "No Valid Undos";
+MG_displayEN "up.rollback.errorCopyFolder.war" "Error undoing when copying the folder: \"";
+MG_displayEN "up.rollback.errorCopyFile.war" "Error undoing when copying the file: \"";
+MG_displayEN "up.to.lbl" "\"  to \"";
+MG_displayEN "up.rollback.error.war" "Error occur while undoing the update ";
+MG_displayEN "up.err.updatePackage.err" "error \"The update package : ";
+MG_displayEN "up.err.notExist.err" " does not exist.\"";
+MG_displayEN "up.err.reading.err" "error \"Error reading the package :";
+MG_displayEN "up.updated.lbl" "Updated";
+
+
+MG_displayEN "up.onlineUp.trial.war" "Your MGTools is in trial period, only offline update is available.";
+MG_displayEN "up.onlineUp.trialExpired.war" "Your MGTools trial is expired.";
+MG_displayEN "up.onlineUp.stuExpired.war" "Your MGTools student license is expired.";
+MG_displayEN "up.onlineUp.success.downloaded.rep" "Successfully downloaded:";
+MG_displayEN "up.onlineUp.success.updated.rep" "Successfully updated:";
+
+MG_displayEN "up.onlineUp.downloadUpdater.Failed.war" "Download update procedure for Maya ";
+MG_displayEN "up.onlineUp.downloadUpdater.Failed.war1" " failed. \nCheck your internet or E-mail to mgtoolspro@gmail.com to get a latest one.";
+MG_displayEN "up.onlineUp.errorImport.war" "Error occured while import the update module !! ";
+
+
+MG_displayEN "up.offlineUp.undo.lbl" "Undo: ";   //the trailing space is critical.
+MG_displayEN "up.before.offonLineUP.war" "Your MGTools is installed in server program mode, offline/online update will affect files in the servers side.\nDo you really be authorized to do so?";

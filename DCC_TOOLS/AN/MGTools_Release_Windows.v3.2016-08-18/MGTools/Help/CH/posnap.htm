@@ -1,0 +1,101 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>MG吸附工具</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Animation,Keyframe,Locator,Marker,POsnap,Snap" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "posnap.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span style="font-weight: bold; color: #191817;">MG吸附工具</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="motionpath.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="feetsnap.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 2.0;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #191817;">MG吸附工具按钮功能：</span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 2.0; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:51px; padding:0px;"><p style="text-align: center; line-height: 2.0;"><span class="f_ImageCaption">  <img src="feetsnapicon.gif" width="32" height="32" alt="feetsnapIcon" style="border:none" /></span></p>
+</td>
+<td style="vertical-align:middle; width:13px; padding:0px;"><p style="line-height: 2.0;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 2.0;"><span style="color: #3c3c39;">直接点击将向前PO吸附。（相当于ParentConstraint无offset效果）</span></p>
+<p style="line-height: 2.0;"><span style="color: #3c3c39;">这是MGTools被用到最多的功能，在吸附过程可以逐帧预视，直观，方便。</span></p>
+<p style="line-height: 2.0;"><span style="color: #3c3c39;">在2.5版本中，解决了一些重名的bug，并且在Maya 8.0及以后的版本优化了算法。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 2.0;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">右键菜单功能：</span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 2.0; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1019px; height:304px; padding:0px;"><p style="line-height: 2.0; margin: 0px 0px 0px 96px;">&nbsp;</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 96px;"><img src="mi_posnapf_ch.gif" width="356" height="384" alt="MI_POsnapF_ch" style="border:none" /></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 96px;">&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1019px; padding:0px;"><p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">清除吸咐标记器 ：</span>清除Snap用的暂用Locators。如果这些locators有用来做约束或跟外部有连接，则不会被清掉。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 标记器管理器.. ：</span>打开Snap用locator管理器管理这些locators；<a href="marker.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">备份/还原动画..: </span>用Locator备份/还原所选控制器的动画。放在这里主要是有时逐帧吸附前备份动画。<a href="backup_restore_animation.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">剩余的都是吸附功能。下面将详细介绍。 </span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">很多吸附功能后面都有选项框，</span>点击打开MG配置窗口，并转到吸附功能的配置页面：</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"> &nbsp; &nbsp;  <img src="snaptooloption_ch.gif" width="256" height="51" alt="snapToolOption_ch" style="border:none" /></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"> &nbsp; &nbsp; &nbsp;清除经过的非整数的位移旋转帧：如果勾选 ，则在向前或向后吸附或整个时间范围约束时，会将经过遇到非整数帧吸附成整数帧。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"> &nbsp; &nbsp;当时间条上有选择范围时吸附整个范围：当时间滑条上有高亮时间范围时，自动吸附整个范围。</p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 2.0;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="color: #000000;">吸附方式有下面几种 :</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">定位吸附:</span><span class="f_MI_TitleStyle"> </span>把第二选择物体吸附到第一选择位置，包括位移和旋转。原理同先做无offset的父子约束再删除约束。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">向前定位吸附: </span>这是最最典型的用法。在POsnap基础上，每吸附一次向前进一帧。下面一章将介绍具体用法。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">向后定位吸附 : </span>在定位吸附基础上，每吸附一次向后倒退一帧。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">点吸附 : </span><span class="f_MI_TitleStyle"> </span>把第二选择物体吸附到第一选择的点位置，只包括位移。原理同先做无offset的旋转约束再删除约束。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">向前点吸附 : </span><span class="f_MI_TitleStyle"> </span>在点吸附基础上，每吸附一次向前进一帧。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">向后点吸附 :  </span>在点吸附基础上，每吸附一次向后退一帧。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">旋转吸附 : </span><span class="f_MI_TitleStyle"> </span>把第二选择物体旋转和第一选择统一，只包括旋转。原理同先做无offset的旋转约束再删除约束。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">向前旋转吸附 :</span><span class="f_MI_TitleStyle">  </span>在旋转吸附基础上，每吸附一次向前进一帧。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">向后旋转吸附 :</span><span class="f_MI_TitleStyle">  </span>在旋转吸附基础上，每吸附一次向后退一帧。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">向前相对吸附 :</span><span class="f_MI_TitleStyle"> </span>在主要用来模拟offset的父子约束。每吸附一次向前进一帧。下下章将介绍具体用法。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">向后相对吸附 :</span><span class="f_MI_TitleStyle"> </span>主要用来模拟有offset的父子约束。每吸附一次向后退一帧。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">向前相对点吸附 : </span>主要用来模拟有offset的点约束。每吸附一次向前进一帧。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">向后相对点吸附:</span><span class="f_MI_TitleStyle"> </span>主要用来模拟有offset的点约束。每吸附一次向后退一帧。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示：在shelf架上如果有装全MGTools工具图标，将会有一些snap的图标，其中如果图标中有加号的，都是说明该吸附方式是每吸附一次后向前进一帧。 </span></p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="motionpath.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="feetsnap.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

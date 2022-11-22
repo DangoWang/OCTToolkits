@@ -1,0 +1,36 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+//`MG_DualLan "keyScaler.title"`
+	
+MG_displayEN "keyScaler.title" "Keyframe ScaleTool";
+MG_displayEN "keyScaler.fl.title" " FrameRate Convertion:";
+MG_displayEN "keyScaler.from" "  From";
+MG_displayEN "keyScaler.Get" "Get";
+MG_displayEN "keyScaler.Get.ann" "Get the frameRate of current scene.";
+MG_displayEN "keyScaler.To" "  To";
+MG_displayEN "keyScaler.Calc" "Calc";
+MG_displayEN "keyScaler.Calc.ann" "Calculate the multiplier between different frameRates.";
+MG_displayEN "keyScaler.scalePivot" "  Scale Pivot";
+MG_displayEN "keyScaler.mul" "  Multiplier";
+MG_displayEN "keyScaler.Objects" "  Objects:";
+MG_displayEN "keyScaler.Objects.all" "All Keyframed Objects";
+MG_displayEN "keyScaler.Objects.selRig" "Selected Rigs";
+MG_displayEN "keyScaler.Objects.selObj" "Selected Objects";
+MG_displayEN "keyScaler.Range" "  Range:";
+MG_displayEN "keyScaler.Range.all" "All";
+MG_displayEN "keyScaler.Range.selRange" "Selected Range";
+MG_displayEN "keyScaler.getPivot" "GetPivot";
+MG_displayEN "keyScaler.getPivot.ann" "Set the scale pivot to currentTime.";
+MG_displayEN "keyScaler.autoSnap" "Auto-Snap Keyframe After Scale";
+MG_displayEN "keyScaler.go" "Scale !!";
+
+MG_displayEN "keyScaler.noSence" "The scale value \"1\" wont make any difference,So job done.";
+MG_displayEN "keyScaler.go" "Scale !!";
+
+MG_displayEN "keyScaler.noKeyframObjs" "No object keyframed in your scene.";

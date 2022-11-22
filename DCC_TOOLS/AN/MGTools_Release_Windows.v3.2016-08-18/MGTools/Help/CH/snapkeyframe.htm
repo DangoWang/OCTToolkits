@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>强力归整非整数帧</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Animation,Snap" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "snapkeyframe.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">强力归整非整数帧</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="keyframeprobe.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="scaleanimation.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> 强力吸附归整非整数帧</span><span style="font-weight: bold; color: #191817;">功能：</span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:94px; padding:0px;"><p style="text-align: center; line-height: 1.50;"><img src="snapkeyframeicon.gif" width="32" height="32" alt="snapKeyframeIcon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:5px; padding:0px;"><p style="line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">将所选物体的所有动画帧吸附到整数帧。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">如果在时间滑条上有选定一个时间范围则只吸附时间范围里的帧。否则吸附物体的全部帧。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> 典型</span><span style="font-weight: bold; color: #191817;">用法：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">该工具无界面，直接选想吸附帧的物体，点帧工具箱的相应按钮/shelf按钮来执行。</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> 跟Maya自带的帧吸附功能的不同</span><span style="font-weight: bold; color: #191817;">：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">Maya的帧吸附功能遇到小于1间隔的两个帧并在一起的时候，就无法吸附。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">这里的吸附会先执行一遍Maya的吸附，然后如果仍有小数点帧，则在与其最近的整数帧插入一个帧，在尽量不影响到动画的情况去掉所有非整数帧。</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> 更多选项：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">在按钮上点右键，可以访问到其它的吸附方式：<br />
+<img src="snapkeyframe_option_ch.gif" width="344" height="125" alt="snapKeyframe_option_ch" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 吸附曲线编辑器所选曲线：</span>只吸附曲线编辑器中选中的动画曲线。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">吸附时间滑条所选范围：</span>只吸附时间滑条上所选时间范围中的动画。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 吸附时间滑条显示范围：</span>只吸附时间滑条上所显示时间范围中的动画。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">吸附全部：</span>吸附所选物体全部动画。</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="keyframeprobe.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="scaleanimation.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

@@ -1,0 +1,183 @@
+Gizmo {
+ addUserKnob {20 user1 l "MV Repair "}
+ addUserKnob {6 MVR_on l "repair ON" +STARTLINE}
+ MVR_on true
+ addUserKnob {26 ""}
+ addUserKnob {6 MVR_maskPreview l "Mask Preview" +STARTLINE}
+ addUserKnob {7 MVR_MaskMinValue l "Min Velocity" R 0.45 0.7}
+ MVR_MaskMinValue 0.55
+ addUserKnob {26 ""}
+ addUserKnob {26 title1 l Blur}
+ addUserKnob {7 MVR_ExpandMask l "Expand Edges" R 0.5 5}
+ MVR_ExpandMask 2.5
+ addUserKnob {7 MVR_blurEdge l BlurEdge R 3 20}
+ MVR_blurEdge 11.6
+ addUserKnob {26 ""}
+ addUserKnob {26 info l "" t "blured the Motion Vector pass based in mask for maximun values from U and V. " +STARTLINE T "v1.0 (beta)\nby Adrian Monroy"}
+}
+ Input {
+  inputs 0
+  name MV_input
+  xpos -524
+  ypos 240
+ }
+add_layer {tk_specialC1 tk_specialC1.red tk_specialC1.green tk_specialC1.blue}
+ Shuffle {
+  in tk_specialC1
+  in2 alpha
+  alpha red2
+  name tk_MotionVector1
+  xpos -524
+  ypos 280
+ }
+ Dot {
+  name Dot3
+  xpos -490
+  ypos 392
+ }
+set N1b0cbaa0 [stack 0]
+ Dot {
+  name Dot1
+  xpos -652
+  ypos 449
+ }
+set N1b0cbe10 [stack 0]
+push $N1b0cbe10
+push $N1b0cbe10
+add_layer {MVRepair MVRepair.alpha mv_MaskRepair.alpha}
+ Expression {
+  temp_name0 velocity
+  temp_expr0 max(r,g)
+  temp_name1 minValue
+  temp_expr1 parent.MASTER_Min_Value.value
+  channel0 none
+  channel1 none
+  channel2 none
+  channel3 {none none none mv_MaskRepair.alpha}
+  expr3 ((velocity)<minValue?0:velocity)
+  name MV_Mask1
+  tile_color 0xdfff00ff
+  note_font "Verdana Italic Italic Italic Italic Italic Italic Italic Italic Italic"
+  note_font_size 12
+  xpos -902
+  ypos 445
+ }
+ Dilate {
+  channels MVRepair
+  size {{parent.MVR_ExpandMask}}
+  name Dilate1
+  xpos -902
+  ypos 471
+ }
+set N1b0cc4f0 [stack 0]
+ CopyBBox {
+  inputs 2
+  name CopyBBox1
+  xpos -850
+  ypos 544
+ }
+ Clamp {
+  channels MVRepair
+  name Clamp1
+  xpos -850
+  ypos 588
+ }
+ Soften {
+  channels MVRepair
+  minimum 0.01
+  amount 1
+  size 5
+  name Soften1
+  xpos -850
+  ypos 624
+ }
+set N1b0ccf40 [stack 0]
+ CopyBBox {
+  inputs 2
+  name CopyBBox2
+  xpos -686
+  ypos 630
+ }
+set N1b6b3b80 [stack 0]
+ Dot {
+  name Dot4
+  xpos -652
+  ypos 681
+ }
+push $N1b6b3b80
+push $N1b0cbaa0
+ Blur {
+  size {{MVR_blurEdge}}
+  name Blur1
+  xpos -386
+  ypos 383
+ }
+ Dot {
+  name Dot2
+  xpos -352
+  ypos 562
+ }
+push $N1b0cbaa0
+ Merge2 {
+  inputs 2+1
+  bbox B
+  maskChannelMask mv_MaskRepair.alpha
+  name Merge1
+  xpos -524
+  ypos 630
+  disable {{!parent.MVR_on}}
+ }
+ ShuffleCopy {
+  inputs 2
+  in MVRepair
+  red red
+  green green
+  alpha green
+  name showMask
+  xpos -524
+  ypos 678
+  disable {{!parent.MVR_maskPreview}}
+ }
+ Output {
+  name Output1
+  xpos -524
+  ypos 754
+ }
+ Constant {
+  inputs 0
+  color 0.235
+  name Constant1
+  xpos -186
+  ypos 518
+ }
+ Expression {
+  temp_name0 temp
+  temp_expr0 parent.Grade1.white
+  expr3 temp
+  name Expression1
+  xpos -186
+  ypos 645
+ }
+ Multiply {
+  inputs 0
+  value {{parent.MVR_MaskMinValue}}
+  name MASTER_Min_Value
+  tile_color 0xedededff
+  label "MASTER CRTL    "
+  note_font "Verdana Bold Bold Bold Bold Bold"
+  note_font_size 20
+  xpos -902
+  ypos 331
+ }
+push $N1b0cc4f0
+push $N1b6b3b80
+push $N1b0ccf40
+ Viewer {
+  inputs 3
+  channels MVRepair
+  input_process false
+  name Viewer1
+  xpos -748
+  ypos 825
+ }
+end_group

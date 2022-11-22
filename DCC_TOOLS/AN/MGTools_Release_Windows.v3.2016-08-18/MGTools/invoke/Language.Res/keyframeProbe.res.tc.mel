@@ -1,0 +1,31 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayTS "keyScanner.realUITitle" "動畫幀探測器";
+MG_displayTS "keyScanner.UITitle" "動畫幀探測器..";
+MG_displayTS "keyScanner.topAnno" "  將探測當前所選Rig 下的所有控製器";
+MG_displayTS "keyScanner.warn" "當前場景中無選擇物體.";
+MG_displayTS "keyScanner.anno" "在根據當前所選的角色,來探測有動畫的控製器.";
+MG_displayTS "keyScanner.allFrame" "全部幀";
+MG_displayTS "keyScanner.cFrame" "當前幀";
+MG_displayTS "keyScanner.Frame.anno" "以當前幀是否有動畫還是以全局是否有動畫為判斷條件.";
+MG_displayTS "keyScanner.inf" "包含幀的Infinity";
+MG_displayTS "keyScanner.inf.anno" "在查找有幀的物體時,是否考慮幀的Infinity";
+MG_displayTS "keyScanner.Trans" "只掃描Transform節點";
+MG_displayTS "keyScanner.Trans.anno" "只掃描Transform節點,將忽略掉shape節點等等.";
+MG_displayTS "keyScanner.Probe" "探 測";
+MG_displayTS "keyScanner.Select" "在場景裡選擇";
+MG_displayTS "keyScanner.SelectAll" "全部項目在場景裡選擇";
+
+MG_displayTS "keyScanner.mode" "模式";
+MG_displayTS "keyScanner.probeValue" "檢查屬性值變動";
+MG_displayTS "keyScanner.probeChanged" "只列出跟上一幀比有數值變動的";
+MG_displayTS "keyScanner.probeChanged.ann" "只列出有被Key幀的，且上一幀跟當前幀要有數值變化的物件。";
+
+MG_displayTS "keyScanner.targetToMany.war" "要檢測的物件超過30000個，檢測過程可能會比較慢，是否繼續？";

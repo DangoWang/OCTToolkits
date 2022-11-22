@@ -1,0 +1,18 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "correctNameSpace.NoRefObj.war" "o_o !!!   Please select a reference object~";
+MG_displayEN "correctNameSpace.ClearDone.rep" "Selected referenceNode is removed and it's namespace is cleared  :)";
+MG_displayEN "correctNameSpace.repNS.title" "Replace Namespace";
+MG_displayEN "correctNameSpace.repNS.annoText" "Replace namespace \"#\" to:";
+MG_displayEN "correctNameSpace.repText" "Replace";
+MG_displayEN "correctNameSpace.cancel" "Cancel";
+MG_displayEN "correctNameSpace.sameUnchanged.war" "Namespace you entered is the same as what it was ,so everything unchanged :)";
+MG_displayEN "correctNameSpace.done.rep" "NameSpace replacement compelete,Check it out :)";
+MG_displayEN "correctNameSpace.alreadyUsed.war" "Target namespace \"#\" already used by a reference!!!";

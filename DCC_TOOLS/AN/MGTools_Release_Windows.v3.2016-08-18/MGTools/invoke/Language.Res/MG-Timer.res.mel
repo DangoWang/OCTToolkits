@@ -1,0 +1,74 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "MGTimer.UI.title" "MG-Timer \& Calc 2.0";
+MG_displayEN "MGTimer.UI.unit.mi" "(Record Unit)";
+MG_displayEN "MGTimer.UI.record.mi" "Record!!";
+MG_displayEN "MGTimer.UI.stop.mi" "Stop !";
+MG_displayEN "MGTimer.UI.pal.mi" "PAL";
+MG_displayEN "MGTimer.UI.FILM.mi" "FILM";
+MG_displayEN "MGTimer.UI.NTSC.mi" "NTSC";
+MG_displayEN "MGTimer.UI.Hms.mi" "H:M:S";
+MG_displayEN "MGTimer.UI.Hour.mi" "Hour";
+MG_displayEN "MGTimer.UI.Second.mi" "Second";
+MG_displayEN "MGTimer.UI.Minute.mi" "Minute";
+MG_displayEN "MGTimer.UI.CustomFPS.mi" "Custom FPS..";
+MG_displayEN "MGTimer.UI.secondOut.btn" "Second >";
+MG_displayEN "MGTimer.UI.toPal.btn" "> PAL";
+MG_displayEN "MGTimer.UI.convert.btn" "-> Convert !";
+MG_displayEN "MGTimer.UI.historyTF.anno" "Click me to show/hide history infomation scrollField and MG-Calculator:)";
+MG_displayEN "MGTimer.UI.historyTF.clear" "Clear Message";
+MG_displayEN "MGTimer.UI.help" "Help..";
+
+MG_displayEN "MGTimer.UI.record.btn.label" "Record ->(";
+MG_displayEN "MGTimer.UI.stop.btn.label" "Stop ->(";
+
+MG_displayEN "MGTimer.CustomFPS.prompt.title" "Custom FPS";
+MG_displayEN "MGTimer.CustomFPS.prompt.mess" "Input custom FPS:";
+MG_displayEN "MGTimer.CustomFPS.prompt.ok" "OK";
+MG_displayEN "MGTimer.CustomFPS.prompt.cancel" "Cancel";
+MG_displayEN "MGTimer.CustomFPS.war" "Input only float please";
+MG_displayEN "MGTimer.Calc.war" "The result has exceed the upper present limit !";
+
+MG_displayEN "MGTimer.History.rec" "Record: ";
+MG_displayEN "MGTimer.History.unit" " (unit:\"";
+MG_displayEN "MGTimer.History.convert" "Convert: ";
+
+MG_displayEN "MGTimer.convert.war" "Input validly please, \"H:M:S\" mode should be type like \"12:23:23\"";
+MG_displayEN "MGTimer.convert.war1" "Input validly please, Only float value are acceptable";
+
+MG_displayEN "MGTimer.calc.tf.ann" "Type in math expression here. All calculation always goes from left to right.\"()\" is not supported.";
+MG_displayEN "MGTimer.calc.timerRes" "<- TimerResult";
+MG_displayEN "MGTimer.calc.timerRes.ann" "Put the timer result into calculation";
+MG_displayEN "MGTimer.calc.oper.mi" "Other->";
+MG_displayEN "MGTimer.calc.sqrt.mi" "sqrt";
+MG_displayEN "MGTimer.calc.square.mi" "square";
+MG_displayEN "MGTimer.calc.root.mi" "root..";
+MG_displayEN "MGTimer.calc.pow.mi" "pow..";
+MG_displayEN "MGTimer.calc.abs.mi" "abs";
+MG_displayEN "MGTimer.calc.1x.mi" "1/x";
+MG_displayEN "MGTimer.calc.mulMinus.mi" "+/-";
+MG_displayEN "MGTimer.calc.int.mi" "int";
+MG_displayEN "MGTimer.calc.d31.mi" "/31";
+MG_displayEN "MGTimer.calc.d30.mi" "/30";
+MG_displayEN "MGTimer.calc.d20.mi" "/20";
+MG_displayEN "MGTimer.calc.d60.mi" "/60";
+MG_displayEN "MGTimer.calc.d24.mi" "/24";
+MG_displayEN "MGTimer.calc.d25.mi" "/25";
+MG_displayEN "MGTimer.calc.d29.mi" "/29.97";
+MG_displayEN "MGTimer.calc.clear.mi" "Clear";
+MG_displayEN "MGTimer.calc.backSpace.mi" "BackSpace";
+
+MG_displayEN "MGTimer.calc.root.title" "Calc Root";
+MG_displayEN "MGTimer.calc.root.enterNum" "Enter Number:";
+MG_displayEN "MGTimer.calc.root.root" "root";
+MG_displayEN "MGTimer.calc.pow.title" "Calc Pow";
+MG_displayEN "MGTimer.calc.pow.pow" "pow";
+MG_displayEN "MGTimer.calc.divideZero.war" "Can't divide by zero.";
+MG_displayEN "MGTimer.calc.nonValidInput.war" "Only the operators \"+-*/%\" and numbers and decimal sign are supported and the between two operators there must be at least a number";

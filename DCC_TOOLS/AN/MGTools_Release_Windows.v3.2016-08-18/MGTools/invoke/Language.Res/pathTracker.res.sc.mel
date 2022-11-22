@@ -1,0 +1,59 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+//`MG_DualLan "pathTracker.title"` 
+
+MG_displaySC "pathTracker.pathTool.mi" "路径工具";
+
+MG_displaySC "pathTracker.title" "MG路径描绘器 v1.0";
+MG_displaySC "pathTracker.mi" "MG路径描绘器..";
+MG_displaySC "pathTracker.ann" "点击启动MG路径描绘器 1.0,你可以用它来跟踪物体的运动路径.";
+
+MG_displaySC "pathTracker.add.ann" "把场景所选物体加入描绘列表.";
+MG_displaySC "pathTracker.del.ann" "把场景所选物体从描绘列表去除.";
+MG_displaySC "pathTracker.refresh.ann" "刷新所选描绘列表项目的描绘.";
+
+MG_displaySC "pathTracker.camOnoff.ann" "开关当前描绘项对摄像机的链接.";
+MG_displaySC "pathTracker.camtf.ann" "这一栏显示了要链接的摄像机.";
+MG_displaySC "pathTracker.camInput.ann" "把场景所选摄像机链接到当前描绘项.如果没有选摄像机,则会把当前激活视图的摄像机链接进来.";
+
+MG_displaySC "pathTracker.tracknode.lbl" "描绘对象:";
+MG_displaySC "pathTracker.trackNode.tsl.ann" "这一栏显示了所有的描绘对象.双击来手动刷新该项路径.";
+
+MG_displaySC "pathTracker.updateAuto.lbl" "自动";
+MG_displaySC "pathTracker.updateAuto.tsl.ann" "点击这一栏的列表项来开关相对应的描绘项自动更新与否.";
+
+MG_displaySC "pathTracker.path.lbl" "路径";
+MG_displaySC "pathTracker.path.tsl.ann" "点击这一栏的列表项来显示/隐藏相对应的描绘路径曲线.";
+
+MG_displaySC "pathTracker.fr.lbl"  "帧";
+MG_displaySC "pathTracker.fr.tsl.ann" "点击这一栏的列表项来显示/隐藏相对应的帧指示器.";
+
+MG_displaySC "pathTracker.key.lbl" "key";
+MG_displaySC "pathTracker.key.tsl.ann" "点击这一栏的列表项来显示/隐藏相对应的关键帧指示器.";
+
+MG_displaySC "pathTracker.null.lbl" "无";
+MG_displaySC "pathTracker.time.lbl" "时间范围:";
+
+MG_displaySC "pathTracker.linkRange.lbl" "=Maya范围";
+MG_displaySC "pathTracker.timeInput.ann" "将当前描绘项的时间范围设为当前maya时间范围(如有选择时间范围则为所选范围)并更新.";
+MG_displaySC "pathTracker.timeRangeLink.ann" "决定是否随maya时间范围改变而自动更新描绘.";
+
+MG_displaySC "pathTracker.pathC.lbl" "路径颜色:";
+MG_displaySC "pathTracker.frC.lbl" "帧颜色:";
+MG_displaySC "pathTracker.keyC.lbl" "Key颜色:";
+MG_displaySC "pathTracker.size.lbl" "大小:";
+
+
+MG_displaySC "pathTracker.asignHK.ann" "在MG配置窗口里为路径描绘器工具指定快捷键.";
+MG_displaySC "pathTracker.asignUpdateHK.mi" "指定手动更新快捷键..";
+MG_displaySC "pathTracker.asignUpdateHK.ann" "在MG配置窗口里为手动更新所选物体的运动路径描绘指定快捷键.";
+MG_displaySC "pathTracker.manualUpdate.mi" "手动更新所选物体";
+MG_displaySC "pathTracker.manualUpdate.ann" "手动更新当前场景所选物体的描绘.";
+
+

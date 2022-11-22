@@ -1,0 +1,83 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>摄像机2D视图工具</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="cam2dViewer,Camera,Viewport" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "cam2dviewer.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">摄像机2D视图工具</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="tangenttool.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="assetlibrary.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span style="font-weight: bold; color: #191817;"> 摄像机2D视图工具功能：</span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:51px; padding:0px;"><p style="text-align: center; line-height: 1.50;"><img src="cam2dviewer.gif" width="32" height="32" alt="cam2dViewer" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:13px; padding:0px;"><p style="line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">直接点击则将当前工具设为摄像机2D视图工具。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">用来以2D试为放大/缩小/平移/旋转当前3D视图。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">启动方法：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span>右击MGTools工具条的<img src="cam2dviewer.gif" width="32" height="32" alt="cam2dViewer" style="border:none" />按钮。</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span>直接点工具架上的<img src="cam2dviewer.gif" width="32" height="32" alt="cam2dViewer" style="border:none" />图标(如果你有装全MGTools的Shelf)。</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span>点shelf栏的<img src="resetcam2dviewericon.gif" width="32" height="32" alt="resetCam2dViewerIcon" style="border:none" />按钮来快速恢复由<img src="cam2dviewer.gif" width="32" height="32" alt="cam2dViewer" style="border:none" />造成的摄像机变动。<br />
+&nbsp;</p><p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">工具原理：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">该工具实际上是通过一定算法来实时变动该视图摄像机的几个2D属性，如post scale,film translate, file Roll等属性来达到2D视图的操作感觉。<br />
+它可以在不改变焦距远近情况下放大缩小视图。在QC查穿帮流程中尤其有用，动画师亦可以用它来放大局部来调细节。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">在Maya2011中，该工具鼠标与之前版本Maya的工具鼠标显示效果将不一样，用的是内置鼠标。(maya2011。。。你实在特殊到另人发指)</p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">使用方法：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>工具被激活后，在视图上直接用鼠标左键拖拽来以2D方式放大/缩小当前视图。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>直接按鼠标中键拖拽来上下左右平移视图。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>按Shelf+左键拖拽来以视图中心为中心旋转视图。默认选项下，将以45度倍数进行吸附。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>按Shelf+左键点击视图来恢复旋转为零。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>按Ctrl+左键来拖拽一个框来放大/缩小某区域。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>按Ctrl+中键点击视图来恢复所有视图改动。也可以按键盘的回车键。</p><p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">工具选项：</span>双击Maya工具栏的当前工具图标，来打开工具选项窗口。或者在MGTools<img src="cam2dviewer.gif" width="32" height="32" alt="cam2dViewer" style="border:none" />按钮上点右键/工具选项..。</p>
+<p style="line-height: 1.50;"><span style="width:48px">&nbsp;</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">保存前自动撤消所有视图操作：</span> 当Maya里执行保存/另存前，是否自动撤消所有由摄像机2D视图工具引起的摄像机变更。<br />
+这一选项实际上是用来决定这种视图操作结果是否保存下来。<br />
+可以用来防止在不知情情况下不小心变动了摄像机而不自觉。</p><p style="text-align: left; padding: 0px 0px 0px 37px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">自动吸附旋转到45度：</span> 决定是否自动吸附到45度旋转。<br />
+&nbsp;</p><p style="text-align: left; padding: 0px 0px 0px 37px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">立即撤消按钮：</span>点击立即撤消场景里受摄像机2D视图工具影响的摄像机变动。</p><p style="line-height: 1.50;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;你也可以点shelf栏的<img src="resetcam2dviewericon.gif" width="32" height="32" alt="resetCam2dViewerIcon" style="border:none" />按钮来快速恢复。在MGTools的<img src="cam2dviewer.gif" width="32" height="32" alt="cam2dViewer" style="border:none" />按钮上点右键/撤消所有视图操作也可以。<br />
+&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示：在MGTools主界面的</span><img src="cam2dviewer.gif" width="32" height="32" alt="cam2dViewer" style="border:none" /><span style="font-size: 9pt;">按钮上点右键/指定快捷键，可打开MG配置窗口为该工具设置快捷键，下次你可以用键盘来快速启动该工具：)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="tangenttool.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="assetlibrary.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

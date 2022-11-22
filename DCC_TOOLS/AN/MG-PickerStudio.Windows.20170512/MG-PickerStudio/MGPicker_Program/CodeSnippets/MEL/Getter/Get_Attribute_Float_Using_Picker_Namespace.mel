@@ -1,0 +1,4 @@
+//get a attribute float value. 
+//Input the objectName.attribute without its namespace, the namespace will be replaced by the namespace of picker:
+//Error will occur if there is no such object or attribute.
+float $theAttV = `MGP_GetAttributeFloatValue_ViaPickerNamespace "objNameWithoutNamespace.attr"`;

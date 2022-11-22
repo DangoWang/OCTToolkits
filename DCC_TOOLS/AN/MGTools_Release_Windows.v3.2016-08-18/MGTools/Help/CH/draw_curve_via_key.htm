@@ -1,0 +1,74 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>创建动画曲线</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Curve,MotionPath,Option,Keyframe" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "draw_curve_via_key.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">创建动画曲线</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="pathtracker.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="motionpath.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> 基于帧创建曲线</span><span style="font-weight: bold; color: #191817;">功能：</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:51px; padding:0px;"><p style="text-align: center;"><img src="olddrawcurveicon.gif" width="32" height="32" alt="oldDrawCurveIcon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:13px; padding:0px;"><br />
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">直接点击将根据所选物体的关键帧，来绘制一条曲线。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">可以配合路径动画使用，先简单block出关键帧，再点它生成曲线，再用曲线做路径动画。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">启动方法：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#3c3c39;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="color: #3c3c39;">点击在工具架上点</span><img src="olddrawcurveicon.gif" width="32" height="32" alt="oldDrawCurveIcon" style="border:none" /><span style="color: #3c3c39;">图标（如果你有装全MGTools工具shelf）</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#3c3c39;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="color: #3c3c39;">在MGTools工具条上右击</span><img src="minitoolboxicon.gif" width="32" height="32" alt="minitoolboxIcon" style="border:none" /><span style="color: #3c3c39;">，在右键菜单选择描绘动画路径..</span></p><p style="line-height: 2.0;">&nbsp;<br />
+<img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_ImageCaption" style="font-size: 10pt;">使用</span><span style="font-weight: bold;">方法：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">1.</span>在场景中选择你想要标记的层级，点击相应按钮/菜单。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">2.</span>会弹出选项窗口：<br />
+<img src="drawcurveviakeyoption_ch.gif" width="389" height="206" alt="DrawCurveViaKeyOption_ch" style="border:none" /><br />
+&nbsp;</p><p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 绘制方法：</span>选关键帧则根据关键帧来绘制曲线；选逐帧将根据逐帧信息创建曲线。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 曲线角度 ：</span>曲线光滑度，决定用至少几个顶点来创建一个曲线。仅支持逐帧模式。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> &nbsp;创建路径动画 : </span><span class="f_ImageCaption"> </span>勾上创建路径动画的话，绘制曲线后将自动建立路径动画；</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 描绘按钮：</span>根据上面选项执行相应动作。</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="pathtracker.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="motionpath.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

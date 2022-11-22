@@ -1,0 +1,28 @@
+Gizmo {
+ help "This fancy gizmo produce simple HIT (HorizontalImageTranslation) for nuke default stereoscopic views\nmade by russiaman"
+ note_font Verdana
+ addUserKnob {20 User}
+ addUserKnob {41 HIT l hit T s3d_HIT_transform.HIT}
+}
+ Input {
+  inputs 0
+  name s3d_HIT_input
+  xpos -87
+  ypos 154
+ }
+ Transform {
+  translate {(default {{-HIT/2} 0} right {{HIT/2} 0})}
+  center {1069 436}
+  name s3d_HIT_transform
+  xpos -87
+  ypos 209
+  addUserKnob {20 User}
+  addUserKnob {7 HIT l hit R -50 50}
+ }
+ Output {
+  name s3d_HIT_output
+  selected true
+  xpos -87
+  ypos 294
+ }
+end_group

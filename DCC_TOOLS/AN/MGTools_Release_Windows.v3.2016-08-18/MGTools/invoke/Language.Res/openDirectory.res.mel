@@ -1,0 +1,41 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "openFolder.AddUI.title" "Add Your Custom FolderShortcut";
+MG_displayEN "openFolder.AddUI.textAnno" "You have select the directory below:";
+MG_displayEN "openFolder.AddUI.openAnno" "Open";
+MG_displayEN "openFolder.AddUI.MIAnno" "Name you want to show in popMenu:";
+MG_displayEN "openFolder.AddUI.MIAnno1" "Shelf Label:";
+
+MG_displayEN "openFolder.AddUI.saveToMenu" "Save to Menu";
+MG_displayEN "openFolder.AddUI.saveToShelf" "Add to Shelf";
+MG_displayEN "openFolder.AddUI.close" "Close";
+
+MG_displayEN "openFolder.pickPath.pickAFolder" "Select a folder below:";
+MG_displayEN "openFolder.pickPath.pickAFolder.lbl" "Pick Folder";
+
+MG_displayEN "openFolder.EditUI.title" "Folder shortCut Manager";
+MG_displayEN "openFolder.EditUI.misc.menu" "Misc";
+MG_displayEN "openFolder.EditUI.reload.mi" "Reload";
+MG_displayEN "openFolder.EditUI.addNew.mi" "Add New..";
+MG_displayEN "openFolder.EditUI.help.mi" "Help..";
+MG_displayEN "openFolder.EditUI.MenuName" "Menu Name:";
+MG_displayEN "openFolder.EditUI.FolderPath" "Folder Path:";
+MG_displayEN "openFolder.EditUI.Annotation" "Annotation:";
+MG_displayEN "openFolder.EditUI.edit" "Edit";
+MG_displayEN "openFolder.EditUI.mUp" "Move UP";
+MG_displayEN "openFolder.EditUI.mDn" "Move DN";
+MG_displayEN "openFolder.EditUI.del" "Delete";
+MG_displayEN "openFolder.EditMenu.title" "Edit Section:";
+MG_displayEN "openFolder.EditMenu.repick" "Repick";
+MG_displayEN "openFolder.EditMenu.text" "  Edit Menu:";
+MG_displayEN "openFolder.EditMenu.submit.btn" "Submit Current Content Edit";
+MG_displayEN "openFolder.EditMenu.appAllEdit.btn" "Apply All Edit";
+MG_displayEN "openFolder.EditMenu.close.btn" "Close";
+MG_displayEN "openFolder.noItem.war" "No items in the list:(";

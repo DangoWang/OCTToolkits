@@ -1,0 +1,2798 @@
+// QUICK PIPE : Curve-Edge based path creation tool.
+// This is the Quick Pipe script file. Please do not edit or delete it unless you know your shit.
+// 
+// Supported OS : Microsoft Windows.
+// Current Version : Quick Pipe 1.5a
+// Support Maya versions : Maya 2014, 2015, 2016, 2016 Extension 2, 2015LT and 2016LT.
+// 
+// © 2016 Adnan Chaumette.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// QUICK PIPE MAIN  OPERATION SCRIPT //////////////////////////////
+{
+
+  LaunchQuickPipe();
+
+  global proc LaunchQuickPipe()    {
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Initiate Quick Pipe by identifying the current selection type and testing a few
+  // conditions to apply the expected operation based on the current selection.
+
+  string $CurrentSel[] = `ls -sl -fl`;
+
+  string $CurrentHilite[] = `ls -hl -o -fl`;
+
+  string $CurrentShape[] = `ls -sl -dag -lf -o -fl`;
+
+  string $OBJSel[] = stringArrayRemoveDuplicates(`listRelatives -p -path $CurrentShape`);
+
+  string $ValidateTypeHolder;
+  string $CmdToRun = `ValidateType ($ValidateTypeHolder)`;
+
+  // RemoveOldQuickPipe; // This procedure will clean install the new Quick Pipe version (1.5 in this case) and remove the previous version.Use it with caution !
+
+  // These Int Variables are used to store the current data type.
+
+  int $IsFace = size(`filterExpand -sm 34`);
+  int $IsEdge = size(`filterExpand -sm 32`);
+  int $IsVertex = size(`filterExpand -sm 31`);
+  int $IsCurve = size(`filterExpand -sm 9`);
+  int $IsPolygon = size(`filterExpand -sm 12`);
+  int $IsLocator = size(`filterExpand -sm 22`);
+  int $IsPipe;
+  string $IsBezier;
+
+  if (size($CurrentShape) >=1) {
+   $IsBezier = `objectType $CurrentShape[0]`;
+   if ($IsBezier != "bezierCurve") {$IsBezier = "0";}
+ }
+
+ if ( ($CmdToRun == "010") || ($CmdToRun == "100") ) { $IsPipe = 1; } else { $IsPipe = 0; }
+
+ string $QPGetPrefs[]; GetPrefValues ($QPGetPrefs); // Get Quick Pipe General Settings.
+ 
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ //Start the conditions by checking if it's the first time Quick Pipe is used on
+ //the current system,and creating multiple other conditions that drive the whole tool.
+
+ if ( $QPGetPrefs[6] == "1" ) {
+
+  CheckFirstStart;
+
+  QuickDefaultSettings;
+
+}
+
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ // Create a pipe from the current selection if it's an edge,a curve or both.
+ //else if ( ($IsEdge >= 1) || ($IsCurve >= 1) ) {
+   
+   if ( ($IsPolygon == 0) && ($IsBezier == "0") && ( ($IsEdge >= 1) || ($IsCurve >= 1) ) ) {
+
+     CreateQuickPipe;
+
+   }
+
+
+   //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ //Run Quick Pipe with a Bezier selection.Bezier integration in Quick Pipe is only partial currently
+ //and not every module in Quick Pipe supports thems.
+
+ else if ( ( size ($OBJSel) == 1 ) && ($IsBezier == "bezierCurve") ) {
+
+  BezierToCVCurve;
+
+}
+
+
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ // Start the CleanPipe operation that cleans all pipes in the scene if nothing is selected,
+ //clean selected pipe if it's selected in vertex mode,or cleaning all pipes except the
+ //selected pipe(s) that is in face mode.
+
+ else if  ( ( size($CurrentHilite) == 0) && ( size($CurrentSel) == 0) || ( $IsFace >= 1) || ( $IsVertex >= 1) ) {
+
+   CleanQuickPipe;
+
+ }
+ 
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ //Toggle between realtime parameters if the current selection is a valid pipe.
+ 
+ else if ( ( $IsFace == 0) && ( $IsVertex == 0) && ($IsPipe == 1) ) {
+
+   RealtimePipeParameters;
+
+ }
+ 
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ //Create a pipe from selected locators.
+ 
+ else if ( $IsLocator >= 1) {
+
+   PipeFromLocators; CreateQuickPipe;
+
+ }
+ 
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ //Open the Quick Pipe window if the current selection is set to component selection without
+ //any component being selected.
+ 
+ else if ( ( size($CurrentHilite) == 1) && ( size($CurrentSel) == 0) ) {
+
+   string $SaveHLSel[] = `ls -hl -o -fl`;
+
+   QuickPipeUserMenu;
+
+   select $SaveHLSel;
+
+ }
+ 
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ //If none of the conditions stated so far match their respective criterias,then just prompt this
+ //message to make sure the user's current selection is valid.
+ 
+ else {
+
+   warning "Something went wrong with the current selection.Please make sure your selection is valid and try again.\n";
+
+ }
+
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ // End of the conditions and start of the procedures.Now we can go throught the other procedures,
+ //like the main Quick Pipe creation procedure for example.
+ 
+}
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// QUICK PIPE MAIN OPERATOR ///////////////////////////////////////////////////////
+
+global proc CreateQuickPipe()    {
+
+  {
+
+   string $SourceSel[] = `ls -sl -fl` ;
+
+   string $SourceOBJ[] = `ls -sl -o -lf -dag -fl`;
+
+   int $SourceSelSize = `size($SourceSel)` ;
+
+   int $SourceSize = `size($SourceOBJ)` ;
+
+ string $QPrefs[]; GetPrefValues ($QPrefs); // Get Quick Pipe General Settings.
+ 
+ global string $CurveProfile[];
+ 
+ global string $CurvePath[];
+ 
+ global string $Pipe[];
+ 
+ global string $MakeNurbsCircle[];
+ 
+ global int $MatVal;
+ 
+ global int $IsProfile;
+ global int $TestSwitch;
+ 
+ $TestSwitch = 0 ;
+ 
+ $IsProfile = 0;
+ 
+ if ( size(`filterExpand -sm 32  `) >= 1)  {
+
+   $MatVal =  1 ;
+ }
+ 
+ else {
+
+   $MatVal =  0 ;
+
+ }
+ 
+ int $QPSrcHist = $QPrefs[3];
+ 
+ ////////////////////////////////////////////////////////////////////
+ 
+ if (( size(`filterExpand -sm 32  `) >= 1) && ($SourceSize ==1)) {
+
+   polyToCurve -form 2 -degree 1 -ch $QPSrcHist -n "ADN_Base_CPath02_#" ;
+
+   $CurvePath = `ls -sl -fl` ;
+
+   circle -c 0 0 0 -nr 0 1 0 -sw 360 -r 1 -d 3 -ut 0 -tol 0.01 -s 10 -ch 1 -n "ADN_GeoProfile_#";
+
+   $CurveProfile = `ls -sl -fl` ;
+
+ }
+ 
+ 
+ ////////////////////////////////////////////////////////////////////
+ 
+ 
+ else if (( size(`filterExpand -sm 9  `) >= 1) && ($SourceSize ==1)) {
+
+   duplicate -n "OldCurve_#";
+
+   string $renameSel[] = `ls -sl -fl` ;
+
+   rename $renameSel "ADN_Base_CPath02_#" ;
+
+   $CurvePath = `ls -sl -fl` ;
+
+   circle -c 0 0 0 -nr 0 1 0 -sw 360 -r 1 -d 3 -ut 0 -tol 0.01 -s 10 -ch 1 -n "ADN_GeoProfile_#";
+
+   $CurveProfile = `ls -sl -fl` ;
+
+ }
+ 
+ 
+ ////////////////////////////////////////////////////////////////////
+ 
+ 
+ else if ( ($SourceSize == 2)  && ( size(`filterExpand -sm 9  `) == 2) && ( size(`filterExpand -sm 32  `) == 0)  ) {
+
+   select $SourceSel[0];
+
+   duplicate -n "ADN_GeoProfile_#";
+
+   $CurveProfile = `ls -sl -fl` ;
+
+   select $SourceSel[1];
+
+   duplicate -n "ADN_Base_CPath02_#";
+
+   $CurvePath = `ls -sl -fl` ;
+
+   $IsProfile = 1 ;
+
+ }
+ 
+ 
+ ////////////////////////////////////////////////////////////////////
+ 
+ 
+ else if ( ($SourceSize == 2)  && ( size(`filterExpand -sm 32  `) >= 2) && ( size(`filterExpand -sm 9  `) == 0)  ) {
+
+   string $EdgesSource[] = `ls -sl -fl ` ;
+
+   string $eOBJSource[] = `ls -sl -fl -o ` ;
+
+   SelectToggleMode;
+
+   select  $eOBJSource[0];
+   SelectEdgeMask;
+   hilite -r $eOBJSource[0] ;
+
+   string $Edges2Profile[] = `ls -sl -fl` ;
+
+   select  $eOBJSource[1];
+   SelectEdgeMask;
+   hilite -r $eOBJSource[1] ;
+
+   string $Edges2Path[] = `ls -sl -fl` ;
+
+   SelectToggleMode;
+
+   select -cl;
+
+ ////////////////////////////////
+ 
+ select $Edges2Path;
+ 
+ polyToCurve -form 2 -degree 1 -ch $QPSrcHist -n "ADN_Base_CPath02_#" ;
+ 
+ CenterPivot;
+ 
+ $CurvePath = `ls -sl -fl` ;
+ 
+ select $Edges2Profile;
+ 
+ polyToCurve -form 2 -degree 1 -ch $QPSrcHist -n "ADN_GeoProfile_#";
+ 
+ CenterPivot;
+ 
+ $CurveProfile = `ls -sl -fl` ;
+ 
+ $IsProfile = 1 ;
+ 
+}
+
+ ////////////////////////////////////////////////////////////////////
+ 
+ 
+ else if ( ($SourceSize == 2)  && ( size(`filterExpand -sm 32  `) >= 1) && ( size(`filterExpand -sm 9  `) == 1)  ) {
+
+   string $Cursel[] = `ls -sl -fl`;
+
+   if ( ( (`objectType $SourceOBJ[0]`) == "mesh" ) && ( (`objectType $SourceOBJ[1]`) == "nurbsCurve" ) ) {
+
+     select $Cursel;
+     string $Edges[] = `filterExpand -sm 32`;
+     select $Edges;
+
+     polyToCurve -form 2 -degree 1 -ch $QPSrcHist -n "ADN_GeoProfile_#";
+
+     CenterPivot;
+
+     $CurveProfile = `ls -sl -fl` ;
+
+     select $Cursel;
+     string $Curve[] = `filterExpand -sm 9`;
+     select $Curve;
+
+     duplicate -n "ADN_Base_CPath02_#";
+
+     $CurvePath = `ls -sl -fl` ;
+
+
+   }
+
+   else if ( ( (`objectType $SourceOBJ[0]`) == "nurbsCurve" ) && ( (`objectType $SourceOBJ[1]`) == "mesh" ) ) {
+
+     select $Cursel;
+     string $Curve[] = `filterExpand -sm 9`;
+     select $Curve;
+
+     duplicate -n "ADN_GeoProfile_#";
+
+     $CurveProfile = `ls -sl -fl` ;
+
+     select $Cursel;
+     string $Edges[] = `filterExpand -sm 32`;
+     select $Edges;
+
+     polyToCurve -form 2 -degree 1 -ch $QPSrcHist -n "ADN_Base_CPath02_#";
+
+     CenterPivot;
+
+     $CurvePath = `ls -sl -fl` ;
+
+   }
+
+   $IsProfile = 1 ;
+
+ }
+ 
+ 
+ ////////////////////////////////////////////////////////////////////
+ 
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ // The following code represents the core process of this tool.Basically,all the creation operations are
+ // stored here right before the cleaning process and after the checking process.
+ 
+ select -cl;
+ 
+ select $CurvePath;
+ 
+ string $Old_Path[] = `ls -sl -fl`;
+ 
+ offsetCurve  -ch on -rn true -cb 0 -st true -cl false -d -0 -tol 0.7919 -sd 0 -ugn false -o true $CurvePath;
+ 
+ string $OffsetGrp[] = `ls -sl -fl`;
+ 
+ string $TrimPath[] = `listRelatives -c -path $OffsetGrp`;
+ 
+ select $OffsetGrp; rename $OffsetGrp[0] "ADN_OFSTNCV"; $OffsetGrp = `ls -sl -fl`;
+ 
+ select $TrimPath; parent -w;
+ 
+ inheritTransform -off $TrimPath;
+ 
+ rename $TrimPath[0] "ADN_Base_CPath_#";
+ 
+ $CurvePath = `ls -sl -fl`;
+ 
+ select -add $CurveProfile $CurvePath;
+ 
+ CenterPivot;
+ 
+ pathAnimation -fm false -f true -fa y -ua z 
+ -wut "object" -iu false -if false 
+ -b false -stu 1 -etu 50;
+ 
+ select $CurvePath;
+ 
+ rebuildCurve -ch 1 -rpo 0 -rt 0 -end 1 -kr 0 -kcp 1 
+ -kep 1 -kt 1 -s 50 -d 1 -tol 0.01 -n "ADN_GeoPath_#" $CurvePath;
+ 
+ string $Curve_Path[] = `ls -sl`;
+ 
+ select -cl;
+ 
+ select -add $CurveProfile $Curve_Path;
+ 
+ extrude -ch true -rn false -po 0 -et 2 -ucp 1 -fpt 1 -upn 1 
+ -rotation 0 -scale 1 -rsp 1 -n "ADN_GeoNurbsPipe_#" $CurveProfile $Curve_Path;
+ 
+ string $NPipe[] = `ls -sl`;
+ 
+ inheritTransform -off $NPipe;
+ 
+ nurbsToPoly -mnd 1  -ch 1 -f 3 -n "Temp_PolyPipe_#";
+ 
+ $Pipe = `ls -sl -fl` ;
+ 
+ select $Pipe;
+ CenterPivot;
+ 
+ setAttr ($CurveProfile[0] + ".rotateX") 0 ;
+ setAttr ($CurveProfile[0] + ".rotateY") 0 ;
+ setAttr ($CurveProfile[0] + ".rotateZ") 0 ;
+ 
+   //ASSIGN SOURCE MATERIAL TO CREATED PIPE...//
+
+
+
+   if ( ( $MatVal == 1) && ( $QPrefs[0] == "0" ) ) {
+
+     select $SourceSel;
+
+     hyperShade -smn;
+
+     string $SourceMat[] = `ls -sl -fl`;
+
+     select $Pipe;
+
+     hyperShade -assign $SourceMat[0];
+
+   }
+
+   else {
+
+     select -cl;
+
+     if( `objExists "Pipe_Material*"` ) {
+       select "Pipe_Material*";
+
+       string $MatExists[] = `ls -sl -fl`;
+
+       select $Pipe;
+
+       hyperShade -assign $MatExists[0];
+
+     }
+
+     else {
+
+ //CREATE PIPE MATERIAL AND ASSIGN TO CREATED PIPE...//
+ 
+ select -cl;
+ 
+ string $NewMat = `shadingNode -asShader blinn -n "Pipe_Material"`;
+ 
+ select $Pipe;
+ 
+ hyperShade -assign $NewMat;
+ 
+} 
+
+
+}
+
+
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+ 
+ select $CurveProfile;
+ string $CurveProfileShape[] = `listRelatives -s`;
+ 
+ select $Curve_Path;
+ string $CurveProfile_PathShape[] = `listRelatives -s`;
+ 
+ if ( $IsProfile != 1) {
+
+   string $MNC[] = `listConnections -t "makeNurbCircle"  -sh true $CurveProfileShape`;
+
+   string $SList1[] = `stringArrayRemoveDuplicates($MNC)`;
+   select $SList1;
+   rename $SList1 "Circle_Params"; // Change the original circle parameters
+   $MakeNurbsCircle = `ls -sl -fl`;
+
+ }
+ 
+ string $EXTR[] = `listConnections -t "extrude" $CurveProfile_PathShape`;
+ 
+ string $SList2[] = `stringArrayRemoveDuplicates($EXTR)`;
+ select $SList2;
+   rename $SList2 "Extrude_Params"; // Change the original circle parameters
+   string $Extrude[] = `ls -sl`;
+
+   string $RCV[] = `listConnections -t "rebuildCurve" $CurveProfile_PathShape`;
+
+   string $SList3[] = `stringArrayRemoveDuplicates($RCV)`;
+   select $SList3;
+   rename $SList3 "RebuildCV_Params"; // Change the original circle parameters
+   string $RebuildCurve[] = `ls -sl`;
+
+   string $ListNTessellate[] = `listConnections -t "nurbsTessellate" $CurveProfile_PathShape`;
+
+   cycleCheck -e off;
+
+   string $MOP[] = `listConnections -t "motionPath"  -sh true $CurveProfile`;
+
+   string $SList1[] = `stringArrayRemoveDuplicates($MOP)`;
+   delete $SList1;
+
+   cycleCheck -e on;
+
+   string $PathCurveShape[] = `listRelatives -s -path $CurvePath`;
+
+   string $Listcns01[] = stringArrayRemoveDuplicates(`listConnections -s true -scn true $PathCurveShape`);
+   string $Listcns02[] = stringArrayRemoveDuplicates(`listConnections -c true -scn true $Listcns01[0]`);
+   string $Listcns03[] = stringArrayRemoveDuplicates(`listConnections -d true -scn true $Listcns02[1]`);
+
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+ string $PMVtmp[] = ` polyMoveVertex -constructionHistory 1 -random 1 $Pipe` ;
+ 
+ string $PMVertex = `rename $PMVtmp[0] "SurfaceNoise"` ;
+ 
+ select $Pipe;
+ 
+ float $PrefsRadius = $QPrefs[8];
+ int $PrefsSedments = $QPrefs[9];
+ int $PrefsUTopology = 0;
+ int $PrefsUDivisions = 20;
+ int $PrefsSTwist = $QPrefs[12];
+ float $PrefsSNoise = $QPrefs[13];
+ float $PrefsRScale = $QPrefs[14];
+ int $PrefsRSweep = $QPrefs[15];
+ float $PrefsSTrim = $QPrefs[16];
+ float $PrefsOffset = $QPrefs[17];
+ 
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+ if ( $IsProfile != 1) {
+
+   addAttr -ln "Radius" -nn "Pipe Radius" -at double -dv ($PrefsRadius) -min 0.001 -max 1000;
+   setAttr -e-keyable true ($Pipe[0] + ".Radius");
+   connectAttr -f ($Pipe[0] + ".Radius") ($MakeNurbsCircle[0] + ".radius");
+
+   addAttr -ln "Segments" -nn "Height Segments" -at long -dv ($PrefsSedments) -min 3 -max 1000;
+   setAttr -e-keyable true ($Pipe[0] + ".Segments");
+   connectAttr -f ($Pipe[0] + ".Segments") ($MakeNurbsCircle[0] + ".sections");
+
+ }
+ 
+ if ( $IsProfile == 1) {
+
+   addAttr -ln "Radius" -nn "Pipe Radius" -at double -dv 1 -min 0.001 -max 1000;
+   setAttr -e-keyable true ($Pipe[0] + ".Radius");
+   connectAttr -f ($Pipe[0] + ".Radius") ($CurveProfile[0] + ".scaleX");
+   connectAttr -f ($Pipe[0] + ".Radius") ($CurveProfile[0] + ".scaleY");
+   connectAttr -f ($Pipe[0] + ".Radius") ($CurveProfile[0] + ".scaleZ");
+
+ }
+ 
+ addAttr -ln "UniformTopology" -nn "Uniform Topology" -at long -dv ($PrefsUTopology) -min 0 -max 1;
+ setAttr -e-keyable true ($Pipe[0] + ".UniformTopology");
+ connectAttr -f ($Pipe[0] + ".UniformTopology") ($RebuildCurve[0] + ".keepControlPoints");
+ 
+ addAttr -ln "UTDivisions" -nn "Uniform Divisions" -at long -dv ($PrefsUDivisions) -min 10 -max 10000;
+ setAttr -e-keyable true ($Pipe[0] + ".UTDivisions");
+ connectAttr -f ($Pipe[0] + ".UTDivisions") ($RebuildCurve[0] + ".spans");
+ 
+ addAttr -ln "Twist" -nn "Shape Twist" -at long -dv ($PrefsSTwist) -min -50000 -max 50000;
+ setAttr -e-keyable true ($Pipe[0] + ".Twist");
+ connectAttr -f ($Pipe[0] + ".Twist") ($Extrude[0] + ".rotation");
+ 
+ addAttr -ln "Noise" -nn "Surface Noise" -at double -dv ($PrefsSNoise) -min -100 -max 100;
+ setAttr -e-keyable true ($Pipe[0] + ".Noise");
+ connectAttr -f ($Pipe[0] + ".Noise") ($PMVertex + ".localTranslateZ");
+ 
+ addAttr -ln "Taper" -nn "Ramp Scale" -at double -dv ($PrefsRScale) -min 0 -max 1000;
+ setAttr -e-keyable true ($Pipe[0] + ".Taper");
+ connectAttr -f ($Pipe[0] + ".Taper") ($Extrude[0] + ".scale");
+ 
+ if ( $IsProfile != 1) {
+
+   addAttr -ln "Sweep" -nn "Radial Sweep" -at long -dv ($PrefsRSweep) -min 0 -max 360;
+   setAttr -e-keyable true ($Pipe[0] + ".Sweep");
+   connectAttr -f ($Pipe[0] + ".Sweep") ($MakeNurbsCircle[0] + ".sweep");
+
+   setAttr ($MakeNurbsCircle[0] + ".isHistoricallyInteresting", 0);
+
+ }
+ 
+ addAttr -ln "Trim" -nn "Trim Pipe" -at double -dv ($PrefsSTrim) -min 0.001 -max 1;
+ setAttr -e-keyable true ($Pipe[0] + ".Trim");
+ connectAttr -f ($Pipe[0] + ".Trim") ($Listcns03[0] + ".maxValue");
+ 
+ addAttr -ln "Offset" -nn "Offset Pipe" -at double -dv ($PrefsOffset) -min -10 -max 10;
+ setAttr -e-keyable true ($Pipe[0] + ".Offset");
+ connectAttr -f ($Pipe[0] + ".Offset") ($Listcns02[1] + ".distance");
+ 
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+ string $PipeShape[] = `listRelatives -s -path $Pipe`;
+ 
+ select $PipeShape;
+ 
+ setAttr ($PMVertex + ".isHistoricallyInteresting", 0);
+ 
+ setAttr ($RebuildCurve[0] + ".isHistoricallyInteresting", 0);
+ 
+ setAttr ($Extrude[0] + ".isHistoricallyInteresting", 0);
+ 
+ setAttr ($ListNTessellate[0] + ".isHistoricallyInteresting", 0);
+ 
+ select $Pipe;
+ 
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+ //Use the parameters for the last created standard pipe in the scene.
+ 
+ if ( ($IsProfile == 0) && ( $QPrefs[1] == "1" ) ) {
+
+   if (`objExists "New_QP_PolyPipe_*" `) {
+
+     select "New_QP_PolyPipe_*";
+
+     string $GetAttrSettings[] = `ls -sl -fl -tr -tl 1`;
+
+     string $ChkMNC[] = `listConnections -t "makeNurbCircle"  -sh true $GetAttrSettings`;
+
+     string $ShortenMNC[] = `stringArrayRemoveDuplicates($ChkMNC)`;
+
+     int $MNCSize = `size($ShortenMNC)` ;
+
+     if ($MNCSize ==1)  {
+
+       float $RadiusVal = `getAttr ($GetAttrSettings[0] + ".Radius")`; setAttr ($Pipe[0] + ".Radius") $RadiusVal ;
+
+       int $SegmentsVal = `getAttr ($GetAttrSettings[0] + ".Segments")`; setAttr ($Pipe[0] + ".Segments") $SegmentsVal ;
+
+       int $UniformTVal = `getAttr ($GetAttrSettings[0] + ".UniformTopology")`; setAttr ($Pipe[0] + ".UniformTopology") $UniformTVal ;
+
+       int $UTDivisionsVal = `getAttr ($GetAttrSettings[0] + ".UTDivisions")`; setAttr ($Pipe[0] + ".UTDivisions") $UTDivisionsVal ;
+
+
+     }
+
+   }
+
+ }
+ 
+ else {
+
+ // The following is the technique i use to detect normal map direction based on a pipe's curve and fix them 
+ // before the pipe creation process is done.You could call it the Normal Detection System (say it with a cool voice !)
+ 
+ setAttr ($CurveProfile[0] + ".rotateX") 90 ;
+ setAttr ($CurveProfile[0] + ".rotateY") 0 ;
+ setAttr ($CurveProfile[0] + ".rotateZ") 0 ;
+ 
+ //string $GetVersion = `about -v`;
+ 
+ // if ($GetVersion != "2016") {
+ // 
+ //setAttr ($CurveProfile[0] + ".rotateY") -90 ;
+ // 
+ // }
+ 
+ setAttr ($Pipe[0] + ".UniformTopology") 0 ;
+ 
+ select $CurveProfile;
+ 
+ string $CurveType = GetCurveType($CurveType);
+ 
+ string $GetBorders[];
+ 
+ if ($CurveType == "OpenCV") {
+
+   select $Pipe;
+
+   $Pipe = `ls -sl -fl`;
+
+   select $Pipe; polySelectConstraint -m 3 -t 0x8000 -w 1; polySelectConstraint -m 0;
+
+   if (size(`filterExpand -sm 32`) >=1) { $GetBorders = `ls -sl -fl`; }
+
+   else {
+
+     closeCurve -ch 0 -ps 1 -rpo 1 -bb 0.5 -bki 0 -p 0.1 ADN_Base_CPath_1;
+
+     select $Pipe; polySelectConstraint -m 3 -t 0x8000 -w 1; polySelectConstraint -m 0;
+
+     if (size(`filterExpand -sm 32`) >=1) { $GetBorders = `ls -sl -fl`; }
+
+     closeCurve -ch 0 -ps 1 -rpo 1 -bb 0.5 -bki 0 -p 0.1 ADN_Base_CPath_1;
+
+   }
+
+   select -cl; select $GetBorders; ConvertSelectionToFaces; $GetBorders = `ls -sl -fl`;
+
+   polyNormal -normalMode 0 -userNormalMode 1 -ch 1 $GetBorders;
+
+ }
+ 
+ select -cl; select $Pipe;
+ 
+ string $NearestPOM  = eval("createNode closestPointOnMesh ");
+ 
+ float $BBox[] = `exactWorldBoundingBox $Pipe[0]`;
+ 
+ float $samplePt[] = {($BBox[0] - ($BBox[3] - $BBox[0])),($BBox[1] - ($BBox[4] - $BBox[1])),($BBox[2] - ($BBox[5] - $BBox[2]))};
+ 
+ connectAttr -f ($Pipe[0] + ".worldMesh") ($NearestPOM + ".inMesh");
+ setAttr ($NearestPOM + ".inPosition") $samplePt[0] $samplePt[1] $samplePt[2];
+ float $p[] = `getAttr ($NearestPOM + ".position")`;
+ vector $Normal = `getAttr ($NearestPOM + ".normal")`;
+ vector $Vector = <<($samplePt[0] - $p[0]),($samplePt[1] - $p[1]),($samplePt[2] - $p[2])>>;
+ 
+ if(dot($Normal, $Vector) < 0){ reverseCurve -ch 0 -rpo 1 $CurveProfile; }
+ 
+ delete $NearestPOM;
+ 
+ if ($CurveType == "OpenCV") {
+
+   select -cl; select $GetBorders;
+   polyNormal -normalMode 0 -userNormalMode 1 -ch 1 $GetBorders;
+
+ }
+ 
+ select -cl; select $Pipe;
+ 
+ setAttr ($Pipe[0] + ".UniformTopology") 1 ;
+ 
+ 
+ 
+}
+
+polySoftEdge -a 180 -ch 1 $Pipe;
+
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ // Create the Quick Pipe history group.
+ 
+ select -cl;
+ 
+ select -add $Curve_Path $CurveProfile $Old_Path $CurvePath $NPipe $OffsetGrp ;
+ 
+ CenterPivot;
+ 
+ string $NewPipe_History[] = `ls -sl`;
+ 
+ group -name "ADN_NewPipe_HGroup_#"$NewPipe_History;
+ CenterPivot;
+ 
+ string $PipeGroup[] = `ls -sl`;
+ 
+ setAttr ($PipeGroup[0] + ".visibility") 0;
+ 
+ select -cl;
+ 
+ select $Pipe;
+ 
+ rename $Pipe "New_QP_PolyPipe_#" ;
+ 
+ $Pipe = `ls -sl`;
+ 
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+ int $IVMVal;
+ 
+ if (`optionVar -exists "inViewMessageEnable"`) { $IVMVal = `optionVar -query "inViewMessageEnable"`; }
+ 
+ optionVar -iv inViewMessageEnable 1;
+ 
+ inViewMessage -amg ("<p style=\"color:#4cbedf;\"> New Pipe created ! </p> ") -dk -pos topCenter -fade ;
+ 
+ optionVar -iv inViewMessageEnable $IVMVal;
+ 
+ print ("New Pipe created !"+"\n");
+ 
+ 
+}
+
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// The following procedure allows you to control the available realtime parameters.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+global proc RealtimePipeParameters() {
+
+  commandEcho -state 0;
+
+  if( `dragAttrContext -exists "AttrControlCtx" ` ) { dragAttrContext -reset; }
+  else { dragAttrContext AttrControlCtx; }
+
+  string $ValidateTypeHolder;
+  string $CmdToRun = `ValidateType ($ValidateTypeHolder)`;
+  int $IndexValue;
+
+  if  ( ($CmdToRun == "100") || ($CmdToRun == "010") ) {
+
+    global int $TestSwitch; switch($TestSwitch) {
+
+      case 0: GetPipeAttributes (($IndexValue = 0)); break;
+
+      case 1: GetPipeAttributes (($IndexValue = 1)); break;
+
+      case 2: GetPipeAttributes (($IndexValue = 2)); break;
+
+      case 3: GetPipeAttributes (($IndexValue = 3)); break;
+
+      case 4: GetPipeAttributes (($IndexValue = 4)); break;
+
+      case 5: GetPipeAttributes (($IndexValue = 5)); break;
+
+      default:
+      $TestSwitch = 0;
+      GetPipeAttributes (($IndexValuetmp = 0)); break;
+    }
+    $TestSwitch++;
+  }
+
+  else { warning "Something went wrong with the current selection.Please make sure your selection is valid and try again.\n"; }
+
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// The following procedure allows you to get the selected pipe's attributes to toggle between realtime parameters.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+global proc int GetPipeAttributes (int $AttrIndex) {
+
+  string $CurrentPipe[] = `ls -sl`;
+  string $CurrentPipeShape[] = `ls -sl -fl -o -dag`;
+  string $CurrentPipeOBJ[] = `listRelatives -p -path $CurrentPipeShape`;
+
+  string $PipeAttr[] = `listAttr -ud $CurrentPipeOBJ`;
+  int $AttrIndex;
+  string $AttrName = `attributeName -nice ($CurrentPipeOBJ[0] + "." + $PipeAttr[$AttrIndex])`;
+
+  print ("Mode : " + $AttrName + "\n");
+
+  int $IVMVal;
+
+  if (`optionVar -exists "inViewMessageEnable"`) { $IVMVal = `optionVar -query "inViewMessageEnable"`; }
+
+  optionVar -iv inViewMessageEnable 1;
+
+  inViewMessage -amg ("<p style=\"color:#4cbedf;\"> " + $AttrName + " </p> ") -dk -pos topRight -fade ;
+
+  optionVar -iv inViewMessageEnable $IVMVal;
+
+  dragAttrContext -edit
+  -connectTo ($CurrentPipeOBJ[0] + "." + $PipeAttr[$AttrIndex] + "\n")
+  AttrControlCtx;
+
+  setToolTo AttrControlCtx;
+
+  return $AttrIndex;
+
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// The following procedure allows you to delete the selected pipe's attributes.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+global proc DeletePipeAttributes()     {
+
+  string $Sel[] = `ls -sl -fl`;
+
+  string $SelShape[] = `ls -sl -fl -dag -lf`;
+
+  string $SelOBJ[] = `listRelatives -p -path $SelShape`;
+
+  select $SelOBJ;
+
+  string $SelectionList[];
+
+  for ($DelOBJAttr in $SelOBJ) {
+
+    select -r $DelOBJAttr;
+
+    string $customAttr[] = `listAttr -ud`;
+
+    string $Attr;
+
+    for ($Attr in $customAttr) {
+
+      deleteAttr -at $Attr;
+
+    }
+
+    string $RenameOBJz = `rename $DelOBJAttr "PolyPipe_#"`;
+
+    stringArrayInsertAtIndex( 0, $SelectionList, $RenameOBJz );
+
+    DeleteHistory;
+
+  }
+
+  select $SelectionList;
+
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// The following procedure allows you to use the Quick Pipe Deletion System.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+global proc CleanQuickPipe()    {
+
+  if ( size(`filterExpand -sm 31  `) ) {
+
+    string $PipeGroup[];
+
+    string $SelGroup[] = `GetPipeGroup($PipeGroup)`;
+
+    string $UserSel[] = `ls -sl -o -fl`;
+
+    string $UserSelOBJ[] = `listRelatives -p -path $UserSel`;
+
+    select $UserSelOBJ;
+    ConvertSelectionToVertices;
+    select -cl;
+    select $UserSel;
+
+    DeletePipeAttributes;
+
+    delete $SelGroup;
+
+    select -cl;
+
+  }
+
+
+  else if ( size(`filterExpand -sm 34  `) >=1 ) {
+
+    string $UserSel[] = `ls -sl -o -fl`;
+
+    string $UserSelOBJ[] = `listRelatives -p -path $UserSel`;
+
+    string $PipeGroup[];
+
+    string $SelGroup[] = `GetPipeGroup($PipeGroup)`;
+
+    if( `objExists "ADN_*"` ) {
+
+      select "ADN_*";
+
+      select -d -hi $SelGroup ;
+
+      string $GroupToDel[] = `ls -sl -fl`;
+
+      string $GroupToHead[] = `ls -sl -as`;
+
+      select "ADN_GeoPath_*";
+
+      select -d -hi $SelGroup ;
+
+      string $GroupHeads[] = `ls -sl -fl -lf`;
+
+      string $HeadsConnections[] = `listConnections -scn true -s true $GroupHeads`;
+
+      string $GetOBJs[] = stringArrayRemoveDuplicates(`listConnections -scn true -s true $HeadsConnections`);
+
+      string $ConnectedOBJs[] = stringArrayRemove($GroupToDel, $GetOBJs);
+
+      select $ConnectedOBJs;
+
+      string $OBJShape[] = `ls -sl -dag -lf`;
+
+      select $OBJShape;
+
+      string $GetGroup[] = `GetPipeGroup($PipeGroup)`;
+
+      select $ConnectedOBJs;
+
+      DeletePipeAttributes;
+
+      select $UserSelOBJ;
+      ConvertSelectionToFaces;
+      select -cl;
+      select $UserSelOBJ;
+
+      delete $GetGroup;
+
+    }
+
+  }
+
+  else {
+
+    if( `objExists "New_QP_PolyPipe_*"` ) {
+      select "New_QP_PolyPipe_*";
+
+      DeletePipeAttributes;
+
+    }
+
+    if( `objExists "ADN_*"` ) {
+      select "ADN_*";
+      delete;
+    }
+
+  }
+  
+  int $IVMVal;
+
+  if (`optionVar -exists "inViewMessageEnable"`) { $IVMVal = `optionVar -query "inViewMessageEnable"`; }
+
+  optionVar -iv inViewMessageEnable 1;
+
+  inViewMessage -amg ("<p style=\"color:#4cbedf;\"> Pipe History Deleted </p> ") -dk 
+  -pos topCenter -fade ;
+
+  optionVar -iv inViewMessageEnable $IVMVal;
+
+  print ("Pipe History Deleted !"+"\n");
+
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// The following procedure allows you to get the selected pipe's group.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+global proc string[] GetPipeGroup(string $PipeGroup[]) {
+
+  string $SelShape[] = `ls -sl -fl -o -lf -dag`;
+
+  string $SelOBJ[] = `listRelatives -p -path $SelShape`;
+
+  string $GetAttrConnections[] = stringArrayRemoveDuplicates(`listConnections -scn true -s false $SelOBJ`);
+
+  string $GetOBJConnections[] = stringArrayRemoveDuplicates(`listConnections -scn true -s false $GetAttrConnections`);
+
+  string $GetConnectedOBJs[] = stringArrayRemove($SelOBJ, $GetOBJConnections);
+
+  string $PipeGroup[] = stringArrayRemoveDuplicates(`listRelatives -p $GetConnectedOBJs`);
+
+  return $PipeGroup;
+
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// The following procedure allows you to check the validify of the current selection as a pipe.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+global proc string GetCurveType (string $CurveType) {
+
+  string $SourceProfile[] = `ls -sl -fl`;
+
+  string $BezierProfile[] = `duplicate $SourceProfile`;
+
+  string $CurveType;
+
+  nurbsCurveToBezier; $BezierProfile = `ls -sl -fl`;
+
+  int $SizeCVs = `getAttr -size ($SourceProfile[0] + ".controlPoints")`;
+
+  string $BezierProfile02[] = `duplicate $SourceProfile`;
+
+  $BezierProfile02 = `closeCurve -ch 0 -ps 1 -rpo 1 -bb 0.5 -bki 0 -p 0.1 $BezierProfile02`;
+  select $BezierProfile02;
+
+  int $SizeCVs02 = `getAttr -size ($BezierProfile02[0] + ".controlPoints")`;
+
+  if ($SizeCVs > $SizeCVs02) { $CurveType = "CloseCV"; }
+
+  else if ($SizeCVs02 > $SizeCVs) { $CurveType = "OpenCV"; }
+
+  delete $BezierProfile02 $BezierProfile; select $SourceProfile;
+
+  return $CurveType;
+
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// The following procedure allows you to check the validify of the current selection as a pipe.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+global proc string ValidateType (string $GetObjectType) {
+
+ //////////////////////////////////////////////////////////////////
+
+ string $GetObjectType;
+ string $ValidateChildren;
+ string $PipeGroup[];
+
+ string $SelShape[] = `ls -sl -fl -o -lf -dag`;
+
+ if (size($SelShape) >= 1) {
+
+  string $SelOBJ[] = `listRelatives -p -path $SelShape`;
+
+  int $AttrSize = size(`listAttr -ud $SelOBJ`);
+
+  string $Children[] = stringArrayRemoveDuplicates(`listConnections -scn true -c false $SelOBJ[0]`);
+
+  string $CheckIsolate[] = stringArrayRemoveDuplicates(`listConnections -scn true -s true -et true -t "objectSet" $SelOBJ[0]`);
+
+  if (size ($CheckIsolate) >= 1 ) { $Children = stringArrayRemoveExact($CheckIsolate, $Children); }
+
+//////////////////////////////////////////////////////////////////
+
+if ( (size($Children) == 6) && ($AttrSize == 10) ) {
+
+  string $GetProfile[] = stringArrayRemoveDuplicates(`listConnections -scn true -s false $Children[0]`);
+  string $GetPath[] = stringArrayRemoveDuplicates(`listConnections -scn true -s false $Children[1]`);
+  string $GetNurbs[] = stringArrayRemoveDuplicates(`listConnections -scn true -s false $Children[2]`);
+
+  string $GetType01 = objectType (` listRelatives -c $GetProfile[0] `);
+  string $GetType02 = objectType (` listRelatives -c $GetPath[0] `);
+  string $GetType03 = objectType (` listRelatives -c $GetNurbs[0] `);
+
+  $PipeGroup = `listRelatives -p -path $GetPath`;
+
+  if ( ( $GetType01 == "nurbsCurve" ) && ( $GetType02 == "nurbsCurve" ) && ( $GetType03 == "nurbsSurface" ) ) {
+
+    $ValidateChildren = "AreValidChildren"; }
+
+  }
+
+//////////////////////////////////////////////////////////////////
+
+else if ( (size($Children) == 6) && ($AttrSize == 8) ) {
+
+  string $GetPath[] = stringArrayRemoveDuplicates(`listConnections -scn true -s false $Children[1]`);
+  string $GetNurbs[] = stringArrayRemoveDuplicates(`listConnections -scn true -s false $Children[2]`);
+
+  string $GetType02 = objectType (` listRelatives -c $GetPath[0] `);
+  string $GetType03 = objectType (` listRelatives -c $GetNurbs[0] `);
+
+  $PipeGroup = `listRelatives -p -path $GetPath`;
+
+  if ( ( $GetType02 == "nurbsCurve" ) && ( $GetType03 == "nurbsSurface" ) ) {
+
+    $ValidateChildren = "AreValidChildren"; }
+
+  }
+
+//////////////////////////////////////////////////////////////////
+
+string $TestGroup[] = GetPipeGroup ($TestGroup);
+
+if ( ( $ValidateChildren == "AreValidChildren" ) && ( $PipeGroup[0] == $TestGroup[0] ) && (size($Children) == 6) && ($AttrSize == 10) ) {
+
+  $GetObjectType = "100";
+
+}
+
+else if ( ( $ValidateChildren == "AreValidChildren" ) && ( $PipeGroup[0] == $TestGroup[0] ) && (size($Children) == 6) && ($AttrSize == 8) ) {
+
+  $GetObjectType = "010";
+
+}
+
+else { $GetObjectType = "001"; }
+
+}
+
+else { $GetObjectType = "001"; }
+
+//////////////////////////////////////////////////////////////////
+
+return $GetObjectType;
+
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// The following procedure will give you all the settings used by Quick Pipe that you can find in the Quick_Settings.txt file.
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+global proc string[] GetPrefValues (string $QuickPipeSettings[]) {
+
+  string $ScriptDir = `internalVar -userScriptDir`;
+
+  string $PrefsDir = ($ScriptDir + "QPUserSettings.ini");
+
+  int $IsValidDir = `filetest -r $PrefsDir`;
+
+  if ( $IsValidDir == 0 ) { 
+
+    string $DefParams = "*1*12*1*50*0*0*1*360*1*0";
+
+    string $WriteUIValues[] = {"0" , "1" , "0" , "0" , "1" , "0" , "1"  , "0" , $DefParams} ;
+
+    WritePrefsValues ($WriteUIValues); }
+
+    $FileOpen = `fopen $PrefsDir "r"`;
+
+    string $ReadFContent = `fread $FileOpen $ReadFContent` ;
+
+    string $SortedList[]; $TokenInt = `tokenize $ReadFContent " \n \r # _ " $SortedList`;
+
+    string $Param1 = $SortedList[1];
+    string $Param2 = $SortedList[3];
+    string $Param3 = $SortedList[5];
+    string $Param4 = $SortedList[7];
+    string $Param5 = $SortedList[9];
+    string $Param6 = $SortedList[11];
+    string $Param7 = $SortedList[13];
+    string $Param8 = $SortedList[15];
+    string $Param9 = $SortedList[17];
+
+    string $Attributes[] = stringToStringArray($Param9, "*");
+
+    string $Settings[] = { $Param1, $Param2 , $Param3 , $Param4 , $Param5 , $Param6 , $Param7, $Param8};
+
+
+    string $QuickPipeSettings[] = stringArrayCatenate($Settings , $Attributes) ;
+
+    fclose($FileOpen);
+
+    return $QuickPipeSettings;
+
+  }
+
+////////////////////////////////////////////////////////////////////////////////////////////
+// The following procedure will write in the Quick Pipe settings all the given data.
+////////////////////////////////////////////////////////////////////////////////////////////
+
+
+global proc string[] WritePrefsValues (string $WriteUIValues[]) {
+
+  string $PrefsDir = (`internalVar -userScriptDir`) + "QPUserSettings.ini";
+
+  string $GetePrefs[];
+
+  string $WriteUIValues[];
+
+  string $DefParams;
+
+  int $IsValidDir = `filetest -r $PrefsDir`;
+
+  if ( $IsValidDir == 0 ) {
+
+    $DefParams = "*1*12*1*50*0*0*1*360*1*0";
+
+    $WriteUIValues = {"0" , "1" , "0" , "0" , "1" , "0" , "1"  , "0",$DefParams} ;
+
+  }
+
+  string $Daches = "############################################################";
+
+  string $Param01 = "DefaultMaterial_";
+  string $Param02 = "UseLatestParameters_";
+  string $Param03 = "SetParametersAsDefault_";
+  string $Param04 = "KeepSourceProfile_";
+  string $Param05 = "HardEdgesUVs_";
+  string $Param06 = "CheckForUpdate_";
+  string $Param07 = "ShowFirstStart_";
+  string $Param08 = "PlaceHolderValue_";
+  string $Param09 = "DefaultPipeParameters_";
+
+  string $DefaultMaterial = ( $Daches + "\r\n\r\n" + $Param01 + $WriteUIValues[0] + "\r\n\r\n" );
+  string $UseLatestParameters = ( $Daches + "\r\n\r\n" + $Param02 + $WriteUIValues[1] + "\r\n\r\n" );
+  string $SetParametersAsDefault = ( $Daches + "\r\n\r\n" + $Param03 + $WriteUIValues[2] + "\r\n\r\n" );
+  string $KeepSourceProfile = ( $Daches + "\r\n\r\n" + $Param04 + $WriteUIValues[3] + "\r\n\r\n" );
+  string $UnfoldOnUnwrap = ( $Daches + "\r\n\r\n" + $Param05 + $WriteUIValues[4] + "\r\n\r\n" );
+  string $CheckForUpdate = ( $Daches + "\r\n\r\n" + $Param06 + $WriteUIValues[5] + "\r\n\r\n" );
+  string $ShowFirstStart = ( $Daches + "\r\n\r\n" + $Param07 + $WriteUIValues[6] + "\r\n\r\n" );
+  string $LockPipeHistory = ( $Daches + "\r\n\r\n" + $Param08 + $WriteUIValues[7] + "\r\n\r\n" );
+  string $DefaultPipeParameters = ( $Daches + "\r\n\r\n" + $Param09 + $WriteUIValues[8] + "\r\n\r\n" + $Daches);
+
+  string $WriteToDisk = ( $DefaultMaterial + $UseLatestParameters + $SetParametersAsDefault + $KeepSourceProfile 
+    + $UnfoldOnUnwrap + $CheckForUpdate + $ShowFirstStart + $LockPipeHistory + $DefaultPipeParameters ) ;
+
+
+  string $IsLTVersion = `about -lt`;
+
+  if ($IsLTVersion == "1") {
+
+    int $ifhf = fwriteAllText($PrefsDir,$WriteToDisk);
+
+  }
+
+  else {
+
+    $fileId = fopen($PrefsDir,"w");
+
+
+    fprint($fileId,$WriteToDisk );
+
+    fclose($fileId);
+
+  }
+
+  return $WriteUIValues;
+
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// The following procedure will give you all the attribute values for writing them in the custom settings.
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+global proc string GetAttributeValues (string $AttrsToSend) {
+
+  string $ToInt[]; GetPrefValues ($ToInt);
+
+  string $ValidateTypeHolder;
+  string $IsValidPipe = `ValidateType ($ValidateTypeHolder)`;
+
+  string $AttrsToSend;
+
+  if ($IsValidPipe != "100") {
+
+    $AttrsToSend = "*1*12*1*50*0*0*1*360*1*0";
+
+  }
+
+  else if ($IsValidPipe == "100") {
+
+    string $CurSelec[] = `ls -sl -fl`;
+    string $Attrs[] = `listAttr -ud`;
+    string $list[]; int $i;
+
+    for ($i = 0; $i < size($Attrs); $i++) {
+      string $LAttr = "*" + (`getAttr ( $CurSelec[0] + "." + $Attrs[$i] )`);
+      stringArrayInsertAtIndex( 10, $list, $LAttr );
+    }
+    stringArrayInsertAtIndex( 10, $list, "*" );
+    $AttrsToSend = stringArrayToString($list, "");
+
+  }
+
+  return $AttrsToSend;
+
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// The following procedure will open the Quick Pipe Preferences/Settings window.Some super useful stuff in found here !
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+global proc QuickPipePrefsWindow() {
+
+  string $GetePrefs[];
+
+  GetPrefValues ($GetePrefs);
+
+  int $FirstVal = $GetePrefs[0];
+
+  int $PrefsInt[] = { $FirstVal , $GetePrefs[1] , $GetePrefs[2] , $GetePrefs[3] , $GetePrefs[4] ,
+   $GetePrefs[5] , $GetePrefs[6] , $GetePrefs[7]};
+
+   global string $ChkBxOption1; global string $ChkBxOption2; global string $ChkBxOption3;
+   global string $ChkBxOption4; global string $ChkBxOption5; global string $ChkBxOption6;
+   global string $ChkBxOption7;
+
+   string $ChkBx1 = "Apply Quick Pipe Material on all newly created pipes.";
+   string $ChkBx2 = "Use latest pipe's basic parameters for the new pipe.";
+   string $ChkBx3 = "Use selected pipe's  parameters as default.";
+   string $ChkBx4 = "Keep source geometry influence.";
+   string $ChkBx5 = "Harden Edges at UV Seams.";
+ //string $ChkBx6 = "Control-click on a button to see it's function.";
+ string $ChkBx7 = "Show first start message.";
+ 
+ ///////////////////////////////////////////////////////////////////////////
+ 
+ string $PrefsWinQP = "PrefsWindow";
+ 
+ if ( `window -exists $PrefsWinQP` ) { deleteUI $PrefsWinQP;  windowPref -remove $PrefsWinQP; }
+ 
+ window -title "General Settings" -wh 296 257 -s 1 $PrefsWinQP;
+ 
+ // windowPref -query -widthHeight $PrefsWinQP; //real window size.
+ 
+ columnLayout -adjustableColumn true;
+ 
+ $ChkBxOption1 = `checkBox -value $PrefsInt[0] -label $ChkBx1`;
+ separator -h 17;
+ 
+ $ChkBxOption2 = `checkBox -value $PrefsInt[1] -label $ChkBx2`;
+ separator -h 17;
+ 
+ $ChkBxOption3 = `checkBox -value $PrefsInt[2] -label $ChkBx3`;
+ separator -h 17;
+ 
+ $ChkBxOption4 = `checkBox -value $PrefsInt[3] -label $ChkBx4`;
+ separator -h 17;
+ 
+ $ChkBxOption5 = `checkBox -value $PrefsInt[4] -label $ChkBx5`;
+ separator -h 17;
+ 
+ // $ChkBxOption6 = `checkBox -value $PrefsInt[5] -label $ChkBx6`;
+ // separator -h 17;
+ 
+ $ChkBxOption7 = `checkBox -value $PrefsInt[6] -label $ChkBx7`;
+ separator -h 17;
+ 
+ button -label "SAVE CURRENT SETTINGS" -command "QuickPipeSaveSettings";
+ 
+ separator -h 5 -st "none";
+ 
+ button -label "RESET TO DEFAULT SETTINGS" -command "QuickPipeResetSettings";
+ 
+ showWindow $PrefsWinQP;
+ 
+}
+
+///////////////////////////////////////////////////////////////////////////
+
+
+global proc QuickPipeSaveSettings() {
+
+  global string $ChkBxOption1;
+  global string $ChkBxOption2;
+  global string $ChkBxOption3;
+  global string $ChkBxOption4;
+  global string $ChkBxOption5;
+  //global string $ChkBxOption6;
+  global string $ChkBxOption7;
+  global string $ChkBxOption8;
+
+  string $v1 = `checkBox -q -v $ChkBxOption1`;
+  string $v2 = `checkBox -q -v $ChkBxOption2`;
+  string $v3 = `checkBox -q -v $ChkBxOption3`;
+  string $v4 = `checkBox -q -v $ChkBxOption4`;
+  string $v5 = `checkBox -q -v $ChkBxOption5`;
+  //string $v6 = `checkBox -q -v $ChkBxOption6`;
+  string $v7 = `checkBox -q -v $ChkBxOption7`;
+ //string $v8 = `checkBox -q -v $ChkBxOption8`;
+ 
+ string $GetDefAttrValue; string $ValPRM;
+ 
+ if ( $v3 == "1" ) { $GetDefAttrValue = GetAttributeValues ($ValPRM); }
+ 
+ else if ( $v3 == "0" ) { $GetDefAttrValue = "*1*12*1*50*0*0*1*360*1*0"; }
+ 
+ string $SavValues[] = { $v1, $v2, $v3, $v4, $v5, "0", $v7, "0", $GetDefAttrValue };
+ 
+ WritePrefsValues ($SavValues);
+ 
+ QuickPipePrefsWindow();
+ 
+ print "Quick Pipe Settings Saved !\n";
+ 
+}
+
+
+global proc QuickPipeResetSettings() {
+
+  QuickDefaultSettings;
+
+  QuickPipePrefsWindow();
+
+  print "Parameters set to default !\n";
+
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// The following procedure will check if the current Quick Pipe operation is the first to ever be started on this compuuter.
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+global proc CheckFirstStart() {
+
+ string $QPFStart[]; GetPrefValues($QPFStart); // Get Quick Pipe General Settings.
+
+ if ( $QPFStart[6] == "1" ) {
+
+  QuickPipeFirstStartWindow;
+
+  string $DefParams = "*1*12*1*50*0*0*1*360*1*0";
+  string $DefaultValues[] = {$QPFStart[0] , $QPFStart[1] , $QPFStart[2] , $QPFStart[3] ,
+   $QPFStart[4] , $QPFStart[5] , "0" , $QPFStart[7] , $DefParams} ;
+
+   WritePrefsValues ($DefaultValues);
+
+   string $PrefsWinQP = "PrefsWindow";
+
+   if ( `window -exists $PrefsWinQP` ) {
+    deleteUI $PrefsWinQP;
+  }
+
+}
+
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// If it is indeed the first time Quick Pipe is used,then just open up the first start window message.
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+global proc QuickPipeFirstStartWindow() {
+
+ VariableShadowDisable;
+
+ string $Nums[] = { "01", "02", "03", "04", "05", "06", "07", "08" };
+
+ int $Random = `rand (size($Nums) )`;
+
+ string $IconsDir = (`internalVar -userBitmapsDir`) + "Icons_QuickPipe/FirstStartQP" + $Nums[$Random] + ".png";
+
+ filetest -f $IconsDir;
+
+ string $FirstStartQP = "FirstStartWindow";
+
+  // windowPref -query -widthHeight FirstStartWindow; //real window size.
+
+  //windowPref -remove $FirstStartQP;
+
+  if ( `window -exists $FirstStartQP` ) {
+    deleteUI $FirstStartQP;
+  }
+
+  window -title "Welcome To Quick Pipe !" -wh 642 461 -s false -mxb false $FirstStartQP;
+
+  columnLayout -adjustableColumn true;
+
+  image -image $IconsDir;
+
+  button -label "Open Documentation" -h 30 -bgc 0.18 0.18 0.18 -c "OpenQPDocu";
+
+  button -label "Open Introduction Video Tutorial" -h 30 -bgc 0.18 0.18 0.18 -c "OpenOverviewTut";
+
+  button -label "Modify General Settings" -h 30 -bgc 0.18 0.18 0.18 -c "QuickPipePrefsWindow";
+
+  button -label "Show Quick Pipe Commands" -h 30 -bgc 0.18 0.18 0.18 -c "QPCommandLister";
+
+  showWindow $FirstStartQP;
+
+}
+
+global proc OpenQPDocu() {
+
+  string $OpenDoc = (`internalVar -userScriptDir`) + "Quick Pipe 1_5 Documentation.pdf";
+
+  launch -pdfFile $OpenDoc;
+
+}
+
+global proc OpenOverviewTut() {
+
+  launch -web "https://www.youtube.com/watch?v=PDJTp2BW_TM";
+
+}
+
+
+global proc QPCommandLister() {
+
+ VariableShadowDisable;
+
+ string $QPCommandsWin = "ListQuickPipeCommands";
+
+ if ( `window -exists $QPCommandsWin` ) {
+  deleteUI $QPCommandsWin;
+  windowPref -remove $QPCommandsWin;
+}
+
+window -title "Quick Pipe Command List" -wh 390 349 -s true -mxb false $QPCommandsWin;
+
+columnLayout;
+
+separator -h 15 -st "none";
+
+text -l "Copy and past one of the following commands to a \n\rshortcut,MM or Shelf Button to have run it individualy :\n" -fn "boldLabelFont";
+
+separator -h 5 -st "none";
+
+textFieldGrp -label "Quick Pipe Operator" -text "LaunchQuickPipe;" -ed true ;
+
+separator -h 10 -st "none";
+
+textFieldGrp -label "Quick Pipe Window : " -text "QuickPipeUserMenu;" -ed true ;
+
+separator -h 10 -st "none";
+
+textFieldGrp -label "General Settings : " -text "QuickPipePrefsWindow;" -ed true ;
+
+separator -h 10 -st "none";
+
+textFieldGrp -label "MultiPipe : " -text "MultiPipe;" -ed true ;
+
+separator -h 10 -st "none";
+
+textFieldGrp -label "Edit Selected Pipe : " -text "EditPipe;" -ed true ;
+
+separator -h 10 -st "none";
+
+textFieldGrp -label "Transfer Settings : " -text "TransferPipe;" -ed true ;
+
+separator -h 10 -st "none";
+
+textFieldGrp -label "Selection Pattern : " -text "QuickPatternSelector;" -ed true ;
+
+separator -h 10 -st "none";
+
+textFieldGrp -label "Clean Pipe : " -text "CleanQuickPipe;" -ed true ;
+
+separator -h 10 -st "none";
+
+textFieldGrp -label "Unwrap Pipe : " -text "UnwrapPipe;" -ed true ;
+
+separator -h 10 -st "none";
+
+showWindow $QPCommandsWin;
+
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// The following procedure will start the Quick Pipe Menu window.
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+global proc QuickPipeUserMenu() {
+
+  VariableShadowDisable;
+
+  string $ScriptDir = `internalVar -userScriptDir`;
+
+  string $ProfilesDir = ($ScriptDir + "QuickPipe_Profiles/");
+
+  int $IsValidDir = `filetest -d $ProfilesDir`;
+
+  string $ListIcons[] = `getFileList -folder $ProfilesDir  -filespec "*.png"`;
+
+  int $IconsCount = size($ListIcons);
+
+  string $ListProfiles[] = `getFileList -folder $ProfilesDir  -filespec "*.fbx"`;
+
+  int $ProfilesCount = size($ListProfiles);
+
+ //////////////////////////////////////////////////////////////////////////////
+
+ string $QuickPipeWin = "QuickPipeUserMenu";
+
+ if ( `window -exists $QuickPipeWin` ) { deleteUI $QuickPipeWin; }
+
+ //else { windowPref -remove $QuickPipeWin; }
+
+ window -title "Quick Pipe 1.5" -s false  -wh 300 204 -mxb false $QuickPipeWin;
+
+ // windowPref -query -widthHeight "QuickPipeUserMenu"; // Get window size.
+
+ //////////////////////////////////////////////////////////////////////////////
+
+ string $TabLayout = `tabLayout QPTabLayout`;
+
+ string $QPCommands = `frameLayout -cll 0 -label "Operators" -labelVisible false`;
+
+ rowColumnLayout -numberOfRows 5;
+ 
+ iconTextButton -style "iconAndTextHorizontal"
+ -image "Icons_QuickPipe/QP_Icon_01_32.png" -label "Quick Pipe"
+ -font "boldLabelFont" 
+ -ann "Create a pipe from the current edge/curve selection.\n"
+ -command "LaunchQuickPipe";
+ 
+ iconTextButton -style "iconAndTextHorizontal"
+ -image "Icons_QuickPipe/QP_Icon_02_32.png" -label "Toggle Parameters"
+ -font "boldLabelFont" 
+ -ann "Toggle between realtime parameters.\n"
+ -command "RealtimeParametersOPerand" ;
+ 
+ iconTextButton -style "iconAndTextHorizontal"
+ -image "Icons_QuickPipe/QP_Icon_07_32.png" -label "Unwrap Pipe"
+ -font "boldLabelFont"
+ -ann "Unwrap the current pipe using the selected edges as seams.\n"
+ -command "UnwrapPipeOPerand";
+ 
+ iconTextButton -style "iconAndTextHorizontal"
+ -image "Icons_QuickPipe/QP_Icon_05_32.png" -label "Transfer Settings"
+ -font "boldLabelFont"
+ -ann "Transfer the settings of the first selected pipe to all other pipes in your current selection list.\n"
+ -command "TransferSettingsOPerand";
+ 
+ iconTextButton -style "iconAndTextHorizontal"
+ -image "Icons_QuickPipe/QP_Icon_09_32.png" -label "General Settings"
+ -font "boldLabelFont"
+ -ann "Change the Quick Pipe General Settings and the way the tool behaves.\n"
+ -command "QuickPipePrefsWindow" -doubleClickCommand "QuickPipeFirstStartWindow";
+ 
+ iconTextButton -style "iconAndTextHorizontal"
+ -image "Icons_QuickPipe/QP_Icon_03_32.png" -label "Multi Pipe"
+ -font "boldLabelFont" 
+ -ann "Select multiple curves to create multiple pipes,or select one edge on each edge loop you want to convert to a pipe."
+ -command "MultiPipeOPerand";
+ 
+ iconTextButton -style "iconAndTextHorizontal"
+ -image "Icons_QuickPipe/QP_Icon_08_32.png" -label "Selection Pattern"
+ -font "boldLabelFont"
+ -ann "Select two edges on an edge ring,hit this button and you should have a nice selection pattern..\n"
+ -command "SelectionPatternOPerand" -doubleClickCommand "QuickPatternSelector";
+ 
+ iconTextButton -style "iconAndTextHorizontal"
+ -image "Icons_QuickPipe/QP_Icon_06_32.png" -label "Edit Pipe"
+ -font "boldLabelFont" 
+ -ann "Edit the selected pipe's path.Select the pipe and hit the Edit Pipe button again once you're done to complete this operation."
+ -command "EditPipeOPerand";
+ 
+ iconTextButton -style "iconAndTextHorizontal"
+ -image "Icons_QuickPipe/QP_Icon_04_32.png" -label "Clean Pipe"
+ -font "boldLabelFont" -en on 
+ -ann "Clean Pipe's History and Group."
+ -command "CleanPipeOPerand";
+ 
+ iconTextButton -style "iconAndTextHorizontal"
+ -image "Icons_QuickPipe/QP_Icon_12_32.png" -label "About Tool"
+ -font "boldLabelFont" 
+ -ann "Open a small window that gives you some details about Quick Pipe."
+ -command "AboutWindow";
+ 
+ setParent $QPCommands;
+ setParent ..;
+ 
+ //////////////////////////////////////////////////////////////////////////////
+ 
+ string $QPProfiles = `frameLayout -cll 0 -label "Open Profiler" -labelVisible false`;
+ 
+ separator -h 1 -st "in" -hr 1;
+ button -label "Create Profile" -c "CreateQuickProfile";
+ separator -h 1 -st "in" -hr 1;
+ 
+ string $scrollLayout = `scrollLayout -hst 10 -vst 10 `;
+ 
+ rowColumnLayout -numberOfRows 2 ;
+ 
+ string $ProfileN;
+ 
+ for ($i = 0; $i < $ProfilesCount; $i ++) {
+
+  $ProfileN = basename( $ListIcons[$i], ".png" );
+
+  string $TestIcon = $ProfilesDir + $ProfileN + ".png";
+  int $IsValidIcon = `filetest -f $TestIcon`;
+  string $TestIcon = $ProfilesDir + $ProfileN + ".fbx";
+  int $IsValidProfile = `filetest -f $TestIcon`;
+
+  if ( ( $IsValidIcon == 1 ) && ( $IsValidProfile == 1 ) ) {
+
+    symbolButton -image ($ProfilesDir + $ListIcons[$i]) -command ("ImportProfile(\""+$ProfileN+"\")") -ann $ProfileN;
+
+  }
+
+}
+
+setParent ..;
+setParent $scrollLayout;
+
+setParent $QPProfiles;
+
+ //////////////////////////////////////////////////////////////////////////////
+
+    tabLayout -edit //this edit and and tabs.Btw,the new God Of War looks awesome !
+    -tabLabel $QPCommands "Operators"
+    -tabLabel $QPProfiles "Open Profiler"
+    $TabLayout;
+
+    showWindow $QuickPipeWin;
+
+ //////////////////////////////////////////////////////////////////////////////
+
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// The following procedures define most of the UI commands and their instruction manual command.
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+global proc string QPUserAssistant (string $ImageHelper) {
+
+  string $ImageHelper;
+
+  string $IconsDir = (`internalVar -userBitmapsDir`) + "Icons_QuickPipe/" + $ImageHelper + ".png";
+
+  string $QPUserAssist = "QPUserAssistant";
+
+  if ( `window -exists $QPUserAssist` ) { deleteUI $QPUserAssist; windowPref -remove $QPUserAssist; }
+
+  window -title "Quick Pipe User Assistant"  -s false -mxb false $QPUserAssist;
+
+  columnLayout -adjustableColumn true;
+
+  image -image $IconsDir;
+
+  showWindow $QPUserAssist;
+
+  return $ImageHelper;
+
+}
+
+global proc SelectionPatternOPerand() {
+  string $GetCmdType = ButtonOperand($GetCmdType);
+  if ($GetCmdType == "ClearOp") { EdgeSelectPattern; } else if ($GetCmdType == "CtrlOp") { QPUserAssistant ("QPSelectionPattern"); }
+}
+
+global proc CleanPipeOPerand() {
+  string $GetCmdType = ButtonOperand($GetCmdType);
+  if ($GetCmdType == "ClearOp") { CleanQuickPipe; } else if ($GetCmdType == "CtrlOp") { QPUserAssistant ("QPCleanPipe"); }
+}
+
+global proc MultiPipeOPerand() {
+  string $GetCmdType = ButtonOperand($GetCmdType);
+  if ($GetCmdType == "ClearOp") { MultiPipe; } else if ($GetCmdType == "CtrlOp") { QPUserAssistant ("QPMultiPipe"); }
+}
+
+global proc RealtimeParametersOPerand() {
+  string $GetCmdType = ButtonOperand($GetCmdType);
+  if ($GetCmdType == "ClearOp") { RealtimePipeParameters; } else if ($GetCmdType == "CtrlOp") { QPUserAssistant ("QPRealtimeParameters"); }
+}
+
+global proc TransferSettingsOPerand() {
+  string $GetCmdType = ButtonOperand($GetCmdType);
+  if ($GetCmdType == "ClearOp") { TransferPipe; } else if ($GetCmdType == "CtrlOp") { QPUserAssistant ("QPTransferSettings"); }
+}
+
+global proc EditPipeOPerand() {
+  string $GetCmdType = ButtonOperand($GetCmdType);
+  if ($GetCmdType == "ClearOp") { EditPipe; } else if ($GetCmdType == "CtrlOp") { QPUserAssistant ("QPEditPipe"); }
+}
+
+global proc UnwrapPipeOPerand() {
+  string $GetCmdType = ButtonOperand($GetCmdType);
+  if ($GetCmdType == "ClearOp") { UnwrapPipe; } else if ($GetCmdType == "CtrlOp") { QPUserAssistant ("QPUnwrapPipe"); }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// The following procedure will import custom profiles for the Quick Pipe Menu.
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+global proc string ImportProfile (string $ProfileItem) {
+
+ string $GetQPCmd = ButtonOperand($GetQPCmd);
+ 
+ string $CurrentSel[] = `ls -sl`;
+ 
+ int $IsEdge = size(`filterExpand -sm 32`);
+ int $IsCurve = size(`filterExpand -sm 9`);
+ int $IsLocator = size(`filterExpand -sm 22`);
+
+ string $ScriptDir = `internalVar -userScriptDir`;
+ 
+ string $ProfilesDir = ($ScriptDir + "QuickPipe_Profiles/");
+ 
+ string $ProfileItem;
+ 
+ string $Format = "fbx";
+ string $FormatUPPER = toupper ($Format);
+ 
+ string $FileDir = ($ProfilesDir + $ProfileItem + "." + $Format);
+ 
+ if ($GetQPCmd == "CtrlOp") {
+
+ // Create a confirm dialog with a yes and no button.
+ 
+ $response = `confirmDialog -title "Delete profile" 
+ -message "The profile will be permanently deleted.Are you sure ?"
+ -button "Yeah" 
+ -button "Nope"
+ -defaultButton "Yeah"
+ -cancelButton "Nope"
+ -dismissString "Nope"`;
+ 
+ // Check response
+ 
+ if( $response == "Yeah" ) {
+
+   string $FileDirPNG = ($ProfilesDir + $ProfileItem + ".png");
+   string $FileDirFBX = ($ProfilesDir + $ProfileItem + "." + $Format);
+
+   sysFile -delete $FileDirFBX; sysFile -delete $FileDirPNG;
+
+   QuickPipeUserMenu;
+
+   print ("Deleted " + $ProfileItem + " from the system.The file didn't take 1MB in your drive and only wanted to enjoy it's short happy life,but you killed it.Way to go mate !\n");
+
+ }
+ 
+}
+
+else {
+
+ string $GetImported[] = `file -import -type $FormatUPPER  -iv -ra true -mnc false -rnn -ns $ProfileItem -pr $FileDir`;
+ 
+ string $ProfileOBJ[] = `duplicate $GetImported[0]`;
+ 
+ delete $GetImported;
+ 
+ setAttr ($ProfileOBJ[0] + ".rotateX") -90 ;
+ setAttr ($ProfileOBJ[0] + ".rotateY") 0 ;
+ setAttr ($ProfileOBJ[0] + ".rotateZ") 0 ;
+ select $ProfileOBJ; select -cl;
+ 
+ /////////////////////////////////////////////////////////////////////////
+ 
+ 
+ int $SizeCVs = `getAttr -size ($ProfileOBJ[0] + ".controlPoints")`;
+ 
+ select ($ProfileOBJ[0] + ".cv" + "[" + (0) + "]"); string $FirstCV[] = `ls -sl -fl`;
+ 
+ select ($ProfileOBJ[0] + ".cv" + "[" + ($SizeCVs) + "]"); string $LastCV[] = `ls -sl -fl`;
+ 
+ float $Fcv[] = `xform -ws -q -t $FirstCV[0]`; float $Lcv[] = `xform -ws -q -t $LastCV[0]`;
+ 
+ select $ProfileOBJ;
+ 
+ if ( ( ( $Fcv[0] - $Lcv[0] ) == 0 ) && ( ( $Fcv[1] - $Lcv[1] ) == 0 ) && ( ( $Fcv[2] - $Lcv[2] ) == 0 ) ) {
+
+   closeCurve -ch 0 -ps 1 -rpo 1 -bb 0.5 -bki 0 -p 0.1 $ProfileOBJ; delete $LastCV; select -cl;
+
+ }
+ 
+ select $ProfileOBJ;
+ 
+ /////////////////////////////////////////////////////////////////////////
+ 
+ if ( $IsEdge >= 1) {
+
+   select -add $ProfileOBJ $CurrentSel;
+
+   LaunchQuickPipe;
+
+   delete $ProfileOBJ;
+
+   print ("Imported " + $ProfileItem + " in the current scene and created a pipe from it.\n");
+
+ }
+ 
+ else if ( $IsCurve == 1) {
+
+   select -add $ProfileOBJ $CurrentSel;
+
+   LaunchQuickPipe;
+
+   delete $ProfileOBJ;
+
+   print ("Imported " + $ProfileItem + " in the current scene and created a pipe from it.\n");
+
+ }
+ 
+ else if ( $IsLocator >= 1) {
+
+   PipeFromLocators(); $CurrentSel = `ls -sl -fl`; select -cl;
+
+   select -add $ProfileOBJ $CurrentSel;
+
+   LaunchQuickPipe;
+
+   delete $ProfileOBJ;
+
+   print ("Imported " + $ProfileItem + " in the current scene and created a pipe from it.\n");
+
+ }
+
+ else {
+
+   select $ProfileOBJ;
+
+   print ("Imported " + $ProfileItem + " in the current scene.\n");
+
+ }
+ 
+}
+
+return $ProfileItem;
+
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// The following procedure will create a custom profile.
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+global proc CreateQuickProfile() {
+
+ ///////////// RANDOM NAME GENERATOR //////////////
+ // D represents Digit Number.
+
+ string $GEDD = `date -f "DD"`;
+ 
+ string $GESHH = `date -f "hh"`;
+ 
+ string $GEMM = `date -f "mm"`;
+ 
+ string $GESS = `date -f "ss"`;
+ 
+ string $D1[] = {"G", "E", "D", "C", "T", "R", "D"};
+ string $D2[] = {"A", "O", "P", "G", "D", "X", "Q"};
+ string $D3[] = {"B", "Y", "Z", "A", "M", "J", "H"};
+ 
+ int $Rn1 = `rand (size ($D1))`;
+ int $Rn2 = `rand (size ($D2))`;
+ int $Rn3 = `rand (size ($D3))`;
+ 
+ string $ProfileName = ( "Profile" + "_" + $GEDD + $D1[$Rn1] + $GESHH + $D2[$Rn2] + $GEMM + $D3[$Rn3] + $GESS + $D3[$Rn1] + $D2[$Rn3] );
+ 
+ ///////////// RANDOM NAME GENERATOR //////////////
+ 
+ int $RenderFMT = `getAttr "defaultRenderGlobals.imageFormat"`;
+ 
+ string $Source_Edges[] = `ls -sl -fl`;
+ 
+ string $Source_Shape[] = `ls -sl -fl -o -dag`;
+ 
+ string $Source_Mesh[] = `listRelatives -p -path $Source_Shape`;
+ 
+ string $QuickProfile[];
+ 
+ if (size(`filterExpand -sm 32`) >=1) {
+
+   $QuickProfile = `polyToCurve -form 2 -degree 1 -ch 0 -n "Profile_#"`;
+
+ }
+ 
+ 
+ else if (size(`filterExpand -sm 9`) >=1) {
+
+   duplicate;
+   $QuickProfile = `ls -sl -fl`;
+   rename $QuickProfile[0] "Profile_#";
+   $QuickProfile = `ls -sl -fl`;
+
+ }
+ 
+ CenterPivot;
+ 
+ string $Icon_Mesh[] = `duplicate $QuickProfile`;
+ 
+ string $Ground_Shader = `shadingNode -asShader surfaceShader -n "Ground_Mat"`;
+ 
+ string $GroundPlane[] = `polyPlane -ch on -o on -w 100 -h 100 -sw 1 -sh 1 -n "QPGround" `;
+ 
+ move -rpr 0 0 0 $Icon_Mesh;
+ select $Icon_Mesh;
+ 
+ select $GroundPlane;
+ hyperShade -assign $Ground_Shader;
+ setAttr ($Ground_Shader + ".outColor") 0.1 0.12 0.14;
+ 
+ string $ListCameras[] = `listCameras`;
+ 
+ lookThru ($ListCameras[3] + "Shape");
+ 
+ select $Icon_Mesh;
+ 
+ setAttr ($Icon_Mesh[0] + ".overrideEnabled") 1;
+ setAttr ($Icon_Mesh[0] + ".overrideColor") 16;
+ grid -toggle 0;
+
+ fitPanel -selectedNoChildren;
+ select -cl; select -add $Icon_Mesh $GroundPlane;
+
+ //$currentPanel = `getPanel -withFocus`;
+
+ enableIsolateSelect modelPanel4 1;
+ select -cl;
+
+ string $ScriptDir = `internalVar -userScriptDir`;
+ 
+ string $ProfilesDir = ($ScriptDir + "QuickPipe_Profiles/");
+ 
+ setAttr "defaultRenderGlobals.imageFormat" 32;
+ 
+ playblast -st 1 -et 1 -v 0 -wh 45 45 -p 100 -fo -orn 0 -fmt "image" -cf ($ProfilesDir + "/" + $ProfileName + ".png");
+ 
+ setAttr "defaultRenderGlobals.imageFormat" $RenderFMT;
+ 
+ lookThru ($ListCameras[1] + "Shape");
+ 
+ delete $GroundPlane $Ground_Shader $Icon_Mesh;
+ 
+ select $QuickProfile;
+ move -rpr 0 0 0 $QuickProfile;
+ makeIdentity -apply true -t 1 -r 1 -s 1 -n 0 -pn 1;
+ 
+ file -force -options "" -typ "FBX export" -pr -es ($ProfilesDir + "/" + $ProfileName + ".fbx");
+ 
+ delete $QuickProfile;
+ 
+ enableIsolateSelect modelPanel4 0;
+ grid -toggle 1;
+ 
+  int $IVMVal;
+ 
+ if (`optionVar -exists "inViewMessageEnable"`) { $IVMVal = `optionVar -query "inViewMessageEnable"`; }
+ 
+ optionVar -iv inViewMessageEnable 1;
+ 
+ inViewMessage -amg ("<p style=\"color:#4cbedf;\"> Profile " + $ProfileName + " was created ! </p> ") -dk -pos topCenter -fade ;
+ 
+ optionVar -iv inViewMessageEnable $IVMVal;
+ 
+ print ("Profile " + $ProfileName + " was created !"+"\n");
+
+ QuickPipeUserMenu;
+
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// The following procedure will check the type of action based on the pressed buttons/clicks.Only CTRL is available
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+global proc string ButtonOperand(string $ReturnOperand) {
+
+  int $GetOperand = `getModifiers`;
+
+  if ( $GetOperand == 4 ) { $ReturnOperand = "CtrlOp"; }
+
+  else if ( $GetOperand == 0 ) { $ReturnOperand = "ClearOp"; }
+
+  string $ReturnOperand;
+
+  return $ReturnOperand;
+
+}
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+global proc UnwrapPipe() {
+
+  if  ( size(`filterExpand -sm 32 `) >= 1) {
+
+    string $SelEdges[] = `ls -sl -fl`;
+
+    string $SelShape[] = `ls -sl -fl -o`;
+
+    string $SelOBJ[] = `listRelatives -p -path $SelShape`;
+
+    select $SelOBJ; polyForceUV -unitize; select $SelEdges; ConvertSelectionToUVs;
+
+    InvertSelection; polyMapSewMove -nf 10 -lps 0 -ch 1 ; select $SelOBJ;
+
+    unfold -i 5000 -ss 0.001 -gb 0 -gmb 0.5 -pub 0 -ps  0 -oa  1 -us off;
+
+    select $SelOBJ; polyLayoutUV -sc 1 -fr on -lm 1 -rbf 1 -ws 0 -l 2;
+
+    string $QPFStart[]; GetPrefValues($QPFStart);
+
+    if ( $QPFStart[4] == "1" ) { select $SelEdges; polySoftEdge -a 0 -ch 1 $SelEdges; }
+
+    select $SelOBJ;
+
+    ConvertSelectionToEdges;
+    select -cl;
+    ConvertSelectionToFaces;
+    select -cl;
+    ConvertSelectionToUVs;
+    select -cl;
+    ConvertSelectionToVertices;
+    select -cl;
+
+    select $SelOBJ;
+
+  }
+
+  else {
+
+    warning "Selection unidentified.Please select edges where you want to have UV seams !\n";
+
+  }
+
+}
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+global proc MultiPipe() {
+
+  if  ( size(`filterExpand -sm 9 `) >= 1) {
+
+    string $Curves[] = `ls -sl`;
+    string $Curve;
+    select -cl;
+    string $EndResult[];
+    $EndResult = `ls -sl`;
+
+    for ($Curve in $Curves) {
+
+      select $Curve;
+
+      LaunchQuickPipe();
+
+      string $Sel_In_Loop[] = `ls -sl`;
+
+      stringArrayInsertAtIndex( 0, $EndResult, $Sel_In_Loop[0] );
+
+    }
+
+    select $EndResult;
+
+  }
+
+  else if  ( size(`filterExpand -sm 32 `) >= 1) {
+
+    string $Edges[] = `ls -sl -fl`;
+    string $Loop;
+    select -cl;
+    string $EndResult[];
+    $EndResult = `ls -sl`;
+
+    for ($Edge in $Edges) {
+
+      select $Edge;
+
+      SelectEdgeLoopSp;
+
+      LaunchQuickPipe();
+
+      string $Sel_In_Loop[] = `ls -sl`;
+
+      stringArrayInsertAtIndex( 0, $EndResult, $Sel_In_Loop[0] );
+
+
+    }
+
+    select $EndResult;
+
+  }
+
+  else {
+
+    warning "Selection unidentified.This operation only works with Curves or Edge Loops !\n";
+
+  }
+
+}
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+global proc OpenUpdater() {
+
+  launch -web "https://gumroad.com/l/QPipe1a#";
+
+}
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+
+global proc EditPipe() {
+
+  string $IsEditValid = "";
+
+  string $IsValid = ValidateType($IsValid);
+
+  if ( ( $IsValid == "100" ) || ( $IsValid == "010" ) ) { $IsEditValid = "OK"; }
+
+  if ( $IsEditValid == "OK" ) {
+
+    string $SelOBJ[] = `ls -sl -fl`;
+
+    string $SourceOBJShape[] = `ls -sl -o -lf -dag -fl`;
+
+    select $SourceOBJShape; string $GetGroup[] = GetPipeGroup($GetGroup); select $SelOBJ;
+    string $QPipeProfile;
+    string $QPipePath;
+
+    string $Attrs[] = stringArrayRemoveDuplicates(`listConnections -s true -scn true $SelOBJ`);
+
+    if ( $IsValid == "010" ) { $QPipeProfile = $Attrs[0]; }
+
+    else if ( $IsValid == "100" ) {
+      string $GetPrfl[] = `listConnections -s true -scn true $Attrs[0]`;
+      $QPipeProfile = $GetPrfl[0]; }
+
+      string $GetPath[] = `listConnections -s true -scn true $Attrs[4]`;
+
+      $QPipePath = $GetPath[0];
+
+      print ("The profile name is " + $QPipeProfile + " and the path name is " + $QPipePath + " \n");
+
+      string $CombineCurves[] = {$QPipeProfile, $QPipePath };
+
+      string $GetParent[] = stringArrayRemoveDuplicates(`listRelatives -p $CombineCurves`);
+
+      if ($GetParent[0] == $GetGroup[0]) {
+        select $CombineCurves; parent $CombineCurves $SelOBJ; toggle -controlVertex $CombineCurves; select $CombineCurves;
+      }
+
+      else if ($GetParent[0] == $SelOBJ[0]) {
+        parent -w $CombineCurves; $CombineCurves = `ls -sl -fl`; parent $CombineCurves $GetGroup;
+        reorder -relative -3 $CombineCurves; toggle -controlVertex $CombineCurves; select $SelOBJ;
+        string $IsLTVersion = `about -lt`; if ($IsLTVersion == "1") { parent -w $SelOBJ; }
+      }
+
+    }
+
+    else { warning "Something is wrong with the current selection.Please make sure your selection is a pipe and try again.\n"; }
+
+  }
+
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+global proc TransferPipe() {
+
+  string $SelPipes[] = `ls -sl -fl`;
+  string $SelPipesHL[] = `ls -hl -fl`;
+
+  if ( ( size($SelPipes) == 0) && ( size($SelPipesHL) == 0) ) {
+
+    warning "Your current selection is empty,please try to select  a standard pipe as a first selection and a few other standard pipes,then try again.";
+
+  }
+
+  else if ( size($SelPipes) >= 1) {
+
+    select $SelPipes[0];
+
+    string $ValidateTypeHolder;
+    string $CmdToRun01 = `ValidateType ($ValidateTypeHolder)`;
+
+    if ($CmdToRun01 != "100") {
+
+      warning "Something went wrong with the current selection.Please make sure your first selection is a standard pipe and try again.";
+
+    }
+
+    else  {
+
+      string $SelPipe;
+      string $EndResult[];
+
+      for ($SelPipe in $SelPipes) {
+
+        select $SelPipe;
+
+        string $Sel_In_Loop[] = `ls -sl`;
+
+        string $ValidateTypeHolder;
+        string $CmdToRun = `ValidateType ($ValidateTypeHolder)`;
+
+        if ($CmdToRun == "100") {
+
+          select -cl; select $SelPipes[0]; select -add $SelPipe;
+
+          TransferPipeSettings();
+
+          stringArrayInsertAtIndex( 0, $EndResult, $Sel_In_Loop[0] );
+
+        }
+
+      }
+
+      select $EndResult;
+
+    }
+
+  }
+
+}
+
+/////////////////////////////////////////////////////////////
+
+global proc EdgeSelectPattern() {
+
+  if ( size(` filterExpand -sm 32 `) == 2 ) {
+
+    string $SelPattern[] = `ls -sl -fl -l`;
+
+    string $TokenEdge[]; tokenize $SelPattern[0] "[]" $TokenEdge;
+
+    string $start = $TokenEdge[1];
+
+    tokenize $SelPattern[1] "[]" $TokenEdge;
+
+    string $end = $TokenEdge[1];
+
+    polySelect -rpt ((int)$start) ((int)$end);
+
+  }
+
+  else {
+    warning "Operation only works with two selected edges in a loop ! \n";
+  }
+
+  //SelectEdgeLoopSp; // Uncomment this line to have the selection pattern select every edge loop in the pattern.
+
+}
+
+/////////////////////////////////////////////////////////////
+
+global proc QuickPatternSelector() {
+
+  int $SelOrder = `selectPref -q -trackSelectionOrder`;
+
+  selectPref -trackSelectionOrder true;
+
+  string $SelPattern[] = `ls -sl -fl -l`;
+
+  string $SelOBJShape[] = `ls -sl -fl -o`;
+
+  string $SelOBJ[] = `listRelatives -ap -path $SelOBJShape`;
+
+  string $GroupPattern[];
+
+  string $PatternLoop[];
+
+  string $TokenEdge[];
+
+  string $CmpntType;
+
+  string $IsValidSelPtrn = "";
+
+  if ( size(`filterExpand -sm 34`) == 2) { SelectEdgeLoopSp; SelectEdgeLoopSp; $GroupPattern = `ls -sl -fl -l`; $IsValidSelPtrn = "OK"; }
+
+  else if ( size(`filterExpand -sm 31`) == 2) { SelectEdgeLoopSp; SelectEdgeLoopSp; $GroupPattern = `ls -sl -fl -l`; $IsValidSelPtrn = "OK"; }
+
+  else if ( size(`filterExpand -sm 32`) == 2) { GetEdgePatternType ($GroupPattern); $IsValidSelPtrn = "OK"; }
+
+  if ($IsValidSelPtrn == "OK") {
+
+    if (size(`filterExpand -sm 34`) >= 1) { $CmpntType = ".f"; }
+    else if (size(`filterExpand -sm 31`) >= 1) { $CmpntType = ".vtx"; }
+    else if (size(`filterExpand -sm 32`) >= 1) { $CmpntType = ".e"; }
+
+    int $SizeLoop = size($GroupPattern);
+
+    select $GroupPattern[0]; int $GrpPtrn01 = GetComponentIndex($GrpPtrn01);
+
+    select $GroupPattern[1]; int $GrpPtrn02 = GetComponentIndex($GrpPtrn02);
+
+ int $DiffBtwnGrp = $GrpPtrn02 - $GrpPtrn01; // Get difference between two components of the loop.
+
+ select $SelPattern[0]; int $PtrnIndex01 = GetComponentIndex($PtrnIndex01);
+
+ select $SelPattern[1]; int $PtrnIndex02 = GetComponentIndex($PtrnIndex02);
+
+ int $DiffBtwnPtrn = $PtrnIndex02 - $PtrnIndex01;
+
+ int $ComponentBetween = $DiffBtwnPtrn / $DiffBtwnGrp;
+
+ int $AddVal = $GrpPtrn01;
+
+ for( $i = 0; $i < $SizeLoop; $i ++ ) {
+
+  tokenize $GroupPattern[$i] "[]" $TokenEdge; int $NewCmpnt = $TokenEdge[1];
+
+  if ($NewCmpnt - $AddVal == $DiffBtwnPtrn) {
+
+    $AddVal = $AddVal + $DiffBtwnPtrn;
+
+    string $AddComponentToSel = $SelOBJ[0] + $CmpntType + "[" + $NewCmpnt + "]";
+    stringArrayInsertAtIndex($SizeLoop, $PatternLoop, $AddComponentToSel);
+
+  }
+
+}
+
+select -cl; select $GroupPattern[0] $PatternLoop; $PatternLoop = `ls -sl -fl -l`;
+
+selectPref -trackSelectionOrder $SelOrder;
+
+}
+
+else { warning "Something went wrong with the current selection.Please make sure you have two mesh components selected and try again."; }
+
+}
+
+//////////////////////////////////////////////////////////////////
+
+
+global proc int GetComponentIndex (int $ComponentIndex) {
+
+  string $Selection[] = `ls -sl -fl -l`;
+
+  int $ComponentIndex;
+
+  string $TokenEdge[];
+
+  tokenize $Selection[0] "[]" $TokenEdge; $ComponentIndex = $TokenEdge[1];
+
+  return $ComponentIndex;
+
+}
+
+
+//////////////////////////////////////////////////////////////////
+
+
+global proc string[] GetEdgePatternType (string $GroupPattern[]) {
+
+  VariableShadowDisable;
+
+  string $SelPattern[] = `ls -sl -fl -l`;
+  string $GroupPattern[];
+
+  string $TokenEdge[];
+
+  int $CmprResult01 = 0; int $CmprResult02 = 0; int $CmprResult03 = 0; int $CmprResult04 = 0;
+
+  tokenize $SelPattern[0] "[]" $TokenEdge; int $Edge01 = $TokenEdge[1];
+  tokenize $SelPattern[1] "[]" $TokenEdge; int $Edge02 = $TokenEdge[1];
+
+
+  polySelect -edgeLoop $Edge01;
+
+  string $SelGroup01[] = `ls -sl -fl -l`;
+
+ /////////////////////////////////////////////////////////////////////
+
+ for( $i = 0; $i < size($SelGroup01); $i ++ ) {
+  int $result01 = 0;
+  string $result1 = $SelPattern[0]; string $result2 = $SelGroup01[$i];
+  $result01 = `strcmp $result1 $result2`;
+  if ($result01 == 0) { $CmprResult01 = 10; }
+}
+
+for( $i = 0; $i < size($SelGroup01); $i ++ ) {
+  int $result02 = 0;
+  string $result1 = $SelPattern[1]; string $result2 = $SelGroup01[$i];
+  $result02 = `strcmp $result1 $result2`;
+  if ($result02 == 0) { $CmprResult02 = 10; }
+}
+
+ /////////////////////////////////////////////////////////////////////
+
+ polySelect -edgeRing $Edge01;
+
+ string $SelGroup02[] = `ls -sl -fl -l`;
+
+ for( $i = 0; $i < size($SelGroup02); $i ++ ) {
+  int $result01 = 0;
+  string $result1 = $SelPattern[0]; string $result2 = $SelGroup02[$i];
+  $result01 = `strcmp $result1 $result2`;
+  if ($result01 == 0) { $CmprResult03 = 10; }
+}
+
+for( $i = 0; $i < size($SelGroup02); $i ++ ) {
+  int $result02 = 0;
+  string $result1 = $SelPattern[1]; string $result2 = $SelGroup02[$i];
+  $result02 = `strcmp $result1 $result2`;
+  if ($result02 == 0) { $CmprResult04 = 10; }
+}
+
+ /////////////////////////////////////////////////////////////////////
+
+ if ( ($CmprResult01 == 10) && ($CmprResult02 == 10) ) {
+
+  select $SelPattern[0];SelectEdgeLoopSp;
+  $GroupPattern = `ls -sl -fl -l`;
+    // print "Pattern is an edge loop";
+
+  }
+
+  else if ( ($CmprResult03 == 10) && ($CmprResult04 == 10) ) {
+
+    select $SelPattern[0];SelectEdgeRingSp;
+    $GroupPattern = `ls -sl -fl -l`;
+    // print "Pattern is an edge ring";
+
+  }
+
+  else {
+
+  // print "hmm,pattern is not an edge loop,nor an edge ring.maybe something's wrong ?\n";
+  $GroupPattern = {""};
+
+}
+
+ /////////////////////////////////////////////////////////////////////
+
+ return $GroupPattern;
+
+}
+
+
+//////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////
+
+global proc TransferPipeSettings() {
+
+  VariableShadowDisable;
+
+  string $SelPipes[] = `ls -sl -fl`;
+
+  float   $SourceRadius = `getAttr ($SelPipes[0] + ".Radius")`;
+  int     $SourceHSegments = `getAttr ($SelPipes[0] + ".Segments")`;
+  int     $SourceUTopology = `getAttr ($SelPipes[0] + ".UniformTopology")`;
+  int     $SourceUDivisions = `getAttr ($SelPipes[0] + ".UTDivisions")`;
+  int     $SourceSweep = `getAttr ($SelPipes[0] + ".Sweep")`;
+  int     $SourceTwist = `getAttr ($SelPipes[0] + ".Twist")`;
+  float   $SourceRamp = `getAttr ($SelPipes[0] + ".Taper")`;
+  float   $SourceNoise = `getAttr ($SelPipes[0] + ".Noise")`;
+  float   $SourceTrim = `getAttr ($SelPipes[0] + ".Trim")`;
+  float   $SourceOffset = `getAttr ($SelPipes[0] + ".Offset")`;
+
+  select -d $SelPipes[0];
+
+  string $TargetPipes[] = `ls -sl -fl`;
+
+  string $TargetPipe;
+
+  for ($TargetPipe in $TargetPipes)   {
+
+    select $TargetPipe;
+
+    setAttr ($TargetPipe + ".Radius") $SourceRadius ;
+    setAttr ($TargetPipe + ".Segments") $SourceHSegments ;
+    setAttr ($TargetPipe + ".UniformTopology") $SourceUTopology ;
+    setAttr ($TargetPipe + ".UTDivisions") $SourceUDivisions ;
+    setAttr ($TargetPipe + ".Sweep") $SourceSweep ;
+    setAttr ($TargetPipe + ".Twist") $SourceTwist ;
+    setAttr ($TargetPipe + ".Taper") $SourceRamp ;
+    setAttr ($TargetPipe + ".Noise")$SourceNoise ;
+    setAttr ($TargetPipe + ".Trim") $SourceTrim ;
+    setAttr ($TargetPipe + ".Offset") $SourceRadius ;
+
+  }
+
+  select $SelPipes;
+
+}
+
+/////////////////////////////////////////////////////////////
+
+global proc AboutWindow() {
+
+  VariableShadowDisable;
+
+  string $Title = "\nQuick Pipe v1.5\n";
+
+  string $Author = "Author : Adnan Chaumette\n";
+
+  string $SpecialThanks = "Special thanks to all the beta testers involved\n in this project !\n";
+
+  string $Website = "Visit my portfolio";
+
+  string $AboutWin = "AboutWindow";
+
+  if ( `window -exists $AboutWin` ) { deleteUI $AboutWin; windowPref -remove $AboutWin; }
+
+  window -title "About Quick Pipe" -wh 300 250 -s false -mxb false $AboutWin;
+
+  columnLayout -adjustableColumn true;
+
+  text -font "boldLabelFont" -label $Title;
+
+  separator -h 4;
+
+  text -label "\nQuick Pipe is a Curve-Edge based path creation\n tool.The tool uses the current selection\n as a mask to apply different type of operations.\n";
+
+  text -label $Author;
+
+  text -label $SpecialThanks;
+
+  button -label "Report Bug" -c QuickPipeHelp;
+  separator -h 4;
+  button -label "Update Quick Pipe" -c UpdateQuickPipe;
+  separator -h 4;
+  button -label "Polycount thread" -c VisitPolycount;
+
+  showWindow $AboutWin;
+
+}
+
+global proc UpdateQuickPipe() {
+
+  launch -web "https://gumroad.com/l/QPipe1a";
+
+}
+
+global proc QuickPipeHelp() {
+
+  launch -web "https://goo.gl/ERvkQo";
+
+}
+
+global proc VisitPolycount() {
+
+  launch -web "http://goo.gl/GM6kon";
+
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// This procedure is used to Uninstall the older version of Quick Pipe.Use it with caution !
+
+global proc RemoveOldQuickPipe() {
+
+  string $GetOldPrefs = (`internalVar -userScriptDir`) + "QuickPipe_Settings.ini";
+  string $GetOldIcons = (`internalVar -userPrefDir`) + "icons/QuickPipe_Icons";
+  string $GetOldDoc = (`internalVar -userScriptDir`) + "QuickPipe_Documentation.pdf";
+  string $GetOldInstall = (`internalVar -userScriptDir`) + "QuickPipe_Installation.pdf";
+
+  string $ListOldIcons[] = `getFileList -folder $GetOldIcons  -filespec "*.png"`;
+
+  int $IsValidOldPref = `filetest -r $GetOldPrefs`;
+  int $IsValidOldIcons = `filetest -d $GetOldIcons`;
+  int $IsValidOldDoc = `filetest -r $GetOldDoc`;
+  int $IsValidOldInstall = `filetest -r $GetOldInstall`;
+
+  if ($IsValidOldPref == 1) { sysFile -delete $GetOldPrefs; }
+
+  if ($IsValidOldIcons == 1) { string $IconTodel; for ($IconTodel in $ListOldIcons) {
+    string $IconPath = $GetOldIcons + "/" + $IconTodel;
+    sysFile -delete $IconPath; } sysFile -removeEmptyDir $GetOldIcons; }
+
+    if ($IsValidOldDoc == 1) { sysFile -delete $GetOldDoc; }
+    if ($IsValidOldInstall == 1) { sysFile -delete $GetOldInstall; }
+
+  }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+global proc PipeFromLocators() {
+
+ string $Locators[] = `ls -os`;
+ 
+ vector $positions[];
+ 
+ string $CurveCommand = "curve ";
+ 
+ int $i = 0;
+ for($i = 0; $i<size($Locators); $i++)
+ {
+   $positions[$i] = `pointPosition $Locators[$i]`;
+   $CurveCommand = $CurveCommand+"-p "+$positions[$i]+" ";
+ }
+ 
+ eval($CurveCommand);
+ 
+ delete $Locators; CenterPivot;
+ 
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+global proc BezierToCVCurve() {
+
+  string $SelectedBezier[] = `ls -sl -fl`;
+
+  bezierCurveToNurbs;
+
+  string $SelectedConvert[] = `rebuildCurve -ch 1 -rpo 0 -rt 0 -end 1 -kr 0 -kcp 0 -kep 1 
+  -kt 1 -s 50 -d 5 -tol 0.01 $SelectedBezier`;
+
+  delete $SelectedBezier $SelectedConvert[1];
+
+  string $FinalCurve[] = `ls -sl -fl`;
+
+  selectCurveCV("all"); string $CVs[] = `ls -sl -fl`; int $Size = `size $CVs`;
+
+  select  $CVs[1] $CVs[$Size - 2];
+
+  delete;
+
+  select $FinalCurve; CenterPivot;
+
+  LaunchQuickPipe;
+
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+global proc VariableShadowDisable() {
+    
+    if (`exists melOptions`) { melOptions -duplicateVariableWarnings off;}
+    
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+global proc QuickDefaultSettings() {
+
+  $ResetAttrs = "*1*12*1*50*0*0*1*360*1*0";
+
+  string $ResetSettings[] = {"0" , "1" , "0" , "0" , "0" , "1" , "0"  , "0" , $ResetAttrs};
+
+  WritePrefsValues ($ResetSettings);
+
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}

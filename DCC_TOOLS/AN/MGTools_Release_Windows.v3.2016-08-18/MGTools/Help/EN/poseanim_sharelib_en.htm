@@ -1,0 +1,65 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Library Sharing</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "poseanim_sharelib_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">Library Sharing</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="poseanim_manageeditlib_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="poseanim_previewpanel_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold; color: #191817;">Workflow of library sharing: </span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#191817;display:inline-block;width:15px;margin-left:-15px">1.</span><span style="color: #191817;">The IT manager, make a folder in the server, the folder is only writable to someone who need to manage the global library, while the users only have read access to the folder.</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#191817;display:inline-block;width:15px;margin-left:-15px">2.</span><span style="color: #191817;">Then someone who is responsible to build and manage the global library, let's call him anim leader.</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#191817;display:inline-block;width:15px;margin-left:-15px">3.</span><span style="color: #191817;">The anim leader build the pose and animation library in local side. (He could build them directly at sever side of course, just one more backup) </span><br />
+<span style="color: #191817;">Make sure when the root dir of the global library, is pointing the prepared server folder. </span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#191817;display:inline-block;width:15px;margin-left:-15px">4.</span><span style="color: #191817;">The anim leader upload the library to global side in the tool.</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#191817;display:inline-block;width:15px;margin-left:-15px">5.</span><span style="color: #191817;">The anim leader manually upload the .libproj file, the file is in Maya User Application Folder/MGTools_GlobalData/MG_PoseAnimLib/TheLibProjName/TheLibProjName.libproj.</span><br />
+<span style="color: #191817;">He could upload the file to any folder that users could catch, or just email them.</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#191817;display:inline-block;width:15px;margin-left:-15px">6.</span><span style="color: #191817;">Users use MG-PoseAnim Library tool open that .libproj, everything is now ready to use. The local library maybe still empty , but the global library are fully ready to use.</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#191817;display:inline-block;width:15px;margin-left:-15px">7.</span><span style="color: #191817;">Done. Users could build up their own pose/anim library at their local side, they could use but can't edit the global library, because they don't the the write access to the global library folder.</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#191817;display:inline-block;width:15px;margin-left:-15px">8.</span><span style="color: #191817;">Once the global library has a update, users could refresh the ui to use the latest library.</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold; color: #191817;">Upload/Download PoseAnimation library:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #191817;">There are upload and download menus with the Project, Character, Category menu. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span style="font-weight: bold; color: #191817;">Project/ Upload/Download Current Lib:</span><span style="color: #191817;"> If currently you are browsing the pose lib of local side, use this to upload the whole local pose lib to server side.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="color: #191817;">If you are browsing the server library, this become a downloading.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span style="font-weight: bold; color: #191817;">Project/ Upload/Download Anim&amp;Pose Libs:</span><span style="color: #191817;"> If currently you are browsing local lib, use this upload both pose and animation libs to server side.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="color: #191817;">If you are browsing the server library, this become a downloading.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span style="font-weight: bold; color: #191817;">Character/ Upload/Download Current Character:</span><span style="color: #191817;"> Upload/download current character.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span style="font-weight: bold; color: #191817;">Category/ Upload/Download Current Category:</span><span style="color: #191817;"> Upload/download current category.</span><br />
+<img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span style="font-weight: bold; color: #191817;">Item/ Upload/Download Selected Item(s):</span><span style="color: #191817;"> Select the items, use this to upload/download.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> Tips: <span style="color: #191817;">If currently you are in Library Management item clicked mode, you can right clicking on the content area, the north marking menu provide you the same entries.</span></p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="poseanim_manageeditlib_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="poseanim_previewpanel_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

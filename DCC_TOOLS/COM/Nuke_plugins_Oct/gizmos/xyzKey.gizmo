@@ -1,0 +1,548 @@
+#! C:/Program Files/Nuke7/Nuke7.0.exe -nx
+version 7.0 v8
+Gizmo {
+ inputs 2
+ tile_color 0xff00ff
+ note_font "Verdana Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ addUserKnob {20 User}
+ addUserKnob {6 Axi_key +STARTLINE}
+ addUserKnob {26 ""}
+ addUserKnob {41 color T Constant1.color}
+ addUserKnob {26 ""}
+ addUserKnob {41 Radius T Rad.Radius}
+ addUserKnob {20 SpherS n 1}
+ SpherS 0
+ addUserKnob {41 OnOff_6 l On/Off T Shar1.OnOff}
+ addUserKnob {41 T_s T Shar.x11}
+ addUserKnob {41 F_s T Shar.x12}
+ addUserKnob {26 ""}
+ addUserKnob {41 Sx T Shar.Sx}
+ addUserKnob {41 Sy T Shar.Sy}
+ addUserKnob {41 Sz T Shar.Sz}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {26 ""}
+ addUserKnob {41 Smooth T Smooth1.OnOff}
+ addUserKnob {26 ""}
+ addUserKnob {41 OnOff l On/Off T OffOnX1.OnOff}
+ addUserKnob {41 T_x1 T TFx.T_x1}
+ addUserKnob {41 F_x1 T TFx.F_x1}
+ addUserKnob {41 OnOff_1 l On/Off T OffOnX2.OnOff}
+ addUserKnob {41 T_x2 T TFx.T_x2}
+ addUserKnob {41 F_x2 T TFx.F_x2}
+ addUserKnob {26 ""}
+ addUserKnob {41 OnOff_2 l On/Off T OffOnY1.OnOff}
+ addUserKnob {41 T_y1 T TFy.T_y1}
+ addUserKnob {41 F_y1 T TFy.F_y1}
+ addUserKnob {41 OnOff_3 l On/Off T OffOnY2.OnOff}
+ addUserKnob {41 T_y2 T TFy.T_y2}
+ addUserKnob {41 F_y2 T TFy.F_y2}
+ addUserKnob {26 ""}
+ addUserKnob {41 OnOff_4 l On/Off T OffOnZ1.OnOff}
+ addUserKnob {41 T_z1 T TFz.T_z1}
+ addUserKnob {41 F_z1 T TFz.F_z1}
+ addUserKnob {41 OnOff_5 l On/Off T OffOnZ2.OnOff}
+ addUserKnob {41 T_z2 T TFz.T_z2}
+ addUserKnob {41 F_z2 T TFz.F_z2}
+ addUserKnob {20 Lookup}
+ addUserKnob {41 lut l "" -STARTLINE T ColorLookup1.lut}
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos 319
+  ypos -730
+ }
+ Dot {
+  name Dot2
+  xpos 353
+  ypos -565
+ }
+set N211fa8f0 [stack 0]
+ Dot {
+  name Dot5
+  xpos 131
+  ypos -565
+ }
+ Expression {
+  expr0 r-Axis_key.world_matrix.3
+  expr1 g-Axis_key.world_matrix.7
+  expr2 b-Axis_key.world_matrix.11
+  name Expression1
+  xpos 97
+  ypos -484
+ }
+set N211fafd0 [stack 0]
+ ColorMatrix {
+  matrix {
+      {{parent.Axis_key.world_matrix.0} {parent.Axis_key.world_matrix.1} {parent.Axis_key.world_matrix.2}}
+      {{parent.Axis_key.world_matrix.4} {parent.Axis_key.world_matrix.5} {parent.Axis_key.world_matrix.6}}
+      {{parent.Axis_key.world_matrix.8} {parent.Axis_key.world_matrix.9} {parent.Axis_key.world_matrix.10}}
+    }
+  invert true
+  name ColorMatrix1
+  xpos 97
+  ypos -366
+ }
+ Expression {
+  temp_name0 rx
+  temp_expr0 Axis_key.world_matrix.left.0
+  temp_name1 ry
+  temp_expr1 Axis_key.world_matrix.left.5
+  temp_name2 rz
+  temp_expr2 Axis_key.world_matrix.left.10
+  expr0 r/1000+.5
+  expr1 g/1000+.5
+  expr2 b/1000+.5
+  name Expression2
+  xpos 97
+  ypos -286
+ }
+ Dot {
+  name Dot4
+  xpos 131
+  ypos -232
+ }
+set N211fba20 [stack 0]
+push $N211fa8f0
+ Expression {
+  expr0 r-Constant1.color.r
+  expr1 g-Constant1.color.g
+  expr2 b-Constant1.color.b
+  name Expression5
+  xpos 319
+  ypos -478
+ }
+ Expression {
+  expr0 "r/(parent.Rad.Radius*1000)+.5 "
+  expr1 "g/(parent.Rad.Radius*1000)+.5 "
+  expr2 "b/(parent.Rad.Radius*1000)+.5 "
+  name Expression4
+  xpos 319
+  ypos -331
+ }
+set N211fc100 [stack 0]
+ Switch {
+  inputs 2
+  which {{parent.Axi_key}}
+  name offonAxi
+  xpos 319
+  ypos -235
+ }
+ Dot {
+  name Dot1
+  xpos 353
+  ypos -185
+ }
+set N211fc470 [stack 0]
+ NoOp {
+  name Shar
+  xpos 955
+  ypos -170
+  addUserKnob {20 User}
+  addUserKnob {7 x11}
+  addUserKnob {7 x12}
+  x12 0.2
+  addUserKnob {7 Sx}
+  Sx 1
+  addUserKnob {7 Sy}
+  Sy 1
+  addUserKnob {7 Sz}
+  Sz 1
+ }
+set N211fc7e0 [stack 0]
+ Keyer {
+  operation "red keyer"
+  range {{0.5-Shar.Sx/2 i} 0.5 0.5 {0.5+Shar.Sx/2 i}}
+  name K_X9
+  xpos 955
+  ypos -60
+ }
+ ColorLookup {
+  channels alpha
+  lut {master {}
+    red {}
+    green {}
+    blue {}
+    alpha {curve L 0 s0 1 s0}}
+  name ColorLookup2
+  xpos 955
+  ypos -24
+ }
+ set C211fcec0 [stack 0]
+push 0
+push $N211fc7e0
+ Keyer {
+  operation "green keyer"
+  range {{0.5-Shar.Sy/2 i} 0.5 0.5 {0.5+Shar.Sy/2 i}}
+  name K_X10
+  xpos 1065
+  ypos -58
+ }
+clone $C211fcec0 {
+  xpos 1065
+  ypos -22
+  selected false
+ }
+push $N211fc7e0
+ Keyer {
+  operation "blue keyer"
+  range {{0.5-Shar.Sz/2 i} 0.5 0.5 {0.5+Shar.Sz/2 i}}
+  name K_X11
+  xpos 1161
+  ypos -58
+ }
+clone $C211fcec0 {
+  xpos 1161
+  ypos -22
+  selected false
+ }
+ Merge2 {
+  inputs 3+1
+  operation multiply
+  name Merge3
+  xpos 1105
+  ypos 92
+ }
+ Grade {
+  channels alpha
+  gamma 0.2
+  name Grade1
+  xpos 1105
+  ypos 116
+ }
+ Shuffle {
+  red alpha
+  green alpha
+  blue alpha
+  alpha white
+  name Shuffle1
+  xpos 1105
+  ypos 152
+ }
+ Keyer {
+  operation "luminance key"
+  range {{(1-(Shar.x12)) i} {(1-Shar.x11) i} 1 1}
+  name K_X8
+  xpos 1105
+  ypos 176
+ }
+set N21632c60 [stack 0]
+ ColorLookup {
+  channels {-rgba.red -rgba.green -rgba.blue rgba.alpha}
+  lut {master {}
+    red {}
+    green {}
+    blue {}
+    alpha {curve C k 0 s0 1 s0}}
+  name ColorLookup1
+  xpos 1003
+  ypos 176
+ }
+ set C21632fd0 [stack 0]
+push $N21632c60
+ Switch {
+  inputs 2
+  which {{OnOff}}
+  name Smooth1
+  xpos 1105
+  ypos 312
+  addUserKnob {20 User}
+  addUserKnob {6 OnOff l On/Off +STARTLINE}
+  OnOff true
+ }
+ set C210e2100 [stack 0]
+push $N211fc470
+ NoOp {
+  name TFx
+  xpos 75
+  ypos -124
+  addUserKnob {20 User}
+  addUserKnob {7 T_x1}
+  addUserKnob {7 F_x1}
+  F_x1 0.2
+  addUserKnob {7 T_x2}
+  addUserKnob {7 F_x2}
+  F_x2 0.2
+ }
+set N21633340 [stack 0]
+ Keyer {
+  operation "red keyer"
+  range {{(1-(TFx.T_x1+TFx.F_x1))/2} {(1-TFx.T_x1)/2} 1 1}
+  name K_X1
+  xpos 75
+  ypos -65
+ }
+push $N211fba20
+ Dot {
+  name Dot6
+  xpos -38
+  ypos -232
+ }
+ Shuffle {
+  alpha white
+  name Shuffle2
+  xpos -72
+  ypos -22
+ }
+set N21633d90 [stack 0]
+ Switch {
+  inputs 2
+  which {{OnOff}}
+  name OffOnX1
+  xpos 75
+  ypos 163
+  addUserKnob {20 User}
+  addUserKnob {6 OnOff l On/Off +STARTLINE}
+  OnOff true
+ }
+set N210e2490 [stack 0]
+clone $C21632fd0 {
+  xpos 75
+  ypos 396
+  selected false
+ }
+push $N21633340
+ Keyer {
+  operation "red keyer"
+  range {0 0 {(1+TFx.T_x2)/2 i} {(1+(TFx.T_x2+TFx.F_x2))/2 i}}
+  name K_X2
+  xpos 185
+  ypos -64
+ }
+push $N21633d90
+ Switch {
+  inputs 2
+  which {{OnOff i}}
+  name OffOnX2
+  xpos 185
+  ypos 165
+  addUserKnob {20 User}
+  addUserKnob {6 OnOff l On/Off +STARTLINE}
+  OnOff true
+ }
+set N210e2820 [stack 0]
+clone $C21632fd0 {
+  xpos 185
+  ypos 396
+  selected false
+ }
+push $N211fc470
+ NoOp {
+  name TFy
+  xpos 295
+  ypos -123
+  addUserKnob {20 User}
+  addUserKnob {7 T_y1}
+  addUserKnob {7 F_y1}
+  F_y1 0.2
+  addUserKnob {7 T_y2}
+  addUserKnob {7 F_y2}
+  F_y2 0.2
+ }
+set N21634b50 [stack 0]
+ Keyer {
+  operation "green keyer"
+  range {{(1-(TFy.T_y1+TFy.F_y1))/2 i} {(1-TFy.T_y1)/2 i} 1 1}
+  name K_X3
+  xpos 295
+  ypos -64
+ }
+push $N21633d90
+ Switch {
+  inputs 2
+  which {{OnOff i}}
+  name OffOnY1
+  xpos 295
+  ypos 164
+  addUserKnob {20 User}
+  addUserKnob {6 OnOff l On/Off +STARTLINE}
+  OnOff true
+ }
+set N210e2bb0 [stack 0]
+clone $C21632fd0 {
+  xpos 295
+  ypos 396
+  selected false
+ }
+push $N21634b50
+ Keyer {
+  operation "green keyer"
+  range {0 0 {(1+TFy.T_y2)/2 i} {(1+(TFy.T_y2+TFy.F_y2))/2 i}}
+  name K_X4
+  xpos 405
+  ypos -64
+ }
+push $N21633d90
+ Switch {
+  inputs 2
+  which {{OnOff i}}
+  name OffOnY2
+  xpos 405
+  ypos 163
+  addUserKnob {20 User}
+  addUserKnob {6 OnOff l On/Off +STARTLINE}
+  OnOff true
+ }
+set N2175f180 [stack 0]
+clone $C21632fd0 {
+  xpos 405
+  ypos 396
+  selected false
+ }
+push 0
+push $N211fc470
+ NoOp {
+  name TFz
+  xpos 515
+  ypos -121
+  addUserKnob {20 User}
+  addUserKnob {7 T_z1}
+  addUserKnob {7 F_z1}
+  F_z1 0.2
+  addUserKnob {7 T_z2}
+  addUserKnob {7 F_z2}
+  F_z2 0.2
+ }
+set N21635c80 [stack 0]
+ Keyer {
+  operation "blue keyer"
+  range {0 0 {(1+TFz.T_z2)/2 i} {(1+(TFz.T_z2+TFz.F_z2))/2 i}}
+  name K_X6
+  xpos 631
+  ypos -59
+ }
+push $N21633d90
+ Switch {
+  inputs 2
+  which {{OnOff}}
+  name OffOnZ2
+  xpos 625
+  ypos 164
+  addUserKnob {20 User}
+  addUserKnob {6 OnOff l On/Off +STARTLINE}
+  OnOff true
+ }
+set N2175f510 [stack 0]
+clone $C21632fd0 {
+  xpos 625
+  ypos 396
+  selected false
+ }
+push $N21635c80
+ Keyer {
+  operation "blue keyer"
+  range {{(1-(TFz.T_z1+TFz.F_z1))/2 i} {(1-TFz.T_z1)/2 i} 1 1}
+  name K_X5
+  xpos 515
+  ypos -62
+ }
+push $N21633d90
+ Switch {
+  inputs 2
+  which {{OnOff i}}
+  name OffOnZ1
+  xpos 515
+  ypos 164
+  addUserKnob {20 User}
+  addUserKnob {6 OnOff l On/Off +STARTLINE}
+  OnOff true
+ }
+set N2175f8a0 [stack 0]
+clone $C21632fd0 {
+  xpos 515
+  ypos 396
+  selected false
+ }
+ Merge2 {
+  inputs 6+1
+  operation multiply
+  name Merge1
+  xpos 811
+  ypos 554
+ }
+push $N2175f8a0
+push $N2175f180
+push $N210e2bb0
+push $N210e2820
+push 0
+push $N210e2490
+push $N2175f510
+ Merge2 {
+  inputs 6+1
+  operation multiply
+  name Merge2
+  xpos 811
+  ypos 362
+ }
+clone $C210e2100 {
+  inputs 2
+  xpos 811
+  ypos 455
+  selected false
+ }
+ Switch {
+  inputs 2
+  which {{OnOff i}}
+  name Shar1
+  xpos 1105
+  ypos 455
+  addUserKnob {20 User}
+  addUserKnob {6 OnOff l On/Off +STARTLINE}
+ }
+push $N211fa8f0
+ Dot {
+  name Dot3
+  xpos 1287
+  ypos -565
+ }
+ ShuffleCopy {
+  inputs 2
+  name ShuffleCopy1
+  xpos 1253
+  ypos 455
+ }
+ Output {
+  name Output1
+  xpos 1253
+  ypos 739
+ }
+ NoOp {
+  inputs 0
+  name Rad
+  xpos 499
+  ypos -330
+  addUserKnob {20 User}
+  addUserKnob {7 Radius R 0 10}
+  Radius 2
+ }
+ Input {
+  inputs 0
+  name Axi
+  xpos -41
+  ypos -726
+  number 1
+ }
+ Axis2 {
+  uniform_scale 1.1
+  name Axis_key
+  xpos -31
+  ypos -500
+ }
+ Constant {
+  inputs 0
+  channels rgb
+  color {0 0 0 0}
+  name Constant1
+  xpos 491
+  ypos -497
+ }
+push $N211fafd0
+push $N211fc100
+ Viewer {
+  inputs 2
+  input_process false
+  name Viewer1
+  xpos -149
+  ypos -277
+ }
+end_group

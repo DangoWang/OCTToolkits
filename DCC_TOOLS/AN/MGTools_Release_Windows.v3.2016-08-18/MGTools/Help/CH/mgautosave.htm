@@ -1,0 +1,87 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>定时场景保存</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="autosave,Save" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "mgautosave.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">定时场景保存</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="animrescue_advancedrecovery.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="mgsaver.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #191817;">定时场景保存功能：</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:13px; padding:0px;"><p style="text-align: center;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">动画师最怕的事情之一，应该就是辛苦了几个小时的成果，因为maya崩溃，windows蓝屏，断电等等意外因素而付诸东流，重做同样的表演 / 动作是一个很让人沮丧的事情。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">所以MGTools推出了两个避免意外后动画要重做的方案：实时动画备份跟定时场景保存备份。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">这里来说明定时场景备份功能，实时备份动画功能已在前面章节里说明。</span><a href="animrescue_backup.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">定时场景保存的原理是，根据用户设定的分钟数，每隔一段时间，自己自动另存一次，且不会改变当前场景名称。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">它是完整地保存一个场景，但是因为在保存时是在前台运行，所以如果场景比较大，会卡一下。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">在Maya 2011及以后版本已自带定时保存功能。所以在Maya 2011及以后版本里，该插件实际将调用maya自带的定时保存功能，而在之前版本，它则使用自己的功能。在2011及以后版本里，它所带来的贡献，只是可以通过设置，将maya定时备份的最后一个目标存储模式&quot;ENV&quot;模式改为&quot;场景所在目录&quot;模式。即每次自动保存在当前场景所在目录下的autoSave目录里。</span></p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">因为该工具实际操作时是在前台主线程里执行，所以目前运行一直稳定。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_ImageCaption" style="font-size: 10pt;">如何开关MG定时场景保存备份</span><span style="font-weight: bold;">：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">1.</span><span style="color: #3c3c39;">右键点击迷你工具箱</span><img src="minitoolboxicon.gif" width="32" height="32" alt="minitoolboxIcon" style="border:none" /><span class="f_ImageCaption"> </span><span style="color: #3c3c39;">/ 动画备份向导..，当然也可以打迷你工具箱界面点第一个按钮。</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">2.</span><span style="color: #3c3c39;">弹出第一步对话框。点击&quot;下一步-&gt;&quot;按钮。</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">3.</span><span style="color: #3c3c39;">点击下图左方的图标，图标将由灰色跟彩色之前转换，彩色代表打开定时场景保存，灰色代表关闭。</span><br />
+<img src="animrescue_autosaveoption_ch.gif" width="447" height="262" alt="animRescue_autosaveOption_ch" style="border:none" /><br />
+<span style="color: #3c3c39;">&nbsp;</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">4.</span><span style="color: #3c3c39;">点击窗口右下方的保存设置！按钮来保证即使此次maya非正常关闭，以后maya也能自动打开/关闭实时备份。</span><br />
+<img src="warning.gif" width="16" height="16" alt="Warning" style="border:none" /> <span style="font-size: 9pt; color: #ff0000;">注意：第一次打开MG定时场景保存，在保存设置后，要重启下maya以生效，但是再以后开/关都只需要保存设置即可生效。</span><br />
+<span style="font-size: 9pt; color: #ff0000;">&nbsp;</span></p><p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> &nbsp;保存前提醒：</span>每次定时保存前弹出对话框，提示用户是否保存。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> &nbsp;限制保存个数：</span>开关限制最大的场景保存数目。避免吃掉太多的硬盘空间。不勾选则不限制。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> &nbsp;保存最大个数：</span>设置最大的场景保存数目限制。避免吃掉太多的硬盘空间。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> &nbsp;时间间隔（分钟）：</span>自动保存的时间间隔，以分钟为单位。<br />
+<span class="f_ImageCaption"> &nbsp; &nbsp; <img src="warning.gif" width="16" height="16" alt="Warning" style="border:none" /></span> <span style="font-size: 9pt; color: #ff0000;">注意：实际自动保存时，未必会是这个分钟数，有可能会更长。因为在到了自动保存的时间点时，如果前台maya正好在某操作计算中，即非闲置时，为了不跟这些操作冲突，保存会被推后。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> &nbsp;目标模式：</span>决定自动保存场景的目标目录。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 96px;">工程目录：当前project工程目录的autosave目录下。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 96px;">自定义目录：自定义保存地点。点击下面的拾取按钮来拾取一个自定义保存目录。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 96px;">场景目录：当前打开场景所在目录的autosave目录下。在Maya2011或更新版本下，该模式其实上是ENV模式，只是会把ENV环境变量每打开新场景便设为当前场景/autosave目录，因此可以变为场景目录模式。</p>
+<p style="line-height: 1.50;"><span style="width:48px">&nbsp;</span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示：当前是否处于实时备份打开/关闭的状况，可以方便地从MGTools主界面的迷你工具箱图标或MGTools shelf工具架的迷你工具箱图标判断。</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt;">该图标右下方有两个小方块，如果上面小方块是绿色的，代表当前打开了实时动画备份，如果下面小方块是红色的，则代表当前打开了定时场景保存。</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt;">如果有方块是灰色的，则代表其相对应的功能是关闭的。</span></p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="animrescue_advancedrecovery.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="mgsaver.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

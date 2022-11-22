@@ -1,0 +1,132 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>GraphEditor Plugin</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Animation,AutoLoad,Install,Reset" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "grapheditor_channel_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span style="font-weight: bold; color: #191817;">GraphEditor Plugin</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="scaleanimation_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="setkeyframetool_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> GraphEditor channel filter plug-in:</span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:51px; padding:0px;"><p style="text-align: center; line-height: 1.50;"><img src="gepluginicon.gif" width="32" height="32" alt="GepluginIcon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:13px; padding:0px;"><p style="line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">Install / remove Ge- plug-in in graphEditor. </span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">U can then use them to filter the channels displayed in graphEditor, or smooth / reset animCurves.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">To toggle channel filter plug-in ( Do one of the following ) :</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>Right mouse button clicking on the GePlugin button of MGchannelBox and select &quot;Toggle graphEditor plugin&quot;:<img src="mi_geplugsmall.gif" width="336" height="59" alt="MI_GeplugSmall" style="border:none" /></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>Select &quot;Toggle graphEditor plugin&quot; in the Misc menu of MGchannelBox.</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>Click the <img src="gepluginicon.gif" width="32" height="32" alt="GepluginIcon" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span>icon in your Maya shelves . (If U have installed all the MGTools shelves into Maya shelves) </p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>Click the &quot;Install GE-Plugin&quot; button on keyframeTools. </p><p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> After it is installed:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">A row of small five icons will appear in the toolbar of graphEditor:</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="ge_attrlist.gif" width="197" height="293" alt="GE_attrList" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">All the first five buttons are for quick filtering the wanted channels(attributes) in graphEditor. (as shown in the diagram above.)</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">It make not much sense when U are dealing with one controller's animation but when dealing with a series of similar controllers' animation, this will be helpful.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  <img src="ge_filterticon.gif" width="21" height="21" alt="GE_filterTicon" style="border:none" /></span><span class="f_MI_TitleStyle" style="color: #404040;">:</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> &nbsp;Cycle filtering the translation attributes : </span>translate X, translate Y, translate Z and translate XYZ.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  <img src="ge_filterricon.gif" width="21" height="21" alt="GE_filterRicon" style="border:none" /></span><span class="f_MI_TitleStyle" style="color: #404040;">:</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> Cycle filtering the rotation attributes : </span>rotate X, rotate Y, rotate Z and rotate XYZ.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  <img src="ge_filtersicon.gif" width="21" height="21" alt="GE_filterSicon" style="border:none" /></span><span class="f_MI_TitleStyle" style="color: #404040;">:</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> Cycle filtering the scale attributes : scale</span> X, <span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">scale</span> Y, <span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">scale</span> Z and <span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">scale</span> XYZ.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  <img src="ge_filterchannelicon.gif" width="21" height="21" alt="GE_filterChannelicon" style="border:none" /></span><span class="f_MI_TitleStyle" style="color: #404040;">:</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> &nbsp;Only the attributes / channels selected in graphEditor will be shown in graphEditor.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> Tips :right click this icon:</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><img src="mi_geselectchannel.gif" width="299" height="247" alt="MI_GeSelectChannel" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Isolate Selected AnimCurve : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Only show selected animCurve.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Show Attributes via Maya channelBox : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Only shows attributes / channels selected in Maya channelBox.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Show Attributes via MGchannelBox : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Only shows attributes / channels selected in MGchannelBox.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Show Attributes via GraphEditor:</span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Only shows attributes / channels selected in graphEditor.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Button based on Maya channelbox / MG-channelbox / GraphEditor:</span><span class="f_MI_TitleStyle">  </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Decide &nbsp;the button action. Decide the source UI that the attribute filtering is based on. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="width:24px">&nbsp;</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">if on Maya channelbox, then click the button &nbsp;will only shows the attributes selected in Maya channelbox,etc. The icon of the button will be changed depending on which UI you choose to filter from.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">U can click the<img src="resetgefiltericon.gif" width="21" height="21" alt="resetGEFilterIcon" style="border:none" /> button of graphEditor UI to do show all attributes.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  <img src="ge_resetchannelicon.gif" width="21" height="21" alt="GE_resetChannelIcon" style="border:none" />: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> Reset the selected animCurve to the default value of that attribute. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  <img src="ge_alignicon.gif" width="21" height="21" alt="GE_alignIcon" style="border:none" />: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> Align all the selected keys' value to the last selected key &nbsp;value. </span><br />
+<span style="width:24px">&nbsp;</span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span>Tips: Right click on this icon ,there are &quot;Align value to each previous/next key &quot; feature. Which align all selected keys to their corresponding previous / next key values.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  <img src="ge_smoothcurveicon.gif" width="21" height="21" alt="GE_smoothCurveIcon" style="border:none" />:  </span>Auto smooth selected keys / animcurves. If no keys / animCurves are selected in GraphEditor, all animation of current selected object will be auto-smoothed.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span>Tips: Right click on this icon ,there are some quick access to setting Maya's default tangent type .</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle" style="color: #404040;">The vertical slider</span>: Drag it to create BD / Extreme pose in GraphEditor based on a certain percentage. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">If you got some keys selected, it will only edit the selected keys.Check on OS button to create a overshoot pose rather than a BD pose. <a href="bdtool_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a> &nbsp; </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">Right click on the slider, select &quot;BD Tool Option..&quot; to set the bd tool option. <a href="bdtool_en.htm#bdoption" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><img src="ge_timevaluemathicon.gif" width="120" height="25" alt="GE_timeValueMathIcon" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span>This area is the Time/Value Math tools. It does add/subtract/multiple/divide operation to keyframes' time or value.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">Right click on the input area, you can switch between time math mode or value math mode.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">Assuming you input 2, and currently it is time math mode,</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">Press the + button, if you have some keyframes selected, the keyframes will shift to left for two frames.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">If no keyframes selected, depending on the preference, the keyframes after current keyframes or all keyframes will shift left for two frames.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">With the same way, pressing - button to shift left for two frames, * button to scale up for twice, which make the animation slower, / button to scale down for twice, which make the animation faster.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span>Right click on this area, (any one of the buttons or the input field), select &quot;Option..&quot;, this will open the MG-Config window, and switch the GE-Plugin page of preference.</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span style="font-weight: bold;">GE-Plugin Preference: <a id="gepluginoption"></a></span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:405px; padding:0px;"><p style="line-height: 1.50;"><span class="f_ImageCaption" style="font-size: 10pt;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="gepluginoption1_en.gif" width="349" height="254" alt="GEpluginOption1_en" style="border:none" /></span></p>
+</td>
+<td style="vertical-align:top; width:933px; padding:0px;"><p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span style="font-weight: bold;">Autoload GEPlugin: </span><span class="f_MI_TitleStyle" style="color: #404040;"> </span>If checked on, GEplugin will be installed whenever you open Graph Editor.</p>
+<p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span style="font-weight: bold;">This area decide the behavior of keyframe clean up:</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 39px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">Key Cleaner on Static Channel: </span>When cleaning a static animation curve, choose one of these ways:</p><p style="text-align: left; padding: 0px 0px 0px 39px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">Keep First &amp; Last Keys:</span> Remove all keyframes in between, but keep the first and the last keyframes.</p><p style="text-align: left; padding: 0px 0px 0px 39px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">Keep First Key:</span> Remove all keyframes except the first keyframe.</p><p style="text-align: left; padding: 0px 0px 0px 39px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">Keep Last Key:</span> Remove all keyframes except the last keyframe.</p><p style="text-align: left; padding: 0px 0px 0px 39px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">Remove All Keys: </span>Remove all keyframes, left the attribute unkeyed. This is not suggested unless the attribute is in its rig default value.</p><p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;"> CleanUp Tolerance: </span>The tolerance value is a threshold, to decide if the keyframe should be removed.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">When cleanning up the keyframes, tool will test each keyframe, if it is removed, the new value compare to the old uncleaned value,</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">it the gap is smaller than or equal to the tolerance value, the keyframe will be removed.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">So this value, decide how different before / after the cleaning.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">The smaller the value is, less difference after the cleaning, but less keyframes cleaned. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">The larger the value is , more keyframes will be cleaned, but bigger difference after the cleaning.</p>
+<p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">Channel Filter: &nbsp; </span></p>
+<p style="text-align: left; padding: 0px 0px 0px 39px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">Isolate Channel:</span> When press on a channel isolation button in GE-Plugin, the channels will be isolated, only the wanted channels are visible.</p><p style="text-align: left; padding: 0px 0px 0px 39px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">Select Channel:</span> When press on a channel isolation button in GE-Plugin, all channels stay visible, but only the wanted channels selected. This is the default preference, because animator don't need to show/hide channels frequently.</p><p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle" style="color: #404040;">TimeValue Math: &nbsp; </span><span style="font-weight: bold;">Time:</span> The math buttons in GE-Plugins, is the time calculation, or else it is value calculation.</p>
+<p style="text-align: left; padding: 0px 0px 0px 39px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">When No Key is selected for +- Math:  </span><br />
+ &nbsp; &nbsp; <span style="font-weight: bold;">Affect All:</span> All keyframes of the select objects will be shift left or right, up or down. <br />
+ &nbsp; &nbsp; <span style="font-weight: bold;">Affect RightSide:</span> Only the keyframe at current frame or after current frame will be shifted.</p><p style="text-align: left; padding: 0px 0px 0px 39px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">When No Key is selected for */ Math: </span><br />
+ &nbsp; &nbsp; <span style="font-weight: bold;">Affect All:</span> All keyframes of the select objects will be scale up/down in horizontal/vertical direction.<br />
+ &nbsp; &nbsp; <span style="font-weight: bold;">Affect RightSide:</span> Only the keyframe at current frame or after current frame will be scaled.</p><p style="text-align: left; padding: 0px 0px 0px 39px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">Auto-Clean up the non-integer keys:</span> Useful when you do a &nbsp;*/ calculation. It will clean up the non-integer keyframs,snap them to intergers.</p></td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:405px; padding:0px;"><p style="line-height: 1.50;"><span class="f_ImageCaption" style="font-size: 10pt;"> &nbsp; &nbsp; &nbsp; <img src="gepluginoption2_en.gif" width="368" height="347" alt="GEpluginOption2_en" style="border:none" /></span></p>
+</td>
+<td style="vertical-align:top; width:933px; padding:0px;"><p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">UI Arrangement:</span><span class="f_MI_TitleStyle" style="color: #404040;"> &nbsp; </span>This area got lots of stacks, if you drag the icons to the center stack, you will hide that icon from GE-Plugin.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">The center area is the &nbsp;&quot;Stock&quot;. Drag the icons to different stacks to change the icon placement in GE-Plugin UI.</p>
+<p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle" style="color: #404040;">Press &quot;Save And Refresh UI&quot; </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">to save the edit, and show the change in GE-Plugin UI.</span></p>
+</td>
+</tr>
+</table>
+</div>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="scaleanimation_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="setkeyframetool_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

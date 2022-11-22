@@ -1,0 +1,420 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>资产库Python API</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Asset" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "assetlib_py_api.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">资产库Python API</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="assetlib_melapi.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="minitoolbox.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> 资产库Python API:  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">MG-资产库提供的python的应用程序接口。你可以用这些python函数及类，通过自己编写脚本来新建，管理及使用资产库。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">一个比较大的用途是用它来批量加入资产项，及自动生成ma档等。</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> 前提条件:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">当前运行的Maya有安装MGTools Pro3或以上版本。</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> 资产库Python API模块:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">Py文件路径是您的MGTools folder/invoke/MG_PyUtil/MG_AssetLibAPI.py.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">在MGTools已安装的情况下，直接用下面代码来导入模块：</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-weight: bold; color: #253555;">import</span><span style="color: #253555;"> </span><span style="color: #388195;">MG_PyUtil.MG_AssetLibAPI</span> <span style="font-weight: bold; color: #253555;">as</span> <span style="color: #388195;">assetAPI</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">在这个py源文件里，每个函数或方法都有详细的注释说明。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">下面对参数的说明开头，会有一个类别像 &lt;type&gt;的文字，这个标注了参数的类型。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> 一些快速链接:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">辅助性函数 </span><a href="assetlib_py_api.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">MGAssetProj类 </span><a href="assetlib_py_api.htm#mgassetproj" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">MGAssetCategory类 </span><a href="assetlib_py_api.htm#mgassetcategory" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">MGAssetRecord类 </span><a href="assetlib_py_api.htm#mgassetrecord" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">示例代码 </span><a href="assetlib_py_api.htm#example" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> 辅助性函数:  <a id="utility"></a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_isLibraryWindowOpen ( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 测试看MG资产库工具是否被打开的</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： &nbsp;如果打开则为True, 否则为False.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_openProjectIfLibraryToolOpen ( </span><span style="font-weight: bold; color: #602020;">projFilePath </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 如果MG资产库工具正打开，则在工具里打开该库工程。如果工程正被打开则会重新打开。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： projFilePath: &lt;str&gt; 代表一个资产库文件的完整路径。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： None</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_openCategoryIfLibraryToolOpen ( </span><span style="font-weight: bold; color: #602020;">projectName, categoryName </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明：如果MG资产库工具正打开，则在工具里打开该库工程及该类别。如果工程/类别正被打开则会重新打开。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： projName: &lt;str&gt; 一个已存在的库工程名称。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">categoryName: &lt;str&gt; 一个已存在的库工程类别。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： None</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_warning ( </span><span style="font-weight: bold; color: #602020;">warnMessage </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 辅助性函数，用来在Maya里打印有特定前缀的警告。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： warnMessage: &lt;str&gt; 警告内容。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： None</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_getLocalRoot (</span><span style="font-weight: bold; color: #602020;"> </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 获取MG-资产库的本地根目录。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： str</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_getLocalProjectDir (</span><span style="font-weight: bold; color: #602020;"> projectName</span><span style="font-weight: bold; color: #253555;"> )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 获取MG-资产库的本地库工程目录。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： projectName: &lt;str&gt; 要获取的库工程的名称。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： str</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_getLocalProjectFilePath ( </span><span style="font-weight: bold; color: #602020;">projectName</span><span style="font-weight: bold; color: #253555;"> )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 获取MG-资产库的本地库工程文件的完整路径。即是一个.assetproj文件路径。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： projectName: &lt;str&gt; 要获取的库工程的名称。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： str</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_getLocalCategoryFilePath ( </span><span style="font-weight: bold; color: #602020;">projectName, categoryName</span><span style="font-weight: bold; color: #253555;"> )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 获取MG-资产库的本地库工程下特定类别的完整路径。即是一个.asset文件路径。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： projectName: &lt;str&gt; 要获取的库工程的名称。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">categoryName: &lt;str&gt; 要获取的类别的名称。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： str</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_validName ( </span><span style="font-weight: bold; color: #602020;">name</span><span style="font-weight: bold; color: #253555;"> )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 用Maya节点的命名限制规则来验证一个字符窜并使字符窜符合规则:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">首字母必须以'_'或英文字母开头， 其它字母可以是英文字母，数字或'_'。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">如果有遇到字母不符合上面规则的，则转换为'_'。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： name: &lt;str&gt; 要验证的字符窜</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： str, 将是输入字符窜的合法版本。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_compareTwoFileDate ( </span><span style="font-weight: bold; color: #602020;">file1, file2</span><span style="font-weight: bold; color: #253555;"> )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 比较俩文件的修改日期。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： file1: &lt;str&gt; 文件1路径</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">file2: &lt;str&gt; 文件2路径</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： &nbsp;int. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">如果俩文件都不存在，则返回0， 如果file1存在而file2不存在，则返回1，如果file1不存在而file2存在，则返回-1；</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">都存在的情况下，如果file1比file2旧，则返回-1，如果两者一样，则返回0， 如果file1比file2新，则返回1；</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_searchFilesFromDirectory ( </span><span style="font-weight: bold; color: #602020;">searchDir, patternStr, searchDepthLimit, currentSearchDepth</span><span style="font-weight: bold; color: #253555;"> )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 这是一个被下面两个函数调用的doit函数。 搜索一个目录下符号一定规则的文件。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： searchDir: &lt;str&gt; 这是要搜索的路径。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">patternStr: &lt;str&gt; 这个样式字符窜必须是以&quot;*.&quot;开头，如果不是以 &quot;*.&quot; 开头的，则自动会加上 &quot;*.&quot; 。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">searchDepthLimit: &lt;int&gt; 是路径搜索的深度，如果不想搜索子目录，则直接将其设为1。设为0或负数则视为无限制深度。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">currentSearchDepth: &lt;int&gt;  <span style="font-size: 9pt;">当前搜索深度，辅助性参数，对您说要输入1。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： &nbsp;list of str , 如果没找到任何匹配，则返回空list.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_searchPreviewImagesFromDirectory ( </span><span style="font-weight: bold; color: #602020;">searchDir, imageExtensions, searchDepthLimit </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 在特定目录下搜索有特定格式的文件，如图片。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： searchDir: &lt;str&gt; 这是要搜索的路径。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">imageExtensions: &lt;list / str&gt; <span style="font-size: 9pt;">这个扩展名列表的每一个元素必须是以&quot;*.&quot;开头，如果不是以 &quot;*.&quot; 开头的，则自动会加上 &quot;*.&quot; 。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">searchDepthLimit: &lt;int&gt; 是路径搜索的深度，如果不想搜索子目录，则直接将其设为1。设为0或负数则视为无限制深度。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： &nbsp;list of str , 如果没找到任何匹配，则返回空list.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_searchMayaFileFromDirectory (</span><span style="font-weight: bold; color: #602020;">searchDir, searchMA, searchMB,searchDepthLimit </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 在特定目录下搜索MB/MA文件。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： searchDir: &lt;str&gt; 这是要搜索的路径。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">searchMA: &lt;bool&gt; <span style="font-size: 9pt;">表示要搜索MA文件。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">searchMB: &lt;bool&gt; <span style="font-size: 9pt;">表示要搜索MB文件。如果</span>searchMA和searchMB都是False，则直接返回空列表。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">searchDepthLimit: &lt;int&gt;是路径搜索的深度，如果不想搜索子目录，则直接将其设为1。设为0或负数则视为无限制深度。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： &nbsp;list of str &nbsp;, 如果没找到任何匹配，则返回空list.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_getBasename ( </span><span style="font-weight: bold; color: #602020;">filepath </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 从文件路径字符窜中获取文件名。（不带扩展名）</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： filepath: &lt;str&gt; 一个文件完整路径，注意如果你输入的是一个目录名而不是一个文件路径，则这个函数返回空字符窜。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： str</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_makeMayaAsciiFile ( </span><span style="font-weight: bold; color: #602020;">overrideIfExists, MAFile, referenceFiles, namespaceList=[], deferList=[] </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 基于您输入的信息，生成一个MA文件。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： overrideIfExists: &lt;bool&gt; 决定当目标MA文件已存在时是否覆盖。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">MAFile: &lt;str&gt; 目标MA档的完整路径。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">referenceFiles: &lt;list of strings&gt; 将来在MA档里要Reference的maya文件完整路径的列表。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">namespaceList: &lt;list of strings&gt; Namespace列表。 如果它没有提供到足够多的元素或者干脆为空列表，则会自动从maya文件路径中获取不带扩展名的文件名作为namespace.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">deferList: &lt;list of int&gt; Reference有没有被推迟加载的列表。取值为0或1。 如果没有提供到足够多的元素或者干脆为空列表， 则默认取值为0，即不推迟加载。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： bool, &nbsp;成功则True, 失败为False.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> 类: </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">这个库API的对象模式很简单。包括三个级别的类：MGAssetProj &gt; MGAssetCategory &gt; MGAssetRecord </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">MGAssetProj 对象可持有多个 MGAssetCategory 对象, MGAssetCategory 对象可持有多个 MGAssetRecord 对象.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> MGAssetProj类:  <a id="mgassetproj"></a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">__init__ </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">projectName='', projectAnnotation='',globalPath='',statePresets=[] </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 初始化MGAssetProj 对象.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">当初始化时，如果projectName参数所代表的库工程在您本地已存在，则它会忽略所有其它参数，直接以这个已存在的库工程文件初始化。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： projectName: &lt;str&gt; 库工程名称。 会验证这个名称是否合法，而使用它的合法版本。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;"><span style="font-size: 9pt;">如果这个参数为空字符窜，则您必须在稍后立即使用initFromProjctFile() 来使这个对象合法，否则该MGAssetProj 对象是不合法的。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">projectAnnotation: &lt;str&gt; 库工程描述文字。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">globalPath: &lt;str&gt; 一个用来指定库工程全局根目录的路径。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">statePresets: &lt;list of str&gt; 是库工程的状态预置列表，它是一个数组或就一个字符窜，这个数组的每个元素由下面格式的字符组成( 用空格分开 )：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 216px;"><span style="font-size: 9pt;">&quot;状态名称 状态颜色R 状态颜色G 状态颜色B&quot;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 216px;"><span style="font-size: 9pt;">状态颜色的RGB数值是在0-1范围内的小数。比如: &quot;Approved 0.2 0.6 0.2&quot;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">initExistCategories </span><span style="font-weight: bold; color: #253555;">(</span><span style="font-weight: bold; color: #602020;"> </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 基于本地库根目录下已存在的资产库工程来自动生成已存在的类别的MGAssetCategory对象。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： int. 返回自动生成的MGAssetCategory对象个数。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">initFromProjectFile </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">projectFilePath </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 基于本地库根目录下已存在的资产库工程来初始化这个MGAssetProj 对象. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： projectFilePath: &lt;str&gt; 指向.assetproj文件的完整路径。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： bool. 如果成功则返回True，否则为False。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">isValid </span><span style="font-weight: bold; color: #253555;">(</span><span style="font-weight: bold; color: #602020;"> </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 测试该MGAssetProj是否合法。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： bool</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">doesProjectExist </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 测试该库工程是否已存在。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： bool</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">getName </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 获取该库工程的名称。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： str</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">getProjectDir </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 获取该库工程的目录。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： str</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">getProjectFilePath </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 获取该库工程的 .assetproj 文件的完整路径。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： str</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">addStates </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">newStatePresets </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 向该库工程添加状态预置。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： newStatePresets: &lt;str / list of str&gt; 是库工程的状态预置列表，它是一个数组或就一个字符窜，这个数组的每个元素由下面格式的字符组成( 用空格分开 )：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 216px;"><span style="font-size: 9pt;">&quot;状态名称 状态颜色R 状态颜色G 状态颜色B&quot;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 216px;"><span style="font-size: 9pt;">状态颜色的RGB数值是在0-1范围内的小数。比如: &quot;Approved 0.2 0.6 0.2&quot;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： bool</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">getStates </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 获取库工程的所有状态预置。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： list</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">addCategory </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">categoryName</span><span style="font-weight: bold; color: #253555;"> )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明：向库工程添加一个类别。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： categoryName: &lt;str&gt; 类别名称，不可以是空字符窜。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： None / MGAssetCategory. 如果成功，则返回创建的MGAssetCategory对象，否则返回None。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">getCategoryObjects </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 获取当前库工程对象持有的所有MGAssetCategory对象。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： list of MGAssetCategory. 如果没有类别对象，则返回空列表。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">getCategoryNames </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 获取当前库工程对象的所有类别名称。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： list of str. 如果没有类别对象，则返回空列表。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">writeProjectToDisk </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 将该对象持有的数据实际写入磁盘。将对本地根目录下建立库工程名称文件夹，并在其下创建库工程名称.assetproj。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">如果目标文件已存在则覆盖。 如果资产库工具正打开， 则会在工具界面上打开这个库工程。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">如果该MGAssetProj对象是非法的则引发异常。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： bool. 如果成功则返回True, 失败则引发异常。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">getCategoryObjectByName </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">categoryName</span><span style="font-weight: bold; color: #253555;"> )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 搜索特定类别名称的MGAssetCategory对象。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： categoryName: &lt;str&gt; 类别名称。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： MGAssetCategory / None. &nbsp;如果找到则返回MGAssetCategory对象，没有则返回None。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">writeCategoryToDisk </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">categoryObject</span><span style="font-weight: bold; color: #253555;"> )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 将该类别对象的数据写入磁盘 (*.asset 文件). 如果旧的类别.asset文件已存在则会覆盖。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">如果资产库工具正打开， 且正打开这个库工程，则会在工具界面上打开这个类别。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">如果该MGAssetProj对象是非法的则引发异常。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： categoryObject: &lt;MGAssetCategory&gt; 应该传入一个合法的MGAssetCategory对象.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： bool. &nbsp;成功则返回True，否则返回False。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">writeAllCategoriesToDisk </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 将所有的类别对象的数据写入磁盘 (*.asset 文件). 如果旧的类别.asset文件已存在则会覆盖。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">如果资产库工具正打开，且正打开这个库工程， 则会在工具界面上打开这些类别。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">如果该MGAssetProj对象是非法的则引发异常。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： bool. &nbsp;成功则返回True，否则返回False。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">openProjectInMGAssetLibrary </span><span style="font-weight: bold; color: #253555;">( ) </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 如果资产库工具正打开， 则在工具界面上打开这个库工程。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： bool. &nbsp; 成功则返回True，否则返回False。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">openCategoryInMGAssetLibrary </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">categoryName</span><span style="font-weight: bold; color: #253555;"> )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 如果资产库工具正打开，且正打开这个库工程， 则在工具界面上打开这个类别。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： categoryName: &lt;MGAssetCategory / str&gt; 这个参数可以是一个MGAssetCategory对象或者是一个类别名称。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： bool。 成功则返回True，否则返回False。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">__str__ </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 用来打印这个对象的函数。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： str. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">getLastError </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明：取得上一次发生错误的文本描述。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： str. &nbsp;如果不曾发生错误，则返回空字符窜。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> The Classes MGAssetCategory:  <a id="mgassetcategory"></a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">__init__ </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">projectObject, categoryName = '' </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 初始化MGAssetCategory对象。不过一般不要直接调这个初始化函数，</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="font-size: 9pt;">而是使用 MGAssetProj.addCategory() 这个方法来创建这个MGAssetCategory对象。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="font-size: 9pt;">或者您可以用MGAssetCategory(projectObject)来创建一个非法的对象，然后紧接着用initFromCategoryFile(categoryFile) 来使它合法。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： projectObject: &lt;MGAssetProj&gt; 这个参数应该是一个合法的MGAssetProj的对象.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">categoryName: &lt;str&gt; 类别名称，会使用其字符合法化的版本。如myC*()&amp;^^2g变成myC______2g。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 216px;"><span style="font-size: 9pt;">如果这个参数是空字符窜，则你过后要使用initFromCategoryFile(categoryFile) 来用既有的类别文件来初始化它否则这个对象是非法的。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">initFromCategoryFile </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">categoryFile </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 使用一个已存在的类别数据文件来初始化MGAssetCategory对象。 如果对象被成功初始化则返回True, 否则为False.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： categoryFile: &lt;str&gt; 必须是一个 '*.asset' 文件的完整路径。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： bool</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">getName </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 获取类别名称。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： str</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">isValid </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 测试这个MGAssetCategory对象是否合法。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： bool</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">getCategoryFilePath </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明：获取这个类别文件的完整路径。 (即 '*.asset' 文件的完整路径。)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： str.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">doesCategoryFileExist </span><span style="font-weight: bold; color: #253555;">(</span><span style="font-weight: bold; color: #602020;"> </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明：测试这个类别是否已经存在。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： bool</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">clearAssetRecords </span><span style="font-weight: bold; color: #253555;">(</span><span style="font-weight: bold; color: #602020;"> </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 将这个类别里的资产项记录清空。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： bool. 如果该类别对象是非法的则返回False， 否则返回True。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">doesAssetRecordExist </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">mayaFilePath </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 测试某个资产项是否在该类别里已存在，以maya路径为准来查重复性。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： mayaFilePath: &lt;str&gt; 一个maya的完整路径。 </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： bool. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">addAssetRecords </span><span style="font-weight: bold; color: #253555;">(</span><span style="font-weight: bold; color: #602020;"> mayaFiles,namespaces=[],states=[],previewImages=[],notes=[], sizeDatas = [], dateDatas = [], versionDatas = [] </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 创建MGAssetRecord对象并把它加入到该类别里。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">如果失败，则返回空列表，否则返回一个MGAssetRecord列表。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： mayaFiles: &lt;str / list of str&gt; Maya文件的完整路径列表。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">namespaces: &lt;str / list of str&gt; 命名空间列表。如果元素里含非法字符，会使字符合法化。 &nbsp; </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">states: &lt;str / list of str&gt; 状态列表，每一元素只是一个状态名称，这里不要添加颜色信息。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">previewImages: &lt;str / list of str&gt; 每个元素是每个资产的预览图，单个元素可以包含多个预览图文件路径，不同文件路径间用;号分隔。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">notes: &lt;str / list of str&gt; 每个元素是每个资产项的注释。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">sizeDatas: &lt;str / list of str&gt; &nbsp;每个元素是每个资产项的大小字符窜，以KB为单位，比如 &quot;1,560KB&quot;。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;"><span style="font-size: 9pt;">如果这个参数不提供，则会自动检测生成。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">dateDatas: &lt;str / list of str&gt; 每个元素是每个资产项的修改日期字符窜，格式 是 'DD/MM/YYYY hh:mm:ss'. 比如4/10/2014 21:55:4</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;"><span style="font-size: 9pt;">如果这个参数不提供，则会自动检测生成。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">versionDatas: &lt;str / list of str&gt; 每个元素是每个资产项的maya版本字符窜.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;"><span style="font-size: 9pt;">如果这个参数不提供，则会自动检测生成。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： MGAssetRecord对象组成的列表. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">deleteAssetRecords </span><span style="font-weight: bold; color: #253555;">(</span><span style="font-weight: bold; color: #602020;"> mayaFiles </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 根据maya场景路径来搜索并删除资产项。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： mayaFiles: &lt;str / list of str&gt; maya场景路径列表。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： int. 返回实际删除的资产项的个数。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">getDataString </span><span style="font-weight: bold; color: #253555;">(</span><span style="font-weight: bold; color: #602020;"> </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 获取该类别的数据，以字符窜形式。这也是将该类别写入磁盘时的写入内容。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="font-size: 9pt;">当您print这个类别对象时，实际上也是print这个函数返回的数值。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： str</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">writeToDisk </span><span style="font-weight: bold; color: #253555;">(</span><span style="font-weight: bold; color: #602020;"> </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 将这个类别以*.asset文件写入磁盘。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： bool, 成功则返回True，否则返回False。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">__str__ </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 用来打印这个对象的函数。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： str. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> The Classes MGAssetRecord:  <a id="mgassetrecord"></a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetRecord.</span><span style="font-weight: bold; color: #388195;">__init__ </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">categoryObject, assetPath, assetName='', assetStateStr='', previewImageStr='', noteStr='', sizeStr='', dateStr='', versionStr = '' </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 初始一个MGAssetRecord对象。不过我们一般不用直接使用这个函数，</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">而是使用MGAssetCategoryObj.addAssetRecords()方法来创建这个类的实例。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数： categoryObject: &lt;MGAssetCategory&gt; 这个应该是一个合法的MGAssetCategory对象。 </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">assetPath: &lt;str&gt; Maya文件的完整路径.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">assetName: &lt;str&gt; Maya文件的命名空间，如果含非法字符会先合法化。如果这参数是空字符窜则会使用maya文件的文件名（去除扩展名后）。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">assetStateStr: &lt;str&gt; 状态名称，这里只使用状态名称，不要加上颜色信息。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">previewImageStr: &lt;str&gt; 资产项的预览图，可以包含多个预览图文件路径，不同文件路径间用;号分隔。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">noteStr: &lt;str&gt; 资产项的注释。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">sizeStr: &lt;str&gt; 资产项的大小，以KB为单位，如1,150KB. &nbsp;如果这个参数不提供，则会自动检测生成。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">dateStr: &lt;str&gt; 资产项的修改日期字符窜，格式 是 'DD/MM/YYYY hh:mm:ss'. 比如4/10/2014 21:55:4。如果这个参数不提供，则会自动检测生成。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">versionStr: &lt;str&gt; 资产项的maya版本字符窜如&quot;2015&quot;。如果这个参数不提供，则会自动检测生成。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetRecord.</span><span style="font-weight: bold; color: #388195;">isValid </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 测试这个MGAssetRecord对象是否合法。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： bool</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetRecord.</span><span style="font-weight: bold; color: #388195;">getAssetPath </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 获得该资产项的maya文件完整路径。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： str. 如果该对象非法，则返回空字符窜。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetRecord.</span><span style="font-weight: bold; color: #388195;">getDataString </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 获取该类别的数据，以字符窜形式。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">当您print这个资产项对象时，实际上也是print这个函数返回的数值。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： str. 如果该对象非法，则返回空字符窜。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetRecord.</span><span style="font-weight: bold; color: #388195;">__str__ </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">说明： 用来打印这个对象的函数。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值： str. 如果该对象非法，则返回空字符窜。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> 示例代码:  <a id="example"></a></span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:53px; padding:0px;"><p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;">&nbsp;</p>
+<p style="text-align: right; line-height: 1.50;">&nbsp;</p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;">&nbsp;</p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&nbsp;</span></p>
+<p style="text-align: right; line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:5px; padding:0px;"><p style="text-align: right; line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:752px; padding:0px;"><p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #255764;">import</span><span style="font-family: 'Arial Unicode MS';"> MG_PyUtil</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">.</span><span style="font-family: 'Arial Unicode MS';">MG_AssetLibAPI </span><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #255764;">as</span><span style="font-family: 'Arial Unicode MS';"> assetAPI</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">projectObj = assetAPI.MGAssetProj </span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">( </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;PyAPI&quot;</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">, </span><span style="font-family: 'Arial Unicode MS';"> </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Test project for MGAssetLibrary Python API.&quot;</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">, </span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Arial Unicode MS'; color: #800080;"> 'D:/temp/Miguel/test/Lib_PyAPI'</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">, </span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">[</span><span style="font-family: 'Arial Unicode MS';"> </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">'Pending 1 0 0'</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">, </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">'Working 0 0 1'</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">, </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">'Approved 0 1 0'</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;"> ]</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;"> ) &nbsp; &nbsp;  </span><span style="font-family: 'Arial Unicode MS';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">projectObj.writeProjectToDisk()  </span><span style="font-family: 'Arial Unicode MS'; color: #008000;"> #写入磁盘，在工具界面才会有反馈</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #255764;">print</span><span style="font-family: 'Arial Unicode MS';"> projectObj</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">charCate = projectObj</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">.</span><span style="font-family: 'Arial Unicode MS';">addCategory </span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">( </span><span style="font-family: 'Arial Unicode MS';">'character' </span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">)</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #255764;">print </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">'The category object\'s validity:'</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">, </span><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #255764;"> </span><span style="font-family: 'Arial Unicode MS';">charCate.isValid </span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">()</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #255764;">print</span><span style="font-family: 'Arial Unicode MS';"> charCate &nbsp; </span><span style="font-family: 'Arial Unicode MS'; color: #008000;">#现在类别是空的</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">assetObjs = charCate.addAssetRecords </span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">( </span><span style="font-family: 'Arial Unicode MS';">'K:/Data/Char/ciggarette.ma' </span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">)</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">print</span><span style="font-family: 'Arial Unicode MS'; color: #800080;"> 'The asset object\'s validity:'</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">,</span><span style="font-family: 'Arial Unicode MS';"> assetObjs[0]</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">.</span><span style="font-family: 'Arial Unicode MS';">isValid</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">()</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #255764;">print</span><span style="font-family: 'Arial Unicode MS';"> charCate &nbsp; </span><span style="font-family: 'Arial Unicode MS'; color: #008000;">#现在类别里有东东了！</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">projectObj</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">.</span><span style="font-family: 'Arial Unicode MS';">getCategoryObjects</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">()</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">charCate</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">.</span><span style="font-family: 'Arial Unicode MS';">writeToDisk</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">()</span><span style="font-family: 'Arial Unicode MS';">  </span><span style="font-family: 'Arial Unicode MS'; color: #008000;"> #写入磁盘</span></p>
+</td>
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="assetlib_melapi.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="minitoolbox.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

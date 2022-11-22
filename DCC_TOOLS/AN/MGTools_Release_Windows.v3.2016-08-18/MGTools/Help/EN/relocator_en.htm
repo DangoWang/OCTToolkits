@@ -1,0 +1,81 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Relocator</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "relocator_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">Relocator</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="mganimrecorder_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="keyframeprobe_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> ReLocator: </span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:94px; padding:0px;"><p style="text-align: center; line-height: 1.50;"><img src="relocateoricon.gif" width="32" height="32" alt="relocateorIcon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:5px; padding:0px;"><p style="line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:938px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">Generate a controller that can relocate multiple objects at the same time.</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">The change will be fitted into the original keyframes.</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">* This tool is inspired by &quot;relocator tool&quot; by Indigo. Add it in because my colleagues asked.</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">I rewrote the tool completely and made some fix to it, such as the support to the animation on the relocator ,which makes it kind like a temporary animLayer.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> How to Use</span><span style="font-weight: bold; color: #191817;">:</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">1.</span>Open relocator UI:<br />
+<img src="relocator_ui_en.gif" width="400" height="317" alt="relocator_ui_en" style="border:none" /></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">2.</span>Select the objects you want to reposition, press the &quot;+&quot; button to add them into the list.<br />
+If you do this before open UI,the UI will automatically add the selection into the list.</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">3.</span>Press the &quot;Begin Relocating! &quot; button. The button label will be set to &quot;Finish relocating !&quot; ,and the button &quot;Reselect Relocator&quot; will be available.<br />
+The relocator has been made and selected, it will control the objects in the list. Use it to rotate/translate the objects.Keyframe &nbsp;the relocator if you need.</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">4.</span>Press &quot;Finish relocating !&quot; to delete the relocator, the relocating result will be merged into objects' keyframes.</p><p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> Tips:during relocating, because the relocator is actually a null group hierarchy, if you lost the selection of it ,you can use &quot;Reselect Relocator&quot; button to reselect the group to continue relocating. </p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> UI elements</span><span style="font-weight: bold; color: #191817;">:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="relocator_ui_en.gif" width="400" height="317" alt="relocator_ui_en" style="border:none" /><br />
+&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  <img src="additemicon.gif" width="21" height="21" alt="addItemIcon" style="border:none" /></span><span class="f_MI_TitleStyle" style="color: #404040;"> :</span>Add scene selection into the list.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  <img src="trashicon.gif" width="21" height="21" alt="trashIcon" style="border:none" /></span><span class="f_MI_TitleStyle" style="color: #404040;"> :</span>Remove the selected items from the list.Use del key to do the same thing.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  <img src="refreshicon.gif" width="21" height="21" alt="refreshIcon" style="border:none" /></span><span class="f_MI_TitleStyle" style="color: #404040;"> :</span>Reread the information,if the relocator exists in your scene, it will prepare the UI things make you can continue relocating. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">It's useful after you finished relocating and press undo to go back to try it again.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  <img src="helpicon.gif" width="21" height="21" alt="helpIcon" style="border:none" /></span><span class="f_MI_TitleStyle" style="color: #404040;">:</span>Click to show the simple help at the right side of UI. Right clicking on it, there is an entry to detailed help doc.</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="mganimrecorder_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="keyframeprobe_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

@@ -1,0 +1,568 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>MGPickerMenuItem Command</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="API,menu,menuItem,MGPickerMenuItem &nbsp;command" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "mgpickermenuitem.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="mgpickermenu.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="mgpickerservice.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; height:8px; padding:1px;"><p><span style="font-family: 'Times New Roman'; font-weight: bold;">命令</span><span style="font-family: 'Times New Roman';"> (MEL/Python)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; height:48px; padding:1px;"><h1 class="p_Heading1" style="margin: 19px 0px 19px 0px;"><span class="f_Heading1" style="font-size: 24pt; font-family: 'Times New Roman';">MGPickerMenuItem</span></h1>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 14px 0px 0px 0px;"><span style="font-family: 'Times New Roman';">跳转到: </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickermenuitem.htm#synopsis" class="topiclink">MEL概要</a>. <a href="mgpickermenuitem.htm#pysynopsis" class="topiclink">Python概要</a>. <a href="mgpickermenuitem.htm#returnvalue" class="topiclink">返回值</a>. <a href="mgpickermenuitem.htm#flags" class="topiclink">标签</a>. <a href="mgpickermenuitem.htm#examples" class="topiclink">MEL例子</a>. <a href="mgpickermenuitem.htm#pyexamples" class="topiclink">Python例子</a>.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="synopsis"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">MEL概要</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">MGPickerMenuItemItem [-<a href="mgpickermenuitem.htm#addsubmenuitem" class="topiclink">addSubMenuItem</a>] [-<a href="mgpickermenuitem.htm#command" class="topiclink">command</a>] [-<a href="mgpickermenuitem.htm#commandtype" class="topiclink">commandType</a>] [-<a href="mgpickermenuitem.htm#divider" class="topiclink">divider</a>] [-<a href="mgpickermenuitem.htm#dividerlabel" class="topiclink">dividerLabel</a>] [-<a href="mgpickermenuitem.htm#exist" class="topiclink">exist</a>] [-<a href="mgpickermenuitem.htm#image" class="topiclink">image</a>] [-<a href="mgpickermenuitem.htm#insertsubmenuitem" class="topiclink">insertSubMenuItem</a>] [-<a href="mgpickermenuitem.htm#label" class="topiclink">label</a>] [-<a href="mgpickermenuitem.htm#longdivider" class="topiclink">longDivider</a>] [-<a href="mgpickermenuitem.htm#numberofsubitems" class="topiclink">numberOfSubItems</a>] [-<a href="mgpickermenuitem.htm#parent" class="topiclink">parent</a>] [-<a href="mgpickermenuitem.htm#radialposition" class="topiclink">radialPosition</a>] [-<a href="mgpickermenuitem.htm#subitemarray" class="topiclink">subItemArray</a>] [-<a href="mgpickermenuitem.htm#submenu" class="topiclink">subMenu</a>] [-<a href="mgpickermenuitem.htm#submenuitem" class="topiclink">subMenuItem</a>] [-<a href="mgpickermenuitem.htm#view" class="topiclink">view</a>] menuItemIDString</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="pysynopsis"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">Python概要</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">MGPickerMenuItem (menuItemIDString, [<a href="mgpickermenuitem.htm#addsubmenuitem" class="topiclink">addSubMenuItem</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">(string, string, string, string, string)</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#command" class="topiclink">command</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#commandtype" class="topiclink">commandType</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#divider" class="topiclink">divider</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#dividerlabel" class="topiclink">dividerLabel</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#exist" class="topiclink">exist</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#image" class="topiclink">image</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#insertsubmenuitem" class="topiclink">insertSubMenuItem</a>=(int, </span><span style="font-family: 'Courier New'; font-style: italic;">string, string, string, string, string)</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#label" class="topiclink">label</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#longdivider" class="topiclink">longDivider</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#numberofsubitems" class="topiclink">numberOfSubItems</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">],[<a href="mgpickermenuitem.htm#parent" class="topiclink">parent</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">],[<a href="mgpickermenuitem.htm#radialposition" class="topiclink">radialPosition</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#subitemarray" class="topiclink">subItemArray</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#submenu" class="topiclink">subMenu</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpickermenuitem.htm#submenuitem" class="topiclink">subMenuItem</a>=int], [<a href="mgpickermenuitem.htm#view" class="topiclink">view</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">])</span></p>
+<p style="line-height: 1.15; margin: 14px 0px 14px 0px;"><span style="font-size: 11pt; font-family: 'Times New Roman';">MGPickerMenuItem </span><span style="font-size: 11pt; font-family: 'Times New Roman'; font-weight: bold;">不可撤消</span><span style="font-size: 11pt; font-family: 'Times New Roman';">, 可以查询且可以编辑</span><span style="font-size: 11pt; font-family: 'Times New Roman';">。</span></p>
+<p style="line-height: 1.50;"><span style="font-size: 11pt; font-family: 'Times New Roman';">该命令可以创建，查询，编辑子菜单项。</span></p>
+<p style="line-height: 1.50;"><span style="font-size: 11pt; font-family: 'Times New Roman';">在查询和编辑模式下，你需要指定一个合法的菜单项id。</span></p>
+<p style="line-height: 1.50;"><span style="font-size: 11pt; font-family: 'Times New Roman';">在创建模式下，不需要指定，但需要-parent标签指定该菜单项属于哪个菜单。</span></p>
+<p style="line-height: 1.50;"><span style="font-size: 11pt; font-family: 'Times New Roman';">菜单项的id格式是：</span></p>
+<p style="line-height: 1.50;"><span style="width:48px">&nbsp;</span><span style="font-size: 11pt; font-family: 'Times New Roman';">commandButton1.rightmenu[0] &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 11pt; font-family: 'Times New Roman';">//Picker按钮&quot;commandButton1&quot;的右键菜单里第1个菜单项的id.</span></p>
+<p style="line-height: 1.50;"><span style="width:48px">&nbsp;</span><span style="font-size: 11pt; font-family: 'Times New Roman';">selectButton1.leftmenu[1][3] &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//Picker按钮&quot;commandButton1&quot;的左键菜单的第2个菜单项的第4个子菜单项的id.</span></p>
+<p style="line-height: 1.50;"><span style="color: #000000;">&nbsp;</span></p>
+<p style="line-height: 1.50;"><span style="font-size: 11pt; font-family: 'Times New Roman';">目前Picker只支持最多一层的子菜单，为避免菜单被设计地太复杂。</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="returnvalue"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">返回值</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 19px 0px 0px 0px;"><table style="border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:100%; padding:1px;"><p><span style="font-size: 11pt; font-family: 'Times New Roman';">创建及编辑模式下通常它会返回菜单项id本身（有时返回子菜单项的id）。查询模式下就根据标签不同而不同。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 19px 0px 19px 0px;"><a id="flags"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">标签</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickermenuitem.htm#addsubmenuitem" class="topiclink">addSubMenuItem</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickermenuitem.htm#command" class="topiclink">command</a>, <a href="mgpickermenuitem.htm#commandtype" class="topiclink">commandType</a>, <a href="mgpickermenuitem.htm#divider" class="topiclink">divider</a>, <a href="mgpickermenuitem.htm#dividerlabel" class="topiclink">dividerLabel</a>, <a href="mgpickermenuitem.htm#exist" class="topiclink">exist</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickermenuitem.htm#image" class="topiclink">image</a>, <a href="mgpickermenuitem.htm#insertsubmenuitem" class="topiclink">insertSubMenuItem</a>, <a href="mgpickermenuitem.htm#label" class="topiclink">label</a>, <a href="mgpickermenuitem.htm#longdivider" class="topiclink">longDivider</a>, <a href="mgpickermenuitem.htm#numberofsubitems" class="topiclink">numberOfSubItems</a></span><span style="font-size: 12pt; font-family: 'Times New Roman';">, <a href="mgpickermenuitem.htm#parent" class="topiclink">parent</a>, <a href="mgpickermenuitem.htm#radialposition" class="topiclink">radialPosition</a>, <a href="mgpickermenuitem.htm#subitemarray" class="topiclink">subItemArray</a>, <a href="mgpickermenuitem.htm#submenu" class="topiclink">subMenu</a>, <a href="mgpickermenuitem.htm#submenuitem" class="topiclink">subMenuItem</a>, <a href="mgpickermenuitem.htm#view" class="topiclink">view</a>, </span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-family: 'Times New Roman'; font-weight: bold;">长名 (短名)</span></p>
+</td>
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-family: 'Times New Roman'; font-style: italic; font-weight: bold;">参数类型</span></p>
+</td>
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-family: 'Times New Roman'; font-weight: bold;">属性</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="addsubmenuitem"></a><span style="font-family: 'Courier New'; font-weight: bold;">-addSubMenuItem</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-asi</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string string script string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">只能用于编辑模式或创建模式，添加一个子菜单项。需要指定标签，图标路径，命令语言(&quot;mel&quot; 或 &quot;python&quot;)， 命令 及 marking菜单的方向 (&quot;N&quot;, &quot;NW&quot;, &quot;W&quot;, &quot;SW&quot;, &quot;S&quot;, &quot;SE&quot;, &quot;E&quot; or &quot;NE&quot;).</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">* 要注意的是，即使该标签被用在创建模式，它返回的也是新加入的子菜单的id，而不是该菜单项本身的id。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">* 另外，如果目前菜单项已经是二级子菜单，则该标签只会返回空id，因为不能再创建三级子菜单。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="command"></a><span style="font-family: 'Courier New'; font-weight: bold;">-command</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-c</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">菜单项的命令。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="commandtype"></a><span style="font-family: 'Courier New'; font-weight: bold;">-commandType</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ct</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">菜单项的命令语言类型：&quot;mel&quot; or &nbsp;&quot;python&quot;.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="divider"></a><span style="font-family: 'Courier New'; font-weight: bold;">-divider</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-d</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">菜单项是否是一个分隔线。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="deleteallsubitems"></a><span style="font-family: 'Courier New'; font-weight: bold;">-deleteAllSubItems</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-dai</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">删除所有子菜单项。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="dividerlabel"></a><span style="font-family: 'Courier New'; font-weight: bold;">-dividerLabel</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-dl</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">分隔线标签，只有当菜单项是一个分隔线时才有效 (dividier=True).</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="exist"></a><span style="font-family: 'Courier New'; font-weight: bold;">-exist</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ex</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">查询菜单项是否存在。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="image"></a><span style="font-family: 'Courier New'; font-weight: bold;">-image</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-i</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">菜单项的图标路径。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="insertsubmenuitem"></a><span style="font-family: 'Courier New'; font-weight: bold;">-insertSubMenuItem</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-isi</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int string string string script string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">只能用于编辑模式或创建模式，在特定索引处插入一个子菜单项。需要指定索引值，标签，图标路径，命令语言(&quot;mel&quot; 或 &quot;python&quot;)， 命令 及 marking菜单的方向 (&quot;N&quot;, &quot;NW&quot;, &quot;W&quot;, &quot;SW&quot;, &quot;S&quot;, &quot;SE&quot;, &quot;E&quot; or &quot;NE&quot;).</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">* 要注意的是，即使该标签被用在创建模式，它返回的也是新插入的子菜单的id，而不是该菜单项本身的id。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">* 另外，如果目前菜单项已经是二级子菜单，则该标签只会返回空id，因为不能再创建三级子菜单。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="label"></a><span style="font-family: 'Courier New'; font-weight: bold;">-label</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-l</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">菜单项的标签。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="longdivider"></a><span style="font-family: 'Courier New'; font-weight: bold;">-longDivider</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ld</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">是否是长分隔线，只有当菜单项是一个分隔线时才有效 (dividier=True).</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="numberofsubitems"></a><span style="font-family: 'Courier New'; font-weight: bold;">-numberOfSubItems</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-nsi</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">子菜单项的数目。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="parent"></a><span style="font-family: 'Courier New'; font-weight: bold;">-parent</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-p</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">在查询模式下返回该菜单所属的picker菜单id或父菜单项的id。在创建模式下，这个标签是必须的，用来指定你要添加到的是哪个picker菜单或父菜单项。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="radialposition"></a><span style="font-family: 'Courier New'; font-weight: bold;">-radialPosition</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-rp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 12pt; font-family: 'Times New Roman';">菜单项的marking menu方向: &quot;N&quot;, &quot;NW&quot;, &quot;W&quot;, &quot;SW&quot;, &quot;S&quot;, &quot;SE&quot;, &quot;E&quot; or &quot;NE&quot;。注意您需要指定父菜单的markingMenu标签为true才能起效。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="subitemarray"></a><span style="font-family: 'Courier New'; font-weight: bold;">-subItemArray</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sia</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">只能用于查询模式， 返回所有子菜单项的id字符窜数组。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="submenu"></a><span style="font-family: 'Courier New'; font-weight: bold;">-subMenu</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sm</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">该菜单项是否可以成为子菜单项的父菜单。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="submenuitem"></a><span style="font-family: 'Courier New'; font-weight: bold;">-subMenuItem</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-smi</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">只能用于查询模式， 返回在特定索引值的子菜单项的id字符窜。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="view"></a><span style="font-family: 'Courier New'; font-weight: bold;">-view</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-v</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">决定你要查询哪个picker视图的菜单。要指定一个合法的视图id。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+</tr>
+</table>
+</div>
+<hr style="height:2px; color:#cccccc; border-width:0px; background-color:#cccccc;" /><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 10px 0px 0px 0px;"><table style="background-color:#eeeeee; border:none; border-spacing:1px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:4px;"><p><img src="create.gif" width="13" height="16" alt="create" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 11pt; font-family: 宋体;">标签可以在创建模式中使用</span></p>
+</td>
+<td style="vertical-align:top; padding:4px;"><p><img src="edit.gif" width="13" height="16" alt="edit" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 11pt; font-family: 宋体;">标签可以在编辑模式中使用</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:4px;"><p><img src="query.gif" width="13" height="16" alt="query" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 11pt; font-family: 宋体;">标签可以在查询模式中使用</span></p>
+</td>
+<td style="vertical-align:top; padding:4px;"><p><img src="multiuse.gif" width="13" height="16" alt="multiuse" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 11pt; font-family: 宋体;">标签可以在一条命令中多次使用</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 19px 0px 0px 0px;"><a id="examples"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">MEL</span><span style="font-size: 14pt; font-family: 宋体; font-weight: bold;">例子</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">//&nbsp;You&nbsp;must&nbsp;make&nbsp;sure&nbsp;the&nbsp;picker&nbsp;item:&nbsp;commandButton1&nbsp;is&nbsp;already&nbsp;in&nbsp;scene&nbsp;in&nbsp;order&nbsp;to&nbsp;test&nbsp;these&nbsp;codes.</span><br />
+<span style="font-family: 'Courier New';">//&nbsp;To&nbsp;form&nbsp;a&nbsp;picker&nbsp;menu&nbsp;id,&nbsp;use&nbsp;pickerItemId.leftmenu&nbsp;/&nbsp;pickerItemId.rightmenu</span><br />
+<span style="font-family: 'Courier New';">string&nbsp;$cmdButton&nbsp;=&nbsp;&quot;commandButton1&quot;;</span><br />
+<span style="font-family: 'Courier New';">string&nbsp;$rightMenu&nbsp;=&nbsp;`MGPickerMenu&nbsp;-p&nbsp;$cmdButton&nbsp;-m&nbsp;&quot;rightmenu&quot;`; &nbsp; &nbsp; &nbsp; &nbsp;//This&nbsp;just&nbsp;retrieves&nbsp;the&nbsp;id&nbsp;&quot;commandButton1.rightmenu&quot;&nbsp;instead&nbsp;of&nbsp;creating&nbsp;it.</span><br />
+<span style="font-family: 'Courier New';">&nbsp;</span><br />
+<span style="font-family: 'Courier New';">//&nbsp;We&nbsp;get&nbsp;a&nbsp;menu&nbsp;item&nbsp;id&nbsp;via&nbsp;-addMenuItem&nbsp;or&nbsp;-insertMenuItem&nbsp;flag&nbsp;of&nbsp;MGPickerMenu&nbsp;command:</span><br />
+<span style="font-family: 'Courier New';">string&nbsp;$menuItem0&nbsp;=&nbsp;`MGPickerMenu&nbsp;-e&nbsp;-addMenuItem&nbsp;&quot;First&nbsp;Menu&nbsp;Item&quot;&nbsp;&quot;/path/to/icon0.png&quot;&nbsp;&quot;mel&quot;&nbsp;&quot;print&nbsp;\&quot;It&nbsp;works!\&quot;&quot;&nbsp;&quot;N&quot;&nbsp;$rightMenu`;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;</span><br />
+<span style="font-family: 'Courier New';">//&nbsp;We&nbsp;can&nbsp;add&nbsp;a&nbsp;menu&nbsp;item&nbsp;using&nbsp;MGPickerMenuItem&nbsp;command:</span><br />
+<span style="font-family: 'Courier New';">string&nbsp;$menuItem1&nbsp;=&nbsp;`MGPickerMenuItem&nbsp;-parent&nbsp;$rightMenu&nbsp;</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">&nbsp;&nbsp;-label&nbsp;&quot;Second&nbsp;Menu&nbsp;Item&quot;&nbsp;</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">&nbsp;&nbsp;-image&nbsp;&quot;/path/to/icon1.png&quot;&nbsp;</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">&nbsp;&nbsp;-commandType&nbsp;&quot;mel&quot;&nbsp;</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">&nbsp;&nbsp;-command&nbsp;&quot;print&nbsp;\&quot;The&nbsp;MGPickerMenuItem&nbsp;in&nbsp;create&nbsp;mode&nbsp;works&nbsp;!\&quot;&quot;&nbsp;</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">&nbsp;&nbsp;-radialPosition&nbsp;&quot;N&quot;`;</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">//&nbsp;We&nbsp;can&nbsp;also&nbsp;make&nbsp;a&nbsp;menu&nbsp;item&nbsp;a&nbsp;sub&nbsp;menu:</span><br />
+<span style="font-family: 'Courier New';">MGPickerMenuItem&nbsp;-e&nbsp;-subMenu&nbsp;1&nbsp;$menuItem0;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;</span><br />
+<span style="font-family: 'Courier New';">//&nbsp;Like&nbsp;we&nbsp;did&nbsp;above,&nbsp;add&nbsp;submenu&nbsp;items:</span><br />
+<span style="font-family: 'Courier New';">string&nbsp;$subMenuItem1&nbsp;=&nbsp;`MGPickerMenuItem&nbsp;-e&nbsp;-addSubMenuItem&nbsp;&quot;First&nbsp;SubMenu&nbsp;Item&quot;&nbsp;&quot;/path/to/icon.png&quot;&nbsp;&quot;python&quot;&nbsp;&quot;print&nbsp;'Sub&nbsp;menu&nbsp;item&nbsp;works!'&quot;&nbsp;&quot;&quot;&nbsp;$menuItem0`;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;</span><br />
+<span style="font-family: 'Courier New';">//&nbsp;We&nbsp;can&nbsp;also&nbsp;add&nbsp;a&nbsp;sub-menu&nbsp;item&nbsp;using&nbsp;MGPickerMenuItem&nbsp;command:</span><br />
+<span style="font-family: 'Courier New';">string&nbsp;$subMenuItem2&nbsp;=&nbsp;`MGPickerMenuItem&nbsp;-parent&nbsp;$menuItem0&nbsp;</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">&nbsp;&nbsp;-label&nbsp;&quot;Second&nbsp;SubMenu&nbsp;Item&quot;&nbsp;</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">&nbsp;&nbsp;-image&nbsp;&quot;/path/to/icon.png&quot;&nbsp;</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">&nbsp;&nbsp;-commandType&nbsp;&quot;python&quot;&nbsp;</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">&nbsp;&nbsp;-command&nbsp;&quot;print&nbsp;'The&nbsp;MGPickerMenuItem&nbsp;in&nbsp;create&nbsp;mode&nbsp;also&nbsp;works&nbsp;for&nbsp;submenu&nbsp;item!'&quot;`;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="pyexamples"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">Python</span><span style="font-size: 14pt; font-family: 宋体; font-weight: bold;">例子</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">import maya.cmds as cmd</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">#&nbsp;You&nbsp;must&nbsp;make&nbsp;sure&nbsp;the&nbsp;picker&nbsp;item:&nbsp;commandButton1&nbsp;is&nbsp;already&nbsp;in&nbsp;scene&nbsp;in&nbsp;order&nbsp;to&nbsp;test&nbsp;these&nbsp;codes.</span><br />
+<span style="font-family: 'Courier New';">#&nbsp;To&nbsp;form&nbsp;a&nbsp;picker&nbsp;menu&nbsp;id,&nbsp;use&nbsp;pickerItemId.leftmenu&nbsp;/&nbsp;pickerItemId.rightmenu</span><br />
+<span style="font-family: 'Courier New';">cmdButton&nbsp;=&nbsp;'commandButton1'</span><br />
+<span style="font-family: 'Courier New';">rightMenu&nbsp;=&nbsp;cmds.MGPickerMenu(p=cmdButton,&nbsp;mode='rightmenu')&nbsp;#&nbsp;This&nbsp;just&nbsp;retrieves&nbsp;the&nbsp;id&nbsp;&quot;commandButton1.rightmenu&quot;&nbsp;instead&nbsp;of&nbsp;creating&nbsp;it.</span><br />
+<span style="font-family: 'Courier New';">&nbsp;</span><br />
+<span style="font-family: 'Courier New';">#&nbsp;&nbsp;We&nbsp;get&nbsp;a&nbsp;menu&nbsp;item&nbsp;id&nbsp;via&nbsp;-addMenuItem&nbsp;or&nbsp;-insertMenuItem&nbsp;flag&nbsp;of&nbsp;MGPickerMenu&nbsp;command:</span><br />
+<span style="font-family: 'Courier New';">menuItem0&nbsp;=&nbsp;cmds.MGPickerMenu(rightMenu,&nbsp;e=True,&nbsp;addMenuItem=('First&nbsp;Menu&nbsp;Item',&nbsp;'/path/to/icon0.png',&nbsp;'mel',&nbsp;'print&nbsp;&quot;It&nbsp;works!&quot;',&nbsp;'N'))</span><br />
+<span style="font-family: 'Courier New';">#&nbsp;We&nbsp;can&nbsp;add&nbsp;a&nbsp;menu&nbsp;item&nbsp;using&nbsp;MGPickerMenuItem&nbsp;command:</span><br />
+<span style="font-family: 'Courier New';">menuItem1&nbsp;=&nbsp;cmds.MGPickerMenuItem(parent=rightMenu,&nbsp;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label='Second&nbsp;Menu&nbsp;Item',&nbsp;&nbsp;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image='/path/to/icon1.png',&nbsp;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;commandType='mel',&nbsp;&nbsp;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;command='print&nbsp;&quot;The&nbsp;MGPickerMenuItem&nbsp;in&nbsp;create&nbsp;mode&nbsp;works&nbsp;!&quot;')</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">#&nbsp;We&nbsp;can&nbsp;also&nbsp;make&nbsp;a&nbsp;menu&nbsp;item&nbsp;a&nbsp;sub&nbsp;menu:</span><br />
+<span style="font-family: 'Courier New';">cmds.MGPickerMenuItem(menuItem0,&nbsp;e=True,&nbsp;subMenu=True)</span><br />
+<span style="font-family: 'Courier New';">&nbsp;</span><br />
+<span style="font-family: 'Courier New';">#&nbsp;Like&nbsp;we&nbsp;did&nbsp;above,&nbsp;add&nbsp;submenu&nbsp;items:</span><br />
+<span style="font-family: 'Courier New';">subMenuItem1&nbsp;=&nbsp;cmds.MGPickerMenuItem(menuItem0,&nbsp;e=True,&nbsp;addSubMenuItem=('First&nbsp;SubMenu&nbsp;Item',&nbsp;'/path/to/icon0.png',&nbsp;'mel',&nbsp;'print&nbsp;&quot;Sub&nbsp;menu&nbsp;works!&quot;',&nbsp;''))</span><br />
+<span style="font-family: 'Courier New';">&nbsp;</span><br />
+<span style="font-family: 'Courier New';">#&nbsp;We&nbsp;can&nbsp;also&nbsp;add&nbsp;a&nbsp;sub-menu&nbsp;item&nbsp;using&nbsp;MGPickerMenuItem&nbsp;command:</span><br />
+<span style="font-family: 'Courier New';">subMenuItem2&nbsp;=&nbsp;cmds.MGPickerMenuItem(parent=menuItem0,&nbsp;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label='Second&nbsp;SubMenu&nbsp;Item',&nbsp;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image='/path/to/icon.png',&nbsp;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;commandType='python',&nbsp;</span><br />
+<span style="font-family: 'Courier New';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;command=&quot;print&nbsp;'The&nbsp;MGPickerMenuItem&nbsp;in&nbsp;create&nbsp;mode&nbsp;also&nbsp;works&nbsp;for&nbsp;submenu&nbsp;item!'&quot;)</span></p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="mgpickermenu.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="mgpickerservice.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Snap Keyframes</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Animation,Keyframe" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "snapkeyframe_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">Snap Keyframes</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="keyframeprobe_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="scaleanimation_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> Super SnapKeyframe</span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:94px; padding:0px;"><p style="text-align: center; line-height: 1.50;"><img src="snapkeyframeicon.gif" width="32" height="32" alt="snapKeyframeIcon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:5px; padding:0px;"><p style="line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">Snap the animation keyframes to integer by force.</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">If time range is selected before snapping, only the keys in the range are snapped. Or else all animation will be snapped.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> How to Use</span><span style="font-weight: bold; color: #191817;">：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">The tool has no UI, just press the button on keyframeTool or the shelf button on maya shelf.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> What's different to Maya's snap key feature</span><span style="font-weight: bold; color: #191817;">：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">Maya 's default snap key feature can't deal with more than two keys stuck together within one frame.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">Super snapKeyframe first does maya's default snapping for one time,than insert a integer key near each non-integer keyframe to keep the animcurve shape,then remove the non-integer key. Hence the animation is the maximal close to the original animation after snapping.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> More snap option</span><span style="font-weight: bold; color: #191817;">：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">Right mouse button clicking on the button,there are more snapping manner:<br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<img src="snapkeyframe_option_en.gif" width="363" height="124" alt="snapKeyframe_option_en" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="color: #404040;">Snap GraphEditor Selected: </span>Only snap the animCurves selected in graphEditor.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="color: #404040;">Snap TimeSlider Selected: </span>Only snap selected range in timeSlider.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="color: #404040;">Snap TimeSlider Range: </span>Snap the keyframes between current showRange of timeSlider.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="color: #404040;">Snap All: </span>Snap all animation of current selected objects.</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="keyframeprobe_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="scaleanimation_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

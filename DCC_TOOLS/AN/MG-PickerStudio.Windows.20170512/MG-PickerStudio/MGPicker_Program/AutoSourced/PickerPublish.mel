@@ -1,0 +1,954 @@
+/*
+	This script contains publish related function codes in picker.
+	It will be auto-source when MG-Picker Studio tool loads.
+*/
+
+proc string mgp_ensurePathEndsWithSlash(string $path)
+{
+	if(!`size $path`)
+	{
+		return $path;
+	}
+	if(!`endsWith $path "/"`)
+	{
+		$path += "/";
+	}
+	return $path;
+}
+global proc string MGP_getSceneBasename()
+{
+	string $bn = basenameEx(`file -q -shn -sn`);
+	//string $inner = `mgp_ensurePathEndsWithSlash $targetDir`+ $bn;
+	return $bn;
+}
+proc int mgp_testTargetDir(string $targetDir)
+{
+	if(!size($targetDir))
+	{
+		MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.publish.emptyDir"` 2;
+		return 0;
+	}
+	if(!`filetest -d $targetDir`)
+	{
+		if(!`sysFile -md $targetDir`)
+		{
+			MGP_ScriptEditorFeedback `MGP_MultiLanguage_rep1 "pkr.publish.dirCantBuild.war" $targetDir` 2;
+			return 0;
+		}
+	}
+	/*
+	string $inner = `mgp_getTargetInnerFolder $targetDir`;
+	if(!`filetest -d $inner`)
+	{
+		if(!`sysFile -md $inner`)
+		{
+			MGP_ScriptEditorFeedback `MGP_MultiLanguage_rep1 "pkr.publish.dirCantBuild.war" $inner` 2;
+			return 0;
+		}
+	}*/
+	return 1;
+}
+proc int mgp_testCurrentSceneSaveState()
+{	
+	string $sceneFile = `file -q -sn`;
+	if(!`size $sceneFile`)
+	{
+			confirmDialog -title `MGP_getAppName` -message `MGP_MultiLanguage "pkr.publish.sceneUntitled"` -button "OK";
+			return 0;
+	}
+	return 1;
+}
+
+
+proc string mgp_getNonDuplicateFilename(string $dir, string $filename)
+{
+	if(!`filetest -d $dir`)
+	{
+		return $filename;
+	}
+	$dir = `mgp_ensurePathEndsWithSlash $dir`;
+	string $ext = `fileExtension $filename`; 
+	string $exFiles[]=`getFileList -fld $dir -fs ("*."+$ext)`;
+	string $basename = `basenameEx $filename`;
+	return `MGP_GetValidNonDupFileName $basename $ext "UntitledImage" $exFiles`;
+}
+proc int mgp_copyAllImagesToDir(string $targetDir, 
+																int $publishTextures,
+																int $publishImagePlane,
+																int $toRelative,
+																int $publishInScenePickers)
+{	
+	if(!$publishTextures && !$publishImagePlane)
+	{
+		return 1;
+	}
+	string $textureFolderName = "sourceimages";
+	string $targetDirSlash = `mgp_ensurePathEndsWithSlash $targetDir`;
+	string $textureDir = $targetDirSlash + $textureFolderName;
+	if(!`filetest -d $textureDir`)
+	{
+		if(!`sysFile -md $textureDir`)
+		{
+			MGP_ScriptEditorFeedback `MGP_MultiLanguage_rep2 "pkr.publish.canBuildDir.withinDir" $textureFolderName $targetDir` 2;
+			return 0;
+		}
+	}
+	$textureDir += "/";
+	string $files[] = `ls -type "file"`;
+	string $imageplanes[] = `ls -type "imagePlane"`;
+	int $fileLen = size($files);
+	int $imageplaneLen = size($imageplanes);
+	
+	int $needProcess = 0;
+	if($publishTextures)
+	{
+		if($fileLen)
+		{
+			$needProcess = 1;
+		}
+	}
+	if($publishImagePlane)
+	{
+		if($imageplaneLen)
+		{
+			$needProcess = 1;
+		}
+	}
+	if(!$needProcess)
+	{
+		return 1;
+	}
+	string $processedImage[];
+	clear $processedImage;	
+		
+	//set project to support relative path:
+	string $oldProj;
+	if($toRelative)
+	{
+		$oldProj = `workspace -q -dir`;
+		setProject $targetDir;
+		workspace -dir $targetDir ;
+		workspace -fileRule "sourceImages" "sourceimages";
+		workspace -fileRule "mayaAscii" "";
+		workspace -fileRule "mayaBinary" "";
+		workspace -fileRule "autoSave" "";
+		workspace -fileRule "offlineEdit" "";
+		workspace -fileRule "movie" "";
+		workspace -fileRule "templates" "";
+		workspace -fileRule "particles" "";
+		workspace -s;
+		workspace -update;
+	}
+	
+	//copy and set relative the textures:
+	if($publishTextures)
+	{
+		for($f in $files)
+		{
+			string $image = `getAttr ($f+".fileTextureName")`;
+			string $bn = `basename $image ""`;
+			if(`stringArrayContains $image $processedImage`)
+			{
+				if($toRelative)
+				{
+					//print ($textureFolderName+"/"+$bn+"\n");
+					setAttr -type "string" ($f+".fileTextureName") ($textureFolderName+"/"+$bn);
+					$rep = `MGP_MultiLanguage "pkr.publish.texture.relative"`;
+					MGP_ScriptEditorFeedback $rep 0;
+				}
+				continue;
+			}
+			if(`filetest -f $image`)
+			{
+				$bn = `mgp_getNonDuplicateFilename $textureDir $bn`;
+				string $targetFile = ($textureDir + $bn);
+				if(!`sysFile -copy $targetFile $image`)
+				{
+					MGP_ScriptEditorFeedback (`MGP_MultiLanguage "pkr.publish.errorCopyTexture"`+" "+$image+".") 1;
+				}
+				else
+				{
+					string $rep = (`MGP_MultiLanguage "pkr.publish.textureCopied"`+" "+$image);
+					if($toRelative)
+					{
+						//print ($textureFolderName+"/"+$bn+"\n");
+						setAttr -type "string" ($f+".fileTextureName") ($textureFolderName+"/"+$bn);
+						$rep += (", " + `MGP_MultiLanguage "pkr.publish.andRelative"`);
+					}
+					else
+					{
+						$rep += ".";
+					}
+					MGP_ScriptEditorFeedback $rep 0;
+					$processedImage[size($processedImage)] = $image;
+				}
+			}
+			else
+			{			
+				MGP_ScriptEditorFeedback (`MGP_MultiLanguage "pkr.publish.textureNotExist"`+" "+$image+".") 1;
+			}
+		}
+	}
+	//copy and set relative the imageplane images:
+	if($publishImagePlane)
+	{
+		for($ip in $imageplanes)
+		{
+			string $image = `getAttr ($ip+".imageName")`;
+			string $bn = `basename $image ""`;
+			if(`stringArrayContains $image $processedImage`)
+			{
+				if($toRelative)
+				{
+					setAttr -type "string" ($ip+".imageName") ($textureFolderName+"/"+$bn);
+					$rep = `MGP_MultiLanguage_rep1 "pkr.publish.imagePlane.relative" $ip`;
+					MGP_ScriptEditorFeedback $rep 0;
+				}
+				continue;
+			}
+			if(`filetest -f $image`)
+			{
+				$bn = `mgp_getNonDuplicateFilename $textureDir $bn`;
+				string $targetFile = ($textureDir + $bn);
+				if(!`sysFile -copy $targetFile $image`)
+				{
+					MGP_ScriptEditorFeedback (`MGP_MultiLanguage "pkr.publish.errorCopyImageplane"`+" "+$image+".") 1;
+				}
+				else
+				{
+					string $rep = (`MGP_MultiLanguage "pkr.publish.imageplaneCopied"`+" "+$image);
+					if($toRelative)
+					{
+						setAttr -type "string" ($ip+".imageName") ($textureFolderName+"/"+$bn);
+						$rep += (", "+`MGP_MultiLanguage "pkr.publish.andRelative"`);
+					}
+					else
+					{
+						$rep += ".";
+					}
+					MGP_ScriptEditorFeedback $rep 0;
+				}
+			}
+			else
+			{			
+				MGP_ScriptEditorFeedback (`MGP_MultiLanguage "pkr.publish.iamgeplaneNotExist"`+" "+$image+".") 1;
+			}
+		}
+	}
+	
+	file -save;
+	string $scFile = `file -q -sn`;
+	if($publishInScenePickers)
+	{
+		string $bn = `basenameEx $scFile`;
+		int $result = `MGPickerView -e -saveAsSceneNode $bn 1`; 
+		if(!$result)
+		{
+			MGP_ScriptEditorFeedback (`MGP_MultiLanguage "pkr.publish.inscenePicker.error"`) 2;
+			file -new -f;
+			if($toRelative)
+			{
+				//remember to set back the project:
+				setProject $oldProj;
+				workspace -dir $oldProj;
+				workspace -update;
+			}
+			return 0;
+		}
+		file -save;
+		
+		//now copy the scene dir:
+		string $scDir = ($targetDirSlash+"scenes/pickerimages");
+		//print  ($scDir+"\n");
+		
+		if(`filetest -d $scDir`)
+		{
+			//print "scDir exists!\n";
+			string $tgtDir = ($targetDirSlash+"/pickerimages");
+			int $result = MGP_CopyFolder($tgtDir,$scDir,1);
+			//print ("\n"+$result+"\n"+"Source: "+$tgtDir+"\nTarget:"+$tgtDir+"\n");
+			if($result)
+			{
+				MGP_DeleteFolder_Ex($scDir,"","",1, 0);
+				MGP_ScriptEditorFeedback (`MGP_MultiLanguage "pkr.publish.inscenePicker.done"`) 0;
+			}
+			else
+			{		
+				MGP_ScriptEditorFeedback (`MGP_MultiLanguage "pkr.publish.erroCopyImageDir"`) 2;
+				file -new -f;
+				if($toRelative)
+				{
+					//remember to set back the project:
+					setProject $oldProj;
+					workspace -dir $oldProj;
+					workspace -update;
+				}
+				return 0;	
+			}
+		}
+		else
+		{			
+				MGP_ScriptEditorFeedback (`MGP_MultiLanguage "pkr.publish.inscenePicker.done"`) 0;
+		}
+		MGPicker -e -close "" 1 "";
+		
+	}
+	//now clean up:
+	if($toRelative)
+	{
+		//clear all the project folder things:
+		//they are all folders: assets, autosave, scenes	
+		sysFile -removeEmptyDir ($targetDirSlash+"assets");
+		sysFile -removeEmptyDir ($targetDirSlash+"autosave");
+		sysFile -removeEmptyDir ($targetDirSlash+"scenes/edits");
+		//sysFile -removeEmptyDir ($targetDirSlash+"scenes");
+		//remember to set back the project:
+		setProject $oldProj;
+		//workspace -dir $oldProj;
+		//workspace -update;
+	}
+	
+	//move out from scene dir:
+	string $targetFile = ($targetDirSlash+`basename $scFile ""`);
+	sysFile -cp $targetFile $scFile;
+	sysFile -del $scFile;
+	sysFile -removeEmptyDir ($targetDirSlash+"scenes");
+	file -new -f;
+	return 1;
+}
+global proc int MGP_PulishCurrentMayaScene(string $targetDir, 
+																				int $publishTextures,
+																				int $publishImagePlane,
+																				int $makeImageRelative,
+																				int $publishInScenePickers)
+{	
+	if(!`mgp_testCurrentSceneSaveState`)	
+	{
+		return 0;
+	}	
+	if(!`mgp_testTargetDir $targetDir`)
+	{
+		return 0;
+	}
+	//Save the scene to the target dir first:
+	string $sn = `file -q -sn -shortName`;
+	$targetDir = `mgp_ensurePathEndsWithSlash $targetDir`;
+	string $scDir = ($targetDir+"scenes");
+	if(!`filetest -d $scDir`)
+	{
+		sysFile -md $scDir;
+	}
+	file -rename ($scDir+"/"+$sn);
+	//file -rename ($targetDir+$sn);
+	file -save;
+	//copy the textures and make them relative if desired:
+	if($publishTextures || $publishImagePlane)
+	{
+		if(!`mgp_copyAllImagesToDir $targetDir $publishTextures $publishImagePlane $makeImageRelative $publishInScenePickers`)
+		{
+			return 0;
+		}
+	}
+	return 1;
+}
+/*
+global proc int MGP_AfterPulishCurrentScene_CopyPickerImages(string $targetDir)
+//copy the picker images out from the scene dir.
+{	
+	string $scDir = ($targetDir+"scenes/pickerimages");
+	if(`filetest -d $scDir`)
+	{
+		return 0;
+	}
+	string $tgtDir = ($targetDir+"/pickerimages");
+	int $result = MGP_CopyFolder($tgtDir,$scDir,1);
+	if($result)
+	{
+		MGP_DeleteFolder_Ex($scDir,"","",1, 0);
+		MGP_ScriptEditorFeedback (`MGP_MultiLanguage "pkr.publish.inscenePicker.done"`) 0;
+		return 1;
+	}
+	else
+	{		
+		MGP_ScriptEditorFeedback (`MGP_MultiLanguage "pkr.publish.erroCopyImageDir"`) 2;
+		return 0;	
+	}
+}
+global proc MGP_AfterPulishCurrentScene_CloseFile()
+{
+	file -save -f;
+	file -new -f;
+}*/
+global proc string MGP_GetRepublishTermFile()
+{	
+	global string $MGPicker_ProgramPath;	
+	if(!`filetest -d $MGPicker_ProgramPath`)
+	{
+		return "";
+	}
+	string $file = $MGPicker_ProgramPath + "MGPicker_Program/Terms/RepublishTerm_";
+	string $lan = `MGP_GetLanguageName`;
+	string $defaultLan = "English";
+	string $termfile = ($file + $lan + ".txt");
+	if($lan == $defaultLan)
+	{
+		return $termfile;
+	}
+	if(!`filetest -f $termfile`)
+	{
+			$termfile = ($file + $defaultLan + ".txt");
+	}
+	return $termfile;
+}
+global proc string[] MGP_listAllSubFolderFilesRecursively(int $listMode , string $cFolder, int $folderFirstOrLast)
+//$listMode 0: list only folder
+//$listMode 1: list only file
+//$listMode 2: list both, in this mode, folder will be listed ahead of files with one parentFolder.
+//if $cFolder is actually a file, on array with a single record: the file will be returned.
+//$folderFirstOrLast: 0: will list folder ahead of its containted files. Useful when copy folder tree, which should create folder first.
+//$folderFirstOrLast: 1: will list files ahead of its containt folder. Useful when delete folder tree, which should delete files first.
+{    
+    string $result[];
+    if(!size($cFolder))
+    {
+        return {};
+    }    
+    //if it is a folder:
+    if(`filetest -d $cFolder`)
+    {
+        if(!`endsWith $cFolder "/"`)
+        {
+            $cFolder += "/";
+        }
+        if($listMode != 1 && !$folderFirstOrLast)
+        {
+            $result[size($result)] = $cFolder;
+        }
+    }
+    else  if(`filetest -f $cFolder`)    //if it is actually a file, we return one single record: the file
+    {
+        if($listMode)
+        {
+            $result[size($result)] = $cFolder;
+        }      
+        return $result;  
+    }
+    else    //if it is not a file nor a folder, we return;
+    {
+        return {};
+    }
+    
+    string $items[] = `getFileList -fld $cFolder`;
+    if(!size($items))   //if it is empty folder and we need to list foler and the folder is listed last, we append the foler:
+    {
+        if($listMode != 1 && $folderFirstOrLast)
+        {
+            $result[size($result)] = $cFolder;
+        }
+        return $result;
+    }
+    string $cPath;
+    string $cSubFiles[];
+    if(!$folderFirstOrLast) //if list folder first, we list the folder first:
+    {
+        if($listMode != 1) 
+        {
+            for($item in $items)
+            {
+                 $cPath = $cFolder+$item;
+                 //if it is a directory, we recursively call this proc. The path will be record in the head of this proc.
+                 if(`filetest -d $cPath`)
+                 {
+                     $cPath +="/";
+                     $result = stringArrayCatenate ($result ,`MGP_listAllSubFolderFilesRecursively $listMode $cPath $folderFirstOrLast`);
+                 }
+            }
+        }
+        if($listMode) 
+        {
+            for($item in $items)
+            {
+                 $cPath = $cFolder+$item;
+                 if(!`filetest -d $cPath`)  //if it is a file and we are in listMode that list the files, we record it in $cSubFiles. So that we could add the files to the tail.
+                 {
+                     $cSubFiles[size($cSubFiles)] = $cPath;
+                 }
+            }
+        }
+    }
+    else
+    {
+        if($listMode)  //we add files first with one folder.
+        {
+            for($item in $items)
+            {
+                 $cPath = $cFolder+$item;
+                 if(!`filetest -d $cPath`)  //if it is a file and we are in listMode that list the files, we record it in $cSubFiles. So that we could add the files to the tail.
+                 {
+                     $cSubFiles[size($cSubFiles)] = $cPath;
+                 }
+            }
+        }
+        if($listMode != 1) 
+        {
+            for($item in $items)
+            {
+                 $cPath = $cFolder+$item;
+                 //if it is a directory, we recursively call this proc. The path will be record in the head of this proc.
+                 if(`filetest -d $cPath`)
+                 {
+                     $cPath +="/";
+                     $result = stringArrayCatenate ($result ,`MGP_listAllSubFolderFilesRecursively $listMode $cPath $folderFirstOrLast`);
+                 }
+            }
+        }
+    }
+    // add files last if we are in listMode that list the files:
+    if($listMode) 
+    {
+        $result = stringArrayCatenate ($result , $cSubFiles);
+    }
+    if($listMode != 1 && $folderFirstOrLast)
+    {
+        $result[size($result)] = $cFolder;
+    }
+    return $result;
+}
+global proc int MGP_CopyFolder_Ex(string $targetFolder,string $sourceFolder,string $progressBarControl,string $textControl, int $returnAtFirstError, int $autoHideProgressBarWhenIsDone)
+//only copy folder, file as a $sourceFolder parameter will be skipped.
+//$progressBarControl: a progressBar Control
+//$textControl: a text Control
+//this proc will always override the exist foler/file.
+//$returnAtFirstError 1: will return at first error.
+{
+    $targetFolder = `fromNativePath $targetFolder`;
+    $sourceFolder = `fromNativePath $sourceFolder`;
+    if(!`filetest -d $sourceFolder`)
+    {
+        return 0;
+    }
+    if(!`filetest -d $targetFolder`)
+    {
+        //if fail in the first step. we return quickly.
+        if(!`sysFile -md $targetFolder`)
+        {
+            return 0;
+        }
+    }
+    if(!`endsWith $targetFolder "/"`)
+    {
+        $targetFolder+="/";
+    }
+    if(!`endsWith $sourceFolder "/"`)
+    {
+        $sourceFolder+="/";
+    }
+    int $sourceFolderSize = size($sourceFolder);
+    
+    int $updateStatusBar = `control -q -ex $progressBarControl`;
+    int $updateStatusText =`control -q -ex $textControl`;
+    if($updateStatusBar)
+    {
+        progressBar -e -vis 1 -progress 0 $progressBarControl;
+    }
+
+    //list all sub folders and files, will list folders first, then the files.
+    string $subItems [] = `MGP_listAllSubFolderFilesRecursively 2 $sourceFolder 0`;
+    int $totalNum = size($subItems);
+    int $actualTotalNum =$totalNum-1;
+    if(!$totalNum)
+    {
+        if($updateStatusBar)
+        {        
+            progressBar -e -progress 100 $progressBarControl; 
+            if($autoHideProgressBarWhenIsDone)
+            {
+                progressBar -e -vis 0 -progress 0 $progressBarControl;                         
+            }
+        } 
+        return 1;
+    }
+    int $cPercentage = 0;
+    int $cResult;
+    string $cTarget;
+    string $cSource;
+    string $cSubfix;
+    if($totalNum > 1)
+    {
+      string $errorLbl = `MGP_MultiLanguage "pkr.error"`;
+        for($i=1; $i<$totalNum; $i++)   //we skip the first one because we have make $targetFolder; 
+        {
+            $cSource = $subItems[$i];
+            $cSubfix = `substring $cSource ($sourceFolderSize+1) (size($cSource))`;
+            $cTarget = $targetFolder+$cSubfix;
+            //if it is a folder:
+            if(`endsWith $cTarget "/"`)
+            {
+                $cResult = `sysFile -md $cTarget`;
+            }
+            else
+            {
+                $cResult = `sysFile -cp $cTarget $cSource`;
+            }
+            if($updateStatusBar)
+            {        
+                $cPercentage =( $i/float($actualTotalNum))*100;
+                progressBar -e -progress $cPercentage $progressBarControl; 
+            }   
+            
+            if($cResult)
+            {
+                //print ($cSubfix+"\n");
+                if($updateStatusText)
+                {
+                    text -e -l $cSubfix $textControl;
+                }
+            }
+            else
+            {                      
+                if($updateStatusText)
+                {
+                    text -e -l ("!!! "+$errorLbl+" @ "+$cSubfix) $textControl;
+                }
+                if($returnAtFirstError)
+                { 
+                    if($updateStatusBar)
+                    {        
+                        progressBar -e -progress 100 $progressBarControl; 
+                        if($autoHideProgressBarWhenIsDone)
+                        {
+                            progressBar -e -vis 0 -progress 0 $progressBarControl;                         
+                        }
+                    }  
+                    return 0;
+                }
+            }
+        }
+    }
+    if($autoHideProgressBarWhenIsDone && $updateStatusBar)
+    {
+        progressBar -e -vis 0 -progress 0 $progressBarControl;                         
+    }
+    return 1;
+}
+global proc int MGP_CopyFolder(string $targetFolder,string $sourceFolder,int $returnAtFirstError)
+//only copy folder, file as a $sourceFolder parameter will be skipped.
+//this proc will always override the exist foler/file.
+//$returnAtFirstError 1: will return at first error.
+{
+    $targetFolder = `fromNativePath $targetFolder`;
+    $sourceFolder = `fromNativePath $sourceFolder`;
+    if(!`filetest -d $sourceFolder`)
+    {
+        return 0;
+    }
+    if(!`filetest -d $targetFolder`)
+    {
+        //if fail in the first step. we return quickly.
+        if(!`sysFile -md $targetFolder`)
+        {
+            return 0;
+        }
+    }
+    if(!`endsWith $targetFolder "/"`)
+    {
+        $targetFolder+="/";
+    }
+    if(!`endsWith $sourceFolder "/"`)
+    {
+        $sourceFolder+="/";
+    }
+    int $sourceFolderSize = size($sourceFolder);
+    
+    
+    //list all sub folders and files, will list folders first, then the files.
+    string $subItems [] = `MGP_listAllSubFolderFilesRecursively 2 $sourceFolder 0`;
+    int $totalNum = size($subItems);
+    int $actualTotalNum =$totalNum-1;
+    if(!$totalNum)
+    {
+        return 1;
+    }
+    int $cPercentage = 0;
+    int $cResult;
+    string $cTarget;
+    string $cSource;
+    string $cSubfix;
+    if($totalNum > 1)
+    {
+      string $errorLbl = `MGP_MultiLanguage "pkr.error"`;
+        for($i=1; $i<$totalNum; $i++)   //we skip the first one because we have make $targetFolder; 
+        {
+            $cSource = $subItems[$i];
+            $cSubfix = `substring $cSource ($sourceFolderSize+1) (size($cSource))`;
+            $cTarget = $targetFolder+$cSubfix;
+            //if it is a folder:
+            if(`endsWith $cTarget "/"`)
+            {
+                $cResult = `sysFile -md $cTarget`;
+            }
+            else
+            {
+                $cResult = `sysFile -cp $cTarget $cSource`;
+            }            
+            if(!$cResult)
+            {    
+                if($returnAtFirstError)
+                {   
+                    return 0;
+                }
+            }
+        }
+    }
+    return 1;
+}
+global proc int MGP_DeleteFolder_Ex(string $deleteFolder,string $progressBarControl,string $textControl,int $returnAtFirstError, int $autoHideProgressBarWhenIsDone)
+//only delete folder, file as a $sourceFolder parameter will be skipped.
+//$progressBarControl: a progressBar Control
+//$textControl: a text Control
+//$returnAtFirstError 1: will return at first error.
+{
+    $deleteFolder = `fromNativePath $deleteFolder`;
+    if(!`filetest -d $deleteFolder`)
+    {
+        return 0;
+    }
+    if(!`endsWith $deleteFolder "/"`)
+    {
+        $deleteFolder+="/";
+    }
+    
+    int $updateStatusBar = `control -q -ex $progressBarControl`;
+    int $updateStatusText =`control -q -ex $textControl`;
+    if($updateStatusBar)
+    {
+        progressBar -e -vis 1 -progress 0 $progressBarControl;
+    }
+    
+    //list all sub files and folders, will list files first, then the folers.
+    string $subItems [] = `MGP_listAllSubFolderFilesRecursively 2 $deleteFolder 1`;
+    //print $subItems;
+    int $totalNum = size($subItems);
+    int $actualTotalNum =$totalNum-1;
+    int $cResult;
+    string $errorLbl = `MGP_MultiLanguage "pkr.error"`;
+    if(!$totalNum) //if  nothing to delete.
+    {
+        if($updateStatusBar)
+        {        
+            progressBar -e -progress 100 $progressBarControl; 
+            if($autoHideProgressBarWhenIsDone)
+            {
+                progressBar -e -vis 0 -progress 0 $progressBarControl;                         
+            }
+        } 
+        return 1;
+    }
+    else if($totalNum == 1) //the folder is empty
+    {
+        if(`endsWith $subItems[0] "/"`)
+        {
+        		$cResult = `sysFile -removeEmptyDir $subItems[0]`;
+        }
+        else
+        {
+            $cResult = `sysFile -delete $subItems[0]`;
+        }
+        if($cResult)
+        {
+            //print ($cItem+"\n");
+            if($updateStatusText)
+            {
+                text -e -l $subItems[0] $textControl;
+            }
+        }
+        else
+        {                      
+            if($updateStatusText)
+            {
+                text -e -l ("!!! "+$errorLbl+" @ "+$subItems[0]) $textControl;
+            }
+        }
+        if($updateStatusBar)
+        {        
+            progressBar -e -progress 100 $progressBarControl; 
+            if($autoHideProgressBarWhenIsDone)
+            {
+                progressBar -e -vis 0 -progress 0 $progressBarControl;                         
+            }
+        }  
+        return $cResult;
+    }
+    
+    int $cPercentage = 0;
+    string $cItem;
+    for($i=0; $i<$totalNum; $i++) 
+    {
+        $cItem = $subItems[$i];
+        //print ($cItem+"\n");
+        //if it is a folder:
+        if(`endsWith $cItem "/"`)
+        {
+            $cResult = `sysFile -removeEmptyDir $cItem`;
+        }
+        else
+        {
+            $cResult = `sysFile -delete $cItem`;
+        }
+        if($updateStatusBar)
+        {        
+            $cPercentage =( ($i+1)/float($actualTotalNum))*100;
+            progressBar -e -progress $cPercentage $progressBarControl; 
+        }  
+        if($cResult)
+        {
+            //print ($cItem+"\n");
+            if($updateStatusText)
+            {
+                text -e -l $cItem $textControl;
+            }
+        }
+        else
+        {                      
+            if($updateStatusText)
+            {
+                text -e -l ("!!! "+$errorLbl+" @ "+$cItem) $textControl;
+            }
+            if($returnAtFirstError)
+            { 
+                if($updateStatusBar)
+                {        
+                    progressBar -e -progress 100 $progressBarControl; 
+                    if($autoHideProgressBarWhenIsDone)
+                    {
+                        progressBar -e -vis 0 -progress 0 $progressBarControl;                         
+                    }
+                }  
+                return 0;
+            }
+        }
+    }
+    if($autoHideProgressBarWhenIsDone && $updateStatusBar)
+    {
+        progressBar -e -vis 0 -progress 0 $progressBarControl;                         
+    }
+    return 1;
+}
+proc string mgp_getProgramPublishTargetRootPath(string $targetDir)
+{
+	if(!size($targetDir))
+	{
+		return "";
+	}
+	global string $MGPicker_FolderName;
+	$targetDir = `mgp_ensurePathEndsWithSlash $targetDir`;
+	$targetDir += ($MGPicker_FolderName + "/");
+	return $targetDir;
+}
+
+global proc int MGP_PulishPickerPrograms(string $targetDir, 
+																				int $publishAutosourced)
+{
+	if(!`mgp_testTargetDir $targetDir`)
+	{
+		return 0;
+	}
+	$targetDir = (`mgp_ensurePathEndsWithSlash $targetDir`);
+	
+  global string $MGPicker_AppName;
+	global string $MGPicker_ProgramPath;	
+	if(!`filetest -d $MGPicker_ProgramPath`)
+	{
+		MGP_ScriptEditorFeedback `MGP_MultiLanguage_rep1 "pkr.publish.cantFindProgram" $MGPicker_AppName` 2;
+		return 0;
+	}
+	
+	//publish picker program code.
+	global string $MGPicker_FolderName;
+	string $targetRoot = `mgp_getProgramPublishTargetRootPath $targetDir`;
+	string $targetFolder = $targetRoot + $MGPicker_FolderName;
+	if(!`filetest -d $targetFolder`)
+	{
+		if(!`sysFile -md $targetFolder`)
+		{
+			MGP_ScriptEditorFeedback (`MGP_MultiLanguage "pkr.publish.canBuildDir"`+" "+$targetFolder+".") 2;
+			return 0;
+		}
+	}
+	$targetFolder += "/";
+	string $sourceDir = `mgp_ensurePathEndsWithSlash $MGPicker_ProgramPath`;
+	
+	//now copy the installation resource first:
+	string $installMel_source = $MGPicker_ProgramPath + "MGPicker_Program/Installer/MGPicker_installer.mel";
+	string $installMel_target = $targetRoot + "MGPicker_installer.mel";
+	sysFile -cp $installMel_target $installMel_source;
+	
+	string $installMel_ReadMeSource1 = $MGPicker_ProgramPath + "MGPicker_Program/Installer/HowToInstall_English.txt";
+	string $installMel_ReadMeTarget1 = $targetRoot + "HowToInstall_English.txt";
+	sysFile -cp $installMel_ReadMeTarget1 $installMel_ReadMeSource1;
+	
+	string $installMel_ReadMeSource2 = $MGPicker_ProgramPath + "MGPicker_Program/Installer/HowToInstall_SimplifiedChinese.txt";
+	string $installMel_ReadMeTarget2 = $targetRoot + "HowToInstall_SimplifiedChinese.txt";
+	sysFile -cp $installMel_ReadMeTarget2 $installMel_ReadMeSource2;
+	
+	string $installMel_ReadMeSource3 = $MGPicker_ProgramPath + "MGPicker_Program/Installer/HowToInstall_TraditionalChinese.txt";
+	string $installMel_ReadMeTarget3 = $targetRoot + "HowToInstall_TraditionalChinese.txt";
+	sysFile -cp $installMel_ReadMeTarget3 $installMel_ReadMeSource3;
+	
+	$targetFolder = `mgp_ensurePathEndsWithSlash $targetFolder`;
+	//now copy other folders:
+	string $fileFolders[]=`getFileList -fld $sourceDir`;
+	for($f in $fileFolders)
+	{
+		string $cf = ($sourceDir + $f);
+		string $tf = ($targetFolder + $f);
+		if(`filetest -f $cf`)
+		{
+			sysFile -cp $tf $cf;
+		}
+		else if(`filetest -d $cf`)
+		{
+			if($f == "MGPicker_UserConfig")
+			{
+				if($publishAutosourced)
+				{
+					string $sourceAutoSourceFld=$cf + "/AutoSourced";
+					string $targetAutoSourceFld=$tf + "/AutoSourced";
+					MGP_CopyFolder $targetAutoSourceFld $sourceAutoSourceFld 1;
+				}
+			}
+			else
+			{
+				MGP_CopyFolder $tf $cf 1;
+			}
+		}
+	}
+	return 1;
+}
+
+global proc string MGP_GetDirToPublishPickerIntoProgram(string $targetDir)
+{
+	if(!size($targetDir))
+	{
+		return "";
+	}
+	global string $MGPicker_FolderName;
+	$targetDir = `mgp_getProgramPublishTargetRootPath $targetDir`;
+	$targetDir += ($MGPicker_FolderName+"/MG_PickerData/Default");
+	return $targetDir;
+}
+global proc int MGP_ZipDirectory(string $resultZipFile, string $targetDirToZip)
+{
+	if(!`exists "MGPickerService"`)
+	{
+		MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.publish.errorZip"` 2;
+		return 0;
+	}
+	MGP_ScriptEditorFeedback(`MGP_MultiLanguage "pkr.publish.zipping"`,0);
+	int $result = `MGPickerService -zip $targetDirToZip $resultZipFile`;
+	if($result)
+	{
+		MGP_ScriptEditorFeedback(`MGP_MultiLanguage "pkr.publish.finishZip"`,0);
+	}
+	return $result;
+}

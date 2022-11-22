@@ -1,0 +1,11 @@
+﻿	MG-Picker工作室再發布條款
+
+要再發佈MG-Picker工作室, 您必須同意以下條款:
+1. MG-Picker工作室程序的版權屬於Miguel Winfield(高文峯)，MGLAND動畫工作室保有所有權利。
+2. 您不能更動程序文件夾內的"MGPicker_Program"目錄內所有內容, "MGPicker_Help"目錄內所有內容, 及所有其它由程序維護的文件/文件夾。
+3. "MGPicker_UserConfig"目錄裡的用戶文件可以更動，或包含其它必需的文件，不過裡面的"ReadMe"的文本文件不可以更動。
+4. 由您設計的picker文件/節點，自動載入腳本或maya rigs是屬性您的，但您必須保證您包含進來的所有這些文件必須對picker用戶完全無害。
+   自動載入腳本及picker/rig開發者及設計者對這些用戶文件及其可能引起的任何後果負有全部的責任。
+
+感謝您使用MG-Picker工作室。
+Miguel Winfield （高文峯）

@@ -1,0 +1,1780 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>MGPicker Command</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="API,MGPicker command" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "mgpicker.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="programmer.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="mgpickerview.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; height:8px; padding:1px;"><p><span style="font-family: 'Times New Roman'; font-weight: bold;">命令</span><span style="font-family: 'Times New Roman';"> (MEL/Python)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; height:5px; padding:1px;"><h1 class="p_Heading1" style="margin: 19px 0px 19px 0px;"><span class="f_Heading1" style="font-size: 24pt; font-family: 'Times New Roman';">MGPicker</span></h1>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 14px 0px 0px 0px;"><span style="font-family: 'Times New Roman';">跳转到: </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#synopsis" class="topiclink">MEL概要</a>. <a href="mgpicker.htm#pysynopsis" class="topiclink">Python概要</a>. <a href="mgpicker.htm#returnvalue" class="topiclink">返回值</a>. <a href="mgpicker.htm#flags" class="topiclink">标签</a>. <a href="mgpicker.htm#examples" class="topiclink">MEL例子</a>. <a href="mgpickeritem.htm#pyexamples" class="topiclink">Python例子</a>.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="synopsis"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">MEL概要</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">MGPicker [-<a href="mgpicker.htm#about" class="topiclink">about</a>] [-<a href="mgpicker.htm#aboutcurrentpicker" class="topiclink">aboutCurrentPicker</a>] [-<a href="mgpicker.htm#activate" class="topiclink">activate</a>] [-<a href="mgpicker.htm#addgenericpicker" class="topiclink">addGenericPicker</a>] [-<a href="mgpicker.htm#activepickerarea" class="topiclink">activePickerArea</a>] [-<a href="mgpicker.htm#activepanelindex" class="topiclink">activePanelIndex</a>] [-<a href="mgpicker.htm#activepickerview" class="topiclink">activePickerView</a>] [-<a href="mgpicker.htm#appendrecentpickerfile" class="topiclink">appendRecentPickerFile</a>] [-<a href="mgpicker.htm#appendrecentpickernode" class="topiclink">appendRecentPickerNode</a>][-<a href="mgpicker.htm#addsearchpath" class="topiclink">addSearchPath</a>] [-<a href="mgpicker.htm#author" class="topiclink">author</a>] [-<a href="mgpicker.htm#closeall" class="topiclink">closeAll</a>] [-<a href="mgpicker.htm#currentattributename" class="topiclink">currentAttributeName</a>] [-<a href="mgpicker.htm#config" class="topiclink">config</a>] [-<a href="mgpicker.htm#currentitem" class="topiclink">currentItem</a>] [-<a href="mgpicker.htm#close" class="topiclink">close</a>] [-<a href="mgpicker.htm#createpicker" class="topiclink">createPicker</a>] [-<a href="mgpicker.htm#currentpickerview" class="topiclink">currentPickerView</a>] [-<a href="mgpicker.htm#createtemppicker" class="topiclink">createTempPicker</a>] [-<a href="mgpicker.htm#deletegenericpicker" class="topiclink">deleteGenericPicker</a>] [-<a href="mgpicker.htm#dockpanelvisible" class="topiclink">dockPanelVisible</a>] [-<a href="mgpicker.htm#deletesearchpath" class="topiclink">deleteSearchPath</a>] [-<a href="mgpicker.htm#evenlydistributepickers" class="topiclink">evenlyDistributePickers</a>] [-<a href="mgpicker.htm#email" class="topiclink">email</a>] [-<a href="mgpicker.htm#exportpathtonode" class="topiclink">exportPathToNode</a>] [-<a href="mgpicker.htm#exist" class="topiclink">exist</a>] [-<a href="mgpicker.htm#fallbackpicker" class="topiclink">fallbackPicker</a>] [-<a href="mgpicker.htm#findpickerview" class="topiclink">findPickerView</a>] [-<a href="mgpicker.htm#getidfromname" class="topiclink">getIdFromName</a>] [-<a href="mgpicker.htm#genericpickers" class="topiclink">genericPickers</a>] [-<a href="mgpicker.htm#hotkeyoutliner" class="topiclink">hotkeyOutliner</a>] [-<a href="mgpicker.htm#interactivemode" class="topiclink">interactiveMode</a>] [-<a href="mgpicker.htm#listallpickerviews" class="topiclink">listAllPickerViews</a>] [-<a href="mgpicker.htm#listlinks" class="topiclink">listLinks</a>] [-<a href="mgpicker.htm#list" class="topiclink">list</a>] [-<a href="mgpicker.htm#menuitemcommand" class="topiclink">menuItemCommand</a>] [-<a href="mgpicker.htm#mirrorselection" class="topiclink">mirrorSelection</a>] [-<a href="mgpicker.htm#message" class="topiclink">message</a>] [-<a href="mgpicker.htm#namespace" class="topiclink">namespace</a>] [-<a href="mgpicker.htm#openpicker" class="topiclink">openPicker</a>] [-<a href="mgpicker.htm#parent" class="topiclink">parent</a>] [-<a href="mgpicker.htm#pickerareacount" class="topiclink">pickerAreaCount</a>] [-<a href="mgpicker.htm#progressbar" class="topiclink">progressBar</a>] [-<a href="mgpicker.htm#popupcoloredit" class="topiclink">popupColorEdit</a>] [-<a href="mgpicker.htm#pickerdirpath" class="topiclink">pickerDirPath</a>] [-<a href="mgpicker.htm#pickerentercommand" class="topiclink">pickerEnterCommand</a>] [-<a href="mgpicker.htm#pickerfilepath" class="topiclink">pickerFilePath</a>] [-<a href="mgpicker.htm#pickerloaded" class="topiclink">pickerLoaded</a>] [-<a href="mgpicker.htm#pickerloadcommand" class="topiclink">pickerLoadCommand</a>] [-<a href="mgpicker.htm#pickerlayout" class="topiclink">pickerLayout</a>] [-<a href="mgpicker.htm#pickermode" class="topiclink">pickerMode</a>] [-<a href="mgpicker.htm#popupnamespace" class="topiclink">popupNamespace</a>] [-<a href="mgpicker.htm#pickerproject" class="topiclink">pickerProject</a>] [-<a href="mgpicker.htm#pickertoshelf" class="topiclink">pickerToShelf</a>] [-<a href="mgpicker.htm#removeall" class="topiclink">removeAll</a>] [-<a href="mgpicker.htm#readpickerfile" class="topiclink">readPickerFile</a>] [-<a href="mgpicker.htm#readscenepicker" class="topiclink">readScenePicker</a>] [-<a href="mgpicker.htm#saveasscenenode" class="topiclink">saveAsSceneNode</a>] [-<a href="mgpicker.htm#saveastemplate" class="topiclink">saveAsTemplate</a>] [-<a href="mgpicker.htm#savecurrentas" class="topiclink">saveCurrentAs</a>] [-<a href="mgpicker.htm#selectionhelper" class="topiclink">selectionHelper</a>] [-<a href="mgpicker.htm#select" class="topiclink">select</a>] [-<a href="mgpicker.htm#selectpickerbuttons" class="topiclink">selectPickerButtons</a>] [-<a href="mgpicker.htm#selectpanelbuttons" class="topiclink">selectPanelButtons</a>] [-<a href="mgpicker.htm#setpickerclean" class="topiclink">setPickerClean</a>] [-<a href="mgpicker.htm#selectpanelindexbuttons" class="topiclink">selectPanelIndexButtons</a>] [-<a href="mgpicker.htm#searchpaths" class="topiclink">searchPaths</a>] [-<a href="mgpicker.htm#syncpickervalue" class="topiclink">syncPickerValue</a>] [-<a href="mgpicker.htm#searchui" class="topiclink">searchUi</a>] [-<a href="mgpicker.htm#savetofolder" class="topiclink">saveToFolder</a>] [-<a href="mgpicker.htm#savewithinscenefolder" class="topiclink">saveWithinSceneFolder</a>] [-<a href="mgpicker.htm#tablabel" class="topiclink">tabLabel</a>][-<a href="mgpicker.htm#updatesceneboundary" class="topiclink">updateSceneBoundary</a>] [-<a href="mgpicker.htm#version" class="topiclink">version</a>] [-<a href="mgpicker.htm#visible" class="topiclink">visible</a>] [-<a href="mgpicker.htm#website" class="topiclink">website</a>]</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="pysynopsis"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">Python概要</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">MGPicker ([<a href="mgpicker.htm#about" class="topiclink">about</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#aboutcurrentpicker" class="topiclink">aboutCurrentPicker</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#activate" class="topiclink">activate</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, string]</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#addgenericpicker" class="topiclink">addGenericPicker</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, int]</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#activepickerarea" class="topiclink">activePickerArea</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[int]</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#activepanelindex" class="topiclink">activePanelIndex</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#activepickerview" class="topiclink">activePickerView</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#appendrecentpickerfile" class="topiclink">appendRecentPickerFile</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#appendrecentpickernode" class="topiclink">appendRecentPickerNode</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">][<a href="mgpicker.htm#addsearchpath" class="topiclink">addSearchPath</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, int]</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#author" class="topiclink">author</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#closeall" class="topiclink">closeAll</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#currentattributename" class="topiclink">currentAttributeName</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#config" class="topiclink">config</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, string]</span><span style="font-family: 'Courier New';">], <a href="mgpicker.htm#currentitem" class="topiclink">[currentItem</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#close" class="topiclink">close</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, boolean, string]</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#createpicker" class="topiclink">createPicker</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, string, string, string]</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#currentpickerview" class="topiclink">currentPickerView</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[boolean]</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#createtemppicker" class="topiclink">createTempPicker</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#deletegenericpicker" class="topiclink">deleteGenericPicker</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#dockpanelvisible" class="topiclink">dockPanelVisible</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#deletesearchpath" class="topiclink">deleteSearchPath</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#evenlydistributepickers" class="topiclink">evenlyDistributePickers</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#email" class="topiclink">email</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#exportpathtonode" class="topiclink">exportPathToNode</a>=[</span><span style="font-family: 'Courier New'; font-style: italic;">string, string]</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#exist" class="topiclink">exist</a>=[</span><span style="font-family: 'Courier New'; font-style: italic;">boolean]</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#fallbackpicker" class="topiclink">fallbackPicker</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#findpickerview" class="topiclink">findPickerView</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string, int, string</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#getidfromname" class="topiclink">getIdFromName</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#genericpickers" class="topiclink">genericPickers</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#hotkeyoutliner" class="topiclink">hotkeyOutliner</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#interactivemode" class="topiclink">interactiveMode</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#listallpickerviews" class="topiclink">listAllPickerViews</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#listlinks" class="topiclink">listLinks</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#list" class="topiclink">list</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#menuitemcommand" class="topiclink">menuItemCommand</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#mirrorselection" class="topiclink">mirrorSelection</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#message" class="topiclink">message</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#namespace" class="topiclink">namespace</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], <a href="mgpicker.htm#openpicker" class="topiclink">[openPicker</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#parent" class="topiclink">parent</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#pickerareacount" class="topiclink">pickerAreaCount</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#progressbar" class="topiclink">progressBar</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#popupcoloredit" class="topiclink">popupColorEdit</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#pickerdirpath" class="topiclink">pickerDirPath</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#pickerentercommand" class="topiclink">pickerEnterCommand</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string, string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#pickerfilepath" class="topiclink">pickerFilePath</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#pickerloaded" class="topiclink">pickerLoaded</a>=[</span><span style="font-family: 'Courier New'; font-style: italic;">string, string]</span><span style="font-family: 'Courier New';">],[<a href="mgpicker.htm#pickerloadcommand" class="topiclink">pickerLoadCommand</a>=[</span><span style="font-family: 'Courier New'; font-style: italic;">string, string]</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#pickerlayout" class="topiclink">pickerLayout</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#pickermode" class="topiclink">pickerMode</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#popupnamespace" class="topiclink">popupNamespace</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#pickerproject" class="topiclink">pickerProject</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#pickertoshelf" class="topiclink">pickerToShelf</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#removeall" class="topiclink">removeAll</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], <a href="mgpicker.htm#readpickerfile" class="topiclink">[readPickerFile</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, boolean]</span><span style="font-family: 'Courier New';">], <a href="mgpicker.htm#readscenepicker" class="topiclink">[readScenePicker</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, string, string, string]</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#saveasscenenode" class="topiclink">saveAsSceneNode</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#saveastemplate" class="topiclink">saveAsTemplate</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#savecurrentas" class="topiclink">saveCurrentAs</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#selectionhelper" class="topiclink">selectionHelper</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#select" class="topiclink">select</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int,stringArray</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#selectpickerbuttons" class="topiclink">selectPickerButtons</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#selectpanelbuttons" class="topiclink">selectPanelButtons</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#setpickerclean" class="topiclink">setPickerClean</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#selectpanelindexbuttons" class="topiclink">selectPanelIndexButtons</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[int, int]</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#searchpaths" class="topiclink">searchPaths</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">],<a href="mgpicker.htm#syncpickervalue" class="topiclink">[syncPickerValue</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#searchui" class="topiclink">searchUi</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#savetofolder" class="topiclink">saveToFolder</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#savewithinscenefolder" class="topiclink">saveWithinSceneFolder</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#tablabel" class="topiclink">tabLabel</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#updatesceneboundary" class="topiclink">updateSceneBoundary</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#version" class="topiclink">version</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#visible" class="topiclink">visible</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#website" class="topiclink">website</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">])</span></p>
+<p style="margin: 14px 0px 14px 0px;"><span style="font-size: 11pt; font-family: 'Times New Roman';">MGPicker</span><span style="font-size: 11pt; font-family: 'Times New Roman'; font-weight: bold;">不可撤消</span><span style="font-size: 11pt; font-family: 'Times New Roman';">, 可以查询且可以编辑</span><span style="font-size: 11pt; font-family: 'Times New Roman';">。</span><br />
+<span style="font-size: 11pt; font-family: 'Times New Roman';">&nbsp;</span><br />
+<span style="font-size: 11pt; font-family: 'Times New Roman';">这个命令查询或编辑文档级别的属性/状态，或关于程序本身的一些属性/状态。</span><br />
+<span style="font-size: 11pt; font-family: 'Times New Roman';">在创建模式，这个命令用来创建MG-Picker工作室控件实例，不过这个实例同一时间只允许有一个，你完全不会需要在创建模式下使用这个命令。</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="returnvalue"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">返回值</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 19px 0px 0px 0px;"><table style="border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:100%; padding:1px;"><p><span style="font-size: 11pt; font-family: 'Times New Roman';">取决于使用的标签，可能返回布尔，字符窜等类型的返回值。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 19px 0px 19px 0px;"><a id="flags"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">标签</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpicker.htm#about" class="topiclink">about</a>, <a href="mgpicker.htm#aboutcurrentpicker" class="topiclink">aboutCurrentPicker</a>, <a href="mgpicker.htm#activate" class="topiclink">activate</a>, <a href="mgpicker.htm#addgenericpicker" class="topiclink">addGenericPicker</a>, <a href="mgpicker.htm#activepickerarea" class="topiclink">activePickerArea</a>, <a href="mgpicker.htm#activepanelindex" class="topiclink">activePanelIndex</a>, <a href="mgpicker.htm#activepickerview" class="topiclink">activePickerView</a>, <a href="mgpicker.htm#appendrecentpickerfile" class="topiclink">appendRecentPickerFile</a>, <a href="mgpicker.htm#appendrecentpickernode" class="topiclink">appendRecentPickerNode</a>, <a href="mgpicker.htm#addsearchpath" class="topiclink">addSearchPath</a>, <a href="mgpicker.htm#author" class="topiclink">author</a>, <a href="mgpicker.htm#closeall" class="topiclink">closeAll</a>, <a href="mgpicker.htm#currentattributename" class="topiclink">currentAttributeName</a>, <a href="mgpicker.htm#config" class="topiclink">config</a>, <a href="mgpicker.htm#currentitem" class="topiclink">currentItem</a>, <a href="mgpicker.htm#close" class="topiclink">close</a>, <a href="mgpicker.htm#createpicker" class="topiclink">createPicker</a>, <a href="mgpicker.htm#currentpickerview" class="topiclink">currentPickerView</a>, <a href="mgpicker.htm#createtemppicker" class="topiclink">createTempPicker</a>, <a href="mgpicker.htm#deletegenericpicker" class="topiclink">deleteGenericPicker</a>, <a href="mgpicker.htm#dockpanelvisible" class="topiclink">dockPanelVisible</a>, <a href="mgpicker.htm#deletesearchpath" class="topiclink">deleteSearchPath</a>, <a href="mgpicker.htm#evenlydistributepickers" class="topiclink">evenlyDistributePickers</a>, <a href="mgpicker.htm#email" class="topiclink">email</a>, <a href="mgpicker.htm#exportpathtonode" class="topiclink">exportPathToNode</a>, <a href="mgpicker.htm#exist" class="topiclink">exist</a>, <a href="mgpicker.htm#fallbackpicker" class="topiclink">fallbackPicker</a>,  <a href="mgpicker.htm#findpickerview" class="topiclink">findPickerView</a>, <a href="mgpicker.htm#getidfromname" class="topiclink">getIdFromName</a>, <a href="mgpicker.htm#genericpickers" class="topiclink">genericPickers</a>, <a href="mgpicker.htm#hotkeyoutliner" class="topiclink">hotkeyOutliner</a>, <a href="mgpicker.htm#interactivemode" class="topiclink">interactiveMode</a>, <a href="mgpicker.htm#listallpickerviews" class="topiclink">listAllPickerViews</a>, <a href="mgpicker.htm#listlinks" class="topiclink">listLinks</a>, <a href="mgpicker.htm#list" class="topiclink">list</a>, <a href="mgpicker.htm#menuitemcommand" class="topiclink">menuItemCommand</a>, <a href="mgpicker.htm#mirrorselection" class="topiclink">mirrorSelection</a>, <a href="mgpicker.htm#message" class="topiclink">message</a>, <a href="mgpicker.htm#namespace" class="topiclink">namespace</a>, <a href="mgpicker.htm#openpicker" class="topiclink">openPicker</a>, <a href="mgpicker.htm#parent" class="topiclink">parent</a>, <a href="mgpicker.htm#pickerareacount" class="topiclink">pickerAreaCount</a>, <a href="mgpicker.htm#progressbar" class="topiclink">progressBar</a>, <a href="mgpicker.htm#popupcoloredit" class="topiclink">popupColorEdit</a>, <a href="mgpicker.htm#pickerdirpath" class="topiclink">pickerDirPath</a>, <a href="mgpicker.htm#pickerentercommand" class="topiclink">pickerEnterCommand</a>, <a href="mgpicker.htm#pickerfilepath" class="topiclink">pickerFilePath</a>, <a href="mgpicker.htm#pickerloaded" class="topiclink">pickerLoaded</a>, <a href="mgpicker.htm#pickerloadcommand" class="topiclink">pickerLoadCommand</a>, <a href="mgpicker.htm#pickerlayout" class="topiclink">pickerLayout</a>, <a href="mgpicker.htm#pickermode" class="topiclink">pickerMode</a>, <a href="mgpicker.htm#popupnamespace" class="topiclink">popupNamespace</a>, <a href="mgpicker.htm#pickerproject" class="topiclink">pickerProject</a>, <a href="mgpicker.htm#pickertoshelf" class="topiclink">pickerToShelf</a>, <a href="mgpicker.htm#removeall" class="topiclink">removeAll</a>, <a href="mgpicker.htm#readpickerfile" class="topiclink">readPickerFile</a>, <a href="mgpicker.htm#readscenepicker" class="topiclink">readScenePicker</a>,<a href="mgpicker.htm#saveasscenenode" class="topiclink">saveAsSceneNode</a>,<a href="mgpicker.htm#saveastemplate" class="topiclink">saveAsTemplate</a>, <a href="mgpicker.htm#savecurrentas" class="topiclink">saveCurrentAs</a>, <a href="mgpicker.htm#selectionhelper" class="topiclink">selectionHelper</a>, <a href="mgpicker.htm#select" class="topiclink">select</a>, <a href="mgpicker.htm#selectpickerbuttons" class="topiclink">selectPickerButtons</a>, <a href="mgpicker.htm#selectpanelbuttons" class="topiclink">selectPanelButtons</a>, <a href="mgpicker.htm#setpickerclean" class="topiclink">setPickerClean</a>, <a href="mgpicker.htm#selectpanelindexbuttons" class="topiclink">selectPanelIndexButtons</a>, <a href="mgpicker.htm#searchpaths" class="topiclink">searchPaths</a>, <a href="mgpicker.htm#syncpickervalue" class="topiclink">syncPickerValue</a>, <a href="mgpicker.htm#searchui" class="topiclink">searchUi</a>, <a href="mgpicker.htm#savetofolder" class="topiclink">saveToFolder</a>, <a href="mgpicker.htm#savewithinscenefolder" class="topiclink">saveWithinSceneFolder</a>, <a href="mgpicker.htm#tablabel" class="topiclink">tabLabel</a>,  <a href="mgpicker.htm#updatesceneboundary" class="topiclink">updateSceneBoundary</a>, <a href="mgpicker.htm#version" class="topiclink">version</a>, <a href="mgpicker.htm#visible" class="topiclink">visible</a>, <a href="mgpicker.htm#website" class="topiclink">website</a></span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-family: 'Times New Roman'; font-weight: bold;">长名 (短名)</span></p>
+</td>
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-family: 'Times New Roman'; font-style: italic; font-weight: bold;">参数类型</span></p>
+</td>
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-family: 'Times New Roman'; font-weight: bold;">属性</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="about"></a><span style="font-family: 'Courier New'; font-weight: bold;">-about</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-abt</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">显示 &quot;关于MG-Picker工作室&quot; 对话框。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="aboutcurrentpicker"></a><span style="font-family: 'Courier New'; font-weight: bold;">-aboutCurrentPicker</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-acp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">显示 &quot;关于当前Picker文件&quot; 对话框。对话框显示了该picker设计者的名字，电子邮箱，网站及给picker使用者的信息。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="activate"></a><span style="font-family: 'Courier New'; font-weight: bold;">-activate</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-act</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">在查询模式，这个标签返回指定picker文件路径或节点名是否当前处于加载并激活状态。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">在编辑模式，你指定一个picker文件或节点以便激活，如果这个文件或节点未被打开则不会打开。返回值1如果成功激活，0则是激活失败。指定namespace到第二个参数，这样您在查询或编辑时，在匹配目标Picker视图时，会同时需要匹配namespace是否一致，一致才激活。如果不想要求namespace也一致，则指定空字符窜。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">另一个方式是事先记录创建的picker视图id, 然后用id来直接激活：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;MGPickerView -e -activate viewID; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="addgenericpicker"></a><span style="font-family: 'Courier New'; font-weight: bold;">-addGenericPicker</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-agp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">这个总是只对当前picker工程的通用Picker设定进行编辑。用来添加一个Picker名称到当前Picker工程的通用Picker列表，指定路径字符窜，及一个代表在列表中位置的索引值。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">指定-1的索引值则会追加Picker名称到末尾，指定0则是插入在最前头。如果该Picker名称之前已加入过，则会先删除它，然后再以指定的索引值重新插入。界面将刷新相应的菜单以体现这个改变。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="activepickerarea"></a><span style="font-family: 'Courier New'; font-weight: bold;">-activePickerArea</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-apa</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">指定0~3的整数值索引，来激活picker多视图的各个区域。最多四个，所以索引值最大为3。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">注意，根据当前picker视图的布局，有可能只有三个区域，所以这个整数索引值聚会范围可能更小。设置比范围大的索引，只会激活索引最大的那个区域。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="activepanelindex"></a><span style="font-family: 'Courier New'; font-weight: bold;">-activePanelIndex</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-api</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令： </span><span style="font-size: 11pt; font-family: 'Courier New'; font-weight: bold;">  </span><span style="font-size: 11pt; font-family: 'Times New Roman';">MGPickerView -e -activePanelIndex index;</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="activepickerview"></a><span style="font-family: 'Courier New'; font-weight: bold;">-activePickerView</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-apv</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">查询模式下返回当前激活的picker视图的id字符窜，然后这个id就可以用在MGPickerView命令中。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">在编辑模式下，指定一个视图id字符窜，则激活那个视图。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="appendrecentpickerfile"></a><span style="font-family: 'Courier New'; font-weight: bold;">-appendRecentPickerFile</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-arf</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">追加一个picker文件路径到 &quot;最近Picker文件&quot;菜单。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="appendrecentpickernode"></a><span style="font-family: 'Courier New'; font-weight: bold;">-appendRecentPickerNode</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-arn</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">追加一个picker节点名称到 &quot;最近Picker节点&quot;菜单。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="addsearchpath"></a><span style="font-family: 'Courier New'; font-weight: bold;">-addSearchPath</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-asp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">这个总是只对当前picker工程的搜索设定进行编辑。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">用来添加一个自定义的搜索路径到当前Picker工程的picker搜索路径列表，指定路径字符窜，及一个搜索优先级的整数值。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">指定-1的优先级则会追加搜索路径到末尾，最后被搜索，指定0则是最优先被搜索。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="author"></a><span style="font-family: 'Courier New'; font-weight: bold;">-author</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ath</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -q -</span><span style="font-family: 'Courier New'; font-weight: bold;">author</span><span style="font-size: 11pt; font-family: 'Times New Roman';">; </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -</span><span style="font-family: 'Courier New'; font-weight: bold;">author</span><span style="font-size: 11pt; font-family: 'Times New Roman';"> &quot;Your Name&quot;; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="closeall"></a><span style="font-family: 'Courier New'; font-weight: bold;">-closeAll</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ca</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:944px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">关闭所有picker， 指定一个0~1布尔值来决定是否强制关闭所有picker，即使在设计师模式下也不提示未保存等。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">注意在动画师模式下，该参数被忽略，因为在动画师模式下总是不会提示任何未保存的picker编辑而是直接关闭。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="currentattributename"></a><span style="font-family: 'Courier New'; font-weight: bold;">-currentAttributeName</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-can</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:944px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">返回当前正在交互的属性按钮的Maya属性。主要用到属性按钮的pre/post change command. 如果指定了没有提供参数值或参数值1，则返回带namespace的节点名.属性名。 如果指定参数值0则返回不带namespace的节点名.属性名。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="config"></a><span style="font-family: 'Courier New'; font-weight: bold;">-config</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-cfg</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">仅供内部使用。用来设置相应的配置。在查询模式，不指定参数情况下返回所有配置的字符窜数组，如果指定了参数则只返回特定的配置值，如MGPicker -q -config &quot;language&quot; &quot;&quot;只返回当前的语言配置;</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="currentitem"></a><span style="font-family: 'Courier New'; font-weight: bold;">-currentItem</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ci</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">返回当前正在交互的picker对象，主要用于picker对象的change command等，用于查询当前这个脚本属于哪个picker对象。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="close"></a><span style="font-family: 'Courier New'; font-weight: bold;">-close</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-cl</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string boolean string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">关闭指定的picker文件路径或节点名，指定一个空字符窜即为关闭当前picker。还需要指定一个0~1布尔值来决定是否强制关闭该picker，即使在设计师模式下也不提示未保存等。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">注意在动画师模式下，第二个参数被忽略，因为在动画师模式下总是不会提示任何未保存的picker编辑而是直接关闭。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">指定namespace到第三个参数，这样在匹配目标Picker视图时，会同时需要匹配namespace是否一致，一致才关闭。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">如果不想要求namespace也一致，则指定空字符窜。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="createpicker"></a><span style="font-family: 'Courier New'; font-weight: bold;">-createPicker</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-cp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string string string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">指定一个picker名称，namespace, 一个可选的picker文件路径及一个可选的picker节点名称，来创建一个新的picker并返回其id字符窜。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">主要用于picker转换器编写，来创建一个新的picker来存放即将要被转换而创建的picker对象。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="currentpickerview"></a><span style="font-family: 'Courier New'; font-weight: bold;">-currentPickerView</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-cpv</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">仅供查询，跟currentItem相类似，这个用在picker的load command及mouse enter command等，用于查询当前这个脚本属于哪个picker视图。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">注意不要与activePickerView标签相混。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="createtemppicker"></a><span style="font-family: 'Courier New'; font-weight: bold;">-createTempPicker</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ctp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">创建一个暂存用的picker视图并返回其id字符窜，这个视图的tab带有&quot;:Temp数字&quot;。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">暂存用的picker视图主要便于动画师暂时放置那些用简单编辑模式来临时创建的picker对象如选择按钮等。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="deletegenericpicker"></a><span style="font-family: 'Courier New'; font-weight: bold;">-deleteGenericPicker</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-dgp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 11pt; font-family: 'Times New Roman';">指定的通用Picker名称。如果指定空字符窜，则会清空当前工程的通用Picker名称列表。界面将刷新相应的菜单以体现这个改变。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="dockpanelvisible"></a><span style="font-family: 'Courier New'; font-weight: bold;">-dockPanelVisible</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-dpv</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:944px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">仅供内部使用。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="deletesearchpath"></a><span style="font-family: 'Courier New'; font-weight: bold;">-deleteSearchPath</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-dsp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:944px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">删除指定的自定义搜索路径。如果指定空字符窜，则会清除所有自定义搜索路径。注意，默认的搜索路径是不可删除的：</span><span style="font-size: 12pt; font-family: 'Times New Roman';">*[In-Scene], *[Scene/pickers], *[local]。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="evenlydistributepickers"></a><span style="font-family: 'Courier New'; font-weight: bold;">-evenlyDistributePickers</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-edp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p>&nbsp;</p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:944px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 12pt; font-family: 'Times New Roman';">在所有可见的picker视图区域均匀分布已打开的picker，让每个视图区都有近似数目的picker tab。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="email"></a><span style="font-family: 'Courier New'; font-weight: bold;">-email</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-eml</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -q -</span><span style="font-family: 'Courier New'; font-weight: bold;">email</span><span style="font-size: 11pt; font-family: 'Times New Roman';">; </span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -</span><span style="font-family: 'Courier New'; font-weight: bold;">email</span><span style="font-size: 11pt; font-family: 'Times New Roman';"> &quot;email@gmail.com&quot;; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="exportpathtonode"></a><span style="font-family: 'Courier New'; font-weight: bold;">-exportPathToNode</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-epn</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 11pt; font-family: 'Times New Roman';">导出Picker文件路径为picker节点，即保存路径为picker节点的pickerFilePath属性。</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';">当Picker节点被加载时，对应的picker文件将被加载，路径支持由$ 或${}表示的环境变量。</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';">需要指定要导出或编辑的Picker节点名称，及Picker文件路径。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="exist"></a><span style="font-family: 'Courier New'; font-weight: bold;">-exist</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ex</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 11pt; font-family: 'Times New Roman';">查询Picker工具界面是否已创建。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="fallbackpicker"></a><span style="font-family: 'Courier New'; font-weight: bold;">-fallbackPicker</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-fbp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">在查询模式下，这个标签返回当前picker工程的备用picker名称。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">在基于选择来搜索并自动加载picker时，如果没找到匹配的picker，则加载备用picker。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="findpickerview"></a><span style="font-family: 'Courier New'; font-weight: bold;">-findPickerView</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-fpv</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string boolean string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">只能用于查询。用来查找并返回相应的picker视图id字符窜。指定一个picker文件名或节点名，是否匹配命名空间的布尔值，及要匹配的命名空间字符窜。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="getidfromname"></a><span style="font-family: 'Courier New'; font-weight: bold;">-getIdFromName</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-gin</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; string $ids [] = `MGPickerView -q -</span><span style="font-family: 'Courier New'; font-weight: bold;">getIdFromName &quot;name&quot;`</span><span style="font-size: 11pt; font-family: 'Times New Roman';">; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="genericpickers"></a><span style="font-family: 'Courier New'; font-weight: bold;">-genericPickers</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-gps</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">查询模式下以字符窜数组的方式返回当前通用picker的设置，在编辑模式下，指定以‘|’符号相连接的通用picker名称，来编辑这个设置。界面将刷新相应的菜单以体现这个改变。</span><br />
+<span style="font-size: 11pt; font-family: 'Times New Roman';">你也可以通过下面方式来查询和修改通用picker的设置：</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;global string $MGPicker_Config_GenericPickerID; &nbsp; &nbsp; // 不要动这个变量，它在程序里定义好了。</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;MGPicker -q -config $MGPicker_Config_GenericPickerID &quot;&quot;; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// 这将返回通用picker设置，用 '|'相连的字符窜。</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;MGPicker -e -config $MGPicker_Config_GenericPickerID &quot;genericPickerName1|genericPickerName2&quot;; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //这将设置通用picker，通过用 '|'相连的字符窜。请注意这个修改不会直接刷新界面上的菜单。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="hotkeyoutliner"></a><span style="font-family: 'Courier New'; font-weight: bold;">-hotkeyOutliner</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ho</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">显示快捷键总览，来查看在动画师模式及设计师模式下的快捷键。事实上这个功能也是由一个mgpicker文件来制作的。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="interactivemode"></a><span style="font-family: 'Courier New'; font-weight: bold;">-interactiveMode</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-im</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">仅供内部使用。指定0/1来切到动画师交互模式或简单编辑模式。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="listallpickerviews"></a><span style="font-family: 'Courier New'; font-weight: bold;">-listAllPickerViews</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-lav</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">只能用在查询模式下，用来返回当前打开的所有picker视图的id.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="listlinks"></a><span style="font-family: 'Courier New'; font-weight: bold;">-listLinks</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ll</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;string $links [] = `MGPickerView -q -listLinks &quot;parentLink&quot;`; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="list"></a><span style="font-family: 'Courier New'; font-weight: bold;">-list</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ls</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> 将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; string $btns [] = `MGPickerView -q -list &quot;selectButton|slider|sliderHandle&quot;`; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="menuitemcommand"></a><span style="font-family: 'Courier New'; font-weight: bold;">-menuItemCommand</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-mic</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">只能用在查询模式下，仅供内部使用，用来支持picker对象的菜单里的命令。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="mirrorselection"></a><span style="font-family: 'Courier New'; font-weight: bold;">-mirrorSelection</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ms</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp;MGPickerView -e -mirrorSelection 1; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="message"></a><span style="font-family: 'Courier New'; font-weight: bold;">-message</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-msg</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:947px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -message &quot;Thanks for using the picker I designed!&quot;; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="namespace"></a><span style="font-family: 'Courier New'; font-weight: bold;">-namespace</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ns</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:944px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp;MGPickerView -e -namespace &quot;MyNS:SubNS&quot;; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="openpicker"></a><span style="font-family: 'Courier New'; font-weight: bold;">-openPicker</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-opp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">显示文件浏览对话框以便拾取一个.mgpkr的picker文件来打开。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">如果要直接指定picker文件来打开，请用-rpf/-readPickerFile标签，要直接指定picker节点来打开，则使用-rsp/-readScenePicker标签。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="parent"></a><span style="font-family: 'Courier New'; font-weight: bold;">-parent</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-p</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">仅供内部使用。基本上只用在创建模式来指定MG-Picker工作室控件的父layout。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickerareacount"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerAreaCount</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pac</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">只能用于查询模式，来获取当前可见picker视图区域个数。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="progressbar"></a><span style="font-family: 'Courier New'; font-weight: bold;">-progressBar</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pb</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">指定 0~100 的值来显示进度条并设置进度值，指定-1则隐藏进度条.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="popupcoloredit"></a><span style="font-family: 'Courier New'; font-weight: bold;">-popupColorEdit</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pce</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">仅供内部使用。 用来在简单编辑模式下弹出颜色拾取对话框来指定对象的填充色及标签色。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickerdirpath"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerDirPath</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pdp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp;string $dirPath = `MGPickerView -q -pickerDirPath`; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickerentercommand"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerEnterCommand</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pec</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; string $enterCommand[] = `MGPickerView -q -pickerEnterCommand`;  </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickerfilepath"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerFilePath</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pfp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;string $dirFilePath = `MGPickerView -q -pickerFilePath`; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickerloaded"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerLoaded</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pl</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:944px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">这个标签只能用于查询模式来查询指定picker文件或节点是否已被打开。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">指定namespace到第二个参数，这样在匹配目标Picker视图时，会同时需要匹配namespace是否一致，一致才会判断其已加载。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">如果不想要求namespace也一致，则指定空字符窜。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickerloadcommand"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerLoadCommand</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-plc</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:944px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; string $loadCommand[] = `MGPickerView -q -pickerLoadCommand`; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickerlayout"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerLayout</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ply</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:35px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:780px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 12pt; font-family: 'Times New Roman';">用来获取/设置当前picker视图布局。在编辑模式下，可用的字符窜数值有：Single&quot;，&quot;Column2&quot;，&quot;Column3&quot;，&quot;Column4&quot;，&quot;Row2&quot;,&quot;Row3&quot;,&quot;Row4&quot;,&quot;Col2SplitLeft&quot;,&quot;Col2SplitRight&quot;,&quot;Row2SplitTop&quot;,&quot;Row2SplitBottom&quot;,&quot;GridVerticalUnified&quot;,&quot;GridHorizontalUnified&quot;,&quot;GridBothUnified&quot;.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickermode"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerMode</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pm</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">仅供内部使用。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="popupnamespace"></a><span style="font-family: 'Courier New'; font-weight: bold;">-popupNamespace</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pns</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:940px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">弹出namespace设计对话框来设置当前picker的namespace。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickerproject"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerProject</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ppj</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:940px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">用在查询模式则返回当前picker工程名称，默认是&quot;Default&quot;。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">在编辑模式则设置当前工程名称，picker工程用来将来picker的搜索匹配上。如果目标工程目录不存在这个命令就会新建该工程文件夹并设置为当前工程。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickertoshelf"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerToShelf</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pts</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:940px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">弹出&quot;Picker对象转换到工具架&quot;对话框，用来将picker对象转换到maya工具架上的按钮。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="removeall"></a><span style="font-family: 'Courier New'; font-weight: bold;">-removeAll</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ra</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:938px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp;MGPickerView -e -removeAll; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="readpickerfile"></a><span style="font-family: 'Courier New'; font-weight: bold;">-readPickerFile</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-rpf</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:939px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">这个标签只能用于编辑模式来读取指定picker文件并返回其id字符窜。如果已打开则激活那个tab （如果第二个参数是false或0）。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">第二个参数是用来指定，是否如果这个文件已经打开也仍然再读取到新的视图。如果这个参数是true或1，则无论如何都会读取到新的picker视图。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">使用 -opp/-openPicker 来弹出一个文件对话框以便用户可以拾取一个外部picker文件来打开。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="readpickernode"></a><span style="font-family: 'Courier New'; font-weight: bold;">-readPickerNode</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-rsp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:938px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">这个标签只能用于编辑模式来读取指定mgpicker节点并返回其id字符窜。如果已打开则激活那个tab并返回其id字符窜。指定节点名称来打开它。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="readscenepicker"></a><span style="font-family: 'Courier New'; font-weight: bold;">-readScenePicker</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-rsp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string string string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:938px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">这个标签只能用于编辑模式来读取指定mgpicker节点并返回其id字符窜。如果已打开则激活那个tab并返回其id字符窜。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">这里你不能只提供一个节点名称来打开，而是要用mel/pyton获取其数据，然后指定节点名称，picker名称，namespace及picker的xml数据来读取及加载这个mgpicker节点。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="saveasscenenode"></a><span style="font-family: 'Courier New'; font-weight: bold;">-saveAsSceneNode</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sas</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:937px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp;MGPickerView -e -saveAsSceneNode &quot;sceneNodeName&quot; 0;  </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="saveastemplate"></a><span style="font-family: 'Courier New'; font-weight: bold;">-saveAsTemplate</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sat</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:937px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp;MGPickerView -e -saveAsTemplate &quot;myTemplate&quot; 0; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="savecurrentas"></a><span style="font-family: 'Courier New'; font-weight: bold;">-saveCurrentAs</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sca</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:937px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp;MGPickerView -e -saveAs &quot;newPickerName&quot; 0; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="selectionhelper"></a><span style="font-family: 'Courier New'; font-weight: bold;">-selectionHelper</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-seh</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:937px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">创建并显示一个MG-选择辅助器窗口。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="select"></a><span style="font-family: 'Courier New'; font-weight: bold;">-select</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sel</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int　stringArray</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:937px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp;MGPickerView -e -select &quot;selectButton1&quot; -select &quot;commandButton1&quot; -selectMode 1;</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="selectpickerbuttons"></a><span style="font-family: 'Courier New'; font-weight: bold;">-selectPickerButtons</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-skb</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:936px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp;MGPickerView -e -selectPickerButtons 1; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="selectpanelbuttons"></a><span style="font-family: 'Courier New'; font-weight: bold;">-selectPanelButtons</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-spb</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:938px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; MGPickerView -e -selectPanelButtons 0; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="setpickerclean"></a><span style="font-family: 'Courier New'; font-weight: bold;">-setPickerClean</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-spc</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:936px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp;MGPickerView -e -setClean; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="selectpanelindexbuttons"></a><span style="font-family: 'Courier New'; font-weight: bold;">-selectPanelIndexButtons</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-spi</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:936px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp;MGPickerView -e -selectPanelIndexButtons 1 0; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="searchpaths"></a><span style="font-family: 'Courier New'; font-weight: bold;">-searchPaths</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sps</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:934px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">查询模式下返回当前picker工程的搜索路径数组。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">编辑模式下，指定搜索路径，以'|'接合的字符窜，来设置当前picker工程的搜索路径数组。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="syncpickervalue"></a><span style="font-family: 'Courier New'; font-weight: bold;">-syncPickerValue</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-spv</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:934px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp;MGPickerView -e -syncPickerValue; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="searchui"></a><span style="font-family: 'Courier New'; font-weight: bold;">-searchUi</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sru</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:934px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">编辑模式下用来开关动画师模式下的节点属性的搜索界面。</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">查询模式下用来返回这个搜索界面的可见性。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="savetofolder"></a><span style="font-family: 'Courier New'; font-weight: bold;">-saveToFolder</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-stf</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:934px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp;MGPickerView -e -saveToFolder &quot;/path/to/folder&quot; 1; ; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="savewithinscenefolder"></a><span style="font-family: 'Courier New'; font-weight: bold;">-saveWithinSceneFolder</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sws</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:934px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp;MGPickerView -e -saveWithinSceneFolder 0;</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="tablabel"></a><span style="font-family: 'Courier New'; font-weight: bold;">-tabLabel</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-tl</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:934px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -tabLabel &quot;pickerTab&quot;; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="updatesceneboundary"></a><span style="font-family: 'Courier New'; font-weight: bold;">-updateSceneBoundary</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-usb</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:935px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp; MGPickerView -e -updateSceneBoundary; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="version"></a><span style="font-family: 'Courier New'; font-weight: bold;">-version</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-v</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:932px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">这个标签只能用于查询以获得当前picker工作室的版本信息。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="visible"></a><span style="font-family: 'Courier New'; font-weight: bold;">-visible</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-vis</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p style="line-height: 1.15;"><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:930px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">仅供内部使用。设置MG-Picker工作室控件的可见性。</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="website"></a><span style="font-family: 'Courier New';">-website(-www)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:middle; width:932px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';">将废弃不建议使用，请使用MGPickerView命令：</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp; &nbsp; &nbsp;MGPickerView -e -website &quot;http://mgland.com&quot;; </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; padding:1px;"><br />
+</td>
+</tr>
+</table>
+</div>
+<hr style="height:2px; color:#cccccc; border-width:0px; background-color:#cccccc;" /><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 10px 0px 0px 0px;"><table style="background-color:#eeeeee; border:none; border-spacing:1px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:4px;"><p><img src="create.gif" width="13" height="16" alt="create" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-family: 'Times New Roman';">标签可以在创建模式中使用</span></p>
+</td>
+<td style="vertical-align:top; padding:4px;"><p><img src="edit.gif" width="13" height="16" alt="edit" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-family: 'Times New Roman';">标签可以在编辑模式中使用</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:4px;"><p><img src="query.gif" width="13" height="16" alt="query" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-family: 'Times New Roman';">标签可以在查询模式中使用</span></p>
+</td>
+<td style="vertical-align:top; padding:4px;"><p><img src="multiuse.gif" width="13" height="16" alt="multiuse" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-family: 'Times New Roman';">标签可以在一条命令中多次使用</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 19px 0px 0px 0px;"><a id="examples"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">MEL例子</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">//&nbsp;create&nbsp;a&nbsp;new&nbsp;picker&nbsp;named&nbsp;&quot;myPicker&quot;</span></p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">string&nbsp;$view&nbsp;=&nbsp;`MGPicker&nbsp;-e&nbsp;-createPicker&nbsp;&quot;myPicker&quot;&nbsp;&quot;wrongNamespace&quot;&nbsp;&quot;&quot;&nbsp;&quot;&quot;`;&nbsp;&nbsp;&nbsp;//it&nbsp;is&nbsp;a&nbsp;untitled&nbsp;picker,&nbsp;not&nbsp;refer&nbsp;to&nbsp;a&nbsp;picker&nbsp;file&nbsp;/&nbsp;node.</span></p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">MGPickerView&nbsp;-e&nbsp;-namespace&nbsp;&quot;rightNamespace&quot;&nbsp;$view;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//edit&nbsp;the&nbsp;namespace&nbsp;of&nbsp;the&nbsp;picker.</span></p>
+<p style="white-space: nowrap;">&nbsp;</p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">//To-Do:&nbsp;use&nbsp;MGPickerItem&nbsp;command&nbsp;to&nbsp;created&nbsp;picker&nbsp;items.</span></p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">//....</span></p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">//if&nbsp;you&nbsp;does&nbsp;create&nbsp;any&nbsp;picker&nbsp;items,&nbsp;this&nbsp;picker&nbsp;view&nbsp;will&nbsp;be&nbsp;completely&nbsp;empty.</span></p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">MGPickerView&nbsp;-e&nbsp;-author&nbsp;&quot;Miguel&quot;&nbsp;</span></p>
+<p style="white-space: nowrap;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">-website&nbsp;&quot;http://twincodes.com&quot;&nbsp;</span></p>
+<p style="white-space: nowrap;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">-email&nbsp;&quot;mgpickerstudio@gmail.com&quot;</span></p>
+<p style="white-space: nowrap;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">-message&nbsp;&quot;Feel&nbsp;free&nbsp;to&nbsp;send&nbsp;feedback&nbsp;to&nbsp;me!&quot;&nbsp;</span></p>
+<p style="white-space: nowrap;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">$view;&nbsp;&nbsp;//edit&nbsp;the&nbsp;meta&nbsp;info&nbsp;of&nbsp;the&nbsp;current&nbsp;picker&nbsp;file.</span></p>
+<p style="white-space: nowrap;">&nbsp;</p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">MGPickerView&nbsp;-e&nbsp;-updateSceneBoundary&nbsp;$view;&nbsp;&nbsp;//update&nbsp;the&nbsp;scene&nbsp;boundary&nbsp;to&nbsp;show&nbsp;all&nbsp;the&nbsp;picker&nbsp;items.</span></p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">MGPickerView</span><span style="font-family: 'Courier New';">&nbsp;-e&nbsp;-</span><span style="font-family: 'Courier New';">setClean&nbsp;</span><span style="font-family: 'Courier New';">$view</span><span style="font-family: 'Courier New';">;&nbsp;&nbsp;&nbsp;//set&nbsp;the&nbsp;picker&nbsp;we&nbsp;just&nbsp;created&nbsp;clean.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="pyexamples"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">Python例子</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">import maya.cmds as cmd</span><br />
+<span style="font-family: 'Courier New';">#Create a new picker named &quot;myPicker&quot;</span><br />
+<span style="font-family: 'Courier New';">#it is a untitled picker, not refer to a picker file / node.</span><br />
+<span style="font-family: 'Courier New';">viewId = cmds.MGPicker (edit=True,createPicker=(&quot;myPicker&quot;,&quot;wrongNamespace&quot;,&quot;&quot;,&quot;&quot;))</span><br />
+<span style="font-family: 'Courier New';">cmds.MGPickerView(viewId, edit=True,namespace=&quot;rightNamespace&quot;) &nbsp; &nbsp;#edit the namespace of the picker.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">#To-Do: use MGPickerItem command to created picker items.</span><br />
+<span style="font-family: 'Courier New';">#....</span><br />
+<span style="font-family: 'Courier New';">#if you does create any picker items, this picker view will be completely empty.</span><br />
+<span style="font-family: 'Courier New';">cmds.MGPickerView(viewId, edit=True, author=&quot;Miguel&quot;, </span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">website=&quot;http://twincodes.com&quot;, </span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';"><a href="mailto:email=%22mgpickerstudio@gmail.com%22" class="weblink" style="font-size: 10pt; font-family: 'Courier New'; font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;">email=&quot;mgpickerstudio@gmail.com&quot;</a>,</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">message=&quot;Feel free to send feedback to me!&quot;) &nbsp;#edit the meta info of the current picker file.</span><br />
+<span style="font-family: 'Courier New';">cmds.MGPickerView(viewId, edit=True, updateSceneBoundary=True) &nbsp;#update the scene boundary to show all the picker items.</span><br />
+<span style="font-family: 'Courier New';">cmds.MGPickerView(viewId, edit=True, setClean=True) &nbsp; #set the picker we just created clean.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="color: #000000;">&nbsp;</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="color: #000000;">&nbsp;</span></p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="programmer.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="mgpickerview.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

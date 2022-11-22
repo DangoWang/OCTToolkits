@@ -1,0 +1,61 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>共享Pose动作库</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Pose" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "poseanim_sharelib.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">共享Pose动作库</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="poseanim_manageeditlib.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="poseanim_previewpanel.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 9pt;"> 共享 Pose动作库流程</span><span style="font-size: 9pt; font-weight: bold; color: #191817;">：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 21px;"><span style="font-size:9pt; font-family: 'Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">1.</span><span style="font-size: 9pt;">由系统工程师，在项目服务器上生一个目录，这个目录只有将来需要维护全局库的人才有写的权限。其它动画师们都只有读的权限。</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 21px;"><span style="font-size:9pt; font-family: 'Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">2.</span><span style="font-size: 9pt; color: #191817;">负责建立和维护全局库的人，（我们暂且叫他动画leader）建立他本地的pose库及动作库。（也可以直接在全局状态下直接建立全局库，不过这样少了备份）</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 21px;"><span style="font-size:9pt; font-family: 'Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">3.</span><span style="font-size: 9pt; color: #191817;">动画leader在工具里上传他建立的库到全局。</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 21px;"><span style="font-size:9pt; font-family: 'Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">4.</span><span style="font-size: 9pt; color: #191817;">动画leader手动上传他本地maya用户目录/MGTools_GlobalData/MG_PoseAnimLib/相应库工程文件夹/库工程名称.libproj</span><br />
+<span style="font-size: 9pt; color: #191817;">这个库工程文件上传的路径可以随意，只要大家都可以访问到。甚至可以直接用邮件发流程中的人员。</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 21px;"><span style="font-size:9pt; font-family: 'Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">5.</span><span style="font-size: 9pt; color: #191817;">动画师在工具里，用打开工程方式，打开这个被共享的libproj文件。</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 21px;"><span style="font-size:9pt; font-family: 'Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">6.</span><span style="font-size: 9pt; color: #191817;">这样就可以开始使用了。动画师可以用本地库建立和使用自己的库，也可以使用被共享的全局库。</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 21px;"><span style="font-size:9pt; font-family: 'Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">7.</span><span style="font-size: 9pt; color: #191817;">当全局库有更新，每个动画师重开下工具就可以立即使用到。</span></p><p style="text-indent: 21px; line-height: 1.50;">&nbsp;</p>
+<p style="text-indent: 1px; line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 9pt;"> </span><span style="font-size: 9pt; font-weight: bold; color: #191817;">上传/下载pose动作库: &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p style="text-indent: -2px; line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt; color: #191817;">在工具菜单栏的库工程，角色，类别，项这几个菜单里，都有上传/下载相应级别数据的功能。 </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">库工程 / 上传/下载当前库</span><span style="font-size: 9pt; color: #191817;">：如果当前是pose库则上传或下载pose库。如果当前是动作库则上传或下载动作库。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">库工程 / 上传/下载Pose&amp;动作库：</span><span style="font-size: 9pt; color: #191817;">同时上传或下载当前库工程里的pose库及动作库。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">角色 / 上传/下载当前角色：</span><span class="f_ImageCaption" style="font-size: 9pt;"> </span><span style="font-size: 9pt; color: #191817;">将当前库的当前浏览角色上传到全局库或下载到本地库。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">类别 / 上传/下载当前类别：</span><span class="f_ImageCaption" style="font-size: 9pt;"> </span><span style="font-size: 9pt; color: #191817;">将当前库的当前浏览角色的当前类别上传到全局库或下载到本地库。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">项 / 上传/下载所选项：</span><span style="font-size: 9pt; color: #191817;">将当前选中的项上传到全局库或下载到本地库。也可以切换到库管理模式，通过在内容区域上点右键也可访问到这个功能。</span></p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="poseanim_manageeditlib.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="poseanim_previewpanel.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

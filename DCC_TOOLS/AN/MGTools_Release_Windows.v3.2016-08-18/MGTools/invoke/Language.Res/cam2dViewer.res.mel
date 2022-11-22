@@ -1,0 +1,45 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "cam2dViewer.mi" "cam2dViewer Tool";
+MG_displayEN "cam2dViewer.ann" "Set the current tool to cam2dViewer Tool,which pan/zoom/rotate the current view in 2D way.";
+
+MG_displayEN "cam2dViewer.asignHK.mi" "Assign Tool HotKey..";
+MG_displayEN "cam2dViewer.asignHK.ann" "Assign a user HotKey to cam2dViewer tool in MG_Config.";
+MG_displayEN "cam2dViewer.asignResetHK.mi" "Assign Reset HotKey..";
+MG_displayEN "cam2dViewer.asignResetHK.ann" "Assign a user HotKey to quickly reset the viewport change by cam2dViewer.";
+
+MG_displayEN "cam2dViewer.op.mi" "Tool Option..";
+MG_displayEN "cam2dViewer.op.ann" "View/Change the option of cam2dViewer.";
+MG_displayEN "cam2dViewer.op" "Option:";
+MG_displayEN "cam2dViewer.autoReset" "Auto-Reset camera before save";
+MG_displayEN "cam2dViewer.autoReset.ann" "Auto-Reset all camera changement made by cam2dViewer tool before anytime you save a scene.";
+MG_displayEN "cam2dViewer.autoSnap" "Auto-Snap 45 degree rotation";
+MG_displayEN "cam2dViewer.autoSnap.ann" "Auto-Snap the rotation to each 45 degree.";
+
+
+MG_displayEN "cam2dViewer.usage.title" "   Usage:";
+MG_displayEN "cam2dViewer.usage.01" "      LMB drag to zoom in / out ;";
+MG_displayEN "cam2dViewer.usage.02" "      MMB drag to pan around ;";
+MG_displayEN "cam2dViewer.usage.03" "      shift+LMB drag to rotate ;";
+MG_displayEN "cam2dViewer.usage.04" "      shift+MMB reset the rotation ;";
+MG_displayEN "cam2dViewer.usage.05" "      ctrl+LMB to box zoom in / out ;";
+MG_displayEN "cam2dViewer.usage.06" "      ctrl+MMB click / Enter key to reset all ;";
+
+MG_displayEN "cam2dViewer.reset.label" "Reset Now";
+MG_displayEN "cam2dViewer.reset.mi" "Reset all camera now";
+MG_displayEN "cam2dViewer.reset.ann" "Reset all camera changement by cam2dViewer tool right now.";
+MG_displayEN "cam2dViewer.reset.rep" "These camera nodes has been reset to unchanged: # ";
+MG_displayEN "cam2dViewer.reset.no.rep" "No camera needs to be reset :)";
+
+MG_displayEN "cam2dViewer.FeedBack" "FeedBack";
+MG_displayEN "cam2dViewer.FeedBack.ann" "Click to send a feedBack.";
+MG_displayEN "cam2dViewer.copyright" "CopyRight Miguel 2011 @ Mgland Animation Studio.  ";
+
+MG_displayEN "cam2dViewer.temp7.war" "Sorry, but cam2dViewer is unstable before Maya 8 so it is temporarily blocked.";

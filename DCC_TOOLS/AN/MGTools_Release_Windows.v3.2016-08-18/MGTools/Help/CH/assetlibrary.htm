@@ -1,0 +1,122 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>MG资产管理器</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Asset,DB,Library,Manager" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "assetlibrary.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">MG资产管理器</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="cam2dviewer.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="assetlib_createproject.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #191817;">MG-资产库：</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:51px; padding:0px;"><p style="text-align: center;"><img src="assetlibicon.gif" width="32" height="32" alt="assetLibIcon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:13px; padding:0px;"><br />
+</td>
+<td style="vertical-align:top; width:895px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">点击打开MG-资产库。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">资产，即是maya scene.下面可能会用到asset这个词，即是资产。这是一个Maya Asset信息管理库，主要是给layout/动画师使用的，衔接Asset流程跟layout流程间的桥梁。它只是将这些asset的信息收集起来，添加上预览图，以便layout叫档案时用，当然也可以看目前asset是否内部通，客户通过等等。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">这个工具实际上是MGTools2的DB管理库的2.0版本，但是经过大重写。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">注意，这个工具只支持Maya2011及之后的Maya版本。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_ImageCaption" style="font-size: 10pt;">MG-资产库界面</span><span style="font-weight: bold; color: #191817;">：</span></p>
+<p style="margin: 0px 0px 0px 24px;"><img src="dbmanager_mode0_ch.gif" width="734" height="351" alt="DBmanager_mode0_ch" style="border:none" /></p>
+<p>&nbsp;</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 最上面为菜单栏。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 第一行是按钮地址栏</span>。放置一些常用功能的按钮。</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 96px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="newselset_icon.gif" width="21" height="21" alt="newSelset_icon" style="border:none" /><span class="f_ImageCaption"> </span>新建库工程按钮： 点击来打开 新建库工程 对话框。<a href="assetlib_createproject.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 96px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="openprojiconj.gif" width="21" height="21" alt="openProjIconj" style="border:none" />打开库工程按钮：点击打开一个.assetproj库工程文件，如果这个文件不在本地默认路径，会自动复制到本地。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 96px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>层级显示栏：从左到右，依次是 库工程名称 &gt; 本地库还是全局库 &gt; 类别名称<br />
+每个按钮单击都有相应的功能动作，&gt; 按钮也可以单击。<br />
+如果当前没有打开的库工程，则这一栏可以用来新建工程。<br />
+如果当前库工程没有资产类别，则类别按钮是一个新建类别的按钮。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 96px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="viewmodeswitchicon.gif" width="21" height="21" alt="viewmodeSwitchIcon" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">显示模式切换：</span>点击将资产的显示方式在列表模式与缩略图按钮方式切换。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 96px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="addfoldericon.gif" width="21" height="21" alt="addFolderIcon" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">从文件夹批量添加DB项：</span>从指定的文件夹目录里批量扫描mb/ma档，根据用户挑选，批量加入到当前项目相应类别里作为资产项。<a href="batchscanassetitems.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 96px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="scanimageicon.gif" width="21" height="21" alt="scanImageIcon" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">从文件夹批量添加DB项预览图：</span>从指定的文件夹目录里批量扫描图片档并按可自定义的匹配条件与已存在的资产项作匹配，从而批量为资产项找到预览图。<a href="scanassetpreviewimage.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 96px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="additemicon.gif" width="21" height="21" alt="addItemIcon" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">新建资产项：</span>从场景所选Reference节点或外部ma/mb文件那新建一个资产项。<a href="assetlib_createassetitem.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 96px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="batchmakeicon.gif" width="21" height="21" alt="batchMakeIcon" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 批量生成缩略图：</span> 勾选上一些资产项，点击按钮会打开批量生成资产项预览图窗口。<br />
+它将用当前maya批量打开不同的maya档并生成相应缩略图。所以您当前场景未保存，会先提醒您是否先保存当前场景。<br />
+因为稍后会在不确认情况下直接开关档。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 96px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="findandreplaceicon.gif" width="21" height="21" alt="findAndReplaceIcon" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 查找和替换按钮：</span> 打开查找和替换对话框，查找当前资产库的当前类别/所有类别里包含特定字符窜的信息，并加以替换。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 96px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="stateediticon.gif" width="21" height="21" alt="stateEditIcon" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 资产库状态变更按钮： </span>如果当前库工程有设置状态，则亮亮选中一些资产项后，点击这个按钮，选中弹出的状态菜单里的一项，<br />
+即可以将所高亮资产的状态设为相应的状态。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 96px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="trashicon.gif" width="21" height="21" alt="trashIcon" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">删除资产项：</span>删除勾选中的资产项。<a href="assetlib_useasset.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 96px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="refreshicon.gif" width="21" height="21" alt="refreshIcon" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">刷新当前项目所有资产项信息：</span>刷新当前项目下所有资产项的信息。包含资产项的日期，版本号，可不可用等等。如果资产项比较多会执行地比较慢。<a id="updatedbinfo"></a></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 96px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="previewasseticon.gif" width="21" height="21" alt="previewAssetIcon" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">预览资产项按钮：</span>点击打开预览面板来预览当前资产项的信息及预览图。也可以在图标显示模式下双击资产项按钮来打开。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 96px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="saveicon.gif" width="21" height="21" alt="saveIcon" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">保存所有的编辑：</span>保存此次启动资产管理器后对当前项目所做的所有编辑。包括加入的资产项，预览图数据等等，如果没有保存，再重新打开资产管理器又会没有。</p><p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">左侧Asset按钮：</span>用最醒目的状态，提醒用户当前是本地资产库还是本地资产库。<br />
+<span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;蓝色的字代表当前在本地库，绿色的代表当前在全局库。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;直接点击即可以切换本地、全局资产库。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">左侧类别栏：</span>这一栏从上而下，按字母顺序列出所有类别。点击每个类别，来在内容区显示该类别下的所有资产。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">界面中间区域：</span>显示了当前类别下的所有资产。该区域下方是资产备注的显示区域。也可以显示整个库的资产统计信息。</p>
+<p style="text-align: left; padding: 0px 0px 0px 93px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>在列表显示模式下：<br />
+双击每一条资产，即可以编辑其文本内容。（如果是在不可写的全局库状态下，这个编辑不可保存）</p><p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;信息分前缀名，文件路径，状态，版本，大小，日期这几栏。<br />
+<span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;注意，这些栏有些是比较灰的，意味着不可手动更改，并且这些区域上可以用鼠标滚轮上下翻页。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;灰掉区域上直接点击，也会弹出一些浏览辅助菜单 。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;不灰的区域，可以双击编辑内容，但是局限于maya控件的限制，无法用鼠标滚轮上下翻页。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;但是键盘上的PageUp, PageDn是都可以用的。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;这些区域，右键菜单 里都可以访问到一些常用的浏览功能。</p>
+<p style="text-align: left; padding: 0px 0px 0px 93px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>在图标按钮模式下：<br />
+双击每一个资产按钮，会弹出预览区域来预览该资产的信息及预览图。<br />
+可以用ctrl，shelf键来辅助多选。点击按钮下方的名称，则可以勾选相应的资产以便以后叫进场景。</p><p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">界面右方:  </span>可以切换显示出预览区域。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">界面左下方：</span>快捷筛选搜索框： 默认是筛选搜索前缀名，在前缀名上点击，可以切换成筛选搜索其它栏位的信息:<br />
+<span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<img src="assetlib_quicksearch_ch.gif" width="138" height="141" alt="assetLib_quickSearch_ch" style="border:none" /><br />
+<span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;后面的搜索框，默认是激活状态，直接输入文字，来进行筛选。<br />
+<span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;输入筛选完后，按回车键，往下高亮下一条，按shelf+回车键，来往上高亮上一条。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;按ctrl+回车键，来切换当前高亮资产项的勾选状态。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;当前如果有筛选，则输入框右侧有一个关闭小按钮，点击取消筛选回到正常状态。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">界面右下方：</span>应用资产库的功能按钮区。</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 72px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">次数: </span>是指后面reference或导入操作的重复次数。如果是3，再点Reference的话，同一资产将reference三次进来。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 72px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="makema_ch.gif" width="68" height="20" alt="makeMA_ch" style="border:none" /> 将勾选中的资产项，以reference方式，生成一个layout场景。<a href="assetlib_useasset.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 72px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="mgdbmanager_reference.gif" width="68" height="20" alt="MGdbManager_reference" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">:  </span>按左边指定的重复次数，把勾选上的资产项Reference进来。将事先弹出确认框要求用户确认。<br />
+在2.5版里加入选项按钮，资产管理器的reference将追随maya的选项设置。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 72px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_ImageCaption"> <img src="mgdbmanager_input_cn.gif" width="42" height="20" alt="MGdbManager_input_cn" style="border:none" /> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">: </span>按左边指定的重复次数，把勾选上的资产项导进来。将事先弹出确认框要求用户确认。<br />
+在2.5版里加入选项按钮，资产管理器的导入操作将追随maya的选项设置。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 72px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="mgdbmanager_open_cn.gif" width="42" height="20" alt="MGdbManager_open_cn" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">: </span>把勾选上的资产项的第一项在当前Maya里打开。将事先弹出确认框要求用户确认。<br />
+在2.5版里加入选项按钮，资产管理器的开档操作将追随maya的选项设置。</p><p>&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_ImageCaption" style="font-size: 10pt;">MG资产库使用流程</span><span style="font-weight: bold; color: #191817;">：</span></p>
+<p style="line-height: 1.50;"><span style="width:48px">&nbsp;</span>新建库工程 &gt; 新建类别 &gt; Asset/Layout Leader生成，收集资产项 &gt; 在流程中共享这个库 &gt; Layout人员使用资产库提升制作效率。</p>
+<p>&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_ImageCaption" style="font-size: 10pt;">关于资产库工程工具操作范围</span><span style="font-weight: bold; color: #191817;">：</span></p>
+<p style="line-height: 1.50;"><span style="width:48px">&nbsp;</span>大多数对于并不会对当前资产库产生修改的操作，是基于资产项高亮与否。</p>
+<p style="line-height: 1.50;"><span style="width:48px">&nbsp;</span>不过有的例外，为操作方便，像更改状态就是基于资产项是否高亮。</p>
+<p style="line-height: 1.50;"><span style="width:48px">&nbsp;</span>会对资产库产生修改的，大多数是基于资产项是否被勾选。比如reference等叫档操作，删除资产项，在不同类别间移动复制资产项等。</p>
+<p style="line-height: 1.50;"><span style="width:48px">&nbsp;</span>在内容区点右键，有很多将高亮转为勾选的功能。</p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">建立库工程 </span><a href="assetlib_createproject.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">批量扫描资产项 </span><a href="batchscanassetitems.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">批量扫描预览图 </span><a href="scanassetpreviewimage.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">建立资产项 </span><a href="assetlib_createassetitem.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">批量生成预览图 </span><a href="assetlib_batchmakeicon.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">预览面板 </span><a href="assetlib_previewpanel.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">共享资产库 </span><a href="assetlib_sharing.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">使用资产动作库 </span><a href="assetlib_useasset.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50;">&nbsp;</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="cam2dviewer.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="assetlib_createproject.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

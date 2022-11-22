@@ -1,0 +1,84 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>加载Pickers</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="auto-load pickers,loading pickers,picker searching paths" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "loadpicker.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="animator.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="setnamespace.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">多个加载相关Picker的方法:</span></p><div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:16px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 21px;">&nbsp;</p>
+</td>
+<td style="vertical-align:middle; width:798px; padding:0px;"><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-weight:bold; font-size:9pt; font-family: 'Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">1.</span><span style="font-size: 9pt; font-weight: bold;">默认情况下，所有场景内的Picker节点在读取maya档案后将会被自动加载。</span><br />
+<img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> 这个自动加载与否的选项可以通过选择更多功能按钮 </span><img src="morefeaturesbtn.gif" width="19" height="19" alt="moreFeaturesBtn" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 9pt;">/配置..，在弹出的配置对话框里设置。</span><br />
+<span style="font-size: 9pt;">&nbsp;</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-weight:bold; font-size:9pt; font-family: 'Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">2.</span><span style="font-size: 9pt;">选择Reference角色的任意一部分， </span><span style="font-size: 9pt; font-weight: bold;">ALT+鼠标左键双击Picker标签的空白处或如果当前没有Picker打开就直接双击视图区，来搜索并自动打开与当前角色相关的Picker。</span><br />
+<img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> 也可以直接点击右上角的查找&amp;加载Picker按钮 </span><img src="findandloadbtn.gif" width="19" height="19" alt="findAndLoadBtn" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 9pt;">.</span><br />
+<img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> 也可以点击右上角的更多功能按钮 </span><img src="morefeaturesbtn.gif" width="19" height="19" alt="moreFeaturesBtn" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 9pt;">/ 查找&amp;加载Picker.</span><br />
+<img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> 搜索的优先级及搜索路径可以在配置对话框里设置。</span><br />
+<span style="font-size: 9pt;">&nbsp;</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-weight:bold; font-size:9pt; font-family: 'Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">3.</span><span style="font-size: 9pt; font-weight: bold;">鼠标左键双击Picker标签的空白处或如果当前没有Picker打开就直接双击视图区，来打开文件对话框，您可以手动拾取一个外部的.mgpkr的picker文件。</span><br />
+<span style="font-size: 9pt; font-weight: bold;">&nbsp;</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-weight:bold; font-size:9pt; font-family: 'Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">4.</span><span style="font-size: 9pt; font-weight: bold;">SHIFT+鼠标左键双击Picker标签的空白处或如果当前没有Picker打开就直接双击视图区，来加载场景里所有的Picker节点</span><span style="font-size: 9pt;">(如果他们被设置不被自动加载)。</span><br />
+<img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> 也可以点击右上角的更多功能按钮 </span><img src="morefeaturesbtn.gif" width="19" height="19" alt="moreFeaturesBtn" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 9pt;"> / 加载场景内所有Picker节点。</span><br />
+<span style="font-size: 9pt;">&nbsp;</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-weight:bold; font-size:9pt; font-family: 'Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">5.</span><span style="font-size: 9pt; font-weight: bold;">拖拽一个 .mgpkr文件夹Picker视图区域并松开来打开那个picker文件。</span></p></td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="warning.gif" width="16" height="16" alt="Warning" style="border:none" /><span style="font-size: 9pt; color: #ff0000;"> &nbsp;Picker被加载后，你可能仍然需要设置下它的namespace（命名空间）以便它可以正常工作。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; color: #ff0000;">在动画师模式下，可以查看顶上的namespace栏，看上面显示的namespace是否跟你reference角色的namespace是否匹配。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; color: #ff0000;"><a href="setnamespace.htm" class="topiclink">点此了解</a> 更多namespace的信息。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">MG-Picker工作室搜索三个基本路径来取得相关Picker:</span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:9pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span><span style="font-size: 9pt; font-weight: bold;">在当前Maya场景/ Reference场景内部的Picker节点。</span><br />
+<span style="font-size: 9pt;">这些Picker节点采用Maya内置节点类型 &quot;subdivSurfaceVarGroup&quot;，并通常有一个&quot;_MGPIKR&quot;作为名字后缀。</span><br />
+<span style="font-size: 9pt;">Picker节点采用的图片一般存储在Maya场景目录的pickerimages子目录。</span><br />
+<span style="font-size: 9pt;">&nbsp;</span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:9pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span><span style="font-size: 9pt; font-weight: bold;">当前或Reference场景目录里的pickers文件夹。 </span><br />
+<span style="font-size: 9pt;">你可以将Picker数据及图片发布在相关场景所在目录里的pickers目录里。这个目录也将被自动搜索。</span><br />
+<span style="font-size: 9pt;">&nbsp;</span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:9pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span><span style="font-size: 9pt; font-weight: bold;">Maya的用户程序目录 / MG_PickerData / 当前Picker工程目录。</span><br />
+<span style="font-size: 9pt;">在Windows操作系统，这个目录是我的文档/maya/MG_PickerData/. 在里面的当前Picker工程里的Picker数据将被搜索。</span><br />
+<span style="font-size: 9pt;">&nbsp;</span></p><p style="line-height: 1.50;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> 在配置窗口里，你还可以添加其它的自定义搜索路径。</span></p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="animator.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="setnamespace.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayTS "up.mainUI.title" "MGTools線上更新器 2.0";
+
+MG_displayTS "up.mainUI.cversionS" " 當前MGTools內部版本號：";
+MG_displayTS "up.mainUI.checking" "正在為您檢查可用更新..在此期間您可繼續工作:)";
+MG_displayTS "up.mainUI.detailAnno" "點左邊按鈕則其更新細節將顯示在下面:(ctrl+滑輪來改變字型大小)";
+MG_displayTS "up.mainUI.go" "更  新 !!";
+MG_displayTS "up.mainUI.close" "關  閉";
+MG_displayTS "up.mainUI.errorCheck" "在檢查可用更新時發生了錯誤，請檢查網路連線後重試 :(";
+MG_displayTS "up.mainUI.errorUpdate" "在執行更新時發生了錯誤，請檢查網路連線後重試 :(";
+MG_displayTS "up.mainUI.noUpdate" "不需要更新，您的MGTools已經是目前最新版的了 :)";
+MG_displayTS "up.mainUI.checkDone" "所有可用更新項已在下面為您列出，請點選檢視 :)";
+MG_displayTS "up.mainUI.working" "正在下載並更新MGTools..您可以繼續工作 :)";
+MG_displayTS "up.mainUI.cong" "恭喜 !!";
+MG_displayTS "up.mainUI.cong.mes" "MGTools已成功安裝/更新完畢，您可以點選下面\"重新整理MGTools\"按鈕來進行基礎性重新整理.\n絕大部分工具重新開啟即可重新整理.\n不過最好能重新啟動Maya來確保MGTools使用的全部是最新功能:)";
+MG_displayTS "up.mainUI.ok" "知道了 ^_^";
+
+MG_displayTS "up.noPy.title" "對不起!";
+MG_displayTS "up.noPy.mes" "線上更新功能不支援Maya 8.0以前版本.\n如果您是MGTools 2.0的合法使用者,請聯繫mgtool2@gmail.com來獲取手動更新包(請提供購買的更新碼).";
+MG_displayTS "up.noPy.ok" "了 解";	
+								
+MG_displayTS "up.needUnload.title" "請注意!";	
+MG_displayTS "up.needUnload.mess00" "一些MGTools c++插件將被自動unload以便能被正確安裝/更新:\n";	
+MG_displayTS "up.needUnload.mess01" "\n以上插件也不可以被正開啟的其它同版本maya例項使用著.(否則請在那個maya裡手動unload plugin.)\n";	
+MG_displayTS "up.needUnload.mess02" "更新過後這些插件會被自動再載入.";	
+MG_displayTS "up.needUnload.Iknow" "請繼續";	
+//mgtools 3
+MG_displayTS "up.unreg.lbl" "未註冊";
+MG_displayTS "up.pro.lbl" "專業版";
+
+
+MG_displayTS "up.errorUnpack.perfix" "解包該檔案時出錯: ";
+MG_displayTS "up.offline.title" "MGTools離線更新器";
+MG_displayTS "up.pro.toolname" "MGTools Pro3";
+MG_displayTS "up.trial.expired.war" "您的MGTools試用授權已過期.";
+MG_displayTS "up.stu.expired.war" "您的MGTools學生版授權已過期.";
+MG_displayTS "up.license.ver.lbl" "授權狀態:";
+MG_displayTS "up.upToNewVer.lbl" "升級到最新版本";
+MG_displayTS "up.rollToOldVer.lbl" "撤消更新";
+MG_displayTS "up.upNoContinus.war" "不連續的升級會產生程式錯誤，這是MGTools所要避免的.\n\n您需要額外的升級包纔可以升級到版本 '";
+MG_displayTS "up.upNoContinus.without.war" "缺少這些升級包，您最新只可以升級到:  ";
+MG_displayTS "up.upNoContinus.without.no.war" "缺少這些升級包，對您來說目前沒有任何的升級可行.";
+
+MG_displayTS "up.rollbackNoContinus.war" "不連續的撤消會產生程式錯誤，這是MGTools所要避免的.\n\n您需要額外的撤消資料纔可以撤消更新包 '";
+MG_displayTS "up.rollbackNoContinus.without.war" "缺少這些撤消資料，您最早只可以撤消更新:  ";
+MG_displayTS "up.rollbackNoContinus.without.no.war" "缺少這些撤消資料, 對您來說目前沒辦法做任何的撤消.";
+
+MG_displayTS "up.upToVer.lbl" "升級到 ";
+MG_displayTS "up.rollToVer.lbl" "撤消更新 ";
+MG_displayTS "up.noValidToUpdate.lbl" "無可行更新";
+MG_displayTS "up.noValidToRollback.lbl" "沒辦法撤消";
+MG_displayTS "up.rollback.errorCopyFolder.war" "在複製目錄時撤消錯誤: \"";
+MG_displayTS "up.rollback.errorCopyFile.war" "在複製檔案時撤消錯誤: \"";
+MG_displayTS "up.to.lbl" "\"  到 \"";
+MG_displayTS "up.rollback.error.war" "在撤消該更新時出錯 ";
+MG_displayTS "up.err.updatePackage.err" "出錯 \"該更新包 : ";
+MG_displayTS "up.err.notExist.err" " 不存在.\"";
+MG_displayTS "up.err.reading.err" "出錯 \"讀取包時出錯 :";
+MG_displayTS "up.updated.lbl" "已升級";
+
+
+MG_displayTS "up.onlineUp.trial.war" "您的MGTools目前在試用期，只有離線更新可用.";
+MG_displayTS "up.onlineUp.trialExpired.war" "您的MGTools試用期已過期.";
+MG_displayTS "up.onlineUp.stuExpired.war" "您的MGTools學生版授權已過期.";
+MG_displayTS "up.onlineUp.success.downloaded.rep" "成功下載:";
+MG_displayTS "up.onlineUp.success.updated.rep" "成功更新:";
+
+MG_displayTS "up.onlineUp.downloadUpdater.Failed.war" "下載該maya版本的更新程式 ";
+MG_displayTS "up.onlineUp.downloadUpdater.Failed.war1" " 失敗. \n檢查您的大中華區域網是否可用或寫郵件到mgtoolspro@gmail.com來獲取最新安裝包.";
+MG_displayTS "up.onlineUp.errorImport.war" "載入模組時出錯 !! ";
+
+MG_displayTS "up.offlineUp.undo.lbl" "撤消: ";	//the trailing space is critical.
+
+MG_displayTS "up.before.offonLineUP.war" "你的MGTools是以伺服器端模式安裝的，線上/離線更新會影響到伺服器端的MGTools檔案。\n請確認你被允許這樣做？";

@@ -1,0 +1,321 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayTS "MGtools.mi.help" "幫助..";
+MG_displayTS "MGtools.mi.help.anno" "點選檢視該工具的幫助.";
+MG_displayTS "MGtools.mi.MGtoolshelp.anno" "點選檢視MGTools的幫助.";
+MG_displayTS "MGtools.menu.help" "幫助";
+MG_displayTS "MGtools.update.help" "檢視線上更新幫助..";
+MG_displayTS "MGtools.update.help.anno" "檢視關於線上更新功能的幫助.";
+
+MG_displayTS "MGtools.MGtools.min.anno" "點選最小化MGTools.";
+MG_displayTS "MGtools.MGtools.mi.config" "MGTools配置..";
+MG_displayTS "MGtools.MGtools.mi.config.anno" "配置MGTools.";
+MG_displayTS "MGtools.MGtools.mi.shelf" "MGTools工具安裝器..";
+MG_displayTS "MGtools.MGtools.mi.shelf.anno" "安裝/更新/移除MGTools工具到工具架..";
+MG_displayTS "MGtools.MGtools.mi.about" "關於MGTools..";
+MG_displayTS "MGtools.MGtools.mi.about.anno" "點選檢視MGTools版本歷史.";
+
+MG_displayTS "MGtools.MGshelf" "MG工具架 v2..";
+MG_displayTS "MGtools.MGshelf.anno" "點選載入MG工具架2.0，浮動的易於管理的Maya Shelf工具架。";
+MG_displayTS "MGtools.MGshelf.mi.config" "MGShelf管理器..";
+MG_displayTS "MGtools.MGshelf.mi.config.anno" "點選使用MGShelf管理器來管理內建shelf.";
+
+MG_displayTS "MGtools.Folder.anno" "單擊開啟當前工程目錄，雙擊開啟當前工程目錄及其下的image目錄.";
+MG_displayTS "MGtools.Folder.mi.currentScene" "開啟當前場景資料夾..";
+MG_displayTS "MGtools.Folder.mi.failsave" "開啟Maya崩潰暫存資料夾..";
+MG_displayTS "MGtools.Folder.mi.script" "開啟Maya指令碼資料夾..";
+MG_displayTS "MGtools.Folder.mi.plugin" "開啟Maya插件資料夾..";
+MG_displayTS "MGtools.Folder.mi.pref" "開啟Maya配置資料夾..";
+MG_displayTS "MGtools.Folder.mi.icon" "開啟Maya圖示資料夾..";
+MG_displayTS "MGtools.Folder.mi.shelf" "開啟Maya工具架資料夾..";
+MG_displayTS "MGtools.Folder.mi.program" "開啟Maya安裝資料夾..";
+
+
+MG_displayTS "MGtools.Folder.mi.mgtools" "開啟MGTools本地資料夾..";
+MG_displayTS "MGtools.Folder.mi.mgtools.server" "開啟MGTools伺服器資料夾..";
+MG_displayTS "MGtools.Folder.mi.add" "添加自定義資料夾..";
+MG_displayTS "MGtools.Folder.mi.edit" "編輯自定義資料夾..";
+
+MG_displayTS "MGtools.File.mi.calc" "windows計算器..";
+MG_displayTS "MGtools.File.mi.calc.anno" "點選開啟windows計算器..";
+MG_displayTS "MGtools.File.mi.add" "添加自定義檔案..";
+MG_displayTS "MGtools.File.mi.edit" "編輯自定義檔案..";
+MG_displayTS "MGtools.File.mi.removeDefault" "移除默認行為";
+MG_displayTS "MGtools.File.mi.removeDefault.anno" "重置該工具圖示默認行為添加自定義檔案";
+MG_displayTS "MGtools.File.mi.noDefault.anno" "你還未定製該工具圖示默認點選行為，點選我來添加默認開啟的自定義檔案";
+
+MG_displayTS "MGtools.channelBox" "MG通道欄..";
+MG_displayTS "MGtools.channelBox.anno" "單擊開啟可自由移動的MG通道欄.";
+MG_displayTS "MGtools.channelBox.mi.hideshowLayer" "隱藏/顯示所有顯示層";
+MG_displayTS "MGtools.channelBox.mi.resetC" "重置所選屬性";
+MG_displayTS "MGtools.channelBox.mi.resetC.anno" "重置在當前通道欄所選屬性至各自的預設值";
+MG_displayTS "MGtools.channelBox.mi.putInNewLayer" "藏入新層";
+MG_displayTS "MGtools.channelBox.mi.LE" "層編輯器..";
+MG_displayTS "MGtools.channelBox.mi.setProject" "設定工程目錄";
+MG_displayTS "MGtools.channelBox.mi.newProject" "新建工程";
+MG_displayTS "MGtools.channelBox.mi.toggleGEPlug" "曲線編輯器插件開關";
+MG_displayTS "MGtools.channelBox.mi.toggleGEPlug.anno" "點選生成/刪除曲線編輯器的通道過濾插件.";
+MG_displayTS "MGtools.channelBox.mi.option" "MG通道欄選項..";
+
+MG_displayTS "MGtools.selection" "選擇集工具 v2..";
+MG_displayTS "MGtools.selection.anno" "用.sel檔案來在maya間共享選擇集";
+MG_displayTS "MGtools.selection.mi.sManager" "選擇管理器..";
+MG_displayTS "MGtools.selection.mi.newSelSet" "新建選擇集..";
+MG_displayTS "MGtools.selection.mi.newSelSet.anno" "把當前場景選擇存成一個選擇集..";
+MG_displayTS "MGtools.selection.mi.retarget" "轉移選擇..";
+MG_displayTS "MGtools.selection.mi.retarget.anno" "將當前選擇從一個角色轉移到另一個角色.";
+MG_displayTS "MGtools.selection.mi.backUP" "備份選擇..";
+MG_displayTS "MGtools.selection.mi.backUP.anno" "備份當前選擇資訊並隨場景儲存.";
+MG_displayTS "MGtools.selection.mi.Restore" "恢複選擇..";
+MG_displayTS "MGtools.selection.mi.Restore.anno" "從之前的備份中還原當初選擇.";
+MG_displayTS "MGtools.selection.mi.assign" "指定選擇集MarkingMenu快捷鍵..";
+MG_displayTS "MGtools.selection.mi.assign.anno" "當你在用選擇集功能時，它會在後臺生成/實時更新一個markingMenu,只要給它指定一個快捷鍵就可以在檢視視窗裡使用它.";
+
+MG_displayTS "MGtools.constraint" "約束工具..";
+MG_displayTS "MGtools.constraint.anno" "點選開啟約束工具條";
+MG_displayTS "MGtools.constraint.mi.pconParent" "父子約束父層級";
+MG_displayTS "MGtools.constraint.mi.pconParent.anno" "用第一選擇物體來父子約束第二選擇物體的父層級";
+MG_displayTS "MGtools.constraint.mi.findJoint" "查找骨骼";
+MG_displayTS "MGtools.constraint.mi.findJoint.anno" "先選軟綁過的模型頂點，然後點它來選擇相應的軟綁骨骼";
+MG_displayTS "MGtools.constraint.mi.conLister" "約束管理器..";
+MG_displayTS "MGtools.constraint.mi.pcons" "父子約束";
+MG_displayTS "MGtools.constraint.mi.anim" "動畫約束";
+MG_displayTS "MGtools.constraint.mi.anim.anno" "動畫約束：在父子約束所選的兩個物體之外,將生成一個locator層級夾在中間,可使被約束體在被約束的同時依然有調整的餘地.";
+MG_displayTS "MGtools.constraint.mi.point" "點約束";
+MG_displayTS "MGtools.constraint.mi.orient" "旋轉約束";
+MG_displayTS "MGtools.constraint.mi.aim" "目標約束";
+MG_displayTS "MGtools.constraint.mi.clear" "清除約束";
+MG_displayTS "MGtools.constraint.mi.consAxis" "修改約束軸向..";
+MG_displayTS "MGtools.constraint.mi.weightName" "修正約束權重屬性名";
+MG_displayTS "MGtools.constraint.mi.export" "匯出約束偏移..";
+MG_displayTS "MGtools.constraint.mi.export.anno" "選擇被約束物體然後用它匯出約束偏移數值，以便跨maya使用.";
+MG_displayTS "MGtools.constraint.mi.import" "匯入約束偏移..";
+MG_displayTS "MGtools.constraint.mi.import.anno" "選擇被約束物體然後重新利用之前匯出的約束偏移資訊.";
+MG_displayTS "MGtools.constraint.mi.clearOffset" "清除約束偏移檔案";
+MG_displayTS "MGtools.constraint.mi.clearOffset.anno" "清除maya暫存資料夾裡所有之前匯出的約束偏移檔案";
+
+MG_displayTS "MGtools.viewSwitch.mi" "檢視配置切換";
+MG_displayTS "MGtools.viewSwitch.anno" "點選切換檢視配置";
+MG_displayTS "MGtools.viewSwitch.mi.editV" "編輯檢視切換配置..";
+MG_displayTS "MGtools.viewSwitch.mi.disTool" "顯示層集工具..";
+MG_displayTS "MGtools.viewSwitch.mi.newdisSet" "新建顯示層集..";
+MG_displayTS "MGtools.viewSwitch.mi.evalAllDis" "測試所有顯示層集";
+MG_displayTS "MGtools.viewSwitch.mi.evalAllDis.anno" "測試所有顯示層集,如果其成員有在場景中存在則創建相應顯示層並加入成員.";
+
+MG_displayTS "MGtools.snap" "向前定腳吸附";
+MG_displayTS "MGtools.snap.anno" "點選進行向前定腳吸附，之後你可以按\"G\"鍵繼續向前吸附";
+MG_displayTS "MGtools.snap.mi.pointSnapF" "向前點吸附";
+MG_displayTS "MGtools.snap.mi.Marker" "標記器";
+MG_displayTS "MGtools.snap.mi.Marker.anno" "點選創建當前所選物體的位置和時間的標記器(locator),如果你在時間滑條上有時間段選擇，則標記所有關鍵幀的位置和時間.";
+MG_displayTS "MGtools.snap.mi.poSnapB" "向後定腳吸附";
+MG_displayTS "MGtools.snap.mi.rSnapF" "向前相對吸附";
+MG_displayTS "MGtools.snap.mi.rSnapB" "向後相對吸附";
+MG_displayTS "MGtools.snap.mi.pointSnapB" "向後點吸附";
+MG_displayTS "MGtools.snap.mi.orientSnapF" "向前旋轉吸附";
+MG_displayTS "MGtools.snap.mi.orientSnapB" "向後旋轉吸附";
+MG_displayTS "MGtools.snap.mi.POsnap" "定位吸附";
+MG_displayTS "MGtools.snap.mi.POsnap.anno" "吸附第二選擇的物體到第一選擇物體的位置和旋轉";
+MG_displayTS "MGtools.snap.mi.PointSnap" "點吸附";
+MG_displayTS "MGtools.snap.mi.OrientSnap" "旋轉吸附";
+MG_displayTS "MGtools.snap.mi.rpointSnapF" "向前相對點吸附";
+MG_displayTS "MGtools.snap.mi.rpointSnapB" "向後相對點吸附";
+MG_displayTS "MGtools.snap.mi.clearSLoc" "清除吸附標記器";
+MG_displayTS "MGtools.snap.mi.markerM" "標記器管理器..";
+MG_displayTS "MGtools.snap.mi.backUPAnim" "備份動畫";
+MG_displayTS "MGtools.snap.mi.backUPAnim.anno" "備份所選物件的動畫，並隨場景儲存.";
+MG_displayTS "MGtools.snap.mi.RestoreAnim" "還原動畫";
+MG_displayTS "MGtools.snap.mi.RestoreAnim.anno" "選擇備份過動畫的物件點它來從備份中還原動畫";
+
+MG_displayTS "MGtools.pivot" "可動畫軸心工具..";
+MG_displayTS "MGtools.pivot.anno" "點選開啟軸心工具,使單個物件有無數個可動畫的軸心.";
+MG_displayTS "MGtools.pivot.mi.create" "創建軸心裝置";
+MG_displayTS "MGtools.pivot.mi.delete" "刪除軸心裝置";
+MG_displayTS "MGtools.pivot.mi.bind" "繫結軸心裝置";
+MG_displayTS "MGtools.pivot.mi.bind.anno" "選擇新目標,加選軸心裝置，點它來重新建立繫結關係.";
+MG_displayTS "MGtools.pivot.mi.pstuffLister" "軸心裝置管理器..";
+MG_displayTS "MGtools.pivot.mi.snapMov" "吸附軸心到Pivot_mov";
+MG_displayTS "MGtools.pivot.mi.snapMov.anno" "吸附Roll控製器的軸心到Pivot_mov的位置.將在前一幀key幀，並在這一幀轉移軸心到新位置.";
+MG_displayTS "MGtools.pivot.mi.snapSel" "吸附軸心到選擇";
+MG_displayTS "MGtools.pivot.mi.snapSel.anno" "吸附軸心到第一選擇的物體軸心位置";
+MG_displayTS "MGtools.pivot.mi.BacksnapSel" "向後吸附軸心到選擇";
+MG_displayTS "MGtools.pivot.mi.BacksnapSel.anno" "向後吸附軸心到第一選擇的物體軸心位置";
+
+MG_displayTS "MGtools.pivot.mi.snapB" "向後吸附到Pivot_mov";
+MG_displayTS "MGtools.pivot.mi.snapB.anno" "吸附Roll控製器的軸心到Pivot_mov的位置.將在當前幀key幀，並在上一幀轉移軸心到新位置.";
+MG_displayTS "MGtools.pivot.mi.selectAll" "選擇該套軸心裝置";
+MG_displayTS "MGtools.pivot.mi.selectAll.anno" "選擇該套軸心裝置的全部三個控製器";
+MG_displayTS "MGtools.pivot.mi.SelectPivotRoll" "選擇Pivot&Roll";
+MG_displayTS "MGtools.pivot.mi.SelectPivotMov" "選擇Pivot_mov";
+
+MG_displayTS "MGtools.animLib" "MG-Pose動作庫..";
+MG_displayTS "MGtools.animLib.anno" "點選開啟MG-Pose動作庫";
+MG_displayTS "MGtools.animBank" "MG-動畫銀行..";
+MG_displayTS "MGtools.animBank.anno" "點選開啟MG-動畫銀行來匯入匯出動畫。";
+MG_displayTS "MGtools.animLib.mi.clearImport" "清除已讀入的動畫資料";
+MG_displayTS "MGtools.animLib.mi.clearImport.anno" "清除在導動畫時已讀入的動畫資料,(留著也沒關係).";
+MG_displayTS "MGtools.animLib.mi.import" "匯入動畫..";
+MG_displayTS "MGtools.animLib.mi.copyV" "拷貝數值";
+MG_displayTS "MGtools.animLib.mi.copyV.anno" "跨maya拷貝在當前通道欄所選的屬性數值,如果沒有選擇屬性，則全部在通欄欄顯示的屬性值將被拷貝.";
+MG_displayTS "MGtools.animLib.mi.pasteV" "貼上數值";
+MG_displayTS "MGtools.animLib.mi.clearBackuped" "清除備份的動畫資料";
+MG_displayTS "MGtools.animLib.mi.clearBackuped.anno" "清除之前備份的動畫資料.";
+MG_displayTS "MGtools.animLib.mi.browseLib" "瀏覽動畫銀行..";
+MG_displayTS "MGtools.animLib.mi.browseLib.anno" "用windows資源管理器來瀏覽動作庫.";
+MG_displayTS "MGtools.animLib.mi.markAnim" "標記動畫";
+
+MG_displayTS "MGtools.miniToolBox" "MG迷你工具箱..";
+MG_displayTS "MGtools.miniToolBox.anno" "點選開啟迷你工具箱";
+MG_displayTS "MGtools.miniToolBox.mi.timer" "MG記時計算器 2.0..";
+MG_displayTS "MGtools.miniToolBox.mi.timer.anno" "點選開啟MG記時器，你可以用它以任何單位來記錄/轉換計算時間";
+MG_displayTS "MGtools.miniToolBox.mi.MBMA" "MB-MA強制轉存..";
+MG_displayTS "MGtools.miniToolBox.mi.MBMA.anno" "有時用maya的另存會提醒有未知節點而失敗，用它來強制另存MA,MB";
+MG_displayTS "MGtools.miniToolBox.mi.exRef" "匯出Reference資訊";
+MG_displayTS "MGtools.miniToolBox.mi.exRef.anno" "匯出Reference的namespace,路徑資訊到一個位部檔案";
+MG_displayTS "MGtools.miniToolBox.mi.imRef" "重用Reference資訊";
+MG_displayTS "MGtools.miniToolBox.mi.imRef.anno" "重用之前匯出的Reference資訊，重新以同樣的namespace來reference同一個物體.";
+MG_displayTS "MGtools.miniToolBox.mi.remRef" "清除該Reference";
+MG_displayTS "MGtools.miniToolBox.mi.remRef.anno" "清除該Reference,同時將儘量刪除該reference所佔用的namespace";
+MG_displayTS "MGtools.miniToolBox.mi.repNS" "修改NameSpace..";
+MG_displayTS "MGtools.miniToolBox.mi.HUD" "開啟MG螢幕資訊顯示";
+MG_displayTS "MGtools.miniToolBox.mi.HUD.anno" "開啟MG螢幕資訊顯示,在其選項裡你可以設定顯示幀數,攝像機名,作者,場景名等.";
+MG_displayTS "MGtools.miniToolBox.mi.configHUD" "配置MG螢幕資訊..";
+MG_displayTS "MGtools.miniToolBox.mi.clearHUD" "清除MG螢幕資訊顯示";
+MG_displayTS "MGtools.miniToolBox.mi.annoFC" "幀數計數器註釋..";
+MG_displayTS "MGtools.miniToolBox.mi.annoFC.anno" "點選產生幀數計數的註釋物體.你可像操作物件那樣任意位移它.";
+MG_displayTS "MGtools.miniToolBox.mi.stickObj" "固定所選於檢視";
+MG_displayTS "MGtools.miniToolBox.mi.stickObj.anno" "把所選物體於當前檢視，有時調表情時可以把浮動的表情面板固定在當前檢視以便調動畫.";
+MG_displayTS "MGtools.miniToolBox.mi.stickObjConfig" "固定選項..";
+MG_displayTS "MGtools.miniToolBox.mi.stickView" "創建固定檢視";
+MG_displayTS "MGtools.miniToolBox.mi.stickView.anno" "先選擇一個物體,點選它來創建因定於這個物體的檢視,便於查穿幫等等";
+MG_displayTS "MGtools.miniToolBox.mi.drawKey" "描繪動畫路徑 (簡單)..";
+MG_displayTS "MGtools.miniToolBox.mi.drawKey.anno" "根據所選物體的動畫來描繪其動畫路徑曲線.";
+MG_displayTS "MGtools.miniToolBox.mi.MPSticker" "路徑動畫計算器..";
+MG_displayTS "MGtools.miniToolBox.mi.MPSticker.anno" "路徑動畫計算器，用它來計算儘量不滑步的路徑動畫.";
+
+MG_displayTS "MGtools.createNewHideLayer.war" "場景沒有物體被選擇哦.";
+
+//----------------------MGTools3-------------------
+
+MG_displayTS "MGtools.update.menu" "更新";
+MG_displayTS "MGtools.update.offline.mi" "離線更新MGTools..";
+MG_displayTS "MGtools.update.offline.ann" "使用\"MGTools_LocalData/MG_UpdatePackages/UpdatePackages\"資料夾裡的離線更新包(*.mgu)來離線更新MGTools.";
+MG_displayTS "MGtools.update.server.mi" "從伺服器端更新MGTools..";
+MG_displayTS "MGtools.update.server.ann" "如果你的MGTools以伺服器端模式安裝，你可以從伺服器的MGTools獲取更新的檔案.";
+MG_displayTS "MGtools.relocateServer.mi" "重新定位MGTools程式...";
+MG_displayTS "MGtools.relocateServer.ann" "將MGTools安裝模式改為伺服器端模式，如果已經是，你可以用這個工具來修改伺服器MGTools的地址.";
+
+MG_displayTS "MGtools.register.menu" "註冊";
+MG_displayTS "MGtools.register.mg.mi" "註冊MGTools..";
+MG_displayTS "MGtools.register.submitUC.mi" "向伺服器端提交使用者碼..";
+MG_displayTS "MGtools.register.submitUC.ann" "向你的MGTools伺服器的 \"MGTools_LicenseData\" 目錄提交你的機子使用者碼，這樣你的軟體管理員可以用這些資訊來批量註冊MGTools.";
+
+MG_displayTS "MGtools.register.batch.mi" "批量註冊MGTools..";
+MG_displayTS "MGtools.register.batch.ann" "批量註冊多臺機子的MGTools. 這個只能由你的軟體管理員來執行。";
+MG_displayTS "MGtools.register.de.mi" "清除MGTools註冊資訊..";
+MG_displayTS "MGtools.register.de.ann" "清除你本機的MGTools註冊資訊.(伺服器端的註冊資訊不會清除)";
+
+MG_displayTS "MGtools.install.menu" "安裝/解除安裝";
+MG_displayTS "MGtools.install.uninstall.mi" "MGTools工具解除安裝器..";
+
+MG_displayTS "MGtools.help.menu" "幫助";
+MG_displayTS "MGtools.help.offline.mi" "檢視離線更新幫助..";
+MG_displayTS "MGtools.help.server.mi" "檢視伺服器更新幫助..";
+
+
+MG_displayTS "MGtools.uninstall.finished.msg" "MGTools解除安裝完成.";
+MG_displayTS "MGtools.uninstall.btn" "解除安裝";
+MG_displayTS "MGtools.uninstall.cancel.btn" "取消";
+MG_displayTS "MGtools.uninstall.goAhead.btn" "繼續";
+MG_displayTS "MGtools.uninstall.keepUserConfig.btn" "保留使用者配置";
+MG_displayTS "MGtools.uninstall.all.btn" "解除安裝全部";
+MG_displayTS "MGtools.uninstall.title" "MGTools專業版解除安裝嚮導";
+
+MG_displayTS "MGtools.uninstall.poseAnimAssetLib.msg" "您真的要清除MG-Pose動作庫及資產庫嗎? \n有可能這樣你本機的其它版本的Maya也會用到這些庫.";
+MG_displayTS "MGtools.uninstall.poseAnim.msg" "您真的要清除MG-Pose動作庫嗎? \n有可能這樣你本機的其它版本的Maya也會用到這些庫.";
+MG_displayTS "MGtools.uninstall.assetLib.msg" "您真的要清除MG-資產庫嗎? \n有可能這樣你本機的其它版本的Maya也會用到這些庫.";
+
+MG_displayTS "MGtools.uninstall.confirm.msg" "您真的要解除安裝MGTools專業版嗎? ";
+MG_displayTS "MGtools.uninstall.dereg.done.rep" "您的MGTools註冊資訊已清除.";
+MG_displayTS "MGtools.uninstall.unloadAllPlugins.done.rep" "解除安裝全部MGTools插件.";
+MG_displayTS "MGtools.uninstall.clearShelf.done.rep" "清理MGTools工具架.";
+MG_displayTS "MGtools.uninstall.clearHotkey.done.rep" "清理MGTools快捷鍵相關資料.";
+MG_displayTS "MGtools.uninstall.clearAutoload.done.rep" "清理MGTools自動載入的程式碼.";
+MG_displayTS "MGtools.uninstall.removePoseAnimLib.done.rep" "移除MG-Pose動作庫.";
+MG_displayTS "MGtools.uninstall.clearConfigs.done.rep" "清理全部MGTools程式檔案及使用者配置.";
+MG_displayTS "MGtools.uninstall.remOtherFiles.done.rep" "移除其它檔案: ";
+MG_displayTS "MGtools.uninstall.remAnimBank.done.rep" "移除MG-動畫銀行資料.";
+MG_displayTS "MGtools.uninstall.remSelset.done.rep" "移除MG-選擇集.";
+MG_displayTS "MGtools.uninstall.remShelf.done.rep" "移除MG工具架.";
+MG_displayTS "MGtools.uninstall.remAssetLib.done.rep" "移除MG-資產庫.";
+MG_displayTS "MGtools.uninstall.remOldConfigs.done.rep" "移除MGTools使用者配置.";
+MG_displayTS "MGtools.uninstall.remOtherFolders.done.rep" "移除在MGTools根目錄下的其它目錄: ";
+MG_displayTS "MGtools.uninstall.remMenu.done.rep" "移除MGTools選單欄選單.";
+
+MG_displayTS "MGtools.uninstall.remOtherFolders.server.war" "* 當前MGTools是以伺服器模式安裝.\n   在伺服器端的MGTools程式檔案等不會被解除安裝, 你可以直接手動刪除它們.\n";
+MG_displayTS "MGtools.uninstall.clearProgram.lbl" "清除MGTools程式檔案";
+MG_displayTS "MGtools.uninstall.dereg.lbl" "清除MGTools註冊資訊";
+MG_displayTS "MGtools.uninstall.clearAll.lbl" "清除所有使用者資料";
+MG_displayTS "MGtools.uninstall.clearPoseAnim.lbl" "清除本地MG-Pose動畫庫";
+MG_displayTS "MGtools.uninstall.clearAnimbank.lbl" "清除MG-動畫銀行";
+MG_displayTS "MGtools.uninstall.clearSelset.lbl" "清除MG選擇集";
+MG_displayTS "MGtools.uninstall.clearMGShelf.lbl" "清除MG工具架";
+MG_displayTS "MGtools.uninstall.clearAssetLib.lbl" "清除MG-資產庫"; 
+MG_displayTS "MGtools.uninstall.clearOther.lbl" "清除其它全部資料"; 
+
+
+MG_displayTS "MGtools.config.help" "檢視MG-配置幫助..";
+
+MG_displayTS "MGtools.relocateMG.help" "檢視重定向MGTools幫助..";
+MG_displayTS "MGtools.register.help" "檢視MGTools註冊幫助..";
+MG_displayTS "MGtools.distribution.help" "檢視MGTools分發幫助..";
+MG_displayTS "MGtools.floatingLicence.help" "檢視MGTools浮動授權幫助..";
+
+MG_displayTS "MGtools.selSharing.help" "檢視選擇集共享幫助..";
+
+MG_displayTS "MGtools.poseAnimSharing.help" "檢視Pose動作庫共享幫助..";
+MG_displayTS "MGtools.assetSharing.help" "檢視資產庫共享幫助..";
+
+MG_displayTS "MGtools.MGSaver.help" "MG儲存器幫助..";
+
+
+
+//add mg-picker studio language resource @ 2015/05/13
+MG_displayTS "MGtools.appName" "MGTools專業版";
+
+
+MG_displayTS "MGtools.picker.designer.lbl" "MG-Picker工作室..(設計師模式)";
+MG_displayTS "MGtools.picker.designer.ann" "點選以設計師模式啟動MG-Picker工作室.";
+MG_displayTS "MGtools.picker.animator.ann" "點選以動畫師模式啟動MG-Picker工作室.";
+
+MG_displayTS "MGtools.picker.notInstalled.msg" "MG-Picker工作室是一個強大直觀的maya picker工具及picker設計器，並且對動畫師完全免費。\n\n它並沒有在當前maya版本安裝，您需要訪問網站並免費下載該程式嗎？";
+MG_displayTS "MGtools.picker.notProperlyInstalled.msg" "MG-Picker工作室沒有被正確安裝，您需要訪問網站免費下載並重灌該程式嗎？";
+
+
+
+
+//after float license @20160107
+MG_displayTS "MGtools.nodeLock.menu" "單機授權";
+MG_displayTS "MGtools.floatLic.menu" "浮動授權";
+MG_displayTS "MGtools.floatLic.login.lbl" "登陸..";
+MG_displayTS "MGtools.floatLic.login.ann" "載入MG-授權連線器來登陸浮動授權。";
+MG_displayTS "MGtools.floatLic.logout.lbl" "退出..";
+MG_displayTS "MGtools.floatLic.logout.ann" "退出浮動授權，注意這個會影響所有本機運行maya的MGTools。";
+
+MG_displayTS "MGtools.pick.program.lbl" "請拾取\"#\"";
+MG_displayTS "MGtools.pick.program.pick" "拾取";
+MG_displayTS "MGtools.pick.program.pickDot" "拾取..";
+MG_displayTS "MGtools.close.lbl" "關閉";
+MG_displayTS "MGtools.whereis.lbl" "\"#\"在哪裡";
+MG_displayTS "MGtools.newProgramLoc.lbl" "新聞程式位置";
+MG_displayTS "MGtools.connector.config.title" "配置MG-授權連線器";
+MG_displayTS "MGtools.connector.location.lbl" "連線器位置" ;
+
+
+MG_displayTS "MGtools.news.mi" "MGLAND|Twincodes資訊..";

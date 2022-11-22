@@ -1,0 +1,66 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "ServeProc.style.remember" "Remember style";
+MG_displayEN "ServeProc.style.remember.anno" "Remember current UI width,Height,Position style";
+MG_displayEN "ServeProc.style.user" "User style";
+MG_displayEN "ServeProc.style.user.anno" "Go back to remembered User style";
+MG_displayEN "ServeProc.style.layer1" "Layout style 1";
+MG_displayEN "ServeProc.style.layer2" "Layout style 2";
+MG_displayEN "ServeProc.style.layer3" "Layout style 3";
+MG_displayEN "ServeProc.style.layer4" "Layout style 4";
+
+MG_displayEN "ServeProc.maximize.restore" "Click to Maximize.";
+MG_displayEN "ServeProc.noInHotkeyList.war" "The Tool: # is not in the MGHotkey setable list.You have to create and set it manually in Maya's Hotkey Editor.";
+
+
+MG_displayEN "ServeProc.error" "Error";
+
+MG_displayEN "ServeProc.plugin.notfound.war" "Current MGTools plugin: # is not found.";
+MG_displayEN "ServeProc.dontBugmeagain.lbl" " Don't Bug Me Again ";
+MG_displayEN "ServeProc.cancelWithBothSpace.lbl" " Cancel ";
+MG_displayEN "ServeProc.search.lbl" " Search " ;
+MG_displayEN "ServeProc.visitMGland.lbl" " Visit mgland.com For The Latest MGTools Package ->";
+MG_displayEN "ServeProc.plugin.notfound.msg" "Current MGTools plugin: # is not found. Do you want to search mgland.com for it?";
+
+MG_displayEN "ServeProc.downloading.msg" "Online downloading #, please standby.";
+MG_displayEN "ServeProc.downloading.unable.msg" "!! Unable to download the plugin: ";
+MG_displayEN "ServeProc.shelf.uninstalled.rep" " shelves uninstalled.";
+
+MG_displayEN "ServeProc.hotkey.updated.rep" "MGTools related Command that bound with hotkeys are updated.";
+MG_displayEN "ServeProc.hotkey.uninstalled.rep" "MGTools related Command that bound with hotkeys are uninstalled.";
+MG_displayEN "ServeProc.autoload.uninstalled.rep" "MGTools autoloading codes are uninstalled.";
+
+MG_displayEN "ServeProc.error.replacingOldFile.war" "Error replacing the old file :";
+
+MG_displayEN "ServeProc.updateFromServer.notServerProgram.war" "Your MGTools was not installed as a server program. No server to update from.";
+MG_displayEN "ServeProc.updateFromServer.notHalfServerProgram.war" "Your MGTools was installed as a full server program so no update needed, and I just did a program refresh for you.";
+MG_displayEN "ServeProc.updateFromServer.title" "Update MGTools3 From Server";
+MG_displayEN "ServeProc.updateFromServer.topann" "* Gonna update MGTools program files for the server path:";
+MG_displayEN "ServeProc.updateFromServer.cancel.lbl" "Cancel";
+MG_displayEN "ServeProc.updateFromServer.update.lbl" "Update !";
+
+MG_displayEN "ServeProc.relocateMGTools.ann" "A tool to relocation the server path of MGTools.";
+MG_displayEN "ServeProc.batchReg.submitUC.notServer.war" "Your MGTools is not installed as a server program. No need to submit the User Code.";
+MG_displayEN "ServeProc.batchReg.submitUC.writable.msg" "Unable to submit your User Codes to the server side. \nIs the \"MGTools_LicenseData\" folder of your server MGTools directory writable by you?";
+MG_displayEN "ServeProc.batchReg.submitUC.done.rep" "Successfully submit your User Code to server side.";
+MG_displayEN "ServeProc.deReg.confirm.msg1" "Do you really wanna clear the registry info from your local machine?\n";
+MG_displayEN "ServeProc.deReg.confirm.msg2" "Ps. The registry form server side \"MGTools_LicenseData\" folder won't be cleaned.";
+
+MG_displayEN "ServeProc.featureNotAvailable.msg" "Your current MGTools license state is:  [ ";
+MG_displayEN "ServeProc.license.trial" "Trial License";
+MG_displayEN "ServeProc.license.trial.expired" "Trial License Expired";
+MG_displayEN "ServeProc.license.student" "Student License";
+MG_displayEN "ServeProc.license.student.expired" "Student License Expired";
+MG_displayEN "ServeProc.license.comm.mismatch" "Commercial License For Old MGTools Pro Version";
+MG_displayEN "ServeProc.license.notAvailable" "This feature is not available to you.";
+
+MG_displayEN "loader.loadMGToolsPlugin.err" "Error loading MGTools plugin.";
+
+MG_displayEN "loader.batchReg.submitUC.alreadyExists" "The user codes has been submitted before, no need to submit again.";

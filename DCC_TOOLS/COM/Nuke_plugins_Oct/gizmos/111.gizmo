@@ -1,0 +1,41 @@
+#! C:/Program Files/Nuke9.0v8/nuke-9.0.8.dll -nx
+version 9.0 v8
+Gizmo {
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos 69
+  ypos 26
+ }
+ Grade {
+  name Grade1
+  xpos 69
+  ypos 66
+ }
+ Grade {
+  name Grade2
+  xpos 69
+  ypos 92
+ }
+ Grade {
+  name Grade3
+  xpos 69
+  ypos 118
+ }
+ Grade {
+  name Grade4
+  xpos 69
+  ypos 144
+ }
+ Grade {
+  name Grade5
+  xpos 69
+  ypos 170
+ }
+ Output {
+  name Output1
+  xpos 69
+  ypos 270
+ }
+end_group

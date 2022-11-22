@@ -1,0 +1,2 @@
+//Cancel the isolation for currently model view.
+MGP_CancelIsolation; 

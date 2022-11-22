@@ -1,0 +1,1 @@
+string $currentPickerFileOrNode = `MGP_GetCurrentPickerFileOrNode`;  //get the full path of current picker file or the picker node name.

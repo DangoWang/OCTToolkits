@@ -1,0 +1,141 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+//`MG_DualLan "MGShelf.bar.edit.mi"`
+MG_displayEN "MGShelf.ignorePython.print" "Ignore MGshelf python surport because current Maya version has no python surport.";
+MG_displayEN "MGShelf.startPython.print" "Start MGshelf python support.\n";
+
+MG_displayEN "MGShelf.welcome" "Welcome to MG-Shelf v2.";
+
+MG_displayEN "MGShelf.bar.anno" "Click to minimize.";
+MG_displayEN "MGShelf.bar.manager.mi" "MGShelf manager..";
+MG_displayEN "MGShelf.bar.manager.mi.anno" "Click to  MGShelf manager to manage shelves.";
+
+MG_displayEN "MGShelf.manager.welcome" "Welcome to MG-Shelf Manager.U can add/edit your shelf tools here:)";
+MG_displayEN "MGShelf.manager.cShelf" "Current MG_shelf:";
+MG_displayEN "MGShelf.manager.annoText" "Ctrl+MMB Drag your shelf in.They will be invoked through the popMenus of MGTools or MGShelf Bar.";
+MG_displayEN "MGShelf.manager.refreshMenu" "Refresh to show edit popMenu";
+MG_displayEN "MGShelf.manager.save" "Save";
+MG_displayEN "MGShelf.manager.help" "Help..";
+MG_displayEN "MGShelf.manager.close" "Close";
+MG_displayEN "MGShelf.manager.addEditNewS" "Add new MGshelf / Edit existed MGshelf:                               ";
+MG_displayEN "MGShelf.manager.cmdTextF.anno" " command area: ( Use MMB drag the shelf into the area or type in codes manually. )";
+MG_displayEN "MGShelf.manager.insertCodes.mi" "Quick insert \" source .mel \" codes..";
+MG_displayEN "MGShelf.manager.insertCodes.war" "Must swith current shelf type to Mel to make the insert codes works. Proceed?";
+
+MG_displayEN "MGShelf.manager.insertPyCodes.mi" "Quick insert \" import .py \" codes..";
+MG_displayEN "MGShelf.manager.insertPyCodes.war" "Must swith current shelf type to Python to make the insert codes works. Proceed?";
+MG_displayEN "MGShelf.manager.insertPyCodes.No.war" "Current codes type is already mel type or Current Maya version does not support python. Operation cancelled.";
+
+MG_displayEN "MGShelf.manager.testCodes.btn" "Test command";
+MG_displayEN "MGShelf.manager.saveAsMel.btn" "Save as mel file";
+MG_displayEN "MGShelf.manager.saveAsMel.fileName" "FileName:";
+MG_displayEN "MGShelf.manager.saveAsMel.folder" " Mel Folder..";
+MG_displayEN "MGShelf.manager.pickIcon.anno" "  Pick a 32 X 32 icon:         Ctrl+drag in shelf to override left icon." ;
+MG_displayEN "MGShelf.manager.HIcon.anno" "32 X 32 highlight icon:" ;
+MG_displayEN "MGShelf.manager.menuName" "  Popmenu name :" ;
+MG_displayEN "MGShelf.manager.sLable" "  Shelf label :" ;
+MG_displayEN "MGShelf.manager.annotation" "          Annotation :" ;
+MG_displayEN "MGShelf.manager.add" "Add" ;
+MG_displayEN "MGShelf.manager.edit" "Edit" ;
+
+MG_displayEN "MGShelf.openShelfFolder.mi" "Open MGshelves folder.." ;
+MG_displayEN "MGShelf.openShelfFolder.mi.anno" "Open the folder that MGshelves are store in." ;
+
+MG_displayEN "MGShelf.resetIcon" "Reset Icon to Default" ;
+MG_displayEN "MGShelf.resetIcon.anno" "Reset the icon of current button to default" ;
+MG_displayEN "MGShelf.manager.clone" "Clone" ;
+MG_displayEN "MGShelf.manager.clone.anno" "Clone current button" ;
+MG_displayEN "MGShelf.manager.rename" "Rename.." ;
+MG_displayEN "MGShelf.manager.rename.anno" "Rename current button's label" ;
+
+MG_displayEN "MGShelf.manager.renameOveryLay" "Rename OverLay Label.." ;
+MG_displayEN "MGShelf.manager.renameOveryLay.anno" "Rename the OverLay Label of current button" ;
+
+MG_displayEN "MGShelf.manager.saved.rep" "MG-Shelf saved! " ;
+
+MG_displayEN "MGShelf.addShelf.war" "--_-- |||  You must fill in Mel command area and Popmenu name at least!!~" ;
+MG_displayEN "MGShelf.addFileMelShelf.war" "--_-- |||  You must fill in Mel FileName!!~" ;
+
+MG_displayEN "MGShelf.shelfExisted.war.title" "The mel has existed!!" ;
+MG_displayEN "MGShelf.shelfExisted.war.message" "The mel has existed!What you want:" ;
+MG_displayEN "MGShelf.shelfExisted.war.overlay" "OverWrite" ;
+MG_displayEN "MGShelf.shelfExisted.war.cancel" "Cancel" ;
+
+MG_displayEN "MGShelf.bar.edit.mi" "Edit.." ;
+MG_displayEN "MGShelf.bar.edit.mi.anno" "Edit current shelf." ;
+MG_displayEN "MGShelf.bar.delete.mi" "Delete.." ;
+MG_displayEN "MGShelf.bar.delete.mi.anno" "Delete current shelf." ;
+
+MG_displayEN "MGShelf.manager.purge.war.title" "Alert!!" ;
+MG_displayEN "MGShelf.manager.delCategory.war.mes" "Are you sure to delete the whole catelog?" ;
+MG_displayEN "MGShelf.manager.purge.war.mes" "The edit operation will purge current codes in Melcommand area,what you want:" ;
+MG_displayEN "MGShelf.manager.purge.war.go" "Go" ;
+
+MG_displayEN "MGShelf.manager.delButton.rep" "Current button deleted.But without pressing the save button,this action wont be remembered." ;
+MG_displayEN "MGShelf.manager.whichToInstall.mes" "Where do U wanna install the shelves:" ;
+MG_displayEN "MGShelf.manager.currentTab" "CurrentShelfTab" ;
+MG_displayEN "MGShelf.manager.allTab" "AllShelfTabs" ;
+MG_displayEN "MGShelf.manager.sTab" "ShelfTab:";
+
+MG_displayEN "MGShelf.manager.whatToInstall.mes" "Where do U wanna install the shelves:" ;
+MG_displayEN "MGShelf.manager.currentCate" "Current Category" ;
+MG_displayEN "MGShelf.manager.allCate" "All Categories" ;
+
+MG_displayEN "MGShelf.readyForInstallButton" "Ready for installing current button to shelf." ;
+MG_displayEN "MGShelf.moveButtonToNewCate" "Move current button to the new catelog." ;
+MG_displayEN "MGShelf.copyButtonToNewCate" "Duplicate current button to the new catelog." ;
+
+MG_displayEN "MGShelf.renameButton" "Rename Button" ;
+MG_displayEN "MGShelf.renameButton.enterName.mes" "Enter Name:" ;
+MG_displayEN "MGShelf.renameButton.enterName.war" "Please enter a different name." ;
+
+MG_displayEN "MGShelf.readyForEditCbutton" "Prepared for editing current button." ;
+MG_displayEN "MGShelf.readyForCloneCbutton" "Prepared for cloning current button." ;
+
+MG_displayEN "MGShelf.renameCate" "Rename Category" ;
+MG_displayEN "MGShelf.newCate" "New Category.." ;
+MG_displayEN "MGShelf.renameCate.cant.war" "Cant edit current category cos its probably occupied by Maya :(" ;
+
+MG_displayEN "MGShelf.InstallcurrentCate" "Install Current Category to Shelf." ;
+MG_displayEN "MGShelf.InstallallCate" "Install All Categories to Shelf" ;
+MG_displayEN "MGShelf.InstallShelf.anno" "Click to install current/all Categories to Shelf.MMB Drag the button/Category here to install it to shelf." ;
+
+MG_displayEN "MGShelf.newIssue.anno" "Click to open MGshelf Manager to add new category/button.MMB Drag the button here to duplicate it." ;
+MG_displayEN "MGShelf.editIssue.anno" "Click to open MGshelf Manager to edit stuff.MMB Drag the button here to edit it.MMB Drag the Category here to rename it." ;
+MG_displayEN "MGShelf.delIssue.anno" "MMB Drag the button/Category here to del it." ;
+MG_displayEN "MGShelf.saveIssue.anno" "Save All Edit." ;
+
+MG_displayEN "MGShelf.extendButtonWidth.mi" "Expand Button Width" ;
+MG_displayEN "MGShelf.shrinkButtonWidth.mi" "Shrink Button Width" ;
+MG_displayEN "MGShelf.extendButtonWidth.anno" "Click me to expand shelfButton width to show more button label." ;
+MG_displayEN "MGShelf.shrinkButtonWidth.anno" "Click me to shrink shelfButton width to save more room." ;
+MG_displayEN "MGShelf.resetButtonWidth.mi" "Reset To Default width" ;
+MG_displayEN "MGShelf.minWidth.mi" "Set To Minimum width" ;
+MG_displayEN "MGShelf.miniMode.mi" "Mini/Normal Mode switch" ;
+
+MG_displayEN "MGShelf.unnamed.mi" "Unnamed Shelf" ;
+
+MG_displayEN "MGShelf.noSelItem.war" "No items selected." ;
+
+MG_displayEN "MGShelf.manager.cate.title" "Category:" ;
+MG_displayEN "MGShelf.manager.mUp" "UP";
+MG_displayEN "MGShelf.manager.mDn" "DN";
+MG_displayEN "MGShelf.manager.new" "New";
+MG_displayEN "MGShelf.manager.dup" "Dup";
+MG_displayEN "MGShelf.manager.ren" "Ren";
+MG_displayEN "MGShelf.manager.del" "Del";
+MG_displayEN "MGShelf.manager.refresh" "Refresh";
+MG_displayEN "MGShelf.manager.cancelEdit" "Cancel Edit";
+
+MG_displayEN "MGShelf.mgtools.updateMenu.mi" "Update This Menu";
+MG_displayEN "MGShelf.mgtools.updateMenu.ann" "Update the MGshelf Menu. Will recreate the menuitems of MGshelf.";
+MG_displayEN "MGShelf.mgtools.updateMenu.rep" "All MGshelves menuItems are updated.";
+
+
+MG_displayEN "MGShelf.manager.noCategory" "No category available.\nPress the \"New\" button in category area or press the \"New Category..\" button below to create a new category first.";

@@ -1,0 +1,29 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayTS "relocator.Title" "MG重定位器";
+MG_displayTS "relocator.mi" "MG重定位器..";
+MG_displayTS "relocator.anno" "生成一個可用來重定位你所挑選物體的定位器，重新定位的結果將合併在這些物體的原有關鍵幀中。";
+
+MG_displayTS "relocator.list.anno" "要重定位的物體:";
+
+
+MG_displayTS "relocator.add" "把場景所選物體加入要重定位的列表";
+MG_displayTS "relocator.del" "把場景所選物體從要重定位的列表裡去掉";
+
+MG_displayTS "relocator.begin.relocat" "開始重定位!";
+MG_displayTS "relocator.end.relocat" "完成重定位!";
+
+MG_displayTS "relocator.reselect" "選擇重定位器";
+MG_displayTS "relocator.refresh" "重新整理介面";
+
+MG_displayTS "relocator.begin.rep" "你現在可以用當前所選的層級來重新擺放要重定位的物體哦。";
+MG_displayTS "relocator.end.rep" "重定位完成!";
+
+MG_displayTS "relocator.help.text" "===========用途==========\n生成一個控制裝置用來重新擺放要重定位的物體，重擺導致改變將融入到這些物體原有的關鍵幀中。\n\n==========步驟===========\n1: 用\"+\"按鈕把物體加入列表 \n2: 按 \"開始重定位!\" 按鈕來生成重定向用的控製器，生成後該控製器默認被選.\n3: 用maya的位移/旋轉等工具來重定位. \n4: 按 \"完成重定位!\" 來完成操作，重定位的改變將融入到被重定位物體原有的關鍵幀裡去.";

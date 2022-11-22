@@ -1,0 +1,100 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+//`MG_DualLan "keyframeTool.title"`
+//`MG_DualLanFormat_1 repVar`
+//`MG_DualLan "selM.backUPSel.doit.nosel"`
+
+MG_displayTS "keyframeTool.title" "幀工具箱";
+MG_displayTS "keyframeTool.title1" "幀工具箱..";
+
+MG_displayTS "keyframeTool.ann" "開啟幀工具箱，裡面有很多與關鍵幀動畫有關的工具，如跨Maya間複製/貼上動畫/Pose等等 :)";
+//MG_displayTS "miniToolB.1.5.new.title.anno" "插入層級  &  無跳切換屬性:";
+MG_displayTS "keyframeTool.titleBar.ann" "點我來收合當前工具.";
+MG_displayTS "keyframeTool.help.ann" "點我來開啟當前工具的幫助檔案.";
+
+MG_displayTS "keyframeTool.misc.tit" "雜項工具";
+
+MG_displayTS "keyframeTool.relocator.ann" "開啟復位位器來重新定位多個已被Key幀的物體.";
+MG_displayTS "keyframeTool.switchAttr.mi" "無跳屬性切換..";
+MG_displayTS "keyframeTool.switchAttr.ann"  "開啟無跳屬性切換器來無跳動切換物體屬性.";
+MG_displayTS "keyframeTool.snapKeyframe.title" "強力吸附歸整非整數幀";
+MG_displayTS "keyframeTool.snapKeyframe.ann" "強力吸附歸整非整數幀.如有選時間範圍則只吸附該範圍的幀，否則將吸附全部.";
+MG_displayTS "keyframeTool.snapKeyframe.snapGESel" "吸附曲線編輯器所選曲線";
+MG_displayTS "keyframeTool.snapKeyframe.snapSeltimeRange" "吸附時間滑條所選範圍";
+MG_displayTS "keyframeTool.snapKeyframe.snaptimeRange" "吸附時間滑條顯示範圍";
+MG_displayTS "keyframeTool.snapKeyframe.snapall" "吸附全部";
+
+MG_displayTS "keyframeTool.scaleKeyframe.title" "動畫縮放/幀率轉換器..";
+MG_displayTS "keyframeTool.scaleKeyframe.ann" "開啟動畫縮放/幀率轉換器來縮放物件的動畫。";
+
+MG_displayTS "keyframeTool.timing.title" "Timing工具";
+MG_displayTS "keyframeTool.timing.ann" "Timing工具，用來改變兩幀間的間距，所有後面的幀將前移/後移";
+MG_displayTS "keyframeTool.timing.anTitle01" " 設定前後幀的時間間距:";
+MG_displayTS "keyframeTool.timing.anTitle02" " 加減前後幀的時間間距:";
+MG_displayTS "keyframeTool.timing.addSubToV" "將目標時間間距設定改變#";
+MG_displayTS "keyframeTool.timing.slider.ann" "滑動時間滑條來改變目標時間間距設定";
+MG_displayTS "keyframeTool.timing.aqire.ann" "獲取當前場景選擇的前後幀時間間距值.";
+MG_displayTS "keyframeTool.timing.intField.ann" "輸入數字來改變目標時間間距設定";
+MG_displayTS "keyframeTool.timing.change.ann" "設定當前場景選擇的前後幀時間間距值為目標值.";
+MG_displayTS "keyframeTool.timing.sliderIncre.ann" "滑動時間滑條來改變時間間距的增/減值";
+MG_displayTS "keyframeTool.timing.intFieldIncre.ann" "輸入數字來改變目標時間間距的增/減值";
+MG_displayTS "keyframeTool.timing.add.ann" "以增/減值為量來加減當前場景選擇的前後幀時間間距值.";
+
+MG_displayTS "keyframeTool.setKey.title" "K幀工具";
+MG_displayTS "keyframeTool.setKey.everyKey" "每個關鍵幀";
+MG_displayTS "keyframeTool.setKey.every" "每";
+MG_displayTS "keyframeTool.setKey.every.ann" "每#幀將設一個key,並且從當前幀起算。";
+MG_displayTS "keyframeTool.setKey.fr" "幀";
+MG_displayTS "keyframeTool.setKey.ann" "點我來要麼每關鍵幀設一個幀，要麼每#幀設一個Key,支援時間範圍選擇限定設Key範圍。右鍵選單裡有更多功能。";
+MG_displayTS "keyframeTool.setKey.deleteStatic.mi" "刪除無動態的屬性Key";
+MG_displayTS "keyframeTool.setKey.deleteStatic" "此功能等同於Maya的刪除無動態屬性命令。（即沒有數值變化的屬性通道）";
+MG_displayTS "keyframeTool.setKey.nonDefault.mi" "設Key非預設值的通道";
+MG_displayTS "keyframeTool.setKey.nonDefault.ann" "設Key任何處於非Rig預設值的通道。";
+
+MG_displayTS "keyframeTool.BD.title" "中間張工具";
+MG_displayTS "keyframeTool.BD.ann" "中間張工具，用來根據一定的百分比來快速生成兩幀間的中間張.";
+MG_displayTS "keyframeTool.changeL.ann" "在離上一幀Pose的#處生成立一個BD張。";
+MG_displayTS "keyframeTool.changeLarbi.ann" "在離上一幀Pose的自定義百分比處生成立一個BD張。";
+MG_displayTS "keyframeTool.changeR.ann" "在離下一幀Pose的#處生成立一個BD張。";
+MG_displayTS "keyframeTool.changeRarbi.ann" "在離下一幀Pose的自定義百分比處生成立一個BD張。";
+
+MG_displayTS "keyframeTool.isExtre.label" "->極張";
+MG_displayTS "keyframeTool.isBD.ann" "生成中間張Pose.";
+MG_displayTS "keyframeTool.isExtre.ann" "生成極張Pose.";
+MG_displayTS "keyframeTool.avoidOverShoot.label" "自動避免逆向緩衝";
+MG_displayTS "keyframeTool.avoidOverShoot.ann" "生成BD時自動避免逆向緩衝";
+MG_displayTS "keyframeTool.onlySelCurve.label" "只處理所選動畫曲線";
+MG_displayTS "keyframeTool.onlySelCurve.ann" "只在所選動畫曲線上生成BD幀";
+MG_displayTS "keyframeTool.onlySelKey.label" "只處理所選關鍵幀";
+MG_displayTS "keyframeTool.onlySelKey.ann" "只編輯所選關鍵幀的數值到所設定的百分比.";
+
+MG_displayTS "keyframeTool.tangent.title" "切線類型工具";
+MG_displayTS "keyframeTool.tangent.ann" "基於時間滑條的動畫曲線切線類型編輯工具。";
+MG_displayTS "keyframeTool.correctOvershoot.mi" "自動修順動畫曲線";
+MG_displayTS "keyframeTool.correctOvershoot.ann" "自動修順動畫曲線.";
+MG_displayTS "keyframeTool.tanget.left" "修改前一幀的關鍵幀切線類型.";
+MG_displayTS "keyframeTool.tanget.both" "修改前後幀的關鍵幀切線類型.";
+MG_displayTS "keyframeTool.tanget.right" "修改後一幀的關鍵幀切線類型.";
+MG_displayTS "keyframeTool.tanget.all" "修改當前物體所有動畫的關鍵幀切線類型.";
+MG_displayTS "keyframeTool.tanget.selRange" "修改當前時間滑塊所選時間範圍內所有的關鍵幀切線類型.";
+
+MG_displayTS "keyframeTool.notimeRange.war" "時間滑條上無時間範圍選擇.";
+MG_displayTS "keyframeTool.jobDoneNochange.rep" "任務完成!沒有需要作改變:P";
+MG_displayTS "keyframeTool.jobDone.rep" "任務完成!";
+//`MG_DualLan "keyframeTool.jobDone.rep"`
+MG_displayTS "keyframeTool.notKeyframed.war" "所選物體必須是已Key幀的哦.";
+MG_displayTS "keyframeTool.retiming.war" "這個功能只有當當前幀在兩個前後關鍵幀之間的時候能有效哦";
+MG_displayTS "keyframeTool.retiming.jobDone.rep" "任務完成!前後幀的Timing已被改變了#幀 :)";
+
+MG_displayTS "keyframeTool.onselShift.lbl" "隻影響所選關鍵幀";
+MG_displayTS "keyframeTool.onselShift.ann" "只根據相對值來前/後偏移所選的關鍵幀.";
+
+MG_displayTS "keyframeTool.keyKeyframed.lbl" "K幀已K幀通道";
+MG_displayTS "keyframeTool.keyKeyframed.ann" "對當前場景所選物體已key幀的通道在當前幀設key.";

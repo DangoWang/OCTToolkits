@@ -1,0 +1,67 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayTS "ServeProc.style.remember" "記住當前風格";
+MG_displayTS "ServeProc.style.remember.anno" "記住當前視窗長寬位置資訊";
+MG_displayTS "ServeProc.style.user" "自定義風格";
+MG_displayTS "ServeProc.style.user.anno" "使用自定義長寬位置資訊";
+MG_displayTS "ServeProc.style.layer1" "單列風格";
+MG_displayTS "ServeProc.style.layer2" "雙列風格";
+MG_displayTS "ServeProc.style.layer3" "方形風格";
+MG_displayTS "ServeProc.style.layer4" "單行風格";
+
+MG_displayTS "ServeProc.maximize.restore" "點選還原";
+
+MG_displayTS "ServeProc.noInHotkeyList.war" "工具: # 沒有在MGTools可設定快捷鍵的列表內.你需要手動在Maya快速鍵裡設定快捷鍵.";
+
+MG_displayTS "ServeProc.error" "出錯";
+
+MG_displayTS "ServeProc.plugin.notfound.war" "當前MGTools插件: # 沒找到.";
+MG_displayTS "ServeProc.dontBugmeagain.lbl" " 另再提示我 ";
+MG_displayTS "ServeProc.cancelWithBothSpace.lbl" " 取消 ";
+MG_displayTS "ServeProc.search.lbl" " 搜索 " ;
+MG_displayTS "ServeProc.visitMGland.lbl" " 訪問mgland.com獲得最新MGTools安裝包 ->";
+MG_displayTS "ServeProc.plugin.notfound.msg" "當前MGTools插件: # 沒找到. 您是否需要搜索mgland.com來獲取?";
+
+MG_displayTS "ServeProc.downloading.msg" "正在線上下載 #, 請稍候.";
+MG_displayTS "ServeProc.downloading.unable.msg" "!! 無法載入插件: ";
+MG_displayTS "ServeProc.shelf.uninstalled.rep" " 個工具架被解除安裝.";
+
+MG_displayTS "ServeProc.hotkey.updated.rep" "MGTools相關的被繫結快捷鍵的命令已更新.";
+MG_displayTS "ServeProc.hotkey.uninstalled.rep" "MGTools相關的被繫結快捷鍵的命令已解除安裝.";
+MG_displayTS "ServeProc.autoload.uninstalled.rep" "MGTools自動載入的程式碼已清除.";
+
+MG_displayTS "ServeProc.error.replacingOldFile.war" "替代該舊檔案時出錯 :";
+
+MG_displayTS "ServeProc.updateFromServer.notServerProgram.war" "您的MGTools沒有以伺服器模式安裝. 沒有可用來更新的伺服器端.";
+MG_displayTS "ServeProc.updateFromServer.notHalfServerProgram.war" "您的MGTools以完全伺服器模式安裝所以無需要更新，我已為您重新整理當前程式.";
+
+MG_displayTS "ServeProc.updateFromServer.title" "從伺服器端更新MGTools";
+MG_displayTS "ServeProc.updateFromServer.topann" "* 即使從該伺服器端路徑更新MGTools:";
+MG_displayTS "ServeProc.updateFromServer.cancel.lbl" "取消";
+MG_displayTS "ServeProc.updateFromServer.update.lbl" "更新 !";
+
+MG_displayTS "ServeProc.relocateMGTools.ann" "用來重定向MGTools伺服器端路徑的工具.";
+MG_displayTS "ServeProc.batchReg.submitUC.notServer.war" "您的MGTools沒有以伺服器模式安裝. 沒有必要提交您的使用者碼.";
+
+MG_displayTS "ServeProc.batchReg.submitUC.writable.msg" "無法向您的伺服器端提交使用者碼. \n請確認在伺服器端MGTools路徑下的\"MGTools_LicenseData\"目錄對您可寫?";
+MG_displayTS "ServeProc.batchReg.submitUC.done.rep" "向伺服器端提交您的使用者碼成功.";
+MG_displayTS "ServeProc.deReg.confirm.msg1" "您確定在本機上清除MGTools的註冊資訊?\n";
+MG_displayTS "ServeProc.deReg.confirm.msg2" "備註：在伺服器端的\"MGTools_LicenseData\"目錄裡的註冊資訊不會被清除.";
+
+MG_displayTS "ServeProc.featureNotAvailable.msg" "你當前的MGTools授權狀態為:  [ ";
+MG_displayTS "ServeProc.license.trial" "試用授權";
+MG_displayTS "ServeProc.license.trial.expired" "試用授權已過期";
+MG_displayTS "ServeProc.license.student" "學生版授權";
+MG_displayTS "ServeProc.license.student.expired" "學生版授權已過期";
+MG_displayTS "ServeProc.license.comm.mismatch" "舊版本的商業授權";
+MG_displayTS "ServeProc.license.notAvailable" "該功能對您來說不可用.";
+
+MG_displayTS "loader.loadMGToolsPlugin.err" "載入MGTools插件出錯.";
+MG_displayTS "loader.batchReg.submitUC.alreadyExists" "使用者已提交過，沒有必要再提交一次.";

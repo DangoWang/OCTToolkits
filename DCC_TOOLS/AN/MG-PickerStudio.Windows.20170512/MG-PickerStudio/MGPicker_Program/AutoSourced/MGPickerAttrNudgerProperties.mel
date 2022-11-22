@@ -1,0 +1,39 @@
+
+global proc MGPickerAttrNudgerProperties ()
+//
+//	Procedure Name:
+//		MGPickerAttrNudgerProperties
+//
+//	Description:
+//		layout of tool property sheet
+//
+//	Input Arguments:
+//		None.
+//
+//	Return Value:
+//		None.
+//
+{
+	setUITemplate -pushTemplate DefaultTemplate;
+    
+	string $parent = `toolPropertyWindow -q -location`;
+    	setParent $parent;
+	string $curctx = `currentCtx`;
+
+	columnLayout -adj 1 MGPickerAttrNudger;  //The layout name is critical, should be the context class name.
+	global string $MGPicker_ProgramPath;
+	string $icon = $MGPicker_ProgramPath+"MGPicker_Program/Icons/bgimages/pickerbanner.png";
+	string $fl = `formLayout -bgc 0.68627 0.68627 0.68627`;
+	string $icoWgt = `image -bgc 0.68627 0.68627 0.68627 -i  $icon -w 342 -h 84`;	
+	formLayout -e 
+	    
+	    -af $icoWgt "left" -2
+	    -af $icoWgt "top" -2
+	    -af $icoWgt "right" -2
+	    -af $icoWgt "bottom" -2
+	    $fl;
+	setParent ..;
+	button -l "Feedback.." -c "showHelp -a \"http://twincodes.com/mgpicker.html\"";
+		
+	setUITemplate -popTemplate;
+}

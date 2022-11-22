@@ -1,0 +1,42 @@
+#! C:/Program Files/Nuke10.5v2/nuke-10.5.2.dll -nx
+version 10.5 v2
+Gizmo {
+ inputs 0
+ postage_stamp true
+ addUserKnob {20 STMap l "ST Map"}
+ addUserKnob {41 format l Format T Reformat1.format}
+ addUserKnob {26 ""}
+ addUserKnob {7 overscan l "Overscan (%)" t "Add overscan to your ST map" R 0 100}
+ overscan 10
+ addUserKnob {6 reformat l "Reformat to Overscan" t "Reformats the image to overscan size" +STARTLINE}
+ addUserKnob {26 ""}
+ addUserKnob {26 copyright l "" +STARTLINE T "v1.2 - Part of VectorTools"}
+}
+ Reformat {
+  inputs 0
+  name Reformat1
+  xpos 555
+  ypos 394
+ }
+ Crop {
+  box {{-width*(parent.overscan/100)/2} {-height*(parent.overscan/100)/2} {width+(width*(parent.overscan/100)/2)} {height+(height*(parent.overscan/100)/2)}}
+  reformat {{parent.reformat}}
+  crop false
+  name Crop1
+  selected true
+  xpos 555
+  ypos 447
+ }
+ Expression {
+  expr0 (x+0.5)/width
+  expr1 (y+.5)/height
+  name Expression1
+  xpos 555
+  ypos 496
+ }
+ Output {
+  name Output1
+  xpos 555
+  ypos 583
+ }
+end_group

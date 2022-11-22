@@ -1,0 +1,51 @@
+#! c:/Program Files/Nuke7/Nuke7.0.exe -nx
+version 7.0 v8
+Gizmo {
+ help "This node prepared ONLY for checking stereoscopic material in OverUnder format."
+ addUserKnob {20 User}
+ addUserKnob {79 s3d_separateSBS2_disable l "Source is OverUnder" t "ON: source interpretated as OverUnder stereo image stack.\n\nOFF: source interpretated as default Nuke stereo flow." +STARTLINE}
+ addUserKnob {79 s3d_check_anagliph1_disable l anaglyph +STARTLINE}
+ addUserKnob {79 s3d_check_swap1_disable l swap +STARTLINE}
+ addUserKnob {41 HIT t "Play with it to move ZeroParallax plane" T s3d_check_hit1.HIT}
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos 288
+  ypos -195
+ }
+ s3d_separateSBS {
+  name s3d_separateSBS2
+  note_font Verdana
+  selected true
+  xpos 288
+  ypos -157
+  disable {{!parent.s3d_separateSBS2_disable}}
+  sourceMode vertical
+ }
+ s3d_HIT {
+  name s3d_check_hit1
+  note_font Verdana
+  xpos 288
+  ypos -95
+ }
+ ShuffleViews {
+  views {left right right left}
+  name s3d_ShuffleViews1
+  xpos 288
+  ypos -10
+  disable {{!parent.s3d_check_swap1_disable}}
+ }
+ Anaglyph {
+  views {left right}
+  name s3d_check_anagliph1
+  xpos 288
+  ypos 51
+  disable {{!parent.s3d_check_anagliph1_disable x1 1}}
+ }
+ Output {
+  name Output1
+  xpos 288
+  ypos 96
+ }
+end_group

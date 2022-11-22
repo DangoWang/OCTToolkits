@@ -1,0 +1,87 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>在线上分发Picker</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="distribute picker,pipeline" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "distributeinpipeline.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="editing.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="pickertoolintergration.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">MG-Picker工具搜索3个基本路径及其它多个自定义路径来取得匹配的picker:</span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span><span style="font-weight: bold;">直接保存在Maya场景内部.</span><br />
+<span style="font-size: 9pt;">Picker数据可以以节点方式存储在maya场景内部。这个节点采用maya内置节点类型 &quot;subdivSurfaceVarGroup&quot;;</span><br />
+<span style="font-size: 9pt;">picker节点所用到的图片，一般存储在maya场景文件所在目录下的pickerimages目录下。.</span><br />
+<span style="font-size: 9pt;">&nbsp;</span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span><span style="font-weight: bold;">保存picker文件路径到Maya场景内部.</span><br />
+<span style="font-size: 9pt;">从MG-Picker工作室v1.7开始，Picker数据可以只存储picker文件路径到节点。这个节点采用maya内置节点类型 &quot;subdivSurfaceVarGroup&quot;;</span><br />
+<span style="font-size: 9pt;">实际的picker内容等仍然以独立文件方式存储在某个地方，而根据节点里提供的文件路径属性，则可以找到并加载这个picker文件.</span><br />
+<span style="font-size: 9pt;">重要的是，这个文件路径还支持环境变量，用$变量名称或${变量名称}来表示。提供了三个预置的变量：</span></p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 24px;"><span style="font-size:9pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span style="font-size: 9pt;">${M_PROJ_DIR}: 当前maya工程目录</span></p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 24px;"><span style="font-size:9pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span style="font-size: 9pt;">${M_CURRENT_SCENE_DIR}: 当前maya场景目录</span></p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 24px;"><span style="font-size:9pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span style="font-size: 9pt;">${M_CURRENT_ASSET_DIR}: 当前资产场景目录。即使资产被reference，也会是资产本身的场景所在目录而不是当前场景目录。</span></p><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table style="border:none;border-spacing:0px;padding:0px;line-height: 1.50;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:24px"></td><td style="border:none;padding:0"><span style="font-size: 9pt;">例子:</span></td></tr></table></div><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 24px;"><span style="font-size:9pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span style="font-size: 9pt;">$M_PROJ_DIR/picker/pickerName/pickerfile.mgpkr</span></p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 24px;"><span style="font-size:9pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span style="font-size: 9pt;">${M_SCENE_DIR}_picker/pickerName/pickerfile.mgpkr</span></p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 24px;"><span style="font-size:9pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span style="font-size: 9pt;">D:/workarea/projects/${MyProjectName}/pickerName/pickerfile.mgpkr</span></p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 24px;"><span style="font-size:9pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span style="font-size: 9pt;">/path/to/$MyProjectName/$MyPickerName/${MyPickerName}.mgpkr</span><br />
+<span style="font-size: 9pt;">&nbsp;</span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span><span style="font-weight: bold;">Maya场景目录下的pickers子目录. </span><br />
+<span style="font-size: 9pt;">你可以选择将picker发布到maya场景所在目录里的pickers子目录。即使这个maya场景被reference，这个目录也将被自动搜索到。</span><br />
+<span style="font-size: 9pt;">&nbsp;</span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span><span style="font-weight: bold;">Maya用户程序目录下的MG_PickerData目录下的当前Picker工程目录.</span><br />
+<span style="font-size: 9pt;">在Windows操作系统里，这个路径实际上是我的文档/maya/MG_PickerData/，在里面的当前picker工程目录，将会被自动搜索到。</span><br />
+<span style="font-size: 9pt;">&nbsp;</span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span><span style="font-weight: bold;">其它在MG-Picker工作室配置窗口里添加的用户搜索路径。</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;"> </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> 这些搜索路径设置及搜索优先级设置实际被存储在一个叫</span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;"> &quot;SearchingPathConfig.ini&quot;的文 件，文件位置在&quot;maya/版本/scripts/MG-PickerStudio/MGPicker_UserConfig&quot; 目录里。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">如果要线上所有人采用同样的搜索设置，则可以分享这个文件。</span><br />
+<span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">&nbsp;</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">如果在线上分发picker文件、节点</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">既然现在您已经知道MG-Picker工作室在搜索picker时都会搜索哪些路径，那么您已经知道如何在线上分发这些picker文件了。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">不过提醒一下，只有场景内picker节点才会被随场景打开而自动搜索并打开picker。</span><br />
+<span style="font-size: 9pt;">如果上面的几种发布方式都不太理想，还有一种终级手段：</span><br />
+<span style="font-size: 9pt;">&nbsp;</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-weight: bold;">使用编程手段，这是最灵活的自定义手段，但需要了解一点python编程知识.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">你可以定义两个分别从 MGP.loader.MGPickerRigListerBase &nbsp;和 MGP.loader.MGPickerLoaderBase 派生的类 .</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">MGPickerRigListerBase 用来列出当前maya场景里的资产名称，通常是角色的namespace。也可以根据一定的类别来列出， 如角色，道具，场景等。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">MGPickerLoaderBase 用来返回特定资产名称(角色的namespace)所对应的picker文件的绝对路径.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">通过这两个类，你让MG-Picker工作室可以一下子打开当前场景的所有对应picker文件，或根据所选的rig的一部分，来加载对应的picker文件。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">点击 <a href="customeloaderandlister.htm" class="topiclink">这里</a> 来了解更多信息。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">Picker使用的图片的便携性:</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">picker对象有多个属性使用到图片，比如面板背景图片，选择按钮，命令按钮滑条滑杠使用的图片，菜单所用图标等。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">MG-Picker工作室在您设计过程中，尽可能保持图片路径都是相对的以使它们便携。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">对于picker文件来讲，它尽可能将图片复制到picker文件同样的目录下，然后使图片路径变为相对的。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">对于picker节点来讲，它尽可能将图片复制到maya场景目录下的pickerimages目录下，然后使图片路径变相对的。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">相对应的，对于一个图片相对路径，MG-Picker工作室将搜索下面2个地方来在后台解析成绝对路径以便显示图片：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">如果是外部picker文件，则查找picker文件所在的目录，如果是场景内picker节点，则搜索maya场景目录下的pickerimages目录，如果这个场景被reference则搜索这个reference asset所指向的目录下的pickerimages目录。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> 如果打开一个已存在的picker节点，并指定了一些图标图片，这些图片的地址仍会是绝对地址。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">要复制这些图片到相应目录并转换路径为相对的，则选择Picker菜单下的&quot;处理图片为相对路径&quot;。</span></p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="editing.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="pickertoolintergration.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

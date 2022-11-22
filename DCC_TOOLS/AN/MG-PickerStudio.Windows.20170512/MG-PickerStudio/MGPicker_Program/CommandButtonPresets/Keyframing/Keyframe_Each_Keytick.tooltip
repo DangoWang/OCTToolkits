@@ -1,0 +1,2 @@
+Set keyframe each keytick within current visible time range.
+This ensures each selected object all have keys at same frames¡£

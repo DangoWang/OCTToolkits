@@ -1,0 +1,925 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>MGPickerView Command</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="API,MGPickerView command" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "mgpickerview.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="mgpicker.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="mgpickeritem.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; height:8px; padding:1px;"><p><span style="font-family: 'Times New Roman'; font-weight: bold;">command</span><span style="font-family: 'Times New Roman';"> (MEL/Python)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; height:5px; padding:1px;"><h1 class="p_Heading1" style="margin: 19px 0px 19px 0px;"><span class="f_Heading1" style="font-size: 24pt; font-family: 'Times New Roman';">MGPickerView</span></h1>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 14px 0px 0px 0px;"><span style="font-size: 12pt; font-family: 'Times New Roman';">Go to: <a href="mgpickerview.htm#synopsis" class="topiclink">MEL synopsis</a>. <a href="mgpickerview.htm#pysynopsis" class="topiclink">Python synopsis</a>. <a href="mgpickerview.htm#returnvalue" class="topiclink">Return value</a>. <a href="mgpickerview.htm#flags" class="topiclink">Flags</a>. <a href="mgpickerview.htm#examples" class="topiclink">MEL examples</a>. <a href="mgpickerview.htm#pyexamples" class="topiclink">Python examples</a>.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="synopsis"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">MEL Synopsis</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">MGPickerView [-<a href="mgpickerview.htm#activate" class="topiclink">activate</a>] [-<a href="mgpickerview.htm#addpanel" class="topiclink">addPanel</a>] [-<a href="mgpickerview.htm#activepanelindex" class="topiclink">activePanelIndex</a>] [-<a href="mgpickerview.htm#author" class="topiclink">author</a>] [-<a href="mgpickerview.htm#close" class="topiclink">close</a>] [-<a href="mgpickerview.htm#email" class="topiclink">email</a>] [-<a href="mgpicker.htm#exportpathtonode" class="topiclink">exportPathToNode</a>] [-<a href="mgpickerview.htm#exist" class="topiclink">exist</a>] [-<a href="mgpickerview.htm#fileversion" class="topiclink">fileVersion</a>] [-<a href="mgpickerview.htm#getidfromname" class="topiclink">getIdFromName</a>] [-<a href="mgpickerview.htm#listlinks" class="topiclink">listLinks</a>] [-<a href="mgpickerview.htm#list" class="topiclink">list</a>] [-<a href="mgpickerview.htm#mirrorselection" class="topiclink">mirrorSelection</a>] [-<a href="mgpickerview.htm#message" class="topiclink">message</a>] [-<a href="mgpickerview.htm#namespace" class="topiclink">namespace</a>] [-<a href="mgpickerview.htm#pickerdirpath" class="topiclink">pickerDirPath</a>] [-<a href="mgpickerview.htm#pickerentercommand" class="topiclink">pickerEnterCommand</a>] [-<a href="mgpickerview.htm#pickerfilepath" class="topiclink">pickerFilePath</a>] [-<a href="mgpicker.htm#pickerloadcommand" class="topiclink">pickerLoadCommand</a>] [-<a href="mgpickerview.htm#removeall" class="topiclink">removeAll</a>] [-<a href="mgpickerview.htm#remove" class="topiclink">remove</a>] [-<a href="mgpickerview.htm#saveas" class="topiclink">saveAs</a>] [-<a href="mgpickerview.htm#saveasscenenode" class="topiclink">saveAsSceneNode</a>] [-<a href="mgpickerview.htm#saveastemplate" class="topiclink">saveAsTemplate</a>] [-<a href="mgpickerview.htm#setclean" class="topiclink">setClean</a>] [-<a href="mgpickerview.htm#select" class="topiclink">select</a>] [-<a href="mgpickerview.htm#selectpickerbuttons" class="topiclink">selectPickerButtons</a>] [-<a href="mgpickerview.htm#selectmode" class="topiclink">selectMode</a>] [-<a href="mgpickerview.htm#selectpanelbuttons" class="topiclink">selectPanelButtons</a>] [-<a href="mgpickerview.htm#selectpanelindexbuttons" class="topiclink">selectPanelIndexButtons</a>] [-<a href="mgpickerview.htm#syncpickervalue" class="topiclink">syncPickerValue</a>] [-<a href="mgpickerview.htm#savetofolder" class="topiclink">saveToFolder</a>] [-<a href="mgpickerview.htm#savewithinscenefolder" class="topiclink">saveWithinSceneFolder</a>] [-<a href="mgpickerview.htm#tablabel" class="topiclink">tabLabel</a>][-<a href="mgpickerview.htm#updatesceneboundary" class="topiclink">updateSceneBoundary</a>] [-<a href="mgpickerview.htm#website" class="topiclink">website</a>] viewIDString</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="pysynopsis"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">Python Synopsis</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">MGPickerView (viewIDString, [<a href="mgpickerview.htm#activate" class="topiclink">activate</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#addpanel" class="topiclink">addPanel</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string, string</span><span style="font-family: 'Courier New';">],[<a href="mgpickerview.htm#activepanelindex" class="topiclink">activePanelIndex</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#author" class="topiclink">author</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#close" class="topiclink">close</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#email" class="topiclink">email</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpicker.htm#exportpathtonode" class="topiclink">exportPathToNode</a>=[</span><span style="font-family: 'Courier New'; font-style: italic;">string, string]</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#exist" class="topiclink">exist</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">],[<a href="mgpickerview.htm#fileversion" class="topiclink">fileVersion</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">],[<a href="mgpickerview.htm#getidfromname" class="topiclink">getIdFromName</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#listlinks" class="topiclink">listLinks</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#list" class="topiclink">list</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">],[<a href="mgpickerview.htm#mirrorselection" class="topiclink">mirrorSelection</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#message" class="topiclink">message</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#namespace" class="topiclink">namespace</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#pickerdirpath" class="topiclink">pickerDirPath</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">],[<a href="mgpickerview.htm#pickerentercommand" class="topiclink">pickerEnterCommand</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string, string</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#pickerfilepath" class="topiclink">pickerFilePath</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#pickerloadcommand" class="topiclink">pickerLoadCommand</a>=[</span><span style="font-family: 'Courier New'; font-style: italic;">string, string]</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#removeall" class="topiclink">removeAll</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#remove" class="topiclink">remove</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#saveas" class="topiclink">saveAs</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#saveasscenenode" class="topiclink">saveAsSceneNode</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[string, boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#saveastemplate" class="topiclink">saveAsTemplate</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#setclean" class="topiclink">setClean</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#select" class="topiclink">select</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#selectpickerbuttons" class="topiclink">selectPickerButtons</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">],[<a href="mgpickerview.htm#selectmode" class="topiclink">selectMode</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#selectpanelbuttons" class="topiclink">selectPanelButtons</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">int</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#selectpanelindexbuttons" class="topiclink">selectPanelIndexButtons</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">[int, int]</span><span style="font-family: 'Courier New';">], <a href="mgpickerview.htm#syncpickervalue" class="topiclink">[syncPickerValue</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#savetofolder" class="topiclink">saveToFolder</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#savewithinscenefolder" class="topiclink">saveWithinSceneFolder</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#tablabel" class="topiclink">tabLabel</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgpickerview.htm#updatesceneboundary" class="topiclink">updateSceneBoundary</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], &nbsp;[<a href="mgpickerview.htm#website" class="topiclink">website</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">])</span></p>
+<p style="margin: 14px 0px 14px 0px;"><span style="font-size: 12pt; font-family: 'Times New Roman';">MGPickerView is </span><span style="font-size: 12pt; font-family: 'Times New Roman'; font-weight: bold;">NOT undoable</span><span style="font-size: 12pt; font-family: 'Times New Roman';">, </span><span style="font-size: 12pt; font-family: 'Times New Roman';">queryable, and editable.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">This command queries / edit the picker document level attributes and states. </span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">You need to specify a picker view id string in order to query / edit it, if you does not specify any id then current active picker view will be queried / edited.</span><br />
+<span style="font-size: 12pt; font-family: 'Times New Roman';">To retrieve a picker view id, use one of following commands:</span><br />
+<span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp;MGPicker -q -currentPickerView; &nbsp; &nbsp; // Get current script execution view id, eg. picker load command, picker mouse enter command. Only be set during the script being executed.</span><br />
+<span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp;MGPicker -q -activePickerView; &nbsp; &nbsp; // Get current active view id.</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp;MGPicker -q -findPickerView &nbsp;&quot;pickerNodeOrFileName&quot; &nbsp;1 &quot;namespace&quot;; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Find picker view id via picker node name or picker file name and namespace.</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp;MGPicker -q -listAllPickerViews; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// List ids of all opened picker views.</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp;MGPicker -e -createTempPicker; &nbsp; &nbsp; // Create a temporary picker view and return its id.</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp;MGPicker -e -createPicker &quot;pickerName&quot; &quot;namespace&quot; &quot;filePath&quot; &quot;nodeName&quot;; &nbsp; &nbsp; &nbsp; &nbsp;// Create a picker view and return its id. </span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp;MGPicker -e -readPickerNode &quot;nodeName&quot;; &nbsp; &nbsp; &nbsp; // Read in-scene picker node and return its id.</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp;MGPicker -e -readScenePicker &quot;nodeName&quot; &quot;pickerName&quot; &quot;namespace&quot; &quot;pickerDataString&quot;; &nbsp; &nbsp; &nbsp; // Read in-scene picker node and return its id.</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp;MGPicker -e -readPickerFile &quot;pickerFilePath&quot; 1; &nbsp; &nbsp; &nbsp; &nbsp; // Read a picker file and return its id.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="returnvalue"></a><span style="font-size: 18pt; font-family: 'Times New Roman'; font-weight: bold;">Return value</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 19px 0px 0px 0px;"><table style="border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:100%; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Depend on the flag, the return value could be string, boolean, etc.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 19px 0px 19px 0px;"><a id="flags"></a><span style="font-size: 18pt; font-family: 'Times New Roman'; font-weight: bold;">Flags</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickerview.htm#activate" class="topiclink">activate</a>,</span><span style="font-size: 12pt; font-family: 'Times New Roman';"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickerview.htm#addpanel" class="topiclink">addPanel</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickerview.htm#activepanelindex" class="topiclink">activePanelIndex</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickerview.htm#author" class="topiclink">author</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickerview.htm#close" class="topiclink">close</a>,</span><span style="font-size: 12pt; font-family: 'Times New Roman';"> <a href="mgpickerview.htm#email" class="topiclink">email</a>,</span><span style="font-size: 12pt; font-family: 'Times New Roman';"> <a href="mgpicker.htm#exportpathtonode" class="topiclink">exportPathToNode</a>, <a href="mgpickerview.htm#exist" class="topiclink">exist</a>,</span><span style="font-size: 12pt; font-family: 'Times New Roman';"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';"> <a href="mgpickerview.htm#fileversion" class="topiclink">fileVersion</a>, <a href="mgpickerview.htm#getidfromname" class="topiclink">getIdFromName</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickerview.htm#listlinks" class="topiclink">listLinks</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickerview.htm#list" class="topiclink">list</a>, <a href="mgpickerview.htm#mirrorselection" class="topiclink">mirrorSelection</a>,</span><span style="font-size: 12pt; font-family: 'Times New Roman';"> <a href="mgpickerview.htm#message" class="topiclink">message</a>, <a href="mgpickerview.htm#namespace" class="topiclink">namespace</a>,  <a href="mgpickerview.htm#pickerdirpath" class="topiclink">pickerDirPath</a>,</span><span style="font-size: 12pt; font-family: 'Times New Roman';"> <a href="mgpickerview.htm#pickerentercommand" class="topiclink">pickerEnterCommand</a>,</span><span style="font-size: 12pt; font-family: 'Times New Roman';"> <a href="mgpickerview.htm#pickerfilepath" class="topiclink">pickerFilePath</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickerview.htm#pickerloadcommand" class="topiclink">pickerLoadCommand</a>,</span><span style="font-size: 12pt; font-family: 'Times New Roman';"> <a href="mgpickerview.htm#removeall" class="topiclink">removeAll</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickerview.htm#remove" class="topiclink">remove</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickerview.htm#saveas" class="topiclink">saveAs</a>, <a href="mgpickerview.htm#saveasscenenode" class="topiclink">saveAsSceneNode</a>,<a href="mgpickerview.htm#saveastemplate" class="topiclink">saveAsTemplate</a>, <a href="mgpickerview.htm#setclean" class="topiclink">setClean</a>,  </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickerview.htm#select" class="topiclink">select</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickerview.htm#selectpickerbuttons" class="topiclink">selectPickerButtons</a>, <a href="mgpickerview.htm#selectmode" class="topiclink">selectMode</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickerview.htm#selectpanelbuttons" class="topiclink">selectPanelButtons</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickerview.htm#selectpanelindexbuttons" class="topiclink">selectPanelIndexButtons</a>, <a href="mgpickerview.htm#syncpickervalue" class="topiclink">syncPickerValue</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickerview.htm#savetofolder" class="topiclink">saveToFolder</a>, <a href="mgpickerview.htm#savewithinscenefolder" class="topiclink">saveWithinSceneFolder</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickerview.htm#tablabel" class="topiclink">tabLabel</a>, </span><span style="font-size: 12pt; font-family: 'Times New Roman';"> <a href="mgpickerview.htm#updatesceneboundary" class="topiclink">updateSceneBoundary</a>, <a href="mgpickerview.htm#website" class="topiclink">website</a></span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman'; font-weight: bold;">Long name (short name)</span></p>
+</td>
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic; font-weight: bold;">Argument types</span></p>
+</td>
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman'; font-weight: bold;">Properties</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="activate"></a><span style="font-family: 'Courier New'; font-weight: bold;">-activate</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-act</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">In query mode, this returns if a picker view id is activated.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">In Edit mode, this active a picker view by its id.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="addpanel"></a><span style="font-family: 'Courier New'; font-weight: bold;">-addPanel</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ap</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Edit only flag, specify the panel label, and the panel layout: &quot;horizontal&quot; or &quot;vertical&quot; to add a new panel to picker view. This will return the panel id string.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="activepanelindex"></a><span style="font-family: 'Courier New'; font-weight: bold;">-activePanelIndex</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-api</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p class="p_MelArgTable"><span class="f_MelArgTable">int</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Edit only flag, specify a panel index number, and the picker view will zoom and pan itself to frame the picker panel. A panel index is the number shown in [ ] in the title area of each picker panel.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="author"></a><span style="font-family: 'Courier New'; font-weight: bold;">-author</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ath</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">When queried, this flag returns a string of the picker author. In edit mode, specify a string to be the author of picker.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="close"></a><span style="font-family: 'Courier New'; font-weight: bold;">-close</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-cl</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Close the picker view, specify a boolean value of true to force close it even if the edits are not saved.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="email"></a><span style="font-family: 'Courier New'; font-weight: bold;">-email</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-eml</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">When queried, this flag returns a string of the picker author's email. In edit mode, specify a string to be the email address of &nbsp;picker.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">The animator could use the email address to provide their feedback about your picker.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="exportpathtonode"></a><span style="font-family: 'Courier New'; font-weight: bold;">-exportPathToNode</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-epn</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 11pt; font-family: 'Times New Roman';">Export picker file path to a picker node. Bascially it store a file path to a picker file, in pickerFilePath attribute in picker node.</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';">When picker node is loaded, the picker file will be loaded instead. The file path support environment variable denoted by $ or ${}</span></p>
+<p><span style="font-size: 11pt; font-family: 'Times New Roman';">Specify the node name to export / edit and the picker file path as arguments.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="exist"></a><span style="font-family: 'Courier New'; font-weight: bold;">-exist</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ex</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Return true or false the specify picker view id exists.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="fileversion"></a><span style="font-family: 'Courier New'; font-weight: bold;">-fileVersion </span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-fv</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Query only. This flag return the file version of the picker view.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="getidfromname"></a><span style="font-family: 'Courier New'; font-weight: bold;">-getIdFromName </span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-gin</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Query only. Provided a name, return all the picker items that has the name in the picker view.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Even if there is only one match, it will still return a string array that contain only one element.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">It is useful for avoiding hard-coding the id in your script, so you just use name to get the id, and do further picker item property query/edit.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="listlinks"></a><span style="font-family: 'Courier New'; font-weight: bold;">-listLinks</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ll</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Query only flag. Return all the link IDs of a certain link type as a string array, in &quot;sourceItemId &gt; targetItemId&quot; format;</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Specify a type string as the argument, &nbsp;values include &quot;parentlink&quot;, &quot;attributelink&quot; (case-insensitive), you could specify empty string or &quot;parentlink|attributelink&quot; to return all types of links.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="list"></a><span style="font-family: 'Courier New'; font-weight: bold;">-list</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ls</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Query only flag. Return all the picker item IDs of a certain type as a string array. </span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Specify a type string as the argument, &nbsp;values include &quot;selectButton&quot;, &quot;commandButton&quot;, &nbsp;&quot;attributeButton&quot;, &quot;slider&quot;, &quot;sliderHandle&quot;, &quot;text&quot;, &quot;panel&quot; (case-insensitive), &nbsp;a empty string will return all the picker item IDs.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">The type string also support combination: say if you wanna list all select buttons and command buttons, you could use &quot;selectButton|commandButton&quot;.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="mirrorselection"></a><span style="font-family: 'Courier New'; font-weight: bold;">-mirrorSelection</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ms</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:945px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Utilize the mirror relationship of picker items, mirror the scene selection in one of these mode:</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">0 = replace selection ,1 = add selection, 2 = deselect, 3 = invert selection. </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="message"></a><span style="font-family: 'Courier New'; font-weight: bold;">-message</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-msg</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:947px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">When queried, this flag returns a string of the picker author's message. In edit mode, specify a string to be the message of picker.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">The picker designer use this to say something to all the animators who use this picker.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="namespace"></a><span style="font-family: 'Courier New'; font-weight: bold;">-namespace</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ns</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:944px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">When queried, this flag returns the picker's namespace. In edit mode, specify a string as the picker's namespace.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">The string should obey to namespace naming convention, any invalid characters will be converted to '_'.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickerdirpath"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerDirPath</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pdp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a query only flag that can be used to query for the directory path name of the picker file.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickerentercommand"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerEnterCommand</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pec</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string script</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Query/edit the mouse enter command of picker file / node.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">The enter command will be executed whenever your mouse enter the picker view.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">In query mode, this will return a string array, the first element is &quot;mel/python&quot; indicate the command type, the second element contains the actual command code.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">In edit mode, specify the first argument &quot;mel/python&quot; and second argument the actual command code to edit the load command.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickerfilepath"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerFilePath</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-pfp</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a query only flag that can be used to query for the path name of the picker file.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="pickerloadcommand"></a><span style="font-family: 'Courier New'; font-weight: bold;">-pickerLoadCommand</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-plc</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string script</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:944px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Query/edit the load command of picker file / node.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">The load command will be executed once after the picker file / node is loaded.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">In query mode, this will return a string array, the first element is &quot;mel/python&quot; indicate the command type, the second element contains the actual command code.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">In edit mode, specify the first argument &quot;mel/python&quot; and second argument the actual command code to edit the load command.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="removeall"></a><span style="font-family: 'Courier New'; font-weight: bold;">-removeAll</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ra</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:938px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a edit only flag that can be used to clear all the content of the picker.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="remove"></a><span style="font-family: 'Courier New'; font-weight: bold;">-remove</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ra</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:938px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Edit only flag. Specify a picker item id to delete it from the view. Support multiple use in one single command.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="saveas"></a><span style="font-family: 'Courier New'; font-weight: bold;">-saveAs</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sa</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:938px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a edit only flag that can be used to save the picker file / node to another picker name. The saved picker file will be stored within the current picker project folder in the maya's user application directory / MG_PickerData.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Specify the target picker name and a boolean control whether or not override existed. Notice that the picker view id will stay unchanged.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="saveasscenenode"></a><span style="font-family: 'Courier New'; font-weight: bold;">-saveAsSceneNode</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sas</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:937px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a edit only flag that can be used to save picker file / node to another picker node, &nbsp;specify a 0~1 boolean &nbsp;value to indicate the picker view should be changed to refer to the saved node.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">So 0 means exporting the picker node, 1 means save current picker as the target picker node. No matter what, it always override if the node already exists.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Notice that the picker view id will stay unchanged.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="saveastemplate"></a><span style="font-family: 'Courier New'; font-weight: bold;">-saveAsTemplate</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sat</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:937px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a edit only flag that can be used to save picker file / node to picker template. Specify a picker template name to save to, a boolean value to control whether or not we override even the template already exist. If empty string is specified, a automatic template name will be used. Notice that the picker view id will stay unchanged. </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="setclean"></a><span style="font-family: 'Courier New'; font-weight: bold;">-setClean</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sc</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:937px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a edit only flag that can be used to mark the picker view as clean, this will remove the * sign from the tab.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="select"></a><span style="font-family: 'Courier New'; font-weight: bold;">-select</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sel</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /><img src="multiuse.gif" width="13" height="16" alt="multiuse" style="border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:937px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">In query mode, this returns the selected picker item IDs. In edit mode it is multi-usable, this perform picker item selection via IDs, you might need to use -selectMode to cooperate with this flag.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="selectpickerbuttons"></a><span style="font-family: 'Courier New'; font-weight: bold;">-selectPickerButtons</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-skb</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:936px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a edit only flag that can be used to eval all the select-buttons in picker, select their members in maya scene. This does not select related maya nodes from attribute buttons and sliders.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">It is often used in the &quot;Select All&quot; command button. Use 0~3 int to specify the select mode:</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">0 = replace selection ,1 = add selection, 2 = deselect, 3 = invert selection. </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="selectmode"></a><span style="font-family: 'Courier New'; font-weight: bold;">-selectMode</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sm</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:938px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a edit only flag that can be used to with -select falg to select picker items in picker view. Use 0~3 int to specify the select mode:</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">0 = replace selection ,1 = add selection, 2 = deselect, 3 = invert selection.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="selectpanelbuttons"></a><span style="font-family: 'Courier New'; font-weight: bold;">-selectPanelButtons</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-spb</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:938px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a edit only flag that can be used to eval all the select-buttons within picker panel, select their members in maya scene.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">The command use current mouse position to decide which picker panel to eval all its children select-buttons.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">It is often used in the &quot;Select All&quot; command button for picker panel. Use 0~3 int to specify the select mode:</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">0 = replace selection ,1 = add selection, 2 = deselect, 3 = invert selection.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="selectpanelindexbuttons"></a><span style="font-family: 'Courier New'; font-weight: bold;">-selectPanelIndexButtons</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-spi</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">int int </span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:936px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a edit only flag that can be used to eval all the select-buttons within the picker panel with the panel index, select their members in maya scene. This does not select related maya nodes from attribute buttons and sliders.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">It is often used in the &quot;Select *&quot; command button for picker panel. Use 0~3 int to specify the select mode:</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">0 = replace selection ,1 = add selection, 2 = deselect, 3 = invert selection.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">You must specify a valid panel index int for the second argument.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="syncpickervalue"></a><span style="font-family: 'Courier New'; font-weight: bold;">-syncPickerValue</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-spv</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:936px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Sync all the picker items values with maya scene, in a programming approach. eg. attr-button value, slider values.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">This will validate all sync-watchers for newly created nodes or loaded referenced nodes.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Usually this is done automatically when maya attribute changed.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="savetofolder"></a><span style="font-family: 'Courier New'; font-weight: bold;">-saveToFolder</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-stf</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:934px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a edit only flag that can be used to save picker file / node within target directory. The saved picker file will be within target directory/pickername/ directory. </span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Specify a boolean to control a force override if file already exist. Notice that the picker view id will stay unchanged.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="savewithinscenefolder"></a><span style="font-family: 'Courier New'; font-weight: bold;">-saveWithinSceneFolder</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-sws</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">boolean</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:934px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a edit only flag that can be used to save picker file / node to current maya scene directory / pickers folder. This directory will be auto-searched for related picker file.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">Specify a boolean to control a force override if file already exist. Notice that the picker view id will stay unchanged.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="tablabel"></a><span style="font-family: 'Courier New'; font-weight: bold;">-tabLabel</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-tl</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:934px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">In query mode, this return the tab label of current picker view.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">In edit mode, this edit the tab label of current picker view, as well as the view's internal picker name.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="updatesceneboundary"></a><span style="font-family: 'Courier New'; font-weight: bold;">-updateSceneBoundary</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-usb</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:935px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Update the picker scene display area boundary, to show all the picker items.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">You may need to use this flag in the converter, after all picker item have been created.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="website"></a><span style="font-family: 'Courier New';">-website(-www)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:932px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">When queried, this flag returns the website of the current picker author. In edit mode, specify a string to be the website address of current picker.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">The animator could visit the website to know more about the picker designer.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><p>&nbsp;</p>
+</td>
+</tr>
+</table>
+</div>
+<hr style="height:2px; color:#cccccc; border-width:0px; background-color:#cccccc;" /><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 10px 0px 0px 0px;"><table style="background-color:#eeeeee; border:none; border-spacing:1px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:4px;"><p><img src="create.gif" width="13" height="16" alt="create" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';">Flag can appear in Create mode of command</span></p>
+</td>
+<td style="vertical-align:top; padding:4px;"><p><img src="edit.gif" width="13" height="16" alt="edit" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';">Flag can appear in Edit mode of command</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:4px;"><p><img src="query.gif" width="13" height="16" alt="query" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';">Flag can appear in Query mode of command</span></p>
+</td>
+<td style="vertical-align:top; padding:4px;"><p><img src="multiuse.gif" width="13" height="16" alt="multiuse" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';">Flag can be used more than once in a command.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 19px 0px 0px 0px;"><a id="examples"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">MEL examples</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">//&nbsp;create&nbsp;a&nbsp;new&nbsp;picker&nbsp;named&nbsp;&quot;myPicker&quot;</span></p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">string&nbsp;$view&nbsp;=&nbsp;`MGPicker&nbsp;-e&nbsp;-createPicker&nbsp;&quot;myPicker&quot;&nbsp;&quot;wrongNamespace&quot;&nbsp;&quot;&quot;&nbsp;&quot;&quot;`;&nbsp;&nbsp;&nbsp;//it&nbsp;is&nbsp;a&nbsp;untitled&nbsp;picker,&nbsp;not&nbsp;refer&nbsp;to&nbsp;a&nbsp;picker&nbsp;file&nbsp;/&nbsp;node.</span></p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">MGPickerView&nbsp;-e&nbsp;-namespace&nbsp;&quot;rightNamespace&quot;&nbsp;$view;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//edit&nbsp;the&nbsp;namespace&nbsp;of&nbsp;the&nbsp;picker.</span></p>
+<p style="white-space: nowrap;">&nbsp;</p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">//To-Do:&nbsp;use&nbsp;MGPickerItem&nbsp;command&nbsp;to&nbsp;created&nbsp;picker&nbsp;items.</span></p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">//....</span></p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">//if&nbsp;you&nbsp;does&nbsp;create&nbsp;any&nbsp;picker&nbsp;items,&nbsp;this&nbsp;picker&nbsp;view&nbsp;will&nbsp;be&nbsp;completely&nbsp;empty.</span></p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">MGPickerView&nbsp;-e&nbsp;-author&nbsp;&quot;Miguel&quot;&nbsp;</span></p>
+<p style="white-space: nowrap;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">-website&nbsp;&quot;http://twincodes.com&quot;&nbsp;</span></p>
+<p style="white-space: nowrap;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">-email&nbsp;&quot;mgpickerstudio@gmail.com&quot;</span></p>
+<p style="white-space: nowrap;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">-message&nbsp;&quot;Feel&nbsp;free&nbsp;to&nbsp;send&nbsp;feedback&nbsp;to&nbsp;me!&quot;&nbsp;</span></p>
+<p style="white-space: nowrap;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">$view;&nbsp;&nbsp;//edit&nbsp;the&nbsp;meta&nbsp;info&nbsp;of&nbsp;the&nbsp;current&nbsp;picker&nbsp;file.</span></p>
+<p style="white-space: nowrap;">&nbsp;</p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">MGPickerView&nbsp;-e&nbsp;-updateSceneBoundary&nbsp;$view;&nbsp;&nbsp;//update&nbsp;the&nbsp;scene&nbsp;boundary&nbsp;to&nbsp;show&nbsp;all&nbsp;the&nbsp;picker&nbsp;items.</span></p>
+<p style="white-space: nowrap;"><span style="font-family: 'Courier New';">MGPickerView</span><span style="font-family: 'Courier New';">&nbsp;-e&nbsp;-</span><span style="font-family: 'Courier New';">setClean&nbsp;</span><span style="font-family: 'Courier New';">$view</span><span style="font-family: 'Courier New';">;&nbsp;&nbsp;&nbsp;//set&nbsp;the&nbsp;picker&nbsp;we&nbsp;just&nbsp;created&nbsp;clean.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="pyexamples"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">Python examples</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">import maya.cmds as cmd</span><br />
+<span style="font-family: 'Courier New';">#Create a new picker named &quot;myPicker&quot;</span><br />
+<span style="font-family: 'Courier New';">#it is a untitled picker, not refer to a picker file / node.</span><br />
+<span style="font-family: 'Courier New';">viewId = cmds.MGPicker (edit=True,createPicker=(&quot;myPicker&quot;,&quot;wrongNamespace&quot;,&quot;&quot;,&quot;&quot;))</span><br />
+<span style="font-family: 'Courier New';">cmds.MGPickerView(viewId, edit=True,namespace=&quot;rightNamespace&quot;) &nbsp; &nbsp;#edit the namespace of the picker.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">#To-Do: use MGPickerItem command to created picker items.</span><br />
+<span style="font-family: 'Courier New';">#....</span><br />
+<span style="font-family: 'Courier New';">#if you does create any picker items, this picker view will be completely empty.</span><br />
+<span style="font-family: 'Courier New';">cmds.MGPickerView(viewId, edit=True, author=&quot;Miguel&quot;, </span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">website=&quot;http://twincodes.com&quot;, </span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';"><a href="mailto:email=%22mgpickerstudio@gmail.com%22" class="weblink" style="font-size: 10pt; font-family: 'Courier New'; font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;">email=&quot;mgpickerstudio@gmail.com&quot;</a>,</span><br />
+<span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">message=&quot;Feel free to send feedback to me!&quot;) &nbsp;#edit the meta info of the current picker file.</span><br />
+<span style="font-family: 'Courier New';">cmds.MGPickerView(viewId, edit=True, updateSceneBoundary=True) &nbsp;#update the scene boundary to show all the picker items.</span><br />
+<span style="font-family: 'Courier New';">cmds.MGPickerView(viewId, edit=True, setClean=True) &nbsp; #set the picker we just created clean.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="color: #000000;">&nbsp;</span></p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="mgpicker.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="mgpickeritem.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

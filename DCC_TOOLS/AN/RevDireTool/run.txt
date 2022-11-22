@@ -1,0 +1,19 @@
+
+绑定运行：
+
+import sys
+sys.path.append(r"Z:\DS\Tools\plug-ins\RevDireTool")
+import reverse_direction
+reload(reverse_direction)
+reverse_direction.ReverseDirection().show()
+
+
+
+动画运行：
+
+import sys
+sys.path.append(r"Z:\DS\Tools\plug-ins\RevDireTool")
+import reverse_animcrv
+reload(reverse_animcrv)
+reverse_animcrv.ReverseAniCrv().show()
+

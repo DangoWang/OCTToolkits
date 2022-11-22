@@ -1,0 +1,38 @@
+global proc cut_mod(){
+ string $selCrv[] = `ls -sl`;
+string $obj[];
+tokenize $selCrv[0] "." $obj;
+DetachComponent;
+select -r $obj[0] ;
+polySeparate ;
+DeleteHistory;   
+//string $Geo_temp[] = `ls -sl`;
+//select -r $Geo_temp[1] $Geo_temp[0];   
+}
+
+global proc make_head(){
+string $Geo[] = `ls -sl`;
+select -r $Geo[0] ; 
+duplicate -rr;
+string $duplicate[] = `ls -sl`;
+select -r  $duplicate[0] ;
+rename  "Head_blend";
+parent -w;
+select -r  $Geo[0] ;
+select -add $Geo[1] ;
+polyUnite ;
+DeleteHistory ;
+string $polyUnite[0] = `ls -sl` ;
+select -r  $polyUnite[0] ;
+rename  "body_Geo";
+int $vtxGeo[0] = `polyEvaluate -v body_Geo` ;
+select -r body_Geo.vtx[0:$vtxGeo[0]] ;
+polyMergeVertex  -d 0.00000001 -am 1 -ch 1 ;
+select -r body_Geo ;
+DeleteHistory ;
+select -cl  ;  
+}
+
+
+cut_mod;
+make_head;

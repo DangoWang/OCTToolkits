@@ -1,0 +1,29 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "relocator.Title" "MG-Relocator";
+MG_displayEN "relocator.mi" "MG-Relocator..";
+MG_displayEN "relocator.anno" "Generate a controller which u can use to relocate the objects that u want. The changement will be merged into the keyframes of the objects.";
+
+MG_displayEN "relocator.list.anno" "Objects to relocate:";
+
+
+MG_displayEN "relocator.add" "Add scene selection into relocating list";
+MG_displayEN "relocator.del" "Remove scene selection from relocating list";
+
+MG_displayEN "relocator.begin.relocat" "Begin Relocating!";
+MG_displayEN "relocator.end.relocat" "Finish Relocating!";
+
+MG_displayEN "relocator.reselect" "Reselect Relocator";
+MG_displayEN "relocator.refresh" "Refresh UI";
+
+MG_displayEN "relocator.begin.rep" "Now U can use current selection to manipulate the objects to relocate.";
+MG_displayEN "relocator.end.rep" "Relocation done.Check it out.";
+
+MG_displayEN "relocator.help.text" 	"*This feature inspired by Indigo.*\n\n============Usage==========\nGenerate a controller which enable U to relocate single/multiply objects,the changement will finally be merged into the objects' original  keyframes.\n\n============Steps============\n1: Add Objects into the list with \"+\" button.\n2: Press the \"Begin Relocating\" button to generate a controller.The controller object will be selected by default.\n3: Use maya translate/rotate/... tool to manipulate the controller to relocate the objects.4: Press the \"Finish Relocating\" button to finish the job. The changement will be merged into conrreponding keyframes. ";

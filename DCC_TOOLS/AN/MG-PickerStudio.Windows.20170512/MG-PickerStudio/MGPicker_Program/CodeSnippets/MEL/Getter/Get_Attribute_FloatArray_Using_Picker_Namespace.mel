@@ -1,0 +1,4 @@
+//get attribute float array value. Only works when you query attributes like .translate, .rotate, .scale, etc.
+//Input the objectName.attribute without its namespace, the namespace will be replaced by the namespace of picker:
+//Error will occur if there is no such object or attribute.
+float $theAttVs[] = `MGP_GetAttributeFloatValueArray_ViaPickerNamespace "objNameWithoutNamespace.attr"`;

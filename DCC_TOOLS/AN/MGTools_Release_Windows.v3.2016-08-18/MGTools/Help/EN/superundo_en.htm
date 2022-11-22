@@ -1,0 +1,65 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Efficient Undo/Redo</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Undo" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "superundo_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> Efficient Undo/Redo:</span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:121px; padding:0px;"><p style="text-align: center; line-height: 1.50;"><img src="superundo_icon.gif" width="32" height="32" alt="superUndo_icon" style="border:none" /><img src="suerredoicon.gif" width="32" height="32" alt="suerRedoIcon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:1px; padding:0px;"><p style="line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">Click to undo/redo Maya operation. The beauty is that it can step through the null undo/redo and undo/redo many steps by one click.</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">More option can be found through the option box.  </span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span style="font-weight: bold;">How to call it ( Do one of the following ) :</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#3c3c39;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="color: #3c3c39;">Right mouse button clicking on the button </span><img src="minitoolboxicon.gif" width="32" height="32" alt="minitoolboxIcon" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="color: #3c3c39;">of &nbsp;MGTools,select &quot;EfficientUndo../EfficientRedo..&quot;</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#3c3c39;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="color: #3c3c39;">Click the </span><img src="superundo_icon.gif" width="32" height="32" alt="superUndo_icon" style="border:none" /><img src="suerredoicon.gif" width="32" height="32" alt="suerRedoIcon" style="border:none" /><span style="color: #3c3c39;"> &nbsp;icon in your Maya shelves (If U have installed all the MGTools shelves into Maya shelves) .Invoking by this way will only able to undo/redo one step.</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#3c3c39;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="color: #3c3c39;">Click the EfficientUndo/Redo button of the miniToolBox. (or the option box on the right side of it.)</span></p><p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> When to use it:</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">1.</span>Want to undo/redo quickly,or the steps need to be undone are too many.</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">2.</span>Sometime after clicking the playback button in Maya,it ends up with great mount of nonsense undo steps. If U want to undo a real step,U got press z crazily,vice verse.</p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> The Option Box:</span><br />
+<img src="undo_option_en.gif" width="286" height="284" alt="undo_option_en" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">The undo redo option shares the same UI. Change operation between undo &amp; redo,the UI element will be updated correspondingly . Here we take undo as example:</span><br />
+<span class="f_MI_TitleStyle" style="color: #404040;">Undo Times:</span><span class="f_ImageCaption" style="font-size: 10pt; color: #808080;"> </span>How many undo steps will be done through one click on the &quot;Undo!!&quot; button of the right corner.<br />
+<span class="f_MI_TitleStyle" style="color: #404040;">Auto-StepThrough &nbsp;Null Undo： </span>When doing undo, if it meets a non-sense undo, it will keep undoing until it meets another undo that makes sense. this option is grayed out because nobody want to do non-sense undo one by one..<br />
+<span class="f_MI_TitleStyle" style="color: #404040;">Auto-StepThrough &nbsp; Undo With Name：</span>When this option is checked on, input a undo step name.then every time this tool meets the right name, it will automatically step it through. <br />
+<span class="f_MI_TitleStyle" style="color: #404040;">Query button:  </span>Query current undo name and fill the name into the textField left.<br />
+<span class="f_MI_TitleStyle" style="color: #404040;">Undo!!:</span><span style="font-weight: bold; color: #808080;"> </span>Undo by the options been set.<br />
+<img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> Notice: Unlike maya's optionBox, this option box setting wont be remembered and wont affect the acting of the Efficient Undo/Redo button on the minitoolBox .</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="insert_hierarchy_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

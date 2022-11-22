@@ -1,0 +1,58 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+//`MG_DualLan "pathTracker.title"` 
+
+MG_displayEN "pathTracker.pathTool.mi" "PathTools";
+
+MG_displayEN "pathTracker.title" "MG-PathTracker v1.0";
+MG_displayEN "pathTracker.mi" "MG-PathTracker..";
+MG_displayEN "pathTracker.ann" "Click to load MG-PathTracker v1.0,with which you can track objects' motion trail.";
+
+MG_displayEN "pathTracker.add.ann" "Add scene selection into the track list.";
+MG_displayEN "pathTracker.del.ann" "Remove scene selection from the track list.";
+MG_displayEN "pathTracker.refresh.ann" "Refresh the tracking of the selected items in the track list.";
+
+MG_displayEN "pathTracker.camOnoff.ann" "Turn on/off the camera linking condition of the current track item.";
+MG_displayEN "pathTracker.camtf.ann" "This field shows the camera name to link.";
+MG_displayEN "pathTracker.camInput.ann" "Select a camera and link it to the selected track items. If no camera selected then current view camera will be linked.";
+
+MG_displayEN "pathTracker.tracknode.lbl" "Track Target:";
+MG_displayEN "pathTracker.trackNode.tsl.ann" "This list shows the tracking targets.Double clicking it to manual update it's tracking.";
+
+MG_displayEN "pathTracker.updateAuto.lbl" "auto";
+MG_displayEN "pathTracker.updateAuto.tsl.ann" "Click this list item turns on/off automatical updating of the track items.";
+
+MG_displayEN "pathTracker.path.lbl" "path";
+MG_displayEN "pathTracker.path.tsl.ann" "Click this list item turns on/off the visibility of the track path curve.";
+
+MG_displayEN "pathTracker.fr.lbl" "fr.";
+MG_displayEN "pathTracker.fr.tsl.ann" "Click this list item turns on/off the visibility of the frame indicator.";
+
+MG_displayEN "pathTracker.key.lbl" "key";
+MG_displayEN "pathTracker.key.tsl.ann" "Click this list item turns on/off the visibility of the keyframe indicator.";
+
+MG_displayEN "pathTracker.null.lbl" "N/A";
+MG_displayEN "pathTracker.time.lbl" "Time:    ";
+
+MG_displayEN "pathTracker.linkRange.lbl" "=Range";
+MG_displayEN "pathTracker.timeInput.ann" "Set the track range to current time range (or selected timeRange ) and update the tracking.";
+MG_displayEN "pathTracker.timeRangeLink.ann" "Turn on / off the linking of the current tracking range and the time range of maya.";
+
+MG_displayEN "pathTracker.pathC.lbl" "Path:";
+MG_displayEN "pathTracker.frC.lbl" "Frames:";
+MG_displayEN "pathTracker.keyC.lbl" "Keys:";
+MG_displayEN "pathTracker.size.lbl" "Size:";
+
+
+MG_displayEN "pathTracker.asignHK.ann" "Assign a user HotKey to pathTracker tool in MG_Config.";
+MG_displayEN "pathTracker.asignUpdateHK.mi" "Assign Manual Update HotKey..";
+MG_displayEN "pathTracker.asignUpdateHK.ann" "Assign a user HotKey to quickly manually update the selection's path tracking.";
+MG_displayEN "pathTracker.manualUpdate.mi" "Manually Update Selection";
+MG_displayEN "pathTracker.manualUpdate.ann" "Manually Update the tracking of current scene selection.";
+

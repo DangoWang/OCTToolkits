@@ -1,0 +1,52 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "PivotTool.create.anno" "Click to create PivotTool stuff.";
+MG_displayEN "PivotTool.selectPivot.mi" "Select Pivot";
+MG_displayEN "PivotTool.selectRoll.mi" "Select Roll";
+
+MG_displayEN "PivotTool.NoStuff.war" "No PivotStuff detected in your scenes :P";
+MG_displayEN "PivotTool.existStuff.title" "Existed pivot stuff:";
+MG_displayEN "PivotTool.pivotFor" "Pivot for:";
+MG_displayEN "PivotTool.pivotStuff" "PivotStuff:";
+
+
+MG_displayEN "PivotTool.help" "Help";
+
+MG_displayEN "PivotTool.manager.clickSelect3.anno" "Double click to select all 3 pivotStuffs.";
+MG_displayEN "PivotTool.manager.select" "Select";
+MG_displayEN "PivotTool.manager.Delete" "Delete";
+MG_displayEN "PivotTool.manager.clickMeToSelect.anno" "Double click to select me.";
+MG_displayEN "PivotTool.manager.anno" "* Double click left list item to select 3 PivotStuffs,right to select pivotStuff *";
+MG_displayEN "PivotTool.manager.close" "Close";
+
+MG_displayEN "PivotTool.selectStuff.war" "--_-- |||    Please select one of pivot Stuffs first~";
+
+MG_displayEN "PivotTool.channel.war" "--_-- |||    Select one object with its translate&rotation keyable,baby~";
+MG_displayEN "PivotTool.alreadyC.war" "--_-- |||    You have created them before,baby~";
+
+MG_displayEN "PivotTool.snapToSel.war" "--_-- |||    Please select the target object and one of pivot Stuffs first~";
+
+MG_displayEN "PivotTool.channelLocked.war" "Your selection was locked or connected in translation or rotation :(";
+
+MG_displayEN "PivotTool.bindDone.rep" "Bind to # successfully :)";
+
+MG_displayEN "PivotTool.earse.war" "Warning!! This operation will erase Existed animation.";
+MG_displayEN "PivotTool.earse.cancel" "Cancel";
+MG_displayEN "PivotTool.earse.next" "Next";
+
+MG_displayEN "PivotTool.copyPivotDone.rep" "Finish recording current selection's pivot position information.U can reuse at any time, any Maya.";
+MG_displayEN "PivotTool.pastePivotDone.rep" "Finish reusing Pivot position information.Check it out.";
+MG_displayEN "PivotTool.copyPivot.noPivotFile.war" "No Pivot position information file found.";
+
+MG_displayEN "PivotTool.copypivot.mi" "Export Pivot Position";
+MG_displayEN "PivotTool.copypivot.mi.anno" "Export Pivot Position to a file , U can use it throught importing pivot position.";
+MG_displayEN "PivotTool.pastepivot.mi" "Import Pivot Position";
+MG_displayEN "PivotTool.pastepivot.mi.anno" "Reuse Pivot Position information to relocate the current selection's pivot.";
+

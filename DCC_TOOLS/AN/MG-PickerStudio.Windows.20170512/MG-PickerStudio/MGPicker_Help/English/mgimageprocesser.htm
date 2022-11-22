@@ -1,0 +1,237 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>MGImageProcesser Command</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="API,ImageProcesser,MGImageProcessercommand" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "mgimageprocesser.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="mgpickerservice.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="commandbuttonpresets.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; height:8px; padding:1px;"><p><span style="font-family: 'Times New Roman'; font-weight: bold;">command</span><span style="font-family: 'Times New Roman';"> (MEL/Python)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; height:5px; padding:1px;"><h1 class="p_Heading1" style="margin: 19px 0px 19px 0px;"><span class="f_Heading1" style="font-size: 24pt; font-family: 'Times New Roman';">MGImageProcesser</span></h1>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 14px 0px 0px 0px;"><span style="font-size: 12pt; font-family: 'Times New Roman';">Go to: <a href="mgimageprocesser.htm#synopsis" class="topiclink">MEL synopsis</a>. <a href="mgimageprocesser.htm#pysynopsis" class="topiclink">Python synopsis</a>. <a href="mgimageprocesser.htm#returnvalue" class="topiclink">Return value</a>. <a href="mgimageprocesser.htm#flags" class="topiclink">Flags</a>. <a href="mgimageprocesser.htm#examples" class="topiclink">MEL examples</a>. <a href="mgimageprocesser.htm#pyexamples" class="topiclink">Python examples</a>.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="synopsis"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">MEL Synopsis</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">MGImageProcesser [-<a href="mgimageprocesser.htm#dimension" class="topiclink">dimension</a>] [-<a href="mgimageprocesser.htm#processoption" class="topiclink">processOption</a>] [-<a href="mgimageprocesser.htm#resize" class="topiclink">resize</a>] [-<a href="mgimageprocesser.htm#style" class="topiclink">style</a>] imagePath</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="pysynopsis"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">Python Synopsis</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">MGImageProcesser (string, [<a href="mgimageprocesser.htm#dimension" class="topiclink">dimension</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">], [<a href="mgimageprocesser.htm#processoption" class="topiclink">processOption</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgimageprocesser.htm#resize" class="topiclink">resize</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">], [<a href="mgimageprocesser.htm#style" class="topiclink">style</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">])</span></p>
+<p style="margin: 0px 0px 14px 0px;"><span style="font-family: 'Times New Roman'; font-style: italic;">Note: Strings representing image fullpath &nbsp;and arguments must be separated by commas. This is not depicted in the synopsis.</span></p>
+<p style="margin: 14px 0px 14px 0px;"><span style="font-size: 12pt; font-family: 'Times New Roman';">MGImageProcesser is </span><span style="font-size: 12pt; font-family: 'Times New Roman'; font-weight: bold;">NOT undoable</span><span style="font-size: 12pt; font-family: 'Times New Roman';">, </span><span style="font-size: 12pt; font-family: 'Times New Roman';">queryable, and editable.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">This command process images.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="returnvalue"></a><span style="font-size: 18pt; font-family: 'Times New Roman'; font-weight: bold;">Return value</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 19px 0px 0px 0px;"><table style="border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:100%; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Depend on the flag, the return value could be int array of image size, int for processed images, etc.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 19px 0px 19px 0px;"><a id="flags"></a><span style="font-size: 18pt; font-family: 'Times New Roman'; font-weight: bold;">Flags</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgimageprocesser.htm#dimension" class="topiclink">dimension</a>, <a href="mgimageprocesser.htm#processoption" class="topiclink">processOption</a>, <a href="mgimageprocesser.htm#resize" class="topiclink">resize</a>, <a href="mgimageprocesser.htm#style" class="topiclink">style</a></span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman'; font-weight: bold;">Long name (short name)</span></p>
+</td>
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic; font-weight: bold;">Argument types</span></p>
+</td>
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman'; font-weight: bold;">Properties</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="dimension"></a><span style="font-family: 'Courier New'; font-weight: bold;">-dimension</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-d</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a query only flag that can be used to query for the size of an image as int array, by providing a image file path.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="processoption"></a><span style="font-family: 'Courier New'; font-weight: bold;">-processOption</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-po</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" style="border:none" /><img src="edit.gif" width="13" height="16" alt="edit" style="border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Process the image using the process option string, the option is of the &quot;optionName = optionValue&quot; format, one option for a line, joined with new line character '\n'. For example:</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">invert = 0</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">grayscale = 1</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">brightness = 0</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">contrast = 0</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">saturation = 0</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">blur = 0</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">opacity = 255</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">bgcolor = 0,0,0</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">hTile = 1</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">hTileGap = 0</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">vTile = 1</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">vTileGap = 0</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">The case for the option name does not matter. The value range for a certain option:</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">invert: [0~1]</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">grayscale: [0~1]</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">brightness: [-255,255]</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">contrast: [-255,255]</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">saturation: [-255,255]</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">blur: [0~18]</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">opacity: [0~255]</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">bgcolor: [0~255,0~255,0~255]</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">hTile: [0~10]</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">hTileGap: [0~100]</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">vTile: [0~10]</span></p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic;">vTileGap: [0~100]</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="resize"></a><span style="font-family: 'Courier New'; font-weight: bold;">-resize</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-r</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" style="border:none" /><img src="edit.gif" width="13" height="16" alt="edit" style="border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Resize the image file using the new size provided by string argument: &quot;width:height&quot;. The width / height ratio of image will stay unchanged.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="style"></a><span style="font-family: 'Courier New'; font-weight: bold;">-style</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-s</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" style="border:none" /><img src="edit.gif" width="13" height="16" alt="edit" style="border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:946px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Internal use only. Process the image using a style file. Input a style file full path as the argument.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr style="height:2px; color:#cccccc; border-width:0px; background-color:#cccccc;" /><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 10px 0px 0px 0px;"><table style="background-color:#eeeeee; border:none; border-spacing:1px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:4px;"><p><img src="create.gif" width="13" height="16" alt="create" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';">Flag can appear in Create mode of command</span></p>
+</td>
+<td style="vertical-align:top; padding:4px;"><p><img src="edit.gif" width="13" height="16" alt="edit" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';">Flag can appear in Edit mode of command</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:4px;"><p><img src="query.gif" width="13" height="16" alt="query" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';">Flag can appear in Query mode of command</span></p>
+</td>
+<td style="vertical-align:top; padding:4px;"><p><img src="multiuse.gif" width="13" height="16" alt="multiuse" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';">Flag can be used more than once in a command.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 19px 0px 0px 0px;"><a id="examples"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">MEL examples</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">//get&nbsp;the&nbsp;size&nbsp;of&nbsp;image&nbsp;in&nbsp;int&nbsp;array:</span><br />
+<span style="font-family: 'Courier New';">MGImageProcesser&nbsp;-q&nbsp;-dimension&nbsp;&quot;D:/test/Penguins.jpg&quot;;</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">//backup&nbsp;the&nbsp;original&nbsp;image&nbsp;befor&nbsp;process&nbsp;it:</span><br />
+<span style="font-family: 'Courier New';">sysFile&nbsp;-cp&nbsp;&quot;D:/test/Penguins_orginal.jpg&quot;&nbsp;&quot;D:/test/Penguins.jpg&quot;;</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">//now&nbsp;process&nbsp;the&nbsp;image,&nbsp;the&nbsp;image&nbsp;will&nbsp;be&nbsp;changed:</span><br />
+<span style="font-family: 'Courier New';">MGImageProcesser&nbsp;-processOption&nbsp;&quot;grayscale=1\nblur=10&quot;&nbsp;&quot;D:/test/Penguins.jpg&quot;;</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="pyexamples"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">Python examples</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">import maya.cmds as cmd</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">#get&nbsp;the&nbsp;size&nbsp;of&nbsp;image&nbsp;in&nbsp;int&nbsp;array:</span><br />
+<span style="font-family: 'Courier New';">cmd.MGImageProcesser(&quot;D:/test/Penguins.jpg&quot;,&nbsp;q=True,&nbsp;dimension=True)</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">#backup&nbsp;the&nbsp;original&nbsp;image&nbsp;befor&nbsp;process&nbsp;it:</span><br />
+<span style="font-family: 'Courier New';">cmd.sysFile(&quot;D:/test/Penguins.jpg&quot;,&nbsp;cp=&quot;D:/test/Penguins_orginal.jpg&quot;)</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">#now&nbsp;process&nbsp;the&nbsp;image,&nbsp;the&nbsp;image&nbsp;will&nbsp;be&nbsp;changed:</span><br />
+<span style="font-family: 'Courier New';">cmd.MGImageProcesser(&quot;D:/test/Penguins.jpg&quot;,&nbsp;processOption=&quot;grayscale=1\nblur=10&quot;)</span></p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="mgpickerservice.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="commandbuttonpresets.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

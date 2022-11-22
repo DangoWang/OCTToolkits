@@ -1,0 +1,52 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "PivotTool.create.anno" "点击为所选物体创建一个可动画轴心装置";
+MG_displaySC "PivotTool.selectPivot.mi" "选择Pivot";
+MG_displaySC "PivotTool.selectRoll.mi" "选择Roll";
+
+MG_displaySC "PivotTool.NoStuff.war" "你的场景里没有可动画轴心装置哦 :P";
+MG_displaySC "PivotTool.existStuff.title" "已存在的可动画轴心装置:";
+MG_displaySC "PivotTool.pivotFor" "轴心装置的控制对象:";
+MG_displaySC "PivotTool.pivotStuff" "轴心装置:";
+
+
+MG_displaySC "PivotTool.help" "帮助";
+
+MG_displaySC "PivotTool.manager.clickSelect3.anno" "双击来选择该套轴心装置全部三个控制器.";
+MG_displaySC "PivotTool.manager.select" "选择";
+MG_displaySC "PivotTool.manager.Delete" "删除";
+MG_displaySC "PivotTool.manager.clickMeToSelect.anno" "双击我来选择我.";
+MG_displaySC "PivotTool.manager.anno" "* 双击左下列表项目来选择整套装置,双击右下列表项目来选择对应控制器*";
+MG_displaySC "PivotTool.manager.close" "关闭";
+
+MG_displaySC "PivotTool.selectStuff.war" "--_-- |||    请选择装置的一个控制器先 ~";
+
+MG_displaySC "PivotTool.channel.war" "--_-- |||    请选择一个位移和旋转可被约束的物体 ~";
+MG_displaySC "PivotTool.alreadyC.war" "--_-- |||    你老早前就已经为它创建过轴心装置了 ~";
+
+MG_displaySC "PivotTool.snapToSel.war" "--_-- |||    请选择目标物体及你要重新绑定的轴心装置的一部分先 ~";
+
+MG_displaySC "PivotTool.channelLocked.war" "你所选的物体的位移或旋转被锁定或被连接控制了";
+
+MG_displaySC "PivotTool.bindDone.rep" "成功与#完成了绑定";
+
+MG_displaySC "PivotTool.earse.war" "警告!! 这个操作将冲掉与装置相关的即有动画";
+MG_displaySC "PivotTool.earse.cancel" "取消";
+MG_displaySC "PivotTool.earse.next" "没关系";
+
+MG_displaySC "PivotTool.copyPivotDone.rep" "当前选择轴心位置已记录，你可以在任何时间，任何Maya里利用这个信息。";
+MG_displaySC "PivotTool.pastePivotDone.rep" "已导入轴心位置信息并应用于当前选择，请查收";
+MG_displaySC "PivotTool.copyPivot.noPivotFile.war" "没发现任何之前导出的轴心位置信息";
+
+MG_displaySC "PivotTool.copypivot.mi" "导出轴心位置";
+MG_displaySC "PivotTool.copypivot.mi.anno" "导出轴心位置信息到一个外部文件，这样另外一个Maya也可用这些信息。";
+MG_displaySC "PivotTool.pastepivot.mi" "导入轴心位置";
+MG_displaySC "PivotTool.pastepivot.mi.anno" "用之前导出的轴心位置信息，来改变当前场景选择的轴心位置。";
+

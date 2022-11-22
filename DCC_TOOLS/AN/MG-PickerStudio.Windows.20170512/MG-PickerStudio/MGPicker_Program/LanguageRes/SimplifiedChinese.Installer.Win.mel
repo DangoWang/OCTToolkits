@@ -1,0 +1,66 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+
+global string $Install_MGPKR_APPName = "MG-Picker工作室";
+global string $Install_MGPKR_OSMismatch_message = "对不起，您现在安装的MG-Picker工作室是针对其它操作系统的.";	
+global string $Install_MGPKR_WinTitle = "MG-Picker工作室安装向导";	
+global string $Install_MGPKR_loadTool = "加载MG-Picker工作室";
+
+global string $Install_MGPKR_UILang = "界面语言:";
+global string $Install_MGPKR_autoLoadLbl = "Maya加载时:";
+global string $Install_MGPKR_animMode = "动画师模式";
+global string $Install_MGPKR_designerMode = "设计师模式";
+
+global string $Install_MGPKR_autoloadVia = "自动加载机制基于:";
+global string $Install_MGPKR_afterInstall = "安装完毕后:";
+
+global string $Install_MGPKR_EULA_TIP = "* 点击接受按钮来同意最终用户许可; 点拒绝按钮来拒绝并退出安装.";
+global string $Install_MGPKR_EULA_missing = "最终用户许可文件丢失，安装将退出.";
+global string $Install_MGPKR_101_missing = "授权说明文件丢失，安装将退出.";
+
+
+global string $Install_MGPKR_Btn_Buy = "购买..";
+global string $Install_MGPKR_Btn_Next = "下一步";
+global string $Install_MGPKR_Btn_Previous = "上一步";
+global string $Install_MGPKR_Btn_Accept = "接受";
+global string $Install_MGPKR_Btn_Decline = "拒绝";
+global string $Install_MGPKR_Btn_Cancel = "取消";
+global string $Install_MGPKR_Btn_Help = "帮助..";
+global string $Install_MGPKR_Btn_Install = "安装 !";
+
+global string $Install_MGPKR_EULA_TopLbl = "最终用户许可协议";
+global string $Install_MGPKR_101_TopLbl = "授权方式说明";
+
+
+global string $Install_MGPKR_Btn_OK = "OK";
+global string $Install_MGPKR_SameVer_War1 = "MG-Picker工作室已经以这个版本安装在当前Maya: ";
+global string $Install_MGPKR_SameVer_War2 = "您希望继续来安装这个版本吗: ";
+global string $Install_MGPKR_SameVer_War3 = "安装源和目标相同，无需要安装.";
+
+global string $Install_MGPKR_MayaVersion_War = "MG-Picker工作室 只支持2011或以后版本的Maya.";
+global string $Install_MGPKR_NotSupported = "当前MG-Picker工作室的安装源未支持当前版本的Maya，查看有没有更新的版本请访问:";
+global string $Install_MGPKR_GoWebsite = "访问网站";
+
+global string $Install_MGPKR_UnloadError = "去载正在使用中的MG-Picker工作室插件时出错.";
+global string $Install_MGPKR_UsedByOtherInstance1 = " 插件文件无法被覆盖,很可能其它运行的相同版本的Maya正在使用它.";
+global string $Install_MGPKR_UsedByOtherInstance2 = "请在这些Maya里都去载它后再试试.";
+
+global string $Install_MGPKR_PGS_title = "安装进行中";
+global string $Install_MGPKR_PGS_CopyFiles = "  步骤01: 复制程序文件";	
+global string $Install_MGPKR_PGS_InstallShelf = "  步骤02: 安装到当前工具架";		
+global string $Install_MGPKR_PGS_InstallAutoload = "  步骤03: 建立自动加载系统";
+global string $Install_MGPKR_PGS_Booting = "  步骤04: 启动工具..";
+global string $Install_MGPKR_PGS_Done = "安装已完成，更多信息请访问:";	
+
+global string $Install_MGPKR_installMode = "安装模式:";	
+global string $Install_MGPKR_installAsLocal = "拷贝到Maya的用户脚本目录再调用";
+global string $Install_MGPKR_installAsGlobal = "不拷贝，直接原地调用程序";
+global string $Install_MGPKR_installAsLocal_Tip = "安装时将会拷贝所有的程序文件到 \"Maya用户脚本目录/MG-PickerStudio\" 目录.";
+global string $Install_MGPKR_installAsGlobal_Tip = "安装时不拷贝任何程序文件，直接就地调用安装源里的程序.";

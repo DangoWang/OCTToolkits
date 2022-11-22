@@ -1,0 +1,336 @@
+//==============================================================//
+//             MGFloatingLicence Shared Procedures
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+//The script is shared between MGTools and MG-PickerStudio, etc.
+//==============source codes if necessary=========================
+proc initGlobalVars()
+{
+    global string $gMG_LicenseConnectorDir_ov;
+    $gMG_LicenseConnectorDir_ov = "MG_LicenceConnectorDir";
+    
+    global string $gMG_NewsProgramDir_ov;
+    $gMG_NewsProgramDir_ov = "MGLAND_NewsDir";    
+    
+    global string $gMG_Connector_APPName;
+    $gMG_Connector_APPName = "MG-LicenceConnector";
+    
+    global string $gMG_News_APPName;
+    $gMG_News_APPName = "MG-News";
+    
+    global string $gMG_ConnectorInfoServerFileName = "MG_LicenceConnector.txt";
+    global string $gMG_ConnectorInfoServerFile_Dir_Key = "MGPICKER_FLOAT_LIC_CONNECTOR_DIR";
+}
+initGlobalVars;
+proc int mg_osType()
+{
+    int $osType = 0;
+    if(`about -mac`)
+    {
+        $osType = 1;
+    }
+    else if(`about -linux`)
+    {
+        $osType = 2;
+    }
+    return $osType;
+}
+proc string mg_getProgramExt()
+{    
+    int $osType = 1-`about -win`;
+    string $ext = ".exe";
+    if($osType)  //macos && linux
+    {
+        $ext = "";
+    }
+    return $ext;
+}
+global proc string MGP_GetConnectorProgramFileName()
+{    
+    global string $gMG_Connector_APPName;  
+    return   ($gMG_Connector_APPName + `mg_getProgramExt`);    
+}
+global proc string MGP_GetNewsProgramFileName()
+{       
+    global string $gMG_News_APPName;
+    return   ($gMG_News_APPName + `mg_getProgramExt`);
+    
+}
+proc string mg_substituteToLocalSep(string $path)
+{
+    if(!`mg_osType`)
+    {
+        return `substituteAllString  $path "/" "\\"`;
+    }
+    return  $path;
+}
+//for getting programes from optionvar and server define  ------------------------------
+
+proc string mg_getServerConnectionFile(string $serverConfigDir)
+{
+    global string $gMG_ConnectorInfoServerFileName;
+    string $file = $serverConfigDir + $gMG_ConnectorInfoServerFileName;
+    return `mg_substituteToLocalSep $file`;
+}
+proc string mg_getSubfolderAbsolutePath(string $serverConfigDir, string $path)
+{
+    string $pwd = $serverConfigDir;
+    $path = `substring $path 3 (size($path))`;
+    return $pwd + $path;
+}
+proc string mg_getParentfolderAbsolutePath(string $serverConfigDir, string $path)
+{
+    string $pwd = $serverConfigDir;
+    string $pathParts[] = `stringToStringArray $path "/"`;
+    string $nonDotParts[];
+    for($p in $pathParts)
+    {
+        if($p == "..")
+        {
+            $pwd = `dirname $pwd`;
+        }
+        else
+        {
+            $nonDotParts[size($nonDotParts)] = $p;
+        }
+    }
+    string $leftoverPath = `stringArrayToString $nonDotParts "/"`;
+    if(!`endsWith $pwd "/"`)
+    {
+        $pwd += "/";
+    }
+    return $pwd + $leftoverPath;
+}
+proc string mg_parseServerConnectorPath(string $serverConfigDir, string $path, int $fullPath)
+{
+    $path = strip($path);
+    $path = `substituteAllString $path "\\" "/"`;
+    if(`gmatch $path "./*"`)
+    {
+        $path = `mg_getSubfolderAbsolutePath $serverConfigDir $path`;
+    }
+    else if(`gmatch $path "../*"`)
+    {
+        $path = `mg_getParentfolderAbsolutePath $serverConfigDir $path`;
+    }
+    
+    string $programFileName = `MGP_GetConnectorProgramFileName`;
+    int $isFullPath = `endsWith $path $programFileName`;
+    if(!$fullPath && $isFullPath)
+    {
+        $path = `dirname $path` + "/";
+    }
+    if($fullPath && !$isFullPath)
+    {
+        if(!`endsWith $path "/"`)
+        {
+            $path += "/";
+        }
+        $path += $programFileName;
+    }
+    return `mg_substituteToLocalSep $path`;
+}
+global proc string MG_GetServerConnector(string $serverConfigDir, int $fullPath)
+{
+    global string $gMG_ConnectorInfoServerFile_Dir_Key;
+    string $value = strip(`getenv $gMG_ConnectorInfoServerFile_Dir_Key`);
+    if(!size($value))
+    {
+        string $file = `mg_getServerConnectionFile $serverConfigDir`;
+        if(!`filetest -f $file`)
+        {
+            return "";
+        }
+        $readFileID=`fopen $file "r"`;
+    	while(!`feof $readFileID`)
+    	{
+    		$nextLine=strip(`fgetline $readFileID`);
+    		if (size($nextLine) && !`startsWith $nextLine "#"`)
+    		{
+    		    if(`startsWith $nextLine $gMG_ConnectorInfoServerFile_Dir_Key`)
+    		    {
+    		        string $datas[]=`stringToStringArray $nextLine "="`;
+    		        if(size($datas)!=2)
+    		        {
+    	                fclose $readFileID;
+    		            return "";
+    		        } 
+    	            fclose $readFileID;
+    	            $value = $datas[1];
+    		    }
+    		}
+    	}
+    	fclose $readFileID;
+    }
+    if(size($value))
+    {
+        return `mg_parseServerConnectorPath $serverConfigDir $value $fullPath`;
+    }
+	return "";
+}
+
+global proc string MG_getLicenseConnectorDir(string $serverConfigDir, int $fullPath)
+{
+    global string $gMG_LicenseConnectorDir_ov;  
+    string $dir;
+    //we check out the server data file first:
+    string $pathInServerFile = `MG_GetServerConnector $serverConfigDir $fullPath`;
+    if(size($pathInServerFile))
+    {
+        if(!$fullPath)
+        {
+            $pathInServerFile = `mg_substituteToLocalSep $pathInServerFile `;
+            if(`filetest -d $pathInServerFile`)
+            {
+                return $pathInServerFile;
+            }
+		}
+		else
+        {
+            $pathInServerFile = `mg_substituteToLocalSep $pathInServerFile `;
+            if(`filetest -f $pathInServerFile`)
+            {
+                return $pathInServerFile;
+            }
+		}
+    }
+    //if not server record:
+    int $hasRecord = 0;
+    if(`optionVar -ex $gMG_LicenseConnectorDir_ov`)
+    {
+        $dir = `optionVar -q $gMG_LicenseConnectorDir_ov`;
+        $dir = `mg_substituteToLocalSep $dir `;
+        if(`filetest -d $dir`)
+        {           
+            if($fullPath)
+            {
+                string $programFileName = `MGP_GetConnectorProgramFileName`;
+                $dir += $programFileName;
+                $hasRecord =`filetest -f $dir`;
+            }
+            else
+            {
+                $hasRecord = 1;
+            }
+        }
+    }
+    //if no record found, we check out the news program:
+    if(!$hasRecord)
+    {
+        global string $gMG_NewsProgramDir_ov;  
+        if(!`optionVar -ex $gMG_NewsProgramDir_ov`)
+        {
+            return "";
+        }
+        $dir = `optionVar -q $gMG_NewsProgramDir_ov`;
+        $dir = `mg_substituteToLocalSep $dir `;
+        if(!`filetest -d $dir`)
+        {
+            return "";
+        }
+        if($fullPath)
+        {
+            string $programFileName = `MGP_GetConnectorProgramFileName`;
+            $dir += $programFileName;
+        }
+    }
+    $dir = `mg_substituteToLocalSep $dir `;
+    return $dir;
+}
+global proc string MG_getNewsProgramDir(string $serverConfigDir, int $fullPath)
+{
+    global string $gMG_NewsProgramDir_ov;  
+    
+    string $dir;
+    int $hasRecord = 0;
+    if(`optionVar -ex $gMG_NewsProgramDir_ov`)
+    {
+        $dir = `optionVar -q $gMG_NewsProgramDir_ov`;
+        $dir = `mg_substituteToLocalSep $dir `;
+        if(`filetest -d $dir`)
+        {           
+            if($fullPath)
+            {
+                string $programFileName = `MGP_GetNewsProgramFileName`;
+                $dir += $programFileName;
+                $hasRecord = 1;
+            }
+        }
+    }
+    //if no record found, we check out the connector program:
+    if(!$hasRecord)
+    {
+        $dir = `MG_getLicenseConnectorDir $serverConfigDir 0`;
+        $dir = `mg_substituteToLocalSep $dir `;
+        if(!`filetest -d $dir`)
+        {
+            return "";
+        }
+        if($fullPath)
+        {
+            string $programFileName = `MGP_GetNewsProgramFileName`;
+            $dir += $programFileName;
+        }
+    }
+    return $dir;
+}
+
+// save the connector and news to optionvar.------------------------
+proc string processDirToSave(string $filePath)
+{
+    if(!size($filePath))
+    {
+        return "";
+    }
+    $filePath = `mg_substituteToLocalSep $filePath `;
+    string $dir = $filePath;
+    if(`filetest -f $filePath`)
+    {
+       $dir = `dirname $filePath`;   
+    }
+    else
+    {
+        if(!`filetest -d $filePath`)
+        {
+            return "";
+        }
+    }
+    if(!`endsWith $dir "/"`)
+    {
+        $dir += "/";
+    }
+    $dir = `mg_substituteToLocalSep $dir `;
+    return $dir;
+}
+global proc int MGP_SaveLicenseConnectorDir(string $filePath)
+{
+    string $dir = `processDirToSave $filePath`;
+    if(!size($dir))
+    {
+        return 0;
+    }
+    global string $gMG_LicenseConnectorDir_ov;  
+    optionVar -sv $gMG_LicenseConnectorDir_ov $dir; 
+    return 1;          
+}
+
+global proc int MGP_SaveNewsProgramDir(string $filePath)
+{
+    
+    string $dir = `processDirToSave $filePath`;
+    if(!size($dir))
+    {
+        return 0;
+    }
+    global string $gMG_NewsProgramDir_ov;  
+    optionVar -sv $gMG_NewsProgramDir_ov $dir;
+    return 1;            
+}
+
+//=========lazy source marker proc=========================
+global proc MGFloatLicence_SharedProcs()
+{
+}

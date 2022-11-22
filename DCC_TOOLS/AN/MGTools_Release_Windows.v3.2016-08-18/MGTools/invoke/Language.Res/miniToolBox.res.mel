@@ -1,0 +1,207 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "miniToolB.title" "MG miniToolbox";
+
+MG_displayEN "miniToolB.miniT.hp" "MiniTools Help..";
+MG_displayEN "miniToolB.mgTimer.hp" "MG-Timer Help..";
+MG_displayEN "miniToolB.mbma.hp" "MB-MA converter Help..";
+MG_displayEN "miniToolB.ref.hp" "Reference tool Help..";
+MG_displayEN "miniToolB.hud.hp" "MG_HUD display Help..";
+MG_displayEN "miniToolB.anno.hp" "Annotation frameCounter Help..";
+MG_displayEN "miniToolB.stickyS.hp" "Make it sticky Help..";
+MG_displayEN "miniToolB.stickyV.hp" "Make sticky viewport Help..";
+MG_displayEN "miniToolB.draw.hp" "Draw curve via key Help..";
+MG_displayEN "miniToolB.motionC.hp" "MotionPathSticker Help..";
+MG_displayEN "miniToolB.insertHirarchy.hp" "Insert Hierarchy Help..";
+MG_displayEN "miniToolB.EfficientUndo.hp" "EfficientUndo/Redo Help..";
+
+MG_displayEN "miniToolB.misc.fTitle" "Misc:";
+MG_displayEN "miniToolB.mTimer.annoText" "Record / Convert timing & calculating: ";
+MG_displayEN "miniToolB.mTimer.title" "MG_Timer&Calc 1.0";
+
+MG_displayEN "miniToolB.MBMA.annoText" "Convert tricky ma to mb or mb to ma : ";
+MG_displayEN "miniToolB.ref.annoText" "ReferencePath export/import : ";
+MG_displayEN "miniToolB.refPath.annoText" "View reference path..";
+
+MG_displayEN "miniToolB.screenDispaly.fTitle" "Screen Display:";
+MG_displayEN "miniToolB.screenDispaly.annoText" "Show frame number or not: ";
+MG_displayEN "miniToolB.screenDispaly.mghud" "MG-HUD display";
+MG_displayEN "miniToolB.screenDispaly.annoFC" "Anno-FrameCounter..";
+MG_displayEN "miniToolB.hud.folder" "Config folder..";
+MG_displayEN "miniToolB.mSticky.fTitle" "Make Sticky:";
+MG_displayEN "miniToolB.mSticky.btn" "Make it sticky " ;
+MG_displayEN "miniToolB.mSticky.annoText" "Make selection or camera sticky: " ;
+MG_displayEN "miniToolB.mSticky.remTransform.lal" "Remember Current Transformation" ;
+MG_displayEN "miniToolB.mSticky.remTransform.ann" "Remember the current sticky locator's tranlation,rotation,scale,offset,tick postion and size for next time build use." ;
+MG_displayEN "miniToolB.mSticky.remTransform.war" "Select sticker or sticked object to remember the transformation." ;
+MG_displayEN "miniToolB.mSticky.remTransform.done" "Current Transformation remembered,." ;
+
+MG_displayEN "miniToolB.mp.fTitle" "MotionPath:" ;
+
+MG_displayEN "miniToolB.ref.war" "o_o !!!   Please select a reference object~" ;
+MG_displayEN "miniToolB.ref.rep" "Exporting reference info completed.You can use it to referece in another maya." ;
+MG_displayEN "miniToolB.noRef.war" "o_o !!!   No reference exported before!~" ;
+MG_displayEN "miniToolB.imref.rep" "Import reference completed." ;
+
+MG_displayEN "miniToolB.dupRef.label" "Duplicate reference" ;
+MG_displayEN "miniToolB.dupRef.anno" "Select any part of a reference object,use me to duplicate the reference." ;
+MG_displayEN "miniToolB.dupRef.done.rep" "Finish duplicating reference." ;
+
+MG_displayEN "miniToolB.relRefP.title" "Relate reference path:" ;
+MG_displayEN "miniToolB.remRef.rep" "Selected referenceNode is removed and it's namespace is cleared  :)" ;
+MG_displayEN "miniToolB.repNS.title" "Replace namespace" ;
+MG_displayEN "miniToolB.repNS.mess" "Replace namespace \"#\" to:" ;
+MG_displayEN "miniToolB.repNS.replace" "Replace" ;
+MG_displayEN "miniToolB.repNS.cancel" "Cancel" ;
+MG_displayEN "miniToolB.repNS.war" "Namespace you entered is the same as what it was ,so everything unchanged :)" ;
+MG_displayEN "miniToolB.repNS.rep" "NameSpace replacement compelete,Check it out :)" ;
+MG_displayEN "miniToolB.repNS.alrUsed.war" "Target namespace \"#\" already used by a reference!!!" ;
+
+MG_displayEN "miniToolB.annoFC.cleared.rep" "Frame number has cleared from your scene :)" ;
+MG_displayEN "miniToolB.annoFC.made.rep" "Frame number has shown in your scene :)" ;
+
+MG_displayEN "miniToolB.annoFC.selCam.title" "Double Click a cam to bind" ;
+MG_displayEN "miniToolB.annoFC.selCam.stick" "Stick" ;
+MG_displayEN "miniToolB.annoFC.selCam.Nostick" "WithoutStick" ;
+
+MG_displayEN "miniToolB.annoFC.stick.war" "You have sticked frameCounter to a camera before,If you want to stick it to a new camera,Click Create/delete frameCounter button again to clear existed framecounter and create a new one." ;
+MG_displayEN "miniToolB.annoFC.ok" "OK" ;
+
+MG_displayEN "miniToolB.HUD.title" "HUDFreameCounter Option" ;
+MG_displayEN "miniToolB.HUD.annoText" " PS: HUD display won't update well before Maya 8.0 :(  The area below shows the ten screen sections of HUD display:" ;
+MG_displayEN "miniToolB.HUD.occupied" "* Occupied by View Axis *" ;
+MG_displayEN "miniToolB.HUD.Scofig" "SaveConfig.." ;
+MG_displayEN "miniToolB.HUD.configFolder" "Config folder.." ;
+MG_displayEN "miniToolB.HUD.loadCFG" "LoadConfig ->" ;
+MG_displayEN "miniToolB.HUD.sDefault" "Save As Default" ;
+MG_displayEN "miniToolB.HUD.resetDefault" "Reset to Default" ;
+MG_displayEN "miniToolB.HUD.allNone" "All set to None" ;
+MG_displayEN "miniToolB.HUD.clearHUD" "Clear MG_HUD" ;
+MG_displayEN "miniToolB.HUD.noAffect" "Don't clear Non-MGHUD" ;
+MG_displayEN "miniToolB.HUD.bigFont" "Big Font" ;
+
+MG_displayEN "miniToolB.HUD.createEdit" "Create/Edit" ;
+MG_displayEN "miniToolB.HUD.close" "Close" ;
+MG_displayEN "miniToolB.HUD.lColor" "HUD Label Color" ;
+MG_displayEN "miniToolB.HUD.vColor" "HUD Label Color" ;
+
+
+MG_displayEN "miniToolB.HUD.cFrame.ftitle" "CurrentFrame:" ;
+MG_displayEN "miniToolB.HUD.cFrame.cframe" "CurrentFrame" ;
+MG_displayEN "miniToolB.HUD.cFrame.ctframe" "Current/EndFrame" ;
+MG_displayEN "miniToolB.HUD.cFrame.ctFps" "Current/EndFr./FPS" ;
+
+
+MG_displayEN "miniToolB.HUD.cFrame.label" "Label" ;
+MG_displayEN "miniToolB.HUD.cFrame.fLabel" "Frame:" ;
+
+MG_displayEN "miniToolB.HUD.animator.ftitle" "Animator:" ;
+MG_displayEN "miniToolB.HUD.animator.user" "USER:" ;
+MG_displayEN "miniToolB.HUD.animator.default" "Default" ;
+MG_displayEN "miniToolB.HUD.animator.custom" "Custom:" ;
+MG_displayEN "miniToolB.HUD.animator.value" "Value" ;
+
+MG_displayEN "miniToolB.HUD.sceneN.ftitle" "Scene Name:" ;
+MG_displayEN "miniToolB.HUD.sceneN.fname" "FullName" ;
+MG_displayEN "miniToolB.HUD.sceneN.ext" "Ext" ;
+MG_displayEN "miniToolB.HUD.sceneN.frm" "From:" ;
+MG_displayEN "miniToolB.HUD.sceneN.to" "to:" ;
+
+MG_displayEN "miniToolB.HUD.camera.ftitle" "Camera:" ;
+MG_displayEN "miniToolB.HUD.camera.cName" "CameraName" ;
+MG_displayEN "miniToolB.HUD.camera.cFL" "Cam/FocalLength" ;
+MG_displayEN "miniToolB.HUD.camera.cAR" "Cam/AspectRatio" ;
+
+MG_displayEN "miniToolB.HUD.date.ftitle" "Date:" ;
+
+MG_displayEN "miniToolB.HUD.timeCode.ftitle" "TimeCode:" ;
+MG_displayEN "miniToolB.HUD.timeCode.startF" "StartFrame:" ;
+MG_displayEN "miniToolB.HUD.timeCode.gap" "Offset(Hour:Min:Sec:Fr):";
+
+MG_displayEN "miniToolB.HUD.anyString.ftitle" "Any String:";
+
+MG_displayEN "miniToolB.HUD.saveConfig.title" "Save MGHUD config" ;
+MG_displayEN "miniToolB.HUD.saveConfig.eName" "Enter Name:" ;
+MG_displayEN "miniToolB.HUD.loadConfig.anno" "Click to load configFile: # ";
+
+MG_displayEN "miniToolB.stickySel.war" "Please select a object with its Translation &Rotation constraintable :)" ;
+MG_displayEN "miniToolB.stickySel.option.title" "MakeSticky option" ;
+MG_displayEN "miniToolB.stickySel.option.annoText" "Stick selection based on :" ;
+MG_displayEN "miniToolB.stickySel.option.pivot" "Pivot" ;
+MG_displayEN "miniToolB.stickySel.option.bb" "BoundingBox" ;
+MG_displayEN "miniToolB.stickySel.option.newL" "Put object into new layer (choose layer color below. )" ;
+MG_displayEN "miniToolB.stickySel.option.ms" "Make Sticky" ;
+
+MG_displayEN "miniToolB.stickView" "Create sticky View";
+
+MG_displayEN "miniToolB.sView.selTrans.war" "Please select a transform node :)" ;
+
+MG_displayEN "miniToolB.1.5.new.title" "Other:";
+MG_displayEN "miniToolB.1.5.new.title.anno" "Insert Hierarchy & NonPop Attr-Switcher:";
+MG_displayEN "miniToolB.1.5.efficientUndo" "EfficientUndo";
+MG_displayEN "miniToolB.1.5.efficientRedo" "EfficientRedo";
+MG_displayEN "miniToolB.1.5.efficientUndo.anno" "A efficient Undo which will auto step though NULL undo item.";
+MG_displayEN "miniToolB.1.5.efficientUndoOption" "EfficientUndo Option";
+MG_displayEN "miniToolB.1.5.efficientRedoOption" "EfficientRedo Option";
+MG_displayEN "miniToolB.1.5.efficientUndoOption.anno" "EfficientUndo base on more options";
+MG_displayEN "miniToolB.1.5.efficientRedoOption.anno" "EfficientRedo base on more options";
+
+MG_displayEN "miniToolB.1.5.efUndoOption.times" "Undo Times:";
+MG_displayEN "miniToolB.1.5.efRedoOption.times" "Redo Times:";
+MG_displayEN "miniToolB.1.5.efRedoOption.operation" "Operation:";
+
+MG_displayEN "miniToolB.1.5.efUndoOption.stepThrough" "Auto-StepThrough:";
+MG_displayEN "miniToolB.1.5.efUndoOption.null" "Null Undo";
+MG_displayEN "miniToolB.1.5.efRedoOption.null" "Null Redo";
+MG_displayEN "miniToolB.1.5.efUndoOption.UndoName" "Undo With Name:";
+MG_displayEN "miniToolB.1.5.efRedoOption.UndoName" "Redo With Name:";
+MG_displayEN "miniToolB.1.5.efUndoOption.query" "Query";
+MG_displayEN "miniToolB.1.5.efUndoOption.query.ann" "Query the latest Undo name and fill it in the textField.";
+MG_displayEN "miniToolB.1.5.efRedoOption.query.ann" "Query the latest Redo name and fill it in the textField.";
+MG_displayEN "miniToolB.1.5.efUndoOption.rep" "Undo for # steps.";
+MG_displayEN "miniToolB.1.5.efRedoOption.rep" "Redo for # steps.";
+		
+MG_displayEN "miniToolB.1.5.option.none" "None";
+MG_displayEN "miniToolB.1.5.option.frame" "FrameCount";
+MG_displayEN "miniToolB.1.5.option.animator" "Animator";
+MG_displayEN "miniToolB.1.5.option.sceneName" "SceneName";
+MG_displayEN "miniToolB.1.5.option.camera" "Camera";
+MG_displayEN "miniToolB.1.5.option.date" "Date";
+MG_displayEN "miniToolB.1.5.option.timeCode" "TimeCode";
+MG_displayEN "miniToolB.1.5.option.anystr" "Any String";
+
+
+MG_displayEN "miniToolB.undoredo.CurrentFrameC"  "Current Frame Change";
+MG_displayEN "miniToolB.undoredo.PNFrame"  "Previous/Next Frame";
+MG_displayEN "miniToolB.undoredo.PNKey"  "Previous/Next Key";
+
+MG_displayEN "miniToolB.undoredo.resetOp"  "Reset To Default";
+MG_displayEN "miniToolB.undoredo.saveOP"  "Remember Current Option";
+
+
+//----------------------added in MGTools 3:---------------------------------
+
+MG_displayEN "miniToolB.HUD.cFrame.camSequence" "Camera Sequence" ;
+MG_displayEN "miniToolB.HUD.cFrame.sequenceTime" "Camera Sequence Frame" ;
+MG_displayEN "miniToolB.HUD.cFrame.sequenceTime1" "Camera Sequence Time" ;
+MG_displayEN "miniToolB.HUD.cFrame.appendDuration" "Append Duration" ;
+MG_displayEN "miniToolB.HUD.cFrame.endFrameMode.RangeEnd" "EndFr: Range End" ;
+MG_displayEN "miniToolB.HUD.cFrame.endFrameMode.PlaybackEnd" "EndFr: Playback End";
+
+MG_displayEN "miniToolB.StickerOption.AnnText" "  * Ui options will be remembers automatically.";
+
+
+MG_displayEN "miniToolB.HUD.anystr.useGlobal.lbl" "Use Global Procedure:" ;
+MG_displayEN "miniToolB.HUD.anystr.useGlobal.ann" "Input a mel global proc name that will produce a string as its result." ;
+MG_displayEN "miniToolB.HUD.anystr.testProc.lbl" "Test The Procedure" ;
+MG_displayEN "miniToolB.HUD.anystr.testProc.ann" "Test by running the procedure, if it prints out your string result, means it is ok, else it will get an error." ;
+
+MG_displayEN "miniToolB.fixSave.lbl" "Fix Maya Student-Version Save Issue" ;
+MG_displayEN "miniToolB.fixSave.ann" "Fix the Maya Student version bug: Unable to save a file after file -prompt flag is set to 0." ;

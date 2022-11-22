@@ -1,0 +1,67 @@
+//==============================================================//
+//                   MG - Float License
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/MGtools_en.html?url=Feedback
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+proc sourceSharedScript()
+{
+    
+    global string $gMGPicker_ProductName = "MGPicker";
+    if(`exists "MGFloatLicence_SharedProcs"`)
+    {
+        return;
+    }
+    global string $MGPicker_ProgramPath;
+    global string $MGPicker_ProgramFolder;
+    global string $MGPicker_AutoSourceFolder;
+    string $script = $MGPicker_ProgramPath + $MGPicker_ProgramFolder + "/"+$MGPicker_AutoSourceFolder+"/MGFloatLicence_SharedProcs.mel";
+    eval ("source \""+$script+"\"");
+}
+sourceSharedScript;
+
+//for getting programs------------------------------------------------------------
+proc string mgpicker_getServerConnectionDir()
+{
+    global string $MGPicker_ProgramPath;
+    global string $MGPicker_ProgramFolder;
+    global string $MGPicker_ServerConfigFolder;
+    return ($MGPicker_ProgramPath + $MGPicker_ProgramFolder + "/" + $MGPicker_ServerConfigFolder + "/");
+}
+
+global proc string MGPicker_GetLicenceConnectorDir_ServerDefine(int $fullPath)
+{
+    string $serverConfigDir = `mgpicker_getServerConnectionDir`;
+    return `MG_GetServerConnector $serverConfigDir $fullPath`;
+}
+global proc string MGPicker_GetLicenseConnectorDir(int $fullPath)
+{
+    string $serverConfigDir = `mgpicker_getServerConnectionDir`;
+    return `MG_getLicenseConnectorDir $serverConfigDir $fullPath`;
+}
+global proc string MGPicker_GetNewsProgramDir(int $fullPath)
+{
+    string $serverConfigDir = `mgpicker_getServerConnectionDir`;
+    return `MG_getNewsProgramDir $serverConfigDir $fullPath`;
+}
+
+// for launching programs--------------------------------------------------------------------
+global proc int MGP_loadProcess(string $path, string $args)
+{    
+    string $argStr = "";
+    if(size($args))
+    {
+        string $argList[]=`stringToStringArray $args " "`;
+        $argStr = ", '" + `stringArrayToString $argList "','"` + "'";        
+    }
+    
+    string $cmd = "import subprocess;subprocess.Popen(['"+$path+"'"+$argStr+"])";
+    if(catch (`python $cmd`))
+    {
+        return 0;
+    }
+    return 1;
+}

@@ -1,0 +1,49 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+//`MG_DualLan "animRecorder.Title01"`
+MG_displayEN "MGSaver.ToolName" "MG-Saver";
+MG_displayEN "MGSaver.preSaveToolName" "MG-PreSave Action";
+
+MG_displayEN "MGSaver.catelog" "MG-Scene Saving";
+
+MG_displayEN "MGSaver.cResult" "CurrentResult: ";
+MG_displayEN "MGSaver.eg" "  eg. \"";
+MG_displayEN "MGSaver.errorOnUserScript.war" "Error while excuting user defined Pre-Save scipt.\nCheck out the script editor for more information.";
+MG_displayEN "MGSaver.presave.ann" "Clean up scene display before doing the MG-Save.";
+MG_displayEN "MGSaver.saver.ann" "Save you scene with Pre-Save action and versioning up.";
+MG_displayEN "MGSaver.installToShelf.rep" "The Feature: # has been installed to current Maya shelf tab";
+
+MG_displayEN "MGSaver.preSaveOption.title" "Pre-Save Options";
+MG_displayEN "MGSaver.preSaveOption.sNone" "Show None";
+MG_displayEN "MGSaver.preSaveOption.displayMode" "Display Mode:";
+MG_displayEN "MGSaver.preSaveOption.displayLayer" "All Display layer:";
+MG_displayEN "MGSaver.preSaveOption.displayLayer.off" "Off";
+MG_displayEN "MGSaver.preSaveOption.displayLayer.on" "On";
+MG_displayEN "MGSaver.preSaveOption.renderLayer" "Set Masterlayer as Current Render layer";
+MG_displayEN "MGSaver.preSaveOption.gotoFrame" "Go to Frame:";
+
+MG_displayEN "MGSaver.installShelf" "Install to Shelf";
+MG_displayEN "MGSaver.setHotkey" "Set HotKey";
+
+MG_displayEN "MGSaver.preSaveOption.uScript" "User Script:";
+MG_displayEN "MGSaver.preSaveOption.excute.last" "Excute Last";
+MG_displayEN "MGSaver.preSaveOption.excute.first" "Excute First";
+MG_displayEN "MGSaver.preSaveOption.uScript.test" "Test";
+
+MG_displayEN "MGSaver.versionUp.title" "Version Up Options";
+MG_displayEN "MGSaver.versionUp.sep" "Separator";
+MG_displayEN "MGSaver.versionUp.numPad" "Preferred Padding";
+MG_displayEN "MGSaver.mayaOption.lbl" "Maya Save Options..";
+MG_displayEN "MGSaver.saveit.lbl" "Save Scene";
+
+MG_displayEN "MGSaver.save.exist.war" "The target file :\n# already exists. What to do now?";
+MG_displayEN "MGSaver.save.findnext" "Find next available name";
+MG_displayEN "MGSaver.save.override" "Overwritten";
+MG_displayEN "MGSaver.save.cancel" "Cancel";

@@ -1,0 +1,265 @@
+/*
+	You need to implement these mel procedures to make the converter fully function, if you don't need some of them, return a empty stirng/int of 0/empty string array: 
+	
+	    //picker node converter API:	
+	    
+					global proc int  filename_autoReadNode();   //return 0~1 value, indicate if MG-Picker should invoke this converter to autoload your in-scene picker node.
+					
+					global proc string  filename_nodeType();   //return string value, the type string of picker node.
+					
+					global proc int  filename_isPickerNode(string $node);   //return 0~1 value, indicate the node is of the picker node.
+					
+					global proc string filename_getNamespace(string $node);   //return the namespace from a picker node. The proc is used in find&Load feature of MG-Picker studio.
+				
+					global proc string[] filename_nodeLister(); //list all the picker nodes in the scene.
+					
+					global proc int filename_readNode(string $node); 		//the actual reader for each picker node.
+						
+		 //picker file converter API:	
+		 
+					global proc int filename_isPickerFile(string $fileFullPath); 		//Return 1 if the file is the picker file, 0 if not.
+					
+					global proc int filename_readFile(string $fileFullPath); 		//the actual reader for each picker file.
+		 	
+		 			
+ 	"filename" above stands for the actual base name of this mel file. (file name without extension)		
+ 	The base name of the mel file does not necessary start with "Converter_", we just add it for better readability.	
+ 	The global proc starts with "Converter_" below domonstrate these API procs:
+*/
+
+
+proc int isNickPickerNode (string $picker)
+{
+	if(!`objExists $picker`)
+	{
+		return 0;
+	}
+	string $attrs[]={"characterName","subName",
+										"bgImagePath","bgColor",
+										"buttonCount","buttonData", 
+										"buttonWidth","buttonHeight",
+										"buttonOverlay","buttonCommand",
+										"buttonImage"};  //,"buttonLabel"
+	for($at in $attrs)
+	{
+		if(!`attributeExists $at $picker`)
+		{
+			return 0;
+		}
+	}
+	return 1;
+}
+
+proc string getNickerPickerObjNamespace(string $node)
+{
+    if(!`objExists $node`)
+    {
+        return "";
+    }
+    string $namespace;
+    if(`referenceQuery -isNodeReferenced $node`)
+		{
+				string $filepath = `referenceQuery -filename $node`;
+				$namespace = `file -q -rpr $filepath`;
+		}
+		if(!size($namespace))
+		{
+			$namespace = `getAttr ($node+".characterName")`;
+		}
+		return $namespace;
+}
+
+//------------------------------picker converter apis:------------------------------------------------------------------
+global proc int Converter_nickPicker_autoReadNode()
+//it returns 1, means the type of in-scene picker will be autoloaded when MG-PickerStudio loaded.
+//return 0 if you don't want it is auto-loaded.
+{
+	return 1;
+}
+
+global proc string Converter_nickPicker_nodeType()
+//return the node type of your picker.
+{
+	return "geometryVarGroup";
+}
+global proc int Converter_nickPicker_isPickerNode(string $node)
+{
+	if(!`objExists $node`)
+	{
+		return 0;
+	}
+	if(`nodeType $node` != `Converter_nickPicker_nodeType`)
+	{
+		return 0;
+	}
+	return `isNickPickerNode $node`;
+}
+
+global proc string Converter_nickPicker_getNamespace(string $node)
+{
+	string $namespace = "";
+	if(`Converter_nickPicker_isPickerNode $node`)
+	{
+		$namespace =`getNickerPickerObjNamespace $node`;
+		return $namespace;
+	}
+	return $namespace;
+}
+global proc string [] Converter_nickPicker_nodeLister()
+//return valid in-scene picker nodes of your picker type
+{
+	string $abxPickers[];
+	string $type = `Converter_abxPicker_nodeType`;
+	string $pickers[] =`ls -type $type`;
+	if(!size($pickers))
+	{
+		return $abxPickers;
+	}
+	clear $abxPickers;
+	for($pkr in $pickers)
+	{
+		if(!`isNickPickerNode $pkr`)
+		{
+			continue;
+		}		
+		$abxPickers[size($abxPickers)] = $pkr;			
+	}
+	if(!size($abxPickers))
+	{
+		return $abxPickers;
+	}
+	$abxPickers = sort($abxPickers);
+	return $abxPickers;
+}
+
+global proc int Converter_nickPicker_readNode(string $node)
+//the reader procedure to read a single picker node of your picker type.
+{
+		string $namespace = `getNickerPickerObjNamespace $node`;
+		//first of all, if it is alreay opened, we just activate its tab:
+		if(`MGPicker -e -activate $node $namespace`)
+		{
+			return 1;
+		}  
+		//get datas form the node:
+		string $bgColorBuffer[];
+		string $bgPic;
+		int $count = `getAttr ($node+".buttonCount")`;
+		string $bgImage = `getAttr ($node+".bgImagePath")`;
+		string $bgColor = `getAttr ($node+".bgColor")`;
+		string $data[] = `getAttr ($node+".buttonData")`;
+		int $width[] = `getAttr ($node+".buttonWidth")`;
+		int $height[] = `getAttr ($node+".buttonHeight")`;
+		string $overlay[] = `getAttr ($node+".buttonOverlay")`;
+		string $command[] = `getAttr ($node+".buttonCommand")`;
+		string $image[] = `getAttr ($node+".buttonImage")`;
+		string $label[];clear $label;
+		if (attributeExists("buttonLabel",$node))
+		{
+			$label = `getAttr ($node+".buttonLabel")`;
+		}		
+		
+		string $panelName = `getAttr ($node+".subName")`;
+		
+		//the $pickername below will be the title of the picker view tab:
+		string $pickerName = $namespace;		
+		if(size($pickerName))
+		{
+			$pickerName += "_";
+		}
+		$pickerName += $panelName;
+		
+		tokenize $bgColor ":" $bgColorBuffer;
+		float $bgr = $bgColorBuffer[0];
+		float $bgg = $bgColorBuffer[1];
+		float $bgb = $bgColorBuffer[2];
+		
+		//create a picker view for this node. If failed we return directly.
+		//MGPicker -e -createPicker comes with four string arguments: picker name, namespace, file path, node. All of them could be empty string.
+		//$pickerName will be the tab title of the picker view, 
+		//$node will be the marking of your picker view, in future you could use this to test if the node is already opened.
+		string $viewId = `MGPicker -e -createPicker $pickerName $namespace "" $node`;
+		if(!size($viewId))  
+		{
+			return 0;
+		}
+		
+		//to support the background image of your picker, we create a panel item:
+		string $panel = `MGPickerItem -view $viewId -type "panel" -label $panelName -bi $bgImage -fc $bgr $bgg $bgb 1`;
+		
+		string $tokenBuffer[];
+		for ($i=0;$i<$count;$i++)
+		{
+			tokenize $data[$i] ":" $tokenBuffer;
+			int $xPos = $tokenBuffer[0];
+			int $yPos = $tokenBuffer[1];
+			float $bgr = $tokenBuffer[2];
+			float $bgg = $tokenBuffer[3];
+			float $bgb = $tokenBuffer[4];
+			int $w = $width[$i];
+			int $h = $height[$i];
+			//string $img = strip($image[$i]);  //image value seems not used in abxPicker?
+			string $cmd = $command[$i];	
+			string $lbl = $label[$i];
+			
+			string $cmdLines[]=`stringToStringArray $cmd ";"`;
+			string $firstCmd = $cmdLines[0];
+			string $lastCmd = $cmdLines[size($cmdLines)-1];
+			string $type = "selectButton";
+			
+			string $btn;
+			//if the selectButton in MG-Picker fit it ,we create a selectButton item:
+			if(`startsWith $firstCmd "ck_abxPickerSelect"`)
+			{
+				$type = "selectButton";	
+				string $temp[] = `stringToStringArray $firstCmd "\""`;
+				string $objStr = strip($temp[1]);
+				$btn = `MGPickerItem -type $type -view $viewId 
+														-p $panel
+														-x $xPos -y $yPos 
+														-w $w -h $h 
+														-label $lbl 
+														-fc $bgr $bgg $bgb 1
+														-selectMembers $objStr
+														`;							
+			}
+			else  //other else ,we use commandButton:
+			{
+				$type = "commandButton";
+				$btn = `MGPickerItem -type $type -view $viewId 
+														-p $panel
+														-x $xPos -y $yPos 
+														-w $w -h $h 
+														-label $lbl 
+														-fc $bgr $bgg $bgb 1
+														-commandType "mel"
+														-command $cmd`;
+			}
+		}	
+		
+		//you must invoke this call, to extend the panel item to the size of all its children items:
+		MGPickerItem -e -view $viewId -resizePreferSize $panel;
+		
+		//also, update the scene boundary of the picker view, so it shows all the items you just created:
+		MGPickerView -e -updateSceneBoundary $viewId;
+		
+		//Make sure the picker not appeared unsaved: (actually no need to do so, cos undo/redo wont be recorded in commandline.)
+		//MGPicker -e -setPickerClean;
+		
+		
+		//append to recent file menu:
+		MGPicker -e -appendRecentPickerNode $node;
+		
+		return 1;
+}
+
+global proc int Converter_nickPicker_isPickerFile(string $fileFullPath)
+{
+	//test if the file is a nick icker file:
+	return 0;
+}
+global proc int Converter_nickPicker_readFile(string $fileFullPath)
+{
+	//since nick picker has no external file, we return 0 all the time:
+	return 0;
+}

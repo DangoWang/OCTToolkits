@@ -1,0 +1,73 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+MG_displayEN "MGtools.Folder.mi.currentRef" "Open current reference node dir..";
+
+MG_displayEN "refTool.win" "Reference ToolBox..";
+MG_displayEN "refTool.win.ann" "Click to load Reference ToolBox.";
+MG_displayEN "refTool.title" "Reference ToolBox v1.0";
+
+MG_displayEN "refTool.source" "  Source: ";
+MG_displayEN "refTool.source.sel" "Scene Selection";
+MG_displayEN "refTool.source.refEditor" "Reference-Editor Selection";
+MG_displayEN "refTool.copyPaste.title" "Copy/Paste Reference-Info";
+MG_displayEN "refTool.copyPaste.copy" "Copy";
+MG_displayEN "refTool.copyPaste.paste" "Paste";
+MG_displayEN "refTool.copyPaste.seltivepaste" "Selective Paste..";
+MG_displayEN "refTool.copyPaste.keepDefer" "Keep Defer Info";
+
+MG_displayEN "refTool.expImp.title" "Export/Import Reference-Info";
+MG_displayEN "refTool.expImp.toMa" "Export to MA ...";
+MG_displayEN "refTool.expImp.fromMa" "Read from MA ...";
+
+MG_displayEN "refTool.action.title" "Reference-Actions:";
+MG_displayEN "refTool.action.editor" "Reference Editor...";
+MG_displayEN "refTool.reload.editor" "Reload Reference";
+MG_displayEN "refTool.unload.editor" "Unload Reference";
+
+MG_displayEN "refTool.info.title" "Reference-Information:";
+MG_displayEN "refTool.info.showFolder" "Show in folder..";
+MG_displayEN "refTool.info.man" "Manual";
+MG_displayEN "refTool.info.auto" "Auto";
+MG_displayEN "refTool.info.get" "Get";
+
+MG_displayEN "refTool.info.loaded" "  Loaded: ";
+
+MG_displayEN "refTool.ex.ref" "Export Reference";
+
+MG_displayEN "refTool.ex.ref" "Export Reference";
+MG_displayEN "refTool.im.ref" "Read Reference";
+MG_displayEN "refTool.rep.ref" "Replace Reference";
+
+MG_displayEN "refTool.refeditor.war" "Reference Editor has not been opened.";
+MG_displayEN "refTool.filenoexist.war" "File not exist.";
+
+MG_displayEN "refTool.ref.loaded.mid" " references loaded, ";
+MG_displayEN "refTool.ref.loaddeffered.mid" " references loaded deffered, ";
+MG_displayEN "refTool.ref.ignored.mid" " references ignored, ";
+MG_displayEN "refTool.ref.failed.mid" " references load failed:\n ";
+
+MG_displayEN "ref.preload.title" "Reference Preload";
+MG_displayEN "ref.preload.mf" "Maya File: ";
+MG_displayEN "ref.preload.coff" "Check off: "; 
+MG_displayEN "ref.preload.def" "Deferred"; 
+MG_displayEN "ref.preload.ig" "Ignored"; 
+MG_displayEN "ref.preload.allLoad" "All Load"; 
+MG_displayEN "ref.preload.allDef" "All Defered"; 
+MG_displayEN "ref.preload.rev" "Reverse"; 
+
+MG_displayEN "ref.preload.cref" " Current Reference:";
+
+MG_displayEN "ref.preload.useNS" "Use Namespace: ";
+MG_displayEN "ref.preload.userp" "Use RenamePrefix: ";
+
+MG_displayEN "ref.preload.path" "Path: " ;
+MG_displayEN "ref.preload.repick" "Repick.." ;
+MG_displayEN "ref.preload.imRef" "Import Reference Info" ;
+MG_displayEN "ref.preload.pRef" "Paste Reference Info" ;
+MG_displayEN "ref.preload.cancel" "Cancel" ;

@@ -1,0 +1,63 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>共享资产库</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Asset" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "assetlib_sharing.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">共享资产库</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="assetlib_previewpanel.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="assetlib_useasset.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #191817;">共享资产的流程：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">1.</span>由系统工程师，在项目服务器上生一个目录，这个目录只有将来需要维护全局库的人才有写的权限，其它使用者都只有读的权限。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">2.</span>负责建立和维护全局库的人，（我们暂且叫他Asset/Layout leader）建立他本地的资产库。（也可以直接在全局状态下直接建立全局库，不过这样少了备份）</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">3.</span>Asset/Layout leader在工具里上传他建立的本地库到全局库。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">4.</span>Asset/Layout leader在工具里上传他本地maya用户目录/MGTools_GlobalData/MG_AssetLib/相应库工程文件夹/库工程名称.assetproj。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">5.</span>Layout人员在工具里，用打开工程方式，打开这个被共享的assetproj文件。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">6.</span>这样就可以开始使用了。Layout人员可以用本地库建立和使用自己的库，也可以使用被共享的全局库。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">7.</span>当全局库有更新，每个Layout人员都可以立即使用到。</p><p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #191817;">上传/下载资产库：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">在工具菜单栏的操作菜单/ 上传/下载 菜单里不同级别数据的上传下载功能。 </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">在内容区点右键，向上划，可以访问到上传/下载的marking menu.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">上传/下载当前类别勾选的项：</span>上传或下载当前类别被打上勾的资产项。 如果全局或本地的目标目录已有相应的类别，则会合并，避免重复。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 上传/下载所有类别勾选的项：</span>：上传或下载所有类别被打上勾的资产项。如果全局或本地的目标目录已有相应的类别，则会合并，避免重复。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">上传/下载当前类别：</span>上传或下载当前浏览类别所有的资产项。会确认，让您选择下面几种上传/下载方式：</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 144px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">更新类别：</span>当目标库的目标类别已存在， 将作合并 </p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 144px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">替换类别：</span>当目标库的目标类别已存在， 会直接覆盖掉旧文件。</p><p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">上传/下载所有类别：</span>上传或下载当前资产库所有浏览类别所有的资产项。会确认，让您选择下面几种上传/下载方式：</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 144px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">更新所有类别：</span>当目标库的目标类别已存在， 将作合并</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 144px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">替换所有类别：</span>当目标库的目标类别已存在， 会直接覆盖掉旧文件。</p><p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">上传/下载库工程文件：</span>上传或下载当前资产库的.assetproj文件。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">上传/下载所有预览图：</span>上传或下载当前资产库目录下的Preview_Images目录。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="assetlib_previewpanel.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="assetlib_useasset.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

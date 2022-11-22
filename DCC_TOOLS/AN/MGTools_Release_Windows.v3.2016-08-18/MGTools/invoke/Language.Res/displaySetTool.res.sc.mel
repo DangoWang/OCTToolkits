@@ -1,0 +1,54 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+
+MG_displaySC "displayTool.title" "显示层集工具";
+MG_displaySC "displayTool.menu.title" "杂项";
+MG_displaySC "displayTool.menu.eval.mi" "使用当前所选";
+MG_displaySC "displayTool.menu.evalAll.mi" "使用全部集";
+MG_displaySC "displayTool.menu.rename.mi" "重命名";
+MG_displaySC "displayTool.menu.delete.mi" "删除";
+MG_displaySC "displayTool.menu.removeMem.mi" "从成员里移除";
+MG_displaySC "displayTool.menu.removeMem.anno" "把当前场景所选物体从当前显示层集成员里移除";
+MG_displaySC "displayTool.menu.addSel.mi" "加入当前场景选择";
+MG_displaySC "displayTool.menu.remSel.mi" "移除当前场景选择";
+MG_displaySC "displayTool.menu.newFromSel.mi" "从当前场景选择新建集";
+MG_displaySC "displayTool.menu.newFromLayer.mi" "从当前显示层新建集";
+MG_displaySC "displayTool.menu.openSetFolder.mi" "打开显示层集文件夹";
+MG_displaySC "displayTool.menu.help.title" "帮助";
+MG_displaySC "displayTool.menu.help.mi" "帮助..";
+
+MG_displaySC "displayTool.textAnno" "* 双击左下列表项目来使用相应的集,右下列表项目来选择成员物体: ";
+MG_displaySC "displayTool.Lliset.title" "显示层集 (Layer):";
+MG_displaySC "displayTool.Lliset.anno" "双击我来使用我";
+MG_displaySC "displayTool.Rliset.title" "成员列表";
+MG_displaySC "displayTool.selMem.anno" "双击我来选择相应成员物体";
+MG_displaySC "displayTool.selMem.mi" "选择该成员物体";
+MG_displaySC "displayTool.refreshUI.btn" "刷新界面";
+MG_displaySC "displayTool.close.btn" "关闭";
+
+MG_displaySC "displayTool.noSel.war" "在场景里选过一些物体再来执行我吧 :)";
+MG_displaySC "displayTool.prompt.title" "显示层集/显示层名字";
+MG_displaySC "displayTool.prompt.message" "请输入名字:";
+MG_displaySC "displayTool.prompt.OK" "确定";
+MG_displaySC "displayTool.prompt.no" "不";
+MG_displaySC "displayTool.prompt.Cancel" "取消";
+MG_displaySC "displayTool.prompt.war" "请输入合法的显示层名!!";
+
+MG_displaySC "displayTool.noMem.war" "你所选的显示层集没有成员在里面哦 :(";
+MG_displaySC "displayTool.noSelectedSet.war" "你在显示层编辑器里没有选中的显示层哦 :P";
+
+MG_displaySC "displayTool.existed.war.title" "警报 !";
+MG_displaySC "displayTool.existed.war.message" "名叫#.set的显示层集已存在，要覆盖吗?";
+MG_displaySC "displayTool.existed.war.war" "哈罗,请尝试其它不一样的名字, 谢谢 :)";
+
+MG_displaySC "displayTool.noSetSelectedOrNoSet.war" "左列表中没有选中的显示层集或者根本没有显示层集存在?  :P";
+MG_displaySC "displayTool.displayLayersNum.rep" " # 个显示层被创建";
+MG_displaySC "displayTool.displayLayersNoNum.rep" "没有显示层集被创建哦 :(" ;
+

@@ -1,0 +1,101 @@
+// Created by Kurt Wong @ 2005-4-20 9:18
+// Created: 2005-4-22 16:31
+// Updated: 11/17/2005 6:46PM
+// ...
+
+global proc string[] kwRemoveNamespaces()
+//
+// DESCRIPTIONS:
+//	remove the namespace of selected hierachy or all the namespaces with nothing selected.
+//
+{
+    global string $gMainProgressBar;
+	string $namespaces[];
+	select -cl;
+	string $sel[] = `ls -sl`;
+
+	//
+	if (!size($sel))
+	{
+		// get top-level namespaces
+		namespace -set ":";
+		$namespaces = `namespaceInfo -lon`;
+		$namespaces = stringArrayRemove({"UI"}, $namespaces);
+		waitCursor -state on;
+		progressBar -edit -beginProgress -isInterruptable true -status "ÕýÔÚÒÆ³ýnamespace..." -maxValue 100 $gMainProgressBar;
+		for ($i=0; $i<size($namespaces); $i++) {
+			$namespaces[$i] = ":" + $namespaces[$i];
+		}
+	}
+	else
+	{
+		// get namespaces which contains selected objects
+		for ($obj in $sel)
+		{
+			string $namespace = `substitute "[^:]+$" $obj ""`;
+			if (size($namespace))
+				$namespaces[size($namespaces)] = ":" + $namespace;
+		}
+	}
+
+	// get all the sub-level namespaces
+	string $subNamespaces[] = $namespaces;
+	string $tmpNamespaces[];
+	string $tmpSubNamespaces[];
+	do {
+		$tmpNamespaces = {};
+		$tmpSubNamespaces = {};
+		for ($namespace in $subNamespaces) {
+			namespace -set $namespace;
+			$tmpSubNamespaces = `namespaceInfo -lon`;
+			for ($i=0; $i<size($tmpSubNamespaces); $i++) {
+				$tmpSubNamespaces[$i] = ":" + $tmpSubNamespaces[$i];
+			}
+			$tmpNamespaces = stringArrayCatenate($tmpNamespaces, $tmpSubNamespaces);
+		}
+		$namespaces = stringArrayCatenate($namespaces, $tmpNamespaces);
+		$subNamespaces = $tmpNamespaces;
+	}while (size($tmpNamespaces));
+
+
+	string $succeed[] = {};
+	string $failed[] = {};
+	// do with each nameSpace
+	progressBar -edit -step 0 $gMainProgressBar;
+	if (size($namespaces)-1){
+	for ($i=(size($namespaces)-1); $i>=0; $i--)	{
+	    int $progress_value = ((size($namespaces)-1) - $i)*100 / (size($namespaces)-1);
+        print $progress_value;
+        progressBar -edit -step $progress_value $gMainProgressBar;
+		namespace -set $namespaces[$i];
+		string $contents[] = `namespaceInfo -ls`;
+		namespace -set ":";
+		for ($obj in $contents)	{
+			string $newName = `match "[^:]+$" $obj`;
+			string $stringAhead = `substitute "[^:]+$" $obj ""`;
+			string $ObjsWithSameName[] = `ls -l ($stringAhead + "*" + $newName)`;
+			for ($each in $ObjsWithSameName) {
+				catch(evalEcho("rename \"" + $each + "\" \"" + $newName + "\""));
+			}
+		}
+
+		if (catch(`namespace -rm $namespaces[$i]`))
+			$failed[size($failed)] = $namespaces[$i];
+		else
+			$succeed[size($succeed)] = $namespaces[$i];
+	}}
+	progressBar -edit -step 100 $gMainProgressBar;
+    waitCursor -state off;
+    progressBar -edit -endProgress $gMainProgressBar;
+	print "-------------------------------------------------\n";
+	for ($each in $succeed)
+		print ("// Succeed: " + $each + "\n");
+
+	print "-------------------------------------------------\n";
+	for ($each in $failed)
+		print ("// Failed: " + $each + "\n");
+
+	print "-------------------------------------------------\n";
+	print ("Succeed: " + size($succeed) + "   Failed: " + size($failed) + "\n");
+	return $failed;
+}

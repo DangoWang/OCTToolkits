@@ -1,0 +1,162 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "animLib.backUPAnim.war" "Please select some object to backUp animation :(";
+MG_displayEN "animLib.backUPAnim.noc" "Notice";
+MG_displayEN "animLib.versionHigher.mess" "The Bank file's maya version is higher than current Maya version.File reading aborted.";
+MG_displayEN "animLib.versionHigher.ok" "O K";
+MG_displayEN "animLib.numnomatch.war" " # objects ignored because not exist.";
+
+MG_displayEN "animLib.backUPAnim.mes" " # object's animation backed up. # objects skiped because they are not keyed.";
+
+MG_displayEN "animLib.restoreAnim.war" "Please select object to restore animation :(";
+MG_displayEN "animLib.restoreAnim.noBp.war" "No backUP has been made for your selected controllers :(";
+MG_displayEN "animLib.restoreAnim.more1.cmd" "confirmDialog -title \"Notice\" -message \"More than one backUp info detected,Choose on below:\" -button \"Cancel\" -cancelButton \"Cancel\" -dismissString \"Cancel\"";
+MG_displayEN "animLib.restoreAnim.rep" " # object's animation restored. :)";
+MG_displayEN "animLib.clearBP.rep" "BackUP animation data cleared.";
+
+MG_displayEN "animLib.exAnim.rep" "Export animation  action is done: # ";
+MG_displayEN "animLib.exAnim.option.TWC" "The Whole Character";
+MG_displayEN "animLib.exAnim.option.sel" "Selected";
+MG_displayEN "animLib.exAnim.option.tr.all" "All";
+MG_displayEN "animLib.exAnim.option.tr.SelectRange" "SelectRange";
+MG_displayEN "animLib.exAnim.option.tr.SE" "Start/End";
+MG_displayEN "animLib.exAnim.noSel.war" "No selection found. Check your selection.";
+MG_displayEN "animLib.exAnim.onlyOne.war" "In \"The Whole Character\" mode, U can only export one character's animation to ma file. So only select object from on character.";
+MG_displayEN "animLib.exAnim.noExport.war" "No animation to export. Check your selection.";
+MG_displayEN "animLib.exAnim.done.rep1" "Hierarchy Mode: #; TimeRange mode: #; ";
+MG_displayEN "animLib.exAnim.done.rep2" " #; # objs' animation to be exported:)";
+MG_displayEN "animLib.exAnim.exBrw.anno" "Export Animation";
+
+MG_displayEN "animLib.imAnim.imBrw.anno" "Select";
+
+MG_displayEN "animLib.imAnim.clear.rep" "Imported animation data cleared.";
+
+MG_displayEN "animLib.imAnim.notStd.war.title" "Message from MG-AnimationBank";
+MG_displayEN "animLib.imAnim.notStd.war.mess" "Selected MA file is not a standard MG-AnimationBank file.\nFile read canceled :(";
+MG_displayEN "animLib.imAnim.dataRead.rep" "Data read :)";
+
+MG_displayEN "animLib.imAnim.preRead.rep1" "================ Source animation data ==================\nAnimData Range start:# End:# Duraion:# Objects:#\n---------------------------------------------------------\n# " 
+									 ;
+MG_displayEN "animLib.imAnim.preRead.rep2" "================ Source animation data ==================\nAnimData Range :No Range. Objects:#\n---------------------------------------------------------\n# " 
+									 ;
+MG_displayEN "animLib.imAnim.noNS.war" "No namespace detected.";
+
+MG_displayEN "animLib.libUI.title" "MG-Animation Bank";
+MG_displayEN "animLib.libUI.resetLibP" "Reset Bank Path to Default";
+MG_displayEN "animLib.libUI.saveLibP" "Save Current Path as Default";
+MG_displayEN "animLib.libUI.endProgress" "End progress";
+MG_displayEN "animLib.libUI.path" "Path:";
+MG_displayEN "animLib.libUI.browse" " Browse ";
+MG_displayEN "animLib.libUI.cFloder" "Create Folder..";
+MG_displayEN "animLib.libUI.refresh" "Refersh";
+MG_displayEN "animLib.libUI.browseDot" "Browse..";
+MG_displayEN "animLib.libUI.paste" "Paste";
+MG_displayEN "animLib.libUI.Hierarchy" "Hierarchy";
+MG_displayEN "animLib.libUI.guess" "GuessFromSel";
+MG_displayEN "animLib.libUI.guess.anno" "If your selection owns a namespace then put itin for better mapping when importing this animation in future.Leave it empty if there is no namespace." 
+										;
+MG_displayEN "animLib.libUI.tRange" "Time Range";
+MG_displayEN "animLib.libUI.ex" "Export !!";
+MG_displayEN "animLib.libUI.animFile" "Animation file:";
+MG_displayEN "animLib.libUI.repick" "Repick";
+MG_displayEN "animLib.libUI.ch" "Character";
+MG_displayEN "animLib.libUI.ch.op1" "Same Rig / No Namesapce";
+MG_displayEN "animLib.libUI.ch.op2" "Map to Another Rig";
+MG_displayEN "animLib.libUI.nstype" "Namespace Type";
+MG_displayEN "animLib.libUI.testE" "Test Existence";
+MG_displayEN "animLib.libUI.testE.anno" "Test Existence of the target under current configuration";
+MG_displayEN "animLib.libUI.selectInputCtl" "Select Target";
+MG_displayEN "animLib.libUI.selectInputCtl.anno" "Select the target objects that will receive the animation data under current configuration.";
+MG_displayEN "animLib.libUI.NoselectInputCtl.war" "No target objects that gonna be input animation to select.";
+MG_displayEN "animLib.libUI.NoanimData.war" "No animation data detected.";
+
+MG_displayEN "animLib.libUI.Method" "Method";
+MG_displayEN "animLib.libUI.Replace" "Replace";
+MG_displayEN "animLib.libUI.Insert" "Insert";
+MG_displayEN "animLib.libUI.ReplaceA" "Replace All";
+MG_displayEN "animLib.libUI.PasteI" "Paste In";
+MG_displayEN "animLib.libUI.Cframe" "CurrentFrame";
+MG_displayEN "animLib.libUI.iData" "InputedData";
+MG_displayEN "animLib.libUI.copyT" "Copy:";
+
+MG_displayEN "animLib.libUI.preserveSel" "Preserve Selection";
+MG_displayEN "animLib.libUI.onlySel" "Selection Only";
+MG_displayEN "animLib.libUI.inputAndSel.anno" "Preserve Selection: Leave the objects selected in your scene alone.  Selection Only: Only import the selected object's animation";
+
+MG_displayEN "animLib.libUI.im" "Import !!";
+MG_displayEN "animLib.libUI.tab1" "Export Animation";
+MG_displayEN "animLib.libUI.tab2" "Import Animation";
+MG_displayEN "animLib.libUI.startEnd" "Start & End";
+
+MG_displayEN "animLib.libUI.toParent" "Double click me to go to the parent folder.";
+MG_displayEN "animLib.libUI.getIn" "Double click me to get in this floder.";
+MG_displayEN "animLib.libUI.rename" "Rename.." ;
+MG_displayEN "animLib.libUI.copyFF" "Copy" ;
+MG_displayEN "animLib.libUI.cut" "Cut" ;
+MG_displayEN "animLib.libUI.paste" "Paste" ;
+MG_displayEN "animLib.libUI.Delete" "Delete.." ;
+MG_displayEN "animLib.libUI.read.anno" "Double click me to read this exported animation data." ;
+
+MG_displayEN "animLib.libUI.cFloder.title" "Create New Folder";
+MG_displayEN "animLib.libUI.cFloder.anno" "Enter Folder Name:";
+MG_displayEN "animLib.libUI.cFloder.empty.war" "The folder name should not be left empty.";
+MG_displayEN "animLib.libUI.cFloder.exists.war" "The folder # already exists in current directory.";
+
+MG_displayEN "animLib.libUI.pickLib.anno" "Select your animation bank root folder below:";
+
+MG_displayEN "animLib.libUI.rename.title" "Rename Folder/File";
+MG_displayEN "animLib.libUI.rename.mess" "Enter New Name:";
+MG_displayEN "animLib.libUI.cFloder.Fexists.war" "The file # already exists in current directory.";
+MG_displayEN "animLib.libUI.del.confirm.title" "Confirm";
+
+MG_displayEN "animLib.libUI.browse.file" "file";
+MG_displayEN "animLib.libUI.browse.folder" "folder";
+MG_displayEN "animLib.libUI.del.confirm.mess" "Are you sure to delete the # \"#\"?";
+
+MG_displayEN "animLib.libUI.copy.same.war" "Target folder is the same as current folder.";
+MG_displayEN "animLib.libUI.copy.existsFile.war" "The target ma file already exists, What u gonna do?";
+MG_displayEN "animLib.libUI.copy.exists.ow" "Overwrite";
+MG_displayEN "animLib.libUI.copy.existsFolder.war" "The target floder already exists, What u gonna do?";
+
+MG_displayEN "animLib.libUI.import.done.rep" "Sucessfully imported: # \n";
+MG_displayEN "animLib.libUI.import.ignore.rep" "Ignore: # \n";
+MG_displayEN "animLib.libUI.import.alldone.rep" "Importing finished. # objects has been imported animation.";
+
+MG_displayEN "animLib.libUI.match.cong" "Congratulations !!";
+MG_displayEN "animLib.libUI.match.cong.mess" "^0^ The animation data perfectly matchs your scene data!! ^0^";
+MG_displayEN "animLib.libUI.match.rep.title" "Test Report";
+MG_displayEN "animLib.libUI.match.noE.war" " Following objects not exist in your scene:";
+MG_displayEN "animLib.libUI.match.import.title" "Import Report";
+MG_displayEN "animLib.libUI.match.import.war" " Following objects skipped cos not existed:";
+
+MG_displayEN "animLib.copyValue.war" "No selection found.";
+MG_displayEN "animLib.noCB.war" "No channalBox found.";
+MG_displayEN "animLib.copyValue.rep1" "All # attributes Copyed, U can use them among all running maya.";
+MG_displayEN "animLib.copyValue.rep2" "Selected # attributes Copyed, U can use them among all running maya.";
+
+MG_displayEN "animLib.pasteV.war1" "U have't select any object to paste the value yet! :(";
+MG_displayEN "animLib.pasteV.war2" "U have't copy the value before yet! :(";
+MG_displayEN "animLib.ignore" "Ignore ";
+MG_displayEN "animLib.pasteV.rep" " # attributes pasted.";
+
+MG_displayEN "MGShelf.ex.unknownNodes.title" "Notice !";
+MG_displayEN "MGShelf.ex.unknownNodes.mes" "MG-AnimationBank File must be MA file.The current scene is not a ma file and contain unknown nodes.\nU wanna save as ma by force(Delete all unknown nodes.)?";
+MG_displayEN "MGShelf.ex.unknownNodes.yes" "OK,toMA first";	
+MG_displayEN "MGShelf.ex.unknownNodes.try" "No,but try to Export";	
+MG_displayEN "MGShelf.ex.unknownNodes.no" "Cancel Export";
+
+MG_displayEN "MGShelf.ex.preparing.no" ">> Preparing for exporting animBank file, standby please :)";
+MG_displayEN "MGShelf.ex.exporting.no" ">> Exporting.. :)";
+MG_displayEN "MGShelf.ex.reading.no" ">> PreReading animBank information, standby please :)";
+MG_displayEN "MGShelf.ex.importing.no" ">> Importing animtion, standby please :)";
+MG_displayEN "MGShelf.ex.treating.no" ">> Treating: ";
+MG_displayEN "MGShelf.ex.doneImport.no" ">> Done :)";
+MG_displayEN "MGShelf.ex.error.no" ">> Error occur.See scriptEditor to know more :(";
+MG_displayEN "MGShelf.status.anno" "This row shows the status information :)";

@@ -1,0 +1,57 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "license.student.expired.war" "Your Student License has expired, if you like it ,please purchase it through http://mgland.com or http://twincodes.com.";
+MG_displayEN "license.trial.expired.war" "Your Trial License has expired, if you like it ,please purchase it through http://mgland.com or http://twincodes.com.";
+MG_displayEN "license.trial.hasDay.war" "Your trial period has # days left";
+MG_displayEN "license.student.hasDay.war" "Your student license period has # days left.";
+
+MG_displayEN "license.invalid.author.war" "The Authorization Code is invalid.";
+MG_displayEN "license.reg.failed.war" "MGTools pro registered failed!";
+MG_displayEN "license.trial.title" "MGTools Pro Trial License";
+MG_displayEN "license.uc.lbl" "User Code:";
+MG_displayEN "license.auc.lbl" "Authorization Code:";
+MG_displayEN "license.stu.auc.lbl" "Student Authorization Code:";
+MG_displayEN "license.comm.auc.lbl" "Commercial Authorization Code:";
+MG_displayEN "license.activate.lbl" "Activate !!";
+MG_displayEN "license.upgrade.lbl" "Upgrade !!";
+MG_displayEN "license.purchase.lbl"  "Purchase Commercial license..";
+MG_displayEN "license.stu.title"  "MGTools Pro Student License";
+MG_displayEN "license.comm.title"  "MGTools Pro Commericial License";
+MG_displayEN "license.comm.old.lbl"  "Old Commericial Authorization Code:";
+MG_displayEN "license.comm.new.lbl"  "New Commericial Authorization Code:";
+MG_displayEN "license.ver.mismatch.war"  "Your license registered is for older MGTools version, some brand new features comes after that might or might not be available.";
+MG_displayEN "license.reged.rep"  "MGTools Pro Registered :)";
+MG_displayEN "license.invalid.uc.war"  "Invalid User Code or Authorization code: ";
+MG_displayEN "license.notServier.war"  "Your MGTools is not installed as a server program. Switch to normal register dialog.";
+MG_displayEN "license.reg.written.rep"  "The registry has been written for : # (Check the tick icon to see if it is valid.)";
+
+MG_displayEN "license.batchReg.top.ann"  "Batch Register tool is supposed to be accessed only by the person who is responsable to register multiple machines in the pipeline. \n\nAre you the one?";
+MG_displayEN "license.batchReg.goHead.lbl"  "Go Ahead";
+MG_displayEN "license.batchReg.cancel.lbl"  "Cancel";
+MG_displayEN "license.batchReg.noLicense.found.rep"  "No License data found.";
+MG_displayEN "license.batchReg.title"  "MGTools Batch Register";
+MG_displayEN "license.batchReg.topAnn"  "* Below list shows the user codes been submited after a server-mode MGTools installation.";
+MG_displayEN "license.batchReg.search.nameIP.lbl"  "Search User/Computer/IP:";
+MG_displayEN "license.batchReg.userIP.lbl"  "User @ Computer [IP]";
+MG_displayEN "license.batchReg.uc.lbl"  "User Codes";
+MG_displayEN "license.batchReg.auc.lbl"  "Authorization Codes";
+MG_displayEN "license.batchReg.purchase.count"  "  You need to purchase # licenses.";
+MG_displayEN "license.batchReg.afterPurchase.ann"  "  After the purchase, copy and email to mgtoolsPro@gmail.com the UserCodes below to get the Authorization codes.";
+MG_displayEN "license.batchReg.cp.lbl"  "Copy";
+MG_displayEN "license.batchReg.close.lbl"  "Close";
+MG_displayEN "license.batchReg.reg.top.ann"  "  Paste in the register text below, in form of: UserCode > AuthorizationCode; UserCode > AuthorizationCode; ..";
+MG_displayEN "license.batchReg.clear.lbl"  "Clear";
+MG_displayEN "license.batchReg.paste.msg"  "1. Paste ->";
+MG_displayEN "license.batchReg.match.msg"  "2. Match ->";
+MG_displayEN "license.batchReg.apply.msg"  "3. Apply Register !!";
+MG_displayEN "license.batchReg.cpEmail.lbl"  "1. Copy And Email To Get Authorization Codes";
+MG_displayEN "license.batchReg.pasteMatch.lbl"  "2. Paste And Match And Batch Register";
+
+MG_displayEN "license.copyText.ann"  "Click to copy the text, if this not works, just select and manually copy the text.";

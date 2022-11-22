@@ -1,0 +1,79 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Links</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="attribute link,links,parent link" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "links.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="itemshapes.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="pickermenu.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_ImageCaption" style="font-size: 10pt;">There are two types of links</span><span class="f_Heading1" style="font-size: 10pt;">:</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt;">- Parent Link:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Parent link is only available for select-buttons and the slider handles (which are actually also select-buttons).</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Active the link tool </span><img src="linktool.jpg" width="29" height="29" alt="linkTool" style="border:none" /><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">, press on one select-button, drag and link to other select-button.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">If lots of buttons need to be linked to a single parent select-button, just select the children select-button first, then press and drag to link them to the parent select-button.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">The parent link helps out the hierarchy selection in animator mode, also give animator a sense of &quot;Hierarchy&quot; :</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">with the parent links been setup, animator LMB double clicking on the parent seelct-button:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="parentlink.1.jpg" width="184" height="107" alt="parentLink.1" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Then he have the parent select-button as well as all the children select buttons been selected in maya scene:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="parentlink.2.jpg" width="184" height="107" alt="parentLink.2" style="border:none" /><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">From MG-Picker Studio v1.7, you can connect a select-button to multiple parent select-buttons.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt;">- Attribute Link:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Attribute link is used by attribute-button to control other picker item visibilities.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">The source of a attribute link could be any type of picker item, while the destination of the link should always be an attribute-button.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Say you have a bool attribute-button, control all the other picker items:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="attrlink.1.jpg" width="319" height="202" alt="attrLink.1" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Click on the value area, all the other items will be toggle to invisible.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="attrlink.2.jpg" width="319" height="202" alt="attrLink.2" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;"> </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> </span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">Attribute link is not visible in animator mode, and in animator mode, you could click any part of a attribute button to switch its value.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;"> </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> </span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">Not only a bool value attribute-button could toggle other items visibilities, the enum type, or maya attribute button could do this job.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;"> </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> Since MG-Picker Studio v1.7, any picker item can be linked to multiple master attribute buttons. These attribute buttons together control</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">the visibility of the item. You can setup &quot;and&quot; / &quot;or&quot; visibility operator to change the behavior of how the visibility is controled. &quot;and&quot; means</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">only if all attribute buttons got the value that make item visible, then item is visible; &quot;or&quot; means as long as one attribute button got the desire</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">value, the item will be visible.</span></p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="itemshapes.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="pickermenu.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

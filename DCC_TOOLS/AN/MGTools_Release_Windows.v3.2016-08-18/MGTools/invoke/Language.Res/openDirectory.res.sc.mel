@@ -1,0 +1,42 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "openFolder.AddUI.title" "添加你自己的目录快捷方式";
+MG_displaySC "openFolder.AddUI.textAnno" "你添加了下列的目录:";
+MG_displaySC "openFolder.AddUI.openAnno" "打开";
+MG_displaySC "openFolder.AddUI.MIAnno" "要在右键菜单里显示的名字:";
+MG_displaySC "openFolder.AddUI.MIAnno1" "工具架标签:";
+
+MG_displaySC "openFolder.AddUI.saveToMenu" "保存到右键菜单";
+MG_displaySC "openFolder.AddUI.saveToShelf" "安装到工具架";
+MG_displaySC "openFolder.AddUI.close" "关闭";
+
+MG_displaySC "openFolder.pickPath.pickAFolder" "请您在下面选择一个目录:";
+MG_displaySC "openFolder.pickPath.pickAFolder.lbl" "拾取目录";
+
+MG_displaySC "openFolder.EditUI.title" "目录快捷方式编辑器";
+MG_displaySC "openFolder.EditUI.misc.menu" "杂项";
+MG_displaySC "openFolder.EditUI.reload.mi" "重加载";
+MG_displaySC "openFolder.EditUI.addNew.mi" "添加..";
+MG_displaySC "openFolder.EditUI.help.mi" "帮助..";
+MG_displaySC "openFolder.EditUI.MenuName" "菜单名:";
+MG_displaySC "openFolder.EditUI.FolderPath" "目录路径:";
+MG_displaySC "openFolder.EditUI.Annotation" "注释:";
+MG_displaySC "openFolder.EditUI.edit" "编辑";
+MG_displaySC "openFolder.EditUI.mUp" "上移";
+MG_displaySC "openFolder.EditUI.mDn" "下移";
+MG_displaySC "openFolder.EditUI.del" "删除";
+MG_displaySC "openFolder.EditMenu.title" "编辑区:";
+MG_displaySC "openFolder.EditMenu.repick" "重拾取";
+MG_displaySC "openFolder.EditMenu.text" "  编辑菜单:";
+MG_displaySC "openFolder.EditMenu.submit.btn" "提交当前内容编辑";
+MG_displaySC "openFolder.EditMenu.appAllEdit.btn" "保存全部编辑";
+MG_displaySC "openFolder.EditMenu.close.btn" "关闭";
+MG_displaySC "openFolder.noItem.war" "列表里无项目哦:(";
+

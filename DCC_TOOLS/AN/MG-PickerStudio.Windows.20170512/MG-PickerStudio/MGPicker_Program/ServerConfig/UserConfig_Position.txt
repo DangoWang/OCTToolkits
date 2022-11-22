@@ -1,0 +1,40 @@
+# You don't need to care about this if you are the only one who use the same MG-Picker Studio program,or you used a local install mode.
+# This is for changing the directory that will contains all the user-configs.
+#
+# By default, user configs are stored in the "MGPicker_UserConfig" folder beside the program folder "MGPicker_Program".
+# This is ok if the program only be used by one local user, however, once it is used by multiple user,
+# then the "MGPicker_UserConfig" will become publicly shared and effect every local users.
+#
+# if you need to share say CommandButtonPresets, CodeSnippets or Converterss to everybody in the pipeline, 
+# it is suggested that you put those into respective folders in "MGPicker_Program" folder instead.
+#
+# For every local user being able to has their own config of those, you need to setup as follow:
+#
+# Please directly input a path at the right side of MGPICKER_USER_CONFIG_DIR = , don't wrap with "":
+# Relative path is not supported.
+#
+# Example values are:
+#
+# 1. Empty value, means using the default setting:
+#
+#       MGPICKER_USER_CONFIG_DIR =      # This means the config will stored in "MGPicker_UserConfig" folder beside "MGPicker_Program" folder.
+#
+# 2. Any absolute path:
+#    
+# 	MGPICKER_USER_CONFIG_DIR = D:/anyFolder/myMGPicker_UserConfigs       # Configs within will effect all maya versions in the local machine
+# 
+# 3. Within local maya user app folder, in windows like "My Documents/maya/MG_PickerUserConfig": 
+#    
+#	MGPICKER_USER_CONFIG_DIR = $UserAppDir            # Configs within will effect all maya versions in the local machine
+# 
+# 4. Within local maya user script folder, in windows like "My Documents/maya/2016/scripts/MG-PickerStudio/MGPicker_UserConfig":
+#    
+#	MGPICKER_USER_CONFIG_DIR = $UserScriptDir         # Configs within will only effect one specific maya version in the local machine
+#
+#
+# Another way to setup this, is to author an env with name "MGPICKER_USER_CONFIG_DIR", same value rules apply.
+# If the env MGPICKER_USER_CONFIG_DIR is setup already, the setting here will be ignored.
+
+# Ok, you know what to do now, please:
+
+MGPICKER_USER_CONFIG_DIR = 

@@ -1,0 +1,91 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+//`MG_DualLan "animRecorder.Title01"`
+MG_displayTS "animRecorder.Title01" "MG動畫記錄器";
+MG_displayTS "animRecorder.Title02" "MG動畫記錄管理器";
+
+MG_displayTS "animRecorder.lbl" "MG動畫記錄器..";
+MG_displayTS "animRecorder.ann" "點選啟動MG動畫記錄器.它可以幫你記錄/應用控製器的全局/局部變形資訊。";
+
+MG_displayTS "animRecorder.add.war" "只有變形節點才能被加入列表";
+MG_displayTS "animRecorder.tsl.ann.01" "該列表顯示了要記錄的物件.雙擊每一項來選擇相應節點.按del鍵來把所選項從記錄列表裡除掉並清除其實際記錄.";
+MG_displayTS "animRecorder.tsl.ann.02" "該列表顯示了要記錄的物件.雙擊每一項來選擇相應節點.按del鍵來把所選項從記錄列表裡除掉. (將保持記錄)";
+
+MG_displayTS "animRecorder.ui.topText.lbl01" "已記錄的物體:";
+MG_displayTS "animRecorder.ui.topText.lbl02" "當前記錄的物體:";
+
+
+
+MG_displayTS "animRecorder.record.end.rep" "記錄完成!";
+MG_displayTS "animRecorder.apply.end.rep" "記錄已應用! 請查收！";
+
+MG_displayTS "animRecorder.noRecord.war" "沒有找到任何的記錄.";
+
+MG_displayTS "animRecorder.applied.rep" " 個物體的動畫記錄被應用.";
+MG_displayTS "animRecorder.skipped.rep" " 個物體的動畫記錄應用動作被忽略.";
+
+
+
+
+
+MG_displayTS "animRecorder.world.lbl" "全局變形資訊";
+MG_displayTS "animRecorder.local.lbl" "控製器屬性值";
+
+MG_displayTS "animRecorder.recordAll.lbl" "記錄全部 !!";
+MG_displayTS "animRecorder.recordAll.ann" "記錄列表裡全部的記錄項.如果你需要界定記錄時間範圍請在執行前選擇一段時間範圍。";
+
+MG_displayTS "animRecorder.recordSel.lbl" "記錄所選項";
+MG_displayTS "animRecorder.recordSel.ann" "記錄列表裡所選的記錄項.";
+
+
+MG_displayTS "animRecorder.to.keyframes.lbl" "到關鍵幀";
+MG_displayTS "animRecorder.to.pose.lbl" "到當前Pose";
+MG_displayTS "animRecorder.to.eachFrame.lbl" "到每一幀";
+
+MG_displayTS "animRecorder.applyAll.lbl" "應用全部 !!";
+MG_displayTS "animRecorder.applyAll.ann" "記錄列表裡全部的記錄項.";
+
+MG_displayTS "animRecorder.applySel.lbl" "將記錄應用到所選項";
+MG_displayTS "animRecorder.applySel.ann" "只將記錄應用到列表裡所選的項.";
+
+MG_displayTS "animRecorder.toShelfAll.lbl" "將列表所有安裝成Shelf";
+MG_displayTS "animRecorder.toShelfAll.ann" "將當前列表裡所有項的應用動作記錄成Shelf按鈕並安裝在當前Maya工具架上.";
+
+MG_displayTS "animRecorder.toShelfSel.lbl"  "將列表所選安裝成Shelf";
+MG_displayTS "animRecorder.toShelfSel.ann" "將當前列表裡所選項的應用動作記錄成Shelf按鈕並安裝在當前Maya工具架上.";
+
+MG_displayTS "animRecorder.autosim.lbl" "自動清理幀";
+MG_displayTS "animRecorder.autosim.ann" "自動清理簡化所生成的逐幀動畫.";
+
+MG_displayTS "animRecorder.add.lbl" "加入場景所選";
+MG_displayTS "animRecorder.add.ann" "把場景所選物體加入要記錄的列表";
+
+MG_displayTS "animRecorder.remove.lbl" "從記錄列表裡去掉";
+MG_displayTS "animRecorder.remove.ann" "把場景所選物體從要記錄的列表裡去掉";
+MG_displayTS "animRecorder.del.lbl" "把所選記錄刪掉";
+MG_displayTS "animRecorder.del.ann" "把所選項相對應的記錄刪掉";
+MG_displayTS "animRecorder.sel.lbl" "在場景中選擇";
+MG_displayTS "animRecorder.sel.ann" "在場景中選擇相應列表項。";
+
+MG_displayTS "animRecorder.refresh"  "重新整理介面以顯示所有場景中已有的動畫記錄";
+
+MG_displayTS "animRecorder.retarget.lbl"  "重定向為下面的角色:";
+MG_displayTS "animRecorder.retarget.ann"  "將記錄應用到不同的角色.";
+MG_displayTS "animRecorder.apply.t.lbl"  "應用到位移";
+MG_displayTS "animRecorder.apply.r.lbl"  "旋轉";
+MG_displayTS "animRecorder.apply.none.war"  "沒有要應用的通道.(位移旋轉選項都是關的).";
+MG_displayTS "animRecorder.record.title"  "記錄";
+MG_displayTS "animRecorder.apply.title"  "應用";
+
+MG_displayTS "animRecorder.userEulerFilter.lbl"  "應用Euler Filter";
+MG_displayTS "animRecorder.userEulerFilter.ann"  "自動對旋轉通道應用Euler過濾器以糾正一些旋轉亂轉的問題．";
+
+MG_displayTS "animRecorder.forceUpdateMode.lbl"  "強制重新整理模式";
+MG_displayTS "animRecorder.forceUpdateMode.ann"  "在每一幀強制重新取值以便記錄，你只有在正常模式下記錄的狀況不正確的情況下，才需要把這個模式開啟。";

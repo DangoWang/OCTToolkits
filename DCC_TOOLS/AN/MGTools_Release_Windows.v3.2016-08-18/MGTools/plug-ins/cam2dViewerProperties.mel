@@ -1,0 +1,97 @@
+global proc cam2dViewerProperties ()
+//
+//	Procedure Name:
+//		cam2dViewerProperties
+//
+//	Description:
+//		layout of tool property sheet
+//
+//	Input Arguments:
+//		None.
+//
+//	Return Value:
+//		None.
+//
+{
+	setUITemplate -pushTemplate DefaultTemplate;
+
+	string $parent = `toolPropertyWindow -q -location`;
+    	setParent $parent;
+	string $curctx = `currentCtx`;
+
+	columnLayout -adj 1 cam2dViewer;
+	rowLayout -nc 3 -cw3 20 230 120 -cl3 "center" "left"   "center";
+	separator -st "none";
+	columnLayout -adj 1;
+	checkBox
+		-align "left"
+		-v 1
+		-label `MG_DualLan "cam2dViewer.autoReset"`
+		-ann `MG_DualLan "cam2dViewer.autoReset.ann"`
+		cam2dViewerResetCB;
+	checkBox
+ 		-align "left"
+		-h 22
+		-v 1
+		-label `MG_DualLan "cam2dViewer.autoSnap"`
+		-ann `MG_DualLan "cam2dViewer.autoSnap.ann"`
+		cam2dViewerSnapCB;		
+	setParent..;
+	button -w 90  -h 35
+		-l `MG_DualLan "cam2dViewer.reset.label"`
+		-c "MG_cam2dViewer_resetAllTouchedCam"
+		-ann `MG_DualLan "cam2dViewer.reset.ann"`
+		;
+	setParent..;
+	separator -h 10;
+	rowLayout -nc 2 -cw2 250 120 -cl2 "center"   "center";
+	columnLayout -adj 1;
+	text -al "left" -l `MG_DualLan "cam2dViewer.usage.title"` -fn "boldLabelFont" ;
+	text -al "left" -l `MG_DualLan "cam2dViewer.usage.01"`;
+	text -al "left" -l `MG_DualLan "cam2dViewer.usage.02"`;
+	text -al "left" -l `MG_DualLan "cam2dViewer.usage.03"`;
+	text -al "left" -l `MG_DualLan "cam2dViewer.usage.04"`;
+	text -al "left" -l `MG_DualLan "cam2dViewer.usage.05"`;
+	text -al "left" -l `MG_DualLan "cam2dViewer.usage.06"`;
+	
+	setParent..;
+
+	columnLayout -adj 1;
+	separator -st "none" -h 16;
+	button -w 90 -h 90 -l `MG_DualLan "cam2dViewer.FeedBack"` -ann `MG_DualLan "cam2dViewer.FeedBack.ann"` -c "showHelp -a \"http://mgland.com/works/mgtools\"";
+	setParent cam2dViewer;
+	separator -h 10;
+	text -en 0 -al "right" -l `MG_DualLan "cam2dViewer.copyright"`;
+
+	
+	setUITemplate -popTemplate;
+	cam2dViewerSetCallbacks($parent);
+}
+global proc cam2dViewerSetCallbacks(string $parent)
+
+{
+	setParent	$parent;
+	string		$whichCtx = `currentCtx`;
+	checkBox 
+ 		-e
+ 		-onc "cam2dViewerChangeResetState  1 "
+		-ofc "cam2dViewerChangeResetState  0 "		
+		cam2dViewerResetCB;	
+	checkBox 
+ 		-e
+ 		-onc "cam2dViewerChangeSnapState  1 "
+		-ofc "cam2dViewerChangeSnapState  0 "		
+		cam2dViewerSnapCB;			
+}
+global proc cam2dViewerChangeResetState (int $onoff)
+{
+	cam2dViewerToolContext -e -re $onoff cam2dViewerToolContext1;
+	optionVar -iv cam2dViewerToolContext_resetBeforeSave $onoff;
+}
+global proc cam2dViewerChangeSnapState (int $onoff)
+{
+	cam2dViewerToolContext -e -snap $onoff cam2dViewerToolContext1;
+	optionVar -iv cam2dViewerToolContext_SnapOrNot $onoff;
+}
+
+

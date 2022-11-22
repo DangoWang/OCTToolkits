@@ -1,0 +1,38 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayTS "snapLoc.snapLocMode.rep0" " #的標記器在幀:";
+MG_displayTS "snapLoc.snapLocMode.rep1" " #位移動畫的標記器在幀:";
+MG_displayTS "snapLoc.snapLocMode.rep2" " #旋轉動畫的標記器在幀:";
+MG_displayTS "snapLoc.snapLocNum.rep" "現在在你的場景中有#個標記器 :)";
+
+MG_displayTS "snapLoc.markerManager.title" "標記器管理器";
+MG_displayTS "snapLoc.markerManager.help.menu" "幫助";
+MG_displayTS "snapLoc.markerManager.help.mi" "幫助..";
+MG_displayTS "snapLoc.markerManager.selSameMasterLoc" "選擇同屬一個物體的標記器";
+MG_displayTS "snapLoc.markerManager.selInvert" "反選";
+MG_displayTS "snapLoc.markerManager.hideSelItem" "隱藏所選項目";
+MG_displayTS "snapLoc.markerManager.unhideSelItem" "顯示所選項目";
+MG_displayTS "snapLoc.markerManager.hideAll" "隱藏所有項目";
+MG_displayTS "snapLoc.markerManager.unhideAll" "顯示所有項目";
+MG_displayTS "snapLoc.markerManager.deleteSel" "刪除所選項目";
+MG_displayTS "snapLoc.markerManager.deleteAll" "刪除所有項目";
+MG_displayTS "snapLoc.markerManager.Reload" "重載入";
+MG_displayTS "snapLoc.markerManager.Close" "關閉";
+
+MG_displayTS "snapLoc.appendNoMarker.war" "在當前場景沒有檢測到標記器";
+MG_displayTS "snapLoc.sweepMarker.rep" "清除了#個標記器,忽略了#個標記器因為它有輸出型連線.";
+
+MG_displayTS "snapLoc.multiMarker.message" "哈!你在場景裡選了不止一個物體.\n 你想要為每個選擇物體創建多重標記器嗎?";
+MG_displayTS "snapLoc.multiMarker.No.btn" "O_o ||| 不..";
+MG_displayTS "snapLoc.multiMarker.Yes.btn" "^0^  好!!";
+
+MG_displayTS "snapLoc.POsnap.war.message" "  囧 ... 請選擇兩個物體! 先選想定位到的物體再選要定位的物體然後再吸附.";
+MG_displayTS "snapLoc.POsnap.war.ok" "好的";
+

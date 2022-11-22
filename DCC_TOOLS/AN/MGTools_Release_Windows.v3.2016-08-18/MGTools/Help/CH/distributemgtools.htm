@@ -1,0 +1,67 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>分发MGTools</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Install,Register,licence,deploy" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "distributemgtools.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">分发MGTools</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="install_mgtools.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="floatinglicence.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">如果您只是在单个机子上安装MGTools，请见左侧的&quot;安装MGTools&quot; 栏。 </span><a href="install_mgtools.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a><br />
+<span style="font-weight: bold;">&nbsp;</span></p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> 以固定授权方式</span><span style="font-weight: bold;">分发MGTools, </span>意思是在整个动画生产线里，在多个机子上安装MGTools, 为了安装，注册方便，后期维护，更新方便，采用下面步骤：</p>
+<p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">1.</span>到http://mgland.com下载MGTools压缩包并解压到服务器上一个线上所有机子都能读取的路径；</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">2.</span>在压缩包解压的目录里，有一个InstallMGTools_InstallOptionPresets.txt的文件，用写字板打开这个文件;</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">3.</span>这个文件是你用这个安装包安装时的预置选项，对于在多个机子上分发MGTools, <br />
+最好按说明更改里面的 &quot;&gt; Install Mode: &quot; 选项，将其改为 &quot;Install MGTools As Server Program&quot; 为默认选择。</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">4.</span>保存这个配置文件;</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">5.</span>确保MGTools目录里的MGTools_LicenseData这个目录，对于所有机子的用户都可写。（其它的只需要可读）</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">6.</span>在每台机子上拖动该服务器安装目录里的InstallMGTools_WrittenByMiguel.mel到运行中的Maya 3D 视窗并松开。</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">7.</span>一直点下一步，直到安装结束。这一步可以不用再设置安装选项，因为之前在InstallMGTools_InstallOptionPresets.txt里设置过了。</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">8.</span>如果安装源的MGTools_LicenseData目录可写，安装后，会自动提交安装机子的用户码，IP， 用户名等信息到该目录，以便软件管理员批量注册。<br />
+如果过后发现有机子没有提交，则在那台机子上选择MGTools第一个图标/ 注册 / 向服务器端提交用户码.. &nbsp;即可提交。</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">9.</span>所有机子装完后，软件管理员，在其中一台装完MGTools机子上右击MGTools第一个图标/注册/批量注册MGTools...</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">10.</span>在提示身份警告后，弹出下面窗口：<br />
+<img src="batchregmgtools.gif" width="716" height="457" alt="batchRegMGTools" style="border:none" /></p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">11.</span>假设上面我们安装了3台机子，则如上图所示，区域1显示了三个用户的信息。<br />
+如果上面显示的信息少了，则要在少掉的机子上右击MGTools第一个图标/注册/向服务端提交用户码.. &nbsp;来补交信息。</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">12.</span>点击上图界面中的复制按钮，来复制区域的用户码。如果这一项失灵，则直接全选区域2的用户码信息，ctrl+C复制。</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">13.</span>在mgland.com上购买MGTools。</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">14.</span>购买时，或购买后附上上面的用码码信息，米高将生成相应的激活码，这些激活码的文本格式将是：<br />
+用户码1 &gt; &nbsp;相应激活码1<br />
+用户码2 &gt; &nbsp;相应激活码2<br />
+用户码3 &gt; &nbsp;相应激活码3<br />
+。。。</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">15.</span>将上面收到的信息保持上面的格式情况下复制，点击上图中的&quot;2.粘贴并匹配并批量注册&quot;栏，将复制的信息粘贴到下方的输入栏。</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">16.</span>点击最下方的 &quot;2.匹配 -&gt;&quot;按钮，粘贴入的激活码信息将自动跟区域1不同的用户信息匹配并填入区域1 各自右方的输入栏。</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">17.</span>如果激活码是对的，则区域1最左的图标将显示为绿色的勾。否则仍是一个红字的禁止符号。</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">18.</span>点击&quot;3.应用注册!! &quot; 按钮，将这些激活码信息实际写入MGTools_LicenseData目录下各个文件。</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">19.</span>这样每台机子重启下Maya，MGTools就会是已注册的。这个动作将会把服务这些注册信息应用到本地。</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">20.</span>本地机子一旦注册完，即使将服务器上的MGTools_LicenseData目录下的注册信息清除，也不会影响本机的使用。<br />
+&nbsp;</p><p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> 以浮动授权的方式分发MGTools: </span>基本上沿用上面的1~7步骤，要使用浮动授权，请<a href="floatinglicence.htm" class="topiclink">查看这里</a>。</p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">按服务器端模式安装的MGToos，更新MGTools的步骤：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">1.</span>到http://mgland.com下载最新的安装包，解压覆盖服务器上的MGTools。</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">2.</span>如果是以完全服务器模式安装，则只要让动画师重启maya即可。完成。</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">3.</span>如果以一般的服务器模式安装，则需请每一台机子的动画师，右击MGTools第一个图标/更新/从服务器端更新MGtools..</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">4.</span>完成。</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">5.</span>这些步骤的原理是，先更新服务器端的MGTools, 然后每台用户机用服务器端更新的功能，来更新本地的MGTools.</p><p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="install_mgtools.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="floatinglicence.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

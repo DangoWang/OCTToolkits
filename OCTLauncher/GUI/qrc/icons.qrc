@@ -1,0 +1,6 @@
+<RCC>
+  <qresource>
+    <file>../icons/close.png</file>
+    <file>../icons/oct.ico</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,1 @@
+float $fillColor[] = `MGPickerItem -q -fillColor ""`;	//To-Do: input the button id string to get the fill color of it. 

@@ -1,0 +1,110 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "MGconfig.configUI.title" "MGTools配置";
+MG_displaySC "MGconfig.configUI.lenTitle" "MGTools语言";
+MG_displaySC "MGconfig.configUI.len" "界面语言";
+
+MG_displaySC "MGconfig.configUI.iconTitle" "MGTools 图标";
+MG_displaySC "MGconfig.configUI.icon.flatColored" "使用扁平化彩色图标";
+MG_displaySC "MGconfig.configUI.icon.colored" "使用彩色图标";
+MG_displaySC "MGconfig.configUI.icon.mono" "使用灰白图标";
+
+MG_displaySC "MGconfig.configUI.hotKeyFLTitle" "MGTools快捷键配置";
+MG_displaySC "MGconfig.configUI.hotKey.anno" "* 选择列表的功能项目, 在右下栏里设置相应快捷键, 最下栏显示其实际的mel代码";
+MG_displaySC "MGconfig.configUI.hotKey.remove" "移除当前项快捷键";
+MG_displaySC "MGconfig.configUI.hotKey.removeAll" "移除所有MGTools相关的快捷键";
+MG_displaySC "MGconfig.configUI.hotKey.query" "查询";
+MG_displaySC "MGconfig.configUI.hotKey.assignSave" "指定并保存";
+
+MG_displaySC "MGconfig.configUI.autoloadTitle" "自动加载项配置";
+MG_displaySC "MGconfig.configUI.autoload.MGtoolsMiniMode" "最小化模式加载MGTools";
+MG_displaySC "MGconfig.configUI.autoload.MGtoolsMenu" "MGTools菜单";
+MG_displaySC "MGconfig.configUI.autoload.MGshelfBar" "MGshelf条";
+MG_displaySC "MGconfig.configUI.autoload.MGchannelBox" "MG通道栏";
+MG_displaySC "MGconfig.configUI.autoload.MGselset" "MG选择集工具";
+MG_displaySC "MGconfig.configUI.autoload.constraintTools" "约束工具";
+MG_displaySC "MGconfig.configUI.autoload.keyframeTools" "帧工具箱";
+MG_displaySC "MGconfig.configUI.autoload.saveButton" "保存自动加载配置";
+
+MG_displaySC "MGconfig.configUI.install.title" "安装到工具架及菜单栏:";
+MG_displaySC "MGconfig.configUI.install.allToC" "安装全部到当前工具架";
+MG_displaySC "MGconfig.configUI.install.allToM" "安装全部到\"MGtools\"工具架";
+MG_displaySC "MGconfig.configUI.install.installUpdate" "安装 / 更新";
+MG_displaySC "MGconfig.configUI.install.removeMGToolsShelf" "删除当前工具架所有MGTools shelf";
+MG_displaySC "MGconfig.configUI.install.MGshelfInstaller" "MGTools工具安装器..";
+
+MG_displaySC "MGconfig.configUI.tabTitle1" "MGTools界面";
+MG_displaySC "MGconfig.configUI.tabTitle1_1" "MGTools快捷键";
+MG_displaySC "MGconfig.configUI.tabTitle2" "自动加载及安装";
+
+MG_displaySC "MGconfig.configUI.helpDot" "帮助..";
+MG_displaySC "MGconfig.configUI.help" "帮助";
+MG_displaySC "MGconfig.configUI.close" "关闭";
+
+MG_displaySC "MGconfig.hotKey.validKey.war" "你必须输入合法的键";
+
+MG_displaySC "MGshelfInstaller.war" "你需要工作架处在打开的状态!";
+MG_displaySC "MGshelfInstaller.annoText" " 选择相应项并点相应按钮来安装/更新/删除相应的shelf.(直接点击图标即为其shelf开关)";
+MG_displaySC "MGshelfInstaller.clearMGtoolsShelf.rep" " MGTools的工具架图标移除完毕.";
+MG_displaySC "MGshelfInstaller.installMGtoolsShelf.rep" " 个工具架安装/更新完毕.";
+MG_displaySC "MGshelfInstaller.removeMGtoolsShelf.rep" " 个工具架移除完毕.";
+MG_displaySC "MGshelfInstaller.title" "MGTools工具安装器";
+MG_displaySC "MGshelfInstaller.whichTabAnno" "您要编辑哪个工具架:";
+MG_displaySC "MGshelfInstaller.currentTab" "当前工具架";
+MG_displaySC "MGshelfInstaller.mgtoolsTab"  "\"MGtools\"工具架(如果不存在则新建)";
+MG_displaySC "MGshelfInstaller.selectNA" "全选/全不选";
+MG_displaySC "MGshelfInstaller.installSelected" "安装/更新所选";
+MG_displaySC "MGshelfInstaller.removeSelected" "移除所选 && 不能用";
+MG_displaySC "MGshelfInstaller.cancel" "关闭";
+
+MG_displaySC "MGAbout.title" "关于MGTools";
+MG_displaySC "MGAbout.tab1" "版本历史";
+MG_displaySC "MGAbout.tab2" "最终用户许可协议";
+MG_displaySC "MGAbout.tab3" "MGTools 1.0 / 2.0 捐赠名单";
+MG_displaySC "MGAbout.tab3.title" "衷心感谢以下MGTools 1.0 / 2.0捐赠者:\n";
+MG_displaySC "MGAbout.donate" "捐赠..";
+MG_displaySC "MGAbout.feedBack" "反馈..";
+
+MG_displaySC "MGAbout.switchLang.rep" "语言切换完毕，但工具界面语言不会变化除非你重新打开它们。";
+MG_displaySC "MGAbout.switchIcon.rep" "图标选项已改变，你需要重新打开MGTools的界面来使用新图标。";
+
+MG_displaySC "mgtools.about.wheel.ann" "繁体中文(Traditional Chinese)";
+MG_displaySC "mgtools.about.donators" "远古思绪; 全国购物模范; onydo; drifted; woerxi; Belikov Boris;";
+
+//below are added in 05042012:
+MG_displaySC "mgtools.switchLang.war" "你真的要把UI界面切换成简体/繁体中文吗? 如果你的操作系统不支持,界面文字会乱七八糟哦.";
+
+MG_displaySC "mgtools.options.toolConfig.lbl"  "工具配置";
+MG_displaySC "mgtools.options.toolList.lbl"  "工具列表:";
+MG_displaySC "mgtools.options.toolOptions.lbl"  "相应选项:";
+
+MG_displaySC "mgtools.options.popupOption.msg"  "* 该工具选项在刚弹出的窗口那边,\n   请在那里设置其相应选项.";
+
+
+//add in MGTools3======================================================================
+MG_displaySC "mgtools.options.uiChoice.msg"  "* 点选单个图标，将其从MGTools主界面隐藏。( 第一图标是不能隐藏的 )";
+MG_displaySC "mgtools.options.uiChoice.btn"  "保存界面配置";
+MG_displaySC "mgtools.options.autoload.store.lbl"  "配置保存在"; 
+
+MG_displaySC "mgtools.about.miguel" "mgtoolsPro@gmail.com  米高 @ 米古岛动画版权所有";
+MG_displaySC "mgtools.about.lv" "软件许可: ";
+MG_displaySC "mgtools.about.userCode" "用户码: ";
+MG_displaySC "mgtools.pro" "MGTools 专业版";
+MG_displaySC "mgtools.trial.licenseStr" "MGTools试用授权, 还剩下 # 天";
+MG_displaySC "mgtools.student.licenseStr" "MGTools学生版授权, 还剩下 # 天";
+MG_displaySC "mgtools.comm.licenseStr" "商业授权";
+MG_displaySC "mgtools.comm.old" ", 该授权是针对MGTools专业版旧版本";
+MG_displaySC "mgtools.trial.expired" "MGTools试用期已过期";
+MG_displaySC "mgtools.student.expired" "MGTools 专业版#学生授权, 该授权已过期";
+MG_displaySC "mgtools.license.upgrade" "升级..";
+MG_displaySC "mgtools.license.update" "更新..";
+
+//add after float license=========================================
+MG_displaySC "mgtools.float.licenseStr" "浮动授权";

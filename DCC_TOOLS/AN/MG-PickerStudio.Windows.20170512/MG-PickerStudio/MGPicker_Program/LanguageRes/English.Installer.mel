@@ -1,0 +1,66 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+
+global string $Install_MGPKR_APPName = "MG-PickerStudio";
+global string $Install_MGPKR_OSMismatch_message = "Sorry, the MG-PickerStudio version your are installing is not for this OS platform.";	
+global string $Install_MGPKR_WinTitle = "the MG-PickerStudio InstallShield Wizard";	
+global string $Install_MGPKR_loadTool = "Load the MG-PickerStudio In";
+
+global string $Install_MGPKR_UILang = "UI Language:";
+global string $Install_MGPKR_autoLoadLbl = "Maya Loads:";
+global string $Install_MGPKR_animMode = "Animator Mode";
+global string $Install_MGPKR_designerMode = "Designer Mode";
+
+global string $Install_MGPKR_autoloadVia = "Autoload Via File:";
+global string $Install_MGPKR_afterInstall = "After installation:";
+
+global string $Install_MGPKR_EULA_TIP = "* Click the Accept button to accept EULA and continue; The Decline button to decline and exit setup.";
+global string $Install_MGPKR_EULA_missing = "The End User License File is missing. Installation abort.";
+global string $Install_MGPKR_101_missing = "The Lincense 101 file is missing. Installation abort.";
+
+global string $Install_MGPKR_Btn_Buy = "Buy..";
+global string $Install_MGPKR_Btn_Next = "Next";
+global string $Install_MGPKR_Btn_Previous = "Previous";
+global string $Install_MGPKR_Btn_Accept = "Accept";
+global string $Install_MGPKR_Btn_Decline = "Decline";
+global string $Install_MGPKR_Btn_Cancel = "Cancel";
+global string $Install_MGPKR_Btn_Help = "Help..";
+global string $Install_MGPKR_Btn_Install = "Install !";
+
+global string $Install_MGPKR_EULA_TopLbl = "End User License Agreement";
+global string $Install_MGPKR_101_TopLbl = "License 101";
+
+global string $Install_MGPKR_Btn_OK = "OK";
+global string $Install_MGPKR_SameVer_War1 = "MG-PickerStudio has already installed in current Maya with version: ";
+global string $Install_MGPKR_SameVer_War2 = "Do you still want to install it to version: ";
+global string $Install_MGPKR_SameVer_War3 = "The installation source and target are the same, no need to install.";
+
+global string $Install_MGPKR_MayaVersion_War = "MG-PickerStudio requires at Maya 2011 or later version of Maya to work.";
+
+global string $Install_MGPKR_NotSupported = "Current installation source of MG-PickerStudio does not support current version of Maya, For new version of program please check out:";
+global string $Install_MGPKR_GoWebsite = "Visit Website";
+
+global string $Install_MGPKR_UnloadError = "Error unloading the MG-PickerStudio plugin in use.";
+global string $Install_MGPKR_UsedByOtherInstance1 = " plugin is still not able to be overrided, which probably being used by other instance of Maya.";
+global string $Install_MGPKR_UsedByOtherInstance2 = "Please unload the plugin from all the running Maya of current version and try again.";
+
+
+global string $Install_MGPKR_PGS_title = "Installation Process";
+global string $Install_MGPKR_PGS_CopyFiles = "  Step01: Copying program files";	
+global string $Install_MGPKR_PGS_InstallShelf = "  Step02: Install Entries To Current Shelf";		
+global string $Install_MGPKR_PGS_InstallAutoload = "  Step03: Build autoLoad system";
+global string $Install_MGPKR_PGS_Booting = "  Step04: Booting tool..";
+global string $Install_MGPKR_PGS_Done = "Installation finished. For more info please visit :";	
+
+global string $Install_MGPKR_installMode = "Install Mode:";	
+global string $Install_MGPKR_installAsLocal = "Copy to Maya's User Script folder";
+global string $Install_MGPKR_installAsGlobal = "No copy, invoke the program in place";
+global string $Install_MGPKR_installAsLocal_Tip = "Will copy all the program files to \"Maya's user script folder/MG-PickerStudio\" folder.";
+global string $Install_MGPKR_installAsGlobal_Tip = "No copy will be performed, will just invoke the progrm from the installation source.";

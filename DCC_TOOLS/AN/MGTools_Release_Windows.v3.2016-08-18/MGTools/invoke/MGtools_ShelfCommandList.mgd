@@ -1,0 +1,402 @@
+#MGtools_Toggle#3.0,1,1,1#//Click to load/Close MGtools.
+//@MGtoolIcon.bmp@MGtoolIcon_h.bmp@MGtoolIcon_h.bmp
+if (`window -exists mgToolUI`)
+{
+	deleteUI mgToolUI;
+}
+else
+{
+	eval (`MG_sourceCommand "MGTools_WrittenByMiguel.mel"`);
+	MGtools;
+}
+#MGtools_Config#3.0,1,1,1#//Click to config MGtools.
+//@MGtoolConfigIcon.bmp@MGtoolConfigIcon_h.bmp@MGtoolConfigIcon_h_en.bmp
+	eval (`MG_sourceCommand "MGtools_config_about_WrittenByMiguel.mel"`);
+	mgtoolConfig;
+
+#MGChannelBox_Toggle#3.0,1,1,1#//Click to load/Close MGChannelBox.
+//@ChannelBoxIcon.bmp@ChannelBoxIcon_h.bmp@ChannelBoxIcon_h_en.bmp
+if (`window -exists myMGChannelBox`)
+{
+	deleteUI myMGChannelBox;
+}
+else
+{
+  eval (`MG_sourceCommand "MGChannelBox_WrittenByMiguel.mel"`);
+	MGChannelBox;
+}
+#PutInto_newLayer_and_Hide#3.0,1,1,1#//Put selection into new Layer and hide.
+//@AddToLayerIcon.bmp@AddToLayerIcon_h.bmp@AddToLayerIcon_h_en.bmp
+  eval (`MG_sourceCommand "MGTools_WrittenByMiguel.mel"`);
+	createLayerAndHide;
+#reset_channelBox_Channel#3.0,1,1,1#//reset selected channelBox Channel to default values.
+//@resetChannelLarge_Icon.bmp@resetChannelLarge_Icon_h.bmp@resetChannelLarge_Icon_h_en.bmp
+  eval (`MG_sourceCommand "ResetTransformation_WrittenByMiguel.mel"`);
+	resetChannel 2;
+#reset_Translation#3.0,1,1,1#//reset Translation of current selection.
+//@resetTranslationLarge_Icon.bmp@resetTranslationLarge_Icon_h.bmp@resetTranslationLarge_Icon_h_en.bmp
+  eval (`MG_sourceCommand "ResetTransformation_WrittenByMiguel.mel"`);
+	resetT;
+#reset_Rotation#3.0,1,1,1#//reset Rotation of current selection. 
+//@resetRotationLarge_Icon.bmp@resetRotationLarge_Icon_h.bmp@resetRotationLarge_Icon_h_en.bmp
+  eval (`MG_sourceCommand "ResetTransformation_WrittenByMiguel.mel"`);
+	resetR;
+#reset_Scale#3.0,1,1,1#//reset Scale of current selection.
+//@resetScaleLarge_Icon.bmp@resetScaleLarge_Icon_h.bmp@resetScaleLarge_Icon_h_en.bmp
+  eval (`MG_sourceCommand "ResetTransformation_WrittenByMiguel.mel"`);
+	resetS;
+
+#GEplugIn_Toggle#3.0,1,1,0#//Click to install/remove graphEditor channelFilter plug-in.
+//@GEchannelIcon.bmp@GEchannelIcon_h.bmp@GEchannelIcon_h_en.bmp
+  eval (`MG_sourceCommand "GE_PlugIn_writtenByMiguel.mel"`);
+	installGEPlugIN;
+
+#MGShelfBar_Toggle#3.0,1,1,0#//Click to load/Close MGShelfBar v2.
+//@MGShelfIcon.bmp@MGShelfIcon_h.bmp@MGShelfIcon_h.bmp
+if (`window -exists MG_Shelf`)
+{
+	deleteUI MG_Shelf;
+}
+else
+{
+  eval (`MG_sourceCommand "MGshelf_WrittenByMiguel.mel"`);
+	MGshelf_v2;
+}
+#MGShelf_Manager#3.0,1,1,0#//load MGShelf_Manager to manager MG_shelf.
+//@ManageMGShelfIcon.bmp@ManageMGShelfIcon_h.bmp@ManageMGShelfIcon_h_en.bmp
+  eval (`MG_sourceCommand "MGshelf_WrittenByMiguel.mel"`);
+	MGShelf_manager 2;
+	
+#cam2dViewer#3.0,1,1,0#//Navigate a viewport in 2D way.
+//@cam2dViewer_Icon.bmp@cam2dViewer_Icon.bmp@cam2dViewer_Icon_h_en.bmp
+  eval (`MG_sourceCommand "cam2dViewer_WrittenByMiguel.mel"`);
+	MG_cam2dViewer 1;
+	
+#Reset_Viewport#3.0,1,1,0#//Reset the camera modified by cam2dViewer tool.
+//@cam2dViewer_reset_Icon.bmp@cam2dViewer_reset_Icon.bmp@cam2dViewer_reset_Icon_h_en.bmp
+  eval (`MG_sourceCommand "cam2dViewer_WrittenByMiguel.mel"`);
+	MG_cam2dViewer_resetAllTouchedCam;
+		
+#PathTracker#3.0,1,1,0#//Tracking an object 's path and will update automatically.
+//@pathTracker_Icon.bmp@pathTracker_Icon_h.bmp@pathTracker_Icon_h_en.bmp
+  eval (`MG_sourceCommand "pathTracker_WrittenByMiguel.mel"`);
+	MG_pathTracker;
+#Update_PathTracking#3.0,1,1,0#//Manually update the tracking of an object 's path.
+//@updatePathIcon.bmp@updatePathIcon_h.bmp@updatePathIcon_h_en.bmp
+  eval (`MG_sourceCommand "pathTracker_WrittenByMiguel.mel"`);
+	MG_pathTracker_manualUpdateSelection;
+	
+#ConstraintTool_Toggle#3.0,1,1,1#//Click to load/Close ConstraintTool.
+//@ConstraintToolIcon1.bmp@ConstraintToolIcon1_h.bmp@ConstraintToolIcon1_h.bmp
+if (`window -exists mgConstraintToolUI`)
+{
+	deleteUI mgConstraintToolUI;
+}
+else
+{
+  eval (`MG_sourceCommand "ConstrainTools_WrittenByMiguel.mel"`);
+	MG_constraintTool;
+}
+#ConstraintLister_Toggle#3.0,1,1,1#//Select constrainted object & load ConstraintLister to manage constraint nodes.
+//@ConstraintLister_Icon.bmp@ConstraintLister_Icon_h.bmp@ConstraintLister_Icon_h_en.bmp
+if (`window -exists constraintListerUI`)
+{
+	deleteUI constraintListerUI;
+}
+else
+{
+  eval (`MG_sourceCommand "ConstrainTools_WrittenByMiguel.mel"`);
+	MG_constraintLister;
+}
+#Bio_constraint#3.0,1,1,1#//Constraint two objects each other, base on maya's default nodes.
+//@CT_bioConstraintIcon.bmp@BioConstraint_Icon_h.bmp@BioConstraint_Icon_h_en.bmp
+  eval (`MG_sourceCommand "ConstrainTools_WrittenByMiguel.mel"`);
+	MG_BioConstrainter;	
+#UV_constrainter#3.0,1,1,1#//Select poly face/edge/vertex or nurbs controlVertex,than use me to make a control that represent the position of the component. Use the control to constraint the other if U want.
+//@uvConstraintIcon.bmp@uvConstraintIcon_h.bmp@uvConstraintIcon_h_en.bmp
+  eval (`MG_sourceCommand "UVconstraint_WrittenByMiguel.mel"`);
+	MG_UVconstraint;
+#Vertex_constrainter#3.0,1,1,1#//Select poly face/edge/vertex or nurbs controlVertex,than use me to make a control that represent the position of the component. Use the control to constraint the other if U want.
+//@vertexConstrainter_Icon.bmp@vertexConstrainter_Icon_h.bmp@vertexConstrainter_Icon_h_en.bmp
+  eval (`MG_sourceCommand "ConstrainTools_WrittenByMiguel.mel"`);
+	vertexConstrainter;
+#SmoothBind_Joint_finder#3.0,1,1,1#//find Joint via selected SmoothBind vertex.
+//@CT_finderIcon.bmp@CT_finderIcon_h.bmp@CT_finderIcon_h_en.bmp
+  eval (`MG_sourceCommand "ConstrainTools_WrittenByMiguel.mel"`);
+	findJointViaVertex;
+
+#ParentConstraint#3.0,1,1,1#//ParentConstraint two objects with autoskip locked/connected channels.
+//@CT_parentConstraint_Icon.bmp@CT_parentConstraint_Icon_h.bmp@CT_parentConstraint_Icon_h_en.bmp
+  eval (`MG_sourceCommand "ConstrainTools_WrittenByMiguel.mel"`);
+	constraintWithSkip 1;
+#ParentConstraint_parent#3.0,1,1,1#//ParentConstraint first selection and next selection's parent.
+//@PConstraintParent_Icon.bmp@PConstraintParent_Icon_h.bmp@PConstraintParent_Icon_h_en.bmp
+  eval (`MG_sourceCommand "ConstrainTools_WrittenByMiguel.mel"`);
+	constraintWithSkip 2;
+#Export_Constraint_Offset#3.0,1,1,1#//Select constrainted object and export constraint offset.
+//@exportConstraint_Icon.bmp@exportConstraint_Icon_h.bmp@exportConstraint_Icon_h_en.bmp
+  eval (`MG_sourceCommand "ConstrainTools_WrittenByMiguel.mel"`);
+	exportConstraintOffsetForLister 0;
+#Import_Constraint_Offset#3.0,1,1,1#//Select constrainted object and import constraint offset.
+//@importConstraint_Icon.bmp@importConstraint_Icon_h.bmp@importConstraint_Icon_h_en.bmp
+  eval (`MG_sourceCommand "ConstrainTools_WrittenByMiguel.mel"`);
+	importConstraintOffsetUI;
+	
+#MG_Pose_Library_Local#3.0,1,1,0#//MG-PoseAnimation Library. Build up your pose and animation libraries.
+//@PoseAnimLib_Icon.bmp@PoseAnim_Icon_h.bmp@PoseAnim_Icon_h_en.bmp
+  eval (`MG_sourceCommand "MG_PoseAnimLibrary_WrittenByMiguel.mel"`);
+	MG_PoseAnimLibrary 0 0;
+#AnimationBank#3.0,1,1,0#//Use Animation Library Tool to Export/Import animation.
+//@AnimationBank_Icon.bmp@AnimationBank_Icon_h.bmp@AnimationBank_Icon_h_en.bmp
+  eval (`MG_sourceCommand "AnimationTool_WrittenByMiguel.mel"`);
+	MG_ExportImportAnimation 3;
+#BackUp_Animation#3.0,1,1,0#//BackUp selection's Animation to your scenes.
+//@backUpAnimation_Icon.bmp@backUpAnimation_Icon_h.bmp@backUpAnimation_Icon_h_en.bmp
+  eval (`MG_sourceCommand "AnimationTool_WrittenByMiguel.mel"`);
+	backUpAnimationLoc;
+#Restore_Animation#3.0,1,1,0#//Restore selection's Animation if it's backuped before in your scenes.
+//@restoreAnimation_Icon.bmp@restoreAnimation_Icon_h.bmp@restoreAnimation_Icon_h_en.bmp
+  eval (`MG_sourceCommand "AnimationTool_WrittenByMiguel.mel"`);
+	restoreAnimationFromLoc;		
+	
+#Edit_FolderShortCut#3.0,1,1,1#//Edit quick FolderShortCut.
+//@ConfigFolderIcon.bmp@ConfigFolderIcon_h.bmp@ConfigFolderIcon_h_en.bmp
+  eval (`MG_sourceCommand "OpenDirectory_WrittenByMiguel.mel"`);
+	folderMenuEdit;
+#Edit_FileShortCut#3.0,1,1,1#//Edit quick FileShortCut.
+//@ConfigExternalFileIcon.bmp@ConfigExternalFileIcon_h.bmp@ConfigExternalFileIcon_h_en.bmp
+  eval (`MG_sourceCommand "ExternalTool_WrittenByMiguel.mel"`);
+	toolMenuEdit;
+
+#PivotTool_Toggle#3.0,1,1,0#//Click to load/close PivotTool.
+//@pivot_tool_icon00.bmp@pivot_tool_icon_h.bmp@pivot_tool_icon_h.bmp
+if (`window -exists PivotToolUI`)
+{
+	deleteUI PivotToolUI;
+}
+else
+{
+  eval (`MG_sourceCommand "PivotTool_WrittenByMiguel.mel"`);
+	PivotTool;
+}
+#Create_Pivot_Stuff#3.0,1,1,0#//select one object Create Pivot Stuff.The object must have it own parent hierarchy.
+//@pivot_tool_icon01.bmp@pivot_tool_icon01_h.bmp@pivot_tool_icon01_h_en.bmp
+  eval (`MG_sourceCommand "PivotTool_WrittenByMiguel.mel"`);
+	createPivotStuff;
+#Select_Pivot_Stuff#3.0,1,1,0#//select whole three pivot stuffs via current selection.
+//@pivot_tool_icon02.bmp@pivot_tool_icon02_h.bmp@pivot_tool_icon02_h_en.bmp
+  eval (`MG_sourceCommand "PivotTool_WrittenByMiguel.mel"`);
+	selectPivotStuff 1;
+#Snap_Pivot_Stuff#3.0,1,1,0#//Snap Pivot Stuff without a pop.
+//@pivot_tool_icon03.bmp@pivot_tool_icon03_h.bmp@pivot_tool_icon03_h_en.bmp
+  eval (`MG_sourceCommand "PivotTool_WrittenByMiguel.mel"`);
+	snapMGPivotNew 1;
+#Pivot_Stuff_Lister#3.0,1,1,0#//load Pivot Stuff Lister to manager your scenes pivot stuff.
+//@pivotStuff_Lister_Icon.bmp@pivotStuff_Lister_Icon_h.bmp@pivotStuff_Lister_Icon_h_en.bmp
+  eval (`MG_sourceCommand "PivotTool_WrittenByMiguel.mel"`);
+	ListPivotStuff;
+
+
+#MG_Asset_Library#3.0,1,1,0#//MG-Asset Library. A bridge connects Asset and Layout workflow.
+//@MGdbManager_icon.bmp@MGdbManager_icon_h.bmp@MGdbManager_icon_h_en.bmp
+  eval (`MG_sourceCommand "DBManager_WrittenByMiguel.mel"`);
+	MG_DB_manager;
+	
+#SelectionSet_Toggle#3.0,1,1,0#//Click to load/close SelectionSet tool.
+//@selectionTool.bmp@selectionTool_h.bmp@selectionTool_h_en.bmp
+if (`window -exists SelectionSetBox`)
+{
+	deleteUI SelectionSetBox;
+}
+else
+{
+  eval (`MG_sourceCommand "selectionTool_WrittenByMiguel.mel"`);
+	selSetUI;
+}
+#Selection_Manager#3.0,1,1,0#//Click to load Selection Manager to manager current selection and last selection.
+//@selectionManagerIcon.bmp@selectionManagerIcon_h.bmp@selectionManagerIcon_h_en.bmp
+  eval (`MG_sourceCommand "selectionTool_WrittenByMiguel.mel"`);
+	selectionTool;
+#New_SelSet_from_selection#3.0,1,1,0#//create New SelSet from current selection.
+//@newSelSet_Icon.bmp@newSelSet_Icon_h.bmp@newSelSet_Icon_h_en.bmp
+  eval (`MG_sourceCommand "selectionTool_WrittenByMiguel.mel"`);
+	NewOrEditSetUI 1 "";
+#BackUp_selection#3.0,1,1,0#//BackUp current selection to your scenes.
+//@backUpSel_Icon.bmp@backUpSel_Icon_h.bmp@backUpSel_Icon_h_en.bmp
+  eval (`MG_sourceCommand "selectionTool_WrittenByMiguel.mel"`);
+	SM_BackUpSel 0;
+#Restore_selection#3.0,1,1,0#//Restore selection stored in your scenes.
+//@restoreSel_Icon.bmp@restoreSel_Icon_h.bmp@restoreSel_Icon_h_en.bmp
+  eval (`MG_sourceCommand "selectionTool_WrittenByMiguel.mel"`);
+	restoreBackUpedUI;
+#Retarget_selection#3.0,1,1,0#//Retarget selection with new namespace.
+//@retargetSelection_Icon.bmp@retargetSelection_Icon_h.bmp@retargetSelection_Icon_h_en.bmp
+  eval (`MG_sourceCommand "selectionTool_WrittenByMiguel.mel"`);
+	retargetSetUI 0;
+#TypeSelector#3.0,1,1,0#//Select objects base on some type conditions,such as keyframed/constrainted/referenced/etc..
+//@typeSelectorIcon.bmp@typeSelectorIcon_h.bmp@typeSelectorIcon_h_en.bmp
+  eval (`MG_sourceCommand "typeSelector_WrittenByMiguel.mel"`);
+	MG_typeSelector_Option;
+	
+#View_Switch#3.0,1,1,0#//Click to switch your active viewport configuration.
+//@viewSetToolIcon.bmp@viewSetToolIcon_h.bmp@viewSetToolIcon_h_en.bmp
+  eval (`MG_sourceCommand "viewSetTool_writtenByMiguel.mel"`);
+	readViewSwitchConfigFile 0 "CurrentViewSwitch.set";
+#Config_ViewSwitch#3.0,1,1,0#//Config your View switch.
+//@configViewSwitch_Icon.bmp@configViewSwitch_Icon_h.bmp@configViewSwitch_Icon_h_en.bmp
+  eval (`MG_sourceCommand "viewSetTool_writtenByMiguel.mel"`);
+	editViewSwitchConfig;
+#Smooth_Switch#3.0,1,1,0#//Switch PolySmooth values of your scene quickly.
+//@smoothSwtchIcon.bmp@smoothSwtchIcon_h.bmp@smoothSwtchIcon_h_en.bmp
+  eval (`MG_sourceCommand "smoothSwitch_WrittenByMiguel.mel"`);
+	MG_smoothSwitch_Option;
+#Camera_Switch#3.0,1,1,0#//Switch the camera of current viewport,using a cofigable CamSwitch set. 
+//@camSwtchIcon.bmp@camSwtchIcon_h.bmp@camSwtchIcon_h_en.bmp
+  eval (`MG_sourceCommand "cameraSwitch_WrittenByMiguel.mel"`);
+	MG_camSwitch;
+#displayLayerSet_Tool#3.0,1,1,0#//click to load displayLayerSet Tool.
+//@displayLayerSet_Icon.bmp@displayLayerSet_Icon_h.bmp@displayLayerSet_Icon_h_en.bmp
+  eval (`MG_sourceCommand "displaySetTool_WrittenByMiguel.mel"`);
+	displaySetTool;
+#New_displayLayerSet_fromSel#3.0,1,1,0#//create new displayLayerSet from current Selection.
+//@newLayerSet_Icon.bmp@newLayerSet_Icon_h.bmp@newLayerSet_Icon_h_en.bmp
+  eval (`MG_sourceCommand "displaySetTool_WrittenByMiguel.mel"`);
+	newDisplaySetFromSel;
+	
+#POSnap_Forward#3.0,1,1,0#//Click to POSnap Forward.Once clicked,U can press "G" key to snap forward.
+//@footstickIcon.bmp@footstickIcon_h.bmp@footstickIcon_h_en.bmp
+  eval (`MG_sourceCommand "FootStepSnap_WrittenByMiguel.mel"`);
+	snapFoot 1;
+#POSnap#3.0,1,1,0#//Click to POSnap second selection to first selection.
+//@Posnap_Icon.bmp@Posnap_Icon_h.bmp@Posnap_Icon_h_en.bmp
+  eval (`MG_sourceCommand "FootStepSnap_WrittenByMiguel.mel"`);
+	POSnap 1;
+#PointSnap_Forward#3.0,1,1,0#//Click to PointSnap Forward.Once clicked,U can press "G" key to snap forward.
+//@pointSnapForward_Icon.bmp@pointSnapForward_Icon_h.bmp@pointSnapForward_Icon_h_en.bmp
+  eval (`MG_sourceCommand "FootStepSnap_WrittenByMiguel.mel"`);
+	snapFoot 2;
+#OrientSnap_Forward#3.0,1,1,0#//Click to orientSnap Forward.Once clicked,U can press "G" key to snap forward.
+//@orientSnapForward_Icon.bmp@orientSnapForward_Icon_h.bmp@orientSnapForward_Icon_h_en.bmp
+  eval (`MG_sourceCommand "FootStepSnap_WrittenByMiguel.mel"`);
+	snapFoot 3;
+#RelativeSnap_Forward#3.0,1,1,0#//Click to relativeSnap Forward.Once clicked,U can press "G" key to snap forward.
+//@relativeSnapForward_Icon.bmp@relativeSnapForward_Icon_h.bmp@relativeSnapForward_Icon_h_en.bmp
+  eval (`MG_sourceCommand "FootStepSnap_WrittenByMiguel.mel"`);
+	relativeSnap 1;
+#Keyframe_Tool#3.0,1,1,0#//Load KeyFrame Tool,there are whole bunch of tools supporting keyframe animation,such as copy/paste animation/pose between mayas,etc.
+//@keyframeTool_icon.bmp@keyframeTool_icon_h.bmp@keyframeTool_icon_h_en.bmp
+  eval (`MG_sourceCommand "KeyFrameTool_WrittenByMiguel.mel"`);
+	MGKeyframeTool;
+#CopyPasteAnimPose_betweenMaya#3.0,1,1,0#//Load the tool that copies/pastes animation/pose between different Maya.
+//@copyPasteShelf_Icon.bmp@copyPasteShelf_Icon_h.bmp@copyPasteShelf_Icon_h_en.bmp
+  eval (`MG_sourceCommand "copyPasteAnimPose_WrittenByMiguel.mel"`);
+	MGCopyPasteAnimationPro;
+#MG_AnimRecorder#3.0,1,1,0#//Use Click to load MG-AnimRecorder. It is a recorder which enables you backup/restore world/local animations. 
+//@animRecord_Icon.bmp@animRecord_Icon_h.bmp@animRecord_Icon_h_en.bmp
+  eval (`MG_sourceCommand "AnimRecorder_WrittenByMiguel.mel"`);
+	MG_AnimRecorder 0;
+#Relocate_MultipleObjects#3.0,1,1,0#//Generate a controller which u can use to relocate the objects that u want. The changement will be merged into the keyframes of the objects. 
+//@relocateIcon.bmp@relocateIcon_h.bmp@relocateIcon_h_en.bmp
+  eval (`MG_sourceCommand "ReLocator_WrittenByMiguel.mel"`);
+	MG_ReLocator;
+#Attribute_Switch#3.0,1,1,0#//Switch attribute whose changement will cause popping of the others/self without popping.Could be helpful when switching "follow"/"constraint weight" attributes.
+//@attrSwitch_Icon.bmp@attrSwitch_Icon_h.bmp@attrSwitch_Icon_h_en.bmp
+  eval (`MG_sourceCommand "FootStepSnap_WrittenByMiguel.mel"`);
+	AttrSwitch_withOut_popping;
+#Keyframe_Probe#3.0,1,1,0#//Use keyframe Probe to list all the animated object in current selected character. 
+//@keyframeProbe_Icon.bmp@keyframeProbe_Icon_h.bmp@keyframeProbe_Icon_h_en.bmp
+  eval (`MG_sourceCommand "keyframeProbe_WrittenByMiguel.mel"`);
+	keyframeProbe;
+#Super_SnapAnimation#3.0,1,1,0#//Load the Super-Keyframe Snapper to snap non-integer keyframe to interger. Selected timeRange is supported when doing the snapping.  
+//@snapKeyframe_Icon.bmp@snapKeyframe_Icon_h.bmp@snapKeyframe_Icon_h_en.bmp
+  eval (`MG_sourceCommand "KeyFrameTool_WrittenByMiguel.mel"`);
+	MG_snapKeyframe 0;
+#Scale_Animation#3.0,1,1,0#//Load the keyframeScaler to translate animation between different frameRates .
+//@scaleKeyframe_Icon.bmp@scaleKeyframe_Icon_h.bmp@scaleKeyframe_Icon_h_en.bmp
+  eval (`MG_sourceCommand "keyframeScaleTool_WrittenByMiguel.mel"`);
+	MG_animScaler;
+#Auto_Smooth_AnimCurve#3.0,1,1,0#//Auto smooth keyframe curve.
+//@correctOverShoot_icon.bmp@correctOverShoot_icon_h.bmp@correctOverShoot_icon_h_en.bmp
+  eval (`MG_sourceCommand "BDTool_WrittenByMiguel.mel"`);
+	MG_avoidOvershoot 0 {};
+#MiniToolBox#3.0,1,1,0#//Click to load MiniToolBox.
+//@miniToolBoxIcon.bmp@miniToolBoxIcon_h.bmp@miniToolBoxIcon_h_en.bmp
+  eval (`MG_sourceCommand "miniToolBox_WrittenByMiguel.mel"`);
+	miniToolBox;
+	
+#Reference_ToolBox#3.0,1,1,0#//Click to load Reference toolbox.
+//@refToolBox.bmp@RefTool_Icon_h.bmp@RefTool_Icon_h_en.bmp
+  eval (`MG_sourceCommand "referenceTool_WrittenByMiguel.mel"`);
+	MG_ReferenceToolBox;
+
+#MGTimer_toggle#3.0,1,1,0#//Click to load/close MGTimer.
+//@timer_Icon.bmp@timer_Icon_h.bmp@timer_Icon_h_en.bmp
+if (`window -exists MG_TimerUI`)
+{
+	deleteUI MG_TimerUI;
+}
+else
+{
+  eval (`MG_sourceCommand "MGTimer_WrittenByMiguel.mel"`);
+	MG_Timer;
+}
+#MG_HUD_Display#3.0,1,1,0#//Click to Display MG_HUD.
+//@HUD_Icon.bmp@HUD_Icon_h.bmp@HUD_Icon_h_en.bmp
+  eval (`MG_sourceCommand "miniToolBox_WrittenByMiguel.mel"`);
+	readMGHUDConfig 0 "default.set";
+#MG_HUD_Config#3.0,1,1,0#//Click to Config MG_HUD.
+//@HUD_config_Icon.bmp@HUD_config_Icon_h.bmp@HUD_config_Icon_h_en.bmp
+  eval (`MG_sourceCommand "miniToolBox_WrittenByMiguel.mel"`);
+	createHudCFrameOption;
+
+
+#MB_MA_convertor#3.0,1,1,0#//Click to load MB-MA convertor.
+//@mbTomaIcon.bmp@mbTomaIcon_h.bmp@mbTomaIcon_h_en.bmp
+  eval (`MG_sourceCommand "Mb2Ma_WrittenByMiguel.mel"`);
+	MBMAconvertor;
+
+#Replace_NameSpace#3.0,1,1,0#//Click to Replace selected reference node's NameSpace.
+//@replaceNamespace_Icon.bmp@replaceNamespace_Icon_h.bmp@replaceNamespace_Icon_h_en.bmp
+  eval (`MG_sourceCommand "nameSpaceCorrector_writtenByMiguel.mel"`);
+	correctNameSpace 1;
+#Make_Sticky#3.0,1,1,0#//Make selection Sticky in active viewport.
+//@StickerIcon.bmp@StickerIcon_h.bmp@StickerIcon_h_en.bmp
+  eval (`MG_sourceCommand "miniToolBox_WrittenByMiguel.mel"`);
+	makeSelSticky;
+#Marker#3.0,1,1,0#//click to use loactor to marker your selection's position&rotation.
+//@markerIcon.bmp@markerIcon_h.bmp@markerIcon_h_en.bmp
+  eval (`MG_sourceCommand "snapLoc_WrittenByMiguel.mel"`);
+	makeMultiplySnapLoc 0;
+#Marker_Manager#3.0,1,1,0#//click to load Marker Manager to manage marker..
+//@markerManager_Icon.bmp@markerManager_Icon_h.bmp@markerManager_Icon_h_en.bmp
+  eval (`MG_sourceCommand "snapLoc_WrittenByMiguel.mel"`);
+	listSnapLoc;	
+#DrawCurveViaKey#3.0,1,1,0#//Draw a curve via current selection's keyframe.
+//@DrawCurveViaKey_Icon.bmp@DrawCurveViaKey_Icon_h.bmp@DrawCurveViaKey_Icon_h_en.bmp
+  eval (`MG_sourceCommand "motionPathSticker_WrittenByMiguel.mel"`);
+	drawCurveViaKey;
+	
+#MotionPath_Sticker#3.0,1,1,0#//click to load motionPath sticker dialog.
+//@PathAnimIcon.bmp@PathAnimIcon_h.bmp@PathAnimIcon_h_en.bmp
+  eval (`MG_sourceCommand "motionPathSticker_WrittenByMiguel.mel"`);
+	motionPathSticker;
+#Insert_Hierarchy#3.0,1,1,0#//Insert Hierarchy onto the scene selection.Notice that current selected object will be constrainted.
+//@insertHierarchy_Icon.bmp@insertHierarchy_Icon_h.bmp@insertHierarchy_Icon_h_en.bmp
+  eval (`MG_sourceCommand "AddCtrl_WrittenByMiguel.mel"`);
+	MG_insertCtrlHierarchy;
+#EfficientUndo#3.0,1,1,0#// A efficient Undo which will auto step though NULL undo item.
+//@superUndo_Icon.bmp@superUndo_Icon_h.bmp@superUndo_Icon_h_en.bmp
+  eval (`MG_sourceCommand "miniToolBox_WrittenByMiguel.mel"`);
+	MG_efficientUndo 0 1;
+#EfficientRedo#3.0,1,1,0#// A efficient Redo which will auto step though NULL redo item.
+//@superRedo_Icon.bmp@superRedo_Icon_h.bmp@superRedo_Icon_h_en.bmp
+  eval (`MG_sourceCommand "miniToolBox_WrittenByMiguel.mel"`);
+	MG_efficientUndo 0 2;
+#MG_PreSaveAction#3.0,1,1,0#//Clean up scene display before doing the MG-Save.
+//@MG_Saver_PreSaveIcon.bmp@MG_Saver_PreSaveIcon_h.bmp@MG_Saver_PreSaveIcon_h.bmp
+  eval (`MG_sourceCommand "MGSaver_WrittenByMiguel.mel"`);
+	MG_Saver_PreSaveActionDoit;
+#MG_Saver#3.0,1,1,0#//Save you scene with Pre-Save action and versioning up.
+//@MG_Saver_Icon.bmp@MG_Saver_Icon_h.bmp@MG_Saver_Icon_h.bmp
+  eval (`MG_sourceCommand "MGSaver_WrittenByMiguel.mel"`);
+	MG_Saver;

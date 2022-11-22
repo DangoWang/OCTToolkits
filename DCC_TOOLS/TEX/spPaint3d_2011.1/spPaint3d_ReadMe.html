@@ -1,0 +1,297 @@
+<html>
+<head>
+<style type="text/css">
+div.container
+{
+background-color: #CCCCCC;
+width:900px;
+margin:0px;
+margin-right:auto;
+margin-left:auto;
+position:relative;
+border:1px solid gray;
+line-height:150%;
+}
+img 
+{
+border:1px solid black;
+}
+div.header, div.chapter
+{
+padding:0.5em;
+color:white;
+background-color:gray;
+clear:left;
+}
+div.chapter
+{
+	background-color:#4F4E46;
+	font-size: 12px;
+	font-variant: small-caps;
+}
+h1.header
+{
+padding:0;
+margin:0;
+}
+.fixed
+{
+	text-decoration: line-through;
+}
+div.left
+{
+	float:left;
+	width:100px;
+	margin:0;
+	border-right:1px solid gray;
+	padding:1em;
+}
+div.leftui
+{
+	float:left;
+	width:280px;
+	margin:0;
+	border-right:1px solid gray;
+	padding:1em;
+}
+div.content
+{
+	margin-left:120px;
+	border-left:1px solid gray;
+	padding:1em;
+	text-align: justify;
+}
+div.contentui
+{
+	margin-left:300px;
+	border-left:1px solid gray;
+	padding:1em;
+	text-align: justify;
+}
+body,td,th {
+	font-family: Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+body {
+	background-color: #BBBBBB;
+}
+a:link {
+	color: #BB9600;
+}
+a:visited {
+	color: #BB9600;
+}
+a:hover {
+	color: #FFCC33;
+}
+a:active {
+	color: #FFCC33;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<body>
+
+<div class="container">
+<div class="header">
+  <h1 class="header">spPaint3d 2011.1 | Read Me</h1>
+</div>
+<div class="chapter">Description:</div>
+<div class="left"><p>&nbsp;</p>
+</div>
+<div class="content">
+<p>spPaint3d is an object placement tool, very similar to geometryPaint from Maya. It is entirely raycast based, so it doesn't expect any UVs from the target surfaces, thus it doesn't allow for any kind of follicle-like functionality. See <em>Features</em> for more details.</p>
+<p>I've written this tool mainly because I couldn't find a decent enough way to use the standard geometryPaint script for my particular workflow. I couldn't do what I needed to with its inherent limitations (both from the surface UVs and the grid). However, if geometryPaint was not an hindrance to you, then there's little chance you'll find this script useful.<br>
+  I come from a 3DS Max background a long time ago and I have used the awesome AdvancedPainter script for years in my workflow. I work as a production environment game artist and I was increasingly frustrated that I couldn't find a decent object placement script with a similar workflow in Maya. So it's no big surprise the <a href="http://scriptspot.com/3ds-max/advanced-painter">script from Herman Saksono</a> (and the <a href="http://www.neilblevins.com/soulburnscripts/soulburnscripts.htm">one from Neil Blevins</a> to some extent) was a major inspiration while working on this Maya version.
+</p>
+<p>Hopefully this script will be useful to others than myself. Feel free to send me some email if you happen to use it and like it (or not).</p>
+<p><strong>  Maya 2011 Note</strong>: Qt changed a lot of stuff, and without too much surprise a lot of things are currently broken (vanilla 2011  pre-service pack). A few features are sort of broken because of this, place mode is the most affected, but things should work, kind of.</p>
+<p>Thanks to Julien Lefebvre and Gabriel Charest for helping me debug all this.<br>
+  Thanks to Rick Gilliland for his help regarding Python &amp; Maya API and for pointing me in the right direction following Maya 2011 crash extravaganza.<br>
+  And thanks also to the people who sent me bug report and suggestion emails.</p>
+</div>
+<div class="chapter">Features:</div>
+<div class="left"><p>&nbsp;</p>
+</div>
+<div class="content"><ul>
+    <li>Allows to paint on multiple target surfaces at once without having to reselect anything, as long as those target objects are correctly set up in the appropriate object lists.</li>
+    <li>Paint distance threshold between 2 objects can be set through a timer or a distance.</li>
+	<li>A precise positionning painting mode (Place mode) allow for objects to be interactively created along surfaces. While placing objects, shuffling (ctrl) and rotating (shift) are available in order to limit the amount of transformation to do afterwards.</li>
+    <li>Script options allow to preserve input connections while duplicating objects.</li>
+    <li>Brush objects don't need to be centered at the world origin, however it helps if they have a clean transform matrix (especially the world scale pivot). Also beware if a source object is placed within a group hierarchy with its own transform and pivot affecting its final world position (a scale transform to a parent group will definitely break something somewhere). On that note, healthy transforms make for happy scripts ;)</li>
+    <li>Support surface offset distance and random UV jittering.</li>
+    <li>Created geometry can be ramped through the transform min/max values for both rotate and scale.</li>
+</ul>
+</div>
+<div class="chapter">Limitations:</div>
+<div class="left"><p>&nbsp;</p>
+</div>
+<div class="content"><ul>
+  <li>This script is mostly intended for game artists who need to dress environments with props and other misc geometry based details (such as vegetation, dirt, decals etc...). It might be useful to a broader audience however I might have missed specific requirements to other workflows.</li>
+  <li>This is <strong>not</strong> a script based on the UVs of the target surface(s), as it was a 'feature' from geometryPaint that was preventing me to work the way I needed. Thus this script is not intended to be used in a such a way, nor do I plan to implement any follicle system at this time. There are better script out there to do this.</li>
+  <li>At this time, this script is intended  to be used with <strong>Polygon objects only</strong>.</li>
+  <li>The script is somewhat very strict about what kind of objects it will use. If it doesn't allow for an object to be added to any list, chance is the object has some weird attributes, or feature a complex hierarchy, or some weird hidden shape children for example (until I iron out the brush filters, try grouping or ungrouping the source object and see if it works better).</li>
+  <li>Depending on how the script is used and when the paint context is canceled/exited, there may be some group left over, which may not even be empty :)</li>
+  <li>The script now displays a popup message if ran from a Maya version older than 2011. While so far everything should be working with previous versions, I am still waiting for the various things broken with 2011 to be fixed and see how that will affect the script workflow. Backward compatibility may be broken at some point.</li>
+</ul>
+</div>
+<div class="chapter">Installation:</div>
+<div class="left"></div>
+<div class="content"><ul><li>Close Maya.</li>
+<li>If applicable, delete the files from an earlier spPaint3d version (both .py and .pyc files of this script may need to be removed).</li>
+<li>Unzip the script in the appropriate user Maya folder.</li>
+<li>Make sure the script files go to the script folder, the icons should go to the prefs/icons folder.<br />
+    The help folder is not used at runtime and can be anywhere, if there at all.</li>
+<li>Make sure the <strong><em>PYTHONPATH</em></strong> environment variable  is set properly in the <em>maya.env</em> file or the script may not run properly. Maya 2008 has been reported to have a faulty default path for python.</li>
+<li>Restart Maya.</li>
+<li>Execute the script by typing &quot;spPaint3d&quot; in the MEL script editor command line.</li>
+<li>For future use, the same command can be put into a shelf as is.</li>
+</ul>
+</div>
+<div class="chapter">Interface usage:</div>
+<div class="leftui"><img src="help/sppaint3d_setup.jpg" width="279" height="529"></div>
+<div class="contentui">
+  <h2>Tool Configuration</h2>
+    <p>Options are accessed from the <em>Options</em> button from the main UI window.<br>
+      For now, there is very little options, but hopefully this window will grow with time. Also, for now, it is not necessary to run the setup, the script will assume default behavior if options are not set.
+    
+    <ul>
+  <li>It is possible to configure the script to duplicate new objects with or without preserving the input connections of the original source object.<br>
+    NOTE: this option is only useful when the script is set to <strong>duplicate</strong> mode in the main script interface window.</li>
+  <li>Surface Normals option configure the way the script will orient the created object onto the target surface. Depending on the neighboring edges soft/hard mode the actual normal at the intersection point may not be the normal of the actual triangle. The Force hard normal option forces the script to disregard the edges and compute a straight up normal of the triangle at the intersection point. This mode is particularly  useful while placing decal or dirt objects on surfaces.</li>
+    <li>Flux control option will let the user decide which method is best suited to control the frequency of the creation of new objects. More often than not, this option will remain set on <em>Distance</em>.</li>
+    <li>Hierarchy Management offers 3 different ways for the script to sort the objects it creates.<br>
+    Single paint session group: all the created objects will all be sorted into the same group while the script is running.<br>
+    Stroke group: each paint stroke will create its group containing all the objects created during that stroke.<br>
+    Source group: created objects will be sorted with their source name.</li>
+    <li>Place mode rotate increment configures the amount of degrees applied to the rotation of the object while using the Place mode and pressing shift.</li>
+    <li>Continuous transform force the object to be transformed again with random values each time the mouse is moved while using the Place mode. If not activated, random values will be fetched only after each object creation.</li>
+    <li>Realtime rampFX is a development feature that may be dangerous to use, especially on slow computers. It forces the script to recompute all the transforms for all the objects created within the same stroke event. Only works for Paint mode.</li>
+    </ul>
+    </p>
+</div>
+<div class="chapter"></div>
+<div class="leftui"><img src="help/sppaint3d_source.jpg" width="279" height="127"></div>
+<div class="contentui">
+  <h2>Brush Geometry - Source Objects</h2>
+    <p>This is where the script will look at for duplicating geometry on the paint surfaces (ie: the brush geometry).<br>
+      The script only let <strong>polygon objects</strong> and <strong>locators</strong> be added to the list. The source objects can be anywhere in the DAG hierarchy as long as this hierarchy is kept relatively simple. Also they can be anywhere in the world. Make sure to add all the objects you need in this list before starting painting.<br>
+    The script is not very permitting at this time regarding weird DAG hierarchies and won't allow objects with ambiguous DAG path to be added to this list.</p>
+    <p>Note: if source objects are buried in a hierarchy, any parent node with non-frozen transform will most probably cause the generated objects to be misplaced. This is a known issues.</p>
+</div>
+<div class="chapter"></div>
+<div class="leftui">
+  <p><img src="help/sppaint3d_transform.jpg" width="279" height="199"></p>
+</div>
+<div class="contentui">
+<h2><span class="soustitre">Transform Setup</span></h2>
+<p>This is where the user can setup the various random factors the script will use for each instance it will create.<br />
+<ul>
+  <li>At any moment (even while painting), the user can decide to (de)activate the transform, thus preventing the various variables to affect the generated objects transformation.</li>
+  <li>The rotation is represented on a standard degree notation. Most of the time the user will probably want to use the rotation along the Z axis while using the align to surface mode for example.</li>
+  <li>The scale is based on the Maya notation (1 being the scale of the object before the script randomized the new value).<br>
+    Note that if the original object already has been scaled and its transform not frozen, the original scale value will be multiplied with the random value so the instanced geometry won't reset back to the object original matrix.</li>
+</ul>
+The uniform scale option should be self explanatory (when this option is On, settings from X will be used for Y and Z).</p>
+</div>
+<div class="chapter"></div>
+<div class="leftui">
+  <p><img src="help/sppaint3d_distribution.jpg" width="279" height="128"></p>
+</div>
+<div class="contentui">
+<h2>Distribution Objects</h2>
+<p>This is the list of the objects the script will paint onto (ie: the landscape). The script only allow for <strong>polygon objects</strong> to be inserted in this list.</p>
+</div>
+<div class="chapter"></div>
+<div class="leftui">
+  <p><img src="help/sppaint3d_paint.jpg" width="279" height="83"></p>
+</div>
+<div class="contentui">
+<h2>Paint</h2>
+<ul>
+<li>The <strong>duplicate/instance</strong> switch  will control the behavior of the script when creating new objects.</li>
+<li>The <strong>random/sequential</strong> switch allows the script either to pick a random object from the Source Objects list each time the script will generate a new object or through a looped sequence of the list.</li>
+<li>The <strong>align on surface</strong> option will let the script orient the newly generated object along the surface of the distribution object at the point of intersection. This is probably an option that will remain activated most of the time.<br>
+Note: depending on the normal option mode (see setup options), the orientation on the surface may vary depending on neighboring hard/smooth edges.</li>
+<li>The <strong>Paint</strong> and <strong>Place</strong> buttons will start the command and set the maya tool to the new mouse context that will allow the user to paint on the viewport. Just like any other 'tool' in the maya terminology, it is possible to quit the tool by pressing 'q' or to select another tool (like move, rotate or scale for example).<br>
+Both options are similar, however while using the Place button, the user will be able to place one and only one object per click. Also, while using the place mode, <em>ctrl</em> will shuffle through the various brush objects from the list and <em>shift</em> will rotate the current object along the up vector from the intersection on the surface.<br>
+<strong>Note regarding Place mode and the control and shift key detection:</strong> While it was sort of working prior to 2011, Autodesk moved the whole interface to Qt for 2011 and things have been broken. At the time of the release of this version, there's is no detection of events happening when the mouse is not moving anymore whereas it was working previously.</li>
+</ul>
+</p>
+</div>
+<div class="chapter"></div>
+<div class="leftui">
+  <p><img src="help/sppaint3d_paintoptions.jpg" width="279" height="151"></p>
+</div>
+<div class="contentui">
+<h2>Paint Options</h2>
+<p>This is where lies some late options for generating the new objects.<br />
+<ul>
+<li>Flux control options can be either set on Distance or Timer in the setup options.<br>
+  The <strong>distance</strong> threshold represent the minimum distance from the previous generated object before another one is allowed to be created. The distance value is using the scene units.<br>
+  The <strong>timer</strong> mode uses a sensitivity slider to allow the user to regulate the flux at which the script generates new objects. The closer the slider value to zero the less 'downtime' there will be between the creation of two new objects. Although the slider goes from 0 to 0.2, the slider value can be manually set up to 1. Useful only for Paint mode.</li>
+<li>Up Offset allows the user to specify the distance the created object will be moved from the surface. Works for both Paint and Place mode.</li>
+<li>Ramp FX is an option to use the transform values as transform boundaries for the created objects within the same stroke. The created objects will be transformed as a ramp between the min and max values entered in the script UI.<br>
+  Note: with the current version, when using rampFX with rotate values, objects won't be aligned to the surface normal anymore even if the <em>align to surface</em> option is active.<br>
+RampFX only works for the Paint mode at the moment.</li>
+<li>Jitter allows for the created objects to be randomly scattered on the tangent grid at the intersection point. If the values are too big, the objects may either be floating or going through the intersected surface as the jitter won't recompute intersections to follow different surface normals.</li>
+</ul>
+</p>
+</div>
+<div class="chapter">Feature Request:</div>
+<div class="left"><p>&nbsp;</p>
+</div>
+<div class="content"><ul>
+<li><span class="fixed">Allow the script to use group hierarchies as source object.</span>[version 0.91]</li>
+<li>Improve the way objects are displayed in the source and distribution lists.</li>
+<li><span class="fixed">Duplicate input connections from the source objects when creating new copies.</span>[version 0.85].</li>
+<li><span class="fixed">Allow for different ways of grouping the output copies of the source objects.</span>[version 0.91]</li>
+<li><span class="fixed">More precise and interactive Place mode.</span>[2011.1]</li>
+<li>Add extra properties to source objects, such as distribution probabilities or on/off options etc....</li>
+<li>Implement a scatter mode (like a paint bucket) over the selected target surfaces. Add an option to  use a  painted weight surface to determine distribution factors.</li>
+<li>Add an option to provide neighbor awareness (bounding box collision maybe) to the paint mode so object aren't generated into each others (some sort of a grid of the original geometryPaint script but able to dynamically adapt the size of the grid to the objects on the surface, but that may be computing intensive).</li>
+</ul>
+</div>
+<div class="chapter">Known Issues:</div>
+<div class="left"></div>
+<div class="content"><ul>
+<li><span class="fixed">Issues with transform fields color and alignement on Mac (and possibly Linux too).</span> [version 2011.0]</li>
+<li>While painting/placing hierarchies of objects when set to instance mode, sometimes only the parent object is correctly created and positionned.</li>
+<li><span class="fixed">For some reason, Maya only refresh the viewport at the end of the mouse drag event (when the mouse click is released), thus objects are not made visible as they are painted on the surface. Hopefully I'll find a way to fix soon.</span>[version 0.84].</li>
+<li>The script will test intersection with distribution objects on both sides of the geometry normal, thus will place object on backside faces if an intersection happens closer to the camera.</li>
+<li><span class="fixed">There is some issues when using source object with a hierarchy of their own. Related to an oversight regarding DAG hierarchy in the script.</span> [version 0.9]</li>
+<li><span class="fixed">Script not working properly when the system unit aren't using centimeters.</span> [version 2011.0]</li>
+</ul>
+</div>
+<div class="chapter">Versions:</div>
+<div class="left"></div>
+<div class="content"><ul>
+    <li>2011.1: implemented a rotate for place mode. Implemented an offset and UV jittering. Added a continous transform to place mode to restore the functionality lost with 2011.0. Implemented the first pass of rampFX.</li>
+    <li>2011.0: resolved the crash problem when running the script with Maya 2011. Fixed painting distance control when using a non centimeter based unit system.</li>
+    <li>0.93: major bug fix with scene Units when set on something else than centimeters (oops).</li>
+    <li>0.92: bug fix with UI window size problem on Mac. Started rewriting the Place mode context to allow for more interactivity.</li>
+    <li>0.91: minor bug fixing and added group sorting.</li>
+    <li>0.9: I've mostly rewritten the whole scripts in python, amongst other things there should be some notable speed improvements. Added new functionality (options menu, distance threshold, collapsible UI, added a place mode, etc..)</li>
+    <li>0.85: Converted icons into XPM for compatibility purpose. Added a configuration script and an option to preserve input connections on duplicate.</li>
+    <li>0.84: Initial public release.</li>
+</ul>
+</div>
+<div class="chapter"></div>
+<div class="left"></div>
+<div class="content">
+  <p>If you happen to run into any bugs, please let me know and I'll do my best to fix it.</p>
+  <p>Version Requirement:<ul>
+<li>Requires a python-enabled Maya (8.5+) (If necessary, adjust your PYTHONPATH environment variable).</li>
+<li>Developed on Maya 2009 &amp; 2011 64bit, but it should work from Maya 8.5 and up.<br>
+</li>
+<li>From version 2011.0 onward, attempts will be made to keep the script backward compatible, but it won't be actively maintened for earlier version than 2011.</li>
+<li>The script is supposed to work for all platforms, let me know if you happen to have any issues with the script on either Mac or Linux platform as I am unable to test myself.</li>
+  </ul>
+  </p>
+  <p>Contact email: <a href="mailto:spaviot@gmail.com?subject=spPaint3d">spaviot @ gmail . com</a><br>
+    Download URL: <a href="http://www.creativecrash.com/maya/downloads/scripts-plugins/utility-external/misc/c/sppaint3d">http://www.creativecrash.com/maya/downloads/scripts-plugins/utility-external/misc/c/sppaint3d</a></p>
+</div>
+</div>
+
+</body>
+</html>
+

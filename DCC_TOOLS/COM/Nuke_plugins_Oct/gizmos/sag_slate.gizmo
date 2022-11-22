@@ -1,0 +1,226 @@
+Gizmo {
+ tile_color 0x4cff4cff
+ note_font Verdana
+ mapsize {0.15 0.15}
+ addUserKnob {20 slate l Slate}
+ addUserKnob {41 format l Format T Reformat1.format}
+ addUserKnob {41 resize l "Resize Type" T Reformat1.resize}
+ addUserKnob {7 scale l Scale}
+ scale 1
+ addUserKnob {7 textopacity l "Text Opacity"}
+ textopacity 0.05
+ addUserKnob {20 data l Data n 1}
+ data 0
+ addUserKnob {1 facilityname l Facility}
+ facilityname "Glukoza Production"
+ addUserKnob {1 artistname l Artist}
+ artistname "\[getenv USERNAME]"
+ addUserKnob {1 duration l Duration}
+ duration "\[value root.last_frame]"
+ addUserKnob {1 scriptname l "Script Name"}
+ scriptname "\[string index \[set fullShot \[lindex \[split \[value root.name] /.] end-1]] -1]\[return \$fullShot]"
+ addUserKnob {1 shotname l "Shot Name"}
+ shotname "\[string index \[regsub \{_v\[0-9]*\} \[value scriptname] \"\" shot] -1]\[if \{\[lindex \[split \$shot _] 0] != \"\"\} \{\[return \[lindex \[split \$shot _] 0]]\}]\[if \{\[regexp \{\[eE]\[pP]\[0-9]\} \[lindex \[split \$shot _] 1]]\} \{\[return _\[lindex \[split \$shot _] 1]]\}]\[if \{\[string match \{\[sS]\[cC]\[0-9]\[0-9]\[0-9]\[0-9]\} \[lindex \[split \$shot _] 2]]\} \{\[return _\[lindex \[split \$shot _] 2]]\}]"
+ addUserKnob {1 versionnum l Version}
+ versionnum "\[string range \[value scriptname] \[expr \[string length \[value shotname]]+1] end]"
+ addUserKnob {1 shotdate l Date}
+ shotdate "\[clock format \[clock seconds] -format %Y.%m.%d]"
+ addUserKnob {1 shottime l Time}
+ shottime "\[clock format \[clock seconds] -format %H:%M]"
+ addUserKnob {20 endGroup n -1}
+}
+ Constant {
+  inputs 0
+  channels rgb
+  name Constant1
+  xpos -61
+  ypos -50
+ }
+ Reformat {
+  type "to box"
+  box_width {{Reformat2.width i}}
+  box_height {{Reformat2.height i}}
+  box_fixed true
+  scale 0.5
+  clamp true
+  name Reformat3
+  xpos -61
+  ypos 22
+ }
+ Dot {
+  name Dot1
+  xpos -27
+  ypos 46
+ }
+set N34ddbe60 [stack 0]
+ Dot {
+  name Dot2
+  xpos 119
+  ypos 46
+ }
+set N34ddc190 [stack 0]
+ Dot {
+  name Dot5
+  xpos 208
+  ypos 46
+ }
+set N34ddc4c0 [stack 0]
+ Dot {
+  name Dot6
+  xpos 295
+  ypos 46
+ }
+set N34ddc7f0 [stack 0]
+ Dot {
+  name Dot3
+  xpos 381
+  ypos 46
+ }
+set N34ddcb20 [stack 0]
+ Dot {
+  name Dot4
+  xpos 467
+  ypos 46
+ }
+ Text {
+  message "\[value parent.shotdate]\n\[value parent.shottime]"
+  font "\[value parent.frameCounter.font]"
+  size {{parent.frameCounter.size i}}
+  leading 0.1
+  yjustify top
+  Transform 1
+  box {{parent.frameCounter.box i} {parent.frameCounter.box i} {parent.frameCounter.box i} {parent.frameCounter.box i}}
+  translate {{parent.frameCounter.translate i} {parent.frameCounter.translate i}}
+  name dateTime
+  xpos 433
+  ypos 133
+ }
+push $N34ddcb20
+ Text {
+  message "\[value parent.artistname]"
+  font "\[value parent.frameCounter.font]"
+  size {{parent.frameCounter.size i}}
+  xjustify right
+  yjustify center
+  Transform 1
+  box {{parent.frameCounter.box i} {parent.frameCounter.box i} {parent.frameCounter.box i} {parent.frameCounter.box i}}
+  translate {{parent.frameCounter.translate i} {"height - parent.frameCounter.translate * 3" i}}
+  name artistName
+  xpos 347
+  ypos 134
+ }
+push $N34ddc7f0
+ Text {
+  message "\[value parent.facilityname]"
+  font "\[value parent.frameCounter.font]"
+  size {{parent.frameCounter.size}}
+  yjustify center
+  Transform 1
+  box {{parent.frameCounter.box} {parent.frameCounter.box} {parent.frameCounter.box} {parent.frameCounter.box}}
+  translate {{parent.frameCounter.translate} {"height - parent.frameCounter.translate * 3"}}
+  name facilityName
+  xpos 261
+  ypos 134
+ }
+push $N34ddc4c0
+ Text {
+  message "\[value parent.shotname]"
+  font "\[value parent.frameCounter.font]"
+  size {{parent.frameCounter.size i}}
+  xjustify center
+  yjustify center
+  Transform 1
+  box {{parent.frameCounter.box i} {parent.frameCounter.box i} {parent.frameCounter.box i} {parent.frameCounter.box i}}
+  translate {{parent.frameCounter.translate i} {"height - parent.frameCounter.translate * 3" i}}
+  name shotName
+  xpos 174
+  ypos 133
+ }
+push 0
+push $N34ddc190
+ Text {
+  message "\[value parent.versionnum]"
+  font "\[value parent.frameCounter.font]"
+  size {{parent.frameCounter.size i}}
+  xjustify center
+  yjustify center
+  Transform 1
+  box {{parent.frameCounter.box i} {parent.frameCounter.box i} {parent.frameCounter.box i} {parent.frameCounter.box i}}
+  translate {{parent.frameCounter.translate i} {parent.frameCounter.translate i}}
+  name versionNum
+  xpos 85
+  ypos 134
+ }
+push $N34ddbe60
+ Text {
+  message "frame: \[format %0\[string length \[value parent.duration]]d \[frame]] of \[value parent.duration]\[if \{\[view]==\"main\"\} \{return \"\"\} \{return \"\\n\[view]\"\}]"
+  font "\$env(NUKE_PATH)/fonts/arial-mon.ttf"
+  size {{"40 * (width/Crop1.width)" i}}
+  xjustify right
+  yjustify center
+  Transform 1
+  box {0 0 {"width - (80 * (width/Crop1.width))" i} {"70 * (height/Crop1.height)" i}}
+  translate {{"80 * (width/Crop1.width) * 0.5" i} {"70 * (height/Crop1.height) * 0.5" i}}
+  name frameCounter
+  xpos -61
+  ypos 88
+ }
+ Merge2 {
+  inputs 6+1
+  name Merge2
+  xpos -61
+  ypos 204
+ }
+ Input {
+  inputs 0
+  name Input1
+  xpos -230
+  ypos -142
+ }
+ Crop {
+  box {0 0 {width i} {height i}}
+  reformat true
+  crop false
+  name Crop2
+  xpos -230
+  ypos -110
+ }
+ Reformat {
+  format "2138 1152 0 0 2138 1152 1 stereo_extended_tall "
+  clamp true
+  black_outside true
+  name Reformat1
+  xpos -230
+  ypos -63
+ }
+ Crop {
+  box {0 0 {width i} {height i}}
+  reformat true
+  crop false
+  name Crop1
+  xpos -230
+  ypos -2
+ }
+ Reformat {
+  type scale
+  scale {{parent.scale i}}
+  filter Simon
+  clamp true
+  black_outside true
+  name Reformat2
+  xpos -230
+  ypos 22
+ }
+ Merge2 {
+  inputs 2
+  mix {{parent.textopacity}}
+  name Merge1
+  xpos -230
+  ypos 204
+ }
+ Output {
+  name Output1
+  xpos -230
+  ypos 304
+ }
+end_group

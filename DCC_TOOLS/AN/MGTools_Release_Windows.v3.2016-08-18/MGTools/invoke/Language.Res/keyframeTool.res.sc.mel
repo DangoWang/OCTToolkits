@@ -1,0 +1,100 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+//`MG_DualLan "keyframeTool.title"`
+//`MG_DualLanFormat_1 repVar`
+//`MG_DualLan "selM.backUPSel.doit.nosel"`
+
+MG_displaySC "keyframeTool.title" "帧工具箱";
+MG_displaySC "keyframeTool.title1" "帧工具箱..";
+
+MG_displaySC "keyframeTool.ann" "打开帧工具箱，里面有很多与关键帧动画有关的工具，如跨Maya间复制/粘贴动画/Pose等等 :)";
+//MG_displaySC "miniToolB.1.5.new.title.anno" "插入层级  &  无跳切换属性:";
+MG_displaySC "keyframeTool.titleBar.ann" "点我来收合当前工具.";
+MG_displaySC "keyframeTool.help.ann" "点我来打开当前工具的帮助文档.";
+
+MG_displaySC "keyframeTool.misc.tit" "杂项工具";
+
+MG_displaySC "keyframeTool.relocator.ann" "打开复位位器来重新定位多个已被Key帧的物体.";
+MG_displaySC "keyframeTool.switchAttr.mi" "无跳属性切换..";
+MG_displaySC "keyframeTool.switchAttr.ann"  "打开无跳属性切换器来无跳动切换物体属性.";
+MG_displaySC "keyframeTool.snapKeyframe.title" "强力吸附归整非整数帧";
+MG_displaySC "keyframeTool.snapKeyframe.ann" "强力吸附归整非整数帧.如有选时间范围则只吸附该范围的帧，否则将吸附全部.";
+MG_displaySC "keyframeTool.snapKeyframe.snapGESel" "吸附曲线编辑器所选曲线";
+MG_displaySC "keyframeTool.snapKeyframe.snapSeltimeRange" "吸附时间滑条所选范围";
+MG_displaySC "keyframeTool.snapKeyframe.snaptimeRange" "吸附时间滑条显示范围";
+MG_displaySC "keyframeTool.snapKeyframe.snapall" "吸附全部";
+
+MG_displaySC "keyframeTool.scaleKeyframe.title" "动画缩放/帧率转换器..";
+MG_displaySC "keyframeTool.scaleKeyframe.ann" "打开动画缩放/帧率转换器来缩放对象的动画。";
+
+MG_displaySC "keyframeTool.timing.title" "Timing工具";
+MG_displaySC "keyframeTool.timing.ann" "Timing工具，用来改变两帧间的间距，所有后面的帧将前移/后移";
+MG_displaySC "keyframeTool.timing.anTitle01" " 设置前后帧的时间间距:";
+MG_displaySC "keyframeTool.timing.anTitle02" " 加减前后帧的时间间距:";
+MG_displaySC "keyframeTool.timing.addSubToV" "将目标时间间距设置改变#";
+MG_displaySC "keyframeTool.timing.slider.ann" "滑动时间滑条来改变目标时间间距设置";
+MG_displaySC "keyframeTool.timing.aqire.ann" "获取当前场景选择的前后帧时间间距值.";
+MG_displaySC "keyframeTool.timing.intField.ann" "输入数字来改变目标时间间距设置";
+MG_displaySC "keyframeTool.timing.change.ann" "设置当前场景选择的前后帧时间间距值为目标值.";
+MG_displaySC "keyframeTool.timing.sliderIncre.ann" "滑动时间滑条来改变时间间距的增/减值";
+MG_displaySC "keyframeTool.timing.intFieldIncre.ann" "输入数字来改变目标时间间距的增/减值";
+MG_displaySC "keyframeTool.timing.add.ann" "以增/减值为量来加减当前场景选择的前后帧时间间距值.";
+
+MG_displaySC "keyframeTool.setKey.title" "K帧工具";
+MG_displaySC "keyframeTool.setKey.everyKey" "每个关键帧";
+MG_displaySC "keyframeTool.setKey.every" "每";
+MG_displaySC "keyframeTool.setKey.every.ann" "每#帧将设一个key,并且从当前帧起算。";
+MG_displaySC "keyframeTool.setKey.fr" "帧";
+MG_displaySC "keyframeTool.setKey.ann" "点我来要么每关键帧设一个帧，要么每#帧设一个Key,支持时间范围选择限定设Key范围。右键菜单里有更多功能。";
+MG_displaySC "keyframeTool.setKey.deleteStatic.mi" "删除无动态的属性Key";
+MG_displaySC "keyframeTool.setKey.deleteStatic" "此功能等同于Maya的删除无动态属性命令。（即没有数值变化的属性通道）";
+MG_displaySC "keyframeTool.setKey.nonDefault.mi" "设Key非默认值的通道";
+MG_displaySC "keyframeTool.setKey.nonDefault.ann" "设Key任何处于非Rig默认值的通道。";
+
+MG_displaySC "keyframeTool.BD.title" "中间张工具";
+MG_displaySC "keyframeTool.BD.ann" "中间张工具，用来根据一定的百分比来快速生成两帧间的中间张.";
+MG_displaySC "keyframeTool.changeL.ann" "在离上一帧Pose的#处生成立一个BD张。";
+MG_displaySC "keyframeTool.changeLarbi.ann" "在离上一帧Pose的自定义百分比处生成立一个BD张。";
+MG_displaySC "keyframeTool.changeR.ann" "在离下一帧Pose的#处生成立一个BD张。";
+MG_displaySC "keyframeTool.changeRarbi.ann" "在离下一帧Pose的自定义百分比处生成立一个BD张。";
+
+MG_displaySC "keyframeTool.isExtre.label" "->极张";
+MG_displaySC "keyframeTool.isBD.ann" "生成中间张Pose.";
+MG_displaySC "keyframeTool.isExtre.ann" "生成极张Pose.";
+MG_displaySC "keyframeTool.avoidOverShoot.label" "自动避免逆向缓冲";
+MG_displaySC "keyframeTool.avoidOverShoot.ann" "生成BD时自动避免逆向缓冲";
+MG_displaySC "keyframeTool.onlySelCurve.label" "只处理所选动画曲线";
+MG_displaySC "keyframeTool.onlySelCurve.ann" "只在所选动画曲线上生成BD帧";
+MG_displaySC "keyframeTool.onlySelKey.label" "只处理所选关键帧";
+MG_displaySC "keyframeTool.onlySelKey.ann" "只编辑所选关键帧的数值到所设定的百分比.";
+
+MG_displaySC "keyframeTool.tangent.title" "切线类型工具";
+MG_displaySC "keyframeTool.tangent.ann" "基于时间滑条的动画曲线切线类型编辑工具。";
+MG_displaySC "keyframeTool.correctOvershoot.mi" "自动修顺动画曲线";
+MG_displaySC "keyframeTool.correctOvershoot.ann" "自动修顺动画曲线.";
+MG_displaySC "keyframeTool.tanget.left" "修改前一帧的关键帧切线类型.";
+MG_displaySC "keyframeTool.tanget.both" "修改前后帧的关键帧切线类型.";
+MG_displaySC "keyframeTool.tanget.right" "修改后一帧的关键帧切线类型.";
+MG_displaySC "keyframeTool.tanget.all" "修改当前物体所有动画的关键帧切线类型.";
+MG_displaySC "keyframeTool.tanget.selRange" "修改当前时间滑块所选时间范围内所有的关键帧切线类型.";
+
+MG_displaySC "keyframeTool.notimeRange.war" "时间滑条上无时间范围选择.";
+MG_displaySC "keyframeTool.jobDoneNochange.rep" "任务完成!没有需要作改变:P";
+MG_displaySC "keyframeTool.jobDone.rep" "任务完成!";
+//`MG_DualLan "keyframeTool.jobDone.rep"`
+MG_displaySC "keyframeTool.notKeyframed.war" "所选物体必须是已Key帧的哦.";
+MG_displaySC "keyframeTool.retiming.war" "这个功能只有当当前帧在两个前后关键帧之间的时候能有效哦";
+MG_displaySC "keyframeTool.retiming.jobDone.rep" "任务完成!前后帧的Timing已被改变了#帧 :)";
+
+MG_displaySC "keyframeTool.onselShift.lbl" "只影响所选关键帧";
+MG_displaySC "keyframeTool.onselShift.ann" "只根据相对值来前/后偏移所选的关键帧.";
+
+MG_displaySC "keyframeTool.keyKeyframed.lbl" "K帧已K帧通道";
+MG_displaySC "keyframeTool.keyKeyframed.ann" "对当前场景所选物体已key帧的通道在当前帧设key.";

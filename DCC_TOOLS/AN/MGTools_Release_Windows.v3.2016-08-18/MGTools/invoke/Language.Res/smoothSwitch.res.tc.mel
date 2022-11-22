@@ -1,0 +1,34 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+//`MG_DualLan "relocator.refresh"`
+//`MG_DualLanFormat_1 repVar`
+MG_displayTS "smoothSwitch.title" "MG模型smooth切換..";
+MG_displayTS "smoothSwitch.anno" "快速切換場景poly模型的smooth的數值.";
+MG_displayTS "smoothSwitch.uiTitle" "MG模型smooth切換";
+MG_displayTS "smoothSwitch.allItem" "所有項目";
+MG_displayTS "smoothSwitch.onlyS" "只限於：";
+MG_displayTS "smoothSwitch.ignore" "忽略：";
+MG_displayTS "smoothSwitch.refAnno" " Reference 路徑含此字元:";
+MG_displayTS "smoothSwitch.allOn" "全選中";
+MG_displayTS "smoothSwitch.allOff" "全不選";
+MG_displayTS "smoothSwitch.Invert" "反 選";
+MG_displayTS "smoothSwitch.allOn.mi" "全部勾選";
+MG_displayTS "smoothSwitch.allOff.mi" "全部去選";
+MG_displayTS "smoothSwitch.Invert.mi" "反向選擇";
+MG_displayTS "smoothSwitch.clear" "清除Smooth控制屬性上的幀";
+MG_displayTS "smoothSwitch.between" "互換值";
+MG_displayTS "smoothSwitch.and" "與";
+MG_displayTS "smoothSwitch.Switch" "切換 !!";
+MG_displayTS "smoothSwitch.SelNode" "選擇該節點";
+MG_displayTS "smoothSwitch.noExists.war" "叫 \"#\" 的物體已經不存在了哦.";
+MG_displayTS "smoothSwitch.noAttrExists.war" "沒有叫 \"#\" 的屬性存在哦.";
+MG_displayTS "smoothSwitch.attrNoSettable.war" "叫 \"#\" 的屬性是不可設定的哦.";
+MG_displayTS "smoothSwitch.noItemCheck.war" "沒有勾選上的項目哦.";
+

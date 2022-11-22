@@ -1,0 +1,433 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>AssetLib Py API</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "assetlib_py_api_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">AssetLib Py API</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="assetlib_melapi_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="minitoolbox_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> Asset Library Python API:  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">The python API of MG-Asset Library. You could use these python function and classes to create, manage &nbsp;and use the asset libraries in your own python scripts.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">The main usages are to use it to batch adding asset records, or making MA files. </p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> Prerequisite:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">Your Maya has MGTools Pro3 or later version installed.</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> The Asset Library API python module:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">The py file locates in your MGTools folder/invoke/MG_PyUtil/MG_AssetLibAPI.py.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">With MGTools installed, you could just use these code to import the module:</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="color: #253555;">import </span><span style="color: #388195;">MG_PyUtil.MG_AssetLibAPI</span> <span style="color: #253555;">as</span> <span style="color: #388195;">assetAPI</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">There are also detailed description for each function or class methods, the manual below has nearly the same content with the comments in the source file.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">The &lt;type&gt; in each annotation of a parameter &nbsp;stands for the parameter type.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> Quick Links:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">The utility functions </span><a href="assetlib_py_api_en.htm#utility" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">The Classes MGAssetProj </span><a href="assetlib_py_api_en.htm#mgassetproj" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">The Classes MGAssetCategory </span><a href="assetlib_py_api_en.htm#mgassetcategory" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">The Classes MGAssetRecord </span><a href="assetlib_py_api_en.htm#mgassetrecord" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Example Codes </span><a href="assetlib_py_api_en.htm#example" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> The utility functions:  <a id="utility"></a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_isLibraryWindowOpen ( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: &nbsp;Test if MG-AssetLibrary tool is opened in Maya.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: &nbsp;True if opened, False if not.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_openProjectIfLibraryToolOpen ( </span><span style="font-weight: bold; color: #602020;">projFilePath </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: If MG-AssetLibrary tool is loaded in Maya, then open the project file. This will reopen the project if it is already opened.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameter: &nbsp;projFilePath: &lt;str&gt; represent a MG-AssetLibrary asset project file full path.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: None</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_openCategoryIfLibraryToolOpen ( </span><span style="font-weight: bold; color: #602020;">projectName, categoryName </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: if MG-AssetLibrary tool is loaded in Maya, and the project is already opened, then this will read the category into the UI. This will also reopen the category if it is already opened.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameter: &nbsp;projName: &lt;str&gt; A existed project name</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">categoryName: &lt;str&gt; A existed category name in the project projName.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: None</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_warning ( </span><span style="font-weight: bold; color: #602020;">warnMessage </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Helper function to issue a warning in Maya.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameter: &nbsp;warnMessage: &lt;str&gt; The message content text. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: None</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_getLocalRoot (</span><span style="font-weight: bold; color: #602020;"> </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get MG-AssetLibrary local root directory, ending with &quot;/&quot;.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: str</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_getLocalProjectDir (</span><span style="font-weight: bold; color: #602020;"> projectName</span><span style="font-weight: bold; color: #253555;"> )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: &nbsp;Get MG-AssetLibrary local project directory via the projectName you've provided.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: projectName: &lt;str&gt; The project name.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: str</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_getLocalProjectFilePath ( </span><span style="font-weight: bold; color: #602020;">projectName</span><span style="font-weight: bold; color: #253555;"> )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get MG-AssetLibrary local project file full path via the projectName you've provided. It is a full path to a .assetproj file.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: projectName: &lt;str&gt; The project name.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: str</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_getLocalCategoryFilePath ( </span><span style="font-weight: bold; color: #602020;">projectName, categoryName</span><span style="font-weight: bold; color: #253555;"> )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get MG-AssetLibrary local category file full path via the projectName and categoryName you've provided. It is a file with a extension : .asset</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: projectName: &lt;str&gt; The project name.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">categoryName: &lt;str&gt; The category name.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: str</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_validName ( </span><span style="font-weight: bold; color: #602020;">name</span><span style="font-weight: bold; color: #253555;"> )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Validate the name with the Maya node naming rules:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;"> The leading character should be '_' or English letter, while the other characters should be '_' or English letters or numeric letter. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">The characters not meet the condition will be replaced with '_'.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: name: &lt;str&gt; The name to validate.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: str, which is the validated version of name.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_compareTwoFileDate ( </span><span style="font-weight: bold; color: #602020;">file1, file2</span><span style="font-weight: bold; color: #253555;"> )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Compare two files with their modification dates.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: file1: &lt;str&gt; A file path</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">file2: &lt;str&gt; A file path</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: &nbsp;int. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">If both files does not exist, return 0;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">if file1 exists but file2 doesn't, return 1, if file1 does not exists but file2 does, return -1;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">if both exist:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">If file1 is newer than file2, return 1; </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">if file1 is the same modification date with file2, return 0;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">if file1 is older than file2, return -1.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_searchFilesFromDirectory ( </span><span style="font-weight: bold; color: #602020;">searchDir, patternStr, searchDepthLimit, currentSearchDepth</span><span style="font-weight: bold; color: #253555;"> )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: This is a doit function, invoked by the two functions below. It search files that matches the patternStr within the directory searchDir.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: searchDir: &lt;str&gt; represents a directory.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">patternStr: &lt;str&gt; Note that patternStr should be '*.extension' like. &nbsp;If not the function will add '*.' at the front of it.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">searchDepthLimit: &lt;int&gt; The limit of the search directory depth. &nbsp;Value 1 for not searching the sub-folders.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 216px;"><span style="font-size: 9pt;">The value 0 or less than 0 indicates that the search is unlimited in depth.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">currentSearchDepth: &lt;int&gt; Serves as a helper parameter indicate the current searching depth for stopping the recurrence purpose, </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 216px;">for the call you should always input 1 for this parameter.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: &nbsp;list of str , return a empty list if no matched files found.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_searchPreviewImagesFromDirectory ( </span><span style="font-weight: bold; color: #602020;">searchDir, imageExtensions, searchDepthLimit </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Search images that matched the any pattern in imageExtensions within the directory searchDir.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: searchDir: &lt;str&gt; An existed directory to search in.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">imageExtensions: &lt;list / str&gt; Note that each item in imageExtensions should be '*.extension' like. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;If not the function will add '*.' at the front of it.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">searchDepthLimit: &lt;int&gt; The limit of the search directory depth. &nbsp;Value 1 for not searching the sub-folders.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 216px;"><span style="font-size: 9pt;">The value 0 or less than 0 indicates that the search is unlimited in depth.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: &nbsp;list of str </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_searchMayaFileFromDirectory (</span><span style="font-weight: bold; color: #602020;">searchDir, searchMA, searchMB,searchDepthLimit </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Search maya scene file within the directory searchDir.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: searchDir: &lt;str&gt; An existed directory to search in.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">searchMA: &lt;bool&gt; Indicate the maya ascii file should be searched.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">searchMB: &lt;bool&gt; Indicate the maya binary file should be searched. Note that searchMA and searchMB should not be both False.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">searchDepthLimit: &lt;int&gt; The limit of the search directory depth. &nbsp;Value 1 for not searching the sub-folders.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 216px;"><span style="font-size: 9pt;">The value 0 or less than 0 indicates that the search is unlimited in depth.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: &nbsp;list of str </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_getBasename ( </span><span style="font-weight: bold; color: #602020;">filepath </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get the basename of a file path or a file name.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: filepath: &lt;str&gt; A file full path. &nbsp;Note that it is a dirname, this function will return empty string. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: str</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">def MGAssetLibUtil_makeMayaAsciiFile ( </span><span style="font-weight: bold; color: #602020;">overrideIfExists, MAFile, referenceFiles, namespaceList=[], deferList=[] </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Generate a maya ascii file based on the info you have input.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: overrideIfExists: &lt;bool&gt; Decide whether override an existed maya ascii file.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">MAFile: &lt;str&gt; The full path of the target maya ascii file.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">referenceFiles: &lt;list of strings&gt; The asset full path that will be referenced in the target maya ascii file. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">namespaceList: &lt;list of strings&gt; If namespaceList doesn't provide items as many as referenceFiles does, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 240px;"><span style="font-size: 9pt;"> this function will use the validated version of the basename of referenceFiles item instead.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">deferList: &lt;list of int&gt; If it doesn't provide items as many as referenceFiles does, 0 will be used.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: bool, &nbsp;True if the function succeed else False. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> The classes: </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">The object model is really simple. The API contains three level of data classes: MGAssetProj &gt; MGAssetCategory &gt; MGAssetRecord </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">MGAssetProj object contains multiple MGAssetCategory objects, while MGAssetCategory could have multiple MGAssetRecord objects.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> The Classes MGAssetProj:  <a id="mgassetproj"></a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">__init__ </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">projectName='', projectAnnotation='', globalPath='', statePresets=[] </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Init the MGAssetProj object.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">When constructing the project object, if the projectName you passed in already exist in your local library root dir,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">then it will skip all the other parameters you passed in , initialize the object from the existed asset project file.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: projectName: &lt;str&gt; A validated version of this parameter will be actually used.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 216px;"><span style="font-size: 9pt;"> If this parameter is an empty string, you should call initFromProjctFile() to make the instance valid.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">projectAnnotation: &lt;str&gt; A project annotation string.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">globalPath: &lt;str&gt; A path that specify the global root of the project.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">statePresets: &lt;list of str&gt; A list of string, each string is of format: &quot;statename stateColorFloatR stateColorFloatG stateColorFloatB&quot;  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 216px;"><span style="font-size: 9pt;">eg. &quot;approved 0.2 0.8 0.2&quot; </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">initExistCategories </span><span style="font-weight: bold; color: #253555;">(</span><span style="font-weight: bold; color: #602020;"> </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Read the project local directory, create MGAssetCategory object via the existed category files.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: int. Return the initialized category count.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">initFromProjectFile </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">projectFilePath </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Init the MGAssetProj object with a existed project file (*.assetproj).</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: projectFilePath: &lt;str&gt; A full path to a asset project file.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: bool. Return True if succeed else False.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">isValid </span><span style="font-weight: bold; color: #253555;">(</span><span style="font-weight: bold; color: #602020;"> </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Test if this MGAssetProj instance is valid.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: bool</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">doesProjectExist </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Test if this project file already exists.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: bool</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">getName </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get the project name.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: str</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">getProjectDir </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get the project local directory path.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: str</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">getProjectFilePath </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get the project local directory file full path (*.assetproj).</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: str</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">addStates </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">newStatePresets </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Add state presets to project.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: newStatePresets: &lt;str / list of str&gt; &nbsp;It is a list of string or just a single string, each element / the string is of format: &quot;statename stateColorFloatR stateColorFloatG stateColorFloatB&quot;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt;"> eg. &quot;approved 0.2 0.8 0.2&quot;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: bool</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">getStates </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get the project's state list.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: list</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">addCategory </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">categoryName</span><span style="font-weight: bold; color: #253555;"> )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Add a category called categoryName into the project.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: &nbsp;categoryName: &lt;str&gt; The category name. Should not be an empty string.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: None / MGAssetCategory. Return the new created MGAssetCategory instance on success, or None if failed.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">getCategoryObjects </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get all the MGAssetCategory objects in the project.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: list of MGAssetCategory. Return a list of MGAssetCategory on success, or an empty list if failed.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">getCategoryNames </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get all the category names in the project.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: list of str. Return a list of category names on success, or an empty list if failed.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">writeProjectToDisk </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Write the project object to MG-AssetLibrary local root directory. The file will be '*.assetproj'.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">It will override even if the old project exists. &nbsp;Will open the project in MG-AssetLibrary UI if the UI is opened.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">Will raise an exception if this project object is invalid.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: bool. Return Ture if succeed.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">getCategoryObjectByName </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">categoryName</span><span style="font-weight: bold; color: #253555;"> )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get the MGAssetCategory object that has the name: categoryName. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: categoryName: &lt;str&gt; The category name.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: MGAssetCategory / None. &nbsp; Return MGAssetCategory instance if found, else return None.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">writeCategoryToDisk </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">categoryObject</span><span style="font-weight: bold; color: #253555;"> )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: &nbsp;Write the category object to disk (*.asset). It will override even if the old category exists.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">Will open the category in MG-AssetLibrary UI if the UI is there and the project is also opened.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">Will raise an exception if this project object is invalid.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: categoryObject: &lt;MGAssetCategory&gt; Should be an valid MGAssetCategory instance.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: bool. &nbsp;Return Ture if succeed.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">writeAllCategoriesToDisk </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: &nbsp;Write all the category objects to disk (*.asset). It will override even if the old categories exists.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">Will open the category in MG-AssetLibrary UI if the UI is there and the project is also opened.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">Will raise an exception if this project object is invalid.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: bool. &nbsp;Return Ture if succeed.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">openProjectInMGAssetLibrary </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: &nbsp;Open this project in MG-AssetLibrary tool if the tool is opened.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: bool. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">openCategoryInMGAssetLibrary </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">categoryName</span><span style="font-weight: bold; color: #253555;"> )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Open the category in MG-AssetLibrary tool if the tool is there and the project is also opened.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: categoryName: &lt;MGAssetCategory / str&gt; This parameter could be a MGAssetCategory instance or a category name string.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: bool</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">__str__ </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: The method used to print this instance.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: str. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetProj.</span><span style="font-weight: bold; color: #388195;">getLastError </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get the last error string.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: str. &nbsp;Return an empty string if no error happened. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> The Classes MGAssetCategory:  <a id="mgassetcategory"></a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">__init__ </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">projectObject, categoryName = '' </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Init a MGAssetCategory object.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">Use MGAssetProj.addCategory() method to create an instance of MGAssetCategory.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">Or you can call MGAssetCategory(projectObject) to create an invalid instance, and then call initFromCategoryFile(categoryFile) to initialize it.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: projectObject: &lt;MGAssetProj&gt; Should be an valid MGAssetProj instance.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">categoryName: &lt;str&gt; The category name, will validate it and use the validated version.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 216px;"><span style="font-size: 9pt;">If this parameter is an empty string, you should call initFromCategoryFile(categoryFile) to initialize it,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 216px;"><span style="font-size: 9pt;">or else this instance will be invalid.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">initFromCategoryFile </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">categoryFile </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Init the MGAssetCategory object with an existed category file (*.asset). If the instance is successfully initialized, return True, else False.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: categoryFile: &lt;str&gt; Should be an existed '*.asset' file full path.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: bool</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">getName </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get the category name.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: str</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">isValid </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Test if this MGAssetCategory instance is valid.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: bool</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">getCategoryFilePath </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get the category file full path. (path to a '*.asset' file)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: str.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">doesCategoryFileExist </span><span style="font-weight: bold; color: #253555;">(</span><span style="font-weight: bold; color: #602020;"> </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Test the category file actually exists.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: bool</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">clearAssetRecords </span><span style="font-weight: bold; color: #253555;">(</span><span style="font-weight: bold; color: #602020;"> </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Clear all asset records in this category.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: bool. False if the category instance is invalid, True else.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">doesAssetRecordExist </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">mayaFilePath </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Test if the record already exist in the category via the asset path.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: &nbsp;mayaFilePath: &lt;str&gt; A maya scene file full path. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: bool. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">addAssetRecords </span><span style="font-weight: bold; color: #253555;">(</span><span style="font-weight: bold; color: #602020;"> mayaFiles,namespaces=[],states=[],previewImages=[],notes=[], sizeDatas = [], dateDatas = [], versionDatas = [] </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Create a MGAssetRecord instance and add it to the category if not existed. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">If Failed, will return a empty list, else a list of MGAssetRecord instances.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: &nbsp;mayaFiles: &lt;str / list of str&gt; The Maya scene full paths.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">namespaces: &lt;str / list of str&gt; The namespaces. Will use the validated version of the basename of mayaFiles if it is vacant. &nbsp; &nbsp; &nbsp;  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">states: &lt;str / list of str&gt; Each item should just be state name, don't append the color info. &nbsp; </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">previewImages: &lt;str / list of str&gt; Each item should be paths of image files, connected with character ';'  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">notes: &lt;str / list of str&gt; Each item is a annotation for the asset item.  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">sizeDatas: &lt;str / list of str&gt; Each item is a size string for the asset item, in format of such as 1,560KB.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;"><span style="font-size: 9pt;">If vacant will test and use the actually file size string. &nbsp; </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">dateDatas: &lt;str / list of str&gt; Each item is a modification date string for the asset item, &nbsp;in format 'DD/MM/YYYY hh:mm:ss'. eg. 4/10/2014 21:55:4</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;"><span style="font-size: 9pt;">If vacant then will test and use the actually file modification date string.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">versionDatas: &lt;str / list of str&gt; Each item is a maya version string of the asset item, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;"><span style="font-size: 9pt;">If vacant then will test and use the actually file version string.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: list of MGAssetRecord objects.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">deleteAssetRecords </span><span style="font-weight: bold; color: #253555;">(</span><span style="font-weight: bold; color: #602020;"> mayaFiles </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Delete the records already exist in the category via the asset path list.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: &nbsp;mayaFiles: &lt;str / list of str&gt; Maya scene full paths.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: int. Return the actually deleted record count.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">getDataString </span><span style="font-weight: bold; color: #253555;">(</span><span style="font-weight: bold; color: #602020;"> </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get the data string of this category. It is the content when the category is written to disk.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">It is also the content get printed when you call print(categoryObject)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: str</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">writeToDisk </span><span style="font-weight: bold; color: #253555;">(</span><span style="font-weight: bold; color: #602020;"> </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Write the category into disk with a file ends with *.asset.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: bool, True if success.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetCategory.</span><span style="font-weight: bold; color: #388195;">__str__ </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: The method used to print this instance.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: str. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> The Classes MGAssetRecord:  <a id="mgassetrecord"></a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetRecord.</span><span style="font-weight: bold; color: #388195;">__init__ </span><span style="font-weight: bold; color: #253555;">( </span><span style="font-weight: bold; color: #602020;">categoryObject, assetPath, assetName='', assetStateStr='', previewImageStr='', noteStr='', sizeStr='', dateStr='', versionStr = '' </span><span style="font-weight: bold; color: #253555;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Init a MGAssetRecord object.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">Use MGAssetCategoryObj.addAssetRecords() method to create a instance of MGAssetRecord.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: categoryObject: &lt;MGAssetCategory&gt; It should be a valid MGAssetCategory instance.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">assetPath: &lt;str&gt; It should be a full path to a maya scene file. This parameter should not be an empty string and should endswith either '*.ma' or '*.mb'</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">assetName: &lt;str&gt; The namespace of the maya file. &nbsp;Will use validated version of the basename of assetPath if this parameter is an empty string.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">assetStateStr: &lt;str&gt; The state name. No state color string included please, only the state name.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">previewImageStr: &lt;str&gt; The preview images. &nbsp;A string that could contain multiple image file paths, separate the paths with ';' please.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">noteStr: &lt;str&gt; A annotation string for this asset record.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">sizeStr: &lt;str&gt; A string represent the file size, in KB unit. eg. 1,150KB.  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;"><span style="font-size: 9pt;">If this parameter or the dateStr parameter is an empty string, will test and fill in the actually size of the assetPath.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">dateStr: &lt;str&gt; A string represent the file modification date, in format 'DD/MM/YYYY hh:mm:ss'. eg. 4/10/2014 21:55:4</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;"><span style="font-size: 9pt;">If this parameter or the sizeStr parameter is an empty string, will test and fill in the actually date of the assetPath.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">versionStr: &lt;str&gt; The version string of the maya scene file. eg.2015</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;"><span style="font-size: 9pt;">If this parameter is an empty string, will test and fill in the actually version of the assetPath.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetRecord.</span><span style="font-weight: bold; color: #388195;">isValid </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Test if this MGAssetRecord instance is valid.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: bool</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetRecord.</span><span style="font-weight: bold; color: #388195;">getAssetPath </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get the maya scene file full path from this instance.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: str. Will return an empty string if this instance is invalid.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetRecord.</span><span style="font-weight: bold; color: #388195;">getDataString </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get the data string of this instance. The result will also be used in print(instance) call.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: str. Will return an empty string if this instance is invalid.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">MGAssetRecord.</span><span style="font-weight: bold; color: #388195;">__str__ </span><span style="font-weight: bold; color: #253555;">( )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: The method used to print this instance.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return: str. Will return an empty string if this instance is invalid.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> Example Code:  <a id="example"></a></span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:53px; padding:0px;"><p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;">&nbsp;</p>
+<p style="text-align: right; line-height: 1.50;">&nbsp;</p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&gt;&gt;</span></p>
+<p style="text-align: right; line-height: 1.50;">&nbsp;</p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&nbsp;</span></p>
+<p style="text-align: right; line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:5px; padding:0px;"><p style="text-align: right; line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:752px; padding:0px;"><p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #255764;">import</span><span style="font-family: 'Arial Unicode MS';"> MG_PyUtil</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">.</span><span style="font-family: 'Arial Unicode MS';">MG_AssetLibAPI </span><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #255764;">as</span><span style="font-family: 'Arial Unicode MS';"> assetAPI</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">projectObj = assetAPI.MGAssetProj </span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">( </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;PyAPI&quot;</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">, </span><span style="font-family: 'Arial Unicode MS';"> </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Test project for MGAssetLibrary Python API.&quot;</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">, </span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Arial Unicode MS'; color: #800080;"> 'D:/temp/Miguel/test/Lib_PyAPI'</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">, </span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">[</span><span style="font-family: 'Arial Unicode MS';"> </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">'Pending 1 0 0'</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">, </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">'Working 0 0 1'</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">, </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">'Approved 0 1 0'</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;"> ]</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;"> ) &nbsp; &nbsp;  </span><span style="font-family: 'Arial Unicode MS';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">projectObj.writeProjectToDisk()  </span><span style="font-family: 'Arial Unicode MS'; color: #008000;"> #write it to disk</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #255764;">print</span><span style="font-family: 'Arial Unicode MS';"> projectObj</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">charCate = projectObj</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">.</span><span style="font-family: 'Arial Unicode MS';">addCategory </span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">( </span><span style="font-family: 'Arial Unicode MS';">'character' </span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">)</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #255764;">print </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">'The category object\'s validity:'</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">, </span><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #255764;"> </span><span style="font-family: 'Arial Unicode MS';">charCate.isValid </span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">()</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #255764;">print</span><span style="font-family: 'Arial Unicode MS';"> charCate &nbsp; </span><span style="font-family: 'Arial Unicode MS'; color: #008000;">#now it is empty</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">assetObjs = charCate.addAssetRecords </span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">( </span><span style="font-family: 'Arial Unicode MS';">'K:/Data/Char/ciggarette.ma' </span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">)</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">print</span><span style="font-family: 'Arial Unicode MS'; color: #800080;"> 'The asset object\'s validity:'</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">,</span><span style="font-family: 'Arial Unicode MS';"> assetObjs[0]</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">.</span><span style="font-family: 'Arial Unicode MS';">isValid</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">()</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #255764;">print</span><span style="font-family: 'Arial Unicode MS';"> charCate &nbsp; </span><span style="font-family: 'Arial Unicode MS'; color: #008000;">#now the cateogry is not empty</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">projectObj</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">.</span><span style="font-family: 'Arial Unicode MS';">getCategoryObjects</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">()</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">charCate</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">.</span><span style="font-family: 'Arial Unicode MS';">writeToDisk</span><span style="font-family: 'Arial Unicode MS'; font-weight: bold;">()</span><span style="font-family: 'Arial Unicode MS';">  </span><span style="font-family: 'Arial Unicode MS'; color: #008000;">#write it to disk</span></p>
+</td>
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="assetlib_melapi_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="minitoolbox_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

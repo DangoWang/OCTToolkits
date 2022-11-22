@@ -1,0 +1,31 @@
+﻿> 下面是这些Picker的作者信息：
+	> Morpheus Picker:
+		Rig作者是Josh Burton, Morpheus角色可以在www.joshburton.com下载。
+		Picker由米高(高文峰)设计, 网站: http://mgland.com 或 http://twincodes.com。
+
+	> Moom Picker:
+		Rig作者是Ramtin Ahmadi, Moom角色可以在creativeCrash.com上搜索并下载。
+		Picker由米高(高文峰)设计, 网站: http://mgland.com 或 http://twincodes.com。
+
+	> Mery Picker:
+		Rig作者是Antonio Mendez Lora & Jose Manuel Garcia Alvarez, 
+		Mery角色可以在http://www.meryproject.com下载。
+		Picker由米高(高文峰)设计, 网站: http://mgland.com 或 http://twincodes.com。
+
+> 如何打开并使用这些Picker:
+	1: 安装MG-Picker工作室. 
+     	   使用F8快捷键来在动画师模式与设计师模式间切换。
+	   如果你只是想使用下这些picker看看，则切到动画师模式，
+	   如果是想要作为Picker设计的例子来参考，则切到设计师模式。
+
+	2: 双击MG-Picker工作室下方空白区，在Sample_Pickers目录内浏览并选择相应picker的.mgpkr文件。
+ 	   这样Picker文件就在MG-Picker工作室里打开了。
+	   另一种方式是直接拖动.mgpkr文件到MG-Picker工作室上释放即打开。
+
+	3: 您还需要reference相应的角色进场景，记得要使用namespace.
+
+	4: 选择角色的任意部分，确保MG-Picker工作室是当前窗口，按"ctrl+shift+alt+s"来打开namespace设置窗口，
+	   当然也可以按右上角的更多功能按钮，然后选择“设置namespace..”，这样也可以打开同样namespace设置窗口。
+	   点击"<"按钮来取得你的rig使用的namespace. 点击“设置”按钮，这样picker就使用你当前rig的namespace了。
+
+	5: 这样就可以开始使用了!

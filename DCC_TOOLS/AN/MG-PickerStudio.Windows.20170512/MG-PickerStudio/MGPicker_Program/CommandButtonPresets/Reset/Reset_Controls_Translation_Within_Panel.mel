@@ -1,0 +1,5 @@
+//Reset all the translation of the objects from current picker panel.
+MGP_EvalPanelAllSelectButtons 0;  //first select all maya nodes within panel.
+MGP_ResetTransform_ViaSelection 0;  	//arg 0: for reseting translation
+																			//arg 1: for reseting rotatation
+																			//arg 2: for reseting scale. 

@@ -1,0 +1,11 @@
+	MG-PickerStudio Republishing Terms
+To republish MG-PickerStudio, you must agree with all the terms below:
+1. The ownership of MG-PickerStudio program belongs to Miguel Winfield, copyright @ MGLAND animation studio, all rights reserved.
+2. You could not alter any content within the "MGPicker_Program" folder, the "MGPicker_Help" folder, and any other files/folders maintained by the program.
+3. Files within "MGPicker_UserConfig" folder are free to be changed to include your own necessary files, except the "ReadMe" text files.
+4. The ownership of picker files/nodes, auto-sourced scripts and the maya rigs you designed/developed are belong to you,
+   you must guarantee all these materials included inside the "MGPicker_UserConfig" folder are all harmless to the picker user.
+   The auto-sourced scripts developer and picker / rig designer are fully responsable to these materials.
+
+Thanks for using MG-PickerStudio.
+Miguel Winfield

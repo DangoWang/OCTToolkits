@@ -1,0 +1,99 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+//`MG_DualLan "keyframeTool.title"`
+//`MG_DualLanFormat_1 repVar`
+//`MG_DualLan "selM.backUPSel.doit.nosel"`
+//`MG_DualLan "selM.backUPSel.doit.nosel"`
+MG_displaySC "keyframeTool.copyPasteAnimPose.mi" "Maya间复制动画/Pose..";
+MG_displaySC "keyframeTool.copyPasteAnimPose.cons.mi" "Maya间复制约束..";
+MG_displaySC "keyframeTool.copyPasteAnimPose.cons.ann" "在不同的Maya间复制/贴粘约束，约束节点上的帧及被约束体的帧.";
+MG_displaySC "keyframeTool.copyPasteAnimPose.uiTitle" "跨Maya复制粘贴";
+MG_displaySC "keyframeTool.copyPasteAnimPose.ann" "在不同的Maya间复制/贴粘动画/Pose.右键里有很多快速操作方式.";
+MG_displaySC "keyframeTool.copyPasteAnimPose.copyAnim" "只复制动画";
+MG_displaySC "keyframeTool.copyPasteAnimPose.copyPose" "只复制Pose";
+MG_displaySC "keyframeTool.copyPasteAnimPose.copyAnimPose" "复制动画和Pose";
+MG_displaySC "keyframeTool.copyPasteAnimPose.paste" "粘贴在原始位置";
+MG_displaySC "keyframeTool.copyPasteAnimPose.pasteTemp" "粘贴在暂用的Locator";
+MG_displaySC "keyframeTool.copyPasteAnimPose.pasteCFrame" "粘贴在当前帧";
+MG_displaySC "keyframeTool.copyPasteAnimPose.pasteInRange" "粘贴进所选范围(缩放适配)";
+MG_displaySC "keyframeTool.copyPasteAnimPose.clipBoard" "查看剪贴板..";
+MG_displaySC "keyframeTool.copyPasteAnimPose.selClipBoard" "选择剪贴板物体";
+MG_displaySC "keyframeTool.copyPasteAnimPose.checkSel" "测试当前选择..";
+MG_displaySC "keyframeTool.copyPasteAnimPose.simDoc" "查看简易帮助文档..";
+MG_displaySC "keyframeTool.copyPasteAnimPose.detailDoc" "查看详细帮助文档..";
+
+MG_displaySC "keyframeTool.copyPasteAnimPose.congra.mes" "所选的物体个数与剪贴板里的个数匹配!";
+MG_displaySC "keyframeTool.copyPasteAnimPose.war" "警报!!";
+MG_displaySC "keyframeTool.copyPasteAnimPose.war.mes" "所选的物体个数不匹配! 在剪贴板里有 # 个物体，但是场景里有 # 个物体被选择!";
+MG_displaySC "keyframeTool.copyPasteAnimPose.cons.war.mes" "所选的变形节点个数不匹配! 在剪贴板里有 # 个变形节点，但是场景里有 # 个变形节点被选择!";
+MG_displaySC "copyPasteAnimPose.noClip.war" "俺没发现有剪贴板数据存在.";
+MG_displaySC "copyPasteAnimPose.animClip.rep" "物体:  #     模式:  #\n范围:  #\n复制时在帧数:  # ";
+MG_displaySC "copyPasteAnimPose.consClip.rep" "物体:  #     模式:  # ";
+
+MG_displaySC "copyPasteAnimPose.clip.title" "MG-剪贴板";
+MG_displaySC "copyPasteAnimPose.clip.mem" "剪贴板里的成员:";
+MG_displaySC "copyPasteAnimPose.clip.update" "刷新";
+MG_displaySC "copyPasteAnimPose.clip.selMem" "选择成员";
+MG_displaySC "copyPasteAnimPose.clip.Help" "简易帮助";
+MG_displaySC "copyPasteAnimPose.clip.animPose.info" "动画剪贴板信息";
+MG_displaySC "copyPasteAnimPose.clip.cons.info" "约束剪贴板信息";
+MG_displaySC "copyPasteAnimPose.clip.getns.ann" "获取场景所选物体的namespace.";
+MG_displaySC "copyPasteAnimPose.clip.retarget.lbl" "重定向并选择";
+MG_displaySC "copyPasteAnimPose.clip.retarget.ann" "将剪贴板物体换成新namespace并在场景里选择.";
+MG_displaySC "copyPasteAnimPose.clip.retarget.war" " #个物体在您的场景不存在哦.用现有选择个数来粘贴可能有问题哦:(" ;
+
+MG_displaySC "copyPasteAnimPose.copy.noKey" "所选物体没有被Key帧的噢.";
+MG_displaySC "copyPasteAnimPose.copy.done.rep" "所选物体的 # 已被拷贝到MG-剪贴板!";
+
+MG_displaySC "copyPasteAnimPose.paste.done.rep" "粘贴任务完成，请查收!";
+
+MG_displaySC "copyPasteAnimPose.attr" "属性: ";
+MG_displaySC "copyPasteAnimPose.value" "    值: ";
+
+
+MG_displaySC "copyPasteAnimPose.simHelp" "======== 跨Maya间复制粘贴Pose/动画简易帮助 ========\n左上按钮为复制Pose/动画按钮,点击将复制场景所选物体的动画.在上面点右键,可以看到更多的复制方式:\n	只复制Pose:只复制所选择物体在通道栏里有显示的属性值.\n	复制动画和Pose:复制动画同时复制未key帧的属性值.\n\n右上按钮为粘贴Pose/动画按钮. 点击将MG剪贴板的内容在原本位置原位粘贴. 右键里有更多的粘贴方式:\n	粘贴在暂用的Locator:创建临时的locator,并把剪贴板数据原位粘贴在这些locator上.\n	粘贴在当前帧:在当前帧粘贴剪贴板内容.\n	粘贴进所选范围(缩放适配):以缩放适配的方式将剪贴板数据贴进时间滑条上所选时间范围.\n	如果没有选择范围,则贴在当前帧. \n注意在粘贴前选最好跟复制时一样数量的物体. 可以用 \"选择剪贴板物体\" 和 \"检查选择\" 功能来帮你做到这一点.(右键菜单里)";
+MG_displaySC "copyPasteAnimPose.simHelp1" "========== 跨Maya间复制粘贴约束简易帮助 ===========\n左下按钮为复制约束按钮,点击将复制场景所选物体的约束信息及权重值. 在上面点右键,可以看到更多的复制方式:\n	复制约束 && 约束的帧: 复制约束信息，同时复制约束节点上的动画.\n	复制约束 && 约束的帧 && 被约束体的帧: 复制约束信息, 约束节点上的动画及被约束体的Pose及动画信息. \n\n右下按钮为粘贴约束按钮. 点击将MG剪贴板的约束粘贴在当前所选的物体上. 右键里有更多的粘贴方式:\n	高级约束粘贴..: 将打开一个对话框，您可以在里面分别指定每一个约束的约束体. \n注意在粘贴前最好要先选择跟复制时一样数量的物体. 可以用 \"选择剪贴板物体\" 和 \"检查选择\" 功能来帮你做到这一点.(右键菜单里)";
+
+
+
+//mgtools3 new--------------------------------
+MG_displaySC "keyframeTool.copyConstraint.mi" "跨Maya复制约束..";
+MG_displaySC "keyframeTool.pasteConstraint.mi" "跨Maya粘贴约束..";
+
+MG_displaySC "keyframeTool.copyPasteConstraint.ann" "在不同的Maya间复制/贴粘约束.右键里有很多快速操作方式.";
+MG_displaySC "keyframeTool.copyPasteConstraint.copyConsOnly" "只复制约束";
+MG_displaySC "keyframeTool.copyPasteConstraint.copyConsOnly.ann" "只复制约束信息，包括约束偏移值，权重值等等";
+MG_displaySC "keyframeTool.copyPasteConstraint.copyConsKey" "复制约束 && 约束的帧";
+MG_displaySC "keyframeTool.copyPasteConstraint.copyConsKey.ann" "复制约束信息及约束节点上的动画.";
+MG_displaySC "keyframeTool.copyPasteConstraint.copyConsSlaveKey" "复制约束 && 约束的帧 && 被约束体的帧";
+MG_displaySC "keyframeTool.copyPasteConstraint.copyConsSlaveKey.ann" "复制约束信息, 约束节点上的动画及被约束体上的Pose&动画.";
+
+MG_displaySC "keyframeTool.copyPasteConstraint.paste" "粘贴约束";
+MG_displaySC "keyframeTool.copyPasteConstraint.paste.ann" "粘贴约束到场景所选变形节点。粘贴进的信息取决于复制时复制的信息";
+MG_displaySC "keyframeTool.copyPasteConstraint.advPaste" "高级约束粘贴..";
+MG_displaySC "keyframeTool.copyPasteConstraint.advPaste.ann" "点击打开高级约束粘贴对话框，你可以手动为每个约束一一指定约束体.";
+MG_displaySC "selM.backUPSel.doit.noTransformSel" "场景无选择变形节点.";
+MG_displaySC "copyPasteAnimPose.copyCons.done.rep" "场景所选变形节点的 # 信息已被复制到MG-剪贴板!";
+MG_displaySC "copyPasteAnimPose.copyCons.masterNotExist.war" "出错: 约束体不存在: ";
+MG_displaySC "copyPasteAnimPose.copyCons.alreadyConstrainted.war" "对象: # 已经有一个 #, 您是要?";
+MG_displaySC "copyPasteAnimPose.copyCons.pasted.rep" "约束节点已经被粘贴到被约束体 : # .";
+MG_displaySC "copyPasteAnimPose.copyCons.pasted.total.rep" " 个对象被粘贴约束, 总共生成了 # 个约束节点.";
+MG_displaySC "copyPasteAnimPose.pasteCons.objExist.rep" "对象: # 存在.";
+MG_displaySC "copyPasteAnimPose.pasteCons.objNotExist.war" "!!! 对象: # 不存在.";
+
+MG_displaySC "copyPasteAnimPose.consClip.test.lbl" "测试";
+MG_displaySC "copyPasteAnimPose.consClip.pick.lbl" "拾取";
+
+MG_displaySC "copyPasteAnimPose.advPaste.title" "高级约束粘贴";
+MG_displaySC "copyPasteAnimPose.advPaste.topAnn" " * 这个对话框让您可以分别指定每一个约束体.";
+MG_displaySC "copyPasteAnimPose.advPaste.slave.lbl" "被约束体 (场景所选变形节点)";
+MG_displaySC "copyPasteAnimPose.advPaste.nodeType.lbl" "约束类型";
+MG_displaySC "copyPasteAnimPose.advPaste.master.lbl" "约束体替换";
+MG_displaySC "copyPasteAnimPose.advPaste.paste.lbl" "粘贴";

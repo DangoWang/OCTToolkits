@@ -1,0 +1,46 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayTS "cam2dViewer.mi" "攝像機2D檢視工具";
+MG_displayTS "cam2dViewer.ann" "啟動攝像機2D檢視操作工具,你可用它實時地以2D方式平移/縮放/旋轉當前檢視.";
+
+MG_displayTS "cam2dViewer.asignHK.mi" "指定工具快捷鍵..";
+MG_displayTS "cam2dViewer.asignHK.ann" "在MG配置視窗裡為攝像機2D檢視工具指定快捷鍵.";
+MG_displayTS "cam2dViewer.asignResetHK.mi" "指定恢複檢視快捷鍵..";
+MG_displayTS "cam2dViewer.asignResetHK.ann" "在MG配置視窗裡為恢複檢視變動指定快捷鍵.";
+
+MG_displayTS "cam2dViewer.op.mi" "工具選項..";
+MG_displayTS "cam2dViewer.op.ann" "檢視及更改攝像機2D檢視工具選項.";
+MG_displayTS "cam2dViewer.op" "選項:";
+MG_displayTS "cam2dViewer.autoReset" "儲存前自動撤消所有檢視操作";
+MG_displayTS "cam2dViewer.autoReset.ann" "儲存場景前自動撤消所有用該工具進行的檢視操作.";
+MG_displayTS "cam2dViewer.autoSnap" "自動吸附旋轉到45度";
+MG_displayTS "cam2dViewer.autoSnap.ann" "旋轉時自動吸附到45度的倍數.";
+
+
+MG_displayTS "cam2dViewer.usage.title" "   用法:";
+MG_displayTS "cam2dViewer.usage.01" "      左鍵拖拽來放大/縮小檢視 ;";
+MG_displayTS "cam2dViewer.usage.02" "      中鍵拖拽來平移檢視 ;";
+MG_displayTS "cam2dViewer.usage.03" "      shift+左鍵拖拽來旋轉檢視 ;";
+MG_displayTS "cam2dViewer.usage.04" "      shift+中鍵點選來撤消旋轉 ;";
+MG_displayTS "cam2dViewer.usage.05" "      ctrl+左鍵拖拽來放大/縮小框選區 ;";
+MG_displayTS "cam2dViewer.usage.06" "      ctrl+中鍵點選/Enter鍵來撤消所有操作 ;";
+
+MG_displayTS "cam2dViewer.reset.label" "立即撤消";
+MG_displayTS "cam2dViewer.reset.mi" "撤消所有攝像機操作";
+MG_displayTS "cam2dViewer.reset.ann" "立即撤消所有由cam2dViewer工具所造成的攝像機變動";
+MG_displayTS "cam2dViewer.reset.rep" "這些攝像機節點已撤消了更動: # ";
+MG_displayTS "cam2dViewer.reset.no.rep" "場景沒有攝像機需要撤消操作哦 :)";
+
+MG_displayTS "cam2dViewer.FeedBack" "反饋";
+MG_displayTS "cam2dViewer.FeedBack.ann" "點選開啟反饋頁面進行功能反饋.";
+MG_displayTS "cam2dViewer.copyright" "米高 2011 @ 米古島動畫 版權所有";
+
+MG_displayTS "cam2dViewer.temp7.war" "對不起,攝像機2D瀏覽工具在早於maya 8的版本裡還不夠穩定,所以暫無法使用.";
+

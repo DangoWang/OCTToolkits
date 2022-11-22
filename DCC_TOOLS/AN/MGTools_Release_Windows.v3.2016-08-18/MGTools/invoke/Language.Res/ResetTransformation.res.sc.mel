@@ -1,0 +1,11 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "resetTransform.warn.message" "囧 !!!   请您选择一两个物体先~";
+MG_displaySC "resetTransform.warnNoAttrSelected.message" "囧 !!!   请您在通道栏里选择一些属性先..";

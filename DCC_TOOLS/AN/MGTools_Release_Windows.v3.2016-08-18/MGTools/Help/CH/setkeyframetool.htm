@@ -1,0 +1,66 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Key帧工具</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Animation,Keyframe" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "setkeyframetool.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">Key帧工具</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="grapheditor_channel.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="timingtool.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> Key帧工具</span><span style="font-weight: bold; color: #191817;">功能：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">用来按一定间距快速设Key或Key帧每个关键帧。</span><br />
+<span style="color: #3c3c39;">2.5版的解决了会将关键帧数值全部抹平的重大bug。</span><br />
+<span style="color: #3c3c39;">&nbsp;</span></p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> 典型</span><span style="font-weight: bold; color: #191817;">用法：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">1.</span>打开帧工具箱，点开Key帧工具界面如下图。<br />
+<img src="keyframetool_setkey_ch.gif" width="333" height="119" alt="keyframeTool_setKey_ch" style="border:none" /><br />
+&nbsp;</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">2.</span>在场景里选择要设Key的物体。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">3.</span>选上图两个模式任何一种，点&quot;设key&quot;按钮来快速设Key。</p><p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> 界面选项的解释</span><span style="font-weight: bold; color: #191817;">： &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">每个关键帧 ：</span>为所选物体在每个关键帧处都打上Key。其实就是确保每个关键帧处所有可设Key的属性都有设key。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">每...帧 ：</span>为所选物体在每隔一定数量的帧间隔打上Key。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示：选这个模式的话，要注意当前帧在哪个位置对K帧结果是有影响的，因为它会保证设的key会有一个落在当前帧。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">设Key按钮：</span>按上面两个模式中选定的一种模式设Key。 &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示：不论选哪个模式来Key帧，如果你在时间滑条上有选定的时间范围，则只会在该项范围内设Key。 &nbsp; &nbsp; &nbsp; &nbsp;</span><br />
+<img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">&quot;设Key&quot;按钮上点右键 / 设Key非默认值的通道：</span>将设Key所选物体所有可Key帧的，且处于非Rig默认值的属性通道。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">&quot;设Key&quot;按钮上点右键 / 删除无动态的属性Key：</span>调用Maya的&quot;Delete Static Channels&quot;功能。</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="grapheditor_channel.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="timingtool.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

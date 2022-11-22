@@ -1,0 +1,3 @@
+//set a attribute with a value. Input the objectName.attribute without its namespace, the namespace will be replaced by the namespace of picker:
+//Error will occur if there is no such object or attribute.
+MGP_SetAttributeViaPickerNamespace "objNameWithoutNamespace.attr" 0;

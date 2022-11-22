@@ -1,0 +1,2 @@
+//Popup dialog asking for frame count,and keyframe object at each frame count.
+MGP_SetKeyframeEachKeyOrGap 1;  //Arg: 0 for each keytick, 1 for each certain frames.

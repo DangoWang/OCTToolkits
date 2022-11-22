@@ -1,0 +1,20 @@
+global proc MGPickerAttrNudgerValues(string $toolName) 
+{
+	global string $MGPicker_ProgramPath;
+	string $icon = $MGPicker_ProgramPath+"MGPicker_Program/Icons/Colored/Picker_designerModeIcon.png";
+	string $helpHtml =($MGPicker_ProgramPath+"MGPicker_Help/English/index.html");
+	string $lan = `MGPickerService -q -osl`;
+	if($lan=="Chinese")$helpHtml = ($MGPicker_ProgramPath+"MGPicker_Help/SimplifiedChinese/index.html");
+	
+	string $help = " -a \""+$helpHtml+"\"";
+	toolPropertySetCommon $toolName $icon $help;
+
+	MGPickerAttrNudgerOptionValues($toolName);
+	toolPropertySelect MGPickerAttrNudger;	
+}
+global proc MGPickerAttrNudgerOptionReset()
+{
+}
+global proc MGPickerAttrNudgerOptionValues(string $toolName)
+{  
+}

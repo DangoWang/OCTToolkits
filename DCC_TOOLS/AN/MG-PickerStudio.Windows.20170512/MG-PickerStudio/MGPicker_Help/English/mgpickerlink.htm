@@ -1,0 +1,294 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>MGPickerLink Command</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="API,MGPickerLink command" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "mgpickerlink.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="mgpickeritem.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="mgpickermenu.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; height:8px; padding:1px;"><p><span style="font-family: 'Times New Roman'; font-weight: bold;">command</span><span style="font-family: 'Times New Roman';"> (MEL/Python)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; height:5px; padding:1px;"><h1 class="p_Heading1" style="margin: 19px 0px 19px 0px;"><span class="f_Heading1" style="font-size: 24pt; font-family: 'Times New Roman';">MGPickerLink</span></h1>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 14px 0px 0px 0px;"><span style="font-size: 12pt; font-family: 'Times New Roman';">Go to: <a href="mgpickerlink.htm#synopsis" class="topiclink">MEL synopsis</a>. <a href="mgpickerlink.htm#pysynopsis" class="topiclink">Python synopsis</a>. <a href="mgpickerlink.htm#returnvalue" class="topiclink">Return value</a>. <a href="mgpickerlink.htm#flags" class="topiclink">Flags</a>. <a href="mgpickerlink.htm#examples" class="topiclink">MEL examples</a>. <a href="mgpickerlink.htm#pyexamples" class="topiclink">Python examples</a>.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="synopsis"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">MEL Synopsis</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">MGPickerLink [-<a href="mgpickerlink.htm#exist" class="topiclink">exist</a>] [-<a href="mgpickerlink.htm#remove" class="topiclink">remove</a>] [-<a href="mgpickerlink.htm#source" class="topiclink">source</a>] [-<a href="mgpickerlink.htm#target" class="topiclink">target</a>] [-<a href="mgpickerlink.htm#targetvalues" class="topiclink">targetValues</a>] [-<a href="mgpickerlink.htm#type" class="topiclink">type</a>] [-<a href="mgpickerlink.htm#view" class="topiclink">view</a>] linkIDString</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="pysynopsis"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">Python Synopsis</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">MGPickerLink (linkIDString, [<a href="mgpickerlink.htm#exist" class="topiclink">exist</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">] [<a href="mgpickerlink.htm#remove" class="topiclink">remove</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">] [<a href="mgpickerlink.htm#source" class="topiclink">source</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">] [<a href="mgpickerlink.htm#target" class="topiclink">target</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">] [<a href="mgpickerlink.htm#targetvalues" class="topiclink">targetValues</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">] [<a href="mgpickerlink.htm#type" class="topiclink">type</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">boolean</span><span style="font-family: 'Courier New';">]) [<a href="mgpickerlink.htm#view" class="topiclink">view</a>=</span><span style="font-family: 'Courier New'; font-style: italic;">string</span><span style="font-family: 'Courier New';">])</span></p>
+<p style="margin: 0px 0px 14px 0px;"><span style="font-family: 'Times New Roman'; font-style: italic;">Note: Strings representing object names and arguments must be separated by commas. This is not depicted in the synopsis.</span></p>
+<p style="margin: 14px 0px 14px 0px;"><span style="font-size: 12pt; font-family: 'Times New Roman';">MGPickerLink is </span><span style="font-size: 12pt; font-family: 'Times New Roman'; font-weight: bold;">NOT undoable</span><span style="font-size: 12pt; font-family: 'Times New Roman';">, </span><span style="font-size: 12pt; font-family: 'Times New Roman';">queryable, and editable.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">This command create / queries / edit picker links.</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="returnvalue"></a><span style="font-size: 18pt; font-family: 'Times New Roman'; font-weight: bold;">Return value</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 19px 0px 0px 0px;"><table style="border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:100%; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">Depend on the flag, the return value could be string, boolean, etc.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 19px 0px 19px 0px;"><a id="flags"></a><span style="font-size: 18pt; font-family: 'Times New Roman'; font-weight: bold;">Flags</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';"><a href="mgpickerlink.htm#exist" class="topiclink">exist</a>, <a href="mgpickerlink.htm#remove" class="topiclink">remove</a>, <a href="mgpickerlink.htm#source" class="topiclink">source</a>, <a href="mgpickerlink.htm#target" class="topiclink">target</a>, <a href="mgpickerlink.htm#targetvalues" class="topiclink">targetValues</a>, <a href="mgpickerlink.htm#type" class="topiclink">type</a></span><span style="font-size: 12pt; font-family: 'Times New Roman';">, <a href="mgpickerlink.htm#view" class="topiclink">view</a></span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman'; font-weight: bold;">Long name (short name)</span></p>
+</td>
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman'; font-style: italic; font-weight: bold;">Argument types</span></p>
+</td>
+<td style="vertical-align:bottom; background-color:#cccccc; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman'; font-weight: bold;">Properties</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="exist"></a><span style="font-family: 'Courier New'; font-weight: bold;">-exist</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-ex</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a query only flag that can be used to query for the existence of a specific link.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="remove"></a><span style="font-family: 'Courier New'; font-weight: bold;">-remove</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-rm</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><br />
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a edit only flag that can be used to remove a specific link.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="source"></a><span style="font-family: 'Courier New'; font-weight: bold;">-source</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-s</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:942px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">If queried this flag will return the source picker item id.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">The flag can't be used in edit mode, and you must use it with -target flag to both assign a source &amp; target picker item id.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="target"></a><span style="font-family: 'Courier New'; font-weight: bold;">-target</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-t</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">If queried this flag will return the target picker item id.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">The flag can't be used in edit mode, and you must use it with -source flag to both assign a source &amp; target picker item id.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="targetvalues"></a><span style="font-family: 'Courier New'; font-weight: bold;">-targetValues</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-tvs</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">If queried this flag will return all the target values as string array.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">In creation / edit mode, you must assign a string value as the argument, the string is all the target value strings join by &quot;,&quot; character.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="type"></a><span style="font-family: 'Courier New'; font-weight: bold;">-type</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-typ</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p><span style="font-size: 12pt; font-family: 'Times New Roman';">This is a query only flag that can be used to query for the type of a specific link.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">You can't edit the type of the link using this flag, since the type is auto-decided by the source &amp; target picker items.</span></p>
+<p><span style="font-size: 12pt; font-family: 'Times New Roman';">The possible type string are &nbsp;&quot;parentLink&quot; or &quot;attributeLink&quot;.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><a id="view"></a><span style="font-family: 'Courier New'; font-weight: bold;">-view</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; font-weight: bold;">-v</span><span style="font-family: 'Courier New';">)</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><span style="font-family: 'Courier New'; font-style: italic;">string</span></p>
+</td>
+<td style="vertical-align:top; background-color:#eeeeee; padding:1px;"><p><img src="create.gif" width="13" height="16" alt="create" title="create" style="margin:2px 2px 2px 2px; border:none" /><img src="query.gif" width="13" height="16" alt="query" title="query" style="margin:2px 2px 2px 2px; border:none" /><img src="edit.gif" width="13" height="16" alt="edit" title="edit" style="margin:2px 2px 2px 2px; border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:middle; padding:1px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:none; border-spacing:2px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:40px; padding:1px;"><br />
+</td>
+<td style="vertical-align:middle; width:943px; padding:1px;"><p style="line-height: 1.15;"><span style="font-size: 12pt; font-family: 'Times New Roman';">This controls which picker view that the link belongs to, if this flag is not specified, then current view will be used by default. A picker view id string should be specified for this flag in query, create, edit mode. </span></p>
+<p style="line-height: 1.15;"><span style="font-size: 12pt; font-family: 'Times New Roman';">The picker view id could be retrieved by MGPicker commands such as: &nbsp;(Please refer to MGPicker command manual for further details.)</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp;MGPicker -q -currentPickerView; &nbsp; &nbsp; // Get current script execution view id, eg. picker load command, picker mouse enter command. Only be set during the script being executed.</span><br />
+<span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp;MGPicker -q -activePickerView; &nbsp; &nbsp; // Get current active view id.</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp;MGPicker -q -findPickerView &nbsp;&quot;pickerNodeOrFileName&quot; &nbsp;1 &quot;namespace&quot;; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Find picker view id via picker node name or picker file name and namespace.</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp;MGPicker -q -listAllPickerViews; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// List ids of all opened picker views.</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp;MGPicker -e -createTempPicker; &nbsp; &nbsp; // Create a temporary picker view and return its id.</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp;MGPicker -e -createPicker &quot;pickerName&quot; &quot;namespace&quot; &quot;filePath&quot; &quot;nodeName&quot;; &nbsp; &nbsp; &nbsp; &nbsp;// Create a picker view and return its id. </span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp;MGPicker -e -readPickerNode &quot;nodeName&quot;; &nbsp; &nbsp; &nbsp; // Read in-scene picker node and return its id.</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp;MGPicker -e -readScenePicker &quot;nodeName&quot; &quot;pickerName&quot; &quot;namespace&quot; &quot;pickerDataString&quot;; &nbsp; &nbsp; &nbsp; // Read in-scene picker node and return its id.</span></p>
+<p style="line-height: 1.15;"><span style="font-size: 11pt; font-family: 'Times New Roman';"> &nbsp; &nbsp;MGPicker -e -readPickerFile &quot;pickerFilePath&quot; 1; &nbsp; &nbsp; &nbsp; &nbsp; // Read a picker file and return its id.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<hr style="height:2px; color:#cccccc; border-width:0px; background-color:#cccccc;" /><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 10px 0px 0px 0px;"><table style="background-color:#eeeeee; border:none; border-spacing:1px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:4px;"><p><img src="create.gif" width="13" height="16" alt="create" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';">Flag can appear in Create mode of command</span></p>
+</td>
+<td style="vertical-align:top; padding:4px;"><p><img src="edit.gif" width="13" height="16" alt="edit" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';">Flag can appear in Edit mode of command</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:4px;"><p><img src="query.gif" width="13" height="16" alt="query" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';">Flag can appear in Query mode of command</span></p>
+</td>
+<td style="vertical-align:top; padding:4px;"><p><img src="multiuse.gif" width="13" height="16" alt="multiuse" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 12pt; font-family: 'Times New Roman';">Flag can be used more than once in a command.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 19px 0px 0px 0px;"><a id="examples"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">MEL examples</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">//You&nbsp;must&nbsp;make&nbsp;sure&nbsp;the&nbsp;picker&nbsp;item:&nbsp;selectButton1,&nbsp;selectButton2,&nbsp;attributeButton1&nbsp;are&nbsp;already&nbsp;in&nbsp;scene&nbsp;in&nbsp;order&nbsp;to&nbsp;test&nbsp;these&nbsp;codes.</span><br />
+<span style="font-family: 'Courier New';">//link&nbsp;two&nbsp;select-buttons&nbsp;with&nbsp;parent&nbsp;link.</span><br />
+<span style="font-family: 'Courier New';">//for&nbsp;select-button,&nbsp;the&nbsp;target&nbsp;attribute&nbsp;value&nbsp;flag&nbsp;makes&nbsp;no&nbsp;sense.</span><br />
+<span style="font-family: 'Courier New';">//you&nbsp;don't&nbsp;want&nbsp;to&nbsp;assign&nbsp;a&nbsp;custom&nbsp;link&nbsp;name&nbsp;here,&nbsp;since&nbsp;it&nbsp;is&nbsp;always&nbsp;sourcePickerItemName&gt;targetPickerItemName. &nbsp; &nbsp; &nbsp; &nbsp;</span><br />
+<span style="font-family: 'Courier New';">string&nbsp;$newParentLink&nbsp;=&nbsp;`MGPickerLink&nbsp;-s&nbsp;selectButton1&nbsp;-t&nbsp;selectButton2`;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><br />
+<span style="font-family: 'Courier New';">print&nbsp;(&quot;The&nbsp;type&nbsp;for&nbsp;the&nbsp;link&nbsp;\&quot;&quot;+$newParentLink+&quot;\&quot;&nbsp;is:&nbsp;&quot;+`MGPickerLink&nbsp;-q&nbsp;-type&nbsp;$newParentLink`&nbsp;+&nbsp;&quot;.\n&quot;);</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">//link&nbsp;seelct-button&nbsp;to&nbsp;a&nbsp;attribute&nbsp;button,&nbsp;a&nbsp;attribute-link&nbsp;will&nbsp;be&nbsp;created.</span><br />
+<span style="font-family: 'Courier New';">string&nbsp;$newAttrLink&nbsp;=&nbsp;`MGPickerLink&nbsp;-s&nbsp;&quot;selectButton1&quot;&nbsp;-t&nbsp;&quot;attributeButton1&quot;&nbsp;-targetValues&nbsp;&quot;Green,Red&quot;`;</span><br />
+<span style="font-family: 'Courier New';">print&nbsp;&quot;The&nbsp;item&nbsp;selectButton1&nbsp;is&nbsp;linked&nbsp;and&nbsp;controlled&nbsp;by&nbsp;the&nbsp;item&nbsp;attributeButton1&nbsp;at&nbsp;values:&nbsp;\n&quot;;</span><br />
+<span style="font-family: 'Courier New';">print&nbsp;`MGPickerLink&nbsp;-q&nbsp;-targetValues&nbsp;$newAttrLink`;</span></p>
+<p style="margin: 19px 0px 0px 0px;"><a id="pyexamples"></a><span style="font-size: 14pt; font-family: 'Times New Roman'; font-weight: bold;">Python examples</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">import maya.cmds as cmd</span></p>
+<p style="margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">#You must make sure the picker item: selectButton1, selectButton2, attributeButton1 are already in scene in order to test these codes.</span><br />
+<span style="font-family: 'Courier New';">#link two select-buttons with parent link.</span><br />
+<span style="font-family: 'Courier New';">#for select-button, the target attribute value flag makes no sense.</span><br />
+<span style="font-family: 'Courier New';">#you don't want to assign a custom link name here, since it is always sourcePickerItemName&gt;targetPickerItemName. &nbsp; &nbsp; &nbsp; &nbsp;</span><br />
+<span style="font-family: 'Courier New';">newParentLink = cmd.MGPickerLink(s='selectButton1',t='selectButton2') &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><br />
+<span style="font-family: 'Courier New';">print (&quot;The type for the link \&quot;&quot;+newParentLink+&quot;\&quot; is: &quot;+ cmd.MGPickerLink(newParentLink, q=True,type=True) + &quot;.\n&quot;)</span></p>
+<p style="white-space: nowrap; margin: 19px 0px 0px 0px;"><span style="font-family: 'Courier New';">#link&nbsp;seelct-button&nbsp;to&nbsp;a&nbsp;attribute&nbsp;button,&nbsp;a&nbsp;attribute-link&nbsp;will&nbsp;be&nbsp;created.</span><br />
+<span style="font-family: 'Courier New';">newAttrLink&nbsp;=&nbsp;cmd.MGPickerLink(s='selectButton1',t='attributeButton1',targetValues='Green,Red')</span><br />
+<span style="font-family: 'Courier New';">print&nbsp;(&quot;The&nbsp;item&nbsp;selectButton1&nbsp;is&nbsp;linked&nbsp;and&nbsp;controlled&nbsp;by&nbsp;the&nbsp;item&nbsp;attributeButton1&nbsp;at&nbsp;values:&nbsp;\n&quot;)</span><br />
+<span style="font-family: 'Courier New';">print&nbsp;(cmd.MGPickerLink(newAttrLink,q=True,targetValues=True))</span></p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="mgpickeritem.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="mgpickermenu.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

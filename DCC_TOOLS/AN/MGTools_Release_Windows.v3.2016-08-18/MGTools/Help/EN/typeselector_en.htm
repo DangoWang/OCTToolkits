@@ -1,0 +1,76 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>typeselector</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Selection,Type" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "typeselector_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold; color: #191817;">Type Selector:</span><span class="f_ImageCaption" style="font-size: 10pt;"> </span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:51px; padding:0px;"><p style="text-align: center; line-height: 1.50;"><img src="typeselectoricon.gif" width="32" height="32" alt="typeSelectorIcon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:13px; padding:0px;"><p style="line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">Filter the scene objects and select them for you.</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">Kind like the &quot;select by name&quot; feature of 3dsMax.</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">notice that it only take all DAG nodes of your scene into consideration and ignore all non-DAG nodes.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold; color: #191817;"> Why use it:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">To quickly select the DAG nodes that has some same features.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">ie. select all keyframed objects of your scene, all objects of your selected rig, all geometry, all nurbsCurves and so on.</span></p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span style="font-weight: bold; color: #191817;">Type selector UI:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="typeselector_en.gif" width="342" height="528" alt="typeSelector_en" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle" style="color: #404040;"> Condition buttons in area &nbsp;A：</span><span style="color: #3c3c39;">Press each button to select objects that meet that single condition in your scene.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="color: #3c3c39;">If you check on the checkBox in the left of the button,when you do the compound selection by pressing the &quot;Select&quot; button on the UI, that condition must be met.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Keyframed / Non-Keyframed : </span>You can only check on one of these two checkboxes. Filter that object are keyframed or not. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Reference / Non-Reference: </span>You can only check on one of these two checkboxes.Filter that object are referenced &nbsp;or not. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Hidden / Non-Hidden: </span>You can only check on one of these two checkboxes.Filter that object are hidden &nbsp;or not (whose visibility is set to 0). </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Constrained / Non-Constrained: </span>You can only check on one of these two checkboxes.Filter that object are constrained by other object &nbsp;or not . </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">SelectedRig / Non-SelectedRig : </span>You can only check on one of these two checkboxes.Filter that object are a child of selected object's top parent object or not. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">SelectedObjs / Non-SelectedObjs : </span>You can only check on one of these two checkboxes. Filter that object are one of selected objects or not . </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Type Filter: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">T</span>he type filter area B will be shown right after you check the &quot;Type Filter: &quot; checkbox. Filter the select target with maya's node type.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">All/None/Invert: </span>Check all on / off / invert the checkboxes in the area B.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle" style="color: #404040;"> Condition buttons in area B: </span><span style="color: #3c3c39;">Press each type button to select objects that belong to that type in your scene.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="color: #3c3c39;">If you check on the checkBox in the left of the button,when you do compound selection by pressing the &quot;Select&quot; button on the UI, that type will be taken into consideration.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Custom : </span>The textField will be available only after you check on this checkbox. Type in you custom nodeType into the textField.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">&lt;-GET : </span>Get the nodeType of the selected node in your scene. It will be handy if user don't know the node type name of a certain node.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">All Type button below :  </span>(The &quot;(T)&quot; stands for that type node's transform node. The &quot;(S)&quot; means the shape nodes that belong to the right type.)</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 120px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="color: #404040;">Transform:  </span>Transform nodes. Nodes that has translate,rotate,scale attributes.</p><p style="text-align: left; padding: 0px 0px 0px 133px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="color: #404040;">ImagePlane: </span>ImagePlane node.</p><p style="text-align: left; padding: 0px 0px 0px 133px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="color: #404040;">All Geometry(T): </span>All transform nodes that has a geometry type shape. including polygon, nurbs and sub-D.</p><p style="text-align: left; padding: 0px 0px 0px 133px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="color: #404040;">All Geometry(S): </span>All geometry shape nodes. including polygon,nurbs and sub-D.</p><p style="text-align: left; padding: 0px 0px 0px 133px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="color: #404040;">...(You can refer to maya's node reference to know what the other types mean)</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;"> Select:  </span>Select all the objects in your scene that meet the conditions that check on. The target to select will meet all the conditions of area A at the same time, but only need to meet one of the type conditions from area B .</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Close:  </span>Close typeSelector.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="warning.gif" width="16" height="16" alt="Warning" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> &nbsp; </span><span style="color: #ff0000;">Notice that this type selector only deal with DAG objects. Non-DAG objects will be ignored. (Check off &quot;DAG Objects Only&quot; in Maya's Outliner to see the new showing nodes.they are all non-DAG nodes.)</span></p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="selection_manager_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="constraint_tool_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

@@ -1,0 +1,103 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Picker交互</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="animator interactivity" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "animatorinteractivity.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="viewportmanipulation.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="simpleediting.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">动画师Picker交互:  </span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">MG-Picker提供强大丰富的动画师Picker交互方式。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">确保您当前处于动画师交互方式，这意味着界面这个按钮被选中： </span><img src="animatorpreviewmode.jpg" width="25" height="24" alt="animatorPreviewMode" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt; font-weight: bold;">- 选择: 采用跟Maya类似的选择规则.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">鼠标左键点击选择按钮/框选它们：选择相应的节点。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">CTRL + 鼠标左键点击选择按钮/框选它们：去选相应的节点。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">SHIFT + 鼠标左键点击选择按钮/框选它们：反选相应的节点。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> 在做上述选择操作时按ALT键，则同样的选择将被应用到所交互选择按钮的镜象按钮。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="font-size: 9pt;">这意味着ALT键点击一个选择按钮，它的镜象按钮的成员也同时可以被选择/去选/反选。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">鼠标左键 + 双击一个选择按钮，在选择该按钮的成员节点同时，将同时选择它的所有子按钮的成员节点。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="font-size: 9pt;">要使用这个技巧，前提是在设计时，设计师有将他们用父子连接连起来。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">CTRL / SHIFT + 鼠标右键点击选择按钮，将弹出这个按钮的成员视图，这样您可以进一步细选按钮的成员。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> 点击这个成员视图右上方的按钮，使这个视图成为一个窗口，这个窗口即是MG-选择辅助器窗口，可以帮助您执行一些暂时性的选择。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt; font-weight: bold;">- 命令按钮: </span><span style="font-size: 9pt;">只需要鼠标左键点击并确保存在按钮上释放，您就可以执行这个命令按钮的命令。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt; font-weight: bold;">- Pose命令按钮: </span><span style="font-size: 9pt;">鼠标左键点击并确保存在按钮上释放则100%应用Pose，如果按Ctrl再点击，则是以20%幅度来应用Pose, 按Shift再点击，则是以50%幅度来应用Pose.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt; font-weight: bold;">- 属性按钮:</span><span style="font-size: 9pt;"> 鼠标左键点击属性按钮的数值区域，即可以改变它的属性或显示可用来改变属性的控件。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">点击标签区域则只是选择到这个属性按钮，以便中键可以在3D视图里进行属性拖动。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-weight: bold;">- 每次属性按钮被选择:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Maya的当前工具被切为MG-Picker工作室自带的属性拖动工具, 您因此可以直接中键在3D视图拖动来拖这些属性按钮所代表的属性。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">横向拖动影响它的属性，不过这个工具不支持用ALT键来影响镜象属性，因为在Maya 3D视图中的ALT键被定死用来控制视图。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt; font-weight: bold;">- 滑条 :</span><span style="font-size: 9pt;"> 同样的CTRL / SHIFT / Alt / 双击规则也适用于滑条的滑杠，在影响Maya选择的规则 上。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-weight: bold;">- 在Picker视图中移动滑条滑杠:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">SHIFT + 鼠标左键拖拽： 约束移动方向到水平/垂直方式。这对于一个二维滑条来讲很有用。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Alt + 鼠标左键拖拽: 同时影响镜象滑条的滑杠。这样，你可以同时调整比如嘴角控制器往不同的互相镜象的方向移动。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-weight: bold;">- 要快速重置滑条的属性:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">选择要重置属性的所有滑条的滑杠，双击这些滑条之一的背景。 </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;">要小心不是双击滑条的滑杠本身，因为这个是用来执行父子选择的。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">如果直接鼠标左键双击其它未选择的滑条的背景，则只是重置那个滑条的属性而已。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-weight: bold;">- 每次滑条上的滑杠被选择:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Maya的当前工具被切为MG-Picker工作室自带的属性拖动工具, 您因此可以直接中键在3D视图拖动来拖这些滑条所代表的属性。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">横向拖动影响水平属性，纵向拖动则影响垂直属性。不过这个工具不支持用ALT键来影响镜象属性，因为在Maya 3D视图中的ALT键被定死用来控制视图。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">不过这个工具在中键拖动时支持SHIFT键，以限制拖动方向为水平或垂直，这样就只单单影响水平或垂直属性。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">也支持CTRL键，按下后，拖动时就会以更小的幅度影响当前属性。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt; font-weight: bold;">- Picker对象的左/右键菜单：</span><span style="font-size: 9pt;">每个picker对象可以带有一个左键(及或)右键菜单，甚至Picker面板也可以。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">这是Picker设计阶段就要做的事情。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">对于每一个带右键菜单的Picker对象，在形状上会有一个实心的三角形，直接右键点击来弹出菜单 。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">对于每一个带左键菜单的Picker对象，在形状上会有一个箭号，直接左键点击来弹出菜单 。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">这些菜单也可以是Marking menu.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> 对于Picker面板的右键菜单，您可以直接右键点击任何一个面板的空白处来弹出菜单 ，但如果是左键菜单，您就只能左键点击面板的标题区来弹出左键菜单，直接左键点击面板的内容区空白区是用来去掉场景选择的，不会弹出左键菜单。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;<br />
+&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;<br />
+&nbsp;</p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="viewportmanipulation.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="simpleediting.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

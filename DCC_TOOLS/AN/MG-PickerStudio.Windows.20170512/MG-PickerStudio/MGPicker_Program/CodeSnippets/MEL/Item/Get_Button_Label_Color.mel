@@ -1,0 +1,1 @@
+float $labelColor[] = `MGPickerItem -q -labelColor ""`;	//To-Do: input the button id string to get the label color of it. 

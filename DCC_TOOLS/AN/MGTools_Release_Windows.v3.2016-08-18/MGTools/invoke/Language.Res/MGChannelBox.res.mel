@@ -1,0 +1,146 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "MGcBox.selMask.mi" "SelectMask Switch";
+MG_displayEN "MGcBox.selMask.mi.anno" "Click to switch selection mask between all selectable and only animation controllers.";
+MG_displayEN "MGcBox.cLayer.title" "Create Display Layer";
+MG_displayEN "MGcBox.cLayer.cEmpty" "Create empty";
+MG_displayEN "MGcBox.cLayer.cSel" "Create with sel";
+
+MG_displayEN "MGcBox.Layer.option.title" "LayerEditor_option";
+MG_displayEN "MGcBox.Layer.option.annoText" "Load LayerEditor in ";
+MG_displayEN "MGcBox.Layer.option.option1" "Floating mode";
+MG_displayEN "MGcBox.Layer.option.option2" "Embed mode";
+
+MG_displayEN "MGcBox.Layer.mi.allT" "All Template";
+MG_displayEN "MGcBox.Layer.mi.allN" "All Normal";
+MG_displayEN "MGcBox.Layer.mi.setT" "Set layer to template:";
+MG_displayEN "MGcBox.Layer.mi.allR" "All Reference";
+MG_displayEN "MGcBox.Layer.mi.setR" "Set layer to Reference:";
+MG_displayEN "MGcBox.Layer.mi.cAdd" "Create/Add Layer";
+MG_displayEN "MGcBox.Layer.mi.cLDot" "Create Layer..";
+MG_displayEN "MGcBox.Layer.mi.cL" "Create Layer";
+MG_displayEN "MGcBox.Layer.mi.addSelTo" "Add selection to:";
+MG_displayEN "MGcBox.Layer.mi.removeSel" "Remove Selected Objects";
+MG_displayEN "MGcBox.Layer.mi.del" "Delete Layer";
+MG_displayEN "MGcBox.Layer.mi.delNU" "Delete Unsed Layers";
+MG_displayEN "MGcBox.Layer.mi.delA" "Delete All Layers";
+MG_displayEN "MGcBox.Layer.mi.delL" "Delete layer:";
+
+MG_displayEN "MGcBox.RLayer.mi" "Set Current RenderLayer:";
+
+MG_displayEN "MGcBox.title" "MGChannelBox";
+MG_displayEN "MGcBox.option.title" "MGChannelBox_option";
+MG_displayEN "MGcBox.option.miniMGTools" "Minimize MGTools while loading MGchannelBox";
+MG_displayEN "MGcBox.option.showMB" "Show MGchannelBox MenuBar";
+
+MG_displayEN "MGcBox.selAttr.war" "Select attributes from MGChannelBox please!";
+
+MG_displayEN "MGcBox.bakeAttr.war" "Bake option";
+MG_displayEN "MGcBox.bakeAttr.mes" "You want bake a key per how many frames:";
+MG_displayEN "MGcBox.bakeAttr.btn" "Bake !";
+
+//===============CB MI ==========================
+//`MG_DualLan "MGcBox.mi.resetC"`
+MG_displayEN "MGcBox.menu.key" "Key";
+MG_displayEN "MGcBox.mi.resetC" "Reset channel";
+MG_displayEN "MGcBox.mi.resetR" "Reset Rotation";
+MG_displayEN "MGcBox.mi.resetT" "Reset Translation";
+MG_displayEN "MGcBox.mi.resetS" "Reset Scale";
+MG_displayEN "MGcBox.mi.resetA" "Reset All";
+MG_displayEN "MGcBox.mi.KeySel" "Key Selected";
+MG_displayEN "MGcBox.mi.KeyA" "Key All";
+MG_displayEN "MGcBox.mi.BreakdownS" "Breakdown Selected";
+MG_displayEN "MGcBox.mi.BreakdownA" "Breakdown All";
+MG_displayEN "MGcBox.mi.MuteS" "Mute Selected";
+MG_displayEN "MGcBox.mi.MuteA" "Mute All";
+MG_displayEN "MGcBox.mi.uMuteS" "Unmute Selected";
+MG_displayEN "MGcBox.mi.uMuteA" "Unmute All";
+MG_displayEN "MGcBox.mi.delSel" "Delete Selected";
+MG_displayEN "MGcBox.mi.cutSel" "Cut Selected";
+MG_displayEN "MGcBox.mi.copySel" "Copy Selected";
+MG_displayEN "MGcBox.mi.pasteSel" "Paste Selected";
+MG_displayEN "MGcBox.mi.bakeSel" "Bake Selected";
+
+MG_displayEN "MGcBox.menu.attr" "Attribute";
+MG_displayEN "MGcBox.mi.bConnect" "Break Connections";
+MG_displayEN "MGcBox.mi.aAttr" "Add Attribute";
+MG_displayEN "MGcBox.mi.eAttr" "Edit Attribute";
+MG_displayEN "MGcBox.mi.dAttr" "Delete Attribute";
+MG_displayEN "MGcBox.mi.LHsel" "Lock and Hide Selected";
+MG_displayEN "MGcBox.mi.Lsel" "Lock Selected";
+MG_displayEN "MGcBox.mi.uLsel" "Unlock Selected";
+MG_displayEN "MGcBox.mi.Hsel" "Hide Selected";
+MG_displayEN "MGcBox.mi.mNonKey" "Make Selected Nonkeyable";
+MG_displayEN "MGcBox.mi.mKey" "Make Selected Keyable";
+
+MG_displayEN "MGcBox.menu.editor" "Editor";
+MG_displayEN "MGcBox.mi.connectE" "Connection Editor..";
+MG_displayEN "MGcBox.mi.consE" "Constraint Lister..";
+MG_displayEN "MGcBox.mi.ouL" "Outliner..";
+MG_displayEN "MGcBox.mi.LE" "Layer Editor..";
+MG_displayEN "MGcBox.mi.SDK" "Set Driven Key..";
+MG_displayEN "MGcBox.mi.CC" "Channel Control..";
+MG_displayEN "MGcBox.mi.AE" "Attribute Editor..";
+MG_displayEN "MGcBox.mi.Exp" "Expressions..";
+MG_displayEN "MGcBox.mi.Ref" "ReferenceEditor..";
+MG_displayEN "MGcBox.mi.SE" "Script Editor..";
+MG_displayEN "MGcBox.mi.HG" "Hypergraph..";
+
+MG_displayEN "MGcBox.mi.Freeze" "Toggle Freeze UI";
+MG_displayEN "MGcBox.mi.GEPlaug" "Toggle graphEditor plugin";
+MG_displayEN "MGcBox.mi.sProject" "SetProject..";
+MG_displayEN "MGcBox.mi.nProject" "NewProject..";
+
+MG_displayEN "MGcBox.menu.Project" "Project";
+
+MG_displayEN "MGcBox.noPanel.anno" "Click to switch MGchannelBox between single / multiple mode.";
+MG_displayEN "MGcBox.Panel.Embed" "Embed";
+MG_displayEN "MGcBox.Panel.Embed.anno" "Click to make editor embed.";
+MG_displayEN "MGcBox.Panel.PopUp" "PopUp";
+MG_displayEN "MGcBox.Panel.PopUp.anno" "Click to make editor PopUp.";
+MG_displayEN "MGcBox.Panel.lr.anno" "Click to swith leftRight of MGchannelBox and editor.";
+MG_displayEN "MGcBox.Panel.selSet.anno" "Load Selection Set tool.";
+MG_displayEN "MGcBox.Panel.outliner.anno" "Load Outliner.";
+MG_displayEN "MGcBox.Panel.ref.anno" "Load Reference Editor.";
+MG_displayEN "MGcBox.Panel.ge.anno" "Load Graph Editor.";
+MG_displayEN "MGcBox.Panel.ds.anno" "Load DopeSheet.";
+MG_displayEN "MGcBox.Panel.other.anno" "Mouse left button clicking it to load other panel.";
+
+MG_displayEN "MGcBox.Panel.cam" "Camera";
+MG_displayEN "MGcBox.Panel.hg" "HyperGraph";
+MG_displayEN "MGcBox.Panel.hs" "hyperShade";
+MG_displayEN "MGcBox.Panel.tx" "traxEditor";
+MG_displayEN "MGcBox.Panel.uv" "UVEditor";
+MG_displayEN "MGcBox.Panel.rv" "renderView";
+
+MG_displayEN "MGcBox.ChannelFilter.mi" "Filter out unselected chanels in GraphEditor";
+MG_displayEN "MGcBox.ChannelFilter.anno" "Click to only show selected attribute of MGchannelBox in GraphEditor.";
+MG_displayEN "MGcBox.TSFilter.anno" "Click to only show selected attribute of MGchannelBox in TimeSlider.";
+//line 733-1093
+MG_displayEN "MGcBox.mi.animLib" "Animation Library..";
+MG_displayEN "MGcBox.mi.cValue" "Copy value";
+MG_displayEN "MGcBox.mi.pValue" "Paste value";
+
+MG_displayEN "MGcBox.mi.option.2011" "Option for maya 2011 or later version:";
+MG_displayEN "MGcBox.mi.option.embed" "Embed MG-Channelbox";
+MG_displayEN "MGcBox.mi.option.float" "Floated MG-Channelbox";
+MG_displayEN "MGcBox.mi.option.embed.l" "Embed Left";
+MG_displayEN "MGcBox.mi.option.embed.r" "Embed Right";
+
+MG_displayEN "MGcBox.mi.autoSync.ann" "Toggle autoSync selection in GraphEditor";
+MG_displayEN "MGcBox.mi.autoSync" "Filter channel display in GraphEditor";
+
+MG_displayEN "MGcBox.mi.remember.3dView.ann" "Click to switch to 3d model view.";
+MG_displayEN "MGcBox.mi.remember.3dCamera.mi" "Remember 3dView Camera Choice";
+MG_displayEN "MGcBox.mi.remember.3dCamera.ann" "Remember the 3d view camera choice. So next time you click 3d view, it will automatically go to that camera view.";
+
+MG_displayEN "MGcBox.mi.Stereo" "Stereo";
+MG_displayEN "MGcBox.mi.nodeEditor" "Node Editor";
+MG_displayEN "MGcBox.mi.camSequencer" "Camera Sequencer";

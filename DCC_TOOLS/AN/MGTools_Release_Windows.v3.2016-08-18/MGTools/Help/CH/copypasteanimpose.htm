@@ -1,0 +1,111 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>跨Maya复制动画Pose</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Copy,Keyframe,Pose" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "copypasteanimpose.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">跨Maya复制动画Pose</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="mganimationbank.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="backup_restore_animation.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> 跨Maya复制动画/Pose</span><span style="font-weight: bold; color: #191817;">功能：</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:94px; padding:0px;"><p style="text-align: center;"><img src="copypasteproicon.gif" width="32" height="32" alt="copyPasteProIcon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:5px; padding:0px;"><br />
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">点击将打开MG跨Maya复制粘贴工具界面。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">这个工具在MGTools Pro3，已变成集复制粘贴Pose, 动画 及约束的工具。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">用来在两个/多个开着的Maya间直接传递动画/Pose/约束。不同版本Maya间也没问题。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> 典型复制Pose/动画</span><span style="font-weight: bold; color: #191817;">用法：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">1.</span>打开复制粘贴工具界面如下图。上方是复制粘贴Pose动画，下方是复制粘贴约束。<a href="copyconstraintbetweenmaya.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a><br />
+<img src="copypasteproui_ch.gif" width="136" height="134" alt="copyPasteProUI_ch" style="border:none" /><br />
+&nbsp;</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">2.</span>在场景里选择你想要复制动画的物体。当然可以选多个。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">3.</span>点击上图中左上方复制按钮复制动画。如果在时间滑条上有选定时间范围则只复制范围内的动画，否则复制该选定物体的全部动画。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">4.</span>在另一个Maya里，打开同样界面，选定想要粘贴动画的物体，然后按右上方粘贴按钮粘贴。动画将被粘贴在原本复制时的时间位置。</p><p>&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> 复制的更多方式</span><span style="font-weight: bold; color: #191817;">：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="copypastepro_copyoption_ch.gif" width="208" height="178" alt="copyPastePro_copyOption_ch" style="border:none" /></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">只复制动画 ：</span>这是界面上左边按钮的默认行为。只复制动画，没有被Key帧的属性值不被记录。<br />
+<span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; 如果在时间滑条上有时间范围选择则只复制范围内的动画。否则将复制所选物体的全部动画。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">只复制Pose：</span>只复制所选物体的在通道栏里显示的属性值。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">复制动画和Pose：</span>所选物体被key帧的属性将被复制动画，未被key帧的属性值也将被记录复制。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">选择剪贴板物体：</span>如果剪贴板里的物体（就是在复制时所选的物体）在当前场景有存在则选择。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">测试当前选择..：</span>在粘贴前选择物体时特别有用。即测试当前场景里所选物体个数与剪贴板里的物体个数是否一致。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;一致则弹出恭喜对话框，不一致则弹出MG剪贴板，显示复制时是选择了哪些物体。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">查看简易帮助文档..：</span>打开一个界面，看一些简单的文本说明文档。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">查看详细帮助文档..：</span>打开本页面哦。</p>
+<p>&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> 粘贴的更多方式</span><span style="font-weight: bold; color: #191817;">：(</span>不论何种粘贴方式，在粘贴时都将粘贴出原本复制的东西。如复制了Pose，则只能粘贴出Pose，复制了动画和Pose，则粘贴时也同时粘贴出动画和未Key帧的属性值。)</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="copypastepro_pasteoption_ch.gif" width="251" height="190" alt="copyPastePro_pasteOption_ch" style="border:none" /></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">粘贴在原始位置 ：</span>这是界面上右边按钮的默认行为。 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;粘贴在原始位置，意味着原先复制时A物体动画从第1帧开始，则粘贴时，无论你当前是不是在第1帧，则仍粘贴在第1帧。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;这个跟Maya本身的复制粘贴动画不一样。有利于保持两场景的某物体动画时间完成一致。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">粘贴在暂用的Locator ：</span>将剪贴板的数据，粘贴在自动新建的暂用Locator上。 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;执行前可以不用选择任何物体。用这个方式可以把剪贴板的数据保存在场景中以便随时使用。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">粘贴在当前帧 ：</span>将剪贴板的数据粘贴在当前所选物体，并且以当前帧为起点。 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;这个跟Maya本身的粘贴动画的方式一样。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">粘贴进所选范围 ：</span>将剪贴板的数据粘贴在当前所选物体，如果有选择时间范围，则用缩放的方式把动画填入该范围。 &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;如果没有事先选择一个时间范围，则粘贴在当前帧。 &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;这个跟Maya本身的粘贴动画的方式一样。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">选择剪贴板物体：</span>如果剪贴板里的物体（就是在复制时所选的物体）在当前场景有存在则选择。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">测试当前选择..：</span>在粘贴前选择物体时特别有用。即测试当前场景里所选物体个数与剪贴板里的物体个数是否一致。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;一致则弹出恭喜对话框，不一致则弹出MG剪贴板，显示复制时是选择了哪些物体。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">查看简易帮助文档..：</span>打开一个界面，看一些简单的文本说明文档。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">查看详细帮助文档..：</span>打开本页面哦。</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> MG剪贴板</span><span style="font-weight: bold; color: #191817;">：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="copypastepro_clipboard_ch.gif" width="189" height="62" alt="copyPastePro_clipBoard_ch" style="border:none" /></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">界面当中的剪贴板按钮 ：</span>点击打开MG-剪贴板。可以查看简易的帮助及剪贴板的信息等等。界面如下图：</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="copypastepro_pasteui_ch.gif" width="275" height="315" alt="copyPastePro_pasteUI_ch" style="border:none" /></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">剪贴板里的成员 ：</span>下面的框显示了复制时所选的物体名称。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">框下面的几行说明文字 ：</span>以上图显示为例，显示了剪贴板里物体个数为1个，复制时只复制了动画(不含Pose数据)。 &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;">复制时没有在时间滑条上选择定时间范围，后面的&quot;1:7&quot;说明帧的范围是第一帧到第七帧。(如果有选定范围则为选定的时间范围) &nbsp; &nbsp; &nbsp; &nbsp;复制时所处的帧数是第2帧。（在粘贴Pose时有参考价值）</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">刷新：</span>如果有执行新的复制操作，点&quot;刷新&quot;按钮来刷新剪贴板数据的显示。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">选择成员 ：</span>如果剪贴板里的物体（就是在复制时所选的物体）在当前场景有存在则选择。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">重定向并选择 ：</span>先按“&gt;&gt;”按钮来获取当前场景所选物体的namespace,然后点该按钮，将选择场景所选角色的类似前贴板物体的物体。<br />
+<span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;用来将动画/pose跨maya粘贴到另一角色相同控制器上。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;">&nbsp;</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="mganimationbank.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="backup_restore_animation.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

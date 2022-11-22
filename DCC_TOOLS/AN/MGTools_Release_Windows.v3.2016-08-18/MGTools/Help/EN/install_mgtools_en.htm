@@ -1,0 +1,149 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Install MGtools</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Install,Menu,Option,Shelf" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "install_mgtools_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">Install MGTools</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="distributemgtools_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">First to MGTools： </span></p>
+<p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">1.</span>Visit http://mgland.com to download the latest MGTools .zip release package and extract it to wherever in your local disk .</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">2.</span>Do not change the directory structure. Use your mouse left button drag &quot;InstallMGTools_WrittenByMiguel.mel&quot; into your running maya 3d view panel and release.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">3.</span>Follow the pop up MGTools InstallShield Wizard.</p><p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">MGTools' three install modes:</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">1.</span>Local Program Mode: The MGTools installed is totally independent of the installation source. The is the mode used in MGTools 1.0 and MGTools Pro2.0.</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">2.</span>Server Program Mode: The MGTools installed actually references to the files in the installation source.</p><p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 192px;">Only minimal plug-ins been copied to local, so that the server side could be updated easily in future.</p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 192px;">The user config folder is totally independent of the installation source.</p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 192px;">You'd better use this mode to distribute MGTools in your production line.</p>
+<p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">3.</span>Full Server Program Mode: The MGTools stays completely in &nbsp;original installation source, no copy performed, except that user data still remains in local.</p><p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 192px;">This is ok for distributing MGTools in pipeline, but in some OS like windows, the .mll file will be locked since it is loaded in client side, which might make it</p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 192px;">difficult to be updated.<br />
+&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">Install MGTools between different maya versions:</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">1.</span>Start the maya which already has MGTools installed, make sure the MGTools in this Maya was installed in Local Program mode, so that it has full MGTools program source.</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">2.</span>Open MGTools program folder by right clicking MGTools' &nbsp;icon <img src="openfolder.gif" width="32" height="32" alt="openFolder" style="border:none" /> /Open MGTools Local Folder.., if it is installed as server program mode, select Open MGTools Server Folder..</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">3.</span>In MGTools program folder , check out the invoke sub-folder, you should find a file called &quot;InstallMGTools_WrittenByMiguel.mel&quot;;</p><p style="text-align: left; padding: 0px 0px 0px 39px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">4.</span>Drag this mel file into the 3d panel of the new maya version. Follow the pop up MGTools InstallShield Wizard.</p><p style="text-align: left; padding: 0px 0px 0px 39px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">5.</span>Notice that depending on the install mode, the new installed MGTools could be or could be not dependent on the old existed MGTools.<br />
+&nbsp;</p><p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">How to distribute MGTools among your pipeline </span><a href="distributemgtools_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">MGTools InstallShield Wizard:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none;border-spacing:0px;padding:0px;line-height: 1.50;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:24px"></td><td style="border:none;padding:0">Drag the file &quot;InstallMGTools_WrittenByMiguel.mel&quot; into the running maya 3d panel,and &quot;MGTools InstallShield Wizard&quot; will pop up:</td></tr></table></div><div style="text-align: left; text-indent: -24px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:296px; height:68px; padding:0px;"><p><img src="installmgtoolslanoption_en.gif" width="301" height="79" alt="InstallMGtoolsLanOption_en" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:805px; height:68px; padding:0px;"><p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">This section determines the MGTools UI language. U can decide it later in MG-Config. </span><a href="config_mgtools_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;">By default the option will be auto-determined by your OS language.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:296px; height:68px; padding:0px;"><p><img src="installmode_en.gif" width="472" height="88" alt="installMode_en" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:805px; height:68px; padding:0px;"><p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">This section determines the dependency of the installed MGTools. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Install As A Local Program:</span><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;"> Copy all MGTool program files to Maya's user script folder.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;">The installed MGTools has no relationship with the installation source.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Install As A Server Program:</span><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;"> Useful in distributing MGTools to many machines.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;">The installed MGTools is highly dependent on the installation source (Called MGTools in server side).</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;">Although a minimal set of plug-ins will still be copied to Maya's user script folder/MGTools to reduce IO,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;">so that the MGTools in server side could be offline/online update in future.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;">To know how to distribute MGTools among your pipeline: </span> <a href="distributemgtools_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Install As A Full Server Program:</span><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;"> Useful in distributing MGTools to many machines.</span><img src="v3new.gif" width="37" height="11" alt="v3New" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;">The installed MGTools is fully dependent on the installation source (Called MGTools in server side).</span><br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;">This mode copies no program files, there will be only user config data at local side, all programs stays at server side.</span><a href="distributemgtools_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;">&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:296px; height:156px; padding:0px;"><p><img src="installer_shelf_en.gif" width="285" height="86" alt="installer_shelf_en" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:805px; height:156px; padding:0px;"><p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">This section determines how MGTools will be installed to Maya's Shelf Tab.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Install to Shelf: </span><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;"> Only install one shelf to your Maya Shelves, the self is used to &nbsp;load the MGTools toolbar itself.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Install all to current Shelf Tab: </span><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;">Install all MGTools shelves into your current selected Maya shelf tab.There will be 55 shelves.</span><br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Install all to New &quot;MGTools&quot; Shelf Tab: </span><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;">create a new ShelfTab named &quot;MGtools&quot;(If it does not exist) then add 55 MGTools Shelves into this tab. It</span> will delete and reinstall to update the old MGTools shelves if they already exist.<br />
+This action could be taken as well by loading MGTools shelf installer after you installed MGTools . <a href="mgtools_shelf_installer_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:296px; height:198px; padding:0px;"><p><img src="installer_autoload_en.gif" width="395" height="173" alt="installer_autoLoad_en" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:805px; height:198px; padding:0px;"><p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Which items U want to be autoLoaded when Maya starts:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">AutoLoad MGTools Menu:</span><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;"> install MGTools menu in maya menuBar and it will always remain there. </span><a href="mgtools_menu_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">AutoLoad MGTools : </span><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;">auto-load MGTools once Maya is loaded. </span><a href="mgtoolintroduction_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a><br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Load Minimized:</span><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;"> MGTools will be auto-loaded in minimized mode.</span><br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">AutoLoad MGchannelBox :  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;">MG-channelBox will be loaded once Maya is loaded. </span><a href="mg_channelbox_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a><br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">AutoLoad MGshelfBar:</span><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;"> A floating bar which containing user embed mels will be loaded once Maya is loaded. </span><a href="mg_shelf_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">AutoLoad constraintTools : </span><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;">Constraint Tools will be loaded once Maya is loaded. </span><a href="constraint_tool_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">AutoLoad keyframeTools:</span><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;"> Keyframe Tools &nbsp;will be loaded once Maya is loaded. </span><a href="keyframetool_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a> </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">AutoLoad MG-SelectionSet : </span><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;">MG-SelectionSet tool will be loaded once Maya is loaded. </span><a href="mg_selectionset_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a> </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">All auto-load items could be customized in MGTools Config <a href="config_mgtools_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a> .</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">Setting MGTools autoload issues wont effect currently existed user autoload issues.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:296px; height:143px; padding:0px;"><p><img src="autoloadvia_en.gif" width="418" height="28" alt="autoloadVia_en" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:805px; height:143px; padding:0px;"><p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Which file does MGTools rely on to autoload itself when Maya loads:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">userSetup.mel :</span><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;"> This is the default option.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">userSetup.py: </span><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;"> Sometime userSetup.mel is banned in your production, py is your another choice!</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="warning.gif" width="16" height="16" alt="Warning" style="border:none" /><span style="font-size: 9pt; color: #ff0000;"> &nbsp;MGTools never overrides the userSetup file directly, because there maybe other tools you installed also put autoload codes within. It always merges the old codes, but update old MGTool autoload codes and &nbsp;put them to the top of the file.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:296px; height:118px; padding:0px;"><p><img src="installer_afterinstall_en.gif" width="317" height="63" alt="installer_afterInstall_en" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:805px; height:118px; padding:0px;"><p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">After installing MGTools:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Load MGTools:</span><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;"> Load MGTools after installation. </span><a href="mgtoolintroduction_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Config Mgtools: </span><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;">Load MGTools Config to config MGTools.  </span><a href="config_mgtools_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a><br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">View HelpDoc: </span><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;">Read MGTools manual.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Register MGTools: </span><span class="f_MI_TitleStyle" style="font-size: 9pt; font-weight: normal; color: #404040;">Open up the MGTools register dialog after installation . </span><a href="registermgtools_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; width:1298px; padding:0px;"><p style="line-height: 1.50;">Get through all these check box things, then click &quot;Install !&quot; button to actually begin installing MGTools.</p>
+<p style="line-height: 1.50;">If you already have some MGTools being loaded, this will prompt to ask if you let it unload them and continue;</p>
+<p style="line-height: 1.50;">If you already have MGTool Pro2 installed, &nbsp;this will prompt to ask If you want to uninstall the old MGTools and continue. (User config won't be affected)</p>
+<p style="line-height: 1.50;">The shelves will be installed to Maya shelves and autoload things will be set.</p>
+<p style="line-height: 1.50;">With all these done, one pop up windows will appear to notice you the success.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="warning.gif" width="16" height="16" alt="Warning" style="border:none" /><span class="f_ImageCaption">  </span><span style="font-size: 9pt; color: #ff0000;">After installed MGTools, if &nbsp;maya warns U that there are some icons not found or some new procedure definitions, just ignore it , because after Maya is restarted that will be alright.</span></p>
+</td>
+</tr>
+</table>
+</div>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="distributemgtools_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

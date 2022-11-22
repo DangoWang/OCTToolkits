@@ -1,0 +1,11 @@
+import sys
+sys.path.append(r"D:\dango_repo\check_model")
+import check_model
+reload(check_model)
+check_model.CheckModel().show()
+
+
+
+import maya.cmds as mc
+mc.deleteUI("")
+mc.lsUI(type = "window")

@@ -1,0 +1,16 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "ConsTool.uv.mi" "UV Constraint";
+MG_displayEN "ConsTool.uv.mi.anno" "Select poly face/edge/vertex,than use me to make a control that represent the (UV) position of the component. Use the control to constraint the other if U want.";
+MG_displayEN "ConsTool.uv.nosel.war" "No selection found.Please select polyMesh's vertex/edge/face.";
+MG_displayEN "ConsTool.uv.typeWrong.war" "Ignore #, Only polyMesh's vertex/edge/face are surpported.\n";
+MG_displayEN "ConsTool.uv.done.rep" " # UVConstraints have been made.";
+
+MG_displayEN "ConsTool.uv.notUnlimited.war" "Sorry,your maya is not a unlimited version which can't support UVConstraints :(";

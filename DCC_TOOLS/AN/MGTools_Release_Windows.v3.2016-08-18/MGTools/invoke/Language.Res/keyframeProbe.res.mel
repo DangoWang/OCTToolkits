@@ -1,0 +1,32 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "keyScanner.realUITitle" "Keyframe Probe";
+MG_displayEN "keyScanner.UITitle" "Keyframe Probe..";
+MG_displayEN "keyScanner.topAnno" "  Probe all objects of current selected Rig.";
+MG_displayEN "keyScanner.warn" "No selection in your current scenes.";
+MG_displayEN "keyScanner.anno" "Use keyframe Probe to list all the animated object in current selected character.";
+MG_displayEN "keyScanner.allFrame" "All Frames";
+MG_displayEN "keyScanner.cFrame" "Current Frame";
+MG_displayEN "keyScanner.Frame.anno" "To decide to scan the keyframe at any frame or at current frame.";
+MG_displayEN "keyScanner.inf" "Include Keyframe Infinity";
+MG_displayEN "keyScanner.inf.anno" "When scanner keyframe, whether to consider the Keyframe Infinity or not";
+MG_displayEN "keyScanner.Trans" "Only Scan Transform Node";
+MG_displayEN "keyScanner.Trans.anno" "Only Scan Transform Node,the shape nodes .etc will be ignored.";
+MG_displayEN "keyScanner.Probe" "Probe";
+MG_displayEN "keyScanner.Select" "Select In Scene";
+MG_displayEN "keyScanner.SelectAll" "Select All In Scene";
+
+//MGTools Pro 3
+MG_displayEN "keyScanner.mode" "Mode";
+MG_displayEN "keyScanner.probeValue" "Probe Value Change";
+MG_displayEN "keyScanner.probeChanged" "Only Changed Comparing to Previous Frame";
+MG_displayEN "keyScanner.probeChanged.ann" "List it out only if it is keyframed, and has a value change comparing to the previous frame.";
+
+MG_displayEN "keyScanner.targetToMany.war" "Gonna probe more than 30000 objects, the process could be slow. Proceed?";

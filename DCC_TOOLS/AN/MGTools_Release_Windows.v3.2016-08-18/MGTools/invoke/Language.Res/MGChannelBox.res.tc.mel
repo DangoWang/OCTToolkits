@@ -1,0 +1,144 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayTS "MGcBox.selMask.mi" "選擇遮蔽切換";
+MG_displayTS "MGcBox.selMask.mi.anno" "在全部可選與只有動畫控製器可選之間切換選擇遮蔽.";
+MG_displayTS "MGcBox.cLayer.title" "新建顯示層";
+MG_displayTS "MGcBox.cLayer.cEmpty" "新建空層";
+MG_displayTS "MGcBox.cLayer.cSel" "建層並加入選擇";
+
+MG_displayTS "MGcBox.Layer.option.title" "層編輯器選項";
+MG_displayTS "MGcBox.Layer.option.annoText" "層編輯器載入模式";
+MG_displayTS "MGcBox.Layer.option.option1" "浮動";
+MG_displayTS "MGcBox.Layer.option.option2" "內建";
+
+MG_displayTS "MGcBox.Layer.mi.allT" "全部Template";
+MG_displayTS "MGcBox.Layer.mi.allN" "全部正常";
+MG_displayTS "MGcBox.Layer.mi.setT" "設層顯示方式為Template:";
+MG_displayTS "MGcBox.Layer.mi.allR" "全部Reference";
+MG_displayTS "MGcBox.Layer.mi.setR" "設層顯示方式為Reference:";
+MG_displayTS "MGcBox.Layer.mi.cAdd" "創建/加到層";
+MG_displayTS "MGcBox.Layer.mi.cLDot" "新建層..";
+MG_displayTS "MGcBox.Layer.mi.cL" "新建層";
+MG_displayTS "MGcBox.Layer.mi.addSelTo" "把選擇物體放到:";
+MG_displayTS "MGcBox.Layer.mi.removeSel" "移除所選物體";
+MG_displayTS "MGcBox.Layer.mi.del" "刪除層";
+MG_displayTS "MGcBox.Layer.mi.delNU" "刪除無用層";
+MG_displayTS "MGcBox.Layer.mi.delA" "刪除全部層";
+MG_displayTS "MGcBox.Layer.mi.delL" "刪除層:";
+
+MG_displayTS "MGcBox.RLayer.mi" "設定當前渲染層:";
+
+MG_displayTS "MGcBox.title" "MG通道欄";
+MG_displayTS "MGcBox.option.title" "MG通道欄選項";
+MG_displayTS "MGcBox.option.miniMGTools" "運行MG通道欄時最小化MGTools";
+MG_displayTS "MGcBox.option.showMB" "顯示MG通道欄的選單欄";
+
+MG_displayTS "MGcBox.selAttr.war" "請從通道欄裡選一些屬性！";
+
+MG_displayTS "MGcBox.bakeAttr.war" "烘焙選項";
+MG_displayTS "MGcBox.bakeAttr.mes" "你想要隔多少幀來烘焙一個關鍵幀:";
+MG_displayTS "MGcBox.bakeAttr.btn" "烘焙 !";
+
+//===============CB MI ==========================
+//`MG_DualLan "MGcBox.mi.resetC"`
+MG_displayTS "MGcBox.menu.key" "關鍵幀";
+MG_displayTS "MGcBox.mi.resetC" "重置通道";
+MG_displayTS "MGcBox.mi.resetR" "旋轉歸零";
+MG_displayTS "MGcBox.mi.resetT" "位移歸零";
+MG_displayTS "MGcBox.mi.resetS" "重置縮放";
+MG_displayTS "MGcBox.mi.resetA" "重置全部";
+MG_displayTS "MGcBox.mi.KeySel" "K 幀所選";
+MG_displayTS "MGcBox.mi.KeyA" "K 幀全部";
+MG_displayTS "MGcBox.mi.BreakdownS" "Breakdown 所選";
+MG_displayTS "MGcBox.mi.BreakdownA" "Breakdown 全部";
+MG_displayTS "MGcBox.mi.MuteS" "Mute 所選";
+MG_displayTS "MGcBox.mi.MuteA" "Mute 全部";
+MG_displayTS "MGcBox.mi.uMuteS" "Unmute 所選";
+MG_displayTS "MGcBox.mi.uMuteA" "Unmute 全部";
+MG_displayTS "MGcBox.mi.delSel" "刪除所選動畫";
+MG_displayTS "MGcBox.mi.cutSel" "剪下所選動畫";
+MG_displayTS "MGcBox.mi.copySel" "複製所選動畫";
+MG_displayTS "MGcBox.mi.pasteSel" "貼上所選屬性";
+MG_displayTS "MGcBox.mi.bakeSel" "烘焙所選屬性";
+
+MG_displayTS "MGcBox.menu.attr" "屬性";
+MG_displayTS "MGcBox.mi.bConnect" "打斷連線";
+MG_displayTS "MGcBox.mi.aAttr" "添加屬性";
+MG_displayTS "MGcBox.mi.eAttr" "編輯屬性";
+MG_displayTS "MGcBox.mi.dAttr" "刪除屬性";
+MG_displayTS "MGcBox.mi.LHsel" "鎖定並隱藏屬性";
+MG_displayTS "MGcBox.mi.Lsel" "鎖定屬性";
+MG_displayTS "MGcBox.mi.uLsel" "解鎖屬性";
+MG_displayTS "MGcBox.mi.Hsel" "隱藏屬性";
+MG_displayTS "MGcBox.mi.mNonKey" "使屬性不可K幀";
+MG_displayTS "MGcBox.mi.mKey" "使屬性可K幀";
+
+MG_displayTS "MGcBox.menu.editor" "編輯器";
+MG_displayTS "MGcBox.mi.connectE" "連線編輯器..";
+MG_displayTS "MGcBox.mi.consE" "約束管理器..";
+MG_displayTS "MGcBox.mi.ouL" "大綱檢視..";
+MG_displayTS "MGcBox.mi.LE" "層編輯器..";
+MG_displayTS "MGcBox.mi.SDK" "驅動關鍵幀..";
+MG_displayTS "MGcBox.mi.CC" "通道編輯器..";
+MG_displayTS "MGcBox.mi.AE" "屬性編輯器..";
+MG_displayTS "MGcBox.mi.Exp" "表示式..";
+MG_displayTS "MGcBox.mi.Ref" "Reference編輯器..";
+MG_displayTS "MGcBox.mi.SE" "指令碼編輯器..";
+MG_displayTS "MGcBox.mi.HG" "超檢視..";
+
+MG_displayTS "MGcBox.mi.Freeze" "冰結通道欄視窗";
+MG_displayTS "MGcBox.mi.GEPlaug" "曲線編輯器通道過濾插件開關";
+MG_displayTS "MGcBox.mi.sProject" "設定工程目錄..";
+MG_displayTS "MGcBox.mi.nProject" "新建工程..";
+
+MG_displayTS "MGcBox.menu.Project" "工程目錄";
+
+MG_displayTS "MGcBox.noPanel.anno" "點選在單面板與複合外觀模式間切換MG通道欄.";
+MG_displayTS "MGcBox.Panel.Embed" "內建";
+MG_displayTS "MGcBox.Panel.Embed.anno" "選擇以使該編輯器以內建模式啟動.";
+MG_displayTS "MGcBox.Panel.PopUp" "彈窗";
+MG_displayTS "MGcBox.Panel.PopUp.anno" "選擇以使該編輯器以彈窗模式啟動.";
+MG_displayTS "MGcBox.Panel.lr.anno" "點選左右互換通道欄和編輯器.";
+MG_displayTS "MGcBox.Panel.selSet.anno" "開啟選擇集面板.";
+MG_displayTS "MGcBox.Panel.outliner.anno" "開啟大綱檢視.";
+MG_displayTS "MGcBox.Panel.ref.anno" "開啟Reference編輯器.";
+MG_displayTS "MGcBox.Panel.ge.anno" "開啟曲線編輯器.";
+MG_displayTS "MGcBox.Panel.ds.anno" "開啟攝影表面板.";
+MG_displayTS "MGcBox.Panel.other.anno" "滑鼠左鍵點我來載入其它面板.";
+
+MG_displayTS "MGcBox.Panel.cam" "攝像機";
+MG_displayTS "MGcBox.Panel.hg" "超檢視";
+MG_displayTS "MGcBox.Panel.hs" "材質編輯器";
+MG_displayTS "MGcBox.Panel.tx" "非線性編輯器";
+MG_displayTS "MGcBox.Panel.uv" "UV編輯器";
+MG_displayTS "MGcBox.Panel.rv" "渲染視窗";
+
+MG_displayTS "MGcBox.ChannelFilter.mi" "在曲線編輯器裡只顯示所選通道";
+MG_displayTS "MGcBox.ChannelFilter.anno" "單擊把通道欄上沒選中的屬性在曲線編輯器裡過濾掉不顯示.";
+MG_displayTS "MGcBox.TSFilter.anno" "單擊把通道欄上沒選中的屬性在時間條裡過濾掉不顯示其關鍵幀.";
+//line 733-1093
+MG_displayTS "MGcBox.mi.animLib" "MG動作庫..";
+MG_displayTS "MGcBox.mi.cValue" "拷貝數值";
+MG_displayTS "MGcBox.mi.pValue" "貼上數值";
+
+MG_displayTS "MGcBox.mi.option.2011" "Maya2011及其後版本的特有選項:";
+MG_displayTS "MGcBox.mi.option.embed" "內建MG通道欄";
+MG_displayTS "MGcBox.mi.option.float" "浮動MG通道欄";
+MG_displayTS "MGcBox.mi.option.embed.l" "內建在左邊";
+MG_displayTS "MGcBox.mi.option.embed.r" "內建在右邊";
+
+
+MG_displayTS "MGcBox.mi.remember.3dView.ann" "點選切換到3D檢視.";
+MG_displayTS "MGcBox.mi.remember.3dCamera.mi" "記住3d檢視攝像機選擇";
+MG_displayTS "MGcBox.mi.remember.3dCamera.ann" "記住3d檢視所用的是哪個攝像機，這樣下一次你點選這個圖示，它將自動切換到該攝像機檢視.";
+
+MG_displayTS "MGcBox.mi.Stereo" "立體檢視";
+MG_displayTS "MGcBox.mi.nodeEditor" "節點編輯器";
+MG_displayTS "MGcBox.mi.camSequencer" "攝像機序列";

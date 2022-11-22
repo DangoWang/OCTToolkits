@@ -1,0 +1,5041 @@
+//==============================================================//
+//                   MGtools - serve procedures.
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://twincodes.com
+//Feedback: http://twincodes.com/MGtools_en.html?url=Feedback
+//E-mail: mgtoolspro@gmail.com
+//CopyRight Miguel @ mgland animation studio.
+
+
+global proc int MGtools_getMayaVersion_X64 ()
+{
+	return `about -is64`;
+} 
+proc initMGToolsGlobalVars()
+{
+	global int $mgtoolsOStype =0;
+	if(`about -mac`)$mgtoolsOStype =1;
+	else if(`about -li`)$mgtoolsOStype =2;
+	
+	global int $currentMayaVersionIntForMGtools;
+	$currentMayaVersionIntForMGtools=`MGtools_getMayaVersionInt`;
+	
+	global int $MGTools_2012_orNot;
+	$MGTools_2012_orNot=0;
+	if($currentMayaVersionIntForMGtools>=2012)$MGTools_2012_orNot=1;
+	
+	global int $MGTools_2011_orNot;
+	$MGTools_2011_orNot=`MGtools_test2011orNot`;
+	
+	global int $MGTools_2016_orNot;
+	$MGTools_2016_orNot=`MGtools_test2016orNot`;
+	
+	
+	global int $MacOSBefore2011 = 0;
+	if($mgtoolsOStype==1&&!$MGTools_2011_orNot) $MacOSBefore2011=1;
+	
+	global int $LinuxBefore2011 = 0;
+	if($mgtoolsOStype==2&&!$MGTools_2011_orNot) $LinuxBefore2011=1;
+	
+	global float $MGTools_BGColor_gray[];
+	global float $MGTools_2011DarkerBGColor[];
+	if($MGTools_2011_orNot)
+	{
+		$MGTools_2011DarkerBGColor={0.165,0.165,0.165};
+		$MGTools_BGColor_gray={0.267,0.267,0.267};
+	}
+	else
+	{
+		$MGTools_BGColor_gray={0.831,0.816,0.784};
+	}
+	
+	string $title = `window -q -title MayaWindow`;
+	string $temp[]=`stringToStringArray $title ":"`;
+	$title = $temp[0];
+	global int $gMGTools_MayaStudentVersion;
+	$gMGTools_MayaStudentVersion = `gmatch $title "*Student*"`;
+	
+	global string $MGPKR_InstallationInfo;
+	$MGPKR_InstallationInfo = "MGPKR_InstallationInfo";
+	
+	global string $gMGToolsServerDataFolder;
+	$gMGToolsServerDataFolder = "MGTools_ServerData";
+	
+    global int $MGTools_x64Maya_orNot;
+    $MGTools_x64Maya_orNot=`MGtools_getMayaVersion_X64`; 
+    
+    global int $g_MGCurrentMayaSupportPythonOrNot;
+    $g_MGCurrentMayaSupportPythonOrNot =`exists "python"`;
+    
+	global float $gMGTools_MayaVersionFloat = 0;
+}
+
+initMGToolsGlobalVars;
+
+proc initMGToolsIconList()
+{
+  global string $gMGToolsToolsIcons [];
+  global string $gMGToolsToolsLabels [];
+  $gMGToolsToolsIcons = {"MGtoolIcon.bmp",
+                        "MGshelf_Icon.bmp",
+                        "FolderIcon.bmp",
+                        "ExternalFileIcon.bmp",
+                        "ChannelBoxIcon.bmp",
+                        "selectionTool.bmp",
+                        "picker_Icon.bmp",
+                        "ConstraintToolIcon.bmp",
+                        "viewSetToolIcon.bmp",
+                        "pathTracker_Icon.bmp",
+                        "footstickIcon.bmp",
+                        "pivot_tool_icon.bmp",
+                        "PoseAnimLib_Icon.bmp",
+                        "AnimationBank_Icon.bmp",
+                        "keyframeTool_icon.bmp",
+                        "cam2dViewer_Icon.bmp",
+                        "MGdbManager_icon.bmp",
+                        "miniToolBoxIcon_bothOn.bmp"
+                        };
+  $gMGToolsToolsLabels = {"MGTools",
+                        "MG_shelf",
+                        "MG_OpenFolder",
+                        "MG_OpenExternalFile",
+                        "MG_ChannelBox",
+                        "MG_SelectionSet",
+                        "MG_Picker",
+                        "MG_ConstraintTool",
+                        "MG_ViewSetTool",
+                        "MG_PathTracker",
+                        "MG_SnapTool",
+                        "MG_PivotTool",
+                        "MG_PoseAnimLibrary",
+                        "MG_AnimationBank",
+                        "MG_KeyframeTool",
+                        "MG_Cam2dViewer",
+                        "MG_AssetLibrary",
+                        "MG_MiniToolBox"
+                        };
+}
+initMGToolsIconList;
+
+
+//================================================= MGTools floating license ========================================
+
+global proc string MG_getServerRootPath()
+{
+	global string $GmgtoolsPath;
+	return $GmgtoolsPath;
+}
+//global float $MGTools_BGColor_gray[];
+//-bgc $MGTools_BGColor_gray[0] $MGTools_BGColor_gray[1] $MGTools_BGColor_gray[2] 
+//=================is filePath pure english=================================
+global proc string MG_getStringNonAscIIPart(string $str)
+{
+  $str = strip($str);
+	string $eachChars [];
+	int $size=size ($str);
+	if(!$size)
+	{
+	  return "";
+	}
+	for ($i=0;$i<$size;$i++)
+	{
+	  $eachChars[$i]=`substring $str ($i+1) ($i+1)`;
+	}	
+	string $result;
+	int $lastIndex =-2;
+	string $eachChar;
+	for ($c=0; $c<$size; $c++)
+	{
+	  $eachChar = $eachChars[$c];
+	  if(`gmatch $eachChar "[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890.+/~`!@#$%^&()_={}:;'\"|<>,.]"`)
+	  {
+	    continue;
+	  }
+	  if($eachChar == "[" || $eachChar == "]" || $eachChar == "-" || $eachChar == "\\")
+	  {
+	    continue;
+	  }
+	  if($lastIndex != ($c-1))
+	  {
+	    $result += " ";
+	  }
+	  $result += $eachChar;
+	  $lastIndex = $c;
+	}
+  return $result;  
+}
+//==================test if it is chinese system============================
+global proc int chineseSystemOrNot ()
+{
+	/*
+	string $path = (`internalVar -userScriptDir`+"MGtools/invoke/Language.Res/");
+	eval ("source \""+$path+"Auto_languageTip_sc.mel\"");
+	eval ("source \""+$path+"Auto_languageTip_tc.mel\"");
+	*/
+	global int $mgtoolsOStype;
+  if($mgtoolsOStype)return 0;
+	global string $MG_simplifiedChinese_Marker;
+	global string $MG_traditionalChinese_Marker;
+	string $feedback = `system ("date")`;
+	if(`startsWith $feedback $MG_simplifiedChinese_Marker`)
+	{
+		if(size($MG_simplifiedChinese_Marker))return 1;
+	}
+	else if (`startsWith $feedback $MG_traditionalChinese_Marker`)
+	{
+		if(size($MG_traditionalChinese_Marker))return 2;
+	}
+	return 0;
+}
+//===================use bat system to invoke exterior exe file=====================
+global proc string MG_batSystem (string $command)
+{
+	$command=toNativePath ($command);
+	string $tempFile =`internalVar -userTmpDir`;
+	$tempFile+="MGgetFileDateSize.bat";
+	//make sure its dir built:
+	MG_makeSureFileDirBuilt $tempFile;
+	$fileId=`fopen $tempFile "w"`;
+ 	fprint $fileId $command;
+ 	fclose $fileId;		
+	return $tempFile;
+}
+//===================test 2011 or not=====================
+proc float getMayaVersionFromPlugin()
+{
+    int $api = `about -api`;
+    return $api / 100.0;    
+}
+global proc int MGtools_getMayaVersionInt ()
+{
+	global int $gMGTools_MayaVersionInt;
+	if(!$gMGTools_MayaVersionInt)
+	{
+	    float $apiv = `getMayaVersionFromPlugin`;
+	    if ($apiv)
+	    {
+	        $gMGTools_MayaVersionInt = $apiv; 
+	        return $gMGTools_MayaVersionInt;
+	    }
+        string $v=`about -v`;
+        string $temp [];clear $temp;
+        tokenizeList($v,$temp);
+        string $temp1[];clear $temp1;
+        tokenize $temp[0] "." $temp1;    
+        $gMGTools_MayaVersionInt=$temp1[0];
+    }
+    return $gMGTools_MayaVersionInt;		
+} 
+global proc float MGtools_getMayaVersionFloat ()
+{
+	global float $gMGTools_MayaVersionFloat;
+	if(!$gMGTools_MayaVersionFloat)// || $gMGTools_MayaVersionFloat > 3000 || $gMGTools_MayaVersionFloat < 7
+	{
+	    float $apiv = `getMayaVersionFromPlugin`;
+	    if ($apiv)
+	    {
+	        $gMGTools_MayaVersionFloat = $apiv; 
+	        return $gMGTools_MayaVersionFloat;
+	    }
+		string $v=`about -v`;
+        string $temp [];clear $temp;
+        tokenizeList($v,$temp);
+        $gMGTools_MayaVersionFloat=$temp[0];
+        print "\n";
+	}
+    return $gMGTools_MayaVersionFloat;
+    	
+} 
+global proc string MGtools_getMayaVersionNumForPlugin ()
+{
+    float $apiv = `MGtools_getMayaVersionFloat`;
+    int $apiIntV = $apiv;
+    string $result=$apiIntV;
+    $apiv *= 100;
+    if($apiv >= 201650 && $apiv < 201700)
+    {
+        $result="2016ex2";
+    }
+    else if($apiv >= 200850 && $apiv < 200900)
+    {
+        $result="2008ex2";
+    }
+    return $result;	
+} 
+
+//===================test x64 maya or not=====================
+
+
+global proc MGtools_testSupportAnimRescueOrNot ()
+{
+	global int $supportAnimRescueOrNot;
+	global int $MGTools_x64Maya_orNot;
+	global int $LinuxBefore2011;
+    float $ver = `MGtools_getMayaVersionFloat`;    
+  	if($ver<8){$supportAnimRescueOrNot=0;}
+  	else if($ver ==8 && !$MGTools_x64Maya_orNot){$supportAnimRescueOrNot=0;}
+  	else if ($LinuxBefore2011){$supportAnimRescueOrNot=0;}
+  	else{$supportAnimRescueOrNot=1;}  	
+} 
+MGtools_testSupportAnimRescueOrNot;
+// initial maya 2011 or not global value.=======================
+global proc int MGtools_test2011orNot ()
+{ 
+    return `exists "loadUI"`;
+}
+global proc int MGtools_test2011Sp1orNot ()
+{ 
+	string $ds=`about -date`;
+	string $nums=`substring $ds 6 6`;
+    int $ver=$nums;
+    
+    if($ver>8)
+     {
+         return 1;
+      }
+     else
+     {
+        return 0;     
+     }
+}
+global proc int MGtools_test2016orNot ()
+{ 
+    return `exists "evaluationManager"`;
+}
+// misc serve codes===========================================================================================
+global proc string returnTopHierarchyViaObject (string $obj)
+{
+	
+	string $parents []=`listRelatives -path -parent $obj`;
+	if(!size($parents)){return $obj; }
+	string $parent =$parents [0];	
+	while (size($parent))
+	{ 
+		$parents=`listRelatives -path -parent $parent`;
+		if(!size($parents)){return $parent; }
+		else{$parent =$parents [(size($parents)-1)];}
+	}
+	
+	/*string $temps[]=`ls -l $obj`;
+	string $parents [];clear $parents;
+	tokenize $temps[0] "|" $parents;
+	*/
+	return $parents[0];
+}
+//======================================= source UI string codes================================================
+
+global proc markMGtoolsLanguageOption ()
+{
+	global int $MGtoolsLanguageChoice;
+	if(`optionVar -ex MGtoolsDualLeng`)
+	{
+		string $lanConfig = `optionVar -q MGtoolsDualLeng`;
+		if($lanConfig=="ch")
+		{
+			$MGtoolsLanguageChoice =1;
+		}
+		else if($lanConfig =="en")
+		{			
+			$MGtoolsLanguageChoice = 0;
+		}
+		else
+		{			
+			$MGtoolsLanguageChoice = 2;
+		}		
+	}
+	else
+	{
+		$MGtoolsLanguageChoice = `chineseSystemOrNot`;
+		if($MGtoolsLanguageChoice==1)optionVar -sv MGtoolsDualLeng "ch";
+		else if($MGtoolsLanguageChoice==2)optionVar -sv MGtoolsDualLeng "tc";
+		else optionVar -sv MGtoolsDualLeng "en";
+		/*
+		if(`chineseSystemOrNot`)
+		{$MGtoolsLanguageChoice = 1;}
+		else
+		{$MGtoolsLanguageChoice = 0;}
+		*/
+	}
+}
+markMGtoolsLanguageOption;
+
+global proc MG_displayEN (string $ID,string $enstring)
+{
+	global int $g_MGCurrentMayaSupportPythonOrNot;
+	if(!`displayString -ex ($ID+"_en")`)
+	{
+			displayString -v $enstring ($ID+"_en");
+	}
+	else
+	{
+		if($g_MGCurrentMayaSupportPythonOrNot)
+			{
+				displayString -r -v $enstring ($ID+"_en");
+			}
+	}
+}
+
+global proc MG_displaySC (string $ID,string $chstring)
+{
+	global int $g_MGCurrentMayaSupportPythonOrNot;
+	if(!`displayString -ex ($ID+"_ch")`)
+	{
+		displayString -v $chstring ($ID+"_ch");	
+	}	
+	else
+	{
+			if($g_MGCurrentMayaSupportPythonOrNot)
+			{
+				displayString -r -v $chstring ($ID+"_ch");	
+			}
+	}
+}
+global proc MG_displayTS (string $ID,string $tsstring)
+{
+	global int $g_MGCurrentMayaSupportPythonOrNot;
+	if(!`displayString -ex ($ID+"_tc")`)
+	{
+			displayString -v $tsstring ($ID+"_tc");
+	}
+	else
+	{
+		if($g_MGCurrentMayaSupportPythonOrNot)
+			{
+				displayString -r -v $tsstring ($ID+"_tc");
+			}
+	}		
+}
+global proc sourceUIStringResBaseOnLangChoice (string $langChoice)
+{
+    string $fileSpec = "*.res.mel" ;
+    if($langChoice=="ch")
+	{
+		$fileSpec = "*.res.sc.mel" ;
+	}
+	else if($langChoice !="en")
+	{			
+		$fileSpec = "*.res.tc.mel" ;
+	}
+	global string $GmgtoolsPath;
+	global int $mgtoolsOStype;
+	string $resFolder=($GmgtoolsPath+"invoke/Language.Res/");
+	if($mgtoolsOStype)
+	{
+		$unixResFolder=($GmgtoolsPath+"invoke/Unix.Language.Res/");
+		if(`filetest -d $unixResFolder`)
+		{
+			$resFolder=$unixResFolder;
+		}
+	}
+	string $melFiles []=`getFileList -fld $resFolder -filespec $fileSpec `;
+	if(!size($melFiles))return;
+	for ($each in $melFiles)
+	{
+		$command=("source \""+$resFolder+$each+"\"");
+		catch (`eval $command`);
+	}
+}
+global proc sourceAllUIStringResFile ()
+{
+  string $lanConfig ="en";
+  if(`optionVar -ex MGtoolsDualLeng`) 
+  {
+    $lanConfig = `optionVar -q MGtoolsDualLeng`;
+	sourceUIStringResBaseOnLangChoice($lanConfig);
+	//print ("Source "+$lanConfig+" inner!\n");
+  }
+	//ensure english language resource been sourced:
+  sourceUIStringResBaseOnLangChoice("en");
+	//    print ("Source "+$lanConfig+"!\n");
+
+}
+sourceAllUIStringResFile;
+
+global proc string MG_DualLan (string $ID)
+{
+	global int $MGtoolsLanguageChoice;
+	if($MGtoolsLanguageChoice==1)
+	{
+		$ID+="_ch";
+	}
+	else if($MGtoolsLanguageChoice==2)
+	{
+		$ID+="_tc";
+	}	
+	else
+	{
+		$ID+="_en";
+	}
+	string $result;
+	if(`displayString -ex $ID` )
+	{$result=`displayString -q -value $ID`;}
+	return $result;
+}
+global proc string MG_DualLanFormat_1 (string $ID,string $rep1)
+{
+	global int $MGtoolsLanguageChoice;
+	if($MGtoolsLanguageChoice==1)
+	{
+		$ID+="_ch";
+	}
+	else if($MGtoolsLanguageChoice==2)
+	{
+		$ID+="_tc";
+	}	
+	else
+	{
+		$ID+="_en";
+	}
+	string $result;
+	if(`displayString -ex $ID` )
+	{$result=`displayString -q -value $ID`;}
+	if(size($result))
+	{
+		$array=stringToStringArray ($result ,"#");
+		$result=stringArrayToString ($array,$rep1);
+	}
+	return $result;
+}
+global proc string MG_DualLanFormat_2 (string $ID,string $rep1,string $rep2)
+{
+	global int $MGtoolsLanguageChoice;
+	if($MGtoolsLanguageChoice==1)
+	{
+		$ID+="_ch";
+	}
+	else if($MGtoolsLanguageChoice==2)
+	{
+		$ID+="_tc";
+	}	
+	else
+	{
+		$ID+="_en";
+	}
+	string $result;
+	if(`displayString -ex $ID` )
+	{$result=`displayString -q -value $ID`;}
+	if(size($result))
+	{
+		$array=stringToStringArray ($result ,"#");
+		$result=($array[0]+$rep1+$array[1]+$rep2+$array[2]);
+	}
+	return $result;
+}
+global proc string MG_DualLanFormat_3 (string $ID,string $rep1,string $rep2,string $rep3)
+{
+	global int $MGtoolsLanguageChoice;
+	if($MGtoolsLanguageChoice==1)
+	{
+		$ID+="_ch";
+	}
+	else if($MGtoolsLanguageChoice==2)
+	{
+		$ID+="_tc";
+	}	
+	else
+	{
+		$ID+="_en";
+	}
+	string $result;
+	if(`displayString -ex $ID` )
+	{$result=`displayString -q -value $ID`;}
+	if(size($result))
+	{
+		$array=stringToStringArray ($result ,"#");
+		$result=($array[0]+$rep1+$array[1]+$rep2+$array[2]+$rep3+$array[3]);
+	}
+	return $result;
+}
+global proc string MG_DualLanFormat_4 (string $ID,string $rep1,string $rep2,string $rep3,string $rep4)
+{
+	global int $MGtoolsLanguageChoice;
+	if($MGtoolsLanguageChoice==1)
+	{
+		$ID+="_ch";
+	}
+	else if($MGtoolsLanguageChoice==2)
+	{
+		$ID+="_tc";
+	}	
+	else
+	{
+		$ID+="_en";
+	}
+	string $result;
+	if(`displayString -ex $ID` )
+	{$result=`displayString -q -value $ID`;}
+	if(size($result))
+	{
+		$array=stringToStringArray ($result ,"#");
+		$result=($array[0]+$rep1+$array[1]+$rep2+$array[2]+$rep3+$array[3]+$rep4+$array[4]);
+	}
+	return $result;
+}
+global proc string MG_DualLanFormat_5 (string $ID,string $rep1,string $rep2,string $rep3,string $rep4,string $rep5)
+{
+	global int $MGtoolsLanguageChoice;
+	if($MGtoolsLanguageChoice==1)
+	{
+		$ID+="_ch";
+	}
+	else if($MGtoolsLanguageChoice==2)
+	{
+		$ID+="_tc";
+	}	
+	else
+	{
+		$ID+="_en";
+	}
+	string $result;
+	if(`displayString -ex $ID` )
+	{$result=`displayString -q -value $ID`;}
+	if(size($result))
+	{
+		$array=stringToStringArray ($result ,"#");
+		$result=($array[0]+$rep1+$array[1]+$rep2+$array[2]+$rep3+$array[3]+$rep4+$array[4]+$rep5+$array[5]);
+	}
+	return $result;
+}
+//displayString -v "test#test#test#test" test.test3;
+//MG_DualLan "MGtools.mi.config"
+//MG_DualLanFormat_3 "test.test3" " replace " " haha " " xixi "
+
+global proc string returnNameSpaceViaObj (string $selectItem)
+{
+	//mode 0: selset mode;
+	//mode 1: scenes selection mode;
+	string $buffer0[];
+	tokenize $selectItem "|"  $buffer0;
+	string $shortObjName =$buffer0[size($buffer0)-1];
+
+	string $buffer[];
+	int $size=`tokenize $shortObjName ":"  $buffer`;
+
+	if($size<2) return "";	
+	int $badsize=size($buffer[($size-1)]);
+	string $result =`substring $shortObjName 1 ((size($shortObjName))-$badsize-1)`;
+	return $result;
+}
+global proc int MG_testHaveNamespaceOrNot(string $node)
+{
+		return gmatch ($node,"*:*")	;	
+}
+global proc string returnSelNameSpace ()
+{
+	//mode 0: selset mode;
+	//mode 1: scenes selection mode;
+	string $selectItem [] = `ls -sl -ro`;
+	if (size($selectItem)==0){return "";}
+	string $node = $selectItem[0];
+	if(!`referenceQuery -isNodeReferenced $node`)
+	{
+		return "";
+	}
+	string $filepath = `referenceQuery  -filename $node`;
+	return `file -q -rpr $filepath`;
+}
+global proc string replaceNamespaceWithANewOne (string $obj,string $newNs)
+{
+	string $ns = `returnNameSpaceViaObj $obj`;
+	if($newNs=="NULL-NS"){$newNs="";}
+	
+	if(!size($ns))
+	{
+	  return $obj;
+	}
+	string $buffer0[];
+	tokenize $obj "|"  $buffer0;	
+	int $size = size($buffer0);
+	string $result;
+	if($size==1)
+	{
+		$result = ($newNs+`substring $obj (size($ns)+1) (size($obj))`);
+	}
+	else
+	{
+		for ($i=0;$i<$size;$i++)
+		{
+				string $current =$buffer0[$i] ;
+				$current = ($newNs+`substring $current (size($ns)+1) (size($current))`);
+				$result+=$current;
+				if($i!=($size-1))
+				{
+					$result+="|";
+				}
+		}	
+	}
+	return $result;
+}
+//======================================= return active view name================================================
+global proc string returnActiveViewPortName ()
+{
+	string $panel=`getPanel -withFocus`;
+	string $activeViewType=`getPanel -typeOf $panel`;
+	string $result;
+	if($activeViewType!="modelPanel")
+	{
+	    string $allModelPanels []=`getPanel -type "modelPanel"`;
+	    string $allVisPanels[]=`getPanel -vis`;
+	    for($each in $allModelPanels)
+	    {
+	        if(`stringArrayCount $each $allVisPanels`)
+	        {	            
+	            $result=$each;
+	            break;
+	        }
+	    }
+	}
+	else
+	{
+	    $result = $panel;
+	}
+	return $result;
+}
+ //=========================================valid string for writing file=======================================
+global proc string MGvalidStringForWritingFile (string $input)
+{
+	return `MG_validateFileNameString $input`;
+}
+
+//===================================remember/read style codes==================================================
+
+global proc rememberStyle(string $UIName)
+{
+	int $FormerToolLayoutInfo [] = `window -q -wh  $UIName`;
+	int $FormerToolPosInfo []=`window -q  -topLeftCorner $UIName` ;
+	string $styleInfo= $FormerToolLayoutInfo [0];
+	string $styleInfo1= $FormerToolLayoutInfo [1];
+	string $styleInfo2= $FormerToolPosInfo [0];
+	string $styleInfo3= $FormerToolPosInfo [1];
+	$styleInfo= ( $styleInfo+";"+$styleInfo1+";"+$styleInfo2+";"+$styleInfo3);
+		if($FormerToolLayoutInfo[0] !=43||$FormerToolLayoutInfo[1] !=58)
+		{writeIntoConfig ("MG_UIConfig/"+$UIName+"style_max.tmp") $styleInfo;}
+}
+
+global proc readStyle(string $UIName,string $gridLayoutName)
+{	
+  string $infos =`readFormConfig ("MG_UIConfig/"+$UIName+"style_max.tmp")`;
+	if(!size($infos)){return;}
+	string $buffer[];
+ 	$numTokens = `tokenize $infos ";" $buffer`;
+	int $num0 =$buffer[0];
+	int $num1 =$buffer[1];
+	int $num2 =$buffer[2];
+	int $num3 =$buffer[3];
+	global int $MGTools_2011_orNot;
+	if($MGTools_2011_orNot)
+	{	
+		int $shelfItemNum=`gridLayout -q -nch $gridLayoutName`;
+		gridLayout -e -numberOfRows $shelfItemNum -nc $shelfItemNum  $gridLayoutName;
+	}
+	window -e -wh $num0  $num1  -topLeftCorner $num2 $num3  $UIName;
+}
+
+//=======================================write/read/test config codes===========================================
+global proc int MG_makeSureFileDirBuilt(string $filepath)
+{
+	string $dir = `dirname $filepath`;
+	if(!`filetest -d $dir`)
+	{
+		return (`sysFile -md $dir`);
+	}
+	return 1;
+}
+global proc string returnMGToolsLocalConfigDir()
+{
+  string $usd = `internalVar -usd`;
+	string $path =($usd+"MGTools/MGTools_LocalData/");
+	return $path;
+}
+global proc string returnMGToolsLocalCertainConfigDir(string $toolConfigFolderName)
+{
+	string $path =`returnMGToolsLocalConfigDir`+$toolConfigFolderName;
+	return $path;
+}
+global proc writeIntoConfig (string $configFileName ,string $configContent)
+{		
+	string $path = `returnMGToolsLocalConfigDir`;
+	$conFigFileNameForOpen = ( $path + $configFileName);
+	
+	//make sure its dir exists:
+	MG_makeSureFileDirBuilt $conFigFileNameForOpen;
+	
+ 	$fileId=`fopen $conFigFileNameForOpen "w"`;
+ 	fwrite $fileId $configContent;
+ 	fclose $fileId;	
+}
+global proc string readFormConfig (string $configFileName)
+{
+	string $path = `returnMGToolsLocalConfigDir`;
+	$file = ( $path + $configFileName);
+	if(!`filetest -f $file`){return "";}
+	string $nextLine ,$getDataString;
+	$readFileID=`fopen $file "r"`;
+	while(!`feof $readFileID`)
+	{
+		$nextLine=`fgetline $readFileID`;
+		if (size($nextLine)>0)
+		{			
+			$getDataString=($getDataString+$nextLine);
+		}
+	}
+	fclose $readFileID;
+	return $getDataString;
+}
+//size(`readFormConfig "test"`);
+global proc string configExistorNot (string $configFileName)
+{
+	string $path = `returnMGToolsLocalConfigDir`;
+	string $pathAndFile = ($path + $configFileName);
+ 	if (`filetest -f $pathAndFile`)
+		{return "1";}
+	else {return "0";}
+
+}
+
+global proc initMGToolsUIChoiceSettingArray()
+{
+  global string $gMGToolsToolsLabels [];
+  global int $gMGTools_ToolsChoiceList[];
+  clear $gMGTools_ToolsChoiceList;
+  int $size = size($gMGToolsToolsLabels);
+  for($i=0;$i<$size;$i++)
+  {
+    $gMGTools_ToolsChoiceList[$i] = 1;
+  }
+  string $file = `returnMGToolsLocalCertainConfigDir "MG_UIConfig/MG_ToolsChoice.cfg"`;
+  string $arrays[] =`mgReadFileArray($file)`;
+  if(!size($arrays))
+  {
+    return;
+  }
+  string $temp[];
+  string $cTool;
+  int $cIndex;
+  for($each in $arrays)
+  {
+    tokenizeList $each $temp;
+    $cTool = $temp[0];
+    $cIndex = `MG_StringArrayGetMemberIndex $cTool $gMGToolsToolsLabels`;
+    if($cIndex != -1)
+    {
+      $gMGTools_ToolsChoiceList[$cIndex] = 0;
+    }
+  }
+}
+initMGToolsUIChoiceSettingArray;
+
+global proc int[] getMGToolsAutoLoadSettingArray ()
+{
+  int $MGToolsAutoloadConfigArray [];
+  $MGToolsAutoloadConfigArray ={0,0,0,0,0,0,0,0,0};
+  string $autoLoadCfgStr = `readFormConfig "MG_AutoLoadConfig/MGTools_AutoloadConfig.txt"`;
+  if(!size($autoLoadCfgStr))
+  {
+    return $MGToolsAutoloadConfigArray;
+  }
+  string $cfgs[];
+  tokenize $autoLoadCfgStr "\n" $cfgs;
+  string $cLine;
+  for($each in $cfgs)
+  {
+    $cLine = strip($each);
+    if(!`endsWith $cLine "1"`)
+    {
+      continue;
+    }
+    if(`startsWith $cLine "AutoLoad MGTools MainUI"`)
+    {
+      $MGToolsAutoloadConfigArray [0] = 1;
+    }
+    else if(`startsWith $cLine "Load MGTools Minimized"`)
+    {
+      $MGToolsAutoloadConfigArray [1] = 1;
+    }
+    else if(`startsWith $cLine "AutoLoad MGToolsMenu"`)
+    {
+      $MGToolsAutoloadConfigArray [2] = 1;
+    }
+    else if(`startsWith $cLine "AutoLoad MG-ChannelBox"`)
+    {
+      $MGToolsAutoloadConfigArray [3] = 1;
+    }
+    else if(`startsWith $cLine "AutoLoad MG-ShelfBar"`)
+    {
+      $MGToolsAutoloadConfigArray [4] = 1;
+    }
+    else if(`startsWith $cLine "AutoLoad MG-SelectionSet"`)
+    {
+      $MGToolsAutoloadConfigArray [5] = 1;
+    }
+    else if(`startsWith $cLine "AutoLoad MG-ConstraintTools"`)
+    {
+      $MGToolsAutoloadConfigArray [6] = 1;
+    }
+    else if(`startsWith $cLine "AutoLoad MG-KeyframeTools"`)
+    {
+      $MGToolsAutoloadConfigArray [7] = 1;
+    }
+    else if(`startsWith $cLine "AutoLoad MG-GE-Plugin"`)
+    {
+      $MGToolsAutoloadConfigArray [8] = 1;
+    }
+  }
+  return $MGToolsAutoloadConfigArray;
+}
+global proc MG_updateUserSetupFile()
+{
+  int $usePyUsersetup = 0;
+	if(`optionVar -ex "MGTools_Autoload_Via_UsersetupPY"`)
+	{
+	  $usePyUsersetup = `optionVar -q "MGTools_Autoload_Via_UsersetupPY"`;
+	}
+	
+	//repair the usersetup.mel 
+  global string $GmgtoolsPath;  
+  string $autoLoaderMel = $GmgtoolsPath+"MGToolsLoader_WrittenByMiguel.mel";
+  string $commandCode;   
+	string $userSetupFile;
+	string $obsoleteUserSetupFile;
+	string $repExp;
+	string $repExpAbsolete;
+	if(!$usePyUsersetup)
+	{
+	  $userSetupFile = "userSetup.mel";
+	  $obsoleteUserSetupFile = "userSetup.py";
+	  $repExp ="//MGautoLoad_start.*//MGautoLoad_end";
+	  $repExpAbsolete	 ="#MGautoLoad_start.*#MGautoLoad_end";	
+    $commandCode= ("//MGautoLoad_start\n  string $MGTools_AutoLoaderFile = \""+$autoLoaderMel+"\";\n  if(`filetest -f $MGTools_AutoLoaderFile`)\n  {\n    eval (\"source \\\"\"+$MGTools_AutoLoaderFile+\"\\\";MGToolsAutoLoader;\");\n  }\n//MGautoLoad_end\n");
+    //$commandCode= ("//MGautoLoad_start\n  string $MGTools_AutoLoaderFile = \""+$autoLoaderMel+"\";\n  if(`filetest -f $MGTools_AutoLoaderFile`)\n  {\n    eval (\"source \\\"\"+$MGTools_AutoLoaderFile+\"\\\";MGToolsAutoLoader;\");\n  }\n  else\n  {\n    print (\"[MGTools] File: \\\"\"+$MGTools_AutoLoaderFile+\"\\\" not exists, skip MGTools initialization.\");\n  }\n//MGautoLoad_end\n");
+  }
+  else
+	{
+	  $userSetupFile = "userSetup.py";
+	  $obsoleteUserSetupFile = "userSetup.mel";
+	  $repExp ="#MGautoLoad_start.*#MGautoLoad_end";	
+	  $repExpAbsolete	 ="//MGautoLoad_start.*//MGautoLoad_end";	
+    $commandCode= ("#MGautoLoad_start\ndef MGTools_AutoLoad_Py(loaderMel):\n    import maya.mel as mel\n    import os  \n    if os.path.isfile(loaderMel):\n        mel.eval('evalDeferred (\"source \\\\\\\"'+loaderMel+'\\\\\\\";MGToolsAutoLoader;\")')\n");
+    $commandCode+="MGTools_AutoLoad_Py('"+$autoLoaderMel+"')\n#MGautoLoad_end\n";
+    //$commandCode= ("#MGautoLoad_start\ndef MGTools_AutoLoade_Py(loaderMel):\n    import maya.mel as mel\n    import os  \n    if os.path.isfile(loaderMel):\n        mel.eval('evalDeferred (\"source \\\\\\\"'+loaderMel+'\\\\\\\";MGToolsAutoLoader;\")')\n    else:\n        print (\"[MGTools] File: \\\"\"+loaderMel+\"\\\" not exists, skip MGTools initialization.\")\n\nMGTools_AutoLoade_Py('"+$autoLoaderMel+"')\n#MGautoLoad_end\n");
+  }
+  string $scriptPath = `internalVar -usd`;
+	$conFigFileNameForOpen = ( $scriptPath + $userSetupFile);
+	string $oldContent="",$newContent="";
+	if(`filetest -f $conFigFileNameForOpen`)
+	{
+		$oldContent=`mgReadFileString $conFigFileNameForOpen`;
+		$newContent=`substitute $repExp $oldContent ""`;	
+		$newContent = $commandCode + strip($newContent);
+	}
+	else
+	{
+		$newContent = $commandCode;
+	}
+	//print  $newContent;	
+	//make sure its dir built:
+	MG_makeSureFileDirBuilt $conFigFileNameForOpen;
+	$fileId=`fopen $conFigFileNameForOpen "w"`;
+	fwrite $fileId $newContent;
+	fclose $fileId;	
+	
+	//now clean up the obsolete one:
+	$conFigFileNameForOpen = ( $scriptPath + $obsoleteUserSetupFile);
+	//print ("absolette file: "+$conFigFileNameForOpen+"\n");
+	if(`filetest -f $conFigFileNameForOpen`)
+	{
+	  $oldContent=`mgReadFileString $conFigFileNameForOpen`;
+	  $newContent=`substitute $repExpAbsolete $oldContent ""`;
+	  //print ("---------------------------\nnewContent: "+$newContent+"\n");
+	  string $stripContent = strip($newContent);
+	  //print ("---------------------------\nnewContent: "+$stripContent+"\n");
+	  if(!size($stripContent))
+	  {
+	    sysFile -del $conFigFileNameForOpen;
+	  }
+	  else
+	  {
+  	  $fileId=`fopen $conFigFileNameForOpen "w"`;
+    	fwrite $fileId $newContent;
+    	fclose $fileId;	
+    }
+	}	
+}
+global proc saveMGToolsAutoLoadSetting (int $settings[])
+{
+  //print $settings;print "--------------------\n";
+  string $configContent;
+  $configContent += ("AutoLoad MGTools MainUI = "+$settings[0]+"\r\n");
+  $configContent += ("Load MGTools Minimized = "+$settings[1]+"\r\n");
+  $configContent += ("AutoLoad MGToolsMenu = "+$settings[2]+"\r\n");
+  $configContent += ("AutoLoad MG-ShelfBar = "+$settings[3]+"\r\n");
+  $configContent += ("AutoLoad MG-ChannelBox = "+$settings[4]+"\r\n");
+  $configContent += ("AutoLoad MG-SelectionSet = "+$settings[5]+"\r\n");
+  $configContent += ("AutoLoad MG-ConstraintTools = "+$settings[6]+"\r\n");
+  $configContent += ("AutoLoad MG-KeyframeTools = "+$settings[7]+"\r\n");
+  $configContent += ("AutoLoad MG-GE-Plugin = "+$settings[8]+"\r\n");
+  
+	//now store the autoload configs.
+	writeIntoConfig "MG_AutoLoadConfig/MGTools_AutoloadConfig.txt" $configContent;
+  global int $gMGToolsAutoloadConfigArray [];
+  $gMGToolsAutoloadConfigArray = $settings;	
+	MG_updateUserSetupFile;
+}
+
+global proc saveMGTools_SingleAutoLoadSetting (string $settingItem, int $autoLoad)
+{
+  int $array [] = `getMGToolsAutoLoadSettingArray`;
+  int $index = 0;
+  if($settingItem == "MGTools")	
+  {
+    $index = 0;
+  }
+  else if($settingItem == "MGToolsMinimized")	
+  {
+    $index = 1;
+  }
+  else if($settingItem == "MGToolsMenu")	
+  {
+    $index = 2;
+  }
+  else if($settingItem == "MG-ShelfBar")	
+  {
+    $index = 3;
+  }
+  else if($settingItem == "MG-ChannelBox")	
+  {
+    $index = 4;
+  }
+  else if($settingItem == "MG-SelectionSet")	
+  {
+    $index = 5;
+  }
+  else if($settingItem == "MG-ConstraintTools")	
+  {
+    $index = 6;
+  }
+  else if($settingItem == "MG-KeyframeTools")	
+  {
+    $index = 7;
+  }
+  else if($settingItem == "MG-GE-Plugin")	
+  {
+    $index = 8;
+  }
+  else
+  {
+    return;
+  }  
+  if($autoLoad != $array [$index])
+  {
+    $array [$index] = $autoLoad;
+    saveMGToolsAutoLoadSetting $array;
+  }
+}
+
+global proc saveMGToolsAutoLoadSettingViaConfigOrInstallation (int $mode)
+{
+  string $configContent;
+	//
+	int $aMGTools,$aminimize,$aShelfBar,$aChannelBox,$aSelset,$aConstraintTools,$aKeyframeTools,$aMGtoolsMenu,$aGEPluin;
+	if($mode)
+	{
+	    if (!`window -exists mgtoolConfigUI`)
+        {
+          return;
+        }
+    
+		$aMGTools=`checkBox -q -value autoLoadMGToolsCB`;
+		$aminimize=`checkBox -q -value autoLoadMGtoolsMinCB`;
+		$aShelfBar=`checkBox -q -value autoLoadMGShelfCB`;
+		$aChannelBox=`checkBox -q -value autoLoadMGChannelBoxCB`;
+		$aSelset=`checkBox -q -value autoLoadMGselsetCB`;
+		$aConstraintTools=`checkBox -q -value autoLoadMGConstraintToolCB`;
+		$aKeyframeTools=`checkBox -q -value autoLoadMGKeyframeToolCB`;
+		$aMGtoolsMenu=`checkBox -q -value autoLoadMGtoolsMenuCB`;
+		int $filemode = `radioButtonGrp -q -sl MGConfig_StoreConfigFile_RBG`;
+        $filemode--;
+        optionVar -iv "MGTools_Autoload_Via_UsersetupPY" $filemode;	 
+        
+        $aGEPluin = `checkBox -q -v autoLoadGEpluginWithGECB`;
+        eval(`shelfCommand "GE_PlugIn_writtenByMiguel.mel" ("AutoLoadGEPlugIN_doit "+$aGEPluin+" 0;")`);          
+	}
+	else
+	{
+	    if (!`window -exists mgtoolInstallUI`)
+        {
+          return;
+        }
+        $aGEPluin = 0;
+		$aMGTools=`checkBox -q -value installAutoLoadMGtoolsCB`;
+		$aminimize=`checkBox -q -value installautoLoadMinCB`;
+		$aShelfBar=`checkBox -q -value installautoLoadShelfCB`;
+		$aChannelBox=`checkBox -q -value installAutoLoadChannelBoxCB`;
+		$aSelset=`checkBox -q -value installAutoLoadMGselsetCB`;
+		$aConstraintTools=`checkBox -q -value installAutoLoadconstraintToolCB`;
+		$aKeyframeTools=`checkBox -q -value installAutoLoadkeyframeToolCB`;
+		$aMGtoolsMenu=`checkBox -q -value installAutoLoadMGtoolsMenuCB`;	
+		
+		int $filemode = `radioButton -q -sl installAutoLoadViaUsersetupPYRB`;	
+		optionVar -iv "MGTools_Autoload_Via_UsersetupPY" $filemode;	  
+	}
+	int $settings [] = {$aMGTools,$aminimize,$aMGtoolsMenu,$aShelfBar,$aChannelBox,$aSelset,$aConstraintTools,$aKeyframeTools,$aGEPluin};
+	saveMGToolsAutoLoadSetting $settings;  
+	
+	
+    if(`control -q -ex autoLoadGEpluginWithGECB`)
+	{
+		if(`checkBox -q -v autoLoadGEpluginWithGECB`!=$aGEPluin)
+			checkBox -e -v $aGEPluin autoLoadGEpluginWithGECB;
+	}
+	if(`control -q -ex GEPlugin_Option_AutoLoadCB`)
+	{
+		if(`checkBoxGrp -q -v1 GEPlugin_Option_AutoLoadCB`!=$aGEPluin)
+			checkBoxGrp -e -v1 $aGEPluin GEPlugin_Option_AutoLoadCB;
+	}
+	if(`menuItem -q -ex MGTools_KeyframeTool_GEplug_autoLoadMI`)
+	{
+	    menuItem -e -cb $aGEPluin MGTools_KeyframeTool_GEplug_autoLoadMI;
+	}
+}
+//====================================calc UI height/width============================
+global proc int clacHeight (int $rowNum,string $gridLayoutName)
+{
+	global int $MGTools_2011_orNot;
+	int $titleBarHeight=23;
+	int $sideAdd=2;	
+	int $cellWidth = 34;
+	if($MGTools_2011_orNot){$titleBarHeight=0;	$sideAdd=0;}
+	int $newHeight;
+	//$gridLayoutName="mgConstraintGridLayout";
+	int $shelfItemNum=`gridLayout -q -numberOfChildren $gridLayoutName`;
+	//print ($shelfItemNum+"\n");
+	float $temp = 0;
+	switch ($rowNum)
+	{
+		case 1:
+			$newHeight=($titleBarHeight+$shelfItemNum*$cellWidth);		
+		break;
+		case 2:
+			$temp=($shelfItemNum/2);
+			if ($temp*2<$shelfItemNum){$temp=($temp+1);}
+			$newHeight=($titleBarHeight+(ceil ($temp))*$cellWidth);
+		break;
+		case 3:
+			//float $temp=($shelfItemNum/4);
+			
+			$temp=sqrt($shelfItemNum);
+			if($temp-(trunc  ($temp))>=0.5){$temp=ceil ($temp);}
+			else{$temp=trunc  ($temp);}
+			//if ($temp*4<$shelfItemNum){$temp=($temp+1);}
+			$newHeight=($titleBarHeight+$temp*$cellWidth);
+			//print (ceil($shelfItemNum/4));
+	
+		break;
+		case 4:
+			$newHeight=($cellWidth+$titleBarHeight);
+		break;	
+	}
+	if(!$MGTools_2011_orNot)
+	{return ($newHeight+12);}
+	else{return $newHeight;}
+}
+proc int MG_clacToolBarWidth (int $rowNum,string $gridLayoutName)
+{
+	//calc width when is square style.
+	int $shelfItemNum=`gridLayout -q -numberOfChildren $gridLayoutName`;
+	global int $MGTools_2011_orNot;
+	int $edgeAdd=8;
+	int $cellWidth = 34;
+	if(!$MGTools_2011_orNot)
+	{
+	    $cellWidth = 41;
+    }
+	if($MGTools_2011_orNot)$edgeAdd=0;
+	if($rowNum<3)
+	{
+		return (($rowNum*$cellWidth)+$edgeAdd);	
+	}
+	if($rowNum==4)	
+	{
+		return (($shelfItemNum*$cellWidth)+$edgeAdd);	
+	}
+	float $temp=sqrt($shelfItemNum);
+	if($temp-(trunc  ($temp))>=0.5){$temp=ceil ($temp);}
+	else{$temp=trunc  ($temp);}
+	int $tempWNum=ceil($shelfItemNum/$temp);
+	int $newW=($edgeAdd+$tempWNum*$cellWidth);
+	return $newW;
+
+}
+//int $newHeight3 =`clacHeight 3 mgConstraintGridLayout`;MGStyle mgConstraintToolUI($newHeight3-23) $newHeight3 ;
+
+//window -e -h `clacHeight 3 MGtoolsMainGridLayout` mgToolUI;
+//window -e -w `clacHeight 4 MGtoolsMainGridLayout` mgToolUI;
+
+//window -e -h `clacHeight 1 pivotToolTotalGL` PivotToolUI;
+//window -e -w `clacHeight 4 pivotToolTotalGL` PivotToolUI;
+global proc MGStyle (string $UIName, int $width,int $height)
+{
+	//int $titleBar = `window -q -titleBar $UIName`;
+	//if ($titleBar==0){$height=($height-18);}
+	window -e -wh  $width  $height $UIName;
+	rememberStyle $UIName;
+}
+
+global proc int intArrayMemberCheck (int $target,int $array [])
+{
+	int $result=0;
+	for ($each in $array)
+	{
+		if ($each==$target)
+		{
+		  $result=1;
+		  break;
+		}
+	}
+	return $result;
+}
+global proc string MG_getTrailingDigitStr(string $str)
+{
+  if(!size($str))
+  {
+    return "";
+  }
+  return `match "([0-9])+$" $str`;
+}
+global proc string[] MG_stripArray(string $array[])
+{
+  string $stripArray[];
+  for($each in $array)
+  {
+    $stripArray [size($stripArray)] = strip($each);
+  }
+  return $stripArray;
+}
+global proc string MG_fillStringToLength(string $str, int $length, string $fillChar, int $fillAtStart)
+{
+  int $sizeVer = size($str);
+  int $gap = $length-$sizeVer;
+  int $charSize = size($fillChar);
+  if(!$charSize)
+  {
+    $fillChar = " ";
+  }
+  else if($charSize > 1)
+  {
+    $fillChar = `substring $fillChar 1 1`;
+  }
+  if($gap > 0)
+  {
+    for($i=0;$i<$gap;$i++)
+    {
+      if($fillAtStart)
+      {
+        $str = $fillChar + $str;
+      }
+      else
+      {
+        $str += $fillChar;
+      }
+    }
+  }
+  return $str;
+}
+global proc string[] MG_SplitString(string $str, string $sep, int $keepEmptyPart)
+{
+  int $strSize = size($str);
+  if(!$strSize)
+  {
+    return {};
+  }
+  int $sepSize = size($sep);
+  if(!$sepSize)
+  {
+    return {$str};
+  }
+  if($sepSize > 1)
+  {
+    $sep = `substring $sep 1 1`;
+  }
+  int $count = 0;
+  string $cPart;
+  string $result[];
+  string $cChar;
+  for($i=1; $i<=$strSize; $i++)
+  {
+    $cChar = `substring $str $i $i`;
+    if($cChar == $sep)
+    {
+      if(!$keepEmptyPart && $i==1 )
+      {
+        continue;
+      }
+      if(!$keepEmptyPart && !size($cPart))
+      {
+        continue;
+      }
+      $result[size($result)] = $cPart;
+      $cPart = "";
+    }
+    else
+    {
+      $cPart +=  $cChar;
+    }
+  }
+  if($cChar != $sep)
+  {
+      $result[size($result)] = $cPart;
+  }
+  else if($keepEmptyPart)
+  {
+    $result[size($result)] = "";
+  }
+  return $result;
+  
+}
+global proc int MG_StringArrayGetMemberIndex (string $target,string $array [])
+{
+	int $result = -1;
+	for ($i=0; $i<size($array); $i++)
+	{
+		if ($array[$i]==$target)
+		{
+		  $result=$i;
+		  break;
+		}
+	}
+	return $result;
+}
+global proc int MG_StringCharCount(string $str, string $char)
+{
+		int $size = size($str);
+    int $charSize = size ($char);
+    if(!$size || !$charSize)
+    {
+        return 0;
+    }
+    if($charSize > 1)
+    {
+       $char = `substring  $char 1 1`;
+    }
+    string $cChar;
+    int $gap;
+    int $result = 0;
+    for($i=1; $i<=$size; $i++)
+    {
+        $cChar = `substring $str $i $i`;
+        if($cChar == $char)
+        {
+           $result++;
+        }
+    }
+    return $result;
+}
+global proc int MG_findNextCharSubstringIndex (string $str, string $char)
+// used to read .ini style file such as MG-AssetManager project file.
+{
+    int $size = size($str);
+    int $charSize = size ($char);
+    if(!$size || !$charSize)
+    {
+        return -1;
+    }
+    if($charSize > 1)
+    {
+       $char = `substring  $char 1 1`;
+    }
+    string $cChar;
+    int $gap;
+    for($i=1; $i<=$size; $i++)
+    {
+        $cChar = `substring $str $i $i`;
+        if($cChar == $char)
+        {
+            //skip all following space if the char we are finding is space:
+           if($char == " ")   
+           {
+               $gap = 0;
+                for($k=$i+1; $k<=$size; $k++)
+                {
+                    $cChar = `substring $str $k $k`;
+                    if($cChar != " ")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        $gap ++;
+                        continue;
+                    }
+                }
+                $i+= $gap;
+           }
+           return $i;
+        }
+    }
+    return -1;
+}
+global proc string MG_validateFileNameString(string $inputString)
+//return a string valid for being a file name.
+{
+    int $count = size($inputString);
+    if(!$count)
+    {
+        return $inputString;
+    }
+    string $outputString;
+    if(`isValidString $inputString "[a-zA-Z0-9_\.]+"`)
+    {
+        return $inputString;
+    }
+    string $cc;
+    for($i=1 ; $i <= $count ; $i++)
+    {
+        $cc = `substring $inputString $i $i`;
+        if(`isValidString $cc "[a-zA-Z0-9_\.]+"`)
+        {
+            $outputString += $cc;
+        }
+        else
+        {
+            $outputString += "_";
+        }
+    }
+    return $outputString;
+}
+global proc string MG_validateControlNameString(string $inputString)
+//return a string valid for being a maya control name.
+{
+    int $count = size($inputString);
+    if(!$count)
+    {
+        return $inputString;
+    }
+    string $exp = "[a-zA-Z_]+[a-zA-Z0-9_]*";
+    string $outputString;
+    if(`isValidString $inputString $exp`)
+    {
+        return $inputString;
+    }
+    string $cc;
+    string $expStart = "[a-zA-Z_]";
+    string $expOther = "[a-zA-Z0-9_]";
+    for($i=1 ; $i <= $count ; $i++)
+    {
+        $cc = `substring $inputString $i $i`;
+        if($i == 1)
+        {
+          $exp = $expStart;
+        }
+        else
+        {
+          $exp = $expOther;
+        }
+        if(`isValidString $cc $exp`)
+        {
+            $outputString += $cc;
+        }
+        else
+        {
+            $outputString += "_";
+        }
+    }
+    return $outputString;
+}
+global proc string MG_getNonDuplicateDirName(string $parentDir,string $dirName)
+{
+    string $fullPath = $parentDir+$dirName;
+    if(!`filetest -d $fullPath`)
+    {
+        return $dirName;
+    }
+    string $endDigit = `MG_getTrailingDigitStr $dirName`;
+    int $sizeDigit = size ($endDigit);
+    string $prefix = $dirName;
+    if($sizeDigit)
+    {
+        $prefix =`substring $dirName 1 (size($dirName)-$sizeDigit)`;
+    }
+    int $i = 1;
+    string $newDirFullpath = ($parentDir+$prefix+$i );
+    while(`filetest -d $newDirFullpath`)
+    {
+        $i ++;
+        $newDirFullpath = ($parentDir+$prefix+$i );
+    }
+    return ($prefix+$i);
+}
+global proc string MG_getNonDuplicateFileName(string $parentDir,string $fileName)
+{
+    string $fullPath = $parentDir+$fileName;
+    if(!`filetest -f $fullPath`)
+    {
+        return $fileName;
+    }
+    string $fileBaseName = `basenameEx $fileName`;
+    string $extName = "."+`fileExtension $fileName`;
+    string $endDigit = `MG_getTrailingDigitStr $fileBaseName`;
+    int $sizeDigit = size ($endDigit);
+    string $prefix = $fileBaseName;
+    if($sizeDigit)
+    {
+        $prefix =`substring $fileBaseName 1 (size($fileBaseName)-$sizeDigit)`;
+    }
+    int $i = 1;
+    string $newFullpath = ($parentDir+$prefix+$i+$extName);
+    while(`filetest -f $newFullpath`)
+    {
+        $i ++;
+        $newFullpath = ($parentDir+$prefix+$i+$extName);
+    }
+    return ($prefix+$i+$extName);
+}
+
+global proc string MG_getValidNonDupFileName(string $basename, string $ext , string $initUntitledName, string $existsFileList[])
+{
+    string $validName = `MG_validateFileNameString $basename`;
+    if(!`size $validName`)
+    {
+        $validName = $initUntitledName;
+    }
+    //print $bookmarks;
+    string $realFileName = $validName+$ext;
+    string $version = `MG_getTrailingDigitStr $validName`;
+    int $verInt;
+    int $versonSize;
+    if(size($existsFileList))
+    {
+        while(stringArrayContains ($realFileName,$existsFileList))
+        {
+            if(!size($version)) 
+            {
+                $version = "1";
+            }
+            else
+            {
+                $verInt = $version;  
+                $verInt ++;
+                $versonSize = size($version);
+                $validName = `substring $validName 1 (size($validName)-$versonSize)`;
+                $version =  $verInt;
+            }
+            $validName += $version;
+            $realFileName = $validName+$ext;
+        }
+        return $realFileName;
+    }
+    else
+    {
+        return $realFileName;
+    }
+}
+global proc string MG_getNonDuplicateArrayItem(string $item,string $array[])
+{
+  int $arraySize = size($array);
+  if(!$arraySize)
+  {
+    return  $item;
+  }
+  int $itemSize = size($item);
+  if(!$itemSize)
+  {
+    return $item;
+  }
+  string $indexStr = `MG_getTrailingDigitStr $item`;
+  $indexSize = size($indexStr);
+  
+  string $prefix = "";
+  if($itemSize > $indexSize)
+  {
+    $prefix = `substring $item 1 ($itemSize-$indexSize)`;
+  }
+  int $count = `stringArrayCount $item $array`;
+  if(!$count)
+  {
+    return $item;
+  }
+  else
+  {
+    int $index;
+    string $indexStr;
+    int $indexSize;
+    while($count)
+    {
+      $indexStr = `MG_getTrailingDigitStr $item`;
+      $indexSize = size($indexStr);
+      if(!$indexSize)
+      {
+        $item+="1";
+      }
+      else
+      {
+        $index = $indexStr;
+        $index ++;
+        $indexStr = $index;
+        $indexStr = `MG_fillStringToLength $indexStr $indexSize "0" 1`;
+        $item = $prefix  + $indexStr;
+      }
+      $count = `stringArrayCount $item $array`;
+      if(!$count)
+      {
+        break;
+      }
+    }
+  }
+  return $item;
+}
+global proc int MG_getStringCountInString(string $searchString, string $searchChar)
+{
+  int $strSize = size($searchString);
+  if(!$strSize )
+  {
+    return 0;
+  }
+  int $charSize = size($searchChar);
+  if(!$charSize)
+  {
+    return 0;
+  }
+  if($charSize > 1)
+  {
+    $searchChar = `substring $searchChar 1 1`;
+  }
+  int $count = 0;
+  for($i=1; $i<=$strSize; $i++)
+  {
+    if(`substring $searchString $i $i` == $searchChar)
+    {
+      $count ++;
+    }
+  }
+  return $count;
+}
+global proc string [] MG_reverseStringArray(string $originalArray[])
+{
+    string $newArray[] = $originalArray;
+    int $newArrayLength = size($newArray);
+    int $halfLength = $newArrayLength/2;
+    int $i;
+    for ($i = 0; $i <$halfLength; $i++)
+    {
+        string $tmpLayer = $newArray[$i];
+        int $j = $newArrayLength - $i -1;
+        $newArray[$i] = $newArray[$j];
+        $newArray[$j] = $tmpLayer;
+    }
+    return $newArray;
+}
+global proc MGEditNCNR (int $ncOrnr,int $rowNum,string $gridLayoutName)
+{
+	//$ncOrnr 0 :nr
+	//$ncOrnr 1 :nc
+	int $shelfItemNum=`gridLayout -q -numberOfChildren $gridLayoutName`;			
+	if(!$ncOrnr)//set up row num
+	{
+		if($rowNum==1)
+		{
+				gridLayout -e -numberOfRows $shelfItemNum $gridLayoutName;
+		}
+		else
+		{
+			if($rowNum==2)
+			{gridLayout -e -numberOfRows (ceil($shelfItemNum/2)+1) $gridLayoutName;}
+			else
+			{	
+				if($rowNum==3)
+				{gridLayout -e -numberOfRows (ceil(sqrt($shelfItemNum))) $gridLayoutName;}	
+				else
+				{
+					if($rowNum==4)
+					{gridLayout -e -numberOfRows 1 $gridLayoutName;}
+					else	{gridLayout -e -numberOfRows  $shelfItemNum $gridLayoutName;}
+				}		
+			}		
+		}		
+	}
+	else//set up column num
+	{
+		if($rowNum<3)
+		{
+				gridLayout -e -numberOfColumns $rowNum $gridLayoutName;
+		}
+		else
+		{
+			if($rowNum==3){gridLayout -e -numberOfColumns (ceil(sqrt($shelfItemNum))) $gridLayoutName;}
+			else{gridLayout -e -numberOfColumns $shelfItemNum $gridLayoutName;}			
+		}
+	}
+}
+global proc MGExcuteEmbedStyle(int $rowNum,string $UIName,string $gridLayoutName)
+{	
+	global int $MGTools_2011_orNot;	
+	if($MGTools_2011_orNot)
+	{		
+		MGEditNCNR 1 $rowNum $gridLayoutName;		
+		MGEditNCNR 0 $rowNum $gridLayoutName;		
+	}
+	window -e -w `MG_clacToolBarWidth $rowNum $gridLayoutName` $UIName;	
+	window -e -h `clacHeight $rowNum $gridLayoutName`	$UIName;	
+	//if($MGTools_2011_orNot)
+	//{		
+		//MGEditNCNR 0 $rowNum $gridLayoutName;	
+		//MGEditNCNR 1 $rowNum $gridLayoutName;			
+	//}		
+}
+global proc int MGJudgeStyle(int $rowNum,string $UIName,string $gridLayoutName)
+{
+	// $rowNum  1-4:embed style judge
+	//  $rowNum 5:whether custom style or not.
+	if($rowNum==5)
+	{
+		for ($i=0;$i<5;$i++)
+		{
+			int $width=`MG_clacToolBarWidth $rowNum $gridLayoutName`;
+			int $height=`clacHeight $rowNum $gridLayoutName`;
+			if (`window -q -w $UIName`==$width && `window -q -h $UIName`==$height){return 0;}			
+		}
+		return 1;
+	}
+	
+		int $width=`MG_clacToolBarWidth $rowNum $gridLayoutName`;
+		int $height=`clacHeight $rowNum $gridLayoutName`;
+		if (`window -q -w $UIName`==$width && `window -q -h $UIName`==$height)	{return 1;}
+		else {return 0;}
+}
+global proc MGSytleMenu (string $UIName,string $gridLayoutName,string $radioButtonGrp)
+{
+		//	menuItem  
+		//		-label "Titlebar" 
+		//		-c ("titleBarToggle "+$UIName)
+		//		-checkBox  `window -q -titleBar $UIName`
+		//		-annotation "Show/Hide titlebar."; 
+		//	menuItem -d 1 ;
+			int $widths[]={`MG_clacToolBarWidth 1 $gridLayoutName`,
+											`MG_clacToolBarWidth 2 $gridLayoutName`,
+											`MG_clacToolBarWidth 3 $gridLayoutName`,
+											`MG_clacToolBarWidth 4 $gridLayoutName`};
+			int $heights[]={`clacHeight 1 $gridLayoutName`,
+											`clacHeight 2 $gridLayoutName`,
+											`clacHeight 3 $gridLayoutName`,
+											`clacHeight 4 $gridLayoutName`};											
+			menuItem 
+				-label `MG_DualLan "ServeProc.style.remember"`   
+				-c ("rememberStyle  "+$UIName)	
+				-annotation `MG_DualLan "ServeProc.style.remember.anno"` ($UIName+"_rememberStyle_MI");
+			menuItem 
+				-label `MG_DualLan "ServeProc.style.user"` 
+				-c ("readStyle "+$UIName+" "+$gridLayoutName)
+				-collection $radioButtonGrp
+				-radioButton (`MGJudgeStyle 5 $UIName $gridLayoutName`)
+				-annotation `MG_DualLan "ServeProc.style.user.anno"` ($UIName+"_userStyle_MI");
+ 			menuItem 
+				-label `MG_DualLan "ServeProc.style.layer1"` 
+				-c ("MGExcuteEmbedStyle 1 "+$UIName+" "+$gridLayoutName)
+				-collection $radioButtonGrp
+				-radioButton (`MGJudgeStyle 1 $UIName $gridLayoutName`)
+				-annotation `MG_DualLan "ServeProc.style.layer1"`  ($UIName+"_Style1_MI"); 
+
+			menuItem 
+				-label `MG_DualLan "ServeProc.style.layer2"`   
+				-c ("MGExcuteEmbedStyle 2 "+$UIName+" "+$gridLayoutName)
+				-collection $radioButtonGrp
+				-radioButton (`MGJudgeStyle 2 $UIName $gridLayoutName`)
+				-annotation `MG_DualLan "ServeProc.style.layer2"`  ($UIName+"_Style2_MI");
+		 	menuItem 
+				-label `MG_DualLan "ServeProc.style.layer3"`   
+				-c ("MGExcuteEmbedStyle 3 "+$UIName+" "+$gridLayoutName)
+				-collection $radioButtonGrp
+				-radioButton (`MGJudgeStyle 3 $UIName $gridLayoutName`)
+				-annotation `MG_DualLan "ServeProc.style.layer3"`  ($UIName+"_Style3_MI");
+		 	menuItem 
+				-label `MG_DualLan "ServeProc.style.layer4"`   
+				-c ("MGExcuteEmbedStyle 4 "+$UIName+" "+$gridLayoutName)
+				-collection $radioButtonGrp	
+				-radioButton (`MGJudgeStyle 4 $UIName $gridLayoutName`)	
+				-annotation `MG_DualLan "ServeProc.style.layer4"`  ($UIName+"_Style4_MI");
+			menuItem -d 1 ;
+
+}
+	
+//=================================================shelf Icon/command codes==============================================
+global proc MGTools_Source(string $melName)
+{
+	MGTools -loadScript $melName "";
+}
+global proc string shelfCommand (string $melName,string $commandName)
+{		
+  $melName = strip($melName);
+	global string $GmgtoolsPath;
+	string $melFileForDev = $GmgtoolsPath+$melName;
+	$commandName = `strip $commandName`;
+	
+	string $command ;
+	string $failSaveCommand = "print \"\";";
+	if(!size($melName))
+	{
+	  if(size($commandName))
+	  {
+	    return $commandName;
+	  }
+	  else
+	  {
+	    return $failSaveCommand;
+	  }
+	}
+	if(`filetest -f $melFileForDev`)    //if it is developement mode:
+	{
+  	$command = ("source \""+$melFileForDev+"\";");
+  	if(size($commandName))
+  	{	
+  	  $command=$command+$commandName+";";
+  	}
+  }
+  else    //it is in normal mode
+  {
+    if(!`exists "MGTools"`)
+    {
+      int $success =`loadMG_MllPlugin 1 "MGTools"`;		
+  		if(!$success)	
+  		{
+  		  return $failSaveCommand;
+  		}
+    }
+    int $procSize = size($commandName);
+    //lazy source system:
+    string $sourcedProofProc = basenameEx($melName);
+    if(`exists $sourcedProofProc`)
+    {       
+      if(!$procSize)
+      {
+        $commandName  = $failSaveCommand;
+      }
+      else if(!`endsWith $commandName ";"`)
+  	  {
+  	    $commandName += ";";
+  	  }
+      return $commandName;
+    }
+    else
+    {
+      if($procSize)
+      {
+      	//$commandName = substituteAllString($commandName,"\"", "\\\"");
+      	$command = ("MGTools_Source \""+$melName+"\";"+$commandName+";");
+      }   
+      else
+      {
+        $command = ("MGTools_Source \""+$melName+"\";");
+      }
+    }
+  }
+  if(!size($command ))
+  {
+    $command  = $failSaveCommand;
+  }
+	return $command;
+}
+global proc string MG_sourceCommand(string $melName)
+{
+  return `shelfCommand $melName ""`;
+}
+//shelfCommand  "MGChannelBox_WrittenByMiguel.mel" "MGChannelBox";
+global proc string shelfIcon (string $iconFileName )
+{	
+	global string $GmgtoolsPath; 
+    global int $mgtoolsOStype;
+	global int $MGTools_2011_orNot;
+	global int $MacOSBefore2011;
+	global int  $LinuxBefore2011;
+	//$iconFileName="test.bmp";
+	
+	string $path = ($GmgtoolsPath+"icon/"+ $iconFileName);
+	//if it is maya for mac and the version is older than 2011:
+	if($MGTools_2011_orNot)
+	{
+	    int $iconOption = 1;
+	    if(`optionVar -ex MGTools_IconMode`)
+	    {
+	        $iconOption = `optionVar -q MGTools_IconMode`;
+	    }
+	    else
+	    {
+    	    global int $MGTools_2016_orNot;
+    	    if($MGTools_2016_orNot)
+    	    {
+    	        $iconOption = 2;
+    	    }
+	    }	
+	    string $png = basenameEx($iconFileName)+".png";
+		string $flatColoredFilePath = ($GmgtoolsPath+"icon/Flat/"+$png );
+		if($iconOption==2  && `filetest -f $flatColoredFilePath`)
+		{
+			$path = $flatColoredFilePath;
+		}
+		else
+		{
+		    string $coloredFilePath = ($GmgtoolsPath+"icon/Colored/"+ $png);
+		    if($iconOption  && `filetest -f $coloredFilePath`)
+    		{
+    			$path = $coloredFilePath;
+    		}
+    		else
+    		{
+    			string $temp=($GmgtoolsPath+"icon/2011/"+ $iconFileName);
+    			if(`filetest -f $temp`)
+    			{
+    				$path=$temp;
+    			}
+		    }
+		}
+	}
+	else if($MacOSBefore2011)
+	{
+	   $iconFileName  = (basenameEx($iconFileName)+".xpm"); 
+	   $path = ($GmgtoolsPath+"icon/White/"+ $iconFileName);     
+	}	
+	else if($LinuxBefore2011)
+	{
+	   $iconFileName  = (basenameEx($iconFileName)+".xpm"); 
+	   $path = ($GmgtoolsPath+"icon/LinuxIcon/"+ $iconFileName);     
+	}
+	return $path;
+}
+
+//================================================= Minimize /maximize codes=========================================
+global proc minimize (string $UIName,string $gridLayout,string $BtnName)
+{	
+	if(`gridLayout -q -cellHeight $gridLayout`==22)
+	{
+		return;
+	}
+	global int $MGTools_2011_orNot;
+	int $FormerToolLayoutInfo [] = `window -q -wh  $UIName`;
+	int $FormerToolPosInfo []=`window -q  -topLeftCorner $UIName` ;
+	string $styleInfo= $FormerToolLayoutInfo [0];
+	string $styleInfo1= $FormerToolLayoutInfo [1];
+	string $styleInfo2= $FormerToolPosInfo [0];
+	string $styleInfo3= $FormerToolPosInfo [1];
+	$styleInfo= ( $styleInfo+";"+$styleInfo1+";"+$styleInfo2+";"+$styleInfo3);
+	//if($FormerToolLayoutInfo[0] !=41||$FormerToolLayoutInfo[1] !=46)
+	//{
+	writeIntoConfig ("MG_UIConfig/"+$UIName+"style_max.tmp") $styleInfo;
+	//}
+
+	int $leftCorner,$topCorner,$minWidth,$minHeight;
+	string $minInfos =`readFormConfig ("MG_UIConfig/"+$UIName+"style_min.tmp")`;
+	if(size($minInfos))
+	{
+		string $buffer[];
+	 	$numTokens = `tokenize $minInfos ";" $buffer`;
+		$topCorner =$buffer[0];
+		$leftCorner =$buffer[1];		
+		$minWidth =$buffer[2];
+		$minHeight =$buffer[3];
+	}
+	else
+	{
+		$topCorner=$FormerToolPosInfo[0];
+		$leftCorner=$FormerToolPosInfo[1];
+		
+		if(!$MGTools_2011_orNot)
+		{$minWidth=41;	$minHeight=46;}
+		else {$minWidth=31;	$minHeight=22;}
+	}	
+	global int $MGTools_2011_orNot;
+	if($MGTools_2011_orNot)
+	{
+		string $ca[];clear $ca;
+			$ca=`gridLayout -q -ca $gridLayout`;
+			for ($c=1;$c<size($ca);$c++)
+			{
+				deleteUI -control $ca[$c];
+				//iconTextButton -e -vis 0 $ca[$c];
+				//print $ca[$c];
+			}
+	}		
+	string $himage, $image;
+	if($UIName=="mgToolUI")
+		{
+			$image="MGtoolMinimizedIcon.bmp";
+			$himage="MGtoolMinimizedIcon_h.bmp";
+		}
+	else if ($UIName=="mgConstraintToolUI")
+		{
+			$image="ConstraintToolMinimizedIcon.bmp";
+			$himage="ConstraintToolMinimizedIcon_h.bmp";
+		}
+		
+	else if ($UIName=="mgShelfBarUI")
+		{
+			$image="MGShelfMinimizedIcon.bmp";
+			$himage="MGShelfMinimizedIcon_h.bmp";
+		}
+	else if ($UIName=="PivotToolUI")
+		{
+			$image="pivot_tool_Minimizedicon.bmp";
+			$himage="pivot_tool_Minimizedicon_h.bmp";
+		}		
+	iconTextButton  -e
+		-image  `shelfIcon $image` 
+		-highlightImage  `shelfIcon $himage` 
+		-annotation `MG_DualLan "ServeProc.maximize.restore"`
+		-command ("maximize "+$UIName+" "+$gridLayout+" "+$BtnName) $BtnName;	
+	gridLayout -e -cellWidthHeight 31 22 $gridLayout; 
+//	window -e -s 0 $UIName;
+			menuItem -e -en 0 ($UIName+"_rememberStyle_MI");
+			menuItem -e -en 0  ($UIName+"_userStyle_MI");
+ 			menuItem -e -en 0  ($UIName+"_Style1_MI"); 
+			menuItem -e -en 0  ($UIName+"_Style2_MI");
+		 	menuItem -e -en 0 ($UIName+"_Style3_MI");
+		 	menuItem -e -en 0  ($UIName+"_Style4_MI");
+	window -e  -wh $minWidth $minHeight $UIName;
+	window -e  -topLeftCorner (abs($topCorner)) (abs($leftCorner)) $UIName;
+		 	
+}
+
+global proc maximize(string $UIName,string $gridLayout,string $BtnName)
+{	
+	if(`gridLayout -q -cellHeight $gridLayout`==34)
+	{
+		return;
+	}
+	global int $MGTools_2011_orNot;
+	int $minimizedToolPosInfo []=`window -q  -topLeftCorner $UIName` ;
+	int $minimizedToolSizeInfo []=`window -q  -wh $UIName` ;
+	//	int $leftCorner,$topCorner;
+	string $minInfo1=$minimizedToolPosInfo [0];
+	string $minInfo2=$minimizedToolPosInfo [1];
+	string $minInfo3=$minimizedToolSizeInfo [0];
+	string $minInfo4=$minimizedToolSizeInfo [1];	
+	string $minInfo=($minInfo1+";"+$minInfo2+";"+$minInfo3+";"+$minInfo4);
+	writeIntoConfig ("MG_UIConfig/"+$UIName+"style_min.tmp") $minInfo;
+	string $infos =`readFormConfig ("MG_UIConfig/"+$UIName+"style_max.tmp")`;
+	string $buffer[];
+ 	$numTokens = `tokenize $infos ";" $buffer`;
+	int $num0 =$buffer[0];
+	int $num1 =$buffer[1];
+	int $num2 =$buffer[2];
+	int $num3 =$buffer[3];	
+	string $himage, $image;
+	if($UIName=="mgToolUI")
+		{
+			$image="MGtoolIcon.bmp";
+			$himage="MGtoolIcon_h.bmp";
+			if($MGTools_2011_orNot)
+			{
+				createMGtoolsContent;	
+			}
+		}
+	else if ($UIName=="mgConstraintToolUI")
+		{
+			$image="ConstraintToolIcon1.bmp";
+			$himage="ConstraintToolIcon1_h.bmp";
+			if($MGTools_2011_orNot)makeMG_constraintToolContent;
+		}
+		
+	else if ($UIName=="mgShelfBarUI")
+		{
+			$image="MGShelfIcon.bmp";
+			$himage="MGShelfIcon_h.bmp";
+		}
+	else if ($UIName=="PivotToolUI")
+		{
+			$image="pivot_tool_icon00.bmp";
+			$himage="pivot_tool_icon_h.bmp";
+			if($MGTools_2011_orNot)
+			{
+				makePivotToolContent;	
+			}		
+		}	
+	iconTextButton  -e
+		-image `shelfIcon $image`
+		-highlightImage  `shelfIcon $himage` 
+		-command ("minimize "+$UIName+" "+$gridLayout+" "+$BtnName) $BtnName;
+	gridLayout -e -cellWidthHeight 34  34 $gridLayout; 
+//	window -e -s 1 $UIName;
+			menuItem -e -en 1 ($UIName+"_rememberStyle_MI");
+			menuItem -e -en 1  ($UIName+"_userStyle_MI");
+ 			menuItem -e -en 1 ($UIName+"_Style1_MI"); 
+			menuItem -e -en 1  ($UIName+"_Style2_MI");
+		 	menuItem -e -en 1 ($UIName+"_Style3_MI");
+		 	menuItem -e -en 1  ($UIName+"_Style4_MI");
+	window -e  -wh $num0  $num1 $UIName;
+	window -e -topLeftCorner (abs($num2)) (abs($num3)) $UIName;
+}
+global proc string [] MG_ListAllSubFolders (string $parentFolder)
+//this servers as a replacement to getFileList, so it only return subfolder names but not the full pathes.
+{
+  if(!`filetest -d  $parentFolder`)
+  {
+    return {};
+  }
+  string $resultFolders[];
+	if(!`endsWith $parentFolder "/"`)
+	{
+		$parentFolder += "/";
+	}
+    string $subItems[] = `getFileList -folder $parentFolder`;
+    if(!size($subItems))
+    {
+    	return $resultFolders;
+    }
+    string $cSubDir;
+    for($each in $subItems)
+    {
+    	$cSubDir = ($parentFolder+$each);
+    	if(`filetest -d $cSubDir`)
+    	{
+    		$resultFolders[size($resultFolders)] = $each;
+    	}    	
+    }
+    return $resultFolders;
+}
+//----------------------------------------get file date-------------------------------------------------------------------
+global proc int MG_getFileDateInt_viaPython(string $path)
+{
+	return python ("MG_PyUtil.MG_GetFileDateSize.MGgetFileDateInt('"+$path+"')");
+}
+//--------------------------------------recursively list and copy folder:----------------------------------------------------
+global proc string [] MG_addPrefixSubfix_toArray(string $array[], int $addPrefix, string $prefix, int $addSubfix, string $subFix)
+{
+	int $arraySize = size($array);
+	for($f=0; $f<$arraySize; $f++)
+	{
+		if($addPrefix)
+		{
+			$array[$f] = ($prefix+$array[$f]);
+		}
+		if($addSubfix)
+		{
+			$array[$f] = ($array[$f]+$subFix);
+		}
+	}
+	return $array;
+}
+proc string[] mg_getFileListRecursively_doit(string $cFolder, 
+																									string $filespecs[], int $specSize, 
+																									int $searchDepthLimit, int $currentSearchDepth, 
+																									int $progressUpdate, string $progressBar, int $lastProgressValue, int $currentPreessRange)
+{
+	if(!`filetest -d $cFolder`)
+  {
+      return {};
+  }
+  if(!`endsWith $cFolder "/"`)
+  {
+      $cFolder += "/";
+  }
+  string $result[];
+  int $percentage;
+	float $specSizeFloat = $specSize;
+	
+	$currentSearchDepth ++;
+	string $folders[];
+	if( $searchDepthLimit <=0 || $currentSearchDepth <= $searchDepthLimit)
+	{
+		$folders = `MG_ListAllSubFolders $cFolder`;
+	}
+	
+	float $totalSize = (size($folders)+ $specSize);
+	int $eachStep = $currentPreessRange/$totalSize;
+	string $cFiles[];
+	for($i=0; $i<$specSize; $i++)
+	{
+		$cFiles = MG_addPrefixSubfix_toArray(`getFileList -fld $cFolder -fs $filespecs[$i]`,1,$cFolder,0,"");
+		$result = stringArrayCatenate ($result, $cFiles);
+		if($progressUpdate)
+		{
+			$percentage = $lastProgressValue+(($i+1)*$eachStep);
+			progressBar -e -pr $percentage $progressBar;
+		}
+	}
+	if($searchDepthLimit <=0 || $currentSearchDepth <= $searchDepthLimit)
+	{
+		string $cSubFolder;
+		int $cProgress;
+		for($each in $folders)
+		{
+			if($progressUpdate)
+			{
+				$cProgress = `progressBar -q -pr $progressBar`;
+			}
+			$cSubFolder = ($cFolder+$each+"/");
+			$result = stringArrayCatenate ($result,`mg_getFileListRecursively_doit $cSubFolder $filespecs $specSize $searchDepthLimit $currentSearchDepth $progressUpdate $progressBar $cProgress $eachStep`);
+		}
+	}
+	if($progressUpdate)
+	{
+		$percentage = $lastProgressValue+$currentPreessRange;
+		progressBar -e -pr $percentage $progressBar;
+	}
+	return $result;
+}
+
+global proc string[] MG_getFileList_Ex(string $cFolder, 
+																		string $filespecs[], 
+																		int $searchDepth, 
+																		string $progressBar, 
+																		int $autoHideProgressBarWhenFinished)
+//only search files.
+{
+	if(!`filetest -d $cFolder`)
+  {
+      return {};
+  }
+  if(!size($filespecs))
+  {
+  	$filespecs[0] = "*.*";
+  }
+  int $specSize = size($filespecs);
+  int $progressUpdate = `progressBar -q -ex $progressBar`;
+  if($progressUpdate)
+  {
+  	control -e -vis 1 $progressBar;
+  	refresh;
+  }
+  if(!`endsWith $cFolder "/"`)
+  {
+      $cFolder += "/";
+  }
+	//global int $gMG_GetFileListREcursively_Depth;
+	//$gMG_GetFileListREcursively_Depth = $searchDepth;
+	string $result[];
+	if($searchDepth == 1)
+	{
+		int $percentage;
+		float $specSizeFloat = $specSize;
+		string $cFiles[];
+		for($i=0; $i<$specSize; $i++)
+		{
+			$cFiles = MG_addPrefixSubfix_toArray(`getFileList -fld $cFolder -fs $filespecs[$i]`,1,$cFolder,0,"");
+			$result = stringArrayCatenate ($result, $cFiles);
+			if($progressUpdate)
+			{
+				$percentage = (($i+1)/$specSizeFloat)*100;
+				progressBar -e -pr $percentage $progressBar;
+			}
+		}
+	}
+	else
+	{
+		$result = `mg_getFileListRecursively_doit $cFolder $filespecs $specSize $searchDepth 1 $progressUpdate $progressBar 0 100`;
+	}
+	if($progressUpdate && $autoHideProgressBarWhenFinished)
+	{
+		control -e -vis 0 $progressBar;
+	}
+	return $result;
+}
+
+global proc string[] MG_listAllSubFolderFilesRecursively(int $listMode , string $cFolder, int $folderFirstOrLast)
+//$listMode 0: list only folder
+//$listMode 1: list only file
+//$listMode 2: list both, in this mode, folder will be listed ahead of files with one parentFolder.
+//if $cFolder is actually a file, on array with a single record: the file will be returned.
+//$folderFirstOrLast: 0: will list folder ahead of its containted files. Useful when copy folder tree, which should create folder first.
+//$folderFirstOrLast: 1: will list files ahead of its containt folder. Useful when delete folder tree, which should delete files first.
+{    
+    string $result[];
+    if(!size($cFolder))
+    {
+        return {};
+    }    
+    //if it is a folder:
+    if(`filetest -d $cFolder`)
+    {
+        if(!`endsWith $cFolder "/"`)
+        {
+            $cFolder += "/";
+        }
+        if($listMode != 1 && !$folderFirstOrLast)
+        {
+            $result[size($result)] = $cFolder;
+        }
+    }
+    else  if(`filetest -f $cFolder`)    //if it is actually a file, we return one single record: the file
+    {
+        if($listMode)
+        {
+            $result[size($result)] = $cFolder;
+        }      
+        return $result;  
+    }
+    else    //if it is not a file nor a folder, we return;
+    {
+        return {};
+    }
+    
+    string $items[] = `getFileList -fld $cFolder`;
+    if(!size($items))   //if it is empty folder and we need to list foler and the folder is listed last, we append the foler:
+    {
+        if($listMode != 1 && $folderFirstOrLast)
+        {
+            $result[size($result)] = $cFolder;
+        }
+        return $result;
+    }
+    string $cPath;
+    string $cSubFiles[];
+    if(!$folderFirstOrLast) //if list folder first, we list the folder first:
+    {
+        if($listMode != 1) 
+        {
+            for($item in $items)
+            {
+                 $cPath = $cFolder+$item;
+                 //if it is a directory, we recursively call this proc. The path will be record in the head of this proc.
+                 if(`filetest -d $cPath`)
+                 {
+                     $cPath +="/";
+                     $result = stringArrayCatenate ($result ,`MG_listAllSubFolderFilesRecursively $listMode $cPath $folderFirstOrLast`);
+                 }
+            }
+        }
+        if($listMode) 
+        {
+            for($item in $items)
+            {
+                 $cPath = $cFolder+$item;
+                 if(!`filetest -d $cPath`)  //if it is a file and we are in listMode that list the files, we record it in $cSubFiles. So that we could add the files to the tail.
+                 {
+                     $cSubFiles[size($cSubFiles)] = $cPath;
+                 }
+            }
+        }
+    }
+    else
+    {
+        if($listMode)  //we add files first with one folder.
+        {
+            for($item in $items)
+            {
+                 $cPath = $cFolder+$item;
+                 if(!`filetest -d $cPath`)  //if it is a file and we are in listMode that list the files, we record it in $cSubFiles. So that we could add the files to the tail.
+                 {
+                     $cSubFiles[size($cSubFiles)] = $cPath;
+                 }
+            }
+        }
+        if($listMode != 1) 
+        {
+            for($item in $items)
+            {
+                 $cPath = $cFolder+$item;
+                 //if it is a directory, we recursively call this proc. The path will be record in the head of this proc.
+                 if(`filetest -d $cPath`)
+                 {
+                     $cPath +="/";
+                     $result = stringArrayCatenate ($result ,`MG_listAllSubFolderFilesRecursively $listMode $cPath $folderFirstOrLast`);
+                 }
+            }
+        }
+    }
+    // add files last if we are in listMode that list the files:
+    if($listMode) 
+    {
+        $result = stringArrayCatenate ($result , $cSubFiles);
+    }
+    if($listMode != 1 && $folderFirstOrLast)
+    {
+        $result[size($result)] = $cFolder;
+    }
+    return $result;
+}
+global proc int MG_CopyFolder(string $targetFolder,string $sourceFolder,string $progressBarControl,string $textControl, int $returnAtFirstError, int $autoHideProgressBarWhenIsDone)
+//only copy folder, file as a $sourceFolder parameter will be skipped.
+//$progressBarControl: a progressBar Control
+//$textControl: a text Control
+//this proc will always override the exist foler/file.
+//$returnAtFirstError 1: will return at first error.
+{
+    $targetFolder = `fromNativePath $targetFolder`;
+    $sourceFolder = `fromNativePath $sourceFolder`;
+    if(!`filetest -d $sourceFolder`)
+    {
+        return 0;
+    }
+    if(!`filetest -d $targetFolder`)
+    {
+        //if fail in the first step. we return quickly.
+        if(!`sysFile -md $targetFolder`)
+        {
+            return 0;
+        }
+    }
+    if(!`endsWith $targetFolder "/"`)
+    {
+        $targetFolder+="/";
+    }
+    if(!`endsWith $sourceFolder "/"`)
+    {
+        $sourceFolder+="/";
+    }
+    int $sourceFolderSize = size($sourceFolder);
+    
+    int $updateStatusBar = `control -q -ex $progressBarControl`;
+    int $updateStatusText =`control -q -ex $textControl`;
+    if($updateStatusBar)
+    {
+        progressBar -e -vis 1 -progress 0 $progressBarControl;
+    }
+
+    //list all sub folders and files, will list folders first, then the files.
+    string $subItems [] = `MG_listAllSubFolderFilesRecursively 2 $sourceFolder 0`;
+    int $totalNum = size($subItems);
+    int $actualTotalNum =$totalNum-1;
+    if(!$totalNum)
+    {
+        if($updateStatusBar)
+        {        
+            progressBar -e -progress 100 $progressBarControl; 
+            if($autoHideProgressBarWhenIsDone)
+            {
+                progressBar -e -vis 0 -progress 0 $progressBarControl;                         
+            }
+        } 
+        return 1;
+    }
+    int $cPercentage = 0;
+    int $cResult;
+    string $cTarget;
+    string $cSource;
+    string $cSubfix;
+    if($totalNum > 1)
+    {
+      string $errorLbl = `MG_DualLan "ServeProc.error"`;
+        for($i=1; $i<$totalNum; $i++)   //we skip the first one because we have make $targetFolder; 
+        {
+            $cSource = $subItems[$i];
+            $cSubfix = `substring $cSource ($sourceFolderSize+1) (size($cSource))`;
+            $cTarget = $targetFolder+$cSubfix;
+            //if it is a folder:
+            if(`endsWith $cTarget "/"`)
+            {
+                $cResult = `sysFile -md $cTarget`;
+            }
+            else
+            {
+                $cResult = `sysFile -cp $cTarget $cSource`;
+            }
+            if($updateStatusBar)
+            {        
+                $cPercentage =( $i/float($actualTotalNum))*100;
+                progressBar -e -progress $cPercentage $progressBarControl; 
+            }   
+            
+            if($cResult)
+            {
+                //print ($cSubfix+"\n");
+                if($updateStatusText)
+                {
+                    text -e -l $cSubfix $textControl;
+                }
+            }
+            else
+            {                      
+                if($updateStatusText)
+                {
+                    text -e -l ("!!! "+$errorLbl+" @ "+$cSubfix) $textControl;
+                }
+                if($returnAtFirstError)
+                { 
+                    if($updateStatusBar)
+                    {        
+                        progressBar -e -progress 100 $progressBarControl; 
+                        if($autoHideProgressBarWhenIsDone)
+                        {
+                            progressBar -e -vis 0 -progress 0 $progressBarControl;                         
+                        }
+                    }  
+                    return 0;
+                }
+            }
+        }
+    }
+    if($autoHideProgressBarWhenIsDone && $updateStatusBar)
+    {
+        progressBar -e -vis 0 -progress 0 $progressBarControl;                         
+    }
+    return 1;
+}
+
+global proc int MG_DeleteFolder(string $deleteFolder,string $progressBarControl,string $textControl,int $returnAtFirstError, int $autoHideProgressBarWhenIsDone)
+//only copy folder, file as a $sourceFolder parameter will be skipped.
+//$progressBarControl: a progressBar Control
+//$textControl: a text Control
+//$returnAtFirstError 1: will return at first error.
+{
+		global int $currentMayaVersionIntForMGtools;
+    $deleteFolder = `fromNativePath $deleteFolder`;
+    if(!`filetest -d $deleteFolder`)
+    {
+        return 0;
+    }
+    if(!`endsWith $deleteFolder "/"`)
+    {
+        $deleteFolder+="/";
+    }
+    
+    int $updateStatusBar = `control -q -ex $progressBarControl`;
+    int $updateStatusText =`control -q -ex $textControl`;
+    if($updateStatusBar)
+    {
+        progressBar -e -vis 1 -progress 0 $progressBarControl;
+    }
+    
+    //list all sub files and folders, will list files first, then the folers.
+    string $subItems [] = `MG_listAllSubFolderFilesRecursively 2 $deleteFolder 1`;
+    //print $subItems;
+    int $totalNum = size($subItems);
+    int $actualTotalNum =$totalNum-1;
+    int $cResult;
+    string $errorLbl = `MG_DualLan "ServeProc.error"`;
+    if(!$totalNum) //if  nothing to delete.
+    {
+        if($updateStatusBar)
+        {        
+            progressBar -e -progress 100 $progressBarControl; 
+            if($autoHideProgressBarWhenIsDone)
+            {
+                progressBar -e -vis 0 -progress 0 $progressBarControl;                         
+            }
+        } 
+        return 1;
+    }
+    else if($totalNum == 1) //the folder is empty
+    {
+        if(`endsWith $subItems[0] "/"`)
+        {
+        		if($currentMayaVersionIntForMGtools >= 8)
+        		{
+            	$cResult = `sysFile -removeEmptyDir $subItems[0]`;
+        		}
+        		else	//deal with Maya 7.0 in Windows OS:
+        		{
+        			system ("rmdir /Q \""+$subItems[0]+"\"");
+        		}
+        }
+        else
+        {
+            $cResult = `sysFile -delete $subItems[0]`;
+        }
+        if($cResult)
+        {
+            //print ($cItem+"\n");
+            if($updateStatusText)
+            {
+                text -e -l $subItems[0] $textControl;
+            }
+        }
+        else
+        {                      
+            if($updateStatusText)
+            {
+                text -e -l ("!!! "+$errorLbl+" @ "+$subItems[0]) $textControl;
+            }
+        }
+        if($updateStatusBar)
+        {        
+            progressBar -e -progress 100 $progressBarControl; 
+            if($autoHideProgressBarWhenIsDone)
+            {
+                progressBar -e -vis 0 -progress 0 $progressBarControl;                         
+            }
+        }  
+        return $cResult;
+    }
+    
+    int $cPercentage = 0;
+    string $cItem;
+    for($i=0; $i<$totalNum; $i++) 
+    {
+        $cItem = $subItems[$i];
+        //print ($cItem+"\n");
+        //if it is a folder:
+        if(`endsWith $cItem "/"`)
+        {
+            $cResult = `sysFile -removeEmptyDir $cItem`;
+        }
+        else
+        {
+            $cResult = `sysFile -delete $cItem`;
+        }
+        if($updateStatusBar)
+        {        
+            $cPercentage =( ($i+1)/float($actualTotalNum))*100;
+            progressBar -e -progress $cPercentage $progressBarControl; 
+        }  
+        if($cResult)
+        {
+            //print ($cItem+"\n");
+            if($updateStatusText)
+            {
+                text -e -l $cItem $textControl;
+            }
+        }
+        else
+        {                      
+            if($updateStatusText)
+            {
+                text -e -l ("!!! "+$errorLbl+" @ "+$cItem) $textControl;
+            }
+            if($returnAtFirstError)
+            { 
+                if($updateStatusBar)
+                {        
+                    progressBar -e -progress 100 $progressBarControl; 
+                    if($autoHideProgressBarWhenIsDone)
+                    {
+                        progressBar -e -vis 0 -progress 0 $progressBarControl;                         
+                    }
+                }  
+                return 0;
+            }
+        }
+    }
+    if($autoHideProgressBarWhenIsDone && $updateStatusBar)
+    {
+        progressBar -e -vis 0 -progress 0 $progressBarControl;                         
+    }
+    return 1;
+}
+
+//===================================================Read File codes =====================================================
+global proc string [] mgReadFileArray(string $file)
+{
+	// read every line and put it into a strig array
+	string $nextLine ,$getData[];
+	if(!`filetest -f $file `)
+	{
+	  return $getData;
+	}
+	$readFileID=`fopen $file "r"`;
+	while(!`feof $readFileID`)
+	{
+		$nextLine=`fgetline $readFileID`;
+		if (size($nextLine)>0)
+		{
+			$getData[size($getData)]=strip ($nextLine);
+		}
+	}
+	fclose $readFileID;
+	return $getData;
+}
+
+global proc string  mgReadFileString(string $file)
+{	
+	//read every line and put it into a string
+	string $nextLine ,$getDataString;
+	if(!`filetest -f $file`)
+	{
+	  return "";
+	}
+	$readFileID=`fopen $file "r"`;
+	while(!`feof $readFileID`)
+	{
+		$nextLine=`fgetline $readFileID`;
+		if (size($nextLine)>0)
+		{			
+			$getDataString=($getDataString+$nextLine);
+		}
+	}
+	fclose $readFileID;
+	return $getDataString;
+}
+
+global proc string [] mgReadFileSepArray(string $file,string $sep)
+{	
+	//read every line and separate it with $sep,and put every part into a string array.
+	string $getData[];
+	if(!`filetest -f $file `)
+	{
+	  return $getData;
+	}
+	if(!size($sep))
+	{
+	  $sep = "\r\n";
+	}
+	string $nextLine ,$getDataString;
+	$readFileID=`fopen $file "r"`;
+	while(!`feof $readFileID`)
+	{
+		$nextLine=`fgetline $readFileID`;
+		if (size($nextLine)>0)
+		{			
+			$getDataString=($getDataString+$nextLine);
+		}
+	}
+ 	$numTokens = `tokenize  $getDataString $sep $getData`;
+	fclose $readFileID;
+
+	return $getData;
+}
+
+global proc string mgReadFileDosType(string $file)
+{
+  if(!`filetest -f $file `)
+	{
+	  return "";
+	}
+	//read file via dos command "type".
+	string $getDataString;
+	global int $mgtoolsOStype;	
+	if(!$mgtoolsOStype)
+	{
+     	string $regularExpr = "/";
+    	while(`gmatch $file "*/*"`==1)
+    	{$file = `substitute $regularExpr $file "\\"`;}
+    	$getDataString=`system ("type "+$file)`;
+    }
+    else if($mgtoolsOStype==1)
+    {
+        //it is not working.
+        //$getDataString=`system ("cat '"+$file+"'")`;
+    }
+	return $getDataString;
+}
+
+global proc printArray (string $array [])
+{		
+	for ($each in $array)
+	{
+	  print ($each +"\n");
+	}
+}
+global proc testSerProc ()
+{}
+global proc string MG_getPairLabelFromLine(string $line)
+{
+  string $temp[] = `stringToStringArray $line "="`;
+  string $lbl = strip($temp[0]);
+  return $lbl;
+}
+global proc string MG_getPairValueFromLine(string $line)
+{
+    int $index = `MG_findNextCharSubstringIndex $line "="`;
+    int $cSize =  size($line);
+    if($index == -1 || $index == $cSize)
+    {
+        return "";
+    }
+    else
+    {
+        string $result = `substring $line ($index+1) $cSize`;
+        return `strip $result`;
+    }
+}
+//=================================================help codes ========================================================
+global proc MGtools_gotoURL(string $url)
+{
+	global int $LinuxBefore2011;
+	if( $LinuxBefore2011)
+	{
+		system("xdg-open '"+$url+"'");
+	}
+	else
+	{
+		showHelp -a $url;
+	}
+}
+global proc MGtoolsHelp(string $helpTopic)
+{
+	global int $mgtoolsOStype;
+	global string $GmgtoolsPath;
+	string $GmgtoolsHelpPath=($GmgtoolsPath+"Help");
+	global int $MGtoolsLanguageChoice;
+	//if(`optionVar -ex MGtoolsDualLeng`)
+	if($MGtoolsLanguageChoice)
+	{
+		$GmgtoolsHelpPath=($GmgtoolsHelpPath+"/CH/"+$helpTopic);
+		
+	}
+	else 
+	{
+		if($helpTopic=="index.html")
+		{
+			$GmgtoolsHelpPath=($GmgtoolsHelpPath+"/EN/"+$helpTopic);
+		}
+		else
+		{
+			string $buffer [];
+			tokenize $helpTopic "." $buffer;
+			$helpTopic=($buffer[0]+"_en."+$buffer[1]);
+			$GmgtoolsHelpPath=($GmgtoolsHelpPath+"/EN/"+$helpTopic);
+		}
+	}
+	//print $GmgtoolsHelpPath;
+	$GmgtoolsHelpPath = `substituteAllString $GmgtoolsHelpPath "//" "/"`;
+	$GmgtoolsHelpPath = `substituteAllString $GmgtoolsHelpPath "\\" "/"`;
+	MGtools_gotoURL $GmgtoolsHelpPath;
+}
+global proc MGtoolsFeedback(int $mode)
+{
+	//mode 0: feedback/buy
+	//mode1: donate
+	global int $MGtoolsLanguageChoice;
+	string $GmgtoolsFeedbackPath;
+	if($MGtoolsLanguageChoice)
+	{
+		//if($mode)
+		//{
+		//	$GmgtoolsFeedbackPath="http://twincodes.com/works/mgtools/donate_zh.html";
+		//}
+		//else
+		//{
+			$GmgtoolsFeedbackPath="http://twincodes.com/MGtools_ch.html?url=Feedback";
+		//}
+	}
+	else 
+	{
+		//if($mode)
+		//{
+		//	$GmgtoolsFeedbackPath="http://twincodes.com/works/mgtools/donate_en.html";
+		//}
+		//else
+		//{
+			$GmgtoolsFeedbackPath="http://twincodes.com/MGtools_en.html?url=Feedback";
+		//}
+	}
+	MGtools_gotoURL $GmgtoolsFeedbackPath;
+}
+global proc MGtoolsGotoBuyPage()
+{
+	global int $MGtoolsLanguageChoice;
+	string $GmgtoolsFeedbackPath;
+	if($MGtoolsLanguageChoice)
+	{
+		$GmgtoolsFeedbackPath="http://twincodes.com/MGtools_ch.html?url=Buy";
+	}
+	else 
+	{
+		$GmgtoolsFeedbackPath="http://twincodes.com/MGtools_en.html?url=Buy";
+	}
+	MGtools_gotoURL $GmgtoolsFeedbackPath;
+}
+global proc MGtoolsGotoWebsite()
+{
+	string $MGtoolsGotoWebsite ="http://twincodes.com";
+	MGtools_gotoURL $MGtoolsGotoWebsite;
+}
+//========================================waiting panel============================================
+global proc MG_WorkingInProgress_UI (string $title,string $message,int $onOff,int $width,int $height)
+{
+	if (`window -exists MG_WorkingInProgress_UI`)
+	{deleteUI MG_WorkingInProgress_UI;}
+	if($onOff)
+	{
+		window -title $title -in $title -tlb 1 -s 0 MG_WorkingInProgress_UI;
+		string $fl=`formLayout`;
+		string $icon=`shelfIcon wip_icon.bmp`;
+		string $btn=`iconTextStaticLabel 
+			-i $icon 
+			//-w $width 
+			//-h $height 
+			-l $message
+			-st "iconAndTextHorizontal"
+			-lo 72
+			`;
+		string $text=`text -l $message`;
+		formLayout 
+			-e 
+			-af $btn "top" 0
+			-af $btn "left" 0
+			-af $btn "right" 0
+			-af $btn "bottom" 0
+			
+			-af $text "top" 0
+			-af $text "left" 0
+			-af $text "right" 0
+			-af $text "bottom" 0			
+			$fl;
+		showWindow MG_WorkingInProgress_UI;
+		//	window -q -wh MG_WorkingInProgress_UI;
+		window -e  -w $width -h $height MG_WorkingInProgress_UI;
+	}	
+}
+//updateMGtools codes=========================================================
+global proc string testMGPluginLoadedConditionForUpdate ()
+{
+	string $result ="";
+	string $mllName =`returnMG_MllPluginFilePath "MGTools"`;	
+	if(`pluginInfo -q -loaded $mllName`)		
+	{
+			$result+=" MGTools ";
+	}
+	$mllName =`returnMG_MllPluginFilePath "cam2dViewer"`;	
+	if(`pluginInfo -q -loaded $mllName`)		
+	{
+			$result+=" cam2dViewer ";
+	}
+	$mllName =`returnMG_MllPluginFilePath "animRescue"`;	
+	if(`pluginInfo -q -loaded $mllName`)		
+	{
+			$result+=" animRescue ";
+	}
+	$mllName =`returnMG_MllPluginFilePath "MGautoSave"`;	
+	if(`pluginInfo -q -loaded $mllName`)		
+	{
+			$result+=" MGautoSave ";
+	}
+	return 	$result;
+}
+global proc unloadAllMGToolsPlugins ()
+{
+  global string $GmgtoolsPath;
+	string $mllName =`returnMG_MllPluginFilePath "cam2dViewer"`;	
+	if(`pluginInfo -q -loaded $mllName`)		
+	{
+			MG_cam2dViewer 0;	
+	}
+	int $refreshAnimRescueIcon =0;
+	$mllName =`returnMG_MllPluginFilePath "animRescue"`;	
+	if(`pluginInfo -q -loaded $mllName`)		
+	{
+			loadMG_MllPlugin 0 "animRescue";
+			$refreshAnimRescueIcon =1;
+	}
+	$mllName =`returnMG_MllPluginFilePath "MGautoSave"`;	
+	if(`pluginInfo -q -loaded $mllName`)		
+	{
+			loadMG_MllPlugin 0 "MGautoSave";
+			$refreshAnimRescueIcon =1;
+	}	
+	if($refreshAnimRescueIcon)
+	{
+		string $miniToolsIcon = `shelfIcon miniToolBoxIcon_bothOff.bmp`;		
+		updateAnimRescueConditonIconDoit $miniToolsIcon; 			
+	}
+	$mllName =`returnMG_MllPluginFilePath "MGTools"`;	
+	if(`pluginInfo -q -loaded $mllName`)		
+	{
+			loadMG_MllPlugin 0 "MGTools";
+	}
+}
+global proc int MGtools_testAndUnloadPluginForUpdate ()
+{
+	string $needUnload = `testMGPluginLoadedConditionForUpdate`;
+	if(size($needUnload))
+	{
+		string $title =  `MG_DualLan "up.needUnload.title"`;
+		string $mess = (`MG_DualLan "up.needUnload.mess00"`+"   "+$needUnload+`MG_DualLan "up.needUnload.mess01"`+`MG_DualLan "up.needUnload.mess02"`);
+		string $btn =`MG_DualLan "up.needUnload.Iknow"`;
+		string $cancel = `MG_DualLan "poseAnimLib.Cancel"`;
+		//string $cancel =  `MG_DualLan "up.needUnload.Iknow"`;
+		string $result =`confirmDialog
+					-title $title
+					-message $mess
+					-button $btn
+					-defaultButton $btn
+					-button $cancel 
+					-dismissString $cancel`;
+		if($result==$btn)
+		{
+			unloadAllMGToolsPlugins;	
+			return 1;
+		}	
+		else
+		{
+		  return 0;
+		}						
+	}
+	return 1;	
+}
+global proc MGtools_loadPluginAfterUpdate ()
+{
+  loadMG_MllPlugin 1 "MGTools";
+	animRescue_MGautoLoadAutoSave;
+	animRescue_MGautoLoadAnimRescue;
+}
+global proc int MG_getCurrentMGToolsMLL()
+{
+  string $localPlugin = `returnMG_MllPluginFilePath "MGTools"`;
+  if(`filetest -f $localPlugin`)
+  {
+    return 1;
+  }
+  string $fn = `getMGToolsMllFileName "MGTools"`;
+  if(`optionVar -ex "MGTools_Dont_Ask_DownloadMGToolsMLL"`)
+  {
+    if(`optionVar -q "MGTools_Dont_Ask_DownloadMGToolsMLL"`)
+    {
+      warning ("[MGTools] "+`MG_DualLanFormat_1 "ServeProc.plugin.notfound.war" $fn`+" \n");
+      return 0;
+    }
+  }
+  string $dontBugMe = `MG_DualLan "ServeProc.dontBugmeagain.lbl"`;
+  string $cancel = `MG_DualLan "ServeProc.cancelWithBothSpace.lbl"`;
+  string $visit = `MG_DualLan "ServeProc.visitMGland.lbl" `;
+  string $search = `MG_DualLan "ServeProc.search.lbl" `;
+  string $msg = `MG_DualLanFormat_1 "ServeProc.plugin.notfound.msg" $fn`;
+  string $answer = `confirmDialog -title "MGToolsPro3" -message $msg 
+              -button $dontBugMe -button $cancel  -button $search -button $visit -defaultButton $visit -dismissString $cancel`;
+  if($answer == $dontBugMe)
+  {
+    optionVar -iv "MGTools_Dont_Ask_DownloadMGToolsMLL" 1;
+    return 0;
+  }
+  else if($answer == $cancel)
+  {
+    return 0;
+  } 
+  else if($answer == $visit)
+  {
+    MGtools_gotoURL "http://twincodes.com";    
+    return 0;
+  } 
+  
+  //now found the update. 
+  if(!`exists python`)
+	{
+		string $oklabel=`MG_DualLan "up.noPy.ok"`;
+		confirmDialog -title `MG_DualLan "up.noPy.title"` -message `MG_DualLan "up.noPy.mes"`
+     		-button $oklabel
+     		-defaultButton $oklabel
+     		-cancelButton $oklabel
+     		-dismissString $oklabel;
+		return 0;
+	}   
+	if(`window -q -ex MGTools_GetMLLUI`)
+  {
+      deleteUI  MGTools_GetMLLUI;
+  }
+  window -title "MGTools pro3" -mxb 0  MGTools_GetMLLUI;
+  $cl = `columnLayout -adj 1 -rs 1`;
+  text -l "" -h 20;
+  $msg = `MG_DualLanFormat_1 "ServeProc.downloading.msg" $fn`;
+  string $lbl =` text -fn "boldLabelFont" -l $msg`;
+  text -l "" -h 20;
+  separator -st "in";
+  string $btn = `button -l $visit -c "MGtools_gotoURL \"http://twincodes.com\";deleteUI  MGTools_GetMLLUI"`;
+  showWindow   MGTools_GetMLLUI;
+  //window -q -wh  MGTools_GetMLLUI;
+  window -e -wh 400 86 MGTools_GetMLLUI;  
+  refresh;   
+	python("import MG_PyUtil.MG_UpdaterLoader as up;reload(up)");
+	int $result = python("up.getMGToolsLatestPluginDoit('"+$fn+"')");
+	if($result)
+	{
+	  deleteUI  MGTools_GetMLLUI;
+	}
+	else
+	{
+	  window -e -bgc 0.5 0.16 0.16 MGTools_GetMLLUI;
+	  control  -e -bgc 0.16 0.35 0.16 $btn;
+	  text -e -l (`MG_DualLan "ServeProc.downloading.unable.msg"`+$fn) $lbl;
+	}
+	return $result;
+}
+
+
+//=========================================================================================
+global proc string returnMayaInstallFolder ()
+{
+	string $arr=`whatIs "changeToolIcon"`;
+	global int $mgtoolsOStype;
+	
+	string $buffer [];
+	string $address;
+	if(!$mgtoolsOStype)
+	{
+	    int $size=`tokenize $arr "/" $buffer`;
+    	$buffer [0]=`substring $buffer [0] (size($buffer[0])-1) (size($buffer[0]))`;
+    	$address=$buffer [0];
+    	for ($i=1;$i<($size-3);$i++)
+    	{
+    		$address=($address+"/"+$buffer[$i]);	
+    	}
+    }
+    else
+    {
+        int $size=`tokenize $arr ":" $buffer`;
+        string $place=dirname (strip ($buffer[1]));
+        string $baseFolder =basename ($place, "*.");        
+        $address= `substring $place 1 (size($place)-size($baseFolder)-1)`; 
+        $baseFolder =basename ($address, "*."); 
+         $address= `substring $address 1 (size($address)-size($baseFolder)-1)`;   
+    }
+	return  $address;
+}
+//===========return framerate==========================
+global proc int returnCurrentSceneTimeUnitInt ()
+{
+	string $unit=`currentUnit -q -time`;
+	int $frameRate;
+	/*
+	game: 15 fps 
+	film: 24 fps 
+	pal: 25 fps 
+	ntsc: 30 fps 
+	show: 48 fps 
+	palf: 50 fps 
+	ntscf: 60 fps
+	*/
+	switch ($unit)
+	{
+	case "ntsc":
+		return 30;
+	case "pal":
+		return 25;
+	case "film":
+		return 24;
+	case "game":
+		return 15;
+	case "show":
+		return 48;
+	case "palf":
+		return 50;
+	case "ntscf":
+		return 60;
+	default:
+		if(`endsWith $unit "fps"`)
+		{
+			$unit=`substring $unit 1 (size($unit)-3)`;
+			$frameRate=$unit;
+			return $frameRate;
+		}
+	}
+}
+
+//return current playback option or selected range =======================
+global proc float [] MG_returnSelectedRangeOrTimeRange ()
+{
+		
+	global string   $gPlayBackSlider;
+	float $result [];clear $result;
+	$result [0]=`timeControl -q -rangeVisible $gPlayBackSlider`;
+	if($result [0])
+	{
+		float $selectrange []= `timeControl -q -rangeArray  $gPlayBackSlider`;
+		$result [1]=$selectrange[0];
+		$result [2]=$selectrange[1];
+	}
+	else
+	{		
+		$result	[1]=`playbackOptions -q -minTime`;
+		$result	[2]=`playbackOptions -q -maxTime`;
+	}
+	return $result; 
+}
+
+global proc reactiveNormalViewPort ()
+{
+	string $panel=`getPanel -withFocus`;
+	if(!`startsWith $panel  "scriptEditorPanel" `)
+	{
+		setFocus $panel;
+	}
+	else
+	{
+			string $allViews []=`getPanel -type "modelPanel"`;
+			setFocus $allViews[0];
+	}	
+}
+global proc reactiveModelViewport ()
+{
+	global int $LinuxBefore2011;
+	global int  $MacOSBefore2011;
+	if($MacOSBefore2011||$LinuxBefore2011)	
+	{
+		return;	
+	}
+	showWindow  MayaWindow;
+	string $cpanel =`getPanel -withFocus`;	
+	global string $gMainPane;
+	setFocus $gMainPane;
+	if(`modelPanel -q -ex $cpanel`)
+	{
+		setFocus 	$cpanel;
+	}
+	else
+	{
+		string $visPanels[]=`getPanel -vis`;
+		for($each in $visPanels)
+		{
+			if(`modelPanel -q -ex $each`)	
+			{
+				setFocus $each;
+				break;	
+			}
+		}
+	}
+	//print "\nFocus!!\n";
+}
+//load a .mll plugin codes===============================================
+
+global proc string getMGToolsMllFileName(string $filePrfix)
+{
+	global int $MGTools_x64Maya_orNot;
+	string $bigStr = "64";
+	if(!$MGTools_x64Maya_orNot)
+	{
+	  $bigStr = "32";
+	}
+  string $file = $filePrfix + "_";
+  string $version = `MGtools_getMayaVersionNumForPlugin`;
+			
+  $file += ($version + "x");
+  
+  global int $mgtoolsOStype;
+	string $sys = $bigStr+".mll";
+	if($mgtoolsOStype==1)		$sys = $bigStr+".bundle";
+	else if($mgtoolsOStype==2)		$sys = $bigStr+".so";
+
+  $file  += $sys ;
+	return $file;		
+}
+global proc string[] getMGToolsPluginsFileList(string $pluginDir)
+{
+  if(!`endsWith $pluginDir "/"`)
+  {
+    $pluginDir += "/";
+  }
+  global int $MGTools_2011_orNot;
+  string $files [] = `getFileList -fld $pluginDir -fs "*.*"`;
+  string $copyFiles[];
+  string $cExt,$cBaseName;
+  string $cPluginPrefix;
+  string $pluginPrefixes[];
+  
+  global int $mgtoolsOStype;
+  string $invalidExts [];
+    string $ext = "mll";
+    $invalidExts = {"bundle", "so"};
+    if($mgtoolsOStype==1)
+    {
+        $ext = "bundle";	    
+        $invalidExts = {"mll", "so"};
+    }
+    else if($mgtoolsOStype==2)
+    {
+    	$ext = "so";
+        $invalidExts = {"mll", "bundle"};
+    }
+  for($each in $files)
+  {
+    $cExt = `fileExtension $each`;
+    //if($cExt == "mll" || $cExt == "so" || $cExt == "bundle")
+    if($cExt == $ext)
+    {
+      string $temp[];
+      tokenize $each "_" $temp;
+      $cPluginPrefix = $temp[0];
+      $pluginPrefixes[size($pluginPrefixes)] = $cPluginPrefix ;
+    }
+    else if($cExt == "cur" || $cExt == "xpm")
+    {
+      if(!$MGTools_2011_orNot)
+      {
+        $copyFiles[size($copyFiles)] = $each;
+      }
+    }
+    else if($cExt == "png")
+    {
+      if($MGTools_2011_orNot)
+      {
+        $copyFiles[size($copyFiles)] = $each;
+      }
+    }
+    else if(!`stringArrayContains $cExt $invalidExts`)
+    {
+      $copyFiles[size($copyFiles)] = $each;
+    }
+  }
+  $pluginPrefixes = stringArrayRemoveDuplicates ($pluginPrefixes);
+  for($p in $pluginPrefixes)
+  {
+      $cPlugin = `getMGToolsMllFileName $p`;
+      $copyFiles[size($copyFiles)] = $cPlugin;
+  }
+  return $copyFiles;
+}  
+
+global proc string returnMG_MllPluginFilePath (string $pluginPrefex)
+{
+  
+		string $pluginFileName = `getMGToolsMllFileName $pluginPrefex`;	
+		
+		global string $GmgtoolsPath;			
+		global string $GmgtoolsLocalPath;
+		
+		string $mllName = ($GmgtoolsLocalPath+"plug-ins/"+$pluginFileName);
+		//if(!`filetest -f $mllName`)
+		//{
+		//	if($version=="2008ex2")$version="2008ex2";
+		//	else if($version=="8.5")$version="8";
+		//	else if($version=="8")$version="8.5";
+		//	$mllName =($GmgtoolsLocalPath+"plug-ins/"+$pluginFileName);	
+		//}		
+		if(!`filetest -f $mllName`)
+		{
+		  $mllName =($GmgtoolsPath+"plug-ins/"+$pluginFileName);	
+		}
+		//if(!`filetest -f $mllName`)
+		//{
+		//	if($version=="2008ex2")$version="2008ex2";
+		//	else if($version=="8.5")$version="8";
+		//	else if($version=="8")$version="8.5";
+		//	$mllName =($GmgtoolsPath+"plug-ins/"+$pluginFileName);	
+		//}		
+		return $mllName;
+}
+global proc int loadMG_MllPlugin (int $onOff, string $pluginPrefex)
+{
+   int $result=0;
+	string $mllName =`returnMG_MllPluginFilePath $pluginPrefex`;	
+	//print ("$mllName "+$mllName);
+	string $proName =(`returnMayaInstallFolder`+"/scripts/others/pluginWin.mel");
+	if(!`exists "loadPluginCallback"`)
+	{
+		eval ("source \""+ $proName+"\"");
+	}	
+	if($onOff)
+	{
+		if(!`pluginInfo -q -loaded $mllName`)	
+		{
+			$result=(1-(catch(`loadPluginCallback  $mllName "plug-in"`)));
+			global int $ignoreUpdateCallback;
+			global int $pluginRefreshNeeded;
+			global string $pluginWindowName;
+			int $visible = `window -q -ex $pluginWindowName`;
+			if( $visible )
+			{
+		 		if( !$ignoreUpdateCallback )  
+				{
+					updatePluginList();
+				}
+			}
+			else
+			{
+				$pluginRefreshNeeded = true;
+			}
+		}	
+	}
+	else
+	{
+		$result=(1-(catch(`unloadPluginWithCheck( $mllName)`)));		
+	}
+	return $result;
+}
+global proc int loadNormal_MllPlugin (int $onOff, string $mllName)
+{
+	//result 0: not successful
+	//result 1: successful
+	int $result=0;
+	string $proName =(`returnMayaInstallFolder`+"/scripts/others/pluginWin.mel");
+	if(!`exists "loadPluginCallback"`)
+	{
+		eval ("source \""+ $proName+"\"");
+	}	
+	if($onOff)
+	{
+		if(!`pluginInfo -q -loaded $mllName`)	
+		{
+			
+			 $result=(1-(catch(`loadPluginCallback  $mllName "plug-in"`)));			 
+			global int $ignoreUpdateCallback;
+			global int $pluginRefreshNeeded;
+			global string $pluginWindowName;
+			int $visible = `window -q -ex $pluginWindowName`;
+			if( $visible )
+			{
+		 		if( !$ignoreUpdateCallback )  
+				{
+					updatePluginList();
+				}
+			}
+			else
+			{
+				$pluginRefreshNeeded = true;
+			}
+		}	
+	}
+	else
+	{
+		 $result=(1-(catch(`unloadPluginWithCheck( $mllName)`)));			 
+	}
+	return $result;
+}
+
+//==============open system directory=================================
+/*
+global proc int MG_decideLinuxWindowManager ()
+{
+	//return 0: unsupported
+	//return 1: gnome
+	//return 2: kde
+	//return 3: xfce
+	string $pid= `system ("pidof gnome-session")`;
+	if(size($pid))return 1;
+	$pid= (system ("pidof ksmserver"));
+	if(size($pid))return 2;
+	$pid= (system ("pidof xfce-mcs-manage"));
+	if(size($pid))return 3;
+	return 0;
+}
+global int $MGtools_Linux_WindowManagerID;
+$MGtools_Linux_WindowManagerID = `MG_decideLinuxWindowManager`;
+global proc string MG_returnLinuxOpenCommandForOpenningFolder()
+{
+	global int $MGtools_Linux_WindowManagerID;
+	if(!$MGtools_Linux_WindowManagerID)
+	{
+		return "";	
+	}
+	if($MGtools_Linux_WindowManagerID==1)
+	{
+		return "nautilus";
+	}
+	else if($MGtools_Linux_WindowManagerID==2)
+	{
+		return "dolphin";//konqueror
+	}
+	else if($MGtools_Linux_WindowManagerID==3)
+	{
+		return "thunar";
+	}
+}
+*/
+global proc mg_openFileInWindowExplorer (string $dir)
+{
+	if(!size($dir))return;
+	global int $mgtoolsOStype;	
+	if(!$mgtoolsOStype)
+	{
+    	if(`startsWith $dir "//"`)
+    	{
+    			$dir = toNativePath($dir);
+    	}	
+    	system("load "+("\""+$dir+"\""));
+  }
+  else if($mgtoolsOStype==1)
+	{
+    	system("open '"+$dir+"'");
+  }
+  else
+  {
+  	system("xdg-open '"+$dir+"'");
+  	/*
+  		global int $MGtools_Linux_WindowManagerID;
+  		if(!$MGtools_Linux_WindowManagerID)
+  		{
+  			warning "Current Linux Windows Manager is not supported.";
+  			return;	
+  		}
+  		string $cmd =`MG_returnLinuxOpenCommandForOpenningFolder`;
+  		system($cmd+" '"+$dir+"'");
+  		*/
+  }
+}
+
+//clear useless plugin files===============================
+/*
+global proc MG_cleanUselessPluginFiles()
+{
+	global int $mgtoolsOStype;
+	global string $GmgtoolsPath;
+	string $pluginsPath = ($GmgtoolsPath+"/plug-ins/");
+	
+	string $pluginFiles[];clear $pluginFiles;
+	if(!$mgtoolsOStype)
+	{
+			$pluginFiles=`getFileList -fld $pluginsPath -fs "*.bundle"`;
+			$pluginFiles= stringArrayCatenate(`getFileList -fld $pluginsPath -fs "*.so"`,$pluginFiles);
+	}
+	else if($mgtoolsOStype==1)
+	{
+			$pluginFiles=`getFileList -fld $pluginsPath -fs "*.mll"`;
+			$pluginFiles= stringArrayCatenate(`getFileList -fld $pluginsPath -fs "*.so"`,$pluginFiles);
+	}
+	else
+	{
+			$pluginFiles=`getFileList -fld $pluginsPath -fs "*.bundle"`;
+			$pluginFiles= stringArrayCatenate(`getFileList -fld $pluginsPath -fs "*.mll"`,$pluginFiles);			
+	}			
+	if(size($pluginFiles))
+	{
+		for($each in $pluginFiles)
+		{
+			sysFile -del ($pluginsPath+$each);
+		}
+	}
+}
+MG_cleanUselessPluginFiles;
+*/
+//==============install to maya shelf codes===========================
+global proc MGtools_installSingleToCurrentShelf (string $label,string $ol, string $Icon,string $HIcon,string $cmd, string $ann)
+{
+	global int $MGTools_2011_orNot;
+	string $defaultIcon = "commandButton.xpm";
+	if($MGTools_2011_orNot)$defaultIcon = "commandButton.png";
+	if(!`filetest -f $Icon`)$Icon=$defaultIcon;
+	if(!`filetest -f $HIcon`)$HIcon=$defaultIcon;
+	
+	global string $gShelfTopLevel;
+	string $st =`tabLayout -q -st $gShelfTopLevel`;
+	string $children []=`shelfLayout -q -ca $st`;
+	for ($eachOldSB in $children)
+	{
+		string $eachOldLabel=`shelfButton -q -l $eachOldSB`;
+		if($label==$eachOldLabel)
+		{
+			deleteUI -ctl $eachOldSB;
+		}	
+	}	
+	if (`tabLayout -exists $gShelfTopLevel`)
+	{	    
+	    string $sb=`shelfButton
+				-imageOverlayLabel $ol
+				-label $label
+				-parent ($gShelfTopLevel + "|" +$st )
+				-command $cmd
+				-image $Icon
+				-highlightImage $HIcon 
+				-annotation $ann    				
+		    `;
+		  control -e -vis 1 $sb;		    
+	}
+	else
+	{
+		error `MG_DualLan "MGshelfInstaller.war"`;
+	}
+}
+
+//=============assign tool hotkey general function======================
+global proc AssignMGtool_SingleTool_Hotkey_general (string $toolName)
+{
+	if(!`exists "mgtoolConfig"`)
+	{
+		global string $GmgtoolsPath;
+		eval ("source \""+$GmgtoolsPath+"MGtools_config_about_WrittenByMiguel.mel\"");
+	}
+	if (!`window -exists mgtoolConfigUI`)mgtoolConfig;
+	else
+	{
+		tabLayout -e -selectTabIndex 2  MGconfig_contentTab;	
+	}
+	if(! `MG_Config_ActiveCertainHotKeyCommand $toolName`)
+	{
+	  confirmDialog -title "MGtools" -message (`MG_DualLanFormat_1 "ServeProc.noInHotkeyList.war"  $toolName`) -button "OK";
+	}
+	/*
+	if(	catch(`textScrollList -e -selectItem $toolName MGConfigNameCommandTSL`))
+	{
+		confirmDialog -title "MGtools" -message (`MG_DualLanFormat_1 "ServeProc.noInHotkeyList.war"  $toolName`) -button "OK";
+		return;	
+	}	
+	MG_config_showCommandViaNC;
+	MGtoolsFindHotkeyViaNC;
+	mgHotkeyEditorHotkeyKeyFieldChange;*/
+}
+
+//===================get select Maya channelbox or MGchannelBox plugs======
+global proc string[] selectedMGChannelBoxPlugs(string $mgChannelBoxName )
+{
+	//string $mgChannelBoxName = "MGChannelBoxControl"; 
+
+	string  $result[];
+
+	if( `channelBox -q -exists $mgChannelBoxName` ) {
+		string 	$main[], $mainObjects[];
+		string 	$shape[], $shapeObjects[];
+		string 	$history[], $historyObjects[];
+		string  $outputs[], $outputObjects[];
+		
+		$main = `channelBox -q -selectedMainAttributes  $mgChannelBoxName`;
+		$shape = `channelBox -q -selectedShapeAttributes $mgChannelBoxName`;
+		$history = `channelBox -q -selectedHistoryAttributes $mgChannelBoxName`;
+		$outputs = `channelBox -q -selectedOutputAttributes $mgChannelBoxName`;
+		
+		string  $attr;
+		
+		$main = `channelBox -q -selectedMainAttributes $mgChannelBoxName`;
+		$mainObjects = `channelBox -q -mainObjectList $mgChannelBoxName`;
+
+		$shape = `channelBox -q -selectedShapeAttributes $mgChannelBoxName`;
+		$shapeObjects = `channelBox -q -shapeObjectList $mgChannelBoxName`;
+
+		$history = `channelBox -q -selectedHistoryAttributes $mgChannelBoxName`;
+		$historyObjects = `channelBox -q -historyObjectList $mgChannelBoxName`;
+
+		$outputs = `channelBox -q -selectedOutputAttributes $mgChannelBoxName`;
+		$outputObjects = `channelBox -q -outputObjectList $mgChannelBoxName`;
+		
+		if( size( $main ) > 0 ) {
+			for( $object in $mainObjects ) {
+				for ($mattr in $main) {
+					$result[ size($result) ] = ($object+"."+$mattr);
+				}
+			}
+		}
+
+		if( size( $shape ) > 0 ) {
+			for( $object in $shapeObjects ) {
+				for ($mattr in $shape) {
+					$result[ size($result) ] = ($object+"."+$mattr);
+				}
+			}
+		}
+
+		if( size( $history ) > 0 ) {
+			for( $object in $historyObjects ) {
+				for ($mattr in $history) {
+					$result[ size($result) ] = ($object+"."+$mattr);
+				}
+			}
+		}
+
+		if( size( $outputs ) > 0 ) {
+			for( $object in $outputObjects ) {
+				for ($mattr in $outputs) {
+					$result[ size($result) ] = ($object+"."+$mattr);
+				}
+			}
+		}
+	}
+		
+	return $result;
+}
+//=========================the hierarchy depth sorting codes comes form Zach Gray's  matchBox.============
+global proc string[] MG_hierarchyDepthSort(string $widgetList[])
+{
+	//string $widgetList[] = $processList;
+	string $sortList[] = {};
+	for ($widget in $widgetList)
+  {
+  	if(size(`ls $widget`)>1)
+  	{
+  		continue;
+  	}
+		if (objExists($widget))
+    {
+			int $depth = MG_hierarchyDepth($widget,0);
+			//do padding so proper sort order
+			string $padDepth;
+			if ($depth < 10)
+				$padDepth = ("000" + $depth);
+			else if ($depth < 100)
+				$padDepth = ("00" + $depth);
+			else if ($depth < 1000)
+				$padDepth = ("0" + $depth);
+			else if ($depth < 10000)
+				$padDepth = ($depth);
+			string $prefixWidget = ("-%" + $padDepth + "%-" + $widget);
+			$sortList = stringArrayCatenate({$prefixWidget},$sortList);
+		}
+	}
+	$sortedList = sort($sortList);
+	string $sortListClean[] = {};
+	string $sorted;
+	for($sorted in $sortedList)
+	{
+		//print ($sorted + "\n");
+		string $regularExpr = "-%.*%-";
+		string $clean = `substitute $regularExpr $sorted  ""`;
+		//print ($clean + "\n");
+		$sortListClean = stringArrayCatenate($sortListClean,{$clean});
+	}	 
+		
+	return $sortListClean;
+
+} // end hierarchy DepthSort
+
+
+
+global proc int MG_hierarchyDepth(string $object,int $depth)
+{
+	
+	while ($object != MG_traceConstraintParent($object) )
+  {
+		$object = MG_traceConstraintParent($object);
+		$depth++;
+  }
+  if(size(`ls $object`) > 1)
+  {
+  	return $depth;
+  }
+	string $parent[] = `listRelatives -p -path $object`;
+
+	if (!size($parent))
+  {
+		return $depth;
+  }
+		
+	$depth++;
+    //print ("Parent: "+$parent[0]+"\n");
+	//return $depth;
+	return(MG_hierarchyDepth($parent[0],$depth));
+}
+
+
+global proc string MG_traceConstraintParent(string $object)
+{
+	//list connections on translate, rotate shouldn't matter since it's absolute
+	string $transConnections[] = {};
+	string $transConnectionsX[] = `listConnections -scn true -destination false -source true ($object + ".translateX")`;
+	string $transConnectionsY[] = `listConnections -scn true -destination false -source true ($object + ".translateY")`;
+	string $transConnectionsZ[] = `listConnections -scn true -destination false -source true ($object + ".translateZ")`;
+	
+	string $rotConnectionsX[] = `listConnections -scn true -destination false -source true ($object + ".rotateX")`;
+	string $rotConnectionsY[] = `listConnections -scn true -destination false -source true ($object + ".rotateY")`;
+	string $rotConnectionsZ[] = `listConnections -scn true -destination false -source true ($object + ".rotateZ")`;
+	
+	$transConnections = stringArrayCatenate($transConnectionsX,$transConnections);
+	$transConnections = stringArrayCatenate($transConnectionsY,$transConnections);
+	$transConnections = stringArrayCatenate($transConnectionsZ,$transConnections);
+
+	$transConnections = stringArrayCatenate($rotConnectionsX,$transConnections);
+	$transConnections = stringArrayCatenate($rotConnectionsY,$transConnections);
+	$transConnections = stringArrayCatenate($rotConnectionsZ,$transConnections);
+	
+	$transConnections = stringArrayRemoveDuplicates($transConnections);
+	
+	string $returnString = $object;
+	
+	if (size($transConnections))
+    {
+		//for ($connected in $transConnections){
+            //return $returnString;
+            
+			string $connected = $transConnections[0];
+			//check to see if type is parent or point
+			//string $connected = "pSphere1_pointConstraint1";
+			if (`objectType -isType "pointConstraint" $connected` || `objectType -isType "parentConstraint" $connected` )
+            {
+                int $validIndice[] = `getAttr -multiIndices ($connected + ".target")`;
+                if(!size($validIndice))
+                {
+                    return $returnString;
+                }
+                int $targetIndex = 0;
+                float $targetWeight = 0;
+                for($index in $validIndice)
+                {
+                     float $compareWeight = `getAttr ($connected + ".target[" + $index + "].targetWeight")`;
+                    if ($targetWeight < $compareWeight)
+                    {
+                        $targetWeight = $compareWeight;
+                        $targetIndex = $index;
+                    }	
+                }
+                /*
+                //return $returnString;
+				int $weightListSize = `getAttr -size ($connected + ".target")`;
+				
+				//find the biggest weight in the weight list
+				//compare each item to every other item, and see if the previous larger is still bigest
+				int $targetIndex = 0;
+				float $targetWeight = `getAttr ($connected + ".target[0].targetWeight")`;
+				int $i;
+                if($weightListSize > 1)
+                {
+                    for ($i = 1; $i < $weightListSize; $i++)
+                    {
+                        print ($connected + ".target[" + $i + "].targetWeight\n");
+                        float $compareWeight = `getAttr ($connected + ".target[" + $i + "].targetWeight")`;
+                        if ($targetWeight < $compareWeight)
+                        {
+                            $targetWeight = $compareWeight;
+                            $targetIndex = $i;
+                        }	
+                    }	
+                }*/
+				//return $returnString;
+				
+				string $connectedTransform[] = `listConnections ($connected + ".target[" + $targetIndex + "].targetParentMatrix")`;
+
+				//string $list[] = `listConnections -destination false -source true $connected`;									
+				$returnString = $connectedTransform[0];
+			}
+		//}
+	}
+	return $returnString;
+	
+} // end MG_traceConstraintParent
+
+
+//MGTools installation uninstallation codes------------------------------------------------------
+global proc int isCurrentMGToolsServerProgram()
+{
+    global string $GmgtoolsPath; 
+    global string $GmgtoolsLocalPath;
+    if($GmgtoolsPath != $GmgtoolsLocalPath)
+    {
+        return 1;
+    }
+    return 0;
+}
+global proc int isCurrentMGToolsFullServerProgram()
+{ 
+    global string $GmgtoolsLocalPath;
+    string $pluginFileName = `getMGToolsMllFileName "MGTools"`;
+    if(`pluginInfo -q -loaded $pluginFileName`)
+    {
+        string $actualPath =  `pluginInfo -q -path $pluginFileName`;
+        return (1-`startsWith $actualPath $GmgtoolsLocalPath`);
+    }
+    
+    string $mll = `returnMG_MllPluginFilePath "MGTools"`;
+    return (1-`startsWith $mll $GmgtoolsLocalPath`);
+}
+proc string MGTools_getRelocator_Label()
+{
+  return "MGTools_Relocator";
+}
+global proc uninstallAllMGToolsShelves(int $mode)
+//$mode 0: uninstall MGTools under user script folder
+//$mode 1: uninstall MGTools via $GmgtoolsPath
+{
+    global string $GmgtoolsPath; 
+    string $scriptDir = `internalVar -usd`;
+    string $mgtoolsIconPath = $GmgtoolsPath+"icon/"; 
+    if(!$mode)
+    {
+     $mgtoolsIconPath = $scriptDir + "/MGTools/icon/";  
+    }
+    
+    global string $gShelfTopLevel;
+    if(!`control -q -ex $gShelfTopLevel`)
+    {
+        warning `MG_DualLan "MGshelfInstaller.war"`;
+        return;
+    }
+    string $relocatorLbl = `MGTools_getRelocator_Label`;
+    string $tabs[] =`tabLayout -q -childArray $gShelfTopLevel`;
+    string $cTab;
+    int $clearCount;
+    for($cTab in $tabs)
+    {
+      	string $children []=`shelfLayout -q -ca $cTab`;
+      	for ($eachOldSB in $children)
+      	{
+      		if(!`shelfButton -q -ex $eachOldSB`)
+      		{
+      			continue;
+      		}
+      		string $icon=`shelfButton -q -i $eachOldSB`;
+      		string $lbl = `shelfButton -q -l $eachOldSB`;
+      		
+      		if(`startsWith $icon $mgtoolsIconPath` || $relocatorLbl == $lbl)
+      		{
+      			deleteUI -ctl $eachOldSB;
+      			$clearCount ++;
+      		}	
+      	}
+        if($cTab == "MGtools" || $cTab == "MGTools")
+        {
+          if(!size(`shelfLayout -q -ca $cTab`))
+          {
+            deleteUI -layout $cTab;
+            //delete the shelf file:
+            string $shelfFolder = `internalVar -userShelfDir`;
+            if(`filetest -f ($shelfFolder+"shelf_MGtools.mel")`)
+            {
+                sysFile -del ($shelfFolder+"shelf_MGtools.mel");
+            }
+            if(`filetest -f ($shelfFolder+"shelf_MGTools.mel")`)
+            {
+                sysFile -del ($shelfFolder+"shelf_MGTools.mel");
+            }
+          }
+        }
+   }
+  
+  if($clearCount)
+  {
+    saveAllShelves $gShelfTopLevel;
+  }
+  
+  MG_Report ($clearCount+`MG_DualLan "ServeProc.shelf.uninstalled.rep"`) 1;
+}
+
+global proc uninstallUpdateMGToolsHotkeys(int $mode)
+//$mode 0: uninstall hotkeys
+//$mode 1: update namecommands.
+{  
+  if($mode)
+  {
+    //update namecommand list:
+    MGTools_readNameCommand;
+  }
+  global string $gMGTools_allNameCommandNames [];
+	global string $gMGTools_allNameCommands [];
+	int $ncCount = size($gMGTools_allNameCommandNames);
+  string $allRC[] = `runTimeCommand -q -userCommandArray`;
+  for($each in $allRC)
+  {
+    if(!$mode)
+    {
+      if($each == "MG_SelSet_MarkingMenu_Press" || $each == "MG_SelSet_MarkingMenu_Release")
+      {
+        runTimeCommand -e -del $each;
+        continue;
+      }
+      else if(`runTimeCommand -q -category $each` == "MGtools")
+      {
+        runTimeCommand -e -del $each;
+        continue;
+      }
+    }
+    else
+    {
+      if(`runTimeCommand -q -category $each` == "MGtools")
+      {
+        int $index = -1;
+        for($i=0; $i<$ncCount; $i++)
+        {
+          if($gMGTools_allNameCommandNames[$i] == $each)
+          {
+            $index  = $i;
+            break;
+          }
+        }
+        if($index != -1)
+        {
+          runTimeCommand -e -c $gMGTools_allNameCommands[$index] $each;
+        }
+      }
+    }
+  }
+  if(!$mode && `popupMenu -q -ex MG_SelSet_MarkingMenu`)
+  {
+    deleteUI -menu MG_SelSet_MarkingMenu;
+  }
+  if($mode)
+  {
+    MG_Report (`MG_DualLan "ServeProc.hotkey.updated.rep"`) 1;
+  }
+  else
+  {
+    MG_Report (`MG_DualLan "ServeProc.hotkey.uninstalled.rep"`) 1;
+  }
+}
+
+global proc uninstallMGToolsUsersetupThings()
+{
+  string $scriptDir = `internalVar -usd`;
+  string $userSetupMel = $scriptDir + "userSetup.mel";
+  string $userSetupPy = $scriptDir + "userSetup.py";
+  string $melrepExp = "//MGautoLoad_start.*//MGautoLoad_end";
+	string $pyrepExp = "#MGautoLoad_start.*#MGautoLoad_end";
+	string $oldContent,	$newContent, $stripNewContent;
+  if(`filetest -f $userSetupMel`)
+	{
+		$oldContent=`mgReadFileString $userSetupMel`;
+		$newContent = `substitute $melrepExp $oldContent ""`;
+		$stripNewContent = strip($newContent);
+		
+		if(!size($stripNewContent))
+		{
+		  sysFile -del $userSetupMel;		  
+		}
+		else
+		{
+		  int $id = `fopen $userSetupMel "w"`;
+		  fwrite $id $stripNewContent;
+		  fclose $id ;
+		}
+	}	
+  if(`filetest -f $userSetupPy`)
+	{
+		$oldContent=`mgReadFileString $userSetupPy`;
+		$newContent = `substitute $pyrepExp $oldContent ""`;
+		$stripNewContent = strip($newContent);
+		if(!size($stripNewContent))
+		{
+		  sysFile -del $userSetupPy;		  
+		}
+		else
+		{
+		  int $id = `fopen $userSetupPy "w"`;
+		  fwrite $id $newContent;
+		  fclose $id ;
+		}
+	}	
+	MG_Report (`MG_DualLan "ServeProc.autoload.uninstalled.rep"`) 1;
+}
+
+//===========MGTools generic report============================================
+global proc MG_Report(string $mes, int $ensureNewLine)
+{
+  string $rep = "[MGTools] ";
+  $rep += $mes;
+  if($ensureNewLine && !`endsWith $mes "\n"`)
+  {
+    $rep += "\n";
+  }
+  print $rep;
+}
+
+//mgtools shelf installation codes========================================
+proc string[] MGTools_readShelfNameCommandData_Doit(string $dataFile)
+//return name and command packed up side by side in one array.
+{
+  string $result[];
+  global string $GmgtoolsPath;
+	global string $skipToolsForLinuxBefore2011[];
+	global int $LinuxBefore2011;
+	string $rawArray []=`mgReadFileSepArray $dataFile "#"`;
+	if(!size(strip($rawArray[0])))
+	{
+	  return {};
+	}
+	int $skip =0;
+	for ($i=0;$i<size($rawArray);$i++)
+	{
+		$skip =0;
+		if($LinuxBefore2011)
+		{
+			for($eachSkip in $skipToolsForLinuxBefore2011)
+			{
+				if($eachSkip ==$rawArray[$i])	
+				{
+					$i+=2;
+					$skip =1;
+					break;	
+				}
+			}
+			if($skip)continue;
+		}
+		$result [size($result)]=$rawArray[$i];
+	}
+	return $result;
+}
+global proc MGTools_readNameCommand ()
+{
+	global string $GmgtoolsPath;
+	string $file = $GmgtoolsPath+"invoke/MGtools_ShelfCommandList.mgd";	
+	string $allNCArray [] = `MGTools_readShelfNameCommandData_Doit $file`;
+	$file = $GmgtoolsPath+"invoke/MGtools_HotkeyCommandList.mgd";
+	$allNCArray =stringArrayCatenate($allNCArray,`MGTools_readShelfNameCommandData_Doit $file`);
+	
+	global string $gMGTools_allNameCommandNames [];
+	global string $gMGTools_allNameCommandEn [];
+	global string $gMGTools_allNameCommands [];
+	
+	clear $gMGTools_allNameCommandNames;
+	clear $gMGTools_allNameCommandEn;
+	clear $gMGTools_allNameCommands;
+	for ($i=0;$i<size($allNCArray);$i++)
+	{
+	  if(!($i % 3))
+	  {
+	    $gMGTools_allNameCommandNames [size($gMGTools_allNameCommandNames)]=$allNCArray[$i];
+	  }
+	  else if(($i % 3) == 1)
+	  {
+	    $gMGTools_allNameCommandEn [size($gMGTools_allNameCommandEn)]=$allNCArray[$i];
+	  }
+		else
+		{
+			$gMGTools_allNameCommands [size($gMGTools_allNameCommands)]=$allNCArray[$i];
+		}
+	}
+	if(`textScrollList -q -ex MGConfigNameCommandTSL`)
+	{
+		textScrollList -e -ra MGConfigNameCommandTSL;
+		int $i=0;
+		for ($eachNC in $gMGTools_allNameCommandNames)
+		{
+		  $endata = `stringToStringArray $gMGTools_allNameCommandEn[$i] ","`	;
+	    float $requireV = $endata[0];
+	    int $acceptStudent = $endata[1];
+	    int $acceptTrial = $endata[2];
+	    int $acceptExpired = $endata[3];
+		  int $en = `MGTools -queryEnable $requireV $acceptStudent $acceptTrial $acceptExpired`;
+		  if(!$en)
+		  {
+			  //$i++;
+		    //continue;
+		  }
+			textScrollList -e -append $eachNC MGConfigNameCommandTSL;
+			$i++;
+		}
+		//add MG selection set MM runtimecommand.=========================
+		string $MGselSet_MM_popUpCommandName = "MG_SelSet_MarkingMenu_Press";
+		string $MGselSet_MM_popDownCommandName = "MG_SelSet_MarkingMenu_Release";
+		if(`runTimeCommand -ex $MGselSet_MM_popUpCommandName`&&`runTimeCommand -ex $MGselSet_MM_popDownCommandName`)
+		{
+			textScrollList -e -append $MGselSet_MM_popUpCommandName  MGConfigNameCommandTSL;
+			//textScrollList -e -append $MGselSet_MM_popDownCommandName  MGConfigNameCommandTSL;
+			
+		}
+		textScrollList -e -selectIndexedItem 1  MGConfigNameCommandTSL;
+		scrollField  -e -text $gMGTools_allNameCommands[0] MGConfigNameCommandSF;	
+	}
+
+}
+global proc MGTools_readShelfCommand ()
+{
+	global string $GmgtoolsPath;
+	
+	string $file=$GmgtoolsPath+"invoke/MGtools_ShelfCommandList.mgd";
+	string $allNCArray []=`MGTools_readShelfNameCommandData_Doit $file`;
+	
+	global string $gMGTools_allShelfCommandNames [];
+	global string $gMGTools_allShelfCommandEnable [];
+	global string $gMGTools_allShelfCommands [];
+	
+	clear $gMGTools_allShelfCommandNames;
+	clear $gMGTools_allShelfCommandEnable;
+	clear $gMGTools_allShelfCommands;
+	for ($i=0;$i<size($allNCArray);$i++)
+	{
+	  if(!($i % 3))
+	  {
+	    $gMGTools_allShelfCommandNames [size($gMGTools_allShelfCommandNames)]=$allNCArray[$i];
+	  }
+	  else if(($i % 3) == 1)
+	  {
+	    $gMGTools_allShelfCommandEnable [size($gMGTools_allShelfCommandEnable)]=$allNCArray[$i];
+	  }
+		else
+		{
+			$gMGTools_allShelfCommands [size($gMGTools_allShelfCommands)]=$allNCArray[$i];
+		}
+	}
+}
+global proc updateAllMGToolsShevels()
+{
+  //MGTools -queryEnable acceptVersionDouble acceptStudent acceptTrial acceptExpired
+  //int $enable_3_acceptStudentTrial = `MGTools -queryEnable 3.0 1 1 0`;
+  //int $enable_3_acceptStudent_ButNotTrial = `MGTools -queryEnable 3.0 1 0 0`;
+  
+  global string $gShelfTopLevel;
+  if(!`control -q -ex $gShelfTopLevel`)
+  {
+      warning `MG_DualLan "MGshelfInstaller.war"`;
+      return;
+  }
+  MGTools_readShelfCommand;
+  global string $gMGTools_allShelfCommandNames [];
+  global string $gMGTools_allShelfCommandEnable [];
+	global string $gMGTools_allShelfCommands [];
+	string $Annos [],$icons [],$overIcons[],$overEnIcons [],$usedOverIcons [];
+	
+	for ($eachCommand in $gMGTools_allShelfCommands)
+	{
+		string $buffer [];
+		tokenize $eachCommand "\n" $buffer;
+		$Annos [size($Annos)]=`substring $buffer[0] 3 (size($buffer[0]))`;
+		string $buffer1 [];
+		tokenize $buffer[1] "@" $buffer1;
+		$icons [size($icons)]=$buffer1[1];
+		$overIcons [size($overIcons)]=$buffer1[2];
+		$overEnIcons [size($overEnIcons)]=$buffer1[3];		
+	}
+	
+	string $tabs[] =`tabLayout -q -childArray $gShelfTopLevel`;
+	string $cTab;
+	int $clearCount;
+	string $lbl,$cmd;
+	int $index;
+	int $en;
+	for($cTab in $tabs)
+	{
+  	string $children []=`shelfLayout -q -ca $cTab`;
+  	for ($eachOldSB in $children)
+  	{
+  		if(!`size $eachOldSB` || !`shelfButton -q -ex $eachOldSB`)
+  		{
+  			continue;
+  		}
+  		$lbl =`shelfButton -q -label $eachOldSB`;
+  		$index = `MG_StringArrayGetMemberIndex $lbl $gMGTools_allShelfCommandNames`;  
+  		if($index == -1)		
+  		{
+  		  $en = 1;
+  		}
+  		else
+  		{
+		    $endata = `stringToStringArray $gMGTools_allShelfCommandEnable[$index] ","`	;
+		    float $requireV = $endata[0];
+		    int $acceptStudent = $endata[1];
+		    int $acceptTrial = $endata[2];
+		    int $acceptExpired = $endata[3];
+		    $en = `MGTools -queryEnable $requireV $acceptStudent $acceptTrial $acceptExpired`;
+		  }
+  		if($index != -1)
+  		{
+  		  if(!$en)
+  		  {
+  		    deleteUI -control $eachOldSB;	
+  		  }
+  		  else
+  		  {
+    		  $cmd = $gMGTools_allShelfCommands [$index];  
+    		  shelfButton -e
+  					-label $gMGTools_allShelfCommandNames[$index]
+  					-command $cmd
+  					-image `shelfIcon $icons [$index]`
+  					-highlightImage `shelfIcon  $usedOverIcons[$index]`
+  					-annotation $Annos[$index]
+  					-en $en
+  					$eachOldSB;	
+				}	  
+  		}
+  	}
+  }
+  global string $gShelfTopLevel;
+	saveAllShelves $gShelfTopLevel;
+}
+//=============MGTools update from server side===================================
+global proc updateMGToolsFromServerSideForOfflineUpdate()
+{
+  global string $GmgtoolsPath;
+  catch(`updateMGToolsFromServerSide_Doit $GmgtoolsPath "" "" ""`);
+}
+global proc int updateMGToolsFromServerSide_Doit(string $serverPath, string $windowUI, string $progressCtl, string $hideCtl)
+{
+    if(!`isCurrentMGToolsServerProgram`)
+    {
+      return 0;
+    }
+    int $validPB = `control -q -ex $progressCtl`;
+    if($validPB )
+    {
+      control -e -vis 1 $progressCtl;
+    }
+    int $validHC = `control -q -ex $hideCtl`;
+    if($validHC )
+    {
+      control -e -vis 0 $hideCtl;
+    }
+    string $defaultLocalMGToolsRoot = `internalVar -userScriptDir` + "MGTools/";   
+    if(!size($serverPath))
+    {
+        if($validPB )
+        {
+          control -e -vis 0 $progressCtl;
+        }
+        if($validHC)
+        {
+          control -e -vis 1 $hideCtl;
+        }
+        return 0;
+    }
+    else if(!`endsWith $serverPath "/"`)
+    {
+        $serverPath += "/";
+    }
+    /*
+    if($defaultLocalMGToolsRoot == $serverPath)
+    {
+        confirmDialog -title "MGTools3" -message "Your MGTools is not installed as a server program. No server to update from." -button "OK";
+        if($validPB )
+        {
+          control -e -vis 0 $progressCtl;
+        }
+        if($validPB )
+        {
+          control -e -vis 1 $progressCtl;
+        }
+        return  1;
+    }
+    */
+    //now update the plugin files.    
+    string $extraPluginFiles[] = `getMGToolsPluginsFileList ($serverPath+"/plug-ins/")`;
+    string $targetPluginDir = ($defaultLocalMGToolsRoot+"/plug-ins");
+    
+    sysFile -md $targetPluginDir;
+    int $percentage = 0;
+    int $count = size($extraPluginFiles);
+    if($count)
+    {
+      float $floatCount =  $count;
+      string $csource, $ctarget;
+      for($i=0; $i<$count; $i++)
+      {
+        $percentage  = (($i+1)/$floatCount )*100;
+        $csource = ($serverPath+"/plug-ins/"+$extraPluginFiles[$i]);
+        $ctarget = ($targetPluginDir+"/"+$extraPluginFiles[$i]);
+        if(!`sysFile -cp $ctarget $csource`)
+        {
+            warning ("[MGTools] "+`MG_DualLan "ServeProc.error.replacingOldFile.war"`+$extraPluginFiles[$i]);
+        } 
+        if($validPB )
+          progressBar -edit -progress $percentage $progressCtl;
+      }
+    }
+    eval `shelfCommand "cam2dViewer_WrittenByMiguel.mel" "MG_cam2dViewer_updateIcon 1"`;    
+    if($validPB )
+    {
+      control -e -vis 0 $progressCtl;
+    }
+    if($validHC)
+    {
+      control -e -vis 1 $hideCtl;
+    }
+    if(`window -q -exists $windowUI`)
+    {
+        deleteUI $windowUI;
+    }    
+    return 1;
+}
+global proc updateMGToolsFromServerSide()
+{  
+  global string $GmgtoolsPath;
+  int $pathSize = size($GmgtoolsPath);
+  if(!`isCurrentMGToolsServerProgram` || !$pathSize)
+  {
+    confirmDialog -title "MGTools Pro3" -message `MG_DualLan "ServeProc.updateFromServer.notServerProgram.war"` -button "OK";
+    return;
+  }
+  if(`isCurrentMGToolsFullServerProgram`)
+  {
+    refreshMGtoolAfterUpdate;
+    confirmDialog -title "MGTools Pro3" -message `MG_DualLan "ServeProc.updateFromServer.notHalfServerProgram.war"` -button "OK";
+    return;
+  }
+  if(`window -q -exists MGTools_UpdateFromSrverUI`)
+  {
+      deleteUI MGTools_UpdateFromSrverUI;
+  }
+  window -title `MG_DualLan "ServeProc.updateFromServer.title"` MGTools_UpdateFromSrverUI;
+  string $mainF = `formLayout`;
+        string $lbl = `MG_DualLan "ServeProc.updateFromServer.topann"`;        
+        string $annTxt = `text -align "left" -l $lbl -en 0`;
+        string $path = `substring ($GmgtoolsPath) 1 ($pathSize-1)`;
+        string $pathTxt = `textField -ed 0 -text $path`;
+        string $cl = `columnLayout -adj 1 -rs 8 -w 150`;
+            progressBar -vis 0 -h 15 -min 0 -max 100 MGTools_UpdateFromSrver_ProgressBar;
+            separator -st "in" MGTools_UpdateFromSrver_Separator;
+            rowLayout -nc 3 -cw3 1 100 100 -adj 1;
+              text -l "";
+              button -w 97 -l `MG_DualLan "ServeProc.updateFromServer.cancel.lbl" ` -c "deleteUI MGTools_UpdateFromSrverUI" -h 25 -bgc 0.361 0.533 0.694 ;//-bgc 0.118 0.580 0.157 ;
+              string $cmd = ("if(`MGtools_testAndUnloadPluginForUpdate`){catch(`updateMGToolsFromServerSide_Doit \""+$GmgtoolsPath
+                    +"\" \"MGTools_UpdateFromSrverUI\" \"MGTools_UpdateFromSrver_ProgressBar\" \"MGTools_UpdateFromSrver_Separator\"`);MGtools_loadPluginAfterUpdate;refreshMGtoolAfterUpdate;}");
+              button -w 97  -l `MG_DualLan "ServeProc.updateFromServer.update.lbl"` -c $cmd 
+                       -h 25 -bgc 0.737 0.204 0.231;//-bgc 0.118 0.580 0.157 ;
+    setParent $mainF ;
+    progressBar -vis 0 -h 10 -min 0 -max 1 MGTools_RelocationProgressBar;
+    formLayout -e 
+                -af $annTxt "top" 5
+                -af $annTxt "left" 5
+                -af $annTxt "right" 5
+                
+                -ac $pathTxt "top" 3 $annTxt
+                -af $pathTxt "left" 5
+                -af $pathTxt "right" 5
+                //-ac $pathTxt "bottom" 5 $cl
+                
+                -af $cl "left" 3
+                -af $cl "right" 3
+                -af $cl "bottom" 5
+                $mainF ;
+    showWindow MGTools_UpdateFromSrverUI;
+    window -e -wh 420 110 MGTools_UpdateFromSrverUI;
+    
+}
+
+global proc refreshMGtoolAfterUpdate ()
+{
+  if(`MG_loadMGToolsPlugin`)
+  {
+    evalDeferred("MGTools -refresh");
+  }
+  global string $GmgtoolsPath;
+  string $loaderMel = $GmgtoolsPath + "MGToolsLoader_WrittenByMiguel.mel";
+  evalDeferred("source \""+$loaderMel+"\"");
+  
+  if (`window -exists mgToolUI`)
+  {
+    evalDeferred (`shelfCommand "MGTools_WrittenByMiguel.mel" "MGtools"`);
+  }
+  if (`menu -q -exists MGtoolsMainWindowMenu`)
+  {
+	  evalDeferred ("buildMGtoolsMenu");
+  }
+  evalDeferred("initMGToolsGlobalPositionVars");
+  
+  
+  //refresh the cam2dViewer state:
+  //eval(`shelfCommand "cam2dViewer_WrittenByMiguel.mel" ""`);
+  //updateAllMGToolsShevels;
+  evalDeferred("uninstallUpdateMGToolsHotkeys 1");
+  //evalDeferred("MG_cam2dViewer_updateContext");
+}
+
+//codes for make the mgtools relocation codes:-------------------------
+
+proc string MGTools_getRelocator_Annoation()
+{
+  return `MG_DualLan "ServeProc.relocateMGTools.ann"`;
+}
+proc string MGTools_getRelocatorIcon()
+{
+  global int $MGTools_2011_orNot;
+  if($MGTools_2011_orNot)
+  {
+    return  "aselect.png";//return "zoom.png";
+  }
+  else
+  {
+    return  "aselect.xpm";//return "zoom.xpm";
+  }
+}
+proc string MGTools_getRelocatorString()
+{
+  global string $GmgtoolsPath;
+  string $file = ( $GmgtoolsPath + "invoke/MGTools_Relocation_WrittenByMiguel.mel");
+  if(!`filetest -f $file`)
+  {
+    return "";
+  }
+  return (`mgReadFileString $file`+"\nrelocateMGToolsProgramFiles;");
+}
+
+global proc installMGToolsRelocationIntoShelfTab()
+{
+  global string $gShelfTopLevel;
+  string $currentTab =`tabLayout -q -st $gShelfTopLevel`;
+	string $currentShelfL=($gShelfTopLevel + "|" +$currentTab);
+	
+  string $icon = `MGTools_getRelocatorIcon`;
+  string $lbl= `MGTools_getRelocator_Label`;
+  string $ann= `MGTools_getRelocator_Annoation`;
+  string $cmd = `MGTools_getRelocatorString`;
+  
+	string $children []=`shelfLayout -q -ca $currentShelfL`;
+	//print "$children:"; print $children;
+	for ($eachOldSB in $children)
+	{
+	  //print size($eachOldSB);
+	  if(!size($eachOldSB))
+	  {
+	    continue;
+	  }
+		string $eachOldLabel=`shelfButton -q -l $eachOldSB`;
+		if($lbl==$eachOldLabel) 
+		{
+		  deleteUI -ctl $eachOldSB;
+		}
+	}
+	
+	string $sb = `shelfButton
+					-label $lbl
+					-parent $currentShelfL
+					-command $cmd
+					-image $icon
+					-highlightImage $icon
+					-annotation $ann
+					($lbl+"_SB")`;
+					
+  shelfLayout -e -position $sb 1 $currentShelfL;
+}
+
+//---------------compact MGToolsUI------------------------------
+global proc compactMGToolsMainUI()
+{
+  if (!`window -exists mgToolUI`){return;}
+    
+  int $columnCount = `gridLayout -q -nc MGtoolsMainGridLayout`;
+  int $rowCount = `gridLayout -q -nr MGtoolsMainGridLayout`;
+  
+  if($columnCount == 1)
+  {
+    MGExcuteEmbedStyle 1 mgToolUI MGtoolsMainGridLayout;
+  }
+  else if($columnCount == 2)
+  {
+    MGExcuteEmbedStyle 2 mgToolUI MGtoolsMainGridLayout;
+  }
+  else if($columnCount == 4)
+  {
+    MGExcuteEmbedStyle 3 mgToolUI MGtoolsMainGridLayout;
+  }
+  else if($rowCount == 1)
+  {
+    MGExcuteEmbedStyle 4 mgToolUI MGtoolsMainGridLayout;
+  }
+}
+
+//=================read MGTools license information form  MG_LicenseData==========================
+global proc string MG_getUserName()
+{
+  global int $mgtoolsOStype;
+  string $result;
+  if(!$mgtoolsOStype)
+  {
+    $result = `getenv "userName"`;
+  }
+  else  //macOS & Linux
+  {
+    $result = `getenv "USER"`;
+  }
+  $result = strip($result);
+  return $result;
+}
+global proc string MG_getComputerName()
+{
+  global int $mgtoolsOStype;
+  string $result;
+  if(!$mgtoolsOStype)
+  {
+    $result = `getenv "computerName"`;
+  }
+  else  //macOS & Linux
+  {
+    $result = system("hostname");
+  }
+  $result = strip($result);
+  return $result;
+}
+global proc string MG_getIP()
+{  
+    global int $mgtoolsOStype;
+    if($mgtoolsOStype == 2)  //linux
+    {
+        string $rawIP = system("ifconfig | awk '/inet addr/{print substr($2,6)}'");
+        string $temp []=`stringToStringArray $rawIP "\n"`;
+        for($each in $temp)
+        {
+            $each = strip($each);
+            if($each != "127.0.0.1")
+            {
+                return $each;
+            }
+        }
+        string $ip = system ("hostname -i");
+        $ip = strip($ip);
+        return $ip;
+    }
+  if(!`exists python`)
+  {
+    return "";
+  }
+  string $computer = `MG_getComputerName`;
+  string $ip =  python("import socket;socket.gethostbyname('"+$computer +"')");
+  $ip = strip($ip);
+  return $ip;
+}
+
+global proc int MG_submitUserCodeToServerSide(int $silence)
+{
+  string $warnPrefix = "[MGTools] ";
+  string $msg;
+  if(!`isCurrentMGToolsServerProgram`)
+  {
+    $msg = `MG_DualLan "ServeProc.batchReg.submitUC.notServer.war"`;
+    if(!$silence)
+    {
+      confirmDialog -title "MGTools Pro3" -message $msg -button "OK";
+    }
+    else
+    {
+      warning ( $warnPrefix+$msg);
+    }
+     return 0;
+  }
+  global string $GmgtoolsPath;
+  string $licenseDir = ( $GmgtoolsPath + "MGTools_LicenseData/");
+  if(!`filetest -d $licenseDir`)
+  {
+    sysFile -md $licenseDir;
+  }
+  string $file = $licenseDir + `MGTools -q -uc`+".mgreg";
+	if(`filetest -f $file`)
+	{
+		$msg = (`MG_DualLan  "loader.batchReg.submitUC.alreadyExists"`);
+		if(!$silence)
+    {
+      confirmDialog -title "MGTools Pro3" -message $msg -button "OK";
+    }
+    else
+    {
+      warning ( $warnPrefix+$msg);
+    }
+	  return 1;
+	}
+  string $userName = `MG_getUserName`;
+  string $computerName = `MG_getComputerName`;
+  string $ip = `MG_getIP`;
+	string $content = ($userName + " @ " +  $computerName + " ["+$ip+"]\n");  
+	string $reg = `MGTools -q -reg`;
+	$content += $reg;
+  int $id = `fopen $file "w"`;
+  if(!$id)
+  {
+    $msg = (`MG_DualLan  "ServeProc.batchReg.submitUC.writable.msg"`);
+    if(!$silence)
+    {
+      confirmDialog -title "MGTools Pro3" -message $msg -button "OK";
+    }
+    else
+    {
+      warning ( $warnPrefix+$msg);
+    }
+    return 0;
+  }
+  fprint $id $content;
+  fflush $id;
+  fclose $id;
+  $msg  = `MG_DualLan "ServeProc.batchReg.submitUC.done.rep"`;
+  if(!$silence)
+  {
+    confirmDialog -title "MGTools Pro3" -message $msg -button "OK";
+  }
+  else
+  {
+    MG_Report $msg 1;
+  }
+  return 1; 
+}
+global proc int MG_reg_matchUserCode(string $sourceUserCode, string $userCodeToMatch)
+{
+	//global int $MG_reg_matchUserCode_index;
+	//$MG_reg_matchUserCode_index ++;
+  int $sourceSize = size($sourceUserCode) ;
+  int $targetSize = size($userCodeToMatch) ;
+  //print ($MG_reg_matchUserCode_index+": "+$sourceUserCode+"\t"+$userCodeToMatch+"\t"+($sourceUserCode ==$userCodeToMatch )+"\n");
+
+  if($sourceSize != 33 || $targetSize != 33)
+  {
+    return 0;
+  }
+	if($sourceUserCode == $userCodeToMatch)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+	//desperately find that,lots of machines has duplicate network card,same cpu, same os drive...
+	/*
+  string $sourceData = `substring $sourceUserCode 10 ($sourceSize-5)`;
+  string $targetData = `substring $userCodeToMatch 10 ($targetSize-5)`;
+  string $sourceArray[]=`stringToStringArray $sourceData "-"`; 
+  string $targetArray[]=`stringToStringArray $targetData "-"`;
+  
+  int $match1 = ($sourceArray[0] == $targetArray[0]) ;
+  int $match2 = ($sourceArray[1] == $targetArray[1]) ;
+  int $firstMatch = ($match1+$match2);
+  if(!$firstMatch)
+  {
+    return 0;
+  }
+  //else if($firstMatch == 2)
+  //{
+  //  return 1;
+  //}
+  int $match3 = ($sourceArray[2] == $targetArray[2] || $sourceArray[2] == $targetArray[3] ||
+  				$sourceArray[2] == $targetArray[3] || $sourceArray[3] == $targetArray[2]) ;
+  if($match3 && $firstMatch)
+  {
+    return 1;
+  }    
+  return 0;*/
+}
+global proc string[] MG_GetRegistryLicenseFiles()
+{
+  global string $GmgtoolsPath;
+  string $licenseDir = ( $GmgtoolsPath + "MGTools_LicenseData/");
+  if(!`filetest -d $licenseDir`)
+  {
+    return {};
+  }
+  string $files[] = `getFileList -fld $licenseDir -fs "*.mgreg"`;
+  int $len = size($files);
+  if(!$len)
+  {
+    return {};
+  }
+  for($i=0;$i<$len;$i++)
+  {
+    $files[$i] = ($licenseDir + $files[$i]);
+  }
+  return $files;
+}
+global proc string MG_ReadRegistryFromLicenseFolder(string $userCode)
+{
+  int $userCodeSize = size($userCode);
+  if($userCodeSize != 33)
+  {
+    return "";
+  }
+  
+  string $files[] = `MG_GetRegistryLicenseFiles`;
+  if(!size($files))
+  {
+    return "";
+  }
+  string $bn, $serial;
+  for($reg in $files)
+  {
+    $bn = `basenameEx $reg`;
+    if(`MG_reg_matchUserCode $bn $userCode`)
+    {
+      $serial = strip(`mgReadFileString $reg`);
+      string $temp[] = `stringToStringArray $serial "\n"`;
+      $serial = strip($temp[1]);
+      return $serial;
+    }
+  }
+  return "";
+}
+global proc int MG_DeregisterMGTools()
+{
+  string $msg = `MG_DualLan "ServeProc.deReg.confirm.msg1"`;
+  $msg += `MG_DualLan "ServeProc.deReg.confirm.msg2"`;
+  string $ok = "OK";
+  string $cancel = `MG_DualLan "ServeProc.updateFromServer.cancel.lbl"`;
+  string $answer = `confirmDialog -title "MGToolsPro3" -message $msg 
+                -button $ok -button $cancel -defaultButton $cancel -dismissString $cancel`;
+  if($answer != $ok)
+  {
+    return 0;
+  }
+  int $result = `MGTools -deregister`;
+  evalDeferred ("refreshMGtoolAfterUpdate");
+  return $result;
+}
+//some ui assistant code----------------------------------
+global proc MG_ClearOptionMenuOrGrpMenuItem(string $omg)
+{
+	string $mis[];
+	if(`optionMenuGrp -q -ex $omg`)
+	{
+  	$mis =`optionMenuGrp -q -itemListLong $omg`;
+  }
+  else
+	{
+  	$mis =`optionMenu -q -itemListLong $omg`;
+  }
+  if(`size $mis`)
+  {
+      for($m in $mis)
+      {
+          deleteUI -menuItem $m;
+      }
+  }
+}
+
+global proc string MG_getShortNameOfUI(string $uiFullPath)
+{
+  string $temp[] =`stringToStringArray $uiFullPath "|"`;
+  return $temp[(size($temp)-1)];
+}
+
+//---------------file access code------------------------------
+global proc int MG_TestFolderReadable(string $folder)
+//temp version, currently inaccurate.
+{
+  if(!`filetest -d $folder`)
+  {
+    return 0;
+  }
+  global int $g_MGCurrentMayaSupportPythonOrNot;
+  if($g_MGCurrentMayaSupportPythonOrNot)
+  {
+    return python("MG_PyUtil.MG_GetFolderAttr.MGgetFolderReadable('"+$folder+"')");
+  }
+  return 1;
+}
+global proc int MG_TestFolderWritable(string $folder)
+{
+  if(!`filetest -d $folder`)
+  {
+    return 0;
+  }
+  /*
+  global int $g_MGCurrentMayaSupportPythonOrNot;
+  if($g_MGCurrentMayaSupportPythonOrNot)
+  {
+    return python("MG_PyUtil.MG_GetFolderAttr.MGgetFolderWritable('"+$folder+"')");
+  }
+  else
+  {*/
+    string $computerName = `MG_getComputerName`;
+    string $userName = `MG_getUserName`;
+    string $fileName = ("~"+$computerName+"_"+$userName+"_"+rand(10000)+".tmp");
+    if(!`endsWith $folder "/"`)
+    {
+      $folder += "/";
+    }
+    string $filePath = ($folder+$fileName);
+    int $fileId;
+    $fileId =`fopen $filePath  "w"`;
+    print "";
+    int $writable = ($fileId != 0);
+    fclose $fileId;
+    if($writable)
+    {
+      $writable = `filetest -f $filePath`;
+    }
+    sysFile -del $filePath;
+    return $writable;
+  //}
+  //return 1;
+}
+
+//===================MG_CopyPaste Text=====================================
+global proc MG_CopyText(string $text)
+{
+  if(!`exists python`)
+  {
+		return;
+	}
+	python("import MG_PyUtil.pyperclip as clip;reload(clip)");
+	python("clip.copy(r'''"+$text+"''')");
+}
+global proc string MG_GetClipboardText()
+{
+  if(!`exists python`)
+  {
+		return "";
+	}
+	python("import MG_PyUtil.pyperclip as clip;reload(clip)");
+	string $result = python("clip.paste()");
+	return $result;
+}
+
+//====================warning not available feature=======================
+global proc string MG_WarnFeatureNotAvailableDueToLicense_getMessage()
+{
+  string $message = `MG_DualLan "ServeProc.featureNotAvailable.msg"`;
+  string $lincese;
+  int $state = `MGTools -q -state`;
+  if(!$state)
+  {
+    $lincese = `MG_DualLan "ServeProc.license.trial"`;
+  }
+  else if($state == -1)
+  {
+    $lincese = `MG_DualLan "ServeProc.license.trial.expired"`;
+  }
+  else if($state == -2)
+  {
+    $lincese = `MG_DualLan "ServeProc.license.student.expired"`;
+  }
+  else if($state == 1)
+  {
+    $lincese = `MG_DualLan "ServeProc.license.student"`;
+  }
+  else if($state == -3)
+  {
+    $lincese = `MG_DualLan "ServeProc.license.comm.mismatch"`;
+  }
+  $message += ($lincese+" ]\n");
+  $message += `MG_DualLan "ServeProc.license.notAvailable"`;
+  return $message;
+}
+global proc MG_WarnFeatureNotAvailableDueToLicense_justWarning()
+{
+  string $message = `MG_WarnFeatureNotAvailableDueToLicense_getMessage`;
+  warning ("[MGTools] "+$message);
+}
+global proc MG_WarnFeatureNotAvailableDueToLicense()
+{
+  string $message = `MG_WarnFeatureNotAvailableDueToLicense_getMessage`;
+  string $ok = "OK";
+  confirmDialog -title "MGTools Pro" -message $message -button $ok;
+}
+global proc string [] MG_returnConstraintNodesViaObjects (string $obj)
+{
+  if(!`objExists $obj`)
+  {
+    return {};
+  }
+  string $constraintNodes[];
+	string $p1 = `pointConstraint -q $obj`;
+	if (size($p1)) 
+	{
+		$constraintNodes[size($constraintNodes)]=$p1;
+	}
+	string $a1 = `aimConstraint -q $obj`;
+	if (size($a1)) 
+	{
+		$constraintNodes[size($constraintNodes)]=$a1;
+	}
+	string $o1 = `orientConstraint -q $obj`;
+	if (size($o1)) 
+	{
+		$constraintNodes[size($constraintNodes)]=$o1;
+	}
+	string $s1 = `scaleConstraint -q $obj`;
+	if (size($s1)) 
+	{
+		$constraintNodes[size($constraintNodes)]=$s1;
+	}
+	string $p2 = `parentConstraint -q $obj`;
+	if (size($p2)) 
+	{
+		$constraintNodes[size($constraintNodes)]=$p2;
+	}
+	return $constraintNodes;
+}
+//=================MG-AssetLib api initialization==========================
+global proc int MGAssetLib_initAPI()
+{
+  int $result;
+  string $cmd = `MG_sourceCommand "DBManager_WrittenByMiguel.mel"`;
+  $result = 1- catchQuiet (`eval $cmd`);
+  return $result;
+}
+//MGAssetLib_initAPI;
+
+
+//===========get array string repesentation==============
+global proc string MG_getStringArrayRepresentation(string $array[])
+{
+	string $result = "{";
+	string $data = `stringArrayToString $array "\", \""`;
+	if(size($array))
+	{
+		$result += ("\""+$data+"\"");
+	}	
+	$result += "}";
+	return $result;	
+}
+global proc string MG_getIntArrayRepresentation(int $array[])
+{
+	string $result = "{";
+	int $size = size($array);
+	if($size)
+	{
+		for($i=0;$i<$size;$i++)
+		{
+			$result += $array[$i];
+			if($i!=$size-1)
+			{
+				$result +=",";
+			}
+		}
+	}
+	$result += "}";
+	return $result;	
+}
+global proc string MG_getFloatArrayRepresentation(float $array[])
+{
+	string $result = "{";
+	int $size = size($array);
+	if($size)
+	{
+		for($i=0;$i<$size;$i++)
+		{
+			$result += $array[$i];
+			if($i!=$size-1)
+			{
+				$result +=",";
+			}
+		}
+	}
+	$result += "}";
+	return $result;	
+}
+
+
+global proc MG_recover_OldGEPluginModifiedFile()  //recover the file modified by geplugin in MGTools2 in Windows
+{
+	global int $mgtoolsOStype;	
+	if($mgtoolsOStype)
+	{
+		return;
+	}
+	string $whatis = `whatIs "buildPanelItemsNow"`;
+	//print $whatis;
+	//size("Mel procedure found in: ";'
+	string $path;
+	string $buffer[];
+ 	$numTokens = `tokenize $whatis ":" $buffer`;
+ 	
+	$path=`substring $whatis 25 (size($whatis))`;
+	if(`filetest -f ($path+".bak")`)
+	{
+		sysFile -delete $path ; 
+		sysFile -rename $path ($path+".bak");	
+  }
+}
+
+global proc MG_FixStudentSaveBug()
+{
+	//evalDeferred ("file -prompt 1");
+	file -prompt 1;	
+}
+
+global proc string MG_GetLicenseVersionStr()
+{
+    float $v = `MGTools -q -lv`;
+    int $vi = $v;
+    float $v2 = ($v-$vi) * 10.0;
+    int $v2Int = $v2;
+    float $gap = $v2 - $v2Int;
+    if($gap > 0.1)
+    {
+        $v2Int += 1;
+    }
+    return ($vi+"."+$v2Int);
+}
+//----------------------------for unload MGTools cleanup----------
+global proc MG_cleanUpAfterUnloadMGTools ()
+{
+	return;  //for now we don't need all this, or else the reloading after mgtools update won't works...
+	string $mllName =`returnMG_MllPluginFilePath "cam2dViewer"`;	
+	if(`pluginInfo -q -loaded $mllName`)		
+	{
+			MG_cam2dViewer 0;	
+	}
+	int $refreshAnimRescueIcon =0;
+	$mllName =`returnMG_MllPluginFilePath "animRescue"`;	
+	if(`pluginInfo -q -loaded $mllName`)		
+	{
+			loadMG_MllPlugin 0 "animRescue";
+			$refreshAnimRescueIcon =1;
+	}
+	$mllName =`returnMG_MllPluginFilePath "MGautoSave"`;	
+	if(`pluginInfo -q -loaded $mllName`)		
+	{
+			loadMG_MllPlugin 0 "MGautoSave";
+			$refreshAnimRescueIcon =1;
+	}	
+	if($refreshAnimRescueIcon)
+	{
+		string $miniToolsIcon = `shelfIcon miniToolBoxIcon_bothOff.bmp`;		
+		updateAnimRescueConditonIconDoit $miniToolsIcon; 			
+	}
+	
+	//remove all MGTools releated UI:
+	string $uiToRemove[]={"mgToolUI",
+												"MG_ExportImportAnimationUI","MG_importAnimation_testExistenceReportUI",
+												"MG_AnimRecorder_UI",
+												"useRescueAdvancedUI","animRescue_recoveryWizardUI","animRescue_backupWizardUI","animRescueRealtimeBackupWarningUI","useRescueAdvanced_skipReportUI",
+												"MGcamSwitch_option",
+												"mgConstraintToolUI","constraintListerUI","importConstraintOffsetUI",
+												"MGCopyPasteAnimationClipboard_UI","MGCopyPasteAnimationPro_UI","MGCopyPasteConstraintAdvanced_UI",
+												"MG_DB_manager","MG_DB_newItem","MG_DB_MakeMA_Win","MG_DB_listScanResultUI","MG_DB_SearchReplaceUI","MGDB_ScanImageFolderUI","MGDB_MakeIcon_Win","MG_DB_MakeMA_Win",
+												"displaySetToolUI",
+												"addExternalUI","toolMenuEditUI",
+												"AttrSwitch_withOutPopping_option",
+												"keyframeProbeUI",
+												"MG_animScalerUI",
+												"KeyframeTool",
+												"MG_PoseAim_importAnimation_testExistenceReportUI","MG_PoseAnim_MoveCopyItemUI","MG_poseAnimAdvancedEditUI","MG_poseAnimToolOptionUI","MG_poseAnimToolUI",
+												"MGchannelBoxLayerEditorOptionUI","myMGChannelBox",
+												"MGTrialStudentLicense_ReminderUI","MGTools_BatchRegisterUI",
+												"MG_ReflectionBox_SetManagerUI","MG_ReflectionBox_UI",
+												"MG_Shelf","MGshelf_editUI",
+												"MG_TimerUI",
+												"mgtoolConfigUI","MGtoolsAboutUI","MGtoolsToShelfManagerUI",
+												"miniToolBoxUI","makeSelStickyOptionUI","MG_efficientUndo_OptionUI","RefPathUI","selectCamUI","createHudCFrameOptionUI","selectCamUI",
+												"mpStickerUI","mpStickerManagerUI","drawCurveViaKeyUI",
+												"addCustomDirUI","MGFolderEditUI",
+												"MG_pathTracker_UI",
+												"PivotToolUI","ListPivotStuffUI",
+												"referenceTool_PreloadRefUI","referenceToolBoxUI",
+												"MG_ReLocator_UI",
+												"MG_SelsetPathManagerUI","SelectionSetBox","NewEditSelSetUI","retargetSetUI","ShelfToSelectionSetConverter","selectionListUI","restoreBackUpedUI","SM_backUPselUI","retargetSMListUI","MG_SelsetPathManagerUI",
+												"MG_ConvertShelfToolUI",
+												"MG_smoothSwitchUI",
+												"snapLocListUI",
+												"MG_typeSelectorUI",
+												"editViewSwitchConfigUI"
+												};
+		for($ui in $uiToRemove)
+		{
+			if (`window -exists $ui`)
+			{
+				deleteUI $ui;
+			}
+		}
+}

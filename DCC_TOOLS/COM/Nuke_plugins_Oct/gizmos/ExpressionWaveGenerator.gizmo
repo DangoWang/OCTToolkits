@@ -1,0 +1,94 @@
+#ExpressionWaveGenerator v2.0
+#Contact cameron.a.carson@gmail.com with questions
+Gizmo {
+name "ExpressionWaveGenerator1"
+help "A simple expression generator to create or link wave expressions in nuke. \n\nAny questions contact cameron.a.carson@gmail.com"
+inputs 0
+knobChanged "
+n = nuke.thisNode()
+k = nuke.thisKnob()
+expKnobs = ['type','blipLength','minVal','maxVal','waveLength','offset']
+if 'expressionWaveGeneratorNode' in n.knobs():
+	if k.name() in expKnobs:
+		if k.name() == 'type':
+			n['blipLength'].setVisible((n['type'].value()=='Blip') or (n['type'].value()=='Sine Blip'))
+			n['blipText'].setVisible((n['type'].value()=='Blip') or (n['type'].value()=='Sine Blip'))
+		genExp()
+
+
+def genExp():
+	node = nuke.thisNode()
+	type = node.knob('type').getValue()
+	expText = node.knob('expText')
+	expFormula = node.knob('formula')
+	expResult = node.knob('expResult')
+	def setExp():
+		if type == 0: #Random
+			exp = 'random((frame+%s)/%s) * (%s-%s) + %s' %(offset,waveLength,maxVal,minVal,minVal)
+		if type == 1: #Noise
+			exp = '(noise((frame+%s)/%s)+1)/2 * (%s-%s) + %s' %(offset,waveLength,maxVal,minVal,minVal)
+		if type == 2: #Sine
+			exp = '(sin(2*pi*(frame+%s)/%s)+1)/2 * (%s-%s) + %s' %(offset,waveLength,maxVal,minVal,minVal)
+		if type == 3: #Triangle
+			exp = '(asin(sin(2*pi*(frame+%s)/%s))/pi+0.5) * (%s-%s) + %s' %(offset,waveLength,maxVal,minVal,minVal)
+		if type == 4: #Square
+			exp = 'int(sin(2*pi*(frame+%s)/%s)+1) * (%s-%s) + %s' %(offset,waveLength,maxVal,minVal,minVal)
+		if type == 5: #Sawtooth
+			exp = '((frame+%s) %% %s)/%s * (%s-%s) + %s' %(offset,waveLength,waveLength,maxVal,minVal,minVal)
+		if type == 6: #Sawtooth(Parabolic)
+			exp = 'sin((pi*(frame+%s)/(2*%s)) %% (pi/2)) * (%s-%s) + %s' %(offset,waveLength,maxVal,minVal,minVal)
+		if type == 7: #Sawtooth(Parabolic Reversed)
+			exp = 'cos((pi*(frame+%s)/(2*%s)) %% (pi/2)) * (%s-%s) + %s' %(offset,waveLength,maxVal,minVal,minVal)
+		if type == 8: #Sawtooth (Exponential)
+			exp = '(exp(2*pi*((frame+%s) %% %s)/%s)-1)/exp(2*pi) * (%s-%s) + %s' %(offset,waveLength,waveLength,maxVal,minVal,minVal)
+		if type == 9: #Bounce
+			exp = 'abs(sin(pi*(frame + %s)/%s))* (%s-%s) + %s' %(offset,waveLength,maxVal,minVal,minVal)
+		if type == 10: #Blip
+			exp = '((frame+(%s+%s)) %% (%s+%s)/(%s)) *(%s/%s) - (%s/%s) >= 0 ? %s : %s' %(offset,waveLength,waveLength,length,waveLength,waveLength,length,waveLength,length,maxVal,minVal)
+		if type == 11: #Sine Blip
+			exp = '((int((frame+%s) %% %s)) >= 0 ? ((int((frame+%s) %% %s)) <= (0+(%s-1)) ? ((sin(pi*((frame+%s) %% %s)/%s)/2+1/2) * (2*%s-2*%s) + (2*%s-%s)) : %s)  : %s)' %(offset,waveLength,offset,waveLength,length,offset,waveLength,length,maxVal,minVal,minVal,maxVal,minVal,minVal)
+		return exp
+
+
+	if k.name() == 'type':
+		waveLength = 'waveLength'
+		offset = 'offset'
+		maxVal = 'maxVal'
+		minVal = 'minVal'
+		length = 'blipLength'
+		expFormula.setValue(setExp())
+		expResult.setExpression(setExp())
+
+
+	waveLength = node.knob('waveLength').getValue()
+	offset = node.knob('offset').getValue()
+	maxVal = node.knob('maxVal').getValue()
+	minVal = node.knob('minVal').getValue()
+	length = node.knob('blipLength').getValue()
+	expText.setValue(setExp())
+		
+"
+addUserKnob {20 main l Main}
+addUserKnob {26 expressionWaveGeneratorNode l "" +STARTLINE T " "}
+addUserKnob {68 type l "Wave Type" t "Controls what type of wave to generate." M {Random Noise Sine Triangle Square Sawtooth/Sawtooth "Sawtooth/Sawtooth (Parabolic)" "Sawtooth/Sawtooth (Parabolic reversed)" "Sawtooth/Sawtooth (Exponential)" Bounce Blip "Sine Blip" "" "" "" "" "" ""}}
+addUserKnob {26 blipText l "" -STARTLINE T "   Blip Length" +HIDDEN}
+addUserKnob {3 blipLength l "" t "The length of the on portion of the blip.\nOnly used in blips" -STARTLINE +HIDDEN}
+blipLength 5
+addUserKnob {7 minVal l "Min Value" t "Minimum value you want the wave to reach." R 0 10}
+addUserKnob {7 maxVal l "Max Value" t "Maximum value you want the wave to reach." -STARTLINE R 0 10}
+maxVal 1
+addUserKnob {7 waveLength l WaveLength t "Controls the frequency or cycle length of the wave. The number of frames before the pattern repeats." R 0 50}
+waveLength 10
+addUserKnob {7 offset l Offset t "Offsets the frame value to allow control of values at a certain frame" R 0 10}
+addUserKnob {26 unnamed l "" +STARTLINE T " "}
+addUserKnob {26 ""}
+addUserKnob {7 expResult l Result t "The calculated result of the wave at the given frame. Link to this value if you want to control the expression from this node."}
+expResult {{"((frame+offset) % (waveLength+blipLength)/(waveLength)) *(waveLength/blipLength) - (waveLength/blipLength) >= 0 ? maxVal : minVal"}}
+addUserKnob {26 unnamed_2 l "" +STARTLINE T " "}
+addUserKnob {1 expText l Expression t "The wave in expression form. For copying to another knobs expression value."}
+expText "((frame+0.0) % (5.0+5.0)/(5.0)) *(5.0/5.0) - (5.0/5.0) >= 0 ? 1.0 : 0.0"
+addUserKnob {26 unnamed_3 l "" +STARTLINE T " "}
+addUserKnob {1 formula l Formula t "The formula that generates the wave."}
+formula "((frame+offset) % (waveLength+blipLength)/(waveLength)) *(waveLength/blipLength) - (waveLength/blipLength) >= 0 ? maxVal : minVal"
+}
+end_group

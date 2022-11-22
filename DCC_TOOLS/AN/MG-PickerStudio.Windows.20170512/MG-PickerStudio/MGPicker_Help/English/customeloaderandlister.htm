@@ -1,0 +1,74 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Loader and Lister</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Distribute Picker" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "customeloaderandlister.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="syncvaluewithmaya.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="tipsforprogrammer.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">If you wanna:</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">- Grab any part of your scene rig, based on selected rig's namespace, MG-Picker studio is able to auto-load a picker file, setup namespace and ready to be used.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">- Without any selection, click the top-left &quot;...&quot; button to visit the menu, select any entries in the &quot;Select All Pickers&quot; menu to load all pickers for all scene rigs, or all characters, props, etc.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">- All the mapping rules between rigs and pickers are customizable. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Then this page is for you ! </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">How to do that ?</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">1.</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Create your own python module. One would be enough.</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">2.</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Create two classes, one inherit from MGP.loader.MGPickerRigListerBase and another inherit from MGP.loader.MGPickerLoaderBase.</span><br />
+<span class="f_Heading1" style="font-size: 10pt;">MGPickerRigListerBase</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> derived class is for listing a set of rig names (maya rig namespace) for a certain category of asset.</span><br />
+<span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">You can define method name mayaScene_* and it will be picked up. For example:</span><br />
+<span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> &nbsp; &nbsp; def mayaScene_characters(self):</span><br />
+<span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">This method list all the rig names for an asset category call &quot;characters&quot;, then in &quot;Load All Pickers&quot; menu in the more button, will have a &quot;Load All Characters&quot; entry.</span><br />
+<span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">The name of category is all decided by you, just use a prefix &quot;mayaScene_&quot; for method name.</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">3.</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">With lister, now we know for what rig names that we need to load the picker files for. It is time to load them !</span><br />
+<span class="f_Heading1" style="font-size: 10pt;">MGPickerLoaderBase</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> is for this. For this class, you just override pickerFileForAssetName method:</span><br />
+<span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> &nbsp; &nbsp; def pickerFileForAssetName(self, assetName)</span><br />
+<span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">For an asset name (which is a maya namespace string), you just return a full path to a picker file.</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">4.</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Once the python module is ready, you have two ways to make it picked up by MG-Picker Studio, choose the one that fits for you:</span><br />
+<span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">a. Put the python module in AutoLoaders folder in MGPicker_Program folder in MG-Picker Studio installation directory.</span><br />
+<span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">b. Put the module name or module full path in the environment variable called &quot;MGPICKER_LOADER_PY_MODULES&quot;.</span><br />
+<span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> &nbsp; &nbsp;To avoid hard code the environment name, use MGP.loadermanager.MGPICKER_LOADER_LISTER_MODULES_ENV_NAME instead. &nbsp;  </span><br />
+<span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> &nbsp; &nbsp;If it is just a module name instead of full path, make sure the directory that contains the module is in sys.path beforehand. </span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">5.</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Check out the &quot;loader_example.py&quot; example python module in MGPicker_Program/AutoLoaders/Examples folder.</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="warning.gif" width="16" height="16" alt="Warning" style="border:none" /><span style="font-size: 9pt; color: #ff0000;"> &nbsp;For multiple lister &amp; loader modules, use ; &nbsp;to separate in the MGPICKER_LOADER_PY_MODULES env variable. </span><br />
+<span style="font-size: 9pt; color: #ff0000;"> &nbsp; &nbsp; &nbsp; For multiple modules, asset names will be merged for same category, yet it will skip leftover loader if one loader succeeds.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="syncvaluewithmaya.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="tipsforprogrammer.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

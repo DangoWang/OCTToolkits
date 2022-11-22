@@ -1,0 +1,90 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>生成Pose及动作</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Add,Pose,Keyframe" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "poseanim_createposeanim.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">生成Pose及动作</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="poseanim_createcharacter.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="mgsnapshotwidget.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_ImageCaption" style="font-size: 10pt;">建立pose/动作项</span><span style="font-weight: bold; color: #191817;">：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 21px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#191817;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="color: #191817;">点击界面右上角</span><img src="additemicon.gif" width="21" height="21" alt="addItemIcon" style="border:none" /><span style="color: #191817;">按钮</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 21px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#191817;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="color: #191817;">点击菜单栏 项菜单/新建项..</span></p><p style="text-indent: 21px; line-height: 1.50;">&nbsp;</p>
+<p style="text-indent: 1px; line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #191817;">Pose创建流程： &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 22px;"><span style="font-size:10pt; font-family: 'Arial';color:#191817;display:inline-block;width:15px;margin-left:-15px">1.</span><span style="color: #191817;">选择要创建Pose的物件</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 22px;"><span style="font-size:10pt; font-family: 'Arial';color:#191817;display:inline-block;width:15px;margin-left:-15px">2.</span><span style="color: #191817;">在使用上面访问方式后，会在主界面的右边多出一个创建区域。</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 22px;"><span style="font-size:10pt; font-family: 'Arial';color:#191817;display:inline-block;width:15px;margin-left:-15px">3.</span><span style="color: #191817;">如果你在之前有选择一些物件，物件所在Rig会自动显示居中，其它rig会自动隔离不显示。</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 22px;"><span style="font-size:10pt; font-family: 'Arial';color:#191817;display:inline-block;width:15px;margin-left:-15px">4.</span><span style="color: #191817;">创建</span>面板<span style="color: #191817;">的上面部分，是创建预览图的视图调整区域。</span><a href="mgsnapshotwidget.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a><br />
+<span style="color: #191817;">创建</span>面板<span style="color: #191817;">的下面部分，则是创建的选项：</span><br />
+<img src="poseanim_newposeoption_ch.gif" width="317" height="54" alt="poseAnim_newPoseOption_ch" style="border:none" /><br />
+<span style="color: #191817;">&nbsp;</span><br />
+<span style="font-weight: bold;">Pose名称</span>：输入一个pose项名称，这个名称只能由英文字母，数字，下划线组成，必须是一个合法的文件名。<br />
+<span style="font-weight: bold;">已完成选项</span>：如果是保持界面，则点创建后，该创建面板会继续保持显示。<br />
+ &nbsp; &nbsp; &nbsp; &nbsp;这样可以持续地创建pose, 如果在持续创建pose过程中，你没有更动pose名称，则会在名称后不停地加数字版本，总之不会重复。<br />
+  &nbsp; &nbsp; &nbsp; &nbsp;如果是隐藏界面，则创建完后会把创建面板隐藏。<br />
+ &nbsp; &nbsp; &nbsp; &nbsp;如果是预览项，则创建完后会隐藏创建面板，取代之预览面板，预览刚创建的这个pose项。<a href="poseanim_previewpanel.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a><br />
+<span style="font-weight: bold;">到工具架</span>：将当前pose应用信息安装到当前Maya工具架，这样你以后可以直接点工具架上的按钮来应用Pose.<br />
+<span style="font-weight: bold;">关闭</span>：关闭创建面板，同时清除创建预览图用的四个摄像机。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 22px;"><span style="font-size:10pt; font-family: 'Arial';color:#191817;display:inline-block;width:15px;margin-left:-15px">5.</span><span style="font-weight: bold;">点 &quot;创建!!&quot; 按钮</span>: 创建pose，并在内容区域的当前类别tab里显示。</p><p style="text-indent: -24px; line-height: 2.0; margin: 0px 0px 0px 24px;">&nbsp;<br />
+<img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;">提示：对于你已经在同一场景里每一帧都key好一个pose的情况下，在创建时这样可以提高效率：</span></p>
+<p style="text-indent: -24px; line-height: 2.0; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">&quot;已完成&quot; 的选项选&quot;保持界面&quot;，动作名称取个通用的，比如char_facialExp_1，</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table style="border:none;border-spacing:0px;padding:0px;line-height: 2.0;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:24px"><span style="font-size: 9pt;">接下来隔一帧点一次创建，就会接连生成char_facialExp_1,char_facialExp_2,char_facialExp_3,.. 这样不用每次输入一个名称。</span></td><td style="border:none;padding:0"></td></tr></table></div><p style="text-indent: -24px; line-height: 2.0; margin: 0px 0px 0px 48px;"><img src="warning.gif" width="16" height="16" alt="Warning" style="border:none" /><span class="f_ImageCaption"> &nbsp; </span><span style="font-size: 9pt; color: #ff0000;">注意：生成的预览图长宽是设定死的，一定是512X512. </span></p>
+<p style="text-indent: 1px; line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #191817;">动作创建流程： &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 22px;"><span style="font-size:10pt; font-family: 'Arial';color:#191817;display:inline-block;width:15px;margin-left:-15px">1.</span><span style="color: #191817;">选择要创建动作的物件</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 22px;"><span style="font-size:10pt; font-family: 'Arial';color:#191817;display:inline-block;width:15px;margin-left:-15px">2.</span><span style="color: #191817;">在使用上面访问方式后，会在主界面的右边多出一个创建</span>面板<span style="color: #191817;">。</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 22px;"><span style="font-size:10pt; font-family: 'Arial';color:#191817;display:inline-block;width:15px;margin-left:-15px">3.</span><span style="color: #191817;">如果你在之前有选择一些物件，物件所在Rig会自动显示居中，其它rig会自动隔离不显示。</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 22px;"><span style="font-size:10pt; font-family: 'Arial';color:#191817;display:inline-block;width:15px;margin-left:-15px">4.</span><span style="color: #191817;">创建</span>面板<span style="color: #191817;">的上面部分，是创建预览图及预览视频的视图调整区域。</span><a href="mgsnapshotwidget.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a><br />
+<span style="color: #191817;">创建</span>面板<span style="color: #191817;">的下面部分，则是创建的选项：</span><br />
+<img src="poseanim_newanimoption_ch.gif" width="405" height="138" alt="poseAnim_newAnimOption_ch" style="border:none" /><br />
+<span style="color: #191817;">&nbsp;</span></p><p style="text-indent: -2px; line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold;">动作名称</span>：输入一个动作项名称，这个名称只能由英文字母，数字，下划线组成，必须是一个合法的文件名。<br />
+<span style="font-weight: bold;">视频</span>：指定playblast出来的视频尺寸，视频尺寸可以定制，但预览图长宽一定是512X512.<br />
+<span style="font-weight: bold;">标签1~4</span>: 指定从视图1~4的标签，这些标签名称，以后将作为预览图及视频的文件名的一部分。</p>
+<p style="text-indent: -2px; line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold;">层级</span>：决定哪些范围内的控制器将被导出动画。</p>
+<p style="text-indent: -2px; line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="font-weight: bold;">所选物件</span>：只有当前场景所选物件会被导出动画到库。</p>
+<p style="text-indent: -2px; line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="font-weight: bold;">整个Rig</span>: 所选物件的整个Rig下的所有控制器动画将被导出到库。</p>
+<p style="text-indent: -2px; line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold;">时间</span>：决定导出动画的时间范围。</p>
+<p style="text-indent: -2px; line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="font-weight: bold;">全部</span>：不限制时间范围。 如果是一个动作循环，请选择下面的选项，有范围对于将来导循环动画更方便。 </p>
+<p style="text-indent: -2px; line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="font-weight: bold;">所选范围</span>： 当前时间滑条所高亮的范围。如果没有则采用时间滑条的显示范围。</p>
+<p style="text-indent: -2px; line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="font-weight: bold;">开始/结束</span>：在右边的两个小输入框里，指定开始和结束的帧。</p>
+<p style="text-indent: -2px; line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold;">创建!!:</span> 创建动作，并在内容区域的当前类别tab里显示。 &nbsp; &nbsp; </p>
+<p style="text-indent: -2px; line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold;">已完成选项</span>：如果是保持界面，则点创建后，该创建面板会继续保持显示。</p>
+<p style="text-indent: -2px; line-height: 1.50; margin: 0px 0px 0px 96px;">这样可以持续地创建动作, 如果在持续创建动作过程中，你没有更动动作名称，则会在名称后不停地加数字版本，总之不会重复。</p>
+<p style="text-indent: -2px; line-height: 1.50; margin: 0px 0px 0px 96px;">如果是隐藏界面，则创建完后会把创建面板隐藏。</p>
+<p style="text-indent: -2px; line-height: 1.50; margin: 0px 0px 0px 96px;">如果是预览项，则创建完后会隐藏创建面板，取代之预览面板，预览刚创建的这个动作项。</p>
+<p style="text-indent: -2px; line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold;">关闭</span>：关闭创建面板，同时清除创建预览图及视频用的四个摄像机。 </p>
+<p style="text-indent: -24px; line-height: 2.0; margin: 0px 0px 0px 48px;"><img src="warning.gif" width="16" height="16" alt="Warning" style="border:none" /><span class="f_ImageCaption"> &nbsp; </span><span style="font-size: 9pt; color: #ff0000;">注意：创建pose/动作时，会临时在场景里生成一个包含4个摄像机的隐藏组。正常关闭创建面板后会自动被清除。</span><br />
+<span style="font-size: 9pt; color: #ff0000;">但如果你直接关闭了主界面，则不会被清除。这些会有影响后续渲染的风险。建议手动清除：MG_Snapshot_SnapshotCams_Grp这个组。</span></p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="poseanim_createcharacter.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="mgsnapshotwidget.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

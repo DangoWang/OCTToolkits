@@ -1,0 +1,5 @@
+w:421
+x:10, y:140
+h:141 standard camera
+h:251 (standard camera) and (import and Export)
+h:281 (standard camera) and (look at parameter)

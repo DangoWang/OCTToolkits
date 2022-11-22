@@ -1,0 +1,146 @@
+Gizmo {
+ addUserKnob {20 ctrl l Controls}
+ addUserKnob {7 near l "Near Clip" R 0 10000}
+ near 1000
+ addUserKnob {7 far l "Far Clip" R 0 10000}
+ far 2000
+ addUserKnob {6 alpha l "Add Alpha" +STARTLINE}
+ addUserKnob {7 feather l Feather R 0 100}
+ feather 2
+ addUserKnob {26 ""}
+ addUserKnob {3 aa l Anti-Aliasing}
+ aa 1
+ addUserKnob {7 soften l Soften}
+ soften 0.5
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos 90
+  ypos -277
+ }
+ Dot {
+  name Dot1
+  xpos 124
+  ypos -166
+ }
+set N2aef8a60 [stack 0]
+ Expression {
+  expr3 "smoothstep( parent.near-parent.feather, parent.near+parent.feather, z )"
+  name Expression2
+  xpos -20
+  ypos -99
+ }
+set N2aef8dd0 [stack 0]
+push $N2aef8a60
+ Shuffle {
+  red black
+  green black
+  blue black
+  name Shuffle1
+  xpos 90
+  ypos -105
+ }
+ Invert {
+  channels alpha
+  name Invert1
+  xpos 90
+  ypos -81
+ }
+set N2aef94b0 [stack 0]
+ Merge2 {
+  inputs 2
+  name Merge2
+  xpos -20
+  ypos -75
+ }
+set N2aef9820 [stack 0]
+push $N2aef9820
+push $N2aef8dd0
+ Dot {
+  name Dot3
+  xpos -62
+  ypos -96
+ }
+ Switch {
+  inputs 2
+  which {{parent.alpha}}
+  name Switch1
+  xpos -20
+  ypos 67
+ }
+push $N2aef8a60
+ Expression {
+  expr3 "smoothstep( parent.far+parent.feather, parent.far-parent.feather, z )"
+  name Expression1
+  xpos 200
+  ypos -99
+ }
+set N2aef9f00 [stack 0]
+push $N2aef94b0
+ Merge2 {
+  inputs 2
+  name Merge1
+  xpos 200
+  ypos -75
+ }
+push $N2aef9f00
+ Dot {
+  name Dot2
+  xpos 310
+  ypos -96
+ }
+ Switch {
+  inputs 2
+  which {{parent.alpha}}
+  name Switch2
+  xpos 200
+  ypos 67
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  name Merge3
+  xpos 95
+  ypos 67
+ }
+ Switch {
+  inputs 2
+  which {{"parent.far < parent.near"}}
+  name Switch3
+  xpos 95
+  ypos 141
+ }
+ Remove {
+  operation keep
+  channels alpha
+  name Remove1
+  xpos 95
+  ypos 207
+ }
+ Matrix {
+  channels alpha
+  matrix {
+      {{parent.aa-1} {matrix.0>0?matrix.0*2:1} {matrix.0}}
+      {{matrix.1} {matrix.1*2} {matrix.1}}
+      {{matrix.0} {matrix.1} {matrix.0}}
+    }
+  normalize true
+  name fakeAA_matrix
+  xpos 95
+  ypos 243
+  disable {{parent.aa==0 x1 1}}
+ }
+ Soften {
+  amount {{parent.soften}}
+  size 2
+  name Soften1
+  xpos 95
+  ypos 279
+ }
+ Output {
+  name Output1
+  xpos 95
+  ypos 392
+ }
+end_group

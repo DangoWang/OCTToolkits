@@ -1,0 +1,9 @@
+﻿> 如果您想安装MG-Picker工作室，请执行下面步骤： 
+  1: 不要改变当前目录里面的文件结构，直接把MGPicker_installer.mel拖进Maya的3D视图窗口。
+  2: 将弹出MG-Picker工作室安装向导, 按窗口的说明进行操作即可。如果没有弹出，可以在maya的脚本编辑器里手动source"MGPicker_installer.mel"。
+
+
+如果有任何bug或功能需求，请到 http://mgland.com 或者 http://twincodes.com 来进行反馈，或者写邮件到mgpickerstudio@gmail.com.
+
+谢谢您的使用！
+Miguel (米高|高文峰)

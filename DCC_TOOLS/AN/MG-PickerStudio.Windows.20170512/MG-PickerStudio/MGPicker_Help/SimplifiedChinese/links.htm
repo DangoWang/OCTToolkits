@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Picker连接</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="attribute link,links,parent link" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "links.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="itemshapes.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="pickermenu.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_ImageCaption" style="font-size: 10pt;">目前有2种picker连接</span><span class="f_Heading1" style="font-size: 10pt;">:</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt;">- </span><span class="f_Heading1" style="font-size: 9pt;">父子连接:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">父子连接只能用于选择按钮，或滑条的滑杠（实际上也是选择按钮）。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">选择连接工具 </span><img src="linktool.jpg" width="29" height="29" alt="linkTool" style="border:none" /><span class="f_ImageCaption" style="font-size: 9pt;"> </span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">， 在选择按钮上点击，然后拖动将它连到另一个选择按钮。一个父子连接就被创建了。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">如果要同时将多个选择按钮连到一个选择按钮上，只需要先选择这些源选择按钮，然后点击其中一个并拖动，到目标选择按钮上松开，即可以多连一。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">父子连接持意义在于，在使用picker时，动画师可以双击父选择按钮，以便选择到父按钮及其所有子按钮的成员节点。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">以下图为例：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="parentlink.1.jpg" width="184" height="107" alt="parentLink.1" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">双击图中的Hand Control按钮，则选择到所有连接按钮的成员节点：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="parentlink.2.jpg" width="184" height="107" alt="parentLink.2" style="border:none" /><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;"> </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">自MG-Picker工作室v1.7版开始，一个选择按钮可以有多个父选择按钮。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt;">- 属性连接:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">属性连接被属性按钮用来控制其它picker对象的可见性。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">属性连接的源对象可以是任何类型的picker对象，像选择按钮，命令按钮，滑条，属性按钮，文 本及面板等，不过目标则只能是属性按钮。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">它的效果是类似这样的的：假如你有一个属性按钮，它控制着其它所有picker对象：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="attrlink.1.jpg" width="319" height="202" alt="attrLink.1" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">点击属性按钮的数值区，因为它是布尔类型，所以直接会从on切为off，结果其它所有picker对象就不可见了：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="attrlink.2.jpg" width="319" height="202" alt="attrLink.2" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> </span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">在动画师模式下，属性连接完全不可见。而父子连接则以一个可配置的透明度可见，毕竟动画师需要父子连接判断双击的效果，而属性连接则没有太多显示的意义。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> </span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">在动画师模式下，你可以点击属性按钮的任意一部分来切换它的属性。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> 不单单上面演示的布尔属性可以用来切换其它对象可见性，对于枚举类型，maya属性类型的属性按钮，也可以用属性连接来控制其它对象可见性。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> 自MG-Picker工作室1.7版本及以后，任意picker对象都可以被多个属性按钮同时控制可见性，并且可以设置可见性的操作方式为&quot;and&quot;或&quot;or&quot;。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">&quot;and&quot;代表所有控制它的属性按钮数值符合目标值时，该对象才可见。&quot;or&quot;代表只要有一个控制它的属性按钮数值符合目标值时，该对象就可见。</span></p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="itemshapes.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="pickermenu.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

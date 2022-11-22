@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>实时动画备份</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Animation,animRescue,Constraint,Keyframe" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "animrescue_backup.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">实时动画备份</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="minitoolbox.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="animrescue_autorecovery.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #191817;">实时动画备份功能：</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:13px; padding:0px;"><p style="text-align: center;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:1126px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">动画师最怕的事情之一，应该就是辛苦了几个小时的成果，因为maya崩溃，windows蓝屏，断电等等意外因素而付诸东流，重做同样的表演 / 动作是一个很让人沮丧的事情。</span></p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">所以MGTools推出了两个避免意外后动画要重做的方案：实时动画备份跟定时场景备份。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">这里先来说明实时备份动画功能，定时场景备份功能将在后面章节里说明。</span><a href="mgautosave.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">实时备份的原理是，在maya里动画师做了改变动画帧的操作，则在后台执行导出式的信息备份。没有改变到动画，则不会做任何备份。这个备份对象，只包含被编辑的帧信息，如果用户打开了约束备份，则在动画师生成约束或改变约束时亦会备份约束信息。因为要导出的信息很小且处于后台，在前台的动画师丝毫不会感到任何延迟或影响。这些信息在意外状态后，可以通过恢复向导来自动恢复回来，在95%的情况下，将动画救回到意外前几秒。</span></p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">要注意的是，它只备份帧跟约束，所以你做的一些其它节点创建，连接等操作，是不会被记录的，包括动画层，显示层等。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_ImageCaption" style="font-size: 10pt;">如何开关MG实时动画备份</span><span style="font-weight: bold;">：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">1.</span><span style="color: #3c3c39;">右键点击迷你工具箱</span><img src="minitoolboxicon.gif" width="32" height="32" alt="minitoolboxIcon" style="border:none" /><span class="f_ImageCaption"> </span><span style="color: #3c3c39;">/ 动画备份向导..，当然也可以打迷你工具箱界面点第一个按钮，或者直接点该界面上的开关按钮即可。</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">2.</span><span style="color: #3c3c39;">弹出第一步对话框。建议您点击&quot;实时备份需知..&quot;按钮来了解更多实时备份能做与不能做的事。点击&quot;下一步-&gt;&quot;按钮。</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">3.</span><span style="color: #3c3c39;">点击下图左方的图标，图标将由灰色跟彩色之前转换，彩色代表打开实时动画备份，灰色代表关闭。</span><br />
+<img src="animrescue_realtimebackupoption_ch.gif" width="436" height="154" alt="animRescue_realTimeBackupOption_ch" style="border:none" /><br />
+<span style="color: #3c3c39;">&nbsp;</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">4.</span><span style="color: #3c3c39;">点击替换按钮来拾取一个目录来存放这些实时备份的帧及约束信息文件。如果D盘空间不会吃紧，则建议保持默认。如果你要替换新的目录，</span><br />
+<img src="warning.gif" width="16" height="16" alt="Warning" style="border:none" /> <span style="font-size: 9pt;">注意：如果你要拾取自己的目录，请注意，不要拾取带中文的目录，抱歉目前备份还不支持中文目录。</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">5.</span><span style="color: #3c3c39;">勾上备份约束，如果你想同时备份约束信息。将弹出实时备份需知窗口，让你了解更多信息。</span></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#3c3c39;display:inline-block;width:15px;margin-left:-15px">6.</span><span style="color: #3c3c39;">点击窗口右下方的保存设置！按钮来保证即使此次maya非正常关闭，以后maya每次启动也能自动打开/关闭实时备份。</span><br />
+<img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示：当前是否处于实时备份打开/关闭的状况，可以方便地从MGTools主界面的迷你工具箱图标或MGTools shelf工具架的迷你工具箱图标判断。</span><br />
+<span style="font-size: 9pt;">该图标右下方有两个小方块，如果上面小方块是绿色的，代表当前打开了实时动画备份，如果下面小方块是红色的，则代表当前打开了定时场景保存。</span><br />
+<span style="font-size: 9pt;">如果有方块是灰色的，则代表其相对应的功能是关闭的。</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="minitoolbox.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="animrescue_autorecovery.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

@@ -1,0 +1,2 @@
+//Get namespace form the first selected reference object and set as current picker's namespace.
+MGP_SetPickerNamespace_Via_Selection; 

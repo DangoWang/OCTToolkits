@@ -1,0 +1,117 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Selection Manager</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="BackUp&amp;Restore,Copy,Manager,Selection,SelectionSet" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "selection_manager_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span style="font-weight: bold; color: #191817;">Selection Manager</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="selsetshelfconverter_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="typeselector_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold; color: #191817;">Selection manager:</span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:51px; padding:0px;"><p style="text-align: center; line-height: 1.50;"><img src="selmanagericon.gif" width="32" height="32" alt="selManagerIcon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:13px; padding:0px;"><p style="line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">Temporarily manager your selection.</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">U can do the operations such as sum / subtract / intersect selection.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> Why using it:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">Not all selections need to be saved into selection set. Sometime an animator does selecting , he just want a place to keep this selection info temporarily so that he could add other object to selection.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">Such kind of situation is really easy to be met for animator. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">Sometime u wanna copy animation from one character to another. Use frame select and copy animation, frame select and paste animation sometime wont get the desired result. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">So let it helps U !</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> Selection manager UI:</span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1000px; height:325px; padding:0px;"><p style="line-height: 1.50;"><img src="selmanagerui.gif" width="543" height="394" alt="selManagerUI" style="border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1000px; padding:0px;"><p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle" style="color: #404040;"> The double lists area: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">U can store the selection info into list then use them to do some operation such as sum / subtract / Intersecting.</span></p>
+<p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">Buttons area:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Get selection: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Read selection info into left / right list.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Reselect list: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Reselect members in the left / right list.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">+selection:  </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Add current selection to the left / right list.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">-selection: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Subtract current selection from the left / right list.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Retarget left / right: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Retarget members in the left / right list and select them then restore them in the list.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Copy / Paste Animation</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> : Copy animation from list A and paste them one by one to the list B and vise versa. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">When copy / paste animation, time range selection are supported.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Just the same as u copy / paste animation through maya's timeslider.  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Paste Animation will stay gray until u press the Copy Animation button of the opposite list.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">BackUP sel: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Back up the selection information into scenes. <a id="backuprestoresel"></a></span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Restore sel: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Reuse selection info that backuped before.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Export sel:</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> Save the members in the left / right list to a new selection set. </span><a href="mg_selectionset_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Import sel: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Will load selectionSet tool.</span><a href="mg_selectionset_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Refresh all : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Refresh selection Manager.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Close window :  </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Quit selection Manager.</span></p>
+<p style="line-height: 1.50;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> Tips: Right mouse button clicking on the list , there are some features, such sum / subtract / intersecting operation . </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">U can select items in the list and press del button in your keyboard to quick delete the items. </p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> Back up / restore selection information:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">Select objects in your scenes then do one of the action to back up selection information:</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">Load selection info into selection manager list then click BackUP sel.. button.</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">Select selection / BackUP sel.. in selection manager.</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #000000;">In selection set UI , right mouse button click on the list and select &quot;BackUP selected set with scenes&quot;;</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">After that ,a dialog will pop up:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="backupsel.gif" width="201" height="64" alt="backUPSel" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">Click BackUP! button then a structure below will be created:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="backupselresult1_en.gif" width="309" height="41" alt="backUPSelResult1_en" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">So don't worry about this back up action will mess up your scenes. The selecting codes will be actually save in the note of these locators.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">So reusing these back ups is actually read this codes in the notes and execute them.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">To reuse them:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">Click Restore.. button in the selection manager:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">Restore window will pop up:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="restoresel.gif" width="218" height="235" alt="restoreSel" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">Double clicking the list item in the list is to reusing the respective back up. Objects in the backUP will be selected in your scenes.U can do this by pressing the &quot;Restore to scenes!&quot; button.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">Use Restore to &quot;L/Rlist!&quot; button to show the content of the backUP in the L/R list of selection Manager beside selecting the objects in your scenes in the meantime.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">Notice that back ups are save as your current scenes ,once u open new scenes ,these selection info are not reusable any more. If u want it scenes-independently, please use selection set instead. </span><a href="mg_selectionset_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="selsetshelfconverter_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="typeselector_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

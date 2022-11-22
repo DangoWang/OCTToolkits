@@ -1,0 +1,180 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>MG-HUD信息显示</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Add,FrameCounter,HUD,Manager,Option,Reset,Viewport" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "mg-hud_display.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span style="font-weight: bold; color: #191817;">MG-HUD信息显示</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="reference_tool.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="annotation_display.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #191817;">MG-HUD信息显示按钮功能：</span></p>
+<div style="text-align: left; text-indent: -24px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1075px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 26px;"><img src="hudbuttonui_ch.gif" width="120" height="66" alt="HUDButtonUI_ch" style="border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1075px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">MG屏幕信息 ：</span>将按默认的HUD设置，来在屏幕显示出相关信息。现在默认的是：屏幕右上角显示用户名（动画师名字），右下角显示当前帧/总帧数，下面正中显示场景名，偏左下方显示当前摄像机名。这些配置都可以自定义。当你在配置时把自定义的变成默认，则点击该按钮将按你自定义的显示。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示：如该按钮上点右键：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> &nbsp; &nbsp; &nbsp; &nbsp;清除MG屏幕信息显示:</span><span style="font-size: 9pt;"> &nbsp;清除所有MG的HUD显示。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> &nbsp; &nbsp; &nbsp; &nbsp;配置文件目录..:</span><span style="font-size: 9pt;"> 打开HUD显示配置文件所在的目录。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  <img src="optionboxicon.gif" width="21" height="21" alt="optionBoxIcon" style="border:none" />  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">MG屏幕信息 配置按钮：</span>点击将打开HUD信息配置窗口。</p>
+</td>
+</tr>
+</table>
+</div>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #191817;">HUD信息配置窗口：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="hudoptionui_ch.gif" width="765" height="474" alt="HUDOptionUI_ch" style="border:none" /><br />
+&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">A区 ：</span>Maya将屏幕分成个9块区域，一个区域只能显示一个HUD信息。所以这一区按屏幕九个区分为九个选项，</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">因为最左下角的区域被视图轴向的信息占去，如果强制占用的话，当用户点Maya配置的话会导致Maya窗口失常的Bug，</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">再重启动Maya就不能正常建立UI界面。所以这一区这里无选项。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">每个选项下拉菜单中都包含下面选项：无显示，帧数计数，动画师，场景名称，摄像机这五个选项。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">选中相应选项，在其下方将出现相应的设置选项。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">B区 ：</span>两个颜色滑条分别控制标签及其值的颜色。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">保存配置为..：</span>将当前设置存成配置文件，存后在LoadConfig-&gt;键上点左键就能出现刚存的config。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">读入配置-&gt;：</span>直接点击就能出现之前存的config配置文件.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">存为默认 ：</span>将当前设置存为默认设置，直接点击创建HUD信息则直接按些设置创建。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">归为默认 ：</span>将当前设置还原为默认设置。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">全部不显示 ：</span>将当前设置全部清掉变为不显示。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">清除 MG屏幕信息 ：</span>将当前场景窗口里全部MG_HUD信息全部清掉。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">C区 ：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">帮助..：</span>显示MG_HUD配置帮助文档。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">创建/编辑：</span>直接点击按当前设置在屏幕场景窗口里生成相应信息显示。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">关闭：</span>关闭HUD信息配置窗口。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">A区具体选项 ：</span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 48px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:166px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="hud_dateoption_ch.gif" width="153" height="98" alt="HUD_dateOption_ch" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:689px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">日期显示选项: </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">标签: </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">标签名称。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">下面的输入框: </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">显示将要显示的日期值。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 48px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:166px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="hud_frameoption_ch.gif" width="153" height="166" alt="HUD_frameOption_ch" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:679px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">当前帧数: </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">只显示当前帧数</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">当前/总帧数：</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">显示&quot;当前帧数/总帧数&quot;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">当前/总帧数/帧率：</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">显示&quot;当前帧数/总帧数/帧率&quot; </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">标签: </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">标签名称。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">摄像机序列帧: </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">设置要显示的是否是摄像序列帧里的帧数。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">添加长度信息: </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">设置当前是否显示长度信息，以长度是多少帧。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">长度信息的模式: </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">设置长度信息显示的是范围结束帧，还是播放结束帧。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 48px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:166px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="hud_animatoroption_ch.gif" width="154" height="130" alt="HUD_animatorOption_ch" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:688px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">标签 :</span><span class="f_MI_TitleStyle"> </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">标签名称。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">默认 / 自定义 :</span><span class="f_MI_TitleStyle"> </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">用Windows 登录用户名称还是用自定义名称。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">名为：</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">动画师名字。默认会以windows登录名作为动画师名字，在这里你可以填入自定义的。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 48px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:166px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="hudscenenameoption_ch.gif" width="152" height="119" alt="HUDsceneNameOption_ch" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:675px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">场景名:</span><span class="f_MI_TitleStyle"> </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">当前场景名称，自动获取。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">全名 / 截段 &nbsp;:</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">当前场景名称是用自动获取的还是要用起始与终止数值来截取。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">扩展名 :</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">当前场景名称用自动获取的情况下，要不要保留mb / ma 扩展名。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">从..到...：</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">有时不想显示场景名称全部，而是光显示第几个字母到第几个字母之间的文字。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">比较常用到的是想把版本号去掉不显示的情况。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 48px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:166px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="hudcameraoption_ch.gif" width="157" height="152" alt="HUDCameraOption_ch" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:687px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">摄像机名 :</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;"> 只显示当前视图摄像机名。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">摄像机名/焦聚：</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">显示“摄像机名/摄相机焦距”。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">摄像机名/长宽比 :</span><span class="f_MI_TitleStyle"> </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">显示“摄像机名/摄相机长宽比”。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">标签:</span><span class="f_MI_TitleStyle"> </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">标签名称。</span><br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">摄像机序列:</span><span class="f_MI_TitleStyle"> </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">决定是否当前要显示的是摄像机序列里的不同的摄像机名称。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 48px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:166px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="hudtimecodeoption_ch.gif" width="154" height="137" alt="HUDtimeCodeOption_ch" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:687px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">开始帧 :</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;"> 决定从第几帧开始计为00:00:00:01</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">起算时间：</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">用来决定起算的时间，如上一卡时间最后是01:21:10:05，则填入该四栏作为起算时间。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 这四栏对应着小时：分钟：秒钟：帧零头</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">摄像机序列帧时间:</span><span class="f_MI_TitleStyle"> </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">决定是否当前要显示的是摄像机序列的时间码。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 48px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:166px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="hudanystringoption_ch.gif" width="156" height="126" alt="HUDanyStringOption_ch" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:687px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">任意字符窜 :</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;"> 用来在屏幕特定角落显示不会变动的任意字符窜。</span><br />
+<span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;你可以打入一些段落文字，备注等。</span></p>
+</td>
+</tr>
+</table>
+</div>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="reference_tool.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="annotation_display.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

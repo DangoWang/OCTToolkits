@@ -1,0 +1,1 @@
+MGP_GoToPanel 0;  //To-Do: replace the int with the target panel index, 0 is usually the first panel.

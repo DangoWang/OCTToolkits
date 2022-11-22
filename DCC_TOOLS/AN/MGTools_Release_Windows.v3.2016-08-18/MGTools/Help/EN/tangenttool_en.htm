@@ -1,0 +1,66 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Tangent Tool</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Animation" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "tangenttool_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">Tangent Tool</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="bdtool_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="cam2dviewer_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> TangentTool</span><span style="font-weight: bold; color: #191817;">: </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">Change tangent type of animCurves. Kind like maya's tangent type button in GraphEditor. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">The difference is that you can do this via timeslider. No need to open GraphEditor. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> How to Use</span><span style="font-weight: bold; color: #191817;">:</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">1.</span>Open Keyframe tools, click on Tangent tool title if it's folded. <br />
+<img src="tangenttool_en.gif" width="168" height="128" alt="tangentTool_en" style="border:none" /></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">2.</span>If you just want to correct overshoot, that is ,to auto-smooth selected animcurves, just press the &quot;Correct Overshoot&quot; button and done.</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">3.</span>If you want to change key tangent types, preselect a tangent type in the second row.</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">4.</span>Press any one button of the last two rows to actually change the tangent types.</p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> Some UI elements: &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> &nbsp; &nbsp; </span><span class="f_MI_TitleStyle" style="color: #404040;">Correct Overshoot Button: </span>Auto smooth animcurves. Will set tangent type to flat if it is a peek value compare to prev &amp; next keys, will make it smooth type and tweak the tangent angle if it is not a peek value.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> &nbsp; &nbsp; </span><span class="f_MI_TitleStyle" style="color: #404040;">Tangent type buttons:</span>Kind like the tangent type buttons of GraphEditor, but these button is just pre-selection, does not actually change the type. Use one of buttons below to actually do that:</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_MI_TitleStyle" style="color: #404040;"> &nbsp;LEFT Button:</span> Change the tangent type of the previous keyframe. Will change current key tangent type if there is a key at current frame.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_MI_TitleStyle" style="color: #404040;"> &nbsp;BOTH Button:</span> Change the tangent type of both the previous &amp; next keyframes.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_MI_TitleStyle" style="color: #404040;"> &nbsp;Right Button:</span> Change the tangent type of the next keyframe.<br />
+<img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_MI_TitleStyle" style="color: #404040;"> &nbsp;ALL Button:</span> Change tangent type of all animation of current selected objects .<br />
+<img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_MI_TitleStyle" style="color: #404040;"> &nbsp;Selected Range Button:</span> Only change tangent type of the animation of current selected objects in the selected time range.</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="bdtool_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="cam2dviewer_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

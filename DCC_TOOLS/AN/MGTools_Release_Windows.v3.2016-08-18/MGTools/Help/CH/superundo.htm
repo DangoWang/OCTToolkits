@@ -1,0 +1,83 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>高效率Undo</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Option,Undo" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "superundo.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">高效率Undo</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="insert_hierarchy.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> 高效率Undo/Redo</span><span style="font-weight: bold; color: #191817;">功能：</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:90px; padding:0px;"><p style="text-align: center;"><img src="superundo_icon.gif" width="32" height="32" alt="superUndo_icon" style="border:none" /><img src="suerredoicon.gif" width="32" height="32" alt="suerRedoIcon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:1px; padding:0px;"><br />
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">直接点击将撤消/重做一步Maya操作。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">不同的是，如果它遇到空的无意义的Undo/Redo，它将一直跳过，直到遇到有意义的Undo/Redo项。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">通过在迷你工具箱里点击选项按钮，可以执行更高级的快速Undo/Redo。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">启动方法：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#3c3c39;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="color: #3c3c39;">在工具架上点</span><img src="superundo_icon.gif" width="32" height="32" alt="superUndo_icon" style="border:none" /><img src="suerredoicon.gif" width="32" height="32" alt="suerRedoIcon" style="border:none" /><span style="color: #3c3c39;">图标（如果你有装全MGTools工具shelf）。直接点这个只能撤消/重做一次有效的Maya操作。</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#3c3c39;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="color: #3c3c39;">在MGTools工具条上右击</span><img src="minitoolboxicon.gif" width="32" height="32" alt="minitoolboxIcon" style="border:none" /><span style="color: #3c3c39;">，在右键菜单选择&quot;高效率Undo..&quot;/&quot;高效率Redo..&quot;</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#3c3c39;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="color: #3c3c39;">直接在迷你工具箱界面中点&quot;高效率Undo..&quot;/&quot;高效率Redo..&quot;按钮。</span></p><p>&nbsp;</p>
+<p style="line-height: 2.0;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_ImageCaption" style="font-size: 10pt;">使用时机</span><span style="font-weight: bold;">：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">1.</span>想要快速地Undo<span style="color: #3c3c39;">/Redo</span>，需要Undo<span style="color: #3c3c39;">/Redo</span>的次数相当多。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">2.</span>有时在场景播放动画后，出现一大堆无意义的空Undo项，使每个操作的Undo<span style="color: #3c3c39;">/Redo</span>变地很繁琐。（有时Key动画就是会碰到啊T_T）</p><p style="line-height: 2.0;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_ImageCaption" style="font-size: 10pt;">使用</span><span style="font-weight: bold;">方法：</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;">直接点击相应按钮/菜单，即可撤消<span style="color: #3c3c39;">/重做</span>一步Maya操作，如果碰到无意义的空Undo<span style="color: #3c3c39;">/Redo</span>项，则直接Undo<span style="color: #3c3c39;">/Redo</span>到下一个有意义的Undo<span style="color: #3c3c39;">/Redo</span>项。</p>
+<p style="line-height: 2.0;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_ImageCaption" style="font-size: 10pt;">点选项按钮弹出高效率Undo/Redo的高级应用界面：</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="undo_option_ch.gif" width="286" height="284" alt="undo_option_ch" style="border:none" /><br />
+&nbsp;<br />
+在这个界面可以执行更多选项的Undo/Redo，解释如下：</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">操作:</span><span class="f_ImageCaption" style="color: #808080;"> </span>选择你是要Undo/Redo。界面/功能将随之更新。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示：</span><span class="f_ImageCaption" style="font-weight: normal;">下面的说明将以Undo操作为例，如果是Redo操作将是基本一样的。</span><br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Undo次数:</span><span class="f_ImageCaption" style="color: #808080;"> </span>填入你希望按右下角Undo !!按钮一次所执行的有效Undo次数。<br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">自动跳过空的无意义Undo项： </span>在Undo时，如果遇到空的无意义的Undo项，则一口气Undo到下一个有意义的Undo项，然后再根据Undo次数的设定来决定接下来Undo几次。该选项是默认勾选并不可变的。（没有人愿意一步步做无意义的Undo吧。。）<br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">&quot;Undo项带有字符&quot;：</span>勾上该选项后，在后面输入框输入一个Undo名字（如果不知道可以点右边的查询按钮），则每次执行Undo !!时会自动跳过该类型的Undo(即顺带undo掉该undo项)。<br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">查询按钮:  </span>查询最近的Undo名字并填入左边的输入框以便后面做自动跳过此类Undo的操作。<br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Undo!!:</span><span style="font-weight: bold; color: #808080;"> </span>根据选项设置来执行Undo操作。<br />
+<img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示：</span><span class="f_ImageCaption" style="font-weight: normal;">并不像Maya的选项设置，该设置只对该界面的 &quot;Undo!!&quot; / &quot;Redo!&quot;! 按钮起作用，而不会改变外面的&quot;高效率Undo/高效率Redo&quot;的执行选项。外面的按钮永远只会undo / redo一次有效maya操作。</span></p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="insert_hierarchy.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

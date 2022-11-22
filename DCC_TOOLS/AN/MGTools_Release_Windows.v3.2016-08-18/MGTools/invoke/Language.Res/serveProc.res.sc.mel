@@ -1,0 +1,67 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "ServeProc.style.remember" "记住当前风格";
+MG_displaySC "ServeProc.style.remember.anno" "记住当前窗口长宽位置信息";
+MG_displaySC "ServeProc.style.user" "自定义风格";
+MG_displaySC "ServeProc.style.user.anno" "使用自定义长宽位置信息";
+MG_displaySC "ServeProc.style.layer1" "单列风格";
+MG_displaySC "ServeProc.style.layer2" "双列风格";
+MG_displaySC "ServeProc.style.layer3" "方形风格";
+MG_displaySC "ServeProc.style.layer4" "单行风格";
+
+MG_displaySC "ServeProc.maximize.restore" "点击还原";
+
+MG_displaySC "ServeProc.noInHotkeyList.war" "工具: # 没有在MGTools可设置快捷键的列表内.你需要手动在Maya快速键里设置快捷键.";
+
+MG_displaySC "ServeProc.error" "出错";
+
+MG_displaySC "ServeProc.plugin.notfound.war" "当前MGTools插件: # 没找到.";
+MG_displaySC "ServeProc.dontBugmeagain.lbl" " 另再提示我 ";
+MG_displaySC "ServeProc.cancelWithBothSpace.lbl" " 取消 ";
+MG_displaySC "ServeProc.search.lbl" " 搜索 " ;
+MG_displaySC "ServeProc.visitMGland.lbl" " 访问mgland.com获得最新MGTools安装包 ->";
+MG_displaySC "ServeProc.plugin.notfound.msg" "当前MGTools插件: # 没找到. 您是否需要搜索mgland.com来获取?";
+
+MG_displaySC "ServeProc.downloading.msg" "正在在线下载 #, 请稍候.";
+MG_displaySC "ServeProc.downloading.unable.msg" "!! 无法加载插件: ";
+MG_displaySC "ServeProc.shelf.uninstalled.rep" " 个工具架被卸载.";
+
+MG_displaySC "ServeProc.hotkey.updated.rep" "MGTools相关的被绑定快捷键的命令已更新.";
+MG_displaySC "ServeProc.hotkey.uninstalled.rep" "MGTools相关的被绑定快捷键的命令已卸载.";
+MG_displaySC "ServeProc.autoload.uninstalled.rep" "MGTools自动加载的代码已清除.";
+
+MG_displaySC "ServeProc.error.replacingOldFile.war" "替代该旧文件时出错 :";
+
+MG_displaySC "ServeProc.updateFromServer.notServerProgram.war" "您的MGTools没有以服务器模式安装. 没有可用来更新的服务器端.";
+MG_displaySC "ServeProc.updateFromServer.notHalfServerProgram.war" "您的MGTools以完全服务器模式安装所以无需要更新，我已为您刷新当前程序.";
+
+MG_displaySC "ServeProc.updateFromServer.title" "从服务器端更新MGTools";
+MG_displaySC "ServeProc.updateFromServer.topann" "* 即使从该服务器端路径更新MGTools:";
+MG_displaySC "ServeProc.updateFromServer.cancel.lbl" "取消";
+MG_displaySC "ServeProc.updateFromServer.update.lbl" "更新 !";
+
+MG_displaySC "ServeProc.relocateMGTools.ann" "用来重定向MGTools服务器端路径的工具.";
+MG_displaySC "ServeProc.batchReg.submitUC.notServer.war" "您的MGTools没有以服务器模式安装. 没有必要提交您的用户码.";
+
+MG_displaySC "ServeProc.batchReg.submitUC.writable.msg" "无法向您的服务器端提交用户码. \n请确认在服务器端MGTools路径下的\"MGTools_LicenseData\"目录对您可写?";
+MG_displaySC "ServeProc.batchReg.submitUC.done.rep" "向服务器端提交您的用户码成功.";
+MG_displaySC "ServeProc.deReg.confirm.msg1" "您确定在本机上清除MGTools的注册信息?\n";
+MG_displaySC "ServeProc.deReg.confirm.msg2" "备注：在服务器端的\"MGTools_LicenseData\"目录里的注册信息不会被清除.";
+
+MG_displaySC "ServeProc.featureNotAvailable.msg" "你当前的MGTools授权状态为:  [ ";
+MG_displaySC "ServeProc.license.trial" "试用授权";
+MG_displaySC "ServeProc.license.trial.expired" "试用授权已过期";
+MG_displaySC "ServeProc.license.student" "学生版授权";
+MG_displaySC "ServeProc.license.student.expired" "学生版授权已过期";
+MG_displaySC "ServeProc.license.comm.mismatch" "旧版本的商业授权";
+MG_displaySC "ServeProc.license.notAvailable" "该功能对您来说不可用.";
+
+MG_displaySC "loader.loadMGToolsPlugin.err" "加载MGTools插件出错.";
+MG_displaySC "loader.batchReg.submitUC.alreadyExists" "用户已提交过，没有必要再提交一次.";

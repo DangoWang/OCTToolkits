@@ -1,0 +1,12 @@
+
+将所有代码复制到一个路径（例如D:\oct_repo），然后将以下代码复制到maya的python框执行：
+
+import sys
+sys.path.append(r"D:\oct_repo")
+import oct_nm_mopath
+reload(oct_nm_mopath)
+oct_nm_mopath_window = oct_nm_mopath.OctNMMPath()
+oct_nm_mopath_window.show()
+
+
+记得将D:\oct_repo这个路径换成自己复制的路径

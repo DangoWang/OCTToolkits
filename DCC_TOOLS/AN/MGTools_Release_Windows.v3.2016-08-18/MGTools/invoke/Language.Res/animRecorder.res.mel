@@ -1,0 +1,94 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+//`MG_DualLan "animRecorder.Title01"`
+MG_displayEN "animRecorder.Title01" "MG-AnimRecorder";
+MG_displayEN "animRecorder.Title02" "MG-AnimRecorder Manager";
+
+MG_displayEN "animRecorder.lbl" "MG-AnimRecorder..";
+MG_displayEN "animRecorder.ann" "Click to load MG-AnimRecorder. It is a recorder which enables you backup/restore world/local animations.";
+
+MG_displayEN "animRecorder.add.war" "Only transform type can be added to the list.";
+MG_displayEN "animRecorder.tsl.ann.01" "The list shows the objects to record. Double click the item to select it in your scene. Press del key to actually delete the selected record.";
+MG_displayEN "animRecorder.tsl.ann.02" "The list shows the objects to record. Double click the item to select it in your scene. Press del key to remove selected items from the list (Will keep the record).";
+
+MG_displayEN "animRecorder.ui.topText.lbl01" "Recorded Objects:";
+MG_displayEN "animRecorder.ui.topText.lbl02" "Current Record :";
+
+
+
+MG_displayEN "animRecorder.record.end.rep" "Record done.";
+MG_displayEN "animRecorder.apply.end.rep" "Applied. Check it out.";
+
+MG_displayEN "animRecorder.noRecord.war" "No record for the items to apply.";
+
+MG_displayEN "animRecorder.applied.rep" " objects' record applied.";
+MG_displayEN "animRecorder.skipped.rep" " objects' record skipped.";
+
+
+
+
+
+MG_displayEN "animRecorder.world.lbl" "World Transformation";
+MG_displayEN "animRecorder.local.lbl" "Local Values";
+
+MG_displayEN "animRecorder.recordAll.lbl" "Record All !!";
+MG_displayEN "animRecorder.recordAll.ann" "Record all items in the list. Select a time range in time slider if you need a range constraint.";
+
+MG_displayEN "animRecorder.recordSel.lbl" "Record Selected Items";
+MG_displayEN "animRecorder.recordSel.ann" "Record only the selected items in the list.";
+
+
+MG_displayEN "animRecorder.to.keyframes.lbl" "To Keyframes";
+MG_displayEN "animRecorder.to.pose.lbl" "To Current Pose";
+MG_displayEN "animRecorder.to.eachFrame.lbl" "To Each Frames";
+
+MG_displayEN "animRecorder.applyAll.lbl" "Apply All !!";
+MG_displayEN "animRecorder.applyAll.ann" "Apply all records in the list.";
+
+MG_displayEN "animRecorder.applySel.lbl" "Apply Selected Items";
+MG_displayEN "animRecorder.applySel.ann" "Apply only the selected items in the list.";
+
+MG_displayEN "animRecorder.toShelfAll.lbl" "Add All To Current Shelf";
+MG_displayEN "animRecorder.toShelfAll.ann" "Add all apply action as a Shelf button in current Maya shelf.";
+
+MG_displayEN "animRecorder.toShelfSel.lbl"  "Add Selected To Current Shelf";
+MG_displayEN "animRecorder.toShelfSel.ann" "Add selected items' apply action as a Shelf button in current Maya shelf.";
+
+MG_displayEN "animRecorder.autosim.lbl" "Auto-Simplify";
+MG_displayEN "animRecorder.autosim.ann" "Auto simplify the result animation curves on these applied objects.";
+
+MG_displayEN "animRecorder.add.lbl" "Add in Scene Selection";
+MG_displayEN "animRecorder.add.ann" "Add scene selected nodes into the record list.";
+
+MG_displayEN "animRecorder.remove.lbl" "Remove from the list";
+MG_displayEN "animRecorder.remove.ann" "Remove scene selection from the record list";
+MG_displayEN "animRecorder.del.lbl" "Delete Selected Record";
+MG_displayEN "animRecorder.del.ann" "Actually delete the selected items' record .";
+MG_displayEN "animRecorder.sel.lbl" "Select in Scene.";
+MG_displayEN "animRecorder.sel.ann" "Select the selected items in your scene.";
+
+MG_displayEN "animRecorder.refresh"  "Refresh to display all the recorded nodes in your scene";
+
+
+MG_displayEN "animRecorder.retarget.lbl"  "Retarget To New Rig :";
+MG_displayEN "animRecorder.retarget.ann"  "Apply the record to different rig.";
+MG_displayEN "animRecorder.apply.t.lbl"  "Translation";
+MG_displayEN "animRecorder.apply.r.lbl"  "Rotation";
+
+MG_displayEN "animRecorder.apply.none.war"  "Apply to no channel makes no sense.";
+MG_displayEN "animRecorder.record.title"  "Record";
+MG_displayEN "animRecorder.apply.title"  "Apply";
+
+MG_displayEN "animRecorder.userEulerFilter.lbl"  "Apply Euler Filter";
+MG_displayEN "animRecorder.userEulerFilter.ann"  "Apply Euler Filter automatically to correct the rotation been applied.";
+
+
+MG_displayEN "animRecorder.forceUpdateMode.lbl"  "Force Update Mode";
+MG_displayEN "animRecorder.forceUpdateMode.ann"  "Force the DG node to be re-evaluated at each frame, you may need this option only if sometime the recording result is not correct on some special rigs that depends on simulation things.";

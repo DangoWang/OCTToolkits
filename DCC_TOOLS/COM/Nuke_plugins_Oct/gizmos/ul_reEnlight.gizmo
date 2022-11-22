@@ -1,0 +1,218 @@
+#! //desktop-024/f/CG_BIN/Nuke6.3v2/Nuke6.3.exe -nx
+version 6.3 v2
+add_layer {Normal Normal.NX Normal.NY Normal.NZ}
+Gizmo {
+ inputs 2
+ tile_color 0x49f9ff
+ label v1.00
+ note_font Verdana
+ note_font_color 0xffbf19ff
+ mapsize {0.15 0.15}
+ addUserKnob {20 reEnlight}
+ addUserKnob {6 normalized l "Normal pass are normalized" t "Make shure that alpha is connected when it's switched on. It is nesesary for un normalizing norm channel." +STARTLINE}
+ addUserKnob {41 normChan l "Normal channel" t "Chouse normal pass channel" T shufNormal.in}
+ addUserKnob {26 ""}
+ addUserKnob {6 setupMode l "Switch to setup mode" t "This mode allows you easily setup light source on reference sphere" +STARTLINE}
+ addUserKnob {7 azimuthV l "Longitude U" t "Rotate light source along longitude aka \"dolgota\"" R 0 360}
+ addUserKnob {7 azimuthU l "Latitude V" t "Rotate light source along latitude aka \"shirota\"" R 0 360}
+ addUserKnob {26 ""}
+ addUserKnob {7 whitePointDiff l "Whiet point" R 0 4}
+ whitePointDiff 1
+ addUserKnob {7 gammaDiff l Gamma R 0.2 5}
+ gammaDiff 1
+ addUserKnob {6 clampWhiteDiff l "Clamp white" +STARTLINE}
+ clampWhiteDiff true
+}
+ Input {
+  inputs 0
+  name Channels
+  xpos 316
+  ypos 366
+ }
+ Dot {
+  name Dot5
+  xpos 350
+  ypos 406
+ }
+set N1ffd8a90 [stack 0]
+ Dot {
+  name Dot6
+  xpos 722
+  ypos 406
+ }
+ Camera2 {
+  inputs 0
+  translate {0 0 0.447}
+  name Camera3
+  xpos 1005
+  ypos 692
+ }
+ Constant {
+  inputs 0
+  channels rgb
+  format "512 512 0 0 512 512 1 square_512"
+  name Constant3
+  xpos 895
+  ypos 545
+ }
+set N1ffd9420 [stack 0]
+ Shuffle {
+  red white
+  green white
+  blue white
+  alpha white
+  name Shuffle7
+  xpos 790
+  ypos 568
+ }
+ Sphere {
+  uniform_scale 0.1
+  name Sphere2
+  xpos 790
+  ypos 601
+ }
+ Axis2 {
+  inputs 0
+  read_from_file true
+  selectable false
+  rotate {{parent.azimuthU} {parent.azimuthV} 0}
+  name Axis2
+  xpos 698
+  ypos 508
+ }
+ Light2 {
+  intensity 5
+  translate {0 0 1}
+  rotate {0 0 63}
+  name Light2
+  xpos 698
+  ypos 692
+ }
+ Scene {
+  inputs 2
+  name Scene2
+  xpos 800
+  ypos 692
+ }
+push $N1ffd9420
+ ScanlineRender {
+  inputs 3
+  output_motion_vectors_type accurate
+  name ScanlineRender1
+  xpos 895
+  ypos 712
+ }
+ Input {
+  inputs 0
+  name Alpha
+  xpos 175
+  ypos 467
+  number 1
+ }
+push $N1ffd8a90
+ Shuffle {
+  in Normal
+  name shufNormal
+  xpos 316
+  ypos 514
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy1
+  xpos 316
+  ypos 560
+ }
+ Grade {
+  blackpoint 0.5
+  black_clamp false
+  maskChannelInput rgba.alpha
+  mix {{normalized}}
+  name Grade1
+  xpos 316
+  ypos 605
+ }
+ Expression {
+  temp_name2 b1
+  temp_expr2 -b
+  expr2 b1
+  name Expression8
+  xpos 316
+  ypos 688
+ }
+ Expression {
+  temp_name0 r1
+  temp_expr0 Light2.world_matrix.3*r
+  temp_name1 g1
+  temp_expr1 Light2.world_matrix.7*g
+  temp_name2 b1
+  temp_expr2 Light2.world_matrix.11*b
+  expr0 r1
+  expr1 g1
+  expr2 b1
+  expr3 r1
+  name Expression14
+  xpos 316
+  ypos 714
+ }
+ Expression {
+  temp_name0 dp
+  temp_expr0 r+g+b
+  expr0 dp
+  expr1 dp
+  expr2 dp
+  expr3 dp
+  name Expression11
+  xpos 316
+  ypos 740
+ }
+ Grade {
+  channels rgba
+  gamma 0.45
+  name Grade6
+  xpos 316
+  ypos 766
+ }
+set N200a4730 [stack 0]
+ Switch {
+  inputs 2
+  which {{parent.setupMode i}}
+  name Switch1
+  xpos 648
+  ypos 964
+ }
+ Grade {
+  whitepoint {{parent.whitePointDiff}}
+  gamma {{parent.gammaDiff}}
+  white_clamp {{parent.clampWhiteDiff}}
+  name Grade2
+  selected true
+  xpos 648
+  ypos 1054
+ }
+ Shuffle {
+  green red
+  blue red
+  alpha red
+  name Shuffle1
+  xpos 648
+  ypos 1106
+ }
+ Output {
+  name Output1
+  xpos 648
+  ypos 1130
+ }
+push $N200a4730
+push $N200a4730
+ Viewer {
+  inputs 2
+  input_number 1
+  zoom_lock true
+  input_process false
+  name Viewer1
+  xpos 191
+  ypos 1188
+ }
+end_group

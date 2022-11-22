@@ -1,0 +1,60 @@
+/*
+	This script contains precedures that supports for attribute sync between Sliders, attribute buttons and maya attributes.
+*/
+
+proc string mgp_getAttrSyncCommand(string $node, string $attrLongName)
+{
+    return ("MGPickerAttrSyncer -s \""+$node+"\" \""+$attrLongName+"\"");
+}
+proc mgp_createScriptJobDoit(string $node, string $attrLongName)
+{
+    global int $MGPICKER_WatcherID;
+    string $syncCmd = `mgp_getAttrSyncCommand $node $attrLongName`;
+    $MGPICKER_WatcherID = `scriptJob  -killWithScene  -attributeChange ($node+"."+$attrLongName) $syncCmd`;
+}
+global proc int MGP_CreateWatcher(string $node, string $attrLongName)
+{
+    if(!`objExists $node`)
+    {
+        return 0;
+    }
+    if(`nodeType $node` == "container")
+    {
+        string $bindAttrs[]=`container -q -bindAttr $node`;
+        int $sz = size($bindAttrs);
+        for($i=0; $i<$sz; $i+=2)
+        {
+            if($bindAttrs[$i+1] == $attrLongName)
+            {
+                string $realObjDotName = $bindAttrs[$i];
+                string $temp[]=`stringToStringArray $realObjDotName "."`;
+                $node = $temp[0];
+                $attrLongName = $temp[1];
+                break;
+            }
+        }
+    }
+    if(!`attributeExists $attrLongName $node`)
+    {
+        return 0;
+    }
+    int $error = catchQuiet(`mgp_createScriptJobDoit $node $attrLongName`);
+    if($error)
+    {
+        return 0;
+    }
+    global int $MGPICKER_WatcherID;
+    return $MGPICKER_WatcherID;
+}
+global proc MGP_DeleteWatcher(int $id)
+{
+    if(!`scriptJob -ex $id`)
+    {
+        return;
+    }
+    scriptJob -kill $id;
+}
+global proc int MGP_WatcherExist(int $id)
+{
+    return `scriptJob -ex $id`;
+}

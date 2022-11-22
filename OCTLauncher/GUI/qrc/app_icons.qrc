@@ -1,0 +1,14 @@
+<RCC>
+  <qresource>
+    <file>../icons/Houdini16.5.png</file>
+    <file>../icons/Mari4.png</file>
+    <file>../icons/Maya2017.png</file>
+    <file>../icons/Nuke9.0v8.png</file>
+    <file>../icons/OCT.png</file>
+    <file>../icons/PsCS6.png</file>
+    <file>../icons/RvPlayer.png</file>
+    <file>../icons/Snipaste.png</file>
+    <file>../icons/SubstancePainter.png</file>
+    <file>../icons/Zbrush.png</file>
+  </qresource>
+</RCC>

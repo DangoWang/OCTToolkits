@@ -1,0 +1,129 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>MG动画银行</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Animation,Export,Import,Keyframe" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "mganimationbank.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span style="font-weight: bold; color: #191817;">MG动画银行</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="poseanim_config.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="copypasteanimpose.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #191817;">MG动作库按钮功能：</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:51px; padding:0px;"><p style="text-align: center; line-height: 1.50;"><img src="animbank_icon.gif" width="32" height="32" alt="animBank_icon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:13px; padding:0px;"><br />
+</td>
+<td style="vertical-align:top; width:870px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">直接点击将打开MG动画银行。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">在这里你可以灵活地导出和导入动画。事实基本上所有跟动画，pose导入导出的工具，都集中在这个工具及其右键。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">MG动作银行文件是做了标记的MA档或MB档，里面的内容是locator，可以用Maya打开，你要用导出动画功能建立自己的动作库，因为只有用导出建立的MA/MB档才能被导入。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.15;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">  </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示：MGTools 2.0的动作库开始支持MB格式。这样，有时遇到场景未保存/场景是MB档，又刚好场景内有未知节时点，只要选择导出MB档则不会失败。</span></p>
+<p style="line-height: 1.15; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">但是要注意，为了提高操作效率，MGTools 2.0的MG动作库在导入时不会对MA/MB档进行检查，所以请注意不要不小心导入非标准MG动作库的maya档哦。</span></p>
+<p>&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">右键菜单功能：</span><br />
+<span style="font-weight: bold;"> &nbsp; &nbsp; &nbsp; </span><img src="mi_mganimlib_ch.gif" width="434" height="462" alt="MI_MGanimLib_ch" style="border:none" /></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Maya间复制动画/Pose：</span>在顶部的Marking menu基本上都是Maya间复制动画，Pose功能。<a href="copypasteanimpose.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">备份/还原动画：</span>用Locator备份/还原所选控制器的动画。放在这里主要是的导入动画前备份动画。<a href="backup_restore_animation.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 拷贝/粘贴数值.. ：</span>在Maya间拷贝粘贴数值。如果你拷贝时有选通道属性则只拷贝所选属性，如果没选，就会粘贴所有在通道栏有展开的属性</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (包括所有展开的所选节点/shape节点/ 输入输出节点的属性值)。在导入的时候，只要确保想要粘贴的属性在通道栏有展开显示出</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;来就好。只要有拷贝过数值，不管什么时候再打开Maya都可以粘贴。支持Maya默认通道栏及MG通道栏。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">清除已读入的动画数据：</span>在用MG动作库导入动画后，源动画数据默认不会被清除以便日后需再用时不用再读，（都是些locator，对场景无影响）<br />
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;但是清掉它们可以让场景变小些，如果你导入新的动画，这个旧的动画数据将自动被新导入的源动画数据替换。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">清除备份的动画数据：</span>清除用备份动画功能备份的动画数据。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">导入动画：</span>用MG动作库导入动画。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">浏览动作库：</span>用Windows资源管理器打开当前设为库的目录，你可以进一步维护动作库。</p>
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_ImageCaption" style="font-size: 10pt;">MG动画银行界面</span><span style="font-weight: bold; color: #191817;">：</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #191817;"> </span><img src="mganimlib_ch.gif" width="469" height="362" alt="MGAnimLib_ch" style="border:none" /></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">A区：</span>动作库的维护部分。用了模仿Windows资源管理器的风格，这样大家可能用地比较习惯。双击文件夹图标来进入该文件夹，双击MA/MB档来读该动作库文件以便导入。在右键里也有重命名，复制剪切，删除动作库文件/文件夹的功能。你可以在这里直接维护动作库。注意新建文件夹，将自己从当前场景选择里猜出适当的名字。只要不是在动作库根目录，在第一排就会有一个&quot;...&quot;文件夹用来双击来回到上一层。如下图：</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;"><img src="mganimlib_path_ch.gif" width="319" height="65" alt="MGAnimLib_Path_ch" style="border:none" /></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;">如上图所示，上图的几个图标，就跟Windows资源管理器的图标一样，主页按钮就是回到动作库根目录。右边的路径就是当前你所处的位置。<br />
+在路径上点右键（如上图）：</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">重置动作库路径到默认路径 ：</span>如果用浏览按钮，指定了暂时的动作库路径，点这个按钮可以将动作库路径重归为默认。如果用户没有指定过默认的路径，则默认的是你的文档/Maya/.../Scipt/MGTools/Animation_Bank下面。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">保存当前路径为默认路径 ：</span>点这个按钮可以将当前你所处的位置设为默认动作库路径。以后你每次点重置动作库路径按钮将会把动作库根目录设回到这一路径。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">B区：</span>动作库的生成和使用部分。详见下面。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">导出动画：</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"> <img src="mganimlib_ex_ch.gif" width="468" height="145" alt="MGAnimLib_ex_ch" style="border:none" /></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">层级选项：</span><span style="font-size: 9pt;">将决定是将当前场景的所选物体还是该选择所涉及到的整个角色导出动画。后者将导出该角色所有控制器的动画，不过一次只能导一个角色。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 96px;"><span style="font-size: 9pt;">如果选的是所选部分，那就支持多个角色的不同部分同时导出。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Namespace：</span><span style="font-size: 9pt;">如果你的角色没有Namespace那么请留空这一栏，如果有namespace，请最好填这一栏正确的namespace. 你可以点“从选择猜”按钮来从场景选择猜namespace。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 96px;"><span style="font-size: 9pt;">如果它猜的不对，请手动输入。</span><br />
+<span style="font-size: 9pt;">这个部分是为了将来导给其它角色的时候有正确的依据。如果你将来一定是导给同一个角色，可以把这一栏留空。就是不要填一个错的在这里。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">时间模式：</span><span style="font-size: 9pt;">全部： 将导出要导出动作的对象所有的关键帧。无时间限制。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">所选时间段： 将导出要导出动作的对象处在当前所选时间段里的关键帧。如果你在时间滑条上没有选一个时间段，它会导出当前时间滑条所显示的时间段。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">开始 / 结束： 指定一个开始和结束点，将导出要导出动作的对象处在该时间段里的关键帧。 </span> </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">导出按钮：</span><span style="font-size: 9pt;">导出动画。 弹出的导出文件框，将默认定位在你MG动作库当前所显示的路径。导完后，动作库界面的A区将得到更新显示刚导出去的动作库ma/mb文件。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">结束进度条进度：</span><span style="font-size: 9pt;">有时遇到意外的情况导致出错失败，上图最底下一行显示的进度条会停在那，鼠标变为等待图标。用这个命令来结束。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">导入动画：</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;"><img src="mganimlib_im_ch.gif" width="468" height="343" alt="MGAnimLib_im_ch" style="border:none" /></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">动作库文件: </span><span style="font-size: 9pt;">当前所读入的动作库文件路径。点“重选取”按钮来读入一个新档，也可以直接双击上面的动作库浏览区的ma/mb图标文件来读入。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">如果没有读入的数据，整个导入动画区都是灰度不可用的。注意，MGTools2.0不会检查是否是用MG动作库导出的动作库ma/mb文件。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">另外请注意动作库的maya档的版本不能高于当前maya的版本。否则将弹窗提示Maya版本太高。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">源动画数据显示区：</span><span style="font-size: 9pt;">如上图。这一栏显示了动作库文件的信息。这是MG动作库的一个特色，可以显示你的源动画数据的动画时间段，时间长度和物体个数，及哪些物体。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">这样导入时便有明确的依据。不用再费脑筋来记住当时是多长的动画。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">清除已读入的动画数据：</span><span style="font-size: 9pt;">右键点击源动画数据栏或 “导入!! ” 按钮，将弹出该功能。用来清空读入的动画数据。其实这些读入的数据都是打成一个组的locator。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">不会影响到场景。清空后，整个导入动画区将灰掉不可用。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">角色模式：</span><span style="font-size: 9pt;">同一角色/无Namespace： 要导动画的目标角色和读入的源动画里的角色是同一角色，或者它们没有namespace。将不进行namespace区配和转换。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">映射到其它角色： 把动画导给另一个角色，将通过更换namespace来区配查找要导动画的对象。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Namespace类型：</span><span style="font-size: 9pt;">&quot; : &quot; 类型还是 &quot;_&quot;类型的namespace。根据你的目标物体来选。在角色模式里选映射到其它角色模式时将使这一栏可用。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Namespace：</span><span style="font-size: 9pt;">填入要导的对象的namespace 。 可选择目标对象一部分，然后点从选择猜按钮来猜目标namespace.</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">测试是否存在：</span><span style="font-size: 9pt;">测试源动画数据，按现选的角色模式，在当前场景里否都有存在。如果说都存在，则弹出对话框恭喜：</span><br />
+<span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="mganimlib_match_ch.gif" width="305" height="114" alt="MGAnimLib_match_ch" style="border:none" /><br />
+<span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 9pt;">如果有不匹配的物体，则会弹出对话框，提示哪些物体在当前场景不存在。用这个功能可以先测试读入的动作库文件在当前场景是不是适用。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">选择导入物体：</span><span style="font-size: 9pt;">直接在场景里帮你选择动作库里涉及到的物体。如果不存在则忽略。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">方法选项：</span><span style="font-size: 9pt;">替代： 将用读入的动画按粘贴点替代掉已有的动画。常用选项。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">插入： 将按粘贴点的位置插入动画，原有的目标体动画往后推。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">替代全部： 将删除目标动画，然后按粘贴点导入动画。这三个选项跟Maya粘贴动画的选项一样。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">粘贴在：  </span><span style="font-size: 9pt;">当前帧： 导入的动画将在当时时间指针处被粘入/插入。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">源数据位置： 将按读入的源动画数据，原来在哪里的这里就粘在哪里。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">拷贝次数： </span><span style="font-size: 9pt;">导入的动画如果是循环，可以用这个来重复拷几次。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">保留所选物体动画： </span><span style="font-size: 9pt;">如果不想角色的哪一部分不受导入的动画影响，可以先在场景里选它，再勾上这个选项，再导动画。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">只导所选物体动画： </span><span style="font-size: 9pt;">如果只想角色的哪一部分受导入的动画影响，可以先在场景里选它，再勾上这个选项，再导动画。所选物体之外的物体都不受影响。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 72px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示：导完后，将在场景里选择所有在此次有被导入动画的物体。这样你可以接在在时间滑条上编辑整个动画帧的位置。</span></p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="poseanim_config.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="copypasteanimpose.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

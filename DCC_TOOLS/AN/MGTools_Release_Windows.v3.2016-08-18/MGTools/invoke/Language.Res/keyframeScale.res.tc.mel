@@ -1,0 +1,36 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+//`MG_DualLan "keyScaler.title"`
+	
+MG_displayTS "keyScaler.title" "動畫幀縮放工具";
+MG_displayTS "keyScaler.fl.title" " 幀率轉換:";
+MG_displayTS "keyScaler.from" "      從";
+MG_displayTS "keyScaler.Get" "獲取";
+MG_displayTS "keyScaler.Get.ann" "獲取當前場景的幀率.";
+MG_displayTS "keyScaler.To" "      到";
+MG_displayTS "keyScaler.Calc" "計算";
+MG_displayTS "keyScaler.Calc.ann" "計算不同幀率間的動畫縮放倍數.";
+MG_displayTS "keyScaler.scalePivot" "    縮放軸心";
+MG_displayTS "keyScaler.mul" "       倍數";
+MG_displayTS "keyScaler.Objects" "     物件:";
+MG_displayTS "keyScaler.Objects.all" "所有Key 幀物體";
+MG_displayTS "keyScaler.Objects.selRig" "所選Rig下的所有物體";
+MG_displayTS "keyScaler.Objects.selObj" "所選物體";
+MG_displayTS "keyScaler.Range" "     範圍:";
+MG_displayTS "keyScaler.Range.all" "全部";
+MG_displayTS "keyScaler.Range.selRange" "所選時間範圍";
+MG_displayTS "keyScaler.getPivot" "獲取軸心";
+MG_displayTS "keyScaler.getPivot.ann" "將當前幀設定為縮放軸心.";
+MG_displayTS "keyScaler.autoSnap" "縮放後自動吸附到整數幀";
+MG_displayTS "keyScaler.go" "縮放!!";
+
+MG_displayTS "keyScaler.noSence" "縮放值 \"1\" 沒有任何意義，所以任務提前完成:P";
+MG_displayTS "keyScaler.go" "縮放!!";
+
+MG_displayTS "keyScaler.noKeyframObjs" "場景裡無物體被Key幀.";

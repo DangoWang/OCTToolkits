@@ -1,0 +1,289 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>AssetLib Mel API</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "assetlib_melapi_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">AssetLib Mel API</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="assetlib_useasset_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="assetlib_py_api_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> Asset Library MEL API:   &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">The MEL API of MG-Asset Library. You could use these mel global procedures to create, manage &nbsp;and use the asset libraries in your own mel scripts.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">The main usages are to use it to batch adding asset records, or making MA files. </p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> Prerequisite:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">Your Maya has MGTools Pro3 or later version installed.</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> The global procedures in API: ( Sample codes provided at the end </span><a href="assetlib_melapi_en.htm#example" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a><span class="f_MI_TitleStyle" style="color: #404040;">)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MGAssetLib_initAPI ( );</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Initialize asset library MEL API. This ensure all the global procedures below are sourced and usable.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return Value: &nbsp;0 if error happened, 1 if success.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MGAssetLib_doesProjectExist ( string </span><span style="font-weight: bold; color: #602020;">$projectName </span><span style="font-weight: bold; color: #253555;">);</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Search an asset library project named $projectName in local side, which is the folder: &nbsp;My Document/Maya/MGTools_GlobalData/MG_AssetLib.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Note: If the $projectName parameter contains characters other than English letter, digit and under-bar, these characters will be converted into under-bar automatically.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return Value: 0 if found, else 1;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc string MGAssetLib_getLocalProjectFile ( string </span><span style="font-weight: bold; color: #602020;">$projectName </span><span style="font-weight: bold; color: #253555;">);</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get the full path of the .assetproj file for the project named $projectName. Which probably is My Document/Maya/MGTools_GlobalData/MG_AssetLib/$projectName/$projectName.assetproj.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Note: If the $projectName parameter contains characters other than English letter, digit and under-bar, these characters will be converted into under-bar automatically.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return Value: The full path string of the .assetproj file, even if it does not exist.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc string MGAssetLib_createProject ( string </span><span style="font-weight: bold; color: #602020;">$projectName,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$ProjectAnnoatation, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$globalPath, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$statePresets [] </span><span style="font-weight: bold; color: #253555;">);</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Create an asset library project at local side.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: $projectName: the project name. If the $projectName parameter contains characters other than English letter, digit and under-bar, these characters will be converted into under-bar automatically.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$ProjectAnnoatation: The descriptive text for the project.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$globalPath: The global asset library folder. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$statePresets: An array contains states settings for the project. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 216px;"><span style="font-size: 9pt;">Each element of the array is compose of: stateName stateColorR stateColorG stateColorB </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 216px;"><span style="font-size: 9pt;">The state color ranges within 0-1, it is decimal.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return Value: Return the full path of the newly created .assetproj file if succeed, an empty string if failed.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MGAssetLib_doesCategoryExist ( string </span><span style="font-weight: bold; color: #602020;">$projectName , </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 336px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$category </span><span style="font-weight: bold; color: #253555;">);</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: &nbsp;Test if a category exists in an asset library project at local side.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: $projectName: the project name. If the $projectName parameter contains characters other than English letter, digit and under-bar, these characters will be converted into under-bar automatically.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$category: The category you want to test the existence. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return Value: Return 1 if the category exists, else 0. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc string MGAssetLib_getLocalCategoryFile ( string </span><span style="font-weight: bold; color: #602020;">$projectName, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 360px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$category</span><span style="font-weight: bold; color: #253555;"> );</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get the full path of the .asset file within the the asset library project at local side.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: $projectName: the project name. If the $projectName parameter contains characters other than English letter, digit and under-bar, these characters will be converted into under-bar automatically.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$category: The category you want to get its full path. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return Value: Return the full path of the category's .asset file, no matter it exists or not.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MGAssetLib_addCategory ( string </span><span style="font-weight: bold; color: #602020;">$projectName, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 288px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$category</span><span style="font-weight: bold; color: #253555;"> );</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Add a category to the asset project. &nbsp;A .asset file is actually created in the project folder.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: $projectName: the project name. If the $projectName parameter contains characters other than English letter, digit and under-bar, these characters will be converted into under-bar automatically.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$category: The category you want to add into the project. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return Value: &nbsp;Return 1 if the category been added successfully, else 0. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MGAssetLib_clearCategory ( string </span><span style="font-weight: bold; color: #602020;">$projectName, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 288px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$category</span><span style="font-weight: bold; color: #253555;"> );</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Clear a category in the asset project. &nbsp;The .asset file is actually cleared in its content.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: $projectName: the project name. If the $projectName parameter contains characters other than English letter, digit and under-bar, these characters will be converted into under-bar automatically.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$category: The category you want to clear the content. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return Value: &nbsp;Return 1 if the category been cleared successfully, else 0.  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MGAssetLib_addStates ( string </span><span style="font-weight: bold; color: #602020;">$projectName, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 288px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$stateList []</span><span style="font-weight: bold; color: #253555;"> );</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Add state presets into the asset project.  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: $projectName: the project name. If the $projectName parameter contains characters other than English letter, digit and under-bar, these characters will be converted into under-bar automatically.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$stateList: The state array been added. Each element of the array is compose of: stateName stateColorR stateColorG stateColorB </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 216px;"><span style="font-size: 9pt;">The state color ranges within 0-1, it is decimal.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return Value: &nbsp;Return 1 if the states been added successfully, else 0.  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc string[] MGAssetLib_getProjectStates ( string </span><span style="font-weight: bold; color: #602020;">$projectName</span><span style="font-weight: bold; color: #253555;"> );</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get all the state presets of the asset project.  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: $projectName: the project name. If the $projectName parameter contains characters other than English letter, digit and under-bar, these characters will be converted into under-bar automatically.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return Value: &nbsp;Return the state string array. &nbsp;Each element of the array is compose of: stateName stateColorR stateColorG stateColorB </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 216px;"><span style="font-size: 9pt;">The state color ranges within 0-1, it is &nbsp;decimal.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc string[] MGAssetLib_getProjectCategories ( string </span><span style="font-weight: bold; color: #602020;">$projectName</span><span style="font-weight: bold; color: #253555;"> );</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Get all the categories of the asset project.  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: $projectName: the project name. If the $projectName parameter contains characters other than English letter, digit and under-bar, these characters will be converted into under-bar automatically.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return Value: &nbsp;Return the categories string array.  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MGAssetLib_compareTwoFileDates ( string </span><span style="font-weight: bold; color: #602020;">$file1, </span><span style="font-weight: bold; color: #253555;"> &nbsp;string </span><span style="font-weight: bold; color: #602020;">$file2 </span><span style="font-weight: bold; color: #253555;">);</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Utility precedure. Compare two files' modification date and give the result.  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return Value: &nbsp;If both files does not exist, return 0.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;"> if $file1 exists but $file2 doesn't, return 1, if $file1 does not exists but $file2 does, return -1;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">if both exist, then if file2 is newly modified than file2, return 1, they have same modification date, return 0, if file2 is newer than fiel1, return -1;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc string[] MGAssetLib_searchPreviewImagesFromDirectory ( string </span><span style="font-weight: bold; color: #602020;">$searchDirectory,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 480px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$imageExtensionList [], </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 480px;"><span style="font-weight: bold; color: #253555;">int </span><span style="font-weight: bold; color: #602020;">$searchDepth </span><span style="font-weight: bold; color: #253555;">);</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Utility precedure. Search a directory recursively for a certain type of files.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: $searchDirectory: The target search directory. Should exist.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$imageExtensionList: A list contains all the file types you want to search for, eg. &nbsp;{&quot;*.jpg&quot;, &quot;*.bmp&quot;}</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$searchDepth is the depth of the searching, if you do not want to search the sub-folders, use 1 instead.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 216px;"><span style="font-size: 9pt;">The value 0 or less than 0 indicates that the search is unlimited in depth.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Note: if the elements in the array $imageExtensionList, not start with &quot;*.&quot; , the tool will add &quot;*.&quot; automatically.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return Value: The matched files' full path within the $searchDirectory.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc string[] MGAssetLib_searchMayaFilesFromDirectory ( string </span><span style="font-weight: bold; color: #602020;">$searchDirectory,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 432px;"><span style="font-weight: bold; color: #253555;">int </span><span style="font-weight: bold; color: #602020;">$searchMA, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 432px;"><span style="font-weight: bold; color: #253555;">int </span><span style="font-weight: bold; color: #602020;">$searchMB, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 432px;"><span style="font-weight: bold; color: #253555;">int </span><span style="font-weight: bold; color: #602020;">$searchDepth </span><span style="font-weight: bold; color: #253555;">);</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Utility precedure. Search a directory recursively for &nbsp;MB/MA files.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: $searchDirectory: The target search directory. Should exist.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$searchMA &nbsp;decides whether to search MA files, 1 stands for searching, 0 stands not.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$searchMB decides whether to search MB files, 1 stands for searching, 0 stands not. If both $searchMA and $searchMB are 0, an empty array will be returned.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$searchDepth is the depth of the searching, if you do not want to search the sub-folders, use 1 instead.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 216px;"><span style="font-size: 9pt;">The value 0 or less than 0 indicates that the search is unlimited in depth.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return Value: The MB/MA files' full path within the $searchDirectory.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MGAssetLib_addAssetRecords ( string </span><span style="font-weight: bold; color: #602020;">$projectName,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$category,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string</span><span style="font-weight: bold; color: #602020;"> $mayaFiles[],</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$namespaces[], </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$states[],</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$previewImageStrList[],</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$notes[]</span><span style="font-weight: bold; color: #253555;"> );</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Add multiple asset items into the asset project in one go.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: $projectName: the asset library name.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$category is the category which contains these asset items.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$mayaFiles is the asset maya file full path array.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$namespaces is the asset name array. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$states is the states setting array for all the asset items. Each element of the array should only be composed of state name. No color info needed.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$previewImageStrList is the preview images array for each asset items. One element corresponds to one asset item. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 216px;"><span style="font-size: 9pt;">Within each element, multiple image file paths could be used, as long as they are separated with &quot;;&quot;.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$notes is the notes array for each asset item. No character limitation for each element, you can use any string.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Note: The array parameter should store their elements in the same order, &nbsp;the tools judge the asset items count from the length of $mayaFiles parameter.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="width:24px">&nbsp;</span><span style="font-size: 9pt;">If other array parameters has no elements correspond to the element in $mayaFiles, an empty string will be used.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="font-size: 9pt;">Except the $namespaces array, the base name of the maya file will be used instead a empty string.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return Value: 1 if no error happened, 0 if any. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MGAssetLib_deleteAssetRecords ( string </span><span style="font-weight: bold; color: #602020;">$projectName,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$category,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string</span><span style="font-weight: bold; color: #602020;"> $mayaFiles [] </span><span style="font-weight: bold; color: #253555;">);</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Erase multiple asset items from the asset project in one go. It is based on the asset file paths.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: $projectName: the asset library name.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$category is the category which contains these asset items to erase.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span style="font-size: 9pt;">$mayaFiles is the asset maya file full path array.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return Value: 1 if no error happened, 0 if any. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MGAssetLib_makeMayaAsciiFile ( int </span><span style="font-weight: bold; color: #602020;">$overrideIfExist,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$MAFile,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string</span><span style="font-weight: bold; color: #602020;"> $referenceFiles [],</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string</span><span style="font-weight: bold; color: #602020;"> $namespaceList [],</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">int </span><span style="font-weight: bold; color: #602020;">$deferList [] </span><span style="font-weight: bold; color: #253555;">);</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Make MA files, based of the referenced info provided.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: $overrideIfExist decide if you want to override the target file if it already exist.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$MAFile is the target ma full path.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$referenceFiles is the array contains the maya files, which will be referenced in the ma file.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$namespaceList &nbsp;is the reference namespace array.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$deferList &nbsp;is the defer value array of the reference.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return Value: 1 if no error happened and the MA file is made, 0 if error happened. </span></p>
+<p style="line-height: 1.50;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span class="f_ImageCaption">  </span><span style="font-size: 9pt;">Tips: If you want to upload / download the asset library in your script, &nbsp;use another two global procedures provided by MGTools: ( No need to call MGAssetLib_initAPI beforehand )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MG_CopyFolder ( string </span><span style="font-weight: bold; color: #602020;">$targetFolder,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 240px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$sourceFolder,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 240px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$progressBarControl,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 240px;"><span style="font-weight: bold; color: #253555;">string</span><span style="font-weight: bold; color: #602020;"> $textControl,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 240px;"><span style="font-weight: bold; color: #253555;">int </span><span style="font-weight: bold; color: #602020;">$returnAtFirstError, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 240px;"><span style="font-weight: bold; color: #253555;">int </span><span style="font-weight: bold; color: #602020;">$autoHideProgressBarWhenIsDone</span><span style="font-weight: bold; color: #253555;"> );</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Copy all files and sub-folders from the source folder, to the target folder.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: $targetFolder &nbsp;is the target folder you want to copy the folders&amp;files to, no matter if the target folder does not exist.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$sourceFolder is the source folder to copy from. should exist beforehand. If you input a file path, will skip and return.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$progressBarControl is an option progressBar control name, if assigned and exist, then will refresh the progress while copying the file &amp; folders.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;"><span style="font-size: 9pt;">You can use an empty string for this parameter and the call will not care about this parameter.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$textControl is an option text control name, if assigned and exist, will refresh the copying info in the text control.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;"><span style="font-size: 9pt;">You can use an empty string for this parameter and the call will not care about this parameter.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$returnAtFirstError decides if there once be an error happened, the tool should return immediately or skip the error and continue.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$autoHideProgressBarWhenIsDone decides when the copy is finished, the progress bar control should be hidden or not.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return Value: 1 if no error happened, 0 if error happened. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MG_DeleteFolder ( string </span><span style="font-weight: bold; color: #602020;">$deleteFolder,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 240px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$progressBarControl,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 240px;"><span style="font-weight: bold; color: #253555;">string</span><span style="font-weight: bold; color: #602020;"> $textControl,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 240px;"><span style="font-weight: bold; color: #253555;">int </span><span style="font-weight: bold; color: #602020;">$returnAtFirstError, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 240px;"><span style="font-weight: bold; color: #253555;">int </span><span style="font-weight: bold; color: #602020;">$autoHideProgressBarWhenIsDone</span><span style="font-weight: bold; color: #253555;"> );</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Description: Delete all files and sub-folders from the target folder, along with the target folder itself.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Parameters: $deleteFolder &nbsp;is the target folder you want to delete.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$progressBarControl is an option progressBar control name, if assigned and exist, then will refresh the progress while deleting the file &amp; folders.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;"><span style="font-size: 9pt;">You can use an empty string for this parameter and the call will not care about this parameter.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$textControl is an option text control name, if assigned and exist, will refresh the deleting info in the text control.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;"><span style="font-size: 9pt;">You can use an empty string for this parameter and the call will not care about this parameter.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$returnAtFirstError decides if there once be an error happened, the tool should return immediately or skip the error and continue.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$autoHideProgressBarWhenIsDone decides when the deleting is finished, the progress bar control should be hidden or not.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Return Value: 1 if no error happened, 0 if error happened.  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> Example Code:  <a id="example"></a></span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:31px; padding:0px;"><p style="text-align: right; line-height: 1.50;">&nbsp;</p>
+<p style="text-align: right; line-height: 1.50;">&nbsp;</p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&nbsp;</span></p>
+<p style="text-align: right; line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:1px; padding:0px;"><p style="text-align: right; line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:1234px; padding:0px;"><p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//Open MG-Asset Library beforehand, so you can view what happening while you execute the codes.</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//First we should init the mel api global procedures:</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">MGAssetLib_initAPI;</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//create a asset project:</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">MGAssetLib_createProject</span><span style="font-family: 'Arial Unicode MS'; color: #800080;"> &quot;Mel_API&quot; &nbsp;&quot;A asset project created by mel API&quot; &nbsp;&quot;Z:/TNT/temp/Miguel/test/Lib_MelAPI&quot;</span><span style="font-family: 'Arial Unicode MS';"> &nbsp;{</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Pending 1 0 0&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;"> &quot;Working 0 0 1&quot;</span><span style="font-family: 'Arial Unicode MS';">, </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Approved 0 1 0&quot;</span><span style="font-family: 'Arial Unicode MS';">};</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//create a category called Character:</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">MGAssetLib_addCategory </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Mel_API&quot; &quot;Character&quot;</span><span style="font-family: 'Arial Unicode MS';">; </span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//test if the category been created successfully or not:</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">print (</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;The category \&quot;Mel_API\&quot; exists or not: &quot;</span><span style="font-family: 'Arial Unicode MS';"> + `MGAssetLib_doesCategoryExist</span><span style="font-family: 'Arial Unicode MS'; color: #800080;"> &quot;Mel_API&quot; &quot;Character&quot;</span><span style="font-family: 'Arial Unicode MS';">` +</span><span style="font-family: 'Arial Unicode MS'; color: #800080;"> &quot;\n&quot;</span><span style="font-family: 'Arial Unicode MS';">);</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//clear the library. Not necessary because we just create it:</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">MGAssetLib_clearCategory  </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Mel_API&quot; &quot;Character&quot;</span><span style="font-family: 'Arial Unicode MS';">;  </span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//add state presets to the project: </span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">MGAssetLib_addStates </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Mel_API&quot;</span><span style="font-family: 'Arial Unicode MS';"> &nbsp;{</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Hi_Res 0.5 0.8 0.5&quot;</span><span style="font-family: 'Arial Unicode MS';">, </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Lo_Res 0.8 0.5 0.5&quot;</span><span style="font-family: 'Arial Unicode MS';">};</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//test if the state presets been added:</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">print `MGAssetLib_getProjectStates </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Mel_API&quot;</span><span style="font-family: 'Arial Unicode MS';">`;</span></p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//now search the asset files and images files:</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">string $mayaFiles[] = `MGAssetLib_searchMayaFilesFromDirectory</span><span style="font-family: 'Arial Unicode MS'; color: #800080;"> &quot;D:/temp&quot;</span><span style="font-family: 'Arial Unicode MS';"> 1 0 0`;</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">print $mayaFiles;</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">string $images[] = `MGAssetLib_searchPreviewImagesFromDirectory </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;D:/temp&quot;</span><span style="font-family: 'Arial Unicode MS';"> </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">{&quot;*.jpg&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;*.bmp&quot;</span><span style="font-family: 'Arial Unicode MS';">} 0`;</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">print $images;</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//do some preview images and maya file matching things here:</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">// ....</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//now we are ready to add the asset records:</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">MGAssetLib_addAssetRecords </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Mel_API&quot; &quot;Character&quot; </span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;D:/temp/myAsset1.ma&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;D:/temp/myAsset2.ma&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;D:/temp/myAsset3.ma&quot;</span><span style="font-family: 'Arial Unicode MS';">}</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;namespace1&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;namespace2&quot;</span><span style="font-family: 'Arial Unicode MS';">}</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Pending&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Approved&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Approved&quot;</span><span style="font-family: 'Arial Unicode MS';">}</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{}</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Note for fist item&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;note for sec item&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;third note&quot;</span><span style="font-family: 'Arial Unicode MS';">}; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//try deleting one asset record via the asset path:</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">MGAssetLib_deleteAssetRecords </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Mel_API&quot; &quot;Character&quot;</span><span style="font-family: 'Arial Unicode MS';"> {</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;D:/temp/myAsset2.ma&quot;</span><span style="font-family: 'Arial Unicode MS';">};</span></p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//Now try making a ma file!</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">MGAssetLib_makeMayaAsciiFile (1, </span><span style="font-family: 'Arial Unicode MS'; color: #800080;"> &quot;D:/temp/test.ma&quot;</span><span style="font-family: 'Arial Unicode MS';">, &nbsp; {</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;namespace1&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;namespace2&quot;</span><span style="font-family: 'Arial Unicode MS';">},</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;D:/temp/myAsset1.ma&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;D:/temp/myAsset2.ma&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;D:/temp/myAsset3.ma&quot;</span><span style="font-family: 'Arial Unicode MS';">},</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{0,1,1} );</span></p>
+</td>
+<td style="vertical-align:top; width:1px; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="assetlib_useasset_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="assetlib_py_api_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

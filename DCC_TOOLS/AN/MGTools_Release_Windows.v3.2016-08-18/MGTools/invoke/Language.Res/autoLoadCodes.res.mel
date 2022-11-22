@@ -1,0 +1,28 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "auloadC.MGTools.anno" "Click to load MGTools.";
+MG_displayEN "auloadC.MGTools.update.mi" "Online Update MGTools..";
+MG_displayEN "auloadC.MGTools.update.ann" "Automatic online update MGTools,which the code you purchase is needed.Require Maya 8.0 or later.";
+MG_displayEN "auloadC.MGTools.purchase.mi" "Purchase MGTools Pro License..";
+MG_displayEN "auloadC.MGTools.purchase.ann" "Click to purchase MGTools Pro license.";
+MG_displayEN "auloadC.snap.menu" "Snap";
+MG_displayEN "auloadC.sel.menu" "Selection";
+MG_displayEN "auloadC.cons.menu" "Constraint";
+MG_displayEN "auloadC.displayL.menu" "DisplayLayer";
+MG_displayEN "auloadC.pivot.menu" "Pivot";
+MG_displayEN "auloadC.animation.menu" "Animation";
+MG_displayEN "auloadC.shortcut.menu" "Shortcut";
+MG_displayEN "auloadC.screenInfo.menu" "Screen-Info";
+MG_displayEN "auloadC.miniTB.menu" "MiniTools";
+MG_displayEN "auloadC.refresh.menu" "Refresh Menu";
+MG_displayEN "auloadC.refreshMGtools.mi" "Refresh MGTools";
+MG_displayEN "auloadC.refreshMGtools.ann" "Refresh MGTools after a update.Some tools still need reopen.";
+MG_displayEN "auloadC.mgland.anno" "Visit MGLAND animation studio website.";
+MG_displayEN "auloadC.mgland" "MGLAND animation studio..";

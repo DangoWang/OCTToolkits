@@ -1,0 +1,84 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>AnimRescue Auto-Recovery</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Animation,animRescue,Keyframe,mll plugin" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "animrescue_autorecovery_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">AnimRescue Auto-Recovery</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="animrescue_backup_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="animrescue_advancedrecovery_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold; color: #191817;">Automatic Recovery Wizard: </span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:13px; padding:0px;"><p style="text-align: center; line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">The automatic recovery wizard, shows you three recovery mode:  </span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">Animation recovery mode , connection recovery mode and auto-save recovery mode. The third mode has nothing on it , because animator could easily find and open the scene auto-saved before.</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">* Currently the animation recovery mode only supports Maya 8.5x86 ~ 2012x86 and Maya 8.0x64 ~ 2012x64. Support for feature maya version will come from feature MGTools update.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">Animation recovery mode:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="animrescue_realtimerecovery.gif" width="407" height="76" alt="animRescue_realTimeRecovery" style="border:none" /><br />
+<span style="color: #3c3c39;">Pick on the icon above , the icon will become colored as you do this, click on the &quot;Next-&gt;&quot; button then two operation mode pops: automatic mode and advanced mode.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">Automatic mode is suggested because most of chances it will work. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">The theory of automatic recovery is , when doing the real-time animation backup, &nbsp;they have been organized in folders via different scene names, different save times. After an accident happened, you must open the latest maya scene, (even layout scene), don't do anything to change animation, open this wizard, it will get the last modified date of current scene, then find any rescue points that belong to this scene and later than this scene. It will use these rescue points to recover animation. In automatic mode, you just keep clicking on &nbsp;&quot;Next-&gt;&quot; button to go on, and Click on the &quot;Recover!!&quot; button to begin recovering. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="animrescue_recoverydoit.gif" width="489" height="187" alt="animRescue_RecoveryDoit" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">If there are many nodes backup exist, then more time needed in recovery. After the job is done , this dialog will remind you.</span></p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">Connection Recovery Mode:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">The reason why this recovery mode exists here, is that chances are your scene actually has animNodes information stored with it, but the connections between they and the corresponding keyframed attributes are broken. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">Sometime the scene just stop in a certain percentage while reading, that is because the scene is not completely saved before,mostly. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">This mode works fine in the situation that your scene can't be successfully read because of one or more references. By checking on the &quot;Selective preload&quot; option in Maya's open scene option box and open the scene with these reference pre-unloaded, then manually call the same asset in , reconnect the animNodes to the new reference and your animation will be back. Because even through a reference is not loaded, it is animnodes have already create in your scene. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="animrescue_connectionrecovery.gif" width="463" height="82" alt="animRescue_connectionRecovery" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">Press the button above to turn it into colored in recovery wizard. Click on &quot;Next -&gt;&quot; button to skip the introduction if you want.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">If there are any unconnected animNodes in your scene, Then the UI will display them by namespace. If the animNodes have no namespace, then they will be displayed in &quot;NoNamespace&quot;.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">Put in the mapping Namespace if you want to connect them to a new character. Press the &quot;Get&quot; button to strip the namespace from current scene selection into the field.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">For example, you have a reference call Tom can't be loaded,then you reference the same asset in , which probably has the namespace Tom1, then you fill in &quot;Tom1&quot; as the mapping namespace of Tom.When doing reconnection all the animNodes belong to Tom will be connected to Tom1's corresponding objects.  </span><br />
+<img src="animrescue_connr01.gif" width="516" height="98" alt="animRescue_connR01" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">Don't affect Keyframed Attribute: </span>If on, then if there is already animation connection in the target attribute , that reconnection will be ignored.<br />
+<img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> Tips: The reconnection won't 100% works, that depends on how many animNodes actually be stored in your scene and disconnected.</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="animrescue_backup_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="animrescue_advancedrecovery_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

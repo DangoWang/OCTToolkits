@@ -1,0 +1,35 @@
+>  Here are credits of these picker files:
+	> Picker for Morpheus Rig: 
+		Rig by Josh Burton, Morpheus rig are available at www.joshburton.com.
+		Picker by Miguel Winfield, website: http://mgland.com  or http://twincodes.com
+
+	> Picker for Moom Rig:
+		Rig by Ramtin Ahmadi, Moom rig are available at creativecrash.com.
+		Picker by Miguel Winfield, website: http://mgland.com  or http://twincodes.com
+
+	> Picker for Mery Rig:
+		Rig by Antonio Mendez Lora & Jose Manuel Garcia Alvarez.
+		Mery rig are available at http://www.meryproject.com.
+		Picker by Miguel Winfield, website: http://mgland.com  or http://twincodes.com
+
+> How to open and use these pickers:
+	1: Install the MG-Picker Studio program. 
+     	   Use F8 key to toggle between animator mode and designer mode.
+	   If you just wanna test to see how picker works for animator, use the animator mode, 
+	   if you just want a designing example, use designer mode.
+
+	2: Double click on the empty area, browse and pick the .mgpkr file in each picker folder.
+	   This loads the picker file into MG-Picker Studio, 
+	   an alternative way is drag and drop the .mgpkr file onto the program.
+
+	3: You still need to reference the corresponding rig in order to use them.
+	   Download the rig and reference them into the maya scene, 
+	   remember to use namespaces while referencing them.
+
+	4: Select any part of the rig, make sure the MG-Picker Studio is currently actived, 
+	   press "ctrl+shift+alt+S" keys to bring up the namespace setting dialog, 
+           The dialog can also be triggered by selecting the "Set Namespace.." menu from the top-right "..." button.
+	   Press the "<" button to fetch the namespace that being used by your rig.
+	   This sets the namespace of the picker to match the namespace of your scene rig.
+
+	5: Enjoy!

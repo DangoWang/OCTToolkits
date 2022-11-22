@@ -1,0 +1,309 @@
+=========================================================================
+    MG-Picker Studio (c) Copyright 2017 MGLAND animation studio.
+    All rights reserved.
+    Author: Miguel Winfield (WenFeng Gao)
+    Email: mgpickerstudio@gmail.com
+    URL: http://mgland.com  | http://twincodes.com
+=========================================================================
+12/05/2017--------------------------------------------------------------------
+    > Fix attribute out-sync issue when manually changed the slider attribute.
+
+    > Small improvement for slider data widget.
+
+    > Add -fullNamespace/-fns flag to MGPickerItem command.
+
+08/05/2017--------------------------------------------------------------------
+    > Fix picker file reading bug that take left clicking menudata as right clicking menudata.
+
+    > Enable user to input node.attribute menually for slider and attribute button.
+
+    > Show namespace in ctrl+Tab list.
+
+    > Remove default all rig lister.
+
+    > Fix animation ui issue when auto-loaded in minimum mode in maya 2017
+
+    > Fix crash issue in Maya2016 in MacOSX Sierra
+  
+    > Use environment variables for loader mel path, config root dir and connector dir.
+
+
+12/04/2017--------------------------------------------------------------------
+    > Fix critical issue in Linux sometime when the tool launched for the second time.
+
+
+02/04/2017--------------------------------------------------------------------
+    > User can now specify the value range of slider attribute.
+    
+    > API now support menu and menu items for picker.
+
+    > API now support custom loader class and rigLister class.
+      Now you can distribute picker files in any way you like!
+
+    > Fix the syntex error when the maya loads the workspaceControl at start up.
+
+    > Fix MGPicker/MGPickerView -syncPickerValue issue
+
+    > Fix picker value auto-sync issue when picker namespace changed back to matched namespace.
+
+
+11/03/2017--------------------------------------------------------------------
+    > Fix the viewport zooming issue.
+
+
+05/03/2017--------------------------------------------------------------------
+    > Fix the ui issue in maya 2017.Make it stable.
+
+    > Fix command button not execute issue.
+
+    > Fix ui mode not able to be switched using F8 hotkey bug.
+
+    > Remember ui mode in maya 2017.
+
+    > Fix thumbnail error in maya 2017, macOSX.
+
+    > Parent to panel below now might choose to favor the mouse click position.
+
+    > Add GUI unittests for animator mode.
+
+    > Fix hotkey outliner tooltip.
+
+    > Enable the delete menu for link. Also add shift+Backspace for deleting.
+
+
+15/01/2017--------------------------------------------------------------------
+    > Dockable to maya main UI, before maya 2017 it use control similiar to dockControl.
+        In maya 2017 it use workspaceControl.
+
+    > Now picker item support multiple link targets, this has two benifites:
+      - Select button can have multiple parent select buttons.
+      - The visibility of picker item can be controlled by multiple attribute buttons, 
+        use the new visibility operator property "and" / "or" to control the logic. 
+
+    > Mouse hover lightness property is added to each picker item.
+      The picker item might become darker or lighter when mouse hover over it.
+
+    > Export picker file path as a picker node.
+      Now you can update your picker file, which can be loaded via the picker node.
+      The picker file path store in the picker node support environment variables.
+
+    > Add progressbar support for time consuming action.
+
+    > Will strip the non-namespace header when put a dag path into picker.
+
+    > Able to select and delete links in link tool.
+
+    > Zoom to 100% when the picker is loaded.
+
+    > Fix slider and attribute button undo issue in animator mode.
+
+    > Fix "Use right clicking menu" option not trigger the scene change issue.
+
+    > Fix bug that aligning the buttons will lost 1 px in width / height.
+
+
+08/10/2016--------------------------------------------------------------------
+    > Fix installation error when it is in server folder in windows.
+
+    > Add Options:
+        - Stay on top
+        - Show triangle for menu
+        - Rename Tab label in animator mode
+        - Filter attr-button if select-button to be selected
+    
+    > Ignore links when there is picker button to be framed.
+   
+    > Fix shift double clicking on select button.
+
+    > Avoid using asset node attribute, instead use real attributes.
+
+    > Fix spacebar hotkey when in animator mode.
+
+
+10/08/2016--------------------------------------------------------------------
+    > Floating license support.
+
+    > Maya 2016ex2 & Maya 2017 support.
+
+    > Picker hotkey in animator mode is limited tominimum set, 
+      in animator mode maya hotkey directly works when picker window is active.
+      to use picker hotkey, you must have the picker window activated, and mouse cursor within the picker area.
+
+    > Real sync with maya attribute value change and attr-button & slider.
+
+    > Greatly improved attribute button interactivity. 
+      You are able to set values to selected multiple attr-buttons in one go, as well as setting keyframes, 
+      reseting value and select maya nodes.
+
+    > Improved MMB attr-nudging in 3d view.
+
+    > New Hotkey Outliner.
+
+    > Add value area width policy property for attribute button.
+
+    > F hotkey now will frame to show all picker content if nothing selected.
+
+    > New option in preference dialog:
+	Add connector setting
+	Add setting that control screen info display when MMB attr-nudging in 3d view.
+
+    > Greatly imporved API:
+	Brand new MGPickerView command, so editing / querying inactive picker view is possible.
+	Lots of flags added to MGPicker & MGPickerItem command.
+
+    > Bug fixes:
+	Fix error: Cannot find procedure "MGPickerAttrNudgerValues"
+	Some other mis fixes.
+
+
+12/10/2015--------------------------------------------------------------------
+    > Add "Stick" and "Select" buttons in menu editor. 
+      If "Stick" option is on, then menu editor won't refresh UI when item selection changed in picker view,
+      so you are still editing menus for previously selected picker items.
+      Once "Stick" is on, then "Select" button is enabled, click it to reselect the picker items that the menu belongs to.
+
+    > Add "Remove Unused Images.." feature in picker menubar menu, 
+      you can use it to clean up unused image files in the picker image folder.
+
+    > Add "Snapshot For Picker Item.." feature in Edit menu,for snapshot a image for selected picker item.
+      The picker item should support image shape.
+      Same feature can be found in the RMB cliking menu of Generic Edit tool, 
+      or the image path widget menu in attribute editor.
+
+    > API update: New "MGPicker -select" flag to perform picker item selection and selection query.
+
+    > Fix mel/python code string syntex highlighting for code editing widget in MG-Picker Studio.
+      
+	
+11/01/2015--------------------------------------------------------------------
+    > Add "Generic picker system" to MG-Picker Studio. You can config in the preference dialog.
+      With it, you can now assign generic picker files for each picker project.
+      Then animators are able to use the generic picker really quickly for any rigs through animator mode UI.
+      If you set it as fallback picker, when program can't find and load the related picker,
+      if will load the fallback picker instead.
+
+    > Fix the bug that sometime when you click on submenu in menu designer, it does not show the submenus.
+    
+    > Fix the errors when you try to use MMB to nudge the attribute button / sliders in 3d views.
+      Also if your are nudging enum attribute, it will display enum field value instead of int.
+    
+    > Fix the title of MG-Picker Studio to show the real program version.
+    
+    > In code editor, press enter key will use the indent of previous line.
+      Also the code editor won't syntex highlight lines larger than 500 for performance optimization.
+    
+    > Fix the bug that create a new picker with the same name and namespace of loaded picker,
+      the new picker is by mistake marked as saved.
+       
+
+10/10/2015--------------------------------------------------------------------
+   !> MG-Picker Studio v1.5 released on three OS platform! Lots of new features and improvements.
+
+    > Loading a picker file/node in designer mode is much much faster than previous version.
+
+    > Now the attribute button's attribute are able to be nudged by MMB draging in 3d view.
+      Just click on the label area to highlight the attribute button, and MMB drag in 3d view.
+      Multiple attribute-buttons can be highlighted to be active at the same time.
+      Due to the change, LMB clicking on the label area in preview mode, 
+      will not directly trigger the attribute value change, unless the fill color is transparent enough.
+
+    > Add Bezier/Polygon shape transform dialog.
+      Now you can flip / rotate the bezier / polygon shape without manually redrawing it.
+      Find the feature through the Edit menu or the right clicking menu of Edit/Polygon/Bezier/Transform tool.
+
+    > Add attribute searching widget in animator mode. Use hotkey "Ctrl+F" to load it.
+      It is added so animator can search maya nodes / attributes and select the related picker items.
+
+    > Now the CommandButton Presets and Code Snippets can be created through UI.
+      Go to Misc menu/ Create Presets/CodeSnippets.." to use it.
+
+    > Now you can have two different menus for right clicking menu and left clicking menu.
+      Support for sub-menu are also provided, but it is limited to maximum one level of sub-menu for simplicity.
+      Now menu items can be copyied and pasted.
+      In Maya2015&later, divider can be given a label, in Maya2016&later, menu item can take a icon.
+
+    > Differnt rules of searching directories and orders can be set for different picker projects.
+      Which means differnt picker projects own separated searching directory settings.
+
+    > Add "Edit Namespace" and "Search  & Load" features as buttons in animator mode. 
+   
+    > When creating select-button, it will detect if the member objects are locked in translate/rotate/scale,
+      then a proper post-action will be set. 
+      Say rotate/scale attributes are all locked but some translate attribute are not,
+      then it will set its post action to "Switch To Translate".
+      The feature that apply this post action rule can also be found in the 
+      edit menu or right clicking menu of Edit/SelectButton tool.
+
+    > Add "Process Images To Relative Path.." feature in "Picker" menu. 
+      This will copy all the images involves in the picker to related path, and set the path to relative path.
+      It is extreamly useful when you are deal with picker nodes.
+
+    > The update history can now be found in the about dialog of MG-Picker Studio.
+
+    > The program UI are tested so that it works under different maya UI styles.  
+  
+    > Fix bug that switching the script attribute type will not update the code hightlighting issue.
+
+    > Other minor improvement & bug fixes.
+  
+
+08/14/2015--------------------------------------------------------------------
+   !> MG-Picker Studio now supports Maya2012~Maya2016 x64 in MacOS.
+      Now this tool is available in all the three main OS platforms!
+
+    > The update command attribute is removed from attr-button.
+      New "Load command" and "Enter command" attributes are added to picker document,
+      Load command will be executed when the picker file/node is loaded,
+      while enter command is the replacement of the update command, 
+      it will be executed everytime mouse enter the picker veiw.
+
+    > More interactive tools are accessable to the top-right menu of picker panel.
+
+    > New install mode added, in the new mode, program won't be copied to user script folder, 
+      instead it will be invoked in place.
+
+    > The "About MG-Picker Studio" dialog now shows the build version of the program.
+
+    > New flags added to MGPicker and MGPickerItem command.
+
+    > New "Name" attribute added to each type of picker item, you can query the item's ID
+      via its name, this reduced the hard-coding of ID while programming in picker.
+
+    > New "Sub-Namespace" attribute added to some types of picker item, 
+      to support the reference based rigging mechanism.
+
+    > Fix the bug that the menu item command can't invoke the python command.
+
+    > Fix the bug when you MMB click the picker tab to close it, 
+      after save comfirm dialog popup and be confirmed, always close the current picker 
+      instead of the picker to be closed.
+
+    > Other minor improvements & bug fixes.
+
+
+07/12/2015--------------------------------------------------------------------
+    > New Find&Replace Dialog to help transferring old picker to new characters.
+
+    > Some minor improvements.
+
+
+06/25/2015--------------------------------------------------------------------
+   !> MG-Picker Studio now supports Maya2012~2016 all x64 version in Linux!
+
+    > Some minor bug fixes.
+
+
+06/24/2015--------------------------------------------------------------------
+   !> Supports Maya2016 in Windows.
+
+    > User now can snapshot or assign image even if MG-Picker Studio is not registered.
+
+    > New "Picker An Exist BG-Image.." entry in top-right panel menu.
+
+
+06/10/2015--------------------------------------------------------------------
+    > Some minor bug fixes.
+
+
+06/01/2015--------------------------------------------------------------------
+   !> MG-Picker Studio released version 1.0 in Windows, supports Maya 2011~2015 x86/x64.

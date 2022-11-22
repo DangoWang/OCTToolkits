@@ -1,0 +1,18 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayTS "correctNameSpace.NoRefObj.war" "囧 !!!   請您選擇一個參考物體~";
+MG_displayTS "correctNameSpace.ClearDone.rep" "所選參考物體及其namespace已被清除  :)";
+MG_displayTS "correctNameSpace.repNS.title" "替換 Namespace";
+MG_displayTS "correctNameSpace.repNS.annoText" "把 namespace \"#\" 替換成:";
+MG_displayTS "correctNameSpace.repText" "替換";
+MG_displayTS "correctNameSpace.cancel" "取消";
+MG_displayTS "correctNameSpace.sameUnchanged.war" "囧:你所輸入的namespace與原有的一樣,所以不做變動..";
+MG_displayTS "correctNameSpace.done.rep" "namespace 替換工作完成, 請查收 :)";
+MG_displayTS "correctNameSpace.alreadyUsed.war" "囧:目標namespace \"#\" 已被一個參考所使用!!!";

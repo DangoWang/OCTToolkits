@@ -1,0 +1,19 @@
+﻿> 如果您想從壓縮包裡全新安裝MGtools專業版，請執行下面步驟： 
+  1: 把壓縮包裡的檔案解壓到本機硬碟裡某一個資料夾下面，注意這個資料夾路徑不要包含非英文字元。
+  2: 不要改變裡面的檔案結構，直接把InstallMGTools_WrittenByMiguel.mel拖進Maya的3D檢視視窗。
+  3: 將彈出安裝MGtools視窗, 按視窗的說明進行操作即可。
+
+> 如果您已經在某一版本的Maya安裝了MGTools專業版，現在想將其安裝到另一版本的Maya, 請執行下面步驟：
+  1: 在已安裝的MGtools安裝路徑下，在其invoke目錄裡找到InstallMGTools_WrittenByMiguel.mel，將其拖進目標Maya的3D檢視視窗。
+  2: 將彈出安裝MGtools視窗, 按視窗的說明進行操作即可。
+
+> 如果您需要在整個生產流水線很多機子上安裝MGTools, 可以安裝包上傳到伺服器，即每個要安裝的機子都可以訪問的路徑，
+  這個路徑必須是純AscII路徑的。
+  然後設定其下的 "InstallMGTools_InstallOptionPresets.txt"檔案,(裡面有說明)
+  這個檔案的設定，決定了安裝嚮導的初始設定，這樣您在呼叫伺服器上的安裝包安裝時可以一路點"下一步"按鈕來安裝而無需再定製安裝選項了。
+
+
+如果有任何bug或功能需求，請到 http://mgland.com 或者 http://twincodes.com 來進行反饋，或者寫郵件到mgland@126.com.
+
+謝謝您的試用！
+Miguel (米高|高文峰)

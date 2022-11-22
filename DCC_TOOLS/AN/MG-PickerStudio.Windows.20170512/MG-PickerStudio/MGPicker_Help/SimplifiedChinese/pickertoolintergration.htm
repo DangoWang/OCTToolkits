@@ -1,0 +1,78 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>整合Picker工具</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="distribute picker,pipeline" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "pickertoolintergration.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="distributeinpipeline.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="publishinternet.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">关于MG-Picker工作室版本控制的建议:</span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:9pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span><span style="font-size: 9pt; font-weight: bold;">为什么需要版本控制:</span><br />
+<span style="font-size: 9pt;">大公司往往有自己的软件包的打包及管理系统，及版本管理系统。他们需要在这些系统里作一些设置，以使用更新的Picker工具，或回卷使用旧的工具版本。</span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:9pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span><span style="font-size: 9pt; font-weight: bold;">面临的问题:</span><br />
+<span style="font-size: 9pt;">目前在maya 2017+的版本， MG-Picker工作室使用maya的workspace control来实现随maya加载自动加载。</span><br />
+<span style="font-size: 9pt;">问题是，对于workspace control, 它是硬写一个固定的mel路径，加载这个路径的mel并呼叫相应的函数来加载界面。</span><br />
+<span style="font-size: 9pt;">这意味着下次启动maya，自动加载的工具（如果上次maya你没有关闭picker窗口），仍是指向旧版本的，如果这时想要打开新版本的工具有可能会出错。</span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:9pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span><span style="font-size: 9pt; font-weight: bold;">如何解决:</span><br />
+<span style="font-size: 9pt;">从MG-Picker工作室 v1.83开始，你可以设置一个环境: &nbsp;MGPICKER_PROGRAM_FILE_DIR , </span><br />
+<span style="font-size: 9pt;">将其值设为指向MGPicker_Program的目录，及picker工具的程序目录，这个目录下直接包含了叫&quot;MGPicker_WrittenByMiguel.mel&quot;的mel文件。</span><br />
+<span style="font-size: 9pt;">MG-Picker工作室使用maya的workspace control的ui脚本，就包含了这个环境变量的检测，如果环境变量被设置，则会调用环境变量里的mel。 </span><br />
+<span style="font-size: 9pt;">下面是设置环境变量的示例python代码（你可以用其它任意方式或语言来设置）:</span><br />
+<span style="font-size: 9pt; color: #748c43;">import os</span><br />
+<span style="font-size: 9pt; color: #748c43;">os.environ[&quot;MGPICKER_PROGRAM_FILE_PATH&quot;] = '/path/to/MGPicker_Program'</span><br />
+<span style="font-size: 9pt;">* 对于maya 2016或更早版本，这个功能不被支持，只有重新安装工具。</span></p><p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px -11px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">如何设置配置档根目录:</span><br />
+<span style="font-size: 9pt;">从MG-Picker工作室 v1.83开始，你可以设置一个环境: &nbsp;MGPICKER_USER_CONFIG_DIR , &nbsp;来决定MG-Picker工作室的配置档根目录在哪里。</span><br />
+<span style="font-size: 9pt;">同时你也可以通过MGPicker_Program/ServerConfig/UserConfig_Position.txt这个文本设置文件进行设置，不过通过环境变量直接设置配置档根目录具有更高的优先级。</span><br />
+<span style="font-size: 9pt;">可能值是：</span><br />
+<span style="font-size: 9pt;"> &nbsp; &nbsp; &nbsp; &nbsp;任何绝对路径</span><br />
+<span style="font-size: 9pt;"> &nbsp; &nbsp; &nbsp; &nbsp;$UserAppDir &nbsp;：　如&quot;My Documents/maya/MG_PickerUserConfig&quot;，它对所有本地maya版本起作用</span><br />
+<span style="font-size: 9pt;"> &nbsp; &nbsp; &nbsp; &nbsp;$UserScriptDir &nbsp;：　如&quot;My Documents/maya/2016/scripts/MG-PickerStudio/MGPicker_UserConfig&quot;，如例中所示的，它只对本地maya 2016版本起作用</span><br />
+<span style="font-size: 9pt;"> &nbsp; &nbsp; &nbsp; &nbsp;空值 ： 则默认是MGPicker_Program/MGPicker_UserConfig这个目录。在MG-Picker工作室的程序安装目录里。</span><br />
+<span style="font-size: 9pt;">* 你需要重启maya以便设置生效。</span></p><p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px -11px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">如何设置浮动授权连接器所在目录:</span><br />
+<span style="font-size: 9pt;">从MG-Picker工作室 v1.83开始，你可以设置一个环境: &nbsp;MGPICKER_FLOAT_LIC_CONNECTOR_DIR , 来决定工具要从哪个目录里寻找MG-LicenceConnector，以便加载浮动授权连接器。  </span><br />
+<span style="font-size: 9pt;">同时你也可以通过MGPicker_Program/ServerConfig/MG_LicenceConnector.txt这个文本设置文件进行设置，不过通过环境变量直接设置配置档根目录具有更高的优先级。</span><br />
+<span style="font-size: 9pt;">* 你需要重启maya以便设置生效。</span></p>
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="distributeinpipeline.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="publishinternet.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

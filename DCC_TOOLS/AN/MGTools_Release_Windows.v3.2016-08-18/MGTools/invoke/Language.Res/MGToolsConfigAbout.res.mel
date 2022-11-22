@@ -1,0 +1,111 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "MGconfig.configUI.title" "MGTools Config";
+MG_displayEN "MGconfig.configUI.lenTitle" "MGTools Language";
+
+MG_displayEN "MGconfig.configUI.iconTitle" "MGTools Icons";
+MG_displayEN "MGconfig.configUI.icon.flatColored" "Use Flat Colored Icons";
+MG_displayEN "MGconfig.configUI.icon.colored" "Use Colored Icons";
+MG_displayEN "MGconfig.configUI.icon.mono" "Use Monochromatic Icons";
+
+MG_displayEN "MGconfig.configUI.len" "Language";
+MG_displayEN "MGconfig.configUI.hotKeyFLTitle" "MGTools Hotkey Config";
+MG_displayEN "MGconfig.configUI.hotKey.anno" "* Select item below & Assign HotKey in right row. The lower field shows the actual codes.";
+MG_displayEN "MGconfig.configUI.hotKey.remove" "Remove Current hotKey";
+MG_displayEN "MGconfig.configUI.hotKey.removeAll" "Remove All MGTools hotKeys";
+MG_displayEN "MGconfig.configUI.hotKey.query" "Query";
+MG_displayEN "MGconfig.configUI.hotKey.assignSave" "Assign and Save";
+
+MG_displayEN "MGconfig.configUI.autoloadTitle" "AutoLoad Config:";
+MG_displayEN "MGconfig.configUI.autoload.MGtoolsMiniMode" "Load MGTools in Minimized mode";
+MG_displayEN "MGconfig.configUI.autoload.MGtoolsMenu" "MGTools Menu";
+MG_displayEN "MGconfig.configUI.autoload.MGshelfBar" "MG-ShelfBar";
+MG_displayEN "MGconfig.configUI.autoload.MGchannelBox" "MGChannelBox";
+MG_displayEN "MGconfig.configUI.autoload.MGselset" "MG-SelectionSet";
+MG_displayEN "MGconfig.configUI.autoload.constraintTools" "ConstraintTools";
+MG_displayEN "MGconfig.configUI.autoload.keyframeTools" "KeyframeTools";
+MG_displayEN "MGconfig.configUI.autoload.saveButton" "Save AutoLoad Config";
+
+MG_displayEN "MGconfig.configUI.install.title" "Install shelf or Menu:";
+MG_displayEN "MGconfig.configUI.install.allToC" "All to currentTab";
+MG_displayEN "MGconfig.configUI.install.allToM" "All to Tab \"MGTools\"";
+MG_displayEN "MGconfig.configUI.install.installUpdate" "Install / Update";
+MG_displayEN "MGconfig.configUI.install.removeMGToolsShelf" "Remove MGTools Shelf from current ShelfTab";
+MG_displayEN "MGconfig.configUI.install.MGshelfInstaller" "MGTools Installer..";
+
+MG_displayEN "MGconfig.configUI.tabTitle1" "MGTools UI";
+MG_displayEN "MGconfig.configUI.tabTitle1_1" "MGTools Hotkey";
+MG_displayEN "MGconfig.configUI.tabTitle2" "AutoLoad && Installtion";
+
+MG_displayEN "MGconfig.configUI.helpDot" "Help..";
+MG_displayEN "MGconfig.configUI.help" "Help";
+MG_displayEN "MGconfig.configUI.close" "Close";
+
+MG_displayEN "MGconfig.hotKey.validKey.war" "You must enter a valid key\nin the Key field above.";
+
+MG_displayEN "MGshelfInstaller.war" "You need a shelf for shelf to work!";
+MG_displayEN "MGshelfInstaller.annoText" "Select items below to deal with the respective shelf: (Icons are the toggle of the relevant shelf)";
+MG_displayEN "MGshelfInstaller.clearMGtoolsShelf.rep" " MGTools shelfButtons cleared.";
+MG_displayEN "MGshelfInstaller.installMGtoolsShelf.rep" " Shelves install/updated.";
+MG_displayEN "MGshelfInstaller.removeMGtoolsShelf.rep" " shelves removed.";
+MG_displayEN "MGshelfInstaller.title" "MGTools installer";
+MG_displayEN "MGshelfInstaller.whichTabAnno" "Which Tab U want to edit:";
+MG_displayEN "MGshelfInstaller.currentTab" "CurrentTab";
+MG_displayEN "MGshelfInstaller.mgtoolsTab" "\"MGtoolsTab\" (Will build if the latter does not exist.)";
+MG_displayEN "MGshelfInstaller.selectNA" "Select All/None";
+MG_displayEN "MGshelfInstaller.installSelected" "Install/Update Selected";
+MG_displayEN "MGshelfInstaller.removeSelected" "Remove Selected && Disabled";
+MG_displayEN "MGshelfInstaller.cancel" "Close";
+
+MG_displayEN "MGAbout.title" "About MGTools";
+MG_displayEN "MGAbout.tab1" "Release Note";
+MG_displayEN "MGAbout.tab2" "EULA";
+MG_displayEN "MGAbout.tab3" "MGTools 1.0 / 2.0 Donator";
+MG_displayEN "MGAbout.tab3.title" "Thanks to these donators of MGTools 1.0 / 2.0:\n";
+MG_displayEN "MGAbout.donate" "Donate ..";
+MG_displayEN "MGAbout.feedBack" "FeedBack ..";
+
+MG_displayEN "MGAbout.switchLang.rep" "Language has been switched. But tool UI Language may not refresh until u reopen them.";
+MG_displayEN "MGAbout.switchIcon.rep" "Icon choice has been changed. Reopen MGTools uis to show the new icons.";
+
+MG_displayEN "mgtools.about.wheel.ann" "Tips: Use ctrl + wheel to zoom in/out the text display :)";
+MG_displayEN "mgtools.about.donators" "YGSX; QGGWMF; onydo; drifted; woerxi; Belikov Boris";
+
+//below are added in 05042012:
+MG_displayEN "mgtools.switchLang.war" "Do you really want to switch UI language to Chinese? Please make sure your OS system is Chinese version or the UI will display in mess.";
+
+MG_displayEN "mgtools.switchLang.war" "Do you really want to switch UI language to Chinese? Please make sure your OS system is Chinese version or the UI will display in mess.";
+
+MG_displayEN "mgtools.options.toolConfig.lbl"  "Tools Configuration";
+MG_displayEN "mgtools.options.toolList.lbl"  "Tools List:";
+MG_displayEN "mgtools.options.toolOptions.lbl"  "Tool Options:";
+
+MG_displayEN "mgtools.options.popupOption.msg"  "* The configuration UI for this tool is a floating Window. \n   Set the Options there please.";
+
+
+//add in MGTools3======================================================================
+MG_displayEN "mgtools.options.uiChoice.msg"  "* Check on the icon to remove it from MGTools Bar: (First one is not removable)";
+MG_displayEN "mgtools.options.uiChoice.btn"  "Save UI Config";
+MG_displayEN "mgtools.options.autoload.store.lbl"  "Store At "; 
+MG_displayEN "mgtools.about.miguel" "mgtoolsPro@gmail.com  CopyRight Miguel @ MGLAND animation studio";
+MG_displayEN "mgtools.about.lv" "License: ";
+MG_displayEN "mgtools.about.userCode" "User Code:";
+MG_displayEN "mgtools.pro" "MGTools Pro";
+MG_displayEN "mgtools.trial.licenseStr" "MGTools Trial License, # days left";
+MG_displayEN "mgtools.student.licenseStr" "MGTools Student License, # days left";
+MG_displayEN "mgtools.comm.licenseStr" "Commericial License";
+MG_displayEN "mgtools.comm.old" ", License version is for older MGTools Pro version";
+MG_displayEN "mgtools.trial.expired" "MGTools Trial License Expired";
+MG_displayEN "mgtools.student.expired" "MGTools Pro# Student License, License has expired";
+MG_displayEN "mgtools.license.upgrade" "Upgrade..";
+MG_displayEN "mgtools.license.update" "Update..";
+
+//add after float license=========================================
+MG_displayEN "mgtools.float.licenseStr" "Floating License";

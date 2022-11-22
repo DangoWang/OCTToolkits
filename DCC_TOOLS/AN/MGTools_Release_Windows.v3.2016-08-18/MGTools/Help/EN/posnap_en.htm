@@ -1,0 +1,108 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>MG POsnap tool</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Animation,Keyframe,Locator,Marker,POsnap,Snap" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "posnap_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span style="font-weight: bold; color: #191817;">MG POsnap tool</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="motionpath_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="feetsnap_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold; color: #191817;">MG Snap Tools: </span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:51px; padding:0px;"><p style="text-align: center; line-height: 1.50;"><img src="feetsnapicon.gif" width="32" height="32" alt="feetsnapIcon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:13px; padding:0px;"><p style="line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:1065px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">Click this button to PO snap forward. (Same as parent-constraint with no offset ) </span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">This is probably the most popular feature of MGTools. U can preview per frame when snapping. It is really convenient , efficient and straight forward. </span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">In MGTools 2.5, the tools get some performance improvement . </span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50;">&nbsp;<br />
+<img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">Features in popup menus.</span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1019px; height:304px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><img src="mi_posnapf_en.gif" width="428" height="380" alt="MI_POsnapF_en" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;">&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1019px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;">Clear Snaplocators : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Clear all the snapping use locators except those who have out / import connects. (May be u use it to constraint objects or to be constrained ).</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">After a lot of snapping, There maybe a great amount of locators in your scene, use this to quickly clear them.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;"> SnapLocator manager.. : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Open snap used locators managers. </span><a href="marker_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;"> Marker : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Open Create a locator marker in the right position of the current selection . </span><a href="marker_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle">  </span><span class="f_MI_TitleStyle" style="color: #404040;">BackUp/Restore Animation..: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> BackUP animation before snapping. If U are not happy with the snapping result ,use restore feature to restore animation. </span><span class="f_MI_TitleStyle" style="color: #404040;">  </span><a href="backup_restore_animation_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;">The features below are all snapping concerned. Read on to know more.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;">The OptionBox of each snapping feature:  </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Click to open MG-Config Window, the snap option page:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"> &nbsp; &nbsp;  <img src="snaptooloption_en.gif" width="326" height="65" alt="snapToolOption_en" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="color: #404040;">Clear Decimal (Transformation) Keys Passed Through: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Auto-Clear the decimal keys when doing the forward/backward snapping. left only integer key created/edited by the snap tool.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="color: #404040;">Snap the Whole Range If there's time range highlighted: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Snap the whole time range if there is a range highlight in time slider.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">This is very convenient, because you can highlight the range you want to snap the object, and click an with one go all be snapped. </span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle" style="color: #000000;">There are serval types of snapping in MGTools:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">POsnap: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Snap the second selection to the exact position and orientation of the first selection . Looks like doing a parent constraint without offset.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">POsnap Forward : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">This is the typical usage. Beside doing a PO snap ,it will step forward for one frame. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">When U select only one object, it will create a snap &nbsp;used locator automatically and use it as the position reference . </span><a href="feetsnap_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">POsnap Backward :</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> What makes it different from doing a PO snap forward is ,it will step backward for one &nbsp;frame.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Point Snap : </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;"> </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Snap the second selection to the exact position of the first selection . Looks like doing a point constraint without offset.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Point Snap</span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;">Forward : </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Beside doing a point snap ,it will step forward for one frame. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">When U select only one object, it will create a snap &nbsp;used locator automatically and use it as the position reference . </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Point Snap Backward :  </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">What makes it different from doing a point snap forward &nbsp;is,it will step backward for one &nbsp;frame.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Orient Snap : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Snap the second selection to the exact orientation of the first selection . Looks like doing a orient constraint without offset.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Orient Snap Forward :</span><span class="f_MI_TitleStyle">  </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Beside doing a orient snap ,it will step forward for one frame. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">When U select only one object, it will create a snap &nbsp;used locator automatically and use it as the position reference . </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Orient Snap Backward :</span><span class="f_MI_TitleStyle">  </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">What makes it different from doing a orient snap forward &nbsp;is,it will step backward for one &nbsp;frame.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Relative POsnap Forward :</span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;"> </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">To simulate the situation that the second selection is parent constraint with a offset with the first selection using keyframes per frame.</span><a href="relative_snap_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Relative POsnap Backward :</span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">What makes it different from doing a relative PO snap forward &nbsp;is,it will step backward for one &nbsp;frame.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Relative PointSnap Forward : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">To simulate the situation that the second selection is relative point constraint with a offset with the first selection using keyframes per frame.</span><a href="relative_snap_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Relative PointSnap Backward :</span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">What makes it different from doing a relative point snap forward &nbsp;is,it will step backward for one &nbsp;frame.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> Tips: If U have installed all the MGTools shelves into Maya shelves , there are actually two foot icons. &nbsp;If there are plus symbol in the icon ,it means the button is snapping with a auto stepping forward.</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="motionpath_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="feetsnap_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

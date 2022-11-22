@@ -1,0 +1,59 @@
+# You set up this file to affect the installation presets of MGTools Pro.
+
+# The Line starts with ">" is just a title that helps you understand the what the option is for; 
+# The line starts with # is just a comment that will be ignored; 
+# The line starts with neither of both, but "(digit)" or "[digit]", is the preset value you choose;
+# If all the options values are commented out, installation tool will use its factory default value;
+# If all the values are not commented out, will use the down most value.
+
+# So, if you wanna set the MGTools installation presets for your pipeline, 
+# please comment/uncomment the preset values,
+# the preset value start with "(digit)" is a single choice preset, starts with "[digit]" is multiple choices preset,
+# also please Leave the title line alone.
+
+# after that, when you install MGTools among different computers, 
+# you can just ignore all the install options and click "Next" to finish the installation.
+
+
+#--------------------------Now set up the installation preset options below! ---------------------------------
+
+> UI Language:
+	(1) English
+	#(2) Simplified Chinese
+	#(3) Traditional Chinese
+
+
+> Install Mode:
+	(1) Install As Local Program
+	#(2) Install As Server Program
+	#(3) Install As Full Server Program
+
+
+> Add/Update MGTools entries to:
+	(1) Install To New "MGTools" ShelfTab [80 Shelves]
+	#(2) Install To Current ShelfTab [80 Shelves]
+	#(3) Install To Shelf [1 Shelf]
+
+
+> With Items U want to be autoloaded when maya starts:
+	[1] Autoload MGTools Menu
+	[2] Autoload MGTools
+	#[3] Load MGTools Minimized
+	#[4] Autoload MGChannelBox
+	#[5] Autoload MGShelfBar
+	#[6] Autoload Constraint Tools
+	#[7] Autoload Keyframe Tools
+	#[8] Autoload MG-SelectionSet
+
+
+> Autoload Via Fiel:	(If the file exists, this only insert the content, never override.)
+	(1) UserSetup.mel
+	#(2) UserSetup.py
+
+
+> After MGTools Installed:
+	[1] Load MGTools
+	#[2] View Help Doc
+	#[3] Config MGTools
+	[4] Register MGTools
+

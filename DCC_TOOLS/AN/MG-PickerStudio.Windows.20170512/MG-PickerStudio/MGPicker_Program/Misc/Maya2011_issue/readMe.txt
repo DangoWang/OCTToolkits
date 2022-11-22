@@ -1,0 +1,3 @@
+MG-Picker Studio support maya 2011 in Windows, however, QtNetwork4.dll does not ship with Maya2011, which is needed by MG-Picker Studio.
+
+In order to use MG-Picker Studio in maya2011 in Windows, you must copy /x86/QtNetwork4.dll if it is x86 maya, or /64/QtNetwork4.dll if it is x64 maya, to the bin folder within maya install folder. This is done automatically, as long as you have write access in the maya bin folder. If you don't have, you must contact system administrator to copy the QtNetwork4.dll manually.

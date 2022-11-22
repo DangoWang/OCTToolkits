@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>预览图生成组件</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Snapshot" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "mgsnapshotwidget.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">预览图生成组件</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="poseanim_createposeanim.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="poseanim_manageeditlib.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_ImageCaption" style="font-size: 10pt;">MGTools创建预览图界面：</span></p>
+<p style="text-indent: 21px; line-height: 1.50;"><span style="color: #191817;">这个界面组件被内置在MG-Pose动作库用来创建Pose及创建动作，也用来编辑项时追加及更新缩略图。</span></p>
+<p style="text-indent: 21px; line-height: 1.50;"><span style="color: #191817;">这个界面组件也用在MG资产库中，用来创建预览图。</span></p>
+<p style="text-indent: 21px; line-height: 1.50;"><img src="snapshotcomponent_ch.gif" width="404" height="448" alt="snapshotComponent_ch" style="border:none" /></p>
+<p style="text-indent: 21px; line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">预览图数量 ：</span>1~4: 决定生成的预览图/预览视频的数量，同时也会调整下面3D视图的数量。一次性最多能生成4个，当然过后你还可以追加更多的预览图。<a href="poseanim_manageeditlib.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 图标使用 ：</span>#1~#4: 当预览图数量为4时，下方会有四个3D视图。这四个视图正如图中所标注的，从左上，右上，右下，左下分别是#1~#4.</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;所以这个选项用来指定，将来哪一个视图生成的预览图，将作为项的缩略图标显示。 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> &lt;设置为当前 ：</span>将下面4个3D视图中，当前激活的那个视图，其编号作为图标使用的编号。<br />
+<span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;这意味着，将当前激活的视图将来所产生的预览图，作为将来创建的项按钮的图标。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 摄像机书签 ：</span>如果是&quot;当前&quot; 则不作任何动作。在上面点击，可以应用不同的摄像机书签。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;点击后出来的列表里，以~开头的项，是工具默认提供的预置。前头有[4]的项，则代表它纪录有4个摄像机的信息，将被应用到的所有四个3D视窗。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;前头没有[4]的项，则代表将只应用到当前激活的3D视窗。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;以~[4]开头的，就是工具默认提供的，将会应用到所有四个3D视窗的摄像机书签。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 书签按钮 ：</span>点击弹出菜单：</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">激活视图 -&gt; 书签：</span> 将当前激活的视图的摄像机信息存为摄像机书签。 &nbsp; </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">全部4视图 -&gt; 书签：</span> 将全部4视图的摄像机信息存为摄像机书签。这个书签的名称会自动以[4]开头。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">调整激活视图摄像机..:</span> 打开Maya属性编辑器，这样你可以细调当前激活视图的摄像机的参数。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> &nbsp;视图配置按钮：</span>这些按钮都用来修改4个3D视图的配置，如显示不显示HUD, 网格等。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;在这些按钮上单击，则修改当前激活视图的相应配置；双击，则是同时修改所有4个视图的配置。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;依次为：HUD显示开关，nurbs曲线显示开关，nurbs几何体显示开关，网格显示开关，是否显示物件选择，是否显示贴图，是否显示网格。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;最后一个按钮，点击可以作一些隔离显示，取消隔离显示的操作。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> 提示：上面的摄像机书签，可以在MG-Pose动作库的配置窗口里进行重命名，删除等操作。</span><a href="poseanim_config.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="text-indent: -24px; line-height: 2.0; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">另外，摄像机书签只会存储摄像机的属性参数，像上面的视图配置信息如显不显示HUD等不会被存储。 </span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;">&nbsp;</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="poseanim_createposeanim.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="poseanim_manageeditlib.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

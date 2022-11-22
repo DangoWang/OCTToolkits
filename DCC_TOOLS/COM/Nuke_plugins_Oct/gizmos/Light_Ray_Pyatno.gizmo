@@ -1,0 +1,1478 @@
+#! c:/Program Files/Nuke7/Nuke7.0.exe -nx
+version 7.0 v8
+Gizmo {
+ inputs 3
+ tile_color 0x55ff88ff
+ label "v_2\n\n\n\n"
+ note_font "Verdana Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+ addUserKnob {20 Pyatno}
+ addUserKnob {6 on_imnort_pyatno +STARTLINE}
+ addUserKnob {26 ""}
+ addUserKnob {20 p_nois_control n 1}
+ p_nois_control 0
+ addUserKnob {14 xy_size R 0 100}
+ xy_size 100
+ addUserKnob {7 z_ R 0 5}
+ z_ 2.52
+ addUserKnob {41 T_s T xyzKey1.T_s}
+ addUserKnob {41 F_s T xyzKey1.F_s}
+ addUserKnob {20 endGroup_5 l endGroup n -1}
+ addUserKnob {20 mask_Feather n 1}
+ mask_Feather 0
+ addUserKnob {6 Feather +STARTLINE}
+ addUserKnob {41 blackpoint T Grade1.blackpoint}
+ addUserKnob {41 whitepoint T Grade1.whitepoint}
+ addUserKnob {41 black l lift T Grade1.black}
+ addUserKnob {41 white l gain T Grade1.white}
+ addUserKnob {41 multiply T Grade1.multiply}
+ addUserKnob {41 add l offset T Grade1.add}
+ addUserKnob {41 gamma_2 l gamma T Grade1.gamma}
+ addUserKnob {20 endGroup_2 l endGroup n -1}
+ addUserKnob {20 mask_light n 1}
+ mask_light 0
+ addUserKnob {6 light +STARTLINE}
+ addUserKnob {41 color T Phong1.color}
+ addUserKnob {41 emission T Phong1.emission}
+ addUserKnob {41 diffuse T Phong1.diffuse}
+ addUserKnob {41 specular T Phong1.specular}
+ addUserKnob {41 min_shininess l "min shininess" T Phong1.min_shininess}
+ addUserKnob {41 max_shininess l "max shininess" T Phong1.max_shininess}
+ addUserKnob {20 endGroup_4 l endGroup n -1}
+ addUserKnob {20 mask_spher n 1}
+ mask_spher 0
+ addUserKnob {6 spher +STARTLINE}
+ spher true
+ addUserKnob {26 ""}
+ addUserKnob {41 Radius T xyzKey2.Radius}
+ addUserKnob {41 T_s_1 l T_s T xyzKey2.T_s}
+ addUserKnob {41 F_s_1 l F_s T xyzKey2.F_s}
+ addUserKnob {26 ""}
+ addUserKnob {41 Sx T xyzKey2.Sx}
+ addUserKnob {41 Sy T xyzKey2.Sy}
+ addUserKnob {41 Sz T xyzKey2.Sz}
+ addUserKnob {26 ""}
+ addUserKnob {41 Radius_1 l Radius T xyzKey3.Radius}
+ addUserKnob {41 OnOff_2 l On/Off T xyzKey3.OnOff_2}
+ addUserKnob {41 T_y1 T xyzKey3.T_y1}
+ addUserKnob {41 F_y1 T xyzKey3.F_y1}
+ addUserKnob {41 OnOff_3 l On/Off T xyzKey3.OnOff_3}
+ addUserKnob {41 T_y2 T xyzKey3.T_y2}
+ addUserKnob {41 F_y2 T xyzKey3.F_y2}
+ addUserKnob {20 endGroup_6 l endGroup n -1}
+ addUserKnob {20 mask_Height n 1}
+ mask_Height 0
+ addUserKnob {6 Height +STARTLINE}
+ addUserKnob {41 range_2 l range T Keyer2.range}
+ addUserKnob {20 endGroup_3 l endGroup n -1}
+ addUserKnob {20 Cam_Axis}
+ addUserKnob {13 Konus_trans l trans}
+ Konus_trans {{"\[python nuke.thisNode().input(0).knob('trans').value(0)]"} {"\[python nuke.thisNode().input(0).knob('trans').value(1)]"} {"\[python nuke.thisNode().input(0).knob('trans').value(2)]"}}
+ addUserKnob {7 Konus_scale_1 l scale_1}
+ Konus_scale_1 {{"\[python nuke.thisNode().input(0).knob('scale_1').value(0)]"}}
+ addUserKnob {7 Konus_scale_2 l scale_2}
+ Konus_scale_2 {{"\[python nuke.thisNode().input(0).knob('scale_2').value(0)]"}}
+ addUserKnob {26 ""}
+ addUserKnob {15 cam_m1 +DISABLED}
+ cam_m1 {{"\[python nuke.thisNode().input(0).knob('cam_m1').value(0)]"} {"\[python nuke.thisNode().input(0).knob('cam_m1').value(1)]"} {"\[python nuke.thisNode().input(0).knob('cam_m1').value(2)]"} {"\[python nuke.thisNode().input(0).knob('cam_m1').value(3)]"}}
+ addUserKnob {15 cam_m2 +DISABLED}
+ cam_m2 {{"\[python nuke.thisNode().input(0).knob('cam_m2').value(0)]"} {"\[python nuke.thisNode().input(0).knob('cam_m2').value(1)]"} {"\[python nuke.thisNode().input(0).knob('cam_m2').value(2)]"} {"\[python nuke.thisNode().input(0).knob('cam_m2').value(3)]"}}
+ addUserKnob {15 cam_m3 +DISABLED}
+ cam_m3 {{"\[python nuke.thisNode().input(0).knob('cam_m3').value(0)]"} {"\[python nuke.thisNode().input(0).knob('cam_m3').value(1)]"} {"\[python nuke.thisNode().input(0).knob('cam_m3').value(2)]"} {"\[python nuke.thisNode().input(0).knob('cam_m3').value(3)]"}}
+ addUserKnob {15 cam_m4 +DISABLED}
+ cam_m4 {{"\[python nuke.thisNode().input(0).knob('cam_m4').value(0)]"} {"\[python nuke.thisNode().input(0).knob('cam_m4').value(1)]"} {"\[python nuke.thisNode().input(0).knob('cam_m4').value(2)]"} {"\[python nuke.thisNode().input(0).knob('cam_m4').value(3)]"}}
+ addUserKnob {26 ""}
+ addUserKnob {15 axs_m1 +DISABLED}
+ axs_m1 {{"\[python nuke.thisNode().input(0).knob('axs_m1').value(0)]"} {"\[python nuke.thisNode().input(0).knob('axs_m1').value(1)]"} {"\[python nuke.thisNode().input(0).knob('axs_m1').value(2)]"} {"\[python nuke.thisNode().input(0).knob('axs_m1').value(3)]"}}
+ addUserKnob {15 axs_m2 +DISABLED}
+ axs_m2 {{"\[python nuke.thisNode().input(0).knob('axs_m2').value(0)]"} {"\[python nuke.thisNode().input(0).knob('axs_m2').value(1)]"} {"\[python nuke.thisNode().input(0).knob('axs_m2').value(2)]"} {"\[python nuke.thisNode().input(0).knob('axs_m2').value(3)]"}}
+ addUserKnob {15 axs_m3 +DISABLED}
+ axs_m3 {{"\[python nuke.thisNode().input(0).knob('axs_m3').value(0)]"} {"\[python nuke.thisNode().input(0).knob('axs_m3').value(1)]"} {"\[python nuke.thisNode().input(0).knob('axs_m3').value(2)]"} {"\[python nuke.thisNode().input(0).knob('axs_m3').value(3)]"}}
+ addUserKnob {15 axs_m4 +DISABLED}
+ axs_m4 {{"\[python nuke.thisNode().input(0).knob('axs_m4').value(0)]"} {"\[python nuke.thisNode().input(0).knob('axs_m4').value(1)]"} {"\[python nuke.thisNode().input(0).knob('axs_m4').value(2)]"} {"\[python nuke.thisNode().input(0).knob('axs_m4').value(3)]"}}
+}
+ Dot {
+  inputs 0
+  name Dot16
+  xpos 546
+  ypos -2231
+ }
+set N36844060 [stack 0]
+ Dot {
+  name Dot342
+  xpos 546
+  ypos -1906
+ }
+ Axis2 {
+  inputs 0
+  useMatrix true
+  matrix {
+      {{axs_m1.0} {axs_m1.1} {axs_m1.2} {axs_m1.3}}
+      {{axs_m2.0} {axs_m2.1} {axs_m2.2} {axs_m2.3}}
+      {{axs_m3.0} {axs_m3.1} {axs_m3.2} {axs_m3.3}}
+      {{axs_m4.0} {axs_m4.1} {axs_m4.2} {axs_m4.3}}
+    }
+  name A_
+  note_font "Verdana Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+  xpos -10
+  ypos -2340
+ }
+ Dot {
+  name Dot19
+  xpos 632
+  ypos -2316
+ }
+set N36844740 [stack 0]
+ Dot {
+  name Dot21
+  xpos 632
+  ypos -1808
+ }
+push $N36844740
+ Dot {
+  name Dot93
+  xpos 4509
+  ypos -2316
+ }
+set N36845190 [stack 0]
+ Dot {
+  name Dot31
+  xpos 7887
+  ypos -2316
+ }
+ Dot {
+  name Dot57
+  xpos 8059
+  ypos -2316
+ }
+ Axis2 {
+  inputs 0
+  useMatrix true
+  matrix {
+      {{cam_m1.0} {cam_m1.1} {cam_m1.2} {cam_m1.3}}
+      {{cam_m2.0} {cam_m2.1} {cam_m2.2} {cam_m2.3}}
+      {{cam_m3.0} {cam_m3.1} {cam_m3.2} {cam_m3.3}}
+      {{cam_m4.0} {cam_m4.1} {cam_m4.2} {cam_m4.3}}
+    }
+  name B_
+  note_font "Verdana Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+  selected true
+  xpos -124
+  ypos -2297
+ }
+ Dot {
+  name Dot20
+  xpos 587
+  ypos -2273
+ }
+set N36845f50 [stack 0]
+ Dot {
+  name Dot91
+  xpos 4456
+  ypos -2273
+ }
+set N368462c0 [stack 0]
+ Dot {
+  name Dot44
+  xpos 7827
+  ypos -2273
+ }
+ Dot {
+  name Dot58
+  xpos 8055
+  ypos -2273
+ }
+ Input {
+  inputs 0
+  name mask
+  xpos -68
+  ypos -2144
+  number 1
+ }
+ Dot {
+  name Dot3
+  xpos 96
+  ypos -2141
+ }
+ Dot {
+  name Dot28
+  xpos 491
+  ypos -2141
+ }
+set N368473f0 [stack 0]
+ Dot {
+  name Dot290
+  xpos 1827
+  ypos -2141
+ }
+set N36847760 [stack 0]
+ Dot {
+  name Dot96
+  xpos 1957
+  ypos -2141
+ }
+set N36847ad0 [stack 0]
+ Dot {
+  name Dot94
+  xpos 4409
+  ypos -2141
+ }
+set N36847e40 [stack 0]
+ Dot {
+  name Dot60
+  xpos 8052
+  ypos -2141
+ }
+ Axis {
+  inputs 0
+  translate {{parent.Konus.scale_2.left*500} 0 0}
+  rotate {{"-degrees(atan2 ((B.translate.y-A.translate.y),sqrt(pow2(B.translate.z-A.translate.z)+pow2(B.translate.x-A.translate.x))))-90"} {"(B.translate.z-A.translate.z)<=0?180-degrees(atan2 ((B.translate.x-A.translate.x),abs(B.translate.z-A.translate.z)))  : -degrees(atan2 ((A.translate.x-B.translate.x),abs(B.translate.z-A.translate.z)))"} {curve}}
+  name B
+  xpos 2225
+  ypos -1585
+ }
+ Axis2 {
+  rotate {0 90 90}
+  name C
+  xpos 2335
+  ypos -1585
+ }
+push $N36844060
+ Dot {
+  name Dot59
+  xpos 8050
+  ypos -2231
+ }
+ Axis {
+  inputs 0
+  translate {{parent.Konus.scale_1.left*500} 500 0}
+  name A
+  xpos 2225
+  ypos -1696
+ }
+push $N36845f50
+ Dot {
+  name Dot11
+  xpos 587
+  ypos -1784
+ }
+push $N368473f0
+ Dot {
+  name Dot67
+  xpos 491
+  ypos -1304
+ }
+ Input {
+  inputs 0
+  name Light
+  xpos 138
+  ypos -2383
+ }
+ NoOp {
+  inputs 0
+  name Konus
+  xpos 1315
+  ypos -1639
+  addUserKnob {20 User}
+  addUserKnob {13 trans}
+  trans {{parent.Konus_trans.x} {parent.Konus_trans.y} {parent.Konus_trans.z}}
+  addUserKnob {7 scale_1}
+  scale_1 {{parent.Konus_scale_1}}
+  addUserKnob {7 scale_2}
+  scale_2 {{parent.Konus_scale_2}}
+ }
+push $N36847760
+ Shuffle {
+  in depth
+  alpha red
+  name Shuffle139
+  label "\[value in]\n."
+  note_font "Verdana Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+  xpos 1793
+  ypos 234
+ }
+ Expression {
+  expr3 "a<0 ? 0 : 1"
+  name Expression1
+  xpos 1793
+  ypos 282
+ }
+ Shuffle {
+  red black
+  green black
+  blue black
+  alpha red
+  name Shuffle140
+  xpos 1793
+  ypos 316
+ }
+push $N368462c0
+ Dot {
+  name Dot107
+  xpos 4456
+  ypos -454
+ }
+push $N36847ad0
+add_layer {tk_specialC2 tk_specialC2.red tk_specialC2.green tk_specialC2.blue}
+ Shuffle {
+  in tk_specialC2
+  alpha white
+  name Shuffle16
+  label "\[value in]\n."
+  note_font "Verdana Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+  xpos 1923
+  ypos -1789
+ }
+push 0
+ Merge2 {
+  inputs 2
+  name Merge27
+  xpos 1923
+  ypos -1741
+ }
+ Expression {
+  expr0 r-parent.A_.world_matrix.left.3
+  expr1 g-parent.A_.world_matrix.left.7
+  expr2 b-parent.A_.world_matrix.left.11
+  name Expression10
+  xpos 1923
+  ypos -1595
+ }
+ ColorMatrix {
+  matrix {
+      {{parent.A_.world_matrix.left.0} {parent.A_.world_matrix.left.1} {parent.A_.world_matrix.left.2}}
+      {{parent.A_.world_matrix.left.4} {parent.A_.world_matrix.left.5} {parent.A_.world_matrix.left.6}}
+      {{parent.A_.world_matrix.left.8} {parent.A_.world_matrix.left.9} {parent.A_.world_matrix.left.10}}
+    }
+  invert true
+  name ColorMatrix4
+  xpos 1923
+  ypos -1560
+ }
+ ColorMatrix {
+  matrix {
+      {1 {parent.Konus.trans.left.x} 0}
+      {0 {parent.Konus.trans.left.y} 0}
+      {0 {parent.Konus.trans.left.z} 1}
+    }
+  invert true
+  name ColorMatrix1
+  xpos 1922
+  ypos -1476
+ }
+ Dot {
+  name Dot74
+  xpos 1956
+  ypos -1452
+ }
+ Dot {
+  name Dot75
+  xpos 2034
+  ypos -1452
+ }
+set N36b8ca00 [stack 0]
+ Dot {
+  name Dot76
+  xpos 2144
+  ypos -1452
+ }
+set N36b8cd70 [stack 0]
+ Dot {
+  name Dot77
+  xpos 2311
+  ypos -1452
+ }
+set N36b8d0e0 [stack 0]
+ Dot {
+  name Dot78
+  xpos 2527
+  ypos -1452
+ }
+set N36b8d450 [stack 0]
+ Dot {
+  name Dot79
+  xpos 2637
+  ypos -1452
+ }
+set N36b8d7c0 [stack 0]
+ Dot {
+  name Dot80
+  xpos 2781
+  ypos -1452
+ }
+set N36b8db30 [stack 0]
+ Dot {
+  name Dot81
+  xpos 3040
+  ypos -1452
+ }
+set N36b8dea0 [stack 0]
+ Expression {
+  expr0 0
+  expr1 g
+  expr2 0
+  expr3 0
+  name ExpressionGG1
+  xpos 3006
+  ypos -915
+  addUserKnob {20 User}
+  addUserKnob {7 scale}
+  scale 1
+  addUserKnob {13 trans}
+ }
+push 0
+push $N36b8d450
+ Shuffle {
+  red black
+  green black
+  alpha black
+  name Shuffle24
+  xpos 2491
+  ypos -1315
+ }
+ Dot {
+  name Dot82
+  xpos 2548
+  ypos -1292
+ }
+set N36b8e8f0 [stack 0]
+ Dot {
+  name Dot83
+  xpos 2714
+  ypos -1292
+ }
+set N36b8ec60 [stack 0]
+ Dot {
+  name Dot84
+  xpos 2881
+  ypos -1292
+ }
+ Expression {
+  expr2 "b>0? 1:-1"
+  name Expression41
+  xpos 2847
+  ypos -1103
+ }
+push $N36b8e8f0
+push $N36b8d7c0
+ Expression {
+  expr0 b
+  expr2 r
+  name Expression24
+  xpos 2603
+  ypos -1434
+ }
+ Expression {
+  expr0 r-parent.C.world_matrix.left.3
+  expr1 g-parent.C.world_matrix.left.7
+  expr2 b-parent.C.world_matrix.left.11
+  name Expression25
+  xpos 2603
+  ypos -1392
+ }
+ ColorMatrix {
+  channels rgba
+  matrix {
+      {{parent.C.world_matrix.left.0} {parent.C.world_matrix.left.1} {parent.C.world_matrix.left.2}}
+      {{parent.C.world_matrix.left.4} {parent.C.world_matrix.left.5} {parent.C.world_matrix.left.6}}
+      {{parent.C.world_matrix.left.8} {parent.C.world_matrix.left.9} {parent.C.world_matrix.left.10}}
+    }
+  invert true
+  name ColorMatrix7
+  xpos 2603
+  ypos -1368
+ }
+ Expression {
+  expr1 "parent.A.translate.x-parent.B.translate.x <= 0 ? g:-g"
+  name Expression26
+  xpos 2603
+  ypos -1344
+ }
+ Shuffle {
+  red black
+  blue black
+  alpha black
+  name Shuffle22
+  xpos 2603
+  ypos -1320
+ }
+ Merge2 {
+  inputs 2
+  name Merge17
+  xpos 2603
+  ypos -1252
+ }
+ Expression {
+  expr2 b/(g)
+  name Expression35
+  xpos 2603
+  ypos -1228
+ }
+ Expression {
+  expr2 "b>1 ?b<0 ? 0 : 0 :-b/100"
+  name Expression36
+  xpos 2603
+  ypos -1204
+ }
+ Expression {
+  expr0 0
+  expr1 0
+  expr2 "b<1 ? b>0 ? b:0:0"
+  name Expression37
+  xpos 2603
+  ypos -1180
+ }
+ Dot {
+  name Dot85
+  xpos 2637
+  ypos -1099
+ }
+push $N36b8ec60
+push $N36b8db30
+ Expression {
+  expr0 -b
+  expr2 r
+  name Expression27
+  xpos 2747
+  ypos -1434
+ }
+ Expression {
+  expr0 r-parent.C.world_matrix.left.3
+  expr1 g-parent.C.world_matrix.left.7
+  expr2 b-parent.C.world_matrix.left.11
+  name Expression28
+  xpos 2747
+  ypos -1392
+ }
+ ColorMatrix {
+  channels rgba
+  matrix {
+      {{parent.C.world_matrix.left.0} {parent.C.world_matrix.left.1} {parent.C.world_matrix.left.2}}
+      {{parent.C.world_matrix.left.4} {parent.C.world_matrix.left.5} {parent.C.world_matrix.left.6}}
+      {{parent.C.world_matrix.left.8} {parent.C.world_matrix.left.9} {parent.C.world_matrix.left.10}}
+    }
+  invert true
+  name ColorMatrix8
+  xpos 2747
+  ypos -1368
+ }
+ Expression {
+  expr1 "parent.A.translate.x-parent.B.translate.x <= 0 ? g:-g"
+  name Expression29
+  xpos 2747
+  ypos -1344
+ }
+ Shuffle {
+  red black
+  blue black
+  alpha black
+  name Shuffle23
+  xpos 2747
+  ypos -1320
+ }
+ Merge2 {
+  inputs 2
+  name Merge18
+  xpos 2747
+  ypos -1253
+ }
+ Expression {
+  expr2 -b/(g)
+  name Expression38
+  xpos 2747
+  ypos -1229
+ }
+ Expression {
+  expr2 "b>1 ? b<0 ? 0 : 0 :-b/100"
+  name Expression39
+  xpos 2747
+  ypos -1205
+ }
+ Expression {
+  expr0 0
+  expr1 0
+  expr2 "b<1 ? b>0 ? b:0:0"
+  name Expression40
+  xpos 2747
+  ypos -1181
+ }
+ Merge2 {
+  inputs 2
+  name Merge19
+  xpos 2747
+  ypos -1102
+ }
+ ColorLookup {
+  lut {master {}
+    red {curve L 0 1}
+    green {}
+    blue {curve L 0 s0 t6 v0.1131109968 1 s0.009999999776 u3}
+    alpha {}}
+  name ColorLookup8
+  xpos 2747
+  ypos -1078
+ }
+ ColorLookup {
+  lut {master {}
+    red {curve L 0 1}
+    green {}
+    blue {curve L 0 s0 t6 v0.1131109968 1 s0.009999999776 u3}
+    alpha {}}
+  name ColorLookup9
+  xpos 2747
+  ypos -1054
+ }
+set N36d93fb0 [stack 0]
+ Merge2 {
+  inputs 2
+  operation multiply
+  name Merge20
+  xpos 2847
+  ypos -1015
+ }
+push $N36b8ca00
+ Shuffle {
+  green black
+  blue black
+  alpha black
+  name Shuffle18
+  xpos 1998
+  ypos -1315
+ }
+ Dot {
+  name Dot86
+  xpos 2055
+  ypos -1292
+ }
+set N36d94a00 [stack 0]
+ Dot {
+  name Dot87
+  xpos 2244
+  ypos -1292
+ }
+set N36d94d70 [stack 0]
+ Dot {
+  name Dot88
+  xpos 2408
+  ypos -1292
+ }
+ Expression {
+  expr0 "r>0? 1:-1"
+  name Expression32
+  xpos 2374
+  ypos -1067
+ }
+push $N36d94a00
+push $N36b8cd70
+ Expression {
+  expr0 r-parent.C.world_matrix.left.3
+  expr1 g-parent.C.world_matrix.left.7
+  expr2 b-parent.C.world_matrix.left.11
+  name Expression12
+  xpos 2110
+  ypos -1389
+ }
+ ColorMatrix {
+  channels rgba
+  matrix {
+      {{parent.C.world_matrix.left.0} {parent.C.world_matrix.left.1} {parent.C.world_matrix.left.2}}
+      {{parent.C.world_matrix.left.4} {parent.C.world_matrix.left.5} {parent.C.world_matrix.left.6}}
+      {{parent.C.world_matrix.left.8} {parent.C.world_matrix.left.9} {parent.C.world_matrix.left.10}}
+    }
+  invert true
+  name ColorMatrix3
+  xpos 2110
+  ypos -1365
+ }
+ Expression {
+  expr1 "parent.A.translate.x-parent.B.translate.x <= 0 ? g:-g"
+  name Expression20
+  xpos 2110
+  ypos -1341
+ }
+ Shuffle {
+  red black
+  blue black
+  alpha black
+  name Shuffle17
+  xpos 2110
+  ypos -1317
+ }
+ Merge2 {
+  inputs 2
+  name Merge12
+  xpos 2110
+  ypos -1236
+ }
+ Expression {
+  expr0 r/(g)
+  name Expression13
+  xpos 2110
+  ypos -1212
+ }
+ Expression {
+  expr0 "r>1 ? r<0 ? 0 : 0 :-r/100"
+  name Expression14
+  xpos 2110
+  ypos -1188
+ }
+ Expression {
+  expr0 "r<1 ? r>0 ? r:0:0"
+  expr1 0
+  expr2 0
+  name Expression34
+  xpos 2110
+  ypos -1164
+ }
+ Dot {
+  name Dot89
+  xpos 2144
+  ypos -1089
+ }
+push $N36d94d70
+push $N36b8d0e0
+ Expression {
+  expr0 -r
+  name Expression23
+  xpos 2277
+  ypos -1434
+ }
+ Expression {
+  expr0 r-parent.C.world_matrix.left.3
+  expr1 g-parent.C.world_matrix.left.7
+  expr2 b-parent.C.world_matrix.left.11
+  name Expression21
+  xpos 2277
+  ypos -1392
+ }
+ ColorMatrix {
+  channels rgba
+  matrix {
+      {{parent.C.world_matrix.left.0} {parent.C.world_matrix.left.1} {parent.C.world_matrix.left.2}}
+      {{parent.C.world_matrix.left.4} {parent.C.world_matrix.left.5} {parent.C.world_matrix.left.6}}
+      {{parent.C.world_matrix.left.8} {parent.C.world_matrix.left.9} {parent.C.world_matrix.left.10}}
+    }
+  invert true
+  name ColorMatrix6
+  xpos 2277
+  ypos -1368
+ }
+ Expression {
+  expr1 "parent.A.translate.x-parent.B.translate.x <= 0 ? g:-g"
+  name Expression22
+  xpos 2277
+  ypos -1344
+ }
+ Shuffle {
+  red black
+  blue black
+  alpha black
+  name Shuffle21
+  xpos 2277
+  ypos -1320
+ }
+ Merge2 {
+  inputs 2
+  name Merge14
+  xpos 2277
+  ypos -1236
+ }
+ Expression {
+  expr0 -r/(g)
+  name Expression30
+  xpos 2277
+  ypos -1212
+ }
+ Expression {
+  expr0 "r>1 ? r<0 ? 0 : 0 :-r/100"
+  name Expression31
+  xpos 2277
+  ypos -1188
+ }
+ Expression {
+  expr0 "r<1 ? r>0 ? r:0:0"
+  expr1 0
+  expr2 0
+  name Expression33
+  xpos 2277
+  ypos -1164
+ }
+ Merge2 {
+  inputs 2
+  name Merge15
+  xpos 2277
+  ypos -1092
+ }
+ ColorLookup {
+  lut {master {}
+    red {curve L 0 s0 t6 v0.1131107137 1 s0.009999999776 u3}
+    green {}
+    blue {}
+    alpha {}}
+  name ColorLookup6
+  xpos 2277
+  ypos -1068
+ }
+ ColorLookup {
+  lut {master {}
+    red {curve L 0 s0 t6 v0.1131107137 1 s0.009999999776 u3}
+    green {}
+    blue {}
+    alpha {}}
+  name ColorLookup7
+  xpos 2277
+  ypos -1044
+ }
+set N36d99c80 [stack 0]
+ Merge2 {
+  inputs 2
+  operation multiply
+  name Merge16
+  xpos 2374
+  ypos -997
+ }
+ Dot {
+  name Dot90
+  xpos 2408
+  ypos -825
+ }
+ Merge2 {
+  inputs 3+1
+  name Merge21
+  xpos 3006
+  ypos -828
+ }
+ Dot {
+  name Dot104
+  xpos 3243
+  ypos -636
+ }
+set N36d9aa40 [stack 0]
+ Expression {
+  expr0 "r==0 ? 0:1"
+  expr2 "b==0 ? 0:1"
+  name Expression4
+  xpos 3209
+  ypos -589
+ }
+ Expression {
+  expr3 r*b
+  name Expression7
+  xpos 3209
+  ypos -565
+ }
+ Shuffle {
+  red alpha
+  green alpha
+  blue alpha
+  name Shuffle10
+  xpos 3209
+  ypos -541
+ }
+ Dot {
+  name Dot73
+  xpos 3243
+  ypos -517
+ }
+set N36d9b800 [stack 0]
+ Dot {
+  name Dot99
+  xpos 3771
+  ypos -517
+ }
+set N36d9bb70 [stack 0]
+ Dot {
+  name Dot72
+  xpos 4233
+  ypos -517
+ }
+set N36f340b0 [stack 0]
+ Dot {
+  name Dot112
+  xpos 4233
+  ypos -327
+ }
+ Phong {
+  inputs 0
+  name Phong1
+  xpos 4265
+  ypos -399
+ }
+push 0
+push $N36845190
+ Axis2 {
+  translate {{parent.Konus.trans.left*500} {parent.Konus.trans.left*500} {parent.Konus.trans.left*500}}
+  name LA
+  xpos 4485
+  ypos -486
+ }
+ Light2 {
+  depthmap_slope_bias 0.01
+  name Light1
+  xpos 4485
+  ypos -420
+ }
+push $N36f340b0
+push $N36847e40
+ Merge2 {
+  inputs 2
+  operation mask
+  also_merge all
+  name Merge13
+  xpos 4375
+  ypos -520
+ }
+add_layer {Normal Normal.NX Normal.NY Normal.NZ}
+ ReLight {
+  inputs 4
+  normal Normal
+  position tk_specialC2
+  name ReLight1
+  xpos 4375
+  ypos -399
+ }
+ Merge2 {
+  inputs 2
+  operation mask
+  also_merge all
+  name Merge11
+  xpos 4375
+  ypos -330
+ }
+ Matrix {
+  matrix {
+      {0 1 0}
+      {1 1 1}
+      {0 1 0}
+    }
+  normalize true
+  name Matrix1
+  xpos 4375
+  ypos -306
+ }
+ Dot {
+  name Dot65
+  xpos 4409
+  ypos -236
+ }
+set N36f35fa0 [stack 0]
+push $N36d9b800
+push $N36d99c80
+ Dot {
+  name Dot102
+  xpos 2311
+  ypos -662
+ }
+push $N36d93fb0
+ Merge2 {
+  inputs 2
+  name Merge23
+  xpos 2747
+  ypos -665
+ }
+ Expression {
+  expr0 1-r
+  expr2 1-b
+  name Expression15
+  xpos 2747
+  ypos -641
+ }
+ Expression {
+  expr3 r*b
+  name Expression9
+  xpos 2747
+  ypos -617
+ }
+ Dot {
+  name Dot103
+  xpos 2781
+  ypos -454
+ }
+ Merge2 {
+  inputs 2
+  operation mask
+  name Merge24
+  xpos 3209
+  ypos -457
+ }
+ Shuffle {
+  red alpha
+  green alpha
+  blue alpha
+  name Shuffle14
+  xpos 3209
+  ypos -433
+ }
+ Grade {
+  channels rgba
+  name Grade1
+  xpos 3209
+  ypos -409
+ }
+push $N36d9aa40
+ Dot {
+  name Dot105
+  xpos 3344
+  ypos -636
+ }
+set N36f37e90 [stack 0]
+ Expression {
+  expr0 r*100
+  expr2 b*100
+  name Expression8
+  xpos 3310
+  ypos -618
+ }
+ Dot {
+  name Dot106
+  xpos 3344
+  ypos -382
+ }
+ ShuffleCopy {
+  inputs 2
+  name ShuffleCopy1
+  xpos 3209
+  ypos -385
+ }
+ Dot {
+  name Dot5
+  xpos 3243
+  ypos -338
+ }
+set N36f38c50 [stack 0]
+ Dot {
+  name Dot92
+  xpos 3243
+  ypos 120
+ }
+ Dot {
+  name Dot100
+  xpos 4299
+  ypos 120
+ }
+set N36f39330 [stack 0]
+ Constant {
+  inputs 0
+  channels rgb
+  name Constant10
+  xpos 2013
+  ypos 292
+ }
+add_layer {_LDP_P _LDP_P.red _LDP_P.green _LDP_P.blue _LDP_P.alpha}
+ ShuffleCopy {
+  inputs 2
+  red red
+  green green
+  blue blue
+  alpha black
+  out _LDP_P
+  name ShuffleCopy2
+  label "\[value out]\n."
+  note_font "Verdana Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+  xpos 4265
+  ypos 304
+ }
+add_layer {_LDP_Light _LDP_Light.red _LDP_Light.green _LDP_Light.blue _LDP_Light.alpha}
+ ShuffleCopy {
+  inputs 2
+  red red
+  green green
+  blue blue
+  out _LDP_Light
+  name ShuffleCopy3
+  label "\[value out]\n."
+  note_font "Verdana Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+  xpos 4375
+  ypos 304
+ }
+set N36f39d80 [stack 0]
+ Dot {
+  name Dot4
+  xpos 4791
+  ypos 220
+ }
+push 0
+push $N36f39330
+ Shuffle {
+  red black
+  green black
+  blue black
+  name Shuffle31
+  xpos 4743
+  ypos 93
+  postage_stamp true
+ }
+push $N36b8dea0
+ Dot {
+  name Dot115
+  xpos 5176
+  ypos -1452
+ }
+set N36f3a7d0 [stack 0]
+ xyzKey {
+  name xyzKey3
+  note_font "Verdana Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+  xpos 5264
+  ypos -1333
+  Radius 0.5
+  SpherS 0
+  OnOff false
+  OnOff_1 false
+  OnOff_3 false
+  OnOff_4 false
+  OnOff_5 false
+  lut {master {}
+    red {}
+    green {}
+    blue {}
+    alpha {curve C k 0 s0 1 s0}}
+ }
+push $N36f3a7d0
+ xyzKey {
+  name xyzKey2
+  note_font "Verdana Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+  xpos 5142
+  ypos -1375
+  Radius 1.5
+  SpherS 1
+  OnOff_6 true
+  T_s 0.2
+  F_s 1
+  lut {master {}
+    red {}
+    green {}
+    blue {}
+    alpha {curve C k 0 s0 1 s0}}
+ }
+ Merge2 {
+  inputs 2
+  operation mask
+  name Merge28
+  xpos 5142
+  ypos -1333
+ }
+ Shuffle {
+  red alpha
+  green alpha
+  blue alpha
+  name Shuffle20
+  xpos 5142
+  ypos -1309
+ }
+push 0
+ Switch {
+  inputs 2
+  which {{parent.spher.left}}
+  name Switch8
+  xpos 5142
+  ypos -1235
+ }
+ Shuffle {
+  red black
+  blue black
+  alpha black
+  name Shuffle25
+  xpos 5142
+  ypos -273
+  postage_stamp true
+ }
+push 0
+push $N36f35fa0
+ Shuffle {
+  green black
+  blue black
+  alpha black
+  name Shuffle13
+  xpos 4851
+  ypos -171
+  postage_stamp true
+ }
+push $N36f35fa0
+push $N36f38c50
+ Dot {
+  name Dot39
+  xpos 3666
+  ypos -307
+ }
+set N37381280 [stack 0]
+ Expression {
+  expr1 g/500
+  name Expression16
+  xpos 3632
+  ypos -262
+ }
+ Keyer {
+  operation "green keyer"
+  range {0 0.2705045327 1 1}
+  name Keyer2
+  xpos 3632
+  ypos -238
+ }
+push $N37381280
+ Dot {
+  name Dot41
+  xpos 3776
+  ypos -307
+ }
+push $N36d9bb70
+push $N36f37e90
+ Dot {
+  name Dot101
+  xpos 3886
+  ypos -613
+ }
+ Expression {
+  expr0 (r+1)/2
+  expr1 (b+1)/2
+  expr2 0
+  name Expression11
+  xpos 3852
+  ypos -585
+ }
+ Constant {
+  inputs 0
+  channels rgb
+  format "1024 1024 0 0 1024 1024 1 square_1K"
+  name Constant3
+  xpos 3818
+  ypos -1158
+ }
+ Radial {
+  area {4.5 4.5 1019.5 1019.5}
+  softness 0.34
+  name Radial1
+  xpos 3818
+  ypos -1086
+ }
+ Input {
+  inputs 0
+  name Pyatno
+  xpos -168
+  ypos -2091
+  number 2
+ }
+ Dot {
+  name Dot2
+  xpos 72
+  ypos -2088
+ }
+ Dot {
+  name Dot113
+  xpos 3615
+  ypos -2088
+ }
+ Dot {
+  name Dot114
+  xpos 3615
+  ypos -1106
+ }
+ Constant {
+  inputs 0
+  channels rgb
+  format "1024 1024 0 0 1024 1024 1 square_1K"
+  name Constant4
+  xpos 3714
+  ypos -1247
+ }
+ Noise {
+  size {{parent.xy_size.left}}
+  zoffset {{parent.z_.left}}
+  center {512 512}
+  name Noise1
+  label .
+  note_font "Verdana Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+  xpos 3714
+  ypos -1175
+ }
+ Switch {
+  inputs 2
+  which {{parent.on_imnort_pyatno.left}}
+  name Switch7
+  xpos 3714
+  ypos -1109
+ }
+ Reformat {
+  format "1024 1024 0 0 1024 1024 1 square_1K"
+  name Reformat1
+  xpos 3714
+  ypos -1050
+ }
+ Dot {
+  name Dot1
+  xpos 3748
+  ypos -1014
+ }
+push 0
+ Merge2 {
+  inputs 2+1
+  name Merge1
+  xpos 3818
+  ypos -1017
+ }
+ xyzKey {
+  name xyzKey1
+  note_font "Verdana Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+  xpos 3818
+  ypos -930
+  color {1 1 1 1}
+  Radius 0.01
+  SpherS 1
+  OnOff_6 true
+  T_s 0.505
+  F_s 0.825
+  lut {master {}
+    red {}
+    green {}
+    blue {}
+    alpha {curve C k 0 s0 1 s0}}
+ }
+set N365df8f0 [stack 0]
+ Blur {
+  size 41.5
+  name Blur27
+  xpos 3928
+  ypos -936
+ }
+push $N365df8f0
+ Merge2 {
+  inputs 2
+  name Merge84
+  xpos 3928
+  ypos -900
+ }
+ Shuffle {
+  red alpha
+  green alpha
+  blue alpha
+  name Shuffle19
+  xpos 3928
+  ypos -876
+ }
+ Premult {
+  name Premult95
+  xpos 3928
+  ypos -852
+ }
+ Dot {
+  name Dot97
+  xpos 3962
+  ypos -809
+ }
+ Dot {
+  name Dot98
+  xpos 3962
+  ypos -558
+ }
+ STMap {
+  inputs 2
+  channels rgb
+  uv rgb
+  name STMap1
+  xpos 3852
+  ypos -543
+ }
+ Merge2 {
+  inputs 2
+  operation mask
+  name Merge22
+  xpos 3852
+  ypos -460
+ }
+ Shuffle {
+  red black
+  green black
+  alpha black
+  name Shuffle4
+  xpos 3852
+  ypos -436
+  postage_stamp true
+ }
+ Merge2 {
+  inputs 2
+  operation mask
+  name Merge6
+  xpos 3852
+  ypos -310
+  disable {{1-parent.Feather.left}}
+ }
+ Merge2 {
+  inputs 2
+  operation mask
+  name Merge26
+  xpos 3852
+  ypos -197
+  disable {{1-parent.Height.left}}
+ }
+ Merge2 {
+  inputs 2
+  operation mask
+  name Merge25
+  xpos 3852
+  ypos -131
+  disable {{1-parent.light.left}}
+ }
+ Dot {
+  name Dot109
+  xpos 3886
+  ypos -5
+ }
+ Shuffle {
+  red black
+  green black
+  alpha black
+  name Shuffle30
+  xpos 4739
+  ypos -32
+  postage_stamp true
+ }
+ Merge2 {
+  inputs 4+1
+  operation plus
+  name Merge33
+  xpos 5142
+  ypos 117
+ }
+set N3779bfe0 [stack 0]
+ Merge2 {
+  inputs 2+1
+  name Merge3
+  xpos 5045
+  ypos 208
+ }
+push $N3779bfe0
+push $N36f39d80
+ Merge2 {
+  inputs 2
+  also_merge rgba
+  name Merge2
+  xpos 5142
+  ypos 316
+ }
+ Dot {
+  name Dot108
+  xpos 6813
+  ypos 319
+ }
+ Crop {
+  box {0 0 2138 872}
+  name Crop2
+  xpos 6779
+  ypos 337
+ }
+set N3779cda0 [stack 0]
+ Output {
+  name Output1
+  xpos 6779
+  ypos 2833
+ }
+push 0
+push $N3779cda0
+ Viewer {
+  inputs 3
+  frame_range 1-500
+  frame_range_lock true
+  input_process false
+  name Viewer1
+  xpos 6779
+  ypos 2857
+ }
+end_group

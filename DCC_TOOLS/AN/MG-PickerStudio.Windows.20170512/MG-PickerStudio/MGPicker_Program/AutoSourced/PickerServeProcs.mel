@@ -1,0 +1,1780 @@
+/*
+	This script contains procedures that supports command button codes in picker.
+	It will be auto-source when MG-Picker Studio tool loads.
+*/
+//substitute wrappers--------------------
+global proc string MGP_substitute(string $repExp, string $origString, string $repStr)
+{
+	if(catch (`substitute $repExp $origString $repStr`))
+	{
+		print "\n";
+		return $origString;
+	}
+	return `substitute $repExp $origString $repStr`;
+}
+
+//go to indexed panel-----------------------------------------------
+global proc MGP_GoToPanel(int $index)
+{
+	MGPickerView -e -activePanelIndex $index;
+}
+//get current picker path/dirs-------------------------------------------
+global proc string MGP_GetCurrentPickerFileOrNode()
+{
+    return `MGPickerView -q -pickerFilePath`;
+}
+global proc string MGP_GetCurrentPickerDirectory()
+{
+    string $path = `MGPickerView -q -pickerDirPath`;
+    if(size($path))
+    {
+	    if(!`endsWith $path "/"`)
+	    {
+	    	$path += "/";
+	    }
+  	}
+  	return $path;
+}
+
+//get current mouse interactiving picker item ---------------
+global proc string MGP_GetCurrentInteractiveItem()
+{
+    return `MGPicker -q -currentItem`;
+}
+
+// get keyboard modifiers-----------------
+global proc int[] MGP_GetKeyboardModifiers()
+//0 control
+//1 shift
+//2 alt
+{
+	int $keyMods[];
+	int $mods = `getModifiers`;
+	if (($mods / 4) % 2) 
+	{
+		$keyMods[0]=1;
+	}
+	else
+	{
+		$keyMods[0]=0;
+	}
+	if (($mods / 1) % 2) 
+	{
+		$keyMods[1]=1;
+	}
+	else
+	{
+		$keyMods[1]=0;
+	}
+	if (($mods / 8) % 2)
+	{
+		$keyMods[2]=1;
+	}
+	else
+	{
+		$keyMods[2]=0;
+	}
+	return $keyMods;
+}
+//set/get namespace-----------------------------------------
+global proc string MGP_GetCurrentPickerNamespace()
+{
+    return `MGPickerView -q -namespace`;
+}
+global proc string MGP_GetNamespaceViaObj(string $node)
+{
+    return `MGPickerService -q -namespace $node`;
+    /*
+	if(!`objExists $node`)
+  {
+      return "";
+  }
+	if(!`referenceQuery -isNodeReferenced $node`)
+	{
+		return "";
+	}
+	string $temp1[] = `stringToStringArray $node "|"`;
+	$node = $temp1[0];
+	string $temp[] = `stringToStringArray $node ":"`;
+	int $tempLen = size($temp);
+	if($tempLen <= 1)
+	{
+		return "";
+	}
+	int $lastPartSize = size($temp[($tempLen-1)]) + 1;
+	return `substring $node 1 (size($node)-$lastPartSize)`;
+	*/
+	//the file -q -rpr only return sub namespace if there is layered-reference.
+	//string $filepath = `referenceQuery -filename $node`;
+	//return `file -q -rpr $filepath`;
+}
+global proc int MGP_SetCurrentPickerNamespace(string $newNamespace)
+{
+    return `MGPickerView -e -namespace $newNamespace`;
+}
+global proc MGP_SetCurrentPickerNamespace_WithUI()
+{
+    MGPicker -e -popupNamespace;
+}
+proc string mgp_removeNamespace(string $obj)
+{
+	string $cTemp[] = `stringToStringArray $obj ":"`;
+	if(size($cTemp)==1)
+	{
+		return $obj;
+	}
+	string $temp[] =`stringToStringArray $obj "|"`; 
+	string $resultList[];clear $resultList;
+	string $result;
+	for($each in $temp)
+	{
+		string $cTemp[] = `stringToStringArray $each ":"`;
+		$resultList[size($resultList)] = $cTemp[size($cTemp)-1];
+	}
+	return `stringArrayToString $resultList "|"`;
+}
+proc string mgp_addNsToObj(string $ns, string $obj)
+{
+	//if namespace is empty:
+	$ns = strip($ns);
+	$obj = strip($obj);
+	if(!size($ns))
+	{
+		return $obj;
+	}
+	if(!size($obj))
+	{
+		return "";
+	}
+	
+	//if already contains namesapce, do not add again:
+	string $temp[]=`stringToStringArray $obj ":"`;
+	if(size($temp) >= 2)
+	{
+		return $obj;
+	}
+	//add namespace:
+	clear $temp;
+	$temp=`stringToStringArray $obj "|"`; 
+	string $result;
+	int $len = size($temp);
+	if($len == 1)
+	{
+		return ($ns+":"+$obj);
+	}
+	for($i=0;$i<$len; $i++)
+	{
+		$temp[$i] =($ns+":"+$temp[$i]); 
+	}
+	return `stringArrayToString $temp "|"`;
+}
+//eval selection buttons-----------------------------------------
+global proc MGP_EvalPanelAllSelectButtons(int $mode)
+//$mode 0: replace selection
+//$mode 1: add to selection
+//$mode 2: remove from selection
+//$mode 3: invert selection
+{
+    MGPickerView -e -selectPanelButtons $mode;
+}
+global proc MGP_EvalPanelAllSelectButtons_viaPanelIndex(int $mode, int $index)
+//$mode 0: replace selection
+//$mode 1: add to selection
+//$mode 2: remove from selection
+//$mode 3: invert selection
+{
+    MGPickerView -e -selectPanelIndexButtons $mode $index;
+}
+global proc MGP_EvalPickerAllSelectButtons(int $mode)
+//$mode 0: replace selection
+//$mode 1: add to selection
+//$mode 2: remove from selection
+//$mode 3: invert selection
+{
+    MGPickerView -e -selectPickerButtons $mode;
+}
+
+global proc MGP_MirrorSelection(int $mode)
+//$mode 0: replace selection
+//$mode 1: add to selection
+{
+    MGPickerView -e -mirrorSelection $mode;
+}
+global proc MGP_SelectControlsWithPickerNamespace_Ex(string $controls[])
+{
+	int $modifiers[] = `MGP_GetKeyboardModifiers`;
+	int $control = $modifiers[0];
+	int $shift = $modifiers[1];
+	int $controlShift = ($control && $shift);
+	int $keyMods = 0;
+	if($controlShift)
+	{
+		$keyMods = 1;
+	}
+	else if($control)
+	{
+		$keyMods = 2;
+	}
+	else if($shift)
+	{
+		$keyMods = 3;
+	}
+	MGP_SelectControlsWithPickerNamespace $keyMods $controls;
+}
+global proc MGP_SelectControlsWithPickerNamespace(int $mode, string $controls[])
+//$mode 0: select objects
+//$mode 1: add select objects
+//$mode 2: deselect objects
+//$mode 3: invert select objects
+{
+	string $ns = `MGPickerView -q -namespace`;
+	
+	string $existedControls[];
+	clear $existedControls;
+	int $existCount = 0;
+	int $noExistCount = 0;
+	for($obj in $controls)
+	{
+		string $nsObj = `mgp_addNsToObj $ns $obj`;
+		if(`objExists $nsObj`)
+		{
+			$existedControls[size($existedControls)] = $nsObj;
+			$existCount ++;
+		}
+		else
+		{
+			MGP_ScriptEditorFeedback ("Object not exist: "+$nsObj) 1;
+			$noExistCount ++;
+		}
+	}
+	if($existCount)
+	{
+		if(!$mode)
+		{
+			select $existedControls;
+		}
+		else if($mode == 1)
+		{
+			select -add $existedControls;
+		}
+		else if($mode == 2)
+		{
+			select -d $existedControls;
+		}
+		else if($mode == 3)
+		{
+			select -tgl $existedControls;
+		}
+	}
+	else
+	{
+		if(!$mode)
+		{
+			select -cl;
+		}
+	}
+	string $rep = $existCount + " objects selected. ";
+	if($noExistCount)
+	{
+		$rep += ($noExistCount +" are not exists thus ignored.");
+	}
+			MGP_ScriptEditorFeedback $rep 0;
+}
+//get current interactived attribute buttons-----------------------------------------
+global proc string MGP_GetCurrentAttributeButton_Attribute(int $includeNamespace)
+//$includeNamespace 0 for no namespace
+//$includeNamespace 1 for has namespace.
+{
+    return `MGPicker -q -currentAttributeName $includeNamespace`;
+}
+global proc MGP_SelectAll_viaCurrentPicker_Ex()
+{
+	int $modifiers[] = `MGP_GetKeyboardModifiers`;
+	int $control = $modifiers[0];
+	int $shift = $modifiers[1];
+	int $controlShift = ($control && $shift);
+	int $mode = 0;
+	if($controlShift)
+	{
+		$mode = 1;
+	}
+	else if($control)
+	{
+		$mode = 2;
+	}
+	else if($shift)
+	{
+		$mode = 3;
+	}
+	MGP_EvalPickerAllSelectButtons $mode;
+}
+global proc MGP_SelectAll_viaCurrentPanel_Ex()
+{
+	int $modifiers[] = `MGP_GetKeyboardModifiers`;
+	int $control = $modifiers[0];
+	int $shift = $modifiers[1];
+	int $controlShift = ($control && $shift);
+	int $mode = 0;
+	if($controlShift)
+	{
+		$mode = 1;
+	}
+	else if($control)
+	{
+		$mode = 2;
+	}
+	else if($shift)
+	{
+		$mode = 3;
+	}
+	MGP_EvalPanelAllSelectButtons $mode;
+}
+global proc MGP_MirrorSelectViaPanel_Ex()
+{
+	int $modifiers[] = `MGP_GetKeyboardModifiers`;
+	int $control = $modifiers[0];
+	int $shift = $modifiers[1];
+	int $controlShift = ($control && $shift);
+	int $mode = 0;
+	if($controlShift)
+	{
+		$mode = 1;
+	}
+	MGP_MirrorSelection $mode;
+}
+//isolation -----------------------------------------
+global proc MGP_IsolateSelectedRig()
+{
+    string $activePanel = `getPanel -withFocus`;
+    MGP_IsolateSelectedRig_doit $activePanel;
+}
+global proc MGP_IsolateSelectedObjects()
+{
+    string $activePanel = `getPanel -withFocus`;
+    MGP_IsolateSelection_doit $activePanel;
+}
+global proc MGP_CancelIsolation()
+{
+    string $activePanel = `getPanel -withFocus`;
+    MGP_CancelIsolation_doit $activePanel;
+}
+
+//keyframing -----------------------------------------
+global proc  MGP_SetKeyframeEachKeyOrGap(int $mode)
+{
+	//mode 0: key each key
+	//mode 1: key each certain frame
+	string $sel[]=`ls -sl`;
+	if(!size($sel))
+	{
+	    MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.noSel.war"` 1;
+	    return;
+    }
+	//selectKey -clear ;
+	global string  $gPlayBackSlider;
+	string $selectrange = `timeControl -q -range  $gPlayBackSlider`;
+	float $selectrangeArray []= `timeControl -q -rangeArray  $gPlayBackSlider`;
+	int $selROrNot=`timeControl -q -rangeVisible   $gPlayBackSlider`;
+	
+	string $defaultItts[] = `keyTangent -q -global -itt`;
+	string $defaultOtts[] = `keyTangent -q -global -ott`;
+	string $defaultItt = $defaultItts[0];
+	string $defaultOtt = $defaultOtts[0];
+	global int $MacOSBefore2011;
+	if(!$mode)
+	{
+		float $cTime = `currentTime -q`;
+		//string $sel[]=`ls -sl`;
+		float $ticks[]=`keyframe -q -tc $sel`;
+		string $tickstring[];clear $tickstring;
+		for ($each in $ticks)
+		{
+			$tickstring[size($tickstring)]=$each;
+		}
+		$tickstring=stringArrayRemoveDuplicates($tickstring);
+		string $keyframes[];clear $keyframes;
+		for ($i=0;$i<size($tickstring);$i++)
+		{
+			float $ct=$tickstring[$i];
+			//if(size(`keyframe -q -tc $eachS`))
+			//{			
+			if(!$i)
+				currentTime $ct;
+			//}			
+			//dgeval $sel;
+			if($selROrNot)
+			{
+				if($ct>=$selectrangeArray[0]&&$ct<=$selectrangeArray[1])
+				{
+					if(!$i)
+					{
+						setKeyframe -time $ct;
+						$keyframes = `keyframe -q -n $sel`;
+					}
+					else
+					{
+						if(size($keyframes))						
+							setKeyframe -insert -t $ct $keyframes;
+					}
+				}
+			}
+			else
+			{
+				if(!$i)
+				{
+					setKeyframe -time $ct;
+					$keyframes = `keyframe -q -n $sel`;
+				}
+				else
+				{
+					if(size($keyframes))						
+						setKeyframe -insert -t $ct $keyframes;
+				}
+			}
+			keyTangent -t $ct -itt $defaultItt -ott $defaultOtt $keyframes;
+		}
+		currentTime $cTime;
+	}
+	else
+	{
+		promptDialog -title `MGP_MultiLanguage "pkr.app"` 
+								-m `MGP_MultiLanguage "pkr.serv.inputFrameCount.prompt"`
+								-button "OK";
+		int $gap=`promptDialog -q -text`;
+		if($gap <= 0)
+		{
+		    return;
+		}
+		int $cTime=`currentTime -q`;
+		int $start=`playbackOptions -q -minTime`;
+		int $end=`playbackOptions -q -max`;
+		string $keyframes[];clear $keyframes;
+		if($selROrNot)
+		{
+			$cTime=$selectrangeArray[0];
+			$start=$cTime;
+			$end=$selectrangeArray[1];
+		}
+		if($cTime>$end||$cTime<$start)
+		{
+			for ($i=$start;$i<$end;$i+=$gap)
+			{
+				if($i==$start)
+				{
+					setKeyframe -time $i;
+					$keyframes = `keyframe -q -n $sel`;
+				}
+				else
+				{
+					if(size($keyframes))						
+						setKeyframe -insert -t $i $keyframes;
+				}
+			  keyTangent -t $i -itt $defaultItt -ott $defaultOtt $keyframes;
+			}			
+		}
+		else
+		{
+			for ($i=$cTime;$i<=$end;$i+=$gap)
+			{
+				if($i==$cTime)
+				{
+					setKeyframe -time $i;
+					$keyframes = `keyframe -q -n $sel`;
+				}
+				else
+				{
+					if(size($keyframes))						
+						setKeyframe -insert -t $i $keyframes;
+				}
+			  keyTangent -t $i -itt $defaultItt -ott $defaultOtt $keyframes;
+				
+				//setKeyframe -time $i;
+			}
+			for ($i=$cTime;$i>=$start;$i-=$gap)
+			{
+				if(size($keyframes))	
+				{					
+						setKeyframe -insert -t $i $keyframes;						
+			      keyTangent -t $i -itt $defaultItt -ott $defaultOtt $keyframes;
+			  }
+				//setKeyframe -time $i;
+			}			
+		}		
+	}
+	//MGP_ReactiveModelViewport;
+	MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.jobDone"` 0;
+}
+proc int mgp_setKeyframeWithExistTangent_doit(float $t,string $anNodes[], int $ignoreExistKey)
+{  
+	int $newKeyCount = 0;
+	int $doSetKey = 1;
+	for($each in $anNodes)
+  {
+    $doSetKey = 1;
+    if($ignoreExistKey)
+    {
+       float $hasKeyframe[]= `keyframe -t $t -q $each`;
+       if(size($hasKeyframe))
+       {
+          $doSetKey = 0;
+       }
+    }
+     float $lastKey = `findKeyframe -which  "previous" -t $t $each`;
+     string $itt[] = `keyTangent -t $lastKey -q -inTangentType $each`;
+     string $ott[] = `keyTangent -t $lastKey -q -outTangentType $each`;
+     
+      if($doSetKey)
+      {
+          setKeyframe -t $t  $each;
+          keyTangent -t $t -inTangentType $itt[0] -outTangentType $ott[0] $each;
+          $newKeyCount ++;
+      }
+  }
+  return  $newKeyCount;
+}
+global proc int MGP_SetKeyframeForOnlyKeyframed()
+{
+	string $sel[]=`ls -sl`;
+	if(!size($sel))
+	{	    
+	    MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.noSel.war"` 1;
+		return 0;
+	}
+	string $ans[] = `keyframe -q -name $sel`;
+	if(!size($ans))
+	{
+		return 0;
+	}
+	
+	float $t = `currentTime -q`;
+	return `mgp_setKeyframeWithExistTangent_doit $t $ans 1`;
+}
+global proc MG_SetKeyframeNonDefaultChannels ()
+{
+	string $sel[]=`ls -sl`;
+	if(!size($sel))
+	{
+	    MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.noSel.war"` 1;
+	    return;
+	}
+	string $defaultItts[] = `keyTangent -q -global -itt`;
+	string $defaultOtts[] = `keyTangent -q -global -ott`;
+	string $defaultItt = $defaultItts[0];
+	string $defaultOtt = $defaultOtts[0];
+	float $ct = `currentTime -q`;
+	for ($each in  $sel)
+	{
+		string $rawAttrs[]=`listAttr -k  -scalar $each`; 
+		string $targetAttr[];clear $targetAttr;
+		for ($eachA in $rawAttrs)
+		{
+			string $temp[]=`keyframe  -at $eachA -q -name  $each`;
+			if(!size($temp))
+			{
+				float $defaultV[]=`attributeQuery  -n $each -listDefault $eachA`;
+				float $cV=`getAttr ($each+"."+$eachA)`;
+				if($defaultV[0]!=$cV)
+				{
+					setKeyframe -at $eachA $each;
+					$keyframes = `keyframe -q -n $each`;
+					keyTangent -t $ct -itt $defaultItt -ott $defaultOtt $keyframes;
+				}
+			}
+		}		
+	}
+	MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.jobDone"` 0;
+}
+
+global proc MGP_KeyframeCurrentPanel()
+{
+	MGP_EvalPanelAllSelectButtons 0;
+	if(size(`ls -sl`))
+	{
+		setKeyframe;
+	}
+}
+global proc MGP_KeyframeCurrentPicker()
+{
+	MGP_EvalPickerAllSelectButtons 0;
+	if(size(`ls -sl`))
+	{
+		setKeyframe;
+	}
+}
+//update picker via maya scene-------------------------------
+global proc MGP_UpdatePickerItems()
+{
+	MGPickerView -e -syncPickerValue;
+}
+//reset attributes -----------------------------------------
+global proc MGP_ResetTransform_ViaSelection (int $mode)
+//$mode 0: for reseting translation
+//$mode 1: for reseting rotatation
+//$mode 2: for reseting scale.
+{
+	string $nodes[]= `ls -sl`;
+	MGP_ResetTransform_ViaList($nodes,$mode);
+}
+global proc MGP_ResetTransform_ViaList (string $nodes[],int $mode)
+//$mode 0: for reseting translation
+//$mode 1: for reseting rotatation
+//$mode 2: for reseting scale.
+{	
+	int $number = size($nodes);
+	if (!$number)
+	{
+		string $msg = `MGP_MultiLanguage "pkr.noSel.war"`;
+	 	MGP_ScriptEditorFeedback $msg 1;
+	}
+	else 
+	{
+		string $attrPrefix = "translate";
+		int $defaultV = 0;
+		if($mode == 1)
+		{
+			$attrPrefix = "rotate";
+		}
+		else if($mode == 2)
+		{
+			$attrPrefix = "scale";
+			$defaultV = 1;
+		}
+		int $count = 0;
+		int $reseted;
+		for ($i=0; $i<size ($nodes);$i++ )
+		{
+			$reseted = 0;
+			if (`getAttr -se  ($nodes[$i]+"."+$attrPrefix+"X")` ==1)
+			{  
+				setAttr ($nodes[$i] +"."+$attrPrefix+"X") $defaultV;
+				$reseted = 1;
+			}
+			if (`getAttr -se  ($nodes[$i]+"."+$attrPrefix+"Y")` ==1)
+			{  
+				setAttr ($nodes[$i] +"."+$attrPrefix+"Y") $defaultV;
+				$reseted = 1;
+			}
+			if (`getAttr -se  ($nodes[$i]+"."+$attrPrefix+"Z")` ==1)  
+			{
+				setAttr ($nodes[$i] +"."+$attrPrefix+"Z") $defaultV;
+				$reseted = 1;
+			}
+			if($reseted)
+			{
+				$count++;
+			}
+		}
+		string $countStr = $count;
+		MGP_ScriptEditorFeedback `MGP_MultiLanguage_rep2 "pkr.serv.attrReset.rep" $attrPrefix $countStr` 0;
+		MGP_UpdatePickerItems;
+	}
+}
+//reset all the keyable attributes of the selection:
+global proc MGP_ResetSelectionAttributes()
+{
+	string $sel []=`ls -sl`;
+	MGP_ResetObjectsAttributes $sel ;
+}
+global proc MGP_ResetObjectsAttributes(string $nodes[])
+{
+	if(!size($nodes))
+	{
+		string $msg = `MGP_MultiLanguage "pkr.noSel.war"`;
+	 	MGP_ScriptEditorFeedback $msg 1;
+		return;
+	}	
+	int $count;	
+	for($each in $nodes)
+	{
+		int $reseted =0;
+		string $attr []=`listAttr  -scalar -channelBox $each`;
+		$attr =stringArrayCatenate ($attr,`listAttr  -scalar -k $each`);	
+		for ($eachA in $attr)
+		{
+			string $theAttr =  ($each+"."+$eachA);
+			if(!`getAttr -l $theAttr`)
+			{
+				$reseted =1;
+				int $rangeExist =`attributeQuery -rangeExists -n $each $eachA`;
+                float $defaultInt[]=`attributeQuery -n $each -ld $eachA`;
+                float $value = $defaultInt[0];
+                if($rangeExist)
+                {
+                   float $ranges[]=` attributeQuery -range -n $each  $eachA`;
+                    if($value>$ranges[1])$value=$ranges[1];
+                    if($value<$ranges[0])$value=$ranges[0];
+                }          
+			
+				catch(`setAttr $theAttr $value`);
+			}
+		}
+		if($reseted)
+		{
+			$count++;
+		}
+	}
+	if($count)
+	{		
+		MGP_UpdatePickerItems;
+	}
+	string $countStr = $count;
+	MGP_ScriptEditorFeedback `MGP_MultiLanguage_rep1 "pkr.serv.objChannelReset" $countStr` 0;
+}
+
+
+//Apply Pose -----------------------------------------
+
+proc mgp_applyPoseValue_doit(string $objDotAttr, float $targetValue, float $percentage)
+{
+	float $currentValue = `getAttr $objDotAttr`;
+	float $gap = $targetValue - $currentValue;
+	if(!$gap)
+	{
+		return;
+	}
+	$gap *= $percentage;
+	$currentValue += $gap;
+	setAttr $objDotAttr $currentValue;
+}
+proc MGP_ApplyPose_doit(int $mode, string $ns, string $poseData[])
+//$mode 0: apply pose to all
+//$mode 1: apply pose only if it is selected.
+//$mode 2: not apply pose if it is selected.
+{
+	int $len = size($poseData);
+	if(!$len)
+	{
+		MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.serv.noPoseToApply"` 1;
+		return;
+	}
+	int $control=0,$shift=0;
+	int $modifiers[] = `MGP_GetKeyboardModifiers`;
+	$shift=$modifiers[1];
+	$control=$modifiers[0];
+	
+	float $percentage = 1;
+	if($control)
+	{
+		$percentage = 0.2;
+	}
+	if($shift)
+	{
+		$percentage = 0.5;
+	}
+	string $temp[];
+	string $obj;
+	float $currentValue = 0;
+	float $targetValue = 0;
+	float $valueGap = 0;
+	string $rep;
+	
+	string $sel[];
+	string $selNoNS[];
+	if($mode)
+	{
+		$sel =`ls -sl`;
+		for($obj in $sel)
+		{
+			$selNoNS[size($selNoNS)] = `mgp_removeNamespace $obj`;
+		}
+	}
+	for($data in $poseData)
+	{
+		$temp = `stringToStringArray $data "="`;
+		if(size($temp) != 2)
+		{
+			continue;
+		}
+		$obj = `strip $temp[0]`;
+		if(!size($obj))
+		{
+			continue;
+		}
+		if($mode)
+		{
+			//print $selNoNS;
+			//print ("\n$obj: "+$obj);
+			string $nodeAndAttr[]=`stringToStringArray $obj "."`;
+			int $contain = `stringArrayContains $nodeAndAttr[0] $selNoNS`;
+			if($mode == 1)
+			{
+				if(!$contain)
+				{
+					continue;
+				}
+			}
+			else if($mode == 2)
+			{
+				if($contain)
+				{
+					continue;
+				}
+			}
+		}
+		$obj = `mgp_addNsToObj $ns $obj`;
+		
+		$targetValue = `strip $temp[1]`;
+		if(catch (`mgp_applyPoseValue_doit $obj $targetValue $percentage`))
+		{
+			$rep = (`MGP_MultiLanguage "pkr.serv.errorSetAttr"`+" "+$obj+" => "+$targetValue);
+			if($percentage != 1)
+			{
+				$rep += (" "+`MGP_MultiLanguage "pkr.serv.withPercentage"`+" "+$percentage);
+			}
+			$rep += "\n";
+			MGP_ScriptEditorFeedback $rep 1;
+			continue;
+		}
+		$rep = (`MGP_MultiLanguage "pkr.serv.doneSetAttr"`+" "+$obj+" => "+$targetValue);
+		if($percentage != 1)
+		{
+			$rep += (" "+`MGP_MultiLanguage "pkr.serv.withPercentage"`+" "+$percentage);
+		}
+		$rep += "\n";
+		MGP_ScriptEditorFeedback $rep 0;
+	}
+}
+global proc MGP_ApplyPose(string $poseData[])
+{
+	string $ns = `MGPickerView -q -namespace`;
+	MGP_ApplyPose_doit 0 $ns $poseData;
+}
+
+global proc MGP_ApplyPose_ToSelectedRef(string $poseData [])
+{
+	string $sel[]=`ls -sl`;
+	string $error = `MGP_MultiLanguage "pkr.noSel.war"`;
+	if(!size($sel))
+	{
+		MGP_ScriptEditorFeedback $error 1;
+		return;
+	}
+	string $ns = `MGP_GetNamespaceViaObj $sel[0]`;
+	MGP_ApplyPose_doit 0 $ns $poseData;
+}
+
+global proc MGP_ApplyPose_Ex(int $mode, string $poseData[])
+//$mode 1: apply only selected.
+//$mode 2: not apply if selected. 
+{
+	string $ns = `MGPickerView -q -namespace`;
+	MGP_ApplyPose_doit $mode $ns $poseData;
+}
+
+global proc MGP_ApplyPoseEx_ToSelectedRef(int $mode, string $poseData [])
+{
+	string $sel[]=`ls -sl`;
+	string $error = `MGP_MultiLanguage "pkr.noSel.war"`;
+	if(!size($sel))
+	{
+		MGP_ScriptEditorFeedback $error 1;
+		return;
+	}
+	string $ns = `MGP_GetNamespaceViaObj $sel[0]`;
+	MGP_ApplyPose_doit $mode $ns $poseData;
+}
+
+global proc MGP_SetAttributeViaPickerNamespace(string $objDotAttrWithoutNS, float $value)
+{
+	string $ns = `MGPickerView -q -namespace`;
+	string $objDotAttr = mgp_addNsToObj($ns, $objDotAttrWithoutNS);
+	setAttr $objDotAttr $value;
+}
+global proc float MGP_GetAttributeFloatValue_ViaPickerNamespace(string $objDotAttrWithoutNS)
+{
+	string $ns = `MGPickerView -q -namespace`;
+	string $objDotAttr = mgp_addNsToObj($ns, $objDotAttrWithoutNS);
+	float $v = `getAttr $objDotAttr`;
+	return $v;
+}
+global proc float[] MGP_GetAttributeFloatValueArray_ViaPickerNamespace(string $objDotAttrWithoutNS)
+{
+	string $ns = `MGPickerView -q -namespace`;
+	string $objDotAttr = mgp_addNsToObj($ns, $objDotAttrWithoutNS);
+	float $v[] = `getAttr $objDotAttr`;
+	return $v;
+}
+proc string[] mgp_getCurrentPoseData_doit(int $includeNS)
+{
+	string $sel[]=`ls -sl`;
+	if(!size($sel))
+	{
+		return {};
+	}
+	string $resultDataList[];
+	clear $resultDataList;
+	float $cValue = 0;
+	string $objDotAttr = "";
+	global string $MGP_PoseFeature_EnvolvedControls[];
+	clear $MGP_PoseFeature_EnvolvedControls;
+	for($each in $sel)
+	{
+			string $attr []=`listAttr  -scalar -channelBox $each`;
+			$attr =stringArrayCatenate ($attr,`listAttr  -scalar -k $each`);	
+			int $envolved = 0;
+			string $eachWithoutNS = `mgp_removeNamespace $each`;
+			for ($eachA in $attr)
+			{
+				string $theAttr =  ($each+"."+$eachA);
+				if(!`getAttr -l $theAttr`)
+				{
+					if(!$includeNS)
+					{
+						$objDotAttr = ($eachWithoutNS+"."+$eachA);
+					}
+					else
+					{
+						$objDotAttr = $theAttr;
+					}
+					$cValue = `getAttr $theAttr`;
+					$resultDataList[size($resultDataList)] = ($objDotAttr +"="+$cValue);
+					$envolved = 1;
+				}
+			}
+			if($envolved)
+			{
+				if(!$includeNS)
+				{
+					$MGP_PoseFeature_EnvolvedControls[size($MGP_PoseFeature_EnvolvedControls)] = $eachWithoutNS;
+				}
+				else
+				{
+					$MGP_PoseFeature_EnvolvedControls[size($MGP_PoseFeature_EnvolvedControls)] = $each;
+				}
+			}
+	}
+	return $resultDataList;
+}
+global proc string[] MGP_GetPoseCommandButtonCommandString(int $includeNS)
+{
+	string $result[];
+	string $data[]=`mgp_getCurrentPoseData_doit $includeNS`;
+	if(!size($data))
+	{
+		return {};
+	}
+	
+	string $dataStr = `stringArrayToString $data "\",\n\t\t\""`;
+	$result[0] = "Button Command";  //no use,just for the two indice per menu item rule consistancy.
+	$result[1] = "MGP_ApplyPose {\""+$dataStr+"\"};";
+	
+	//now for other apply ways:
+	global string $MGP_PoseFeature_EnvolvedControls[];
+	string $controls = `stringArrayToString $MGP_PoseFeature_EnvolvedControls "\",\n\t\t\""`;
+	$result[2] = "Select Pose Controls";
+	$result[3] = "MGP_SelectControlsWithPickerNamespace 0 {\""+$controls+"\"};";
+	$result[4] = "Apply Only If Selected";
+	$result[5] = "MGP_ApplyPose_Ex 1 {\""+$dataStr+"\"};";
+	$result[6] = "Not Apply If Selected";
+	$result[7] = "MGP_ApplyPose_Ex 2 {\""+$dataStr+"\"};";
+	$result[8] = "Apply To Selected Rig";
+	$result[9] = "MGP_ApplyPose_ToSelectedRef {\""+$dataStr+"\"};";
+	
+	$result[10] = "Apply To Selected Rig(Only Selected)";
+	$result[11] = "MGP_ApplyPoseEx_ToSelectedRef 1 {\""+$dataStr+"\"};";
+	$result[12] = "Apply To Selected Rig(Ignore Selected)";
+	$result[13] = "MGP_ApplyPoseEx_ToSelectedRef 2 {\""+$dataStr+"\"};";
+	$result[14] = "";  //separator.
+	$result[15] = "";  //separator.
+	$result[16] = "Add Select Pose Controls";
+	$result[17] = "MGP_SelectControlsWithPickerNamespace 1 {\""+$controls+"\"};";
+	$result[18] = "Deselect Pose Controls";
+	$result[19] = "MGP_SelectControlsWithPickerNamespace 2 {\""+$controls+"\"};";
+	$result[20] = "Toggle Select Pose Controls";
+	$result[21] = "MGP_SelectControlsWithPickerNamespace 3 {\""+$controls+"\"};";
+	return $result;
+}
+
+//for install picker item to shelf---------------------------------------------
+proc string mgp_activeOrCreateShelfTab(string $tabName)
+{
+	global string $gShelfTopLevel;
+	string $st =`tabLayout -q -st $gShelfTopLevel`;
+	if(!size($tabName))
+	{
+		return $st;
+	}
+	string $shelfLayouts []=`tabLayout -q -ca $gShelfTopLevel `;
+	if(`stringArrayContains $tabName  $shelfLayouts`)
+	{
+		tabLayout -e -st $tabName $gShelfTopLevel;
+	}	
+	else
+	{
+		string $sl = `shelfLayout -p $gShelfTopLevel $tabName`;
+		tabLayout -e  -tabLabel $sl $tabName $gShelfTopLevel;
+		tabLayout -e -st $tabName $gShelfTopLevel;	
+	}
+	return $tabName;
+	/*
+	int $sindex = `tabLayout -q -selectTabIndex $gShelfTopLevel`;
+	string $allTLs[] = `tabLayout -q -tabLabel $gShelfTopLevel`;
+	int $theIndex = -1;
+	int $len = size($allTLs);
+	for ($i=0 ;$i<$len; $i++)
+	{		
+		if($tabName== $allTLs[$i])
+		{
+			 $theIndex = $i;
+			 break;
+		}			
+	}
+	if($theIndex == -1)
+	{
+		//need to create:
+		string $sl = `shelfLayout -p $gShelfTopLevel $tabName`;
+		tabLayout -e  -tabLabel $sl $tabName $gShelfTopLevel;
+			
+		return $sl;
+	}
+	if($theIndex == $sindex)
+	{
+		return $st;
+	}
+	//tabLayout -e -st $shelfLayouts[$theIndex] $gShelfTopLevel;
+	return $shelfLayouts[$theIndex];	*/
+}
+proc string mgp_replaceNamespace(string $obj,string $ns)
+{
+	if(size($ns))
+	{
+		$ns += ":";
+	}
+	string $temp[]=`stringToStringArray $obj ":"`;
+	if(size($temp) > 1)
+	{
+		string $oldNS = $temp[0]+":";
+		return `substituteAllString $obj $oldNS ($ns)`;
+	}
+	else
+	{
+		$obj = $ns + $obj;
+	}
+	return  $obj;
+}
+global proc MGP_EvalSelectionEx(string $objs[])
+{
+	int $len = size($objs);
+	int $control=0,$shift=0,$alt=0;
+	//int $caplock=0;
+	int $mods[] = `MGP_GetKeyboardModifiers`;
+	$control = $mods[0];
+	$shift = $mods[1];
+	$alt = $mods[2];
+	
+	string $ns = `MGP_getSelectionNamespace`;
+	if($alt)
+	{
+		for($i=0; $i<$len; $i++)
+		{			
+			$objs[$i] = `mgp_replaceNamespace $objs[$i] $ns`;
+		}
+	}
+	//print $objs;
+	if(!$control && !$shift)
+	{
+		select -cl;
+	}
+	int $selCount = 0;
+	for($obj in $objs)
+	{
+		if(!`objExists $obj`)
+		{
+			MGP_ScriptEditorFeedback (`MGP_MultiLanguage_rep1 "pkr.serv.objNotExist" $obj`+"\n") 0;
+			continue;
+		}
+		$selCount ++;
+		if($control)
+		{
+			if(!$shift)
+			{
+				select -deselect $obj;
+			}
+			else
+			{
+				select -add $obj;
+			}
+		}
+		else
+		{
+			if(!$shift)
+			{
+				select -add $obj;
+			}
+			else
+			{
+				select -toggle $obj;
+			}
+		}		
+	}
+	if(!$control && !$shift)
+	{
+		MGP_ScriptEditorFeedback (`MGP_MultiLanguage_rep1 "pkr.serv.objSelected" $selCount`+"\n") 0;
+	}
+	else if($control && $shift)
+	{
+		MGP_ScriptEditorFeedback (`MGP_MultiLanguage_rep1 "pkr.serv.objAddSelected" $selCount`+"\n") 0;
+	}
+	else 
+	{
+		if($shift)
+		{
+			MGP_ScriptEditorFeedback (`MGP_MultiLanguage_rep1 "pkr.serv.objToggleSelected" $selCount`+"\n") 0;
+		}
+		else if($control)
+		{
+			MGP_ScriptEditorFeedback (`MGP_MultiLanguage_rep1 "pkr.serv.objDeselected" $selCount`+"\n") 0;
+		}
+	}	
+}
+proc string mgp_makeSelectButtonCommandViaData(string $data)
+{
+	string $cmd = "if(`exists MGP_EvalSelectionEx`)\n{\n    MGP_EvalSelectionEx "+$data+";\n}\nelse\n{\n    select "+$data+";\n}";
+	return $cmd;
+}
+global proc int MGP_InstallSelectButtonToShelf(string $tabName, string $label, string $objListString, string $toolTip)
+{
+	global string $gShelfTopLevel;
+	if (!`tabLayout -exists $gShelfTopLevel`)
+	{
+		return 0;
+	}
+	string $shelfLayout = `mgp_activeOrCreateShelfTab $tabName`;
+	if(!size($shelfLayout))
+	{
+		return 0;
+	}
+	if(!size($objListString))
+	{
+		return 0;
+	}
+	string $cmd = `mgp_makeSelectButtonCommandViaData $objListString`;
+	string $defaultIcon = "selectByHierarchy.png";// "selectComp.png";	 //"SP_FileDialogForward.png";   //"selectByHierarchy.png";	  //"mayaIcon.png";
+  string $sb=`shelfButton
+		-label $label
+		-iol $label
+		-parent ($gShelfTopLevel + "|" +$shelfLayout)
+		-command $cmd
+		-image $defaultIcon
+		-annotation $toolTip  
+		-overlayLabelBackColor 0 0 0 .6 				
+    `;
+  control -e -vis 1 $sb;
+  return 1;
+}
+proc string mgp_makeCommandButtonCommandViaData(string $data)
+{
+	string $rep1 = "MGP_GetCurrentPickerNamespace";
+	string $rep2 = "MGPickerView -q -namespace";
+	return $data;
+}
+global proc int MGP_InstallCommandButtonDataToShelf(string $tabName, string $label, string $cmdType, string $shelfCmd, string $toolTip)
+{
+	global string $gShelfTopLevel;
+	if (!`tabLayout -exists $gShelfTopLevel`)
+	{
+		return 0;
+	}
+	string $shelfLayout = `mgp_activeOrCreateShelfTab $tabName`;
+	if(!size($shelfLayout))
+	{
+		return 0;
+	}
+	if(!size($shelfCmd))
+	{
+		return 0;
+	}
+	string $cmd = `mgp_makeCommandButtonCommandViaData $shelfCmd`;
+	string $sourceType = "mel";
+	string $defaultIcon = "commandButton.png";
+	if(`tolower $cmdType` == "python")
+	{
+		$defaultIcon = "pythonFamily.png";
+		$sourceType = "python";
+	}
+	
+	string $sb=`shelfButton
+		-label $label
+		-iol $label
+		-parent ($gShelfTopLevel + "|" +$shelfLayout)
+		-command $cmd
+		-image $defaultIcon
+		-annotation $toolTip  
+		-overlayLabelBackColor 0 0 0 .6 				
+    `;
+  control -e -vis 1 $sb;
+  return 1;
+}
+
+//hierarchy sorting--------------------------------
+global proc int[] MGP_SortHierarchyDepth_ReturnIndex(string $objList[])
+{
+	//string $objList[] = $processList;
+	int $result[];
+	
+	string $sortList[] = `MGP_SortHierarchyDepth_ReturnObjects $objList`;
+	int $unexistCount = 0;
+	//append the unexists:
+	for($i=0; $i<size($objList);$i++)
+	{
+		if (!objExists($objList[$i]))
+		{
+			$sortList[size($sortList)] = $objList[$i];
+			$unexistCount ++;
+		}
+	} 
+	int $c = `size $objList`;
+	for($i=0; $i<$c; $i++)
+	{
+		int $index = 0;
+		for($j=0; $j<$c; $j++)
+		{
+			if($sortList[$j] == $objList[$i])
+			{
+				$result[size($result)] = $j;
+				break;
+			}
+		}
+	}
+	if($unexistCount)
+	{
+		MGP_ScriptEditorFeedback(`MGP_MultiLanguage_rep1 "pkr.hierarchySort.noexist" $unexistCount`,1);
+	}
+	return $result;
+
+} // end hierarchy DepthSort
+
+global proc string[] MGP_SortHierarchyDepth_ReturnObjects(string $objList[])
+//sort the obj list from top hierarchy to children hierarchy
+{
+	//string $objList[] = $processList;
+	string $sortList[] = {};
+	for ($obj in $objList)
+  {
+		if(objExists($obj))
+    {
+			int $depth = MGP_GetHierarchyDepth($obj,0);
+			//do padding so proper sort order
+			string $padDepth;
+			if ($depth < 10)
+				$padDepth = ("000" + $depth);
+			else if ($depth < 100)
+				$padDepth = ("00" + $depth);
+			else if ($depth < 1000)
+				$padDepth = ("0" + $depth);
+			else if ($depth < 10000)
+				$padDepth = ($depth);
+			string $prefixobj = ("-%" + $padDepth + "%-" + $obj);
+			$sortList = stringArrayCatenate({$prefixobj},$sortList);
+		}
+	}
+	$sortedList = sort($sortList);
+	string $sortListClean[] = {};
+	string $sorted;
+	for($sorted in $sortedList)
+	{
+		//print ($sorted + "\n");
+		string $regularExpr = "-%.*%-";
+		string $clean = `MGP_substitute $regularExpr $sorted  ""`;
+		//print ($clean + "\n");
+		$sortListClean = stringArrayCatenate($sortListClean,{$clean});
+	}	 
+	//print 	$sortListClean;
+	return $sortListClean;
+
+} // end hierarchy DepthSort
+
+
+global proc int MGP_GetHierarchyDepth(string $object,int $depth)
+{
+	
+	while ($object != MGP_TraceConstraintParent($object) )
+  {
+		$object = MGP_TraceConstraintParent($object);
+		$depth++;
+  }
+	string $parent[] = `listRelatives -p $object`;
+
+	if (!size($parent))
+  {
+		return $depth;
+  }
+		
+	$depth++;
+    //print ("Parent: "+$parent[0]+"\n");
+	//return $depth;
+	return(MGP_GetHierarchyDepth($parent[0],$depth));
+}
+
+global proc string MGP_TraceConstraintParent(string $object)
+{
+	//list connections on translate, rotate shouldn't matter since it's absolute
+	string $transConnections[] = {};
+	string $transConnectionsX[] = `listConnections -scn true -destination false -source true ($object + ".translateX")`;
+	string $transConnectionsY[] = `listConnections -scn true -destination false -source true ($object + ".translateY")`;
+	string $transConnectionsZ[] = `listConnections -scn true -destination false -source true ($object + ".translateZ")`;
+	
+	string $rotConnectionsX[] = `listConnections -scn true -destination false -source true ($object + ".rotateX")`;
+	string $rotConnectionsY[] = `listConnections -scn true -destination false -source true ($object + ".rotateY")`;
+	string $rotConnectionsZ[] = `listConnections -scn true -destination false -source true ($object + ".rotateZ")`;
+	
+	$transConnections = stringArrayCatenate($transConnectionsX,$transConnections);
+	$transConnections = stringArrayCatenate($transConnectionsY,$transConnections);
+	$transConnections = stringArrayCatenate($transConnectionsZ,$transConnections);
+
+	$transConnections = stringArrayCatenate($rotConnectionsX,$transConnections);
+	$transConnections = stringArrayCatenate($rotConnectionsY,$transConnections);
+	$transConnections = stringArrayCatenate($rotConnectionsZ,$transConnections);
+	
+	$transConnections = stringArrayRemoveDuplicates($transConnections);
+	
+	string $returnString = $object;
+	
+	if (size($transConnections))
+    {
+		//for ($connected in $transConnections){
+            //return $returnString;
+            
+			string $connected = $transConnections[0];
+			//check to see if type is parent or point
+			//string $connected = "pSphere1_pointConstraint1";
+			if (`objectType -isType "pointConstraint" $connected` || `objectType -isType "parentConstraint" $connected` )
+            {
+                int $validIndice[] = `getAttr -multiIndices ($connected + ".target")`;
+                if(!size($validIndice))
+                {
+                    return $returnString;
+                }
+                int $targetIndex = 0;
+                float $targetWeight = 0;
+                for($index in $validIndice)
+                {
+                     float $compareWeight = `getAttr ($connected + ".target[" + $index + "].targetWeight")`;
+                    if ($targetWeight < $compareWeight)
+                    {
+                        $targetWeight = $compareWeight;
+                        $targetIndex = $index;
+                    }	
+                }
+				
+				string $connectedTransform[] = `listConnections ($connected + ".target[" + $targetIndex + "].targetParentMatrix")`;
+
+				//string $list[] = `listConnections -destination false -source true $connected`;									
+				$returnString = $connectedTransform[0];
+			}
+		//}
+	}
+	return $returnString;
+	
+} // end MGP_TraceConstraintParent
+
+
+//-------namespace--------------------------------
+global proc MGP_SetPickerNamespace_Via_Selection()
+{
+	string $mgp_namespace = `MGP_getSelectionNamespace`;
+	if(!size($mgp_namespace))
+	{
+		MGP_ScriptEditorFeedback `MGP_MultiLanguage "pkr.serv.mustSelectReferencedObj.war"` 1;
+	}
+	else
+	{
+		MGP_SetCurrentPickerNamespace $mgp_namespace;
+		MGP_ScriptEditorFeedback `MGP_MultiLanguage_rep1 "pkr.serv.namespaceSet.rep" $mgp_namespace` 0;
+	}
+}
+
+//===================================================Read File codes =====================================================
+global proc string [] MGP_ReadFileArray(string $file)
+{
+	// read every line and put it into a strig array
+	string $nextLine ,$getData[];
+	if(!`filetest -f $file `)
+	{
+	  return $getData;
+	}
+	$readFileID=`fopen $file "r"`;
+	if(!$readFileID)
+	{
+		return {};
+	}
+	while(!`feof $readFileID`)
+	{
+		$nextLine=`fgetline $readFileID`;
+		if (size($nextLine)>0)
+		{
+			$getData[size($getData)]=strip ($nextLine);
+		}
+	}
+	fclose $readFileID;
+	return $getData;
+}
+
+global proc string  MGP_ReadFileString(string $file)
+{	
+	//read every line and put it into a string
+	string $nextLine ,$getDataString;
+	if(!`filetest -f $file`)
+	{
+	  return "";
+	}
+	$readFileID=`fopen $file "r"`;
+	if(!$readFileID)
+	{
+		return "";
+	}
+	while(!`feof $readFileID`)
+	{
+		$nextLine=`fgetline $readFileID`;
+		if (size($nextLine)>0)
+		{			
+			$getDataString=($getDataString+$nextLine);
+		}
+	}
+	fclose $readFileID;
+	return $getDataString;
+}
+
+global proc string [] MGP_ReadFileSepArray(string $file,string $sep)
+{	
+	//read every line and separate it with $sep,and put every part into a string array.
+	string $getData[];
+	if(!`filetest -f $file `)
+	{
+	  return $getData;
+	}
+	if(!size($sep))
+	{
+	  $sep = "\r\n";
+	}
+	string $nextLine ,$getDataString;
+	$readFileID=`fopen $file "r"`;
+	if(!$readFileID)
+	{
+		return {};
+	}
+	while(!`feof $readFileID`)
+	{
+		$nextLine=`fgetline $readFileID`;
+		if (size($nextLine)>0)
+		{			
+			$getDataString=($getDataString+$nextLine);
+		}
+	}
+ 	$numTokens = `tokenize  $getDataString $sep $getData`;
+	fclose $readFileID;
+
+	return $getData;
+}
+
+//-----------------viewport---------------------------------
+global proc string MGP_GetActivedModelView()
+{
+	string $result = `getPanel -withFocus`;
+	string $activeViewType=`getPanel -typeOf $result`;
+	if($activeViewType != "modelPanel")
+	{
+		return "";
+	}
+	return $result;
+}
+global proc string[] MGP_GetAllVisibleModelViews()
+{
+	string $allViews[];
+	clear $allViews;
+	string $allVisViews []=`getPanel -vis`;		
+	for ($eachTV in  $allVisViews)
+	{
+		if(`getPanel -typeOf $eachTV` == "modelPanel")	
+		{
+				$allViews [size($allViews)]=$eachTV;
+		}
+	}
+	return $allViews;
+}
+global proc MGP_ApplyViewPortConfigs_ex(string $configs[])
+//hold control key to apply to all visible model views.
+{
+	int $mods[] = `MGP_GetKeyboardModifiers`;
+	int $control = $mods[0];
+	MGP_ApplyViewPortConfigs $control $configs;
+}
+proc string mgp_getMelFlagStringFromViewportConfig(string $config)
+{
+	$config = tolower(strip($config));
+	if(!size($config))
+	{
+		return "";
+	}
+	string $datas[]=`stringToStringArray $config "="`;
+	if(size($datas) != 2)
+	{
+		return "";
+	}
+	string $flag = strip($datas[0]);
+	int $value = strip($datas[1]);
+	global string $melFlags [];
+	$melFlags = {"-allObjects",
+								"-nurbsCurves",
+                "-nurbsSurfaces",
+                "-controlVertices",
+                "-hulls",
+                "-polymeshes",
+                "-subdivSurfaces",
+                "-planes",
+                "-lights",
+                "-cameras",
+                "-imagePlane",
+                "-joints",
+                "-ikHandles",
+                "-deformers",
+                "-dynamics",
+                "-particleInstancers",
+                "-fluids",
+                "-hairSystems",
+                "-follicles",
+                "-nCloths",
+                "-nParticles",
+                "-nRigids",
+                "-dynamicConstraints",
+                "-locators",
+                "-dimensions",
+                "-pivots",
+                "-handles",
+                "-textures",
+                "-strokes",
+                "-motionTrails",
+                "-pluginShapes",
+                "-clipGhosts",
+                "-greasePencils",
+                "-pluginObjects gpuCacheDisplayFilter",
+                //---------
+                "-manipulators",
+                "-grid",
+                "-headsUpDisplay",
+                "-selectionHiliteDisplay"
+                };
+   for($each in $melFlags)
+   {
+   		string $cFlag = tolower($each);
+   		if(($flag == $cFlag) || (("-"+$flag) == $cFlag))
+   		{
+   			return ($each+" "+$value);
+   		}
+   }             
+   return "";
+}
+global proc MGP_ApplyViewPortConfigs(int $applyToAll, string $configs[])
+//configs should be string array,each element of it should be falg = value.
+//eg. allObjects = 1, NURBS Curves = 0, etc.
+{
+	if(!size($configs))
+	{
+		return;
+	}
+	string $views[];
+	if($applyToAll)
+	{
+		$views = `MGP_GetAllVisibleModelViews`; 
+	}
+	else
+	{
+		string $activeV = `MGP_GetActivedModelView`;
+		if(size($activeV))
+		{
+			$views[0] = $activeV;
+		}
+	}
+	if(!size($views))
+	{
+		MGP_ScriptEditorFeedback "No model editor actived / visible to set the config." 1;
+		return;
+	}
+	string $flags[];
+	for($c in $configs)
+	{
+		string $cc = `mgp_getMelFlagStringFromViewportConfig $c`;
+		if(size($cc))
+		{
+			$flags[size($flags)] = $cc;
+		}
+	}
+	string $cmd = "modelEditor -e " + `stringArrayToString $flags " "` + " ";
+	for($each in $views)
+	{
+		catch(`eval ($cmd+$each)`);
+	}
+}
+global proc MGP_ViewShowOnlyGeometry(int $applyToAllViews)
+{
+	string $configs[];
+	$configs[size($configs)] = "allObjects=0";
+	$configs[size($configs)] = "nurbsSurfaces=1";
+	$configs[size($configs)] = "polymeshes=1";
+	$configs[size($configs)] = "subdivSurfaces=1";
+	MGP_ApplyViewPortConfigs $applyToAllViews $configs;
+}
+global proc MGP_ViewShowOnlyGeometryWithCurve(int $applyToAllViews)
+{
+	string $configs[];
+	$configs[size($configs)] = "allObjects=0";
+	$configs[size($configs)] = "nurbsSurfaces=1";
+	$configs[size($configs)] = "polymeshes=1";
+	$configs[size($configs)] = "subdivSurfaces=1";
+	$configs[size($configs)] = "nurbsCurves=1";
+	MGP_ApplyViewPortConfigs $applyToAllViews $configs;
+}
+global proc MGP_ViewShowOnlyGeometry_Ex()
+{
+	string $configs[];
+	$configs[size($configs)] = "allObjects=0";
+	$configs[size($configs)] = "nurbsSurfaces=1";
+	$configs[size($configs)] = "polymeshes=1";
+	$configs[size($configs)] = "subdivSurfaces=1";
+	MGP_ApplyViewPortConfigs_ex $configs;
+}
+global proc MGP_ViewShowOnlyGeometryWithCurve_Ex()
+{
+	string $configs[];
+	$configs[size($configs)] = "allObjects=0";
+	$configs[size($configs)] = "nurbsSurfaces=1";
+	$configs[size($configs)] = "polymeshes=1";
+	$configs[size($configs)] = "subdivSurfaces=1";
+	$configs[size($configs)] = "nurbsCurves=1";
+	MGP_ApplyViewPortConfigs_ex $configs;
+}
+global proc MGP_ViewShowAll(int $applyToAllViews)
+{
+	string $configs[];
+	$configs[size($configs)] = "allObjects=1";
+	MGP_ApplyViewPortConfigs $applyToAllViews $configs;
+}
+global proc MGP_ViewShowAll_Ex()
+{
+	string $configs[];
+	$configs[size($configs)] = "allObjects=1";
+	MGP_ApplyViewPortConfigs_ex $configs;
+}
+global proc MGP_ViewShowNone(int $applyToAllViews)
+{
+	string $configs[];
+	$configs[size($configs)] = "allObjects=0";
+	MGP_ApplyViewPortConfigs $applyToAllViews $configs;
+}
+global proc MGP_ViewShowNone_Ex()
+{
+	string $configs[];
+	$configs[size($configs)] = "allObjects=0";
+	MGP_ApplyViewPortConfigs_ex $configs;
+}
+
+//camera code-----------------------------------
+global proc MGP_SetActiveViewCamera(string $cam)
+{
+	$cam = strip($cam);
+	if(!size($cam))
+	{
+		return;
+	}
+	if(!`objExists $cam`)
+	{
+		MGP_ScriptEditorFeedback ("Camera: "+$cam+" is not exist.") 1;
+		return;
+	}
+	string $activeView = `MGP_GetActivedModelView`;
+	if(!size($activeView))
+	{
+		MGP_ScriptEditorFeedback "No active 3d viewport found." 1;
+		return;
+	}
+	modelPanel -e -cam $cam $activeView;
+}
+global proc MGP_SetActiveViewCamera_AutoNamespace(string $cam)
+{
+	$cam = strip($cam);
+	if(!size($cam))
+	{
+		return;
+	}
+	string $ns = `MGPickerView -q -namespace`;
+	string $temp[]=`stringToStringArray $cam ":"`;
+	string $camNoNS = $cam;
+	if(size($temp)>1)
+	{
+		$camNoNS = $temp[size($temp)-1];
+	}
+	if(size($ns))
+	{
+		$cam = ($ns+":"+$camNoNS);
+	}
+	else
+	{
+		$cam = $camNoNS;
+	}
+	MGP_SetActiveViewCamera $cam;
+}
+
+//------------test the current preferred maya tool to switch to------------
+proc int[] mgp_testObjLockStatus(string $obj)
+{
+	int $result[] = {0,0,0};
+	if(`nodeType $obj` != "transform")
+	{
+		return $result;
+	}
+	if(`getAttr -l ($obj+".tx")` && `getAttr -l ($obj+".ty")` && `getAttr -l ($obj+".tz")`)
+	{
+		$result[0] = 1;
+	}
+	if(`getAttr -l ($obj+".rx")` && `getAttr -l ($obj+".ry")` && `getAttr -l ($obj+".rz")`)
+	{
+		$result[1] = 1;
+	}
+	if(`getAttr -l ($obj+".sx")` && `getAttr -l ($obj+".sy")` && `getAttr -l ($obj+".sz")`)
+	{
+		$result[2] = 1;
+	}
+	return $result;
+}
+global proc string MGP_TestPreferredMayaToolToSwitch(string $objs[])
+{
+	if(!size($objs))
+	{
+		return "";
+	}
+	int $TAvailable = 0;
+	int $RAvailable = 0;
+	int $SAvailable = 0;
+	for($obj in $objs)
+	{
+		int $lock[] =`mgp_testObjLockStatus $obj`;
+		if(!$lock[0])
+		{
+			$TAvailable = 1;
+		}
+		if(!$lock[1])
+		{
+			$RAvailable = 1;
+		}
+		if(!$lock[2])
+		{
+			$SAvailable = 1;
+		}
+	}
+	if(($TAvailable + $RAvailable + $SAvailable) == 1)
+	{
+		if($TAvailable)
+		{
+			return "t";
+		}
+		if($RAvailable)
+		{
+			return "r";
+		}
+		if($SAvailable)
+		{
+			return "s";
+		}
+	}
+	return "";
+}

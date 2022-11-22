@@ -1,0 +1,78 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Converters</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="converters,picker converters" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "converters.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="commandbuttonpresets.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="codesnippets.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">Converters are a MEL script that convert other type of picker node / file into MG-Picker file / node.</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">The converters utilizes the MEL API commands provided by MG-Picker Studio heavily, especially these 3 commands:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"><a href="mgpicker.htm" class="topiclink">MGPicker</a>, <a href="mgpickeritem.htm" class="topiclink">MGPickerItem</a>, <a href="mgpickerlink.htm" class="topiclink">MGPickerLink</a>.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Refer to the command reference for those commands to know more about these commands.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">Where should these converter scripts be placed?</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">For factory default converters, they are in the Maya's user script folder/ MG-PickerStudio/MGPicker_Program/Converters,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">the factory default converters are maintained by the developer of MG-Picker Studio so better keep it intact.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">For user converters, please put them here: Maya's user script folder/MG-PickerStudio/MGPicker_UserConfig/Converters.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">To learn how to write a converters, check out the exist converters from the factory default converters folder</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">:</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Converter_abxPicker.mel, &nbsp;Converter_nickPicker.mel</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">Say your converter is for otherPicker node, the converter file is called Converter_otherPicker.mel,</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt;">the interfaces that a converter mel should implement are:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">//other picker node converter API: &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">global proc int &nbsp;Converter_otherPicke</span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">r_autoReadNode(); &nbsp; //return 0~1 value, indicate if MG-Picker should invoke this converter to autoload your in-scene picker node.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">global proc string Converter_otherPicker_nodeType(); </span><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> &nbsp;//return string value, the type string of picker node.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">global proc int <span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Converter_otherPicker</span>_isPickerNode(string $node); &nbsp; //return 0~1 value, indicate the node is of the picker node.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">global proc string <span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Converter_otherPicker</span>_getNamespace(string $node); &nbsp; //return the namespace from a picker node. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//The proc is used in find&amp;Load feature of MG-Picker studio.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">global proc string[] <span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Converter_otherPicker</span>_nodeLister(); //list all the picker nodes in the scene.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">global proc int <span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Converter_otherPicker</span>_readNode(string $node);  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//the actual reader for each picker node.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">//other picker file converter API: &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">global proc int <span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Converter_otherPicker</span>_isPickerFile(string $fileFullPath);  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//Return 1 if the file is the picker file, 0 if not. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">global proc int <span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Converter_otherPicker</span>_readFile(string $fileFullPath);  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//the actual reader for each picker file.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;</p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="commandbuttonpresets.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="codesnippets.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

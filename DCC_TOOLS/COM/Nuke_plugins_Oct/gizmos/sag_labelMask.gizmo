@@ -1,0 +1,130 @@
+#! D:/Nuke/5.1v5_x32/Nuke5.1.exe -nx
+version 5.1500
+Gizmo {
+ inputs 2
+ addUserKnob {20 labelmskctrls l Controls}
+ addUserKnob {18 tag l "Label Color" t "Use color picker to select label color"}
+ tag {0.21586 0 0}
+ addUserKnob {7 gammainner l "Gamma Inner AA" t "Gamma AA regions inside selected label" R 0 5}
+ gammainner 2
+ addUserKnob {7 gammaouter l "Gamma Outer AA" t "Gamma AA regions outside selected label" R 0 5}
+ gammaouter 0.5
+ addUserKnob {7 tol l Tolerance t "Tolerance to search for selected color. Raise it higher if Nuke doesn't calculate a mask after reopening." R 0.0001 0.1}
+ tol 0.0001
+}
+ Input {
+  inputs 0
+  name coverageA
+  xpos 2
+  ypos -30
+ }
+set N1441d580 [stack 0]
+ Expression {
+  channel0 none
+  channel1 none
+  channel2 none
+  expr3 a>0.9999?0:1
+  name solidRegions
+  xpos 106
+  ypos 36
+ }
+set N18733c48 [stack 0]
+push 0
+ Input {
+  inputs 0
+  name labelRGB
+  xpos -110
+  ypos -30
+  number 1
+ }
+ Expression {
+  channel0 none
+  channel1 none
+  channel2 none
+  expr3 abs(r-tag.r)<tol&&abs(g-tag.g)<tol&&abs(b-tag.b)<tol?1:0
+  name labelSelector
+  xpos -110
+  ypos 34
+  addUserKnob {20 ctrl l Controls}
+  addUserKnob {18 tag l "Label Color"}
+  tag {{parent.tag i} {parent.tag i} {parent.tag i}}
+  addUserKnob {7 tol l Tolerance}
+  tol {{parent.tol i}}
+ }
+set N18317fd0 [stack 0]
+push $N1441d580
+ Merge2 {
+  inputs 3+1
+  operation mask
+  Achannels {none none none rgba.alpha}
+  Bchannels {none none none rgba.alpha}
+  output {none none none rgba.alpha}
+  name innerAA
+  xpos 2
+  ypos 116
+ }
+ Grade {
+  channels {none none none rgba.alpha}
+  gamma {{parent.gammainner i}}
+  name innerCC
+  xpos 2
+  ypos 164
+ }
+push 0
+push $N1441d580
+push 0
+push $N18317fd0
+push $N18317fd0
+ Dilate {
+  channels {none none none rgba.alpha}
+  size 1
+  maskChannelInput -rgba.alpha
+  name dilateLabel
+  xpos -220
+  ypos 116
+ }
+ Merge2 {
+  inputs 3+1
+  operation from
+  Achannels {none none none rgba.alpha}
+  Bchannels {none none none rgba.alpha}
+  output {none none none rgba.alpha}
+  name outerAA
+  xpos -110
+  ypos 116
+ }
+ Grade {
+  channels {none none none rgba.alpha}
+  gamma {{parent.gammaouter i}}
+  name outerCC
+  xpos -110
+  ypos 220
+ }
+push $N18733c48
+push $N18317fd0
+ Merge2 {
+  inputs 2
+  operation stencil
+  Achannels {none none none rgba.alpha}
+  Bchannels {none none none rgba.alpha}
+  output {none none none rgba.alpha}
+  name solidLabel
+  xpos 106
+  ypos 114
+ }
+ Merge2 {
+  inputs 3+1
+  operation plus
+  Achannels {none none none rgba.alpha}
+  Bchannels {none none none rgba.alpha}
+  output {none none none rgba.alpha}
+  name mergedMask
+  xpos 2
+  ypos 220
+ }
+ Output {
+  name outAlpha
+  xpos 2
+  ypos 306
+ }
+end_group

@@ -1,0 +1,64 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Namespace</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "namespace.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="designprinciple.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="itemtypes.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;"> 设置当前picker的namespace：</span></p><p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">Namespace是当前Picker的命令空间，即前缀名。改变这个前缀名，使你可以将Picker在所有其它命名类似的角色上使用。</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-weight: bold;">-在设计师模式下设置namespace的两种方式:</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:9pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">1.</span><span style="font-size: 9pt;">选择reference角色的任一部分，按Ctrl+Alt+Shift+S快捷键，打开namespace设置窗口并设置。 </span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:9pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">2.</span><span style="font-size: 9pt;">选择reference角色的任一部分，点击右上角的更多功能按钮 </span><img src="morefeaturesbtn.gif" width="19" height="19" alt="moreFeaturesBtn" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 9pt;">/设置Namespace..</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">Sub-Namespace(次命名空间):</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">大部分类型的picker对象都支持一个叫sub-namespace(次命名空间)的属性，(具体是这些类型: 选择按钮，命令按钮，属性按钮，滑条)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">sub-namespace是对picker所用namespace的追加。比如您的picker namespace被设置为&quot;myCharacter&quot;, 有一个选择按钮的sub-namespace设置为&quot;bodyRig:chestRig&quot;, 这个选择按钮含有一个成员控制器叫&quot;chest_ctl&quot;,那么这个控制器最终将被解释成：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span style="color: #ff0000;">myCharacter:bodyRig:chestRig:chest_ctl;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">这意味着在动画师模式下，您点击这个选择按钮，它将试图在您的maya场景里选择一个叫&quot;myCharacter:bodyRig:chestRig:chest_ctl&quot;的物体.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">这个属性主要是用来支持基于reference的rigging架构，因为在这种rig里，可能已经包含reference。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">这样所有这些不同的namespace的物件仍然可以被设计在一个picker文件/节点里使用。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="designprinciple.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="itemtypes.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

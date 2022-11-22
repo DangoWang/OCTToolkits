@@ -1,0 +1,282 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>资产库MEL API</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Asset" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "assetlib_melapi.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span style="font-weight: bold; color: #602020;">资产库MEL</span><span class="f_Heading1"> API</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="assetlib_useasset.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="assetlib_py_api.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> 资产库MEL API:  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">MG-资产库提供的Mel的应用程序接口。你可以用这些mel全局函数，通过自己编写脚本来新建，管理及使用资产库。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">一个比较大的用途是用它来批量加入资产项，及自动生成ma档等。</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> 前提条件: </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">当前运行的Maya有安装MGTools Pro3或以上版本。</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> 接口全局函数说明: &nbsp;（后面有附示例代码</span><a href="assetlib_melapi.htm#example" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a><span class="f_MI_TitleStyle" style="color: #404040;">）</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MGAssetLib_initAPI ( );</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">描述：初始化资产库MEL API. 这是为了确保下面这些全局MEL函数有被source，这样才可用。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值：如果初始化过程出错，则返回0，否则返回1。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MGAssetLib_doesProjectExist ( string </span><span style="font-weight: bold; color: #602020;">$projectName </span><span style="font-weight: bold; color: #253555;">);</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">描述：在本地端的资产库里查找这个工程。即是在我的文档/Maya/MGTools_GlobalData/MG_AssetLib这个目录下，查找是否有名字为$projectName的库工程。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">注意：如果$projectName参数含有英文字母，数字，下划线之外的字符，这些字符将自动转换成下划线。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值：如果找到则返回1，没有找到则返回0。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc string MGAssetLib_getLocalProjectFile ( string </span><span style="font-weight: bold; color: #602020;">$projectName </span><span style="font-weight: bold; color: #253555;">);</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">注意：如果$projectName参数含有英文字母，数字，下划线之外的字符，这些字符将自动转换成下划线。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值：返回$projectName所对应的本地库的整个路径，即我的文档/Maya/MGTools_GlobalData/MG_AssetLib/$projectName/$projectName.assetproj。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">即使工程实际上不存在，也返回一样的结果。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc string MGAssetLib_createProject ( string </span><span style="font-weight: bold; color: #602020;">$projectName,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$ProjectAnnoatation, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$globalPath, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$statePresets [] </span><span style="font-weight: bold; color: #253555;">);</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">描述：创建一个本地资产库工程。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数：$projectName为名称，$ProjectAnnoatation为库工程的描述文字， $globalPath为全局资产库指向的路径。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$statePresets是库工程的状态预置，它是一个数组，这个数组的每个元素由下面格式的字符组成( 用空格分开 )：状态名称 状态颜色R 状态颜色G 状态颜色B</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">状态颜色的RGB数值是在0-1范围内的小数。比如: Approved 0.2 0.6 0.2</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">注意：如果$projectName参数含有英文字母，数字，下划线之外的字符，这些字符将自动转换成下划线。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">如果当前有打开资产库工具，则会自动在工具里打开这个新建的工程。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值：将返回新建的.assetproj文件 的完整路径；如果失败则返回空字符窜。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MGAssetLib_doesCategoryExist ( string </span><span style="font-weight: bold; color: #602020;">$projectName , </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 336px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$category </span><span style="font-weight: bold; color: #253555;">);</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">描述：测试在$projectName的库工程目录里，是否存在一个叫$category 的类别。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">注意：如果$projectName 参数含有英文字母，数字，下划线之外的字符，这些字符将自动转换成下划线。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值：存在则返回1，否则为0。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc string MGAssetLib_getLocalCategoryFile ( string </span><span style="font-weight: bold; color: #602020;">$projectName, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 360px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$category</span><span style="font-weight: bold; color: #253555;"> );</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">描述：一个类别事实是存储在本地库工程目录里的相应 .asset文件。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">注意：如果$projectName参数含有英文字母，数字，下划线之外的字符，这些字符将自动转换成下划线。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值：返回以$category为名称，并且属于$projectName的库工程里的.asset文件的完整路径。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">即使工程或类别实际上不存在，也返回一样的结果。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MGAssetLib_addCategory ( string </span><span style="font-weight: bold; color: #602020;">$projectName, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 288px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$category</span><span style="font-weight: bold; color: #253555;"> );</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">描述：在库工程里添加一个类别，并在本地相应的库工程目录里新增一个.asset文件。如果已存在则警告并返回0。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">注意：如果$projectName参数含有英文字母，数字，下划线之外的字符，这些字符将自动转换成下划线。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">如果当前有打开资产库工具，则会自动打开这个新添加的类别。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值：添加成功则返回1，否则为0。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MGAssetLib_clearCategory ( string </span><span style="font-weight: bold; color: #602020;">$projectName, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 288px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$category</span><span style="font-weight: bold; color: #253555;"> );</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">描述：清空一个类别，事实上是清空本地库工程目录里相应的.asset文件里的内容。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">注意：如果$projectName参数含有英文字母，数字，下划线之外的字符，这些字符将自动转换成下划线。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值：清空成功则返回1，否则为0。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MGAssetLib_addStates ( string </span><span style="font-weight: bold; color: #602020;">$projectName, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 288px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$stateList []</span><span style="font-weight: bold; color: #253555;"> );</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">描述：添加库工程的状态预置。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$stateList 是要添加进库工程的状态预置，它是一个数组，这个数组的每个元素由下面格式的字符组成( 用空格分开 )：状态名称 状态颜色R 状态颜色G 状态颜色B</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">状态颜色的RGB数值是在0-1范围内的小数。比如: Approved 0.2 0.6 0.2</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">注意：如果$projectName 参数含有英文字母，数字，下划线之外的字符，这些字符将自动转换成下划线。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值：添加成功则返回1，否则为0。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc string[] MGAssetLib_getProjectStates ( string </span><span style="font-weight: bold; color: #602020;">$projectName</span><span style="font-weight: bold; color: #253555;"> );</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">描述：获取库工程的即有状态预置。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">注意：如果$projectName参数含有英文字母，数字，下划线之外的字符，这些字符将自动转换成下划线。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值：库工程的状态预置数组。这个数组的每个元素由下面格式的字符组成( 用空格分开 )：状态名称 状态颜色R 状态颜色G 状态颜色B</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">状态颜色的RGB数值是在0-1范围内的小数。比如: Approved 0.2 0.6 0.2</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc string[] MGAssetLib_getProjectCategories ( string </span><span style="font-weight: bold; color: #602020;">$projectName</span><span style="font-weight: bold; color: #253555;"> );</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">描述：获取库工程的所有类别。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">注意：如果$projectName参数含有英文字母，数字，下划线之外的字符，这些字符将自动转换成下划线。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值：库工程的类别数组。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MGAssetLib_compareTwoFileDates ( string </span><span style="font-weight: bold; color: #602020;">$file1, </span><span style="font-weight: bold; color: #253555;"> &nbsp;string </span><span style="font-weight: bold; color: #602020;">$file2 </span><span style="font-weight: bold; color: #253555;">);</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">描述：辅助性函数，用来比较两个文件的修改日期。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值：如果俩文件都不存在，则返回0， 如果file1存在而file2不存在，则返回1，如果file1不存在而file2存在，则返回-1；</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">都存在的情况下，如果file1比file2旧，则返回-1，如果两者一样，则返回0， 如果file1比file2新，则返回1；</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc string[] MGAssetLib_searchPreviewImagesFromDirectory ( string </span><span style="font-weight: bold; color: #602020;">$searchDirectory,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 480px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$imageExtensionList [], </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 480px;"><span style="font-weight: bold; color: #253555;">int </span><span style="font-weight: bold; color: #602020;">$searchDepth </span><span style="font-weight: bold; color: #253555;">);</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">描述：辅助性函数，搜索一个目录，来获得具有特定扩展名的文件的完整路径数组。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数：$searchDirectory 为要搜索的目标路径，必须已存在。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$imageExtensionList 是要搜索的文件类型扩展名的数组，如 {&quot;*.jpg&quot;, &quot;*.bmp&quot;}</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$searchDepth 是路径搜索的深度，如果不想搜索子目录，则直接将其设为1。设为0或负数则视为无限制深度。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">注意：$imageExtensionList 数组里的元素，如果不是以 &quot;*.&quot; 开头的，则自动会加上 &quot;*.&quot; 。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值：将返回搜索到的符合条件的文件的完整路径数组。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc string[] MGAssetLib_searchMayaFilesFromDirectory ( string </span><span style="font-weight: bold; color: #602020;">$searchDirectory,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 432px;"><span style="font-weight: bold; color: #253555;">int </span><span style="font-weight: bold; color: #602020;">$searchMA, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 432px;"><span style="font-weight: bold; color: #253555;">int </span><span style="font-weight: bold; color: #602020;">$searchMB, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 432px;"><span style="font-weight: bold; color: #253555;">int </span><span style="font-weight: bold; color: #602020;">$searchDepth </span><span style="font-weight: bold; color: #253555;">);</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">描述：辅助性函数，搜索一个目录，来获得MB或MA文件的完整路径数组。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数：$searchDirectory 为要搜索的目标路径，</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$searchMA 决定是否要搜索MA文件，1为搜索，0为不搜索。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$searchMB 决定是否要搜索MB文件，1为搜索，0为不搜索。如果$searchMA 和$searchMB都为0，则直接返回空数组。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$searchDepth 是路径搜索的深度，如果不想搜索子目录，则直接将其设为1。设为0或负数则视为无限制深度。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值：将返回搜索到的MB,MA文件的完整路径数组。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MGAssetLib_addAssetRecords ( string </span><span style="font-weight: bold; color: #602020;">$projectName,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$category,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string</span><span style="font-weight: bold; color: #602020;"> $mayaFiles[],</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$namespaces[], </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$states[],</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$previewImageStrList[],</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$notes[]</span><span style="font-weight: bold; color: #253555;"> );</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">描述：往资产库里一次性添加多个资产项。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数：$projectName 为要添加到的库工程名称，</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$category 为要添加到的库工程里的特定类别，</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$mayaFiles 为要添加的资产文件路径数组。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$namespaces为要添加的资产名称数组，资产名称将来在叫资产进来时可以用做reference的命名空间。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$states 为该资产项的状态数组。这个状态数组的每个元素直接是状态名称，不需要加颜色信息。 </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$previewImageStrList 为该资产项的预览图文件数组。每一个元素对应一个资产项，单个元素内可以包括多个图片路径，但要以分号 &quot;;&quot; 分开。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$notes 为该资产项的注释数组。每个元素对应一个资产项的注释，元素的字符窜没有限制，你可以使用任意字符。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">注意：上面的数组参数全部要一一对应否则乱套，程序是以$mayaFiles这个数组的个数为要添加的个数。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">其它的数组如果没有对应的元素，则为空字符窜，除了$namespace这个数组，如果它没有对应于$mayaFiles的元素，则元素自动取值为maya文件的文件名。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值：成功添加没有出错则返回1，否则返回0。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MGAssetLib_deleteAssetRecords ( string </span><span style="font-weight: bold; color: #602020;">$projectName,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$category,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string</span><span style="font-weight: bold; color: #602020;"> $mayaFiles [] </span><span style="font-weight: bold; color: #253555;">);</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">描述：往资产库里一次性删除多个资产项。删除的依据是资产项的maya档案路径。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数：$projectName 为要删除资产项的库工程，</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$category 为要删除资产项的类别，</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$mayaFiles 为要删除的资产路径数组。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值：成功删除没有出错则返回1，否则返回0。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MGAssetLib_makeMayaAsciiFile ( int </span><span style="font-weight: bold; color: #602020;">$overrideIfExist,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$MAFile,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string</span><span style="font-weight: bold; color: #602020;"> $referenceFiles [],</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">string</span><span style="font-weight: bold; color: #602020;"> $namespaceList [],</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 312px;"><span style="font-weight: bold; color: #253555;">int </span><span style="font-weight: bold; color: #602020;">$deferList [] </span><span style="font-weight: bold; color: #253555;">);</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">描述：生成一个MA档案。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数：$overrideIfExist 决定如果目标MA档已存在时是否覆盖，</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$MAFile 为要生成的MA档的目标文件路径，</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$referenceFiles 为要在MA档里reference的资产文件数组，</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$namespaceList 为要在MA档里reference的命名空间数组，</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$deferList 为MA档里reference是否要延迟加载的数组。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值：成功生成没有出错则返回1，否则返回0。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-size: 9pt;">提示：如果要使用程序来上传下载您的资产库，可以使用MGTools提供的其它两个全局函数：( 这两个不需要初始化资产库MEL API即可使用 )</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MG_CopyFolder ( string </span><span style="font-weight: bold; color: #602020;">$targetFolder,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 240px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$sourceFolder,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 240px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$progressBarControl,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 240px;"><span style="font-weight: bold; color: #253555;">string</span><span style="font-weight: bold; color: #602020;"> $textControl,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 240px;"><span style="font-weight: bold; color: #253555;">int </span><span style="font-weight: bold; color: #602020;">$returnAtFirstError, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 240px;"><span style="font-weight: bold; color: #253555;">int </span><span style="font-weight: bold; color: #602020;">$autoHideProgressBarWhenIsDone</span><span style="font-weight: bold; color: #253555;"> );</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">描述：拷贝源文件夹下面的所有文件及子文件夹到目录文件夹里。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数：$targetFolder &nbsp;是要拷贝到的目标目录，可以不存在。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$sourceFolder 是要拷贝的源目录，必须存在且是目录，如果是文件，则取消拷贝。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$progressBarControl 指定一个 progressBar 控件的名称，如果有指定且控件存在，则在拷贝过程中会更新该进度条控件的进度。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;"><span style="font-size: 9pt;">如果您为这个参数指定了空字符窜，则该参数将被忽略。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$textControl 指定一个text 控件的名称，如果有指定且控件存在，则在拷贝过程中会更新该控件，显示当前拷贝哪个文件的信息。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;"><span style="font-size: 9pt;">如果您为这个参数指定了空字符窜，则该参数将被忽略。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$returnAtFirstError 决定是否一旦有出错，则取消后续操作返回。 1是返回，0是跳过错误并继续。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$autoHideProgressBarWhenIsDone 决定是否整个拷贝过程完成后，是否自动隐藏progressBar 控件。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值：成功拷贝则返回1，否则返回0。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #253555;">global proc int MG_DeleteFolder ( string </span><span style="font-weight: bold; color: #602020;">$deleteFolder,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 240px;"><span style="font-weight: bold; color: #253555;">string </span><span style="font-weight: bold; color: #602020;">$progressBarControl,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 240px;"><span style="font-weight: bold; color: #253555;">string</span><span style="font-weight: bold; color: #602020;"> $textControl,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 240px;"><span style="font-weight: bold; color: #253555;">int </span><span style="font-weight: bold; color: #602020;">$returnAtFirstError, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 240px;"><span style="font-weight: bold; color: #253555;">int </span><span style="font-weight: bold; color: #602020;">$autoHideProgressBarWhenIsDone</span><span style="font-weight: bold; color: #253555;"> );</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">描述：删除文件夹。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">参数：$deleteFolder &nbsp;是要删除的目标目录，必须存在。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$progressBarControl 指定一个 progressBar 控件的名称，如果有指定且控件存在，则在删除过程中会更新该进度条控件的进度。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;"><span style="font-size: 9pt;">如果您为这个参数指定了空字符窜，则该参数将被忽略。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$textControl 指定一个text 控件的名称，如果有指定且控件存在，则在删除过程中会更新该控件，显示当前删除哪个文件的信息。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;"><span style="font-size: 9pt;">如果您为这个参数指定了空字符窜，则该参数将被忽略。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$returnAtFirstError 决定是否一旦有出错，则取消后续操作返回。 1是返回，0是跳过错误并继续。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-size: 9pt;">$autoHideProgressBarWhenIsDone 决定是否整个删除过程完成后，是否自动隐藏progressBar 控件。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">返回值：成功删除则返回1，否则返回0。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_MI_TitleStyle" style="color: #404040;"> 示例代码:  <a id="example"></a></span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:31px; padding:0px;"><p style="text-align: right; line-height: 1.50;">&nbsp;</p>
+<p style="text-align: right; line-height: 1.50;">&nbsp;</p>
+<p style="text-align: right; line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; font-weight: bold; color: #b97034;">&nbsp;</span></p>
+<p style="text-align: right; line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:1px; padding:0px;"><p style="text-align: right; line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:1234px; padding:0px;"><p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//在执行这些代码前，打开资产库工具，可以实时看到这些代码的执行结果。</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//初始化api的全局函数：</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">MGAssetLib_initAPI;</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//创建一个资产库工程：</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">MGAssetLib_createProject</span><span style="font-family: 'Arial Unicode MS'; color: #800080;"> &quot;Mel_API&quot; &nbsp;&quot;A asset project created by mel API&quot; &nbsp;&quot;Z:/TNT/temp/Miguel/test/Lib_MelAPI&quot;</span><span style="font-family: 'Arial Unicode MS';"> &nbsp;{</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Pending 1 0 0&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;"> &quot;Working 0 0 1&quot;</span><span style="font-family: 'Arial Unicode MS';">, </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Approved 0 1 0&quot;</span><span style="font-family: 'Arial Unicode MS';">};</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//创建一个叫Character的类别：</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">MGAssetLib_addCategory </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Mel_API&quot; &quot;Character&quot;</span><span style="font-family: 'Arial Unicode MS';">; </span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//测试刚刚这个类别有没有创建成功：</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">print (</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;The category \&quot;Mel_API\&quot; exists or not: &quot;</span><span style="font-family: 'Arial Unicode MS';"> + `MGAssetLib_doesCategoryExist</span><span style="font-family: 'Arial Unicode MS'; color: #800080;"> &quot;Mel_API&quot; &quot;Character&quot;</span><span style="font-family: 'Arial Unicode MS';">` +</span><span style="font-family: 'Arial Unicode MS'; color: #800080;"> &quot;\n&quot;</span><span style="font-family: 'Arial Unicode MS';">);</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//清空类别，事实上没有必要，我们不是刚创建这个类别嘛。</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">MGAssetLib_clearCategory  </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Mel_API&quot; &quot;Character&quot;</span><span style="font-family: 'Arial Unicode MS';">;  </span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//为库工程添加状态预置：</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">MGAssetLib_addStates </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Mel_API&quot;</span><span style="font-family: 'Arial Unicode MS';"> &nbsp;{</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Hi_Res 0.5 0.8 0.5&quot;</span><span style="font-family: 'Arial Unicode MS';">, </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Lo_Res 0.8 0.5 0.5&quot;</span><span style="font-family: 'Arial Unicode MS';">};</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">/测试刚刚的状态是否有添加进去。</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">print `MGAssetLib_getProjectStates </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Mel_API&quot;</span><span style="font-family: 'Arial Unicode MS';">`;</span></p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//现在开始搜索MB,MA档。。。</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">string $mayaFiles[] = `MGAssetLib_searchMayaFilesFromDirectory</span><span style="font-family: 'Arial Unicode MS'; color: #800080;"> &quot;D:/temp&quot;</span><span style="font-family: 'Arial Unicode MS';"> 1 0 0`;</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">print $mayaFiles;</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">string $images[] = `MGAssetLib_searchPreviewImagesFromDirectory </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;D:/temp&quot;</span><span style="font-family: 'Arial Unicode MS';"> </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">{&quot;*.jpg&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;*.bmp&quot;</span><span style="font-family: 'Arial Unicode MS';">} 0`;</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">print $images;</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//抓到这些文件后，我们再写一些mel代码，来进行匹配等工作。。</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">// ....</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//这些信息抓齐了，现在我们来往类别里添加资产项！</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">MGAssetLib_addAssetRecords </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Mel_API&quot; &quot;Character&quot; </span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;D:/temp/myAsset1.ma&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;D:/temp/myAsset2.ma&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;D:/temp/myAsset3.ma&quot;</span><span style="font-family: 'Arial Unicode MS';">}</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;namespace1&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;namespace2&quot;</span><span style="font-family: 'Arial Unicode MS';">}</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Pending&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Approved&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Approved&quot;</span><span style="font-family: 'Arial Unicode MS';">}</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{}</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Note for fist item&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;note for sec item&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;third note&quot;</span><span style="font-family: 'Arial Unicode MS';">}; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//试试删除其中的一条记录！</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">MGAssetLib_deleteAssetRecords </span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;Mel_API&quot; &quot;Character&quot;</span><span style="font-family: 'Arial Unicode MS';"> {</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;D:/temp/myAsset2.ma&quot;</span><span style="font-family: 'Arial Unicode MS';">};</span></p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS'; color: #008000;">//现在试试用代码生成MA档！</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';">MGAssetLib_makeMayaAsciiFile (1, </span><span style="font-family: 'Arial Unicode MS'; color: #800080;"> &quot;D:/temp/test.ma&quot;</span><span style="font-family: 'Arial Unicode MS';">, &nbsp; {</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;namespace1&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;namespace2&quot;</span><span style="font-family: 'Arial Unicode MS';">},</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;D:/temp/myAsset1.ma&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;D:/temp/myAsset2.ma&quot;</span><span style="font-family: 'Arial Unicode MS';">,</span><span style="font-family: 'Arial Unicode MS'; color: #800080;">&quot;D:/temp/myAsset3.ma&quot;</span><span style="font-family: 'Arial Unicode MS';">},</span></p>
+<p style="line-height: 1.50;"><span style="font-family: 'Arial Unicode MS';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{0,1,1} );</span></p>
+</td>
+<td style="vertical-align:top; width:1px; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="assetlib_useasset.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="assetlib_py_api.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

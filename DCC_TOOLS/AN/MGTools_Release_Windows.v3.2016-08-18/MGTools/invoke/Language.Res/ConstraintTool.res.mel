@@ -1,0 +1,149 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+MG_displayEN "ConsTool.selMaster" "Select ConstraintMaster";
+MG_displayEN "ConsTool.selMaster.anno" "Select the Constraint Master of current constrained object:)";
+MG_displayEN "ConsTool.selMaster.noMaster.war" "Your selection is not constrained or the master list is empty.";
+
+MG_displayEN "ConsTool.selSlave" "Select ConstraintSlave";
+MG_displayEN "ConsTool.selSlave.anno" "Select the objects constrained by current selection :)";
+MG_displayEN "ConsTool.selSlave.noSlave.war" "Your selection is not constrained or the master list is empty.";
+
+
+MG_displayEN "ConsTool.findJoint.anno" "Click to find smoothBind joint via selected poly vertex.";
+MG_displayEN "ConsTool.lister.anno" "Select constrained object and click me to list it's constraint.";
+
+MG_displayEN "ConsTool.animConsP" "AnimConstraint parent";
+MG_displayEN "ConsTool.animConsP.anno" "Click to anim constraint the parent of second selection.";
+
+MG_displayEN "ConsTool.consWithOffset.anno" "Click to #  with autoSkipChannel.";
+
+MG_displayEN "ConsTool.option.mi" "Option..";
+
+MG_displayEN "ConsTool.vc.mi" "Vertex Constraint";
+MG_displayEN "ConsTool.vc.mi.anno" "Select poly face/edge/vertex or nurbs controlVertex,than use me to make a control that represent the position of the component. Use the control to constraint the other if U want.";
+MG_displayEN "ConsTool.vc.nosel.war" "No selection found.Please select either polyMesh's vertex/edge/face or nurbes' controlVertex .";
+MG_displayEN "ConsTool.vc.typeWrong.war" "Ignore #, Only polyMesh's vertex/edge/face and nurbes' controlVertex are surpported.\n";
+MG_displayEN "ConsTool.vc.clear.rep" " # vectorConstraints have been cleared.";
+MG_displayEN "ConsTool.vc.clear.mi" "Clear Selected VectorConstraints";
+MG_displayEN "ConsTool.vc.clear.ann" "In order to clear vectorConstraints clearly,U should select the vectorConstraint control(the nurbsCurve ball) and excute me.";
+
+MG_displayEN "ConsTool.pointConsP.mi" "PointConstraint parent";
+MG_displayEN "ConsTool.pointConsP.mi.anno" "PointConstraint the second selection's parent with the first select.";
+MG_displayEN "ConsTool.orientConsP.mi" "OrientConstraint parent";
+MG_displayEN "ConsTool.orientConsP.mi.anno" "OrientConstraint the second selection's parent with the first select.";
+MG_displayEN "ConsTool.aimConsP.mi" "AimConstraint parent";
+MG_displayEN "ConsTool.aimConsP.mi.anno" "AimConstraint the second selection's parent with the first select.";
+
+MG_displayEN "ConsTool.buildConsGrp.war" "Select one object please :)";
+
+MG_displayEN "ConsTool.selectCosed.war" "Select constraintd objects please";
+
+MG_displayEN "ConsTool.noConsSel.war" "No selection found.Select constraint object first please. ";
+MG_displayEN "ConsTool.noCondSel.war" "No selection found.Select constrained object first please. ";
+
+MG_displayEN "ConsTool.selectCosedNodeInLeft.war" "Please select one constraint node in the left list";
+MG_displayEN "ConsTool.selectMasterNodeInRight.war" "Please select one master in the right list";
+
+MG_displayEN "ConsTool.selectCosedObjToList.war" "Select a constrained object to list constraint please :)";
+MG_displayEN "ConsTool.ConsLister.title" "Constraint Manager";
+MG_displayEN "ConsTool.CSlave.annoText" "*Current Slave: #. DoubleClick item from lists below will select items in scenes. ";
+
+MG_displayEN "ConsTool.ConsNode" "Constraint nodes:";
+MG_displayEN "ConsTool.MasNode" "Master nodes:";
+MG_displayEN "ConsTool.douClickSel.anno" "Double click to select itemNode.";
+MG_displayEN "ConsTool.ConsLister.select" "Select";
+MG_displayEN "ConsTool.ConsLister.del" "Delete";
+MG_displayEN "ConsTool.ConsLister.Clear" "Clear";
+MG_displayEN "ConsTool.ConsLister.remFromTList" "Remove from targetList";
+MG_displayEN "ConsTool.ConsLister.resel" "Reselect and Refresh list";
+MG_displayEN "ConsTool.ConsLister.refresh" "Refresh UI";
+MG_displayEN "ConsTool.ConsLister.Close" "Close";
+MG_displayEN "ConsTool.ConsLister.exOff" "Export Offset..";
+MG_displayEN "ConsTool.ConsLister.imOff" "Import Offset..";
+
+MG_displayEN "ConsTool.ConsLister.noCons.war" "No constraint nodes detected via current selection.";
+MG_displayEN "ConsTool.corrctWName" "Corrent weightName";
+MG_displayEN "ConsTool.selTwoToCons.war" "You should select at least two objects before use any constraint :(";
+MG_displayEN "ConsTool.noParent.war" "Your second selection doesn't not have any parent.";
+MG_displayEN "ConsTool.noPchannel.war" "You constraint target has no constraintable axis :(";
+
+MG_displayEN "ConsTool.exportCons.rep" "Export offset completed.Your can import it in another maya.\n";
+MG_displayEN "ConsTool.exportCons.prompt.title" "Export .# file";
+MG_displayEN "ConsTool.exportCons.prompt.Mes" "Enter file Name:";
+MG_displayEN "ConsTool.exportCons.prompt.OK" "Export";
+
+MG_displayEN "ConsTool.importCons.annoText" "Select offset File to import:";
+MG_displayEN "ConsTool.importCons.delSel" "Delete Selected";
+MG_displayEN "ConsTool.importCons.delAll" "Delete All";
+MG_displayEN "ConsTool.importCons.ImToSS" "Import to sceneSelected!";
+MG_displayEN "ConsTool.importCons.ImToLS" "Import to listSelected!";
+
+MG_displayEN "ConsTool.importCons.selFile.war" "Select at least one item in the offsetFile list.";
+MG_displayEN "ConsTool.importCons.numMatch.war" "Constraint target number of source constraintOffsetFile is no match with target number of target constraintNode.";
+MG_displayEN "ConsTool.importCons.done.rep" "Import # Constraint offset completed.\n";
+
+MG_displayEN "ConsTool.findJoint.oneV.war" " > _ <  Please select one vertex to find the joint!!Select only one vertex which is nearest to the smoothBind joint!! ";
+MG_displayEN "ConsTool.findJoint.noSB.war" " > _ <  Your selected vertex is not smoothBinded!!";
+MG_displayEN "ConsTool.findJoint.done.rep" "The joint which is nearest to your vertex is selected now!  :)";
+
+MG_displayEN  "ConsTool.setRelativeOffset.mi" "Set Constraint Offset";
+MG_displayEN  "ConsTool.setRelativeOffset.anno" "U can move/rotate the constrained obj to the position u desire, and before making maya to recompute,use me to set the offset.(Select the constrained obj and execute me.)";
+
+MG_displayEN  "ConsTool.makeRelativeOffsetCtl.mi" "Make ConstraintPos Ctl";
+MG_displayEN  "ConsTool.makeRelativeOffsetCtl.anno" "Add a controller which will enable U to reposition the object under its constraint.(Select the constrained obj and execute me.)";
+
+MG_displayEN  "ConsTool.setRelativeOffset.repT" "Relative translation of \"#\" has been set\n";
+MG_displayEN  "ConsTool.setRelativeOffset.ignoreT" "Ignored: Relative translation of \"#\" \n";
+
+MG_displayEN  "ConsTool.setRelativeOffset.repR" "Relative rotation of \"#\" has been set\n";
+MG_displayEN  "ConsTool.setRelativeOffset.ignoreR" "Ignored: Relative rotation of \"#\" \n";
+
+MG_displayEN  "ConsTool.setRelativeOffset.repP" "Relative position of \"#\" has been set\n";
+MG_displayEN  "ConsTool.setRelativeOffset.ignoreP" "Ignored: Relative position of \"#\" \n";
+
+MG_displayEN  "ConsTool.confirm.all.label" "All" ;
+MG_displayEN  "ConsTool.confirm.confirm.label" "Confirm:" ;
+MG_displayEN  "ConsTool.confirm.whichNode.message" "Which constraint node do u want set?" ;
+MG_displayEN  "ConsTool.confirm.whichWeight.message" "Which weight U like?" ;
+
+MG_displayEN  "ConsTool.confirm.whichNodeToControl.message" "Which constraint node do u wanna control?" ;
+MG_displayEN  "ConsTool.confirm.whichWeightToControl.message" "Which Weight of the constraint node do u wanna control?" ;
+
+
+//add in MGtools3========================================================
+MG_displayEN  "ConsTool.bioCons.mi" "Bio-Constraint" ;
+MG_displayEN  "ConsTool.bioCons.noSel" "You must select two controls to bio-constrain them.";
+MG_displayEN  "ConsTool.bioCons.ann" "Use Maya's default parent constraint nodes, build up a Bio-Constraint Rig, so the two objects could parent constrains each other, but at same time only one control the other." ;
+
+MG_displayEN  "ConsTool.bioCons.done.rep" "The Bio-Constraint rig has been made. Use the \"BioConstraint_Weight\" attribute of selection to set the bio-Constraint direction." ;
+
+MG_displayEN  "ConsTool.consManagerNode.noPlugs.war" "You must select one attribute channel in the #." ;
+MG_displayEN  "ConsTool.consManagerNode.mgCB" "MG-ChannelBox" ;
+MG_displayEN  "ConsTool.consManagerNode.mayaCB" "Maya ChannelBox" ;
+
+MG_displayEN  "ConsTool.consManagerNode.notSupportAttrType.war" "The selected attribute is of type: \"#\", but only these attribute types are supported: #." ;
+MG_displayEN  "ConsTool.consManagerNode.title" "MG-ConstraintManager Node" ;
+
+MG_displayEN  "ConsTool.consManagerNode.mi" "Collect Selected Attr to ConstraintManager.." ;
+MG_displayEN  "ConsTool.consManagerNode.maya.mi" "Collect Sel Attr to ConstraintManager.. (Maya Channelbox)" ;
+MG_displayEN  "ConsTool.consManagerNode.maya.ann" "Collect the selected constraint relatived attribute in Maya Channelbox to MG_SceneConstraintManager, so the collected attributes could be keyframed within one node." ;
+MG_displayEN  "ConsTool.consManagerNode.mg.mi" "Collect Sel Attr to ConstraintManager.. (MG-Channelbox)" ;
+MG_displayEN  "ConsTool.consManagerNode.mg.ann" "Collect the selected constraint relatived attribute in MG-Channelbox to MG_SceneConstraintManager, so the collected attributes could be keyframed within one node." ;
+MG_displayEN  "ConsTool.consManagerNode.sep.mi" "Add Separator Attr to ConstraintManager" ;
+MG_displayEN  "ConsTool.consManagerNode.sep.ann" "Add a separator attribute to MG_SceneConstraintManager node, make the attributes easier to read." ;
+MG_displayEN  "ConsTool.consManagerNode.sep.done.rep" "A separator attribute has been added to MG_SceneConstraintManager node!" ;
+
+MG_displayEN  "ConsTool.consManagerNode.attrName.mes" "Please input an attribute name that will be in the MG-ConstraintManager Node:" ;
+MG_displayEN  "ConsTool.consManagerNode.attrExist.mes" "The attribute \"#\" already exist in the MG-ConstraintManager node. Try again and input other name." ;
+MG_displayEN  "ConsTool.consManagerNode.attrLock.mes" "The attribute \"#\" either locked or not connectable." ;
+MG_displayEN  "ConsTool.consManagerNode.done.rep" "The attribute \"#\" has been collected into the MG-ConstraintManager node as the attribute \"#\"." ;
+MG_displayEN  "ConsTool.consManagerNode.pin.notExist.war" "Node: MG_SceneConstraintManagerGrp does not exist in your scene." ;
+
+MG_displayEN  "ConsTool.consManagerNode.pingToViewport.mi" "Lock ConstraintManager to Active View" ;
+MG_displayEN  "ConsTool.consManagerNode.unping.mi" "Unlock ConstraintManager from View" ;

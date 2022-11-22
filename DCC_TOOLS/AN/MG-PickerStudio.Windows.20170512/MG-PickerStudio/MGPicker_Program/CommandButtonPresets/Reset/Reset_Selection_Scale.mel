@@ -1,0 +1,4 @@
+//Reset the scale of the selected objects.
+MGP_ResetTransform_ViaSelection 2;  	//arg 0: for reseting translation
+																			//arg 1: for reseting rotatation
+																			//arg 2: for reseting scale. 

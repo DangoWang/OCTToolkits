@@ -1,0 +1,3 @@
+//Mirror selection based on the mirror relationship of the Select-Buttons in current picker panel.
+//Normal: Switch between mirrored object selection, Ctrl+Shift Keys: Add Select.
+MGP_MirrorSelectViaPanel_Ex;

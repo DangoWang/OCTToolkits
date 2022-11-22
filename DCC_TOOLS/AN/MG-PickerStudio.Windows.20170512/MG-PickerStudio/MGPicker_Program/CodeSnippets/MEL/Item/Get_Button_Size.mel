@@ -1,0 +1,3 @@
+//To-Do: input the button id string to get the size of it:
+int $width = `MGPickerItem -q -width ""`;	
+int $height = `MGPickerItem -q -height ""`;

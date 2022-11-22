@@ -1,0 +1,53 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+
+MG_displayEN "displayTool.title" "displaySet Tool";
+MG_displayEN "displayTool.menu.title" "Misc";
+MG_displayEN "displayTool.menu.eval.mi" "Eval";
+MG_displayEN "displayTool.menu.evalAll.mi" "Eval All";
+MG_displayEN "displayTool.menu.rename.mi" "Rename";
+MG_displayEN "displayTool.menu.delete.mi" "Delete Set";
+MG_displayEN "displayTool.menu.removeMem.mi" "Remove form memberList";
+MG_displayEN "displayTool.menu.removeMem.anno" "Remove current scenes selection form current displaySet";
+MG_displayEN "displayTool.menu.addSel.mi" "+ selection to member";
+MG_displayEN "displayTool.menu.remSel.mi" "- selection from set";
+MG_displayEN "displayTool.menu.newFromSel.mi" "New from selection";
+MG_displayEN "displayTool.menu.newFromLayer.mi" "New from DisplayLayer";
+MG_displayEN "displayTool.menu.openSetFolder.mi" "Open DisplaySet folder..";
+MG_displayEN "displayTool.menu.help.title" "Help";
+MG_displayEN "displayTool.menu.help.mi" "Help..";
+
+MG_displayEN "displayTool.textAnno" "* DoubleClick leftItem to eval displaySet & right to select itemNode: ";
+MG_displayEN "displayTool.Lliset.title" "DisplaySet (Layer):";
+MG_displayEN "displayTool.Lliset.anno" "Double click to eval me";
+MG_displayEN "displayTool.Rliset.title" "Member nodes:";
+MG_displayEN "displayTool.selMem.anno" "Double click to select itemNode";
+MG_displayEN "displayTool.selMem.mi" "Select itemNode";
+MG_displayEN "displayTool.refreshUI.btn" "Refresh UI";
+MG_displayEN "displayTool.close.btn" "Close";
+
+MG_displayEN "displayTool.noSel.war" "Select some node and run me again :)";
+MG_displayEN "displayTool.prompt.title" "DisplaySet/Layer Name";
+MG_displayEN "displayTool.prompt.message" "Enter Name:";
+MG_displayEN "displayTool.prompt.OK" "OK";
+MG_displayEN "displayTool.prompt.no" "NO";
+MG_displayEN "displayTool.prompt.Cancel" "Cancel";
+MG_displayEN "displayTool.prompt.war" "Please input valid displayLayer Name!!";
+
+MG_displayEN "displayTool.noMem.war" "Your selected displayLayer has no members within it :(";
+MG_displayEN "displayTool.noSelectedSet.war" "No display selected from your layer editor :P";
+
+MG_displayEN "displayTool.existed.war.title" "Warning !";
+MG_displayEN "displayTool.existed.war.message" "The Set #.set already exists,overwrite ?";
+MG_displayEN "displayTool.existed.war.war" "Hello,please try again with a different setName please :)";
+
+MG_displayEN "displayTool.noSetSelectedOrNoSet.war" "No set selected selected in the left list or no set existed at all :P";
+MG_displayEN "displayTool.displayLayersNum.rep" " # Display Layers created :";
+MG_displayEN "displayTool.displayLayersNoNum.rep" "No displayLayer created. :(" ;

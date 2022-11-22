@@ -1,0 +1,64 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Picker形状</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="picker shapes" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "itemshapes.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="itemtypes.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="links.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">对象形状:</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">一个picker对象，比如一个选择按钮，命令按钮，滑条，属性按钮，文本，面板等，它们都肯定包含一个形状。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">这些形状负责绘制这个picker对象的外观，目前形状有下面多种类型，以便您可以让您的picker按钮尽量像原始的控制器：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">矩形， 圆角矩形， 椭圆，圆形， 钻石， 梯形，五边形，六边形，多边形，贝塞尔曲线，图片，控件，属性按钮，圆角属性按钮，滑条。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">一个picker对象可能只支持其中一些形状，比如控件，属性按钮，圆角属性按钮这些形状只能被属性按钮所使用，滑条形状只能滑条对象所用。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;"> </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> </span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">在属性编辑器里你可以快速切换当前所选对象所采用的形状，它只会列出这个对象所支持形状以便您切换。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;"> </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> 不同形状有不同的属性，不管怎么样，都可以在属性编辑器里调整。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;"> </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> 要使用多边形工具 </span><img src="polygontool.jpg" width="29" height="29" alt="polygonTool" style="border:none" /><span style="font-size: 9pt;"> 来绘制或编辑多边形，你必须先选择一个带多边形形状的picker对象以便绘制或编辑。如果当前按钮不是，则在属性编辑器里把它切到多边形形状再来进行绘制。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;"> </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> 要使用贝塞尔工具 </span><img src="beziertool.jpg" width="29" height="29" alt="bezierTool" style="border:none" /><span style="font-size: 9pt;"> 来绘制或编辑多边形，你必须先选择一个带</span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">贝塞尔曲线</span><span style="font-size: 9pt;">形状的picker对象以便绘制或编辑。如果当前按钮不是，则在属性编辑器里把它切到</span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">贝塞尔曲线</span><span style="font-size: 9pt;">形状再来进行绘制。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;"> </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> 要旋转或翻转贝塞尔曲线或多边形形状，选择相应的Picker对象，然后点选编辑菜单 / 变形多边形/贝塞尔曲线形状..</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="itemtypes.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="links.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

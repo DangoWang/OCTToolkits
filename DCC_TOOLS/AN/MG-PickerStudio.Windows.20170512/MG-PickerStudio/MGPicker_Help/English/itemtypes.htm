@@ -1,0 +1,75 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Item Types</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="item types,picker types" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "itemtypes.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="namespace.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="itemshapes.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="line-height: 1.50;"><span class="f_Heading1" style="font-size: 10pt;">Currently there are 6 types of picker item:</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="selectbutton.jpg" width="29" height="29" alt="selectButton" style="border:none" /><span class="f_Heading1" style="font-size: 10pt;">Select-Button :</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Select-Button is for maya selection, it contains a list of objects as members.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">You could assign a post-action, so that if the button is pressed or frame selected, maya will switch to translate/rotate/scale tools for further tweak.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Also after the mouse pressing, program will refocus on the maya's 3d panel, so all maya hotkey still works automatically, such as S for set key.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Only select-button could be linked with parent links.</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="commandbtntool.jpg" width="29" height="29" alt="commandBtnTool" style="border:none" /><span class="f_Heading1" style="font-size: 10pt;">Command-Button :</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">A command-button contains mel/python code to be executed when it is press and released.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Command-button could be created really fast through command-button presets, also you could insert the code snippet to speed up the coding.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Because all picker items are in full control of MG-Picker Studio's mel API, you could program to use these code to control other picker item or the button itself.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">For further info, read the programmer guide below section.</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="attributebutton.jpg" width="29" height="29" alt="attributeButton" style="border:none" /><span class="f_Heading1" style="font-size: 10pt;">Attribute-Button:</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">An attribute-button could control other picker item visibilities using attribute links, along with control a single maya node attribute.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">You could use it to control a single maya attribute, and if the attribute been changed by other ways in Maya, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">when your mouse enter the picker view, the attribute button will update themselves to show the correct values.</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="sliders.jpg" width="29" height="29" alt="sliders" style="border:none" /><span class="f_Heading1" style="font-size: 10pt;">Slider:</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">The sliders are mainly deigned to control the facial controls, but there is no limitation if you want it to control any attributes that has a value range.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">For an attribute that doesn't have a value range, by default the range will be -1~1, but for rotation value it will be -45~45.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">You can assign any virtual attribute value range, but the real value range you can set the attribute value still decided by maya node.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">You could assign a horizontal attribute as well as a vertical attribute,which will be controlled when the slider handle is moved in horizontal/vertical direction.</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><img src="text.jpg" width="29" height="29" alt="text" style="border:none" /><span class="f_Heading1" style="font-size: 10pt;">Text:</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">A text item is just a simple text that you use to annotate the picker, such as placing a introduction text for the usage your picker.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">A text item is by default not interactive, which means it will never response to a mouse clicking.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">The text could be a single line or a paragraph.</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">Panel:</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">A picker panel is a container that contains other picker items, a panel could also contains other panels as children.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">You use picker panel to organize different category of picker, such as body, facial, deformers, fingers, etc.</span></p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="namespace.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="itemshapes.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

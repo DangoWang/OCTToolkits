@@ -1,0 +1,3 @@
+//Set keyframe each keytick within current visible time range.
+//This ensures each selected object all have keys at same frames:
+MGP_SetKeyframeEachKeyOrGap 0;  //arg: 0 for each keytick, 1 for each certain frames.

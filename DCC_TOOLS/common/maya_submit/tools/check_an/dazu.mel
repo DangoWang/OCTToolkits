@@ -1,0 +1,93 @@
+
+
+global proc dazumel()
+{
+	if( `window -ex dazumel` )
+	{	deleteUI dazumel;	}
+	
+	window -t "WY_Tools" dazumel;
+	
+	string $iconPath = `internalVar -upd`;
+			
+
+	int $width = 50;
+			
+
+	columnLayout -w 160;
+		formLayout -w 260 jjAniToolForeLO;
+
+
+
+			tabLayout -innerMarginWidth 5 -innerMarginHeight 5 -w 208 jjAniToolTabLO;
+			
+			formLayout -edit
+				-attachForm "jjAniToolTabLO" "top"    0
+				-attachForm "jjAniToolTabLO" "left"   0
+				-attachForm "jjAniToolTabLO" "bottom" 0
+				-attachForm "jjAniToolTabLO" "right"  0
+				jjAniToolForeLO;
+			
+				rowColumnLayout -w 204 -nc 5 Autogrop;
+					
+
+	
+
+
+					iconTextButton -w $width -h $width -c "if ( !`objExists LAYOUT_FX` ){\n\tstring $lyfxn []=`ls -sl`;\n\tdoGroup 1 1 1;\n\trename \"LAYOUT_FX\";\n}else{\n\tstring $lyfxy []=`ls -sl`;\n\tselect -add LAYOUT_FX;\n\tparent;\n}"
+						-annotation "LAYOUT_FX"
+						-image1 ("fx.png" );
+
+
+
+			
+					iconTextButton -w $width -h $width -c "if ( !`objExists CHAR` ){\n\tstring $lyfxn []=`ls -sl`;\n\tdoGroup 1 1 1;\n\trename \"CHAR\";\n}else{\n\tstring $lyfxy []=`ls -sl`;\n\tselect -add CHAR;\n\tparent;\n}"
+						-annotation "char"
+						-image1 ("ch.png" );
+
+	
+
+
+					iconTextButton -w $width -h $width -c "if ( !`objExists PROP` ){\n\tstring $lyfxn []=`ls -sl`;\n\tdoGroup 1 1 1;\n\trename \"PROP\";\n}else{\n\tstring $lyfxy []=`ls -sl`;\n\tselect -add PROP;\n\tparent;\n}"
+						-annotation "prop"
+						-image1 ("pp.png" );
+
+	
+
+
+	
+		
+	
+
+ 					iconTextButton -w $width -h $width -c "if ( !`objExists ENV` ){\n\tstring $lyfxn []=`ls -sl`;\n\tdoGroup 1 1 1;\n\trename \"ENV\";\n}else{\n\tstring $lyfxy []=`ls -sl`;\n\tselect -add ENV;\n\tparent;\n}\n"
+ 						-annotation "env"
+ 						-image1 ("en.png" );
+
+
+		
+	
+
+ 					iconTextButton -w $width -h $width -c "if ( !`objExists CAM` ){\n\tstring $lyfxn []=`ls -sl`;\n\tdoGroup 1 1 1;\n\trename \"CAM\";\n}else{\n\tstring $lyfxy []=`ls -sl`;\n\tselect -add CAM;\n\tparent;\n}\n"
+ 						-annotation "CAM"
+ 						-image1 ("cm.png" );
+
+           setParent..;
+                
+
+
+
+
+
+
+	showWindow dazumel;
+                     
+
+
+
+
+	showWindow dazumel;
+}
+
+global proc jjAniPropsConstraintUp()
+{
+	jjAniPropsConstraint(1);
+}

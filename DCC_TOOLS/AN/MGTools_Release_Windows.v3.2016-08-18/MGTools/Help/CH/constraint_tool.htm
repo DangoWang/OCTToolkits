@@ -1,0 +1,145 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>约束工具</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Bar,Constraint,Joint,Relative,Style" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "constraint_tool.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span style="font-weight: bold; color: #191817;">约束工具</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="typeselector.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="sceneconstraintmanagernode.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span style="font-weight: bold; color: #191817;"> 约束工具按钮功能：</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:51px; padding:0px;"><p style="text-align: center;"><img src="constrainttoolicon.gif" width="32" height="32" alt="constraintToolIcon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:13px; padding:0px;"><br />
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">直接点击打开MG约束工具条。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">这一区功能主要是为了提高动画师约束的效率。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">右键菜单功能：</span><br />
+<span class="f_ImageCaption"> &nbsp; &nbsp; &nbsp; &nbsp; <img src="mi_constrainttool_ch.gif" width="351" height="665" alt="MI_constraintTool_ch" style="border:none" /></span></p>
+<p>&nbsp;</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 查找骨骼 ：</span>根据所选多边形顶点，查找软绑它的骨头；<a href="findjointviavertex.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> Maya间复制/粘贴约束 ：</span>打开MG复制/粘贴工具，跨Maya场景间复制约束，及约束相关联的动画帧。 <a href="copyconstraintbetweenmaya.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a> </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> &nbsp;父子约束：</span>父子约束第一及第二选择(如果被约束体有通道被锁定将自动忽略该通道)。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">父子约束父层级：</span>父子约束第一选择和第二选择的父层级。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">选择约束物体：</span>如果当前所选物体有被约束，点此来快速选择到约束它的物体。<a id="selectconstraintmasterslave"></a></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">选择被约束物体：</span>如果当前所选物体有约束别的物体，点此来快速选择到它约束的物体。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">约束管理器.. ：</span>打开约束管理器来操作所选被约束体的约束。 <a href="constraint_lister.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">互相约束 ：</span>在场景里选择两个变形节点，然后用这个工具来让他们互相约束。 <a href="constraint_lister.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a> </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;这个机制是基于Maya默认的节点，并且不会警告循环。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"> &nbsp; &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp;当然同一时间，只是一个物体约束另一个物体。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">收集所选属性到约束管理节点(Maya通道栏) ：</span>将Maya通道栏上所选属性，连接到场景约束管理节点相应的属性上。源属性若有动画，动画也会被转移。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;如果场景约束管理节点不存在则会自动创建，并绑定到当前视图摄像机。 <a href="sceneconstraintmanagernode.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a> </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">收集所选属性到约束管理节点(MG通道栏): </span>将MG通道栏上所选属性，连接到场景约束管理节点相应的属性上。源属性若有动画，动画也会被转移。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;如果场景约束管理节点不存在则会自动创建，并绑定到当前视图摄像机。 <a href="sceneconstraintmanagernode.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a> </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">添加属性分隔横线到约束管理节点 ：</span>在约束管理节点上，添加一个以下划线组成的属性，作为方便阅读的属性分隔线。 <a href="sceneconstraintmanagernode.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a> </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">固定约束管理节点到当前视图 ：</span>将约束管理节点跟当前激活3D视图绑定，这样它会在视图中固定不动。 <a href="sceneconstraintmanagernode.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a> </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">解除约束管理节点视图固定 ：</span>将约束管理节点跟3D视图绑定解除，这样它就是在3d空间内的一个普通节点，摄像机动的话，它在画面中也是动的。 <a href="sceneconstraintmanagernode.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a> </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 插入层级：</span>将场景所选的物体及其父层级之前，用约束来插入一些层级以供动画之用。对reference物体也一样有效。<a href="insert_hierarchy.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a> </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 设置约束相对位置：</span>直接移动被约束物体，在其被选择的状态下，点此将约束的相对位移和旋转值设置为当前约束体与被约束体间相对位置值 。 <span class="f_ImageCaption"> <a id="setconstraintoffset"></a></span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 添加被约束体位置控制器：</span>直接选择被约束物体，点此将生成一个控制器，它不会改变原约束体与被约束体间的约束关系，而是控制它们之间的相对位置 。 <a id="createconstraintoffsetcontrol"></a></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> UV约束：</span>选择Polygon的点，线或面，点它来生成粘于模型表面的U型nurbs曲线控制器，用这个控制器来约束其它物体，这种约束的旋转比顶点约束器的要可靠。<a href="uvconstraint.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a> </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 顶点约束：</span>选择Polygon的点，线，面或nurbs的cv控制点，Hull 这五种中的一种，点它来生成粘于模型表面的圆型nurbs曲线控制器，用这个控制器来约束其它物体。<a href="vertexconstraint.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 清除顶点约束器：</span>选择顶点约束器(圆球型nurbs曲线控制器)，用它来清除该顶点约束装置。(这样才能清干净)</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 动画约束：</span>在第一选择和第二选择间建立一个简单locator层级。<br />
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 在约束所选的两者同时，仍可以用locator来调整Key帧被约束体位置。 </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">点约束/旋转约束/目标约束：</span>在第一选择和第二选择间建立点/旋转/目标约束，将自动忽略被约束体被锁定的通道。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">清除约束：</span>删除所选被约束体的约束。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">修改约束轴向..：</span>修改所选被约束体的被约束轴向。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">修正约束权重属性名：</span>纠正所选被约束体的约束节点权重属性名。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">导出/导入约束偏移..：</span>选择被约束体后，导出/导入父子约束相对位置信息。<a href="exportimportconstraintoffset.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">清除约束偏移文件..：</span>在Maya的Temp暂存文件夹里清除所有约束相对位置信息文件。<a href="exportimportconstraintoffset.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">帮助..：</span>查看约束工具帮助文档。</p>
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">约束工具条：</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 24px;"><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">启动方法：</span></p>
+<p>&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span>点击在MGTools工具条的<img src="constrainttoolicon.gif" width="32" height="32" alt="constraintToolIcon" style="border:none" />图标。</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span>直接点工具架上的<img src="constrainttoolicon1.gif" width="32" height="32" alt="constraintToolIcon1" style="border:none" />图标(如果你有装全MGTools的Shelf)。<br />
+&nbsp;</p><div style="text-align: left; text-indent: -24px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:43px; padding:0px;"><p><img src="constrainttoolui.gif" width="50" height="444" alt="ConstraintToolUI" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:991px; padding:0px;"><p style="margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">MG约束工具条从上到下的按钮依次为：</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">第一个按钮 ：</span>类似于MGTools工具条，第一个按钮用来管理工具条本身。直接点击来最小化/还原。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 120px;">上面点右键功能也类似，在些不再赘述。<a href="mgtoolintroduction.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">约束管理器.. ：</span>打开约束管理器来操作所选被约束体的约束。<a href="constraint_lister.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a> </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Maya间复制/粘贴约束 ：</span>打开MG复制/粘贴工具，跨Maya场景间复制约束，及约束相关联的动画帧。<a href="copyconstraintbetweenmaya.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a> </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 根据顶点选择骨头：</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #191817;">选择一个有smoothBind的模型顶点，点它来选择最近的骨头。便于把joint当作约束体来约束道具。</span><a href="findjointviavertex.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 顶点约束：</span>选择Polygon的点，线，面或nurbs的cv控制点，Hull 这五种中的一种，点它来生成粘于模型表面的圆型nurbs曲线控制器，用这个控制器来约束其它物体。<a href="vertexconstraint.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示：在上点右键/ 清除所选顶点约束器: &nbsp;先选择顶点控制器，再用此来清除整个顶点约束装置。（只有这样才能清除干净）</span><br />
+<span style="font-size: 9pt;">&nbsp;</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> UV约束：</span>选择Polygon的点，线或面，点它来生成粘于模型表面的U型nurbs曲线控制器，用这个控制器来约束其它物体，这种约束的旋转比顶点约束器的要可靠。<a href="uvconstraint.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a> </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 互相约束：</span>在场景里选择两个变形节点，然后用这个工具来让他们互相约束。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;这个机制是基于Maya默认的节点，并且不会警告循环。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;当然同一时间，只是一个物体约束另一个物体。<a href="bioconstraint.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a>  </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">动画约束：</span>在第一选择和第二选择间建立一个简单locator层级。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 144px;">在约束所选两者同时，仍可以用locator来调整Key帧被约束体位置。 </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">父子约束：</span>父子约束第一及第二选择(如果被约束体有通道被锁定将自动忽略该通道)。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示：在父子/点/旋转/目标约束按钮上点右键：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><img src="constraintmi_ch.gif" width="337" height="244" alt="constraintMI_ch" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">约束父层级：</span><span style="font-size: 9pt;">父子/点/旋转/目标约束第一选择和第二选择的父层级。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">选项：</span><span style="font-size: 9pt;">打开Maya默认的父子/点/旋转/目标约束选项窗口。</span><span class="f_ImageCaption"> </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">收集所选属性到约束管理节点(Maya通道栏) ：</span><span style="font-size: 9pt;">将Maya通道栏上所选属性，连接到场景约束管理节点</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 相应的属性上。源属性若有动画，动画也会被转移。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 如果场景约束管理节点不存在则会自动创建，并绑定到当前视图摄像机。 </span><a href="sceneconstraintmanagernode.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a><span style="font-size: 9pt;"> </span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption"> &nbsp; &nbsp; &nbsp;  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">收集所选属性到约束管理节点(MG通道栏): </span><span style="font-size: 9pt;">将MG通道栏上所选属性，连接到场景约束管理节点相应的属性上。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;源属性若有动画，动画也会被转移。</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;如果场景约束管理节点不存在则会自动创建，并绑定到当前视图摄像机。 </span><a href="sceneconstraintmanagernode.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a><span style="font-size: 9pt;"> </span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption"> &nbsp; &nbsp; &nbsp;  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">添加属性分隔横线到约束管理节点 ：</span><span style="font-size: 9pt;">在约束管理节点上，添加一个以下划线组成的属性，作为方便阅读的属性分隔线。 </span><a href="sceneconstraintmanagernode.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a><span style="font-size: 9pt;"> </span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption"> &nbsp; &nbsp; &nbsp;  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">固定约束管理节点到当前视图 ：</span><span style="font-size: 9pt;">将约束管理节点跟当前激活3D视图绑定，这样它会在视图中固定不动。 </span><a href="sceneconstraintmanagernode.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a><span style="font-size: 9pt;"> </span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption"> &nbsp; &nbsp; &nbsp;  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">解除约束管理节点视图固定 ：</span><span style="font-size: 9pt;">将约束管理节点跟3D视图绑定解除，这样它就是在3d空间内的一个普通节点，摄像机动的话，它在画面中也是动的。 </span><a href="sceneconstraintmanagernode.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a><span style="font-size: 9pt;"> </span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">设置约束相对位置：</span><span style="font-size: 9pt;">直接移动被约束物体，在其被选择的状态下，点此将约束的相对位移和旋转设置为当前约束体与被约束体间相对位置值 。</span> </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">添加被约束体位置控制器：</span><span style="font-size: 9pt;">直接选择被约束物体，点此将生成一个控制器，它不会改变原约束体与被约束体间的约束关系，而是控制它们之间的相对位置 。</span> </p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">帮助..：</span><span style="font-size: 9pt;">查看约束工具帮助文档。</span></p>
+</td>
+</tr>
+</table>
+</div>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="typeselector.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="sceneconstraintmanagernode.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

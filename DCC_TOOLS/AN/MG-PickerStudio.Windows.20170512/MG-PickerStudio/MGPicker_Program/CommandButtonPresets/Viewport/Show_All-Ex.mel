@@ -1,0 +1,3 @@
+//Display all types of objects for current actived 3d view.
+//Hold control key to apply to all visible views.
+MGP_ViewShowAll_Ex;

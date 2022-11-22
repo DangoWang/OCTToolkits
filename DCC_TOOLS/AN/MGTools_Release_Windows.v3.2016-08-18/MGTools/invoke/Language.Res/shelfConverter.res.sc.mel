@@ -1,0 +1,40 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "shelfConvertor.Title" "Shelf版本转换器";
+MG_displaySC "shelfConvertor.mi" "Shelf版本转换器..";
+MG_displaySC "shelfConvertor.anno" "将高版本的Maya Shelf文件转换成低版本的Maya可用的shelf文件.";
+
+MG_displaySC "shelfConvertor.list.anno" "源Shelf:";
+
+MG_displaySC "shelfConvertor.addFolder" "从文件夹里添加shelf文件到转换列表";
+
+
+MG_displaySC "shelfConvertor.add" "添加一个shelf文件到转换列表";
+MG_displaySC "shelfConvertor.del" "把列表所选物体从要转换的列表里去掉";
+
+MG_displaySC "shelfConvertor.targetV" "目标版本";
+MG_displaySC "shelfConvertor.overw" "存到相同目录下";
+MG_displaySC "shelfConvertor.toFolder" "存到目录:";
+MG_displaySC "shelfConvertor.pick" "拾取..";
+MG_displaySC "shelfConvertor.addSub" "添加后缀:";
+
+
+MG_displaySC "shelfConvertor.convert" "转换!!";
+MG_displaySC "shelfConvertor.convert.cancel" "取消";
+
+MG_displaySC "shelfConvertor.overW.war" "你要存在各自相同目录下,并且你没有指定一个后缀名.你要覆盖原始shelf文件?";
+
+MG_displaySC "shelfConvertor.notShelf.war" "请选择一个Maya shelf文件或者一个MG-Shelf文件!";
+
+MG_displaySC "shelfConvertor.end.rep" "共有 # 个shelf文件被转换成 # 的版本.";
+MG_displaySC "shelfConvertor.end.war" "但是有 # 个shelf被放弃因为目标Maya 7版本不支持python.";
+MG_displaySC "shelfConvertor.end.title" "报告~";
+
+

@@ -1,0 +1,79 @@
+		      MG-PickerStudio END USER LICENSE AGREEMENT 
+
+Please read this EULA carefully, as it sets out the terms and conditions upon which we license our Software for use.
+
+By clicking "NEXT" when you at the EULA page of the Software's installation wizard, you agree to be bound by the terms and conditions of this EULA. 
+
+If you do not agree to this EULA, you must not use the software for any purpose whatsoever.
+
+1.	Definitions and interpretation
+
+1.1	In this EULA:
+
+"Computer" means a desktop, notebook, netbook or similar computer owned by and in the control of the Licensee; 
+
+"Documentation" means the documentation concerning the Software supplied by the Licensor or by the Software supplier to the Licensee with the Software; 
+
+"EULA" means this end user licence agreement (including the preamble), and any amendments to it from time to time;
+
+"Licensee" means the licensee of the Software under this EULA;
+
+"Licensor" means Miguel Winfield, and his MGLAND studio;
+
+"Software" means "MG-PickerStudio",including following the application of any Upgrade;
+
+"Upgrade" an upgrade, update, enhancement, improvement or patch to the Software supplied by the Licensor. 
+
+1.2	In this EULA, a reference to a statute or statutory provision includes a reference to:
+
+(a)	that statute or statutory provision as modified, consolidated and/or re-enacted from time to time;
+
+(b)	any subordinate legislation made under that statute or statutory provision.
+
+1.3	The Clause headings do not affect the interpretation of this EULA.
+
+1.4	The ejusdem generis rule is not intended to be used in the interpretation of this EULA. 
+
+2.	Licence
+
+2.1	The Licensee may only use the Software and Documentation for the Licensee's business / internal business / own private and non-commercial purposes.
+
+2.2	The Software is a shareware, you are permitted to:
+
+	(a)	download the unaltered Software and Documentation, share the unaltered Software and Documentation through internet; 
+
+	(b)	install the Software and Documentation after the agreement to this EULA;
+
+	(c)	use the Software in accordance with the Documentation, under the limit of the license curently being used; 
+
+	(d)	use the Documentation;
+
+2.2	Subject to the payment by the Licensee of the relevant charges and fees in respect of the Software licence, the Licensor grants to the Licensee a non-exclusive non-transferable licence to:
+
+	(a)	For picker user, this program is free.
+
+	(b)	For picker designer, a Commercial License is needed. For a Commercial License holder, use the Software without save feature limitation, but should pay for the certain amount of fee after a major version Upgrade in order to use the new features, eg. 1.0 to 1.5, 1.5 to 2.0 etc;
+
+2.3   For Single Computer Commercial/Student License, only one PC could be registerred. Multiple Computer License is also provided, visit http://mgland.com or http://twincodes.com to know more.
+
+3.	Prohibited Actions.  MGLAND does not permit any of the following actions and You acknowledge that such actions shall be prohibited:
+	(a)	Reverse Engineering.  You may not (and may not permit any third party to) reverse engineer, decompile, or disassemble the Software or Excluded Materials (if applicable).
+	(b)	Cracking.  You may not crack or break the Software license registry system.
+	(c)	Modifications.  You may not modify, translate, adapt, arrange, or create derivative works based on the MG-PickerStudio program and related Materials for any purpose. 
+	(d)	Notices.  You may not remove, alter, or obscure any proprietary notices, labels, or marks from or on the MGLAND Materials.
+
+4.	WARNINGS
+	MGLAND SHALL NOT BE LIABLE IN ANY MANNER WHATSOEVER FOR THE RESULTS OR DAMAGE OBTAINED THROUGH THE USE OF THE SOFTWARE. 
+	PERSONS USING THE SOFTWARE ARE RESPONSIBLE FOR THE SUPERVISION, MANAGEMENT, AND CONTROL OF THE SOFTWARE. THIS RESPONSIBILITY INCLUDES, BUT IS NOT LIMITED TO, THE DETERMINATION OF APPROPRIATE USES FOR THE SOFTWARE AND THE SELECTION OF THE SOFTWARE AND OTHER PROGRAMS TO ACHIEVE INTENDED RESULTS. 
+
+4.1	Activation Code Required.
+	(a)	ACCESS, AND CONTINUED USE OF THE FULL FEATURES OF THE SOFTWARE MAY REQUIRE AN ACTIVATION CODE. 
+		PURCHASING IS REQUIRED BEFORE AN ACTIVATION CODE IS ISSUED BY MGLAND.  YOU AGREE THAT MGLAND MAY USE DATA AND INFORMATION PROVIDED BY YOU, A SOFTWARE RESELLER, OR ANY OTHER THIRD PARTY ACTING ON YOUR BEHALF IN CONNECTION WITH YOUR PURCHASE OF THE SOFTWARE LICENSE TO REGISTER THE SOFTWARE. 
+		YOU AGREE TO PROVIDE MGLAND, ANY SOFTWARE RESELLER, OR ANY OTHER THIRD PARTY ACTING ON YOUR BEHALF WITH ACCURATE AND CURRENT REGISTRATION INFORMATION REQUIRED BY MGLAND, AND YOU FURTHER AGREE TO MAINTAIN AND UPDATE YOUR REGISTRATION INFORMATION THROUGH CUSTOMER DATA REGISTRATION PROCESSES THAT MAY BE PROVIDED BY MGLAND. YOU CONSENT TO MGLAND'S USING THE PERSONAL INFORMATION PROVIDED TO MGLAND AT REGISTRATION, OR UPDATED THEREAFTER, TO ISSUE ACTIVATION CODES, TO MANAGE MGLAND'S RELATIONSHIP WITH YOU (INCLUDING AUTOMATING THE ISSUANCE OF ACTIVATION CODES FOR FUTURE PURCHASES).  
+
+5.	LIMITATION OF LIABILITY
+IN NO EVENT SHALL MGLAND OR ITS LICENSORS HAVE ANY LIABILITY FOR ANY INCIDENTAL, SPECIAL, INDIRECT, OR CONSEQUENTIAL DAMAGES; LOSS OF PROFITS, REVENUE, OR DATA; BUSINESS INTERRUPTION, OR COST OF COVER.  IN ADDITION, IN NO EVENT SHALL THE LIABILITY OF MGLAND OR ITS LICENSORS FOR ANY DAMAGES ARISING OUT OF OR IN CONNECTION WITH THE SOFTWARE, USER DOCUMENTATION, OR THIS AGREEMENT EXCEED THE AMOUNT PAID OR PAYABLE BY YOU FOR THE SOFTWARE DIRECTLY RESPONSIBLE FOR SUCH DAMAGES. THE LIMITATIONS OF LIABILITY IN THIS SECTION 5 SHALL APPLY TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW TO ANY DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY, WHETHER DERIVED FROM CONTRACT, TORT (INCLUDING, BUT NOT LIMITED TO, NEGLIGENCE) OR OTHERWISE, EVEN IF MGLAND HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES AND REGARDLESS OF WHETHER THE LIMITED REMEDIES AVAILABLE HEREUNDER FAIL OF THEIR ESSENTIAL PURPOSE.
+MGLAND SHALL HAVE NO RESPONSIBILITY OR LIABILITY WHATSOEVER ARISING FROM LOSS OR THEFT OF THE SOFTWARE OR THE MEDIA ON WHICH THE SOFTWARE IS FURNISHED TO YOU.  MGLAND SHALL NOT BE OBLIGATED TO REPLACE ANY LOST OR STOLEN SOFTWARE OR SOFTWARE MEDIA.  YOU ARE SOLELY RESPONSIBLE FOR SAFEGUARDING THE SOFTWARE AND THE MEDIA ON WHICH THE SOFTWARE IS FURNISHED AND FOR BACKING UP ANY DATA.  
+
+If you have any problems with this EULA ,installation or use of MG-PickerStudio, feel free to contact MGPickerStudio@gmail.com , or visit http://mgland.com or http://twincodes.com to provide any feedback.
+Thanks for using MG-PickerStudio.

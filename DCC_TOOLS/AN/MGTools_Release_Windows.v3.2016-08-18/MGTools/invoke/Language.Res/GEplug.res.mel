@@ -1,0 +1,117 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "GEplug.warnNoAttrSelected.message" "Please select attribute on your channelBox!";
+MG_displayEN "GEplug.warnNoGraphEditor.message" "No GraphEditor found.";
+MG_displayEN "GEplug.FilterIcon.anno" " #  animCurve filter.";
+MG_displayEN "GEplug.channelFilter.anno" "Show only # channel.";
+MG_displayEN "GEplug.channelFilterAdd.anno" "Add/Hide only # channel.";
+MG_displayEN "GEplug.selectedChannelFilter.anno" "Channel animCurve filter via selected attributes from channelBox/GraphEditor.";
+
+MG_displayEN "GEplug.selectedMayaChannelFilter.mi" "Show Attributes via Maya channelBox";
+MG_displayEN "GEplug.selectedMGChannelFilter.mi" "Show Attributes via MGchannelBox";
+MG_displayEN "GEplug.selectedGEFilter.mi" "Show Attributes via GraphEditor";
+
+MG_displayEN "GEplug.selectedFilter.mayaC.mi" "Button based on Maya channelbox";
+MG_displayEN "GEplug.selectedFilter.MGC.mi" "Button based on MG-channelbox";
+MG_displayEN "GEplug.selectedFilter.geC.mi" "Button based on GraphEditor";
+
+MG_displayEN "GEplug.selectedFilter.base.mi.anno" "Decide which UI does this attribute filter base on.";
+
+MG_displayEN "GEplug.selectKeyToDefault.anno" "Set selected Keys to their conresponding default values.";
+MG_displayEN "GEplug.selectKeyToZero.anno" "Set selected Keys to zero.";
+
+MG_displayEN "GEplug.noKey.war" "No keys selected.";
+
+MG_displayEN "GEplug.align.anno" "Align all selected keys values to the last selected key value.";
+MG_displayEN "GEplug.alignPrevious.mi" "Align To Previous";
+MG_displayEN "GEplug.alignPrevious.ann" "Align all selected keys to the each previous key. Will align to each first seleted key value if no previous available.";
+MG_displayEN "GEplug.alignNext.mi" "Align To Next";
+MG_displayEN "GEplug.alignNext.ann" "Align all selected keys to the each next key.Will align to each last seleted key value if no next available.";
+
+
+MG_displayEN "GEplug.exception.war" "Ignored: # at Time:#\n";
+
+MG_displayEN "GEplug.switchAnimObj.mi" "Isolate Selected AnimCurve";
+MG_displayEN "GEplug.switchAnimObj.anno" "Isolate selected animCurve and hide other animCurves, Do it again to recover.";
+
+MG_displayEN "GEplug.autoload.mi" "Autoload GEplugin";
+MG_displayEN "GEplug.autoload.ann" "Decide whether the GE-plugin will be autoloaded whenever GraphEditor loads.";
+MG_displayEN "GEplug.autoload.on.rep" "Autoload condition is set. GE-plugin will be autoloaded whenever GraphEditor loads.";
+MG_displayEN "GEplug.autoload.off.rep" "Autoload condition is set. GE-plugin will not be autoloaded.";
+MG_displayEN "GEplug.autoload.config.label" "Autoload GEplugin with GraphEditor";
+
+MG_displayEN "GEplug.overshoot.ann" "Turn on/off the overshoot condition.";
+MG_displayEN "GEplug.fs.ann" "Drag to realtime change the BD/Extreme percentage value.";
+
+MG_displayEN "GEplug.nokeyorNosel.war" "Select keyframed object first please!";
+
+MG_displayEN "GEplug.setDefaultTangent.lbl" "Default Tangent: # ";
+MG_displayEN "GEplug.setDefaultTangent.ann" "Set default key tangent to: # ";
+MG_displayEN "GEplug.setDefaultTangent.done.rep"  "Default tangent has been set to : # ";
+MG_displayEN "GEplug.setDefaultTangent.ui.ann" "Click to set default key tangent";
+
+//========================== new 20120626================
+MG_displayEN "GEplug.toolName" "GraphEditor-Plugin";
+MG_displayEN "GEplug.toolName.short" "GE-Plugin";
+MG_displayEN "GEplug.option.title" "Option..";
+MG_displayEN "GEplug.uioption.title" "UI Option..";
+
+MG_displayEN "GEplug.TVfield.ann" "Right click one me to set the Timing/Value mode.";
+MG_displayEN "GEplug.TVfield.time" "Time";
+MG_displayEN "GEplug.TVfield.time.ann" "The Math will be apply to time.";
+MG_displayEN "GEplug.TVfield.value" "Value";
+MG_displayEN "GEplug.TVfield.value.ann" "The Math will be apply to value.";
+
+MG_displayEN "GEplug.setKey.eachKey"  "SetKey each Key Tick";
+MG_displayEN "GEplug.setKey.eachGap"  "SetKey each certain frame..";
+
+MG_displayEN "GEplug.clean.mi"  "Clean Up Keyframes";
+MG_displayEN "GEplug.clean.ann"  "Clean up as many keys as posible while strictly keep the animation unchanged.";
+ 
+MG_displayEN "GEplug.snap.mi"  "Snap Keyframes To Integer";
+MG_displayEN "GEplug.snap.ann"  "Snap non-integer Keyframes To Integer.Support time Range selection.";
+
+MG_displayEN "GEplug.setkey.input.m"  "Please input the keyframe Gap:";
+
+MG_displayEN "GEplug.clean.op.lbl" "Key Cleaner on Static Channel: ";
+MG_displayEN "GEplug.clean.op.leaveBoth" "Keep First&Last Keys";
+MG_displayEN "GEplug.clean.op.leaveFirst" "Keep First Key";
+MG_displayEN "GEplug.clean.op.leaveLast" "Keep Last Key";
+MG_displayEN "GEplug.clean.op.leaveNone" "Remove All Keys";
+
+MG_displayEN "GEplug.channelFilter.op.lbl" "Channel Filter";
+MG_displayEN "GEplug.channelFilter.op.isoChannel" "Isoloate Channel";
+MG_displayEN "GEplug.channelFilter.op.selChannel" "Select Channel";
+
+
+MG_displayEN "GEplug.tv.op.lbl" "TimeValue Math";
+MG_displayEN "GEplug.tv.op.staticPlusMinus.lbl" "When No key is selected for +- Math: " ;
+MG_displayEN "GEplug.tv.op.staticMulDivide.lbl" "When No key is selected for */ Math: " ;
+MG_displayEN "GEplug.tv.op.static.all" "Affect All" ;
+MG_displayEN "GEplug.tv.op.static.rightSide" "Affect RightSide" ;
+MG_displayEN "GEplug.tv.op.static.clean" "Auto-Clean up the non-integer keys" ;
+
+MG_displayEN "GEplug.ui.topL" "TopLeft" ;
+MG_displayEN "GEplug.ui.topR" "TopRight" ;
+MG_displayEN "GEplug.ui.L" "Left" ;
+MG_displayEN "GEplug.ui.R" "Right" ;
+MG_displayEN "GEplug.ui.stock" "-->Stock<--" ;
+MG_displayEN "GEplug.ui.B" "Bottom" ;
+MG_displayEN "GEplug.ui.save" "Save And Refresh UI" ;
+MG_displayEN "GEplug.ui.tab1.behavior" "Tool Behavior" ;
+MG_displayEN "GEplug.ui.tab2.arrangement" "UI Arrangement" ;
+
+MG_displayEN "GEplug.clean.rep" "\n# keys cleaned.";
+MG_displayEN "GEplug.clean.tol" "CleanUp Tolerance: ";
+
+MG_displayEN "GEplug.bd.option.lbl" "BD Tool";
+MG_displayEN "GEplug.bd.option.mi" "BD Tool Option..";
+MG_displayEN "GEplug.bd.option.includeStartEnd.lbl" "Process When Beyond / Equal To Start/End Key";
+MG_displayEN "GEplug.bd.option.includeStatic.lbl" "Process Even When It Is Static";

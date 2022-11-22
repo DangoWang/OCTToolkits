@@ -1,0 +1,69 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>批量扫描DB项</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="DB" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "batchscanassetitems.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">批量扫描DB项</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="assetlib_addcategory.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="scanassetpreviewimage.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #191817;">从文件夹批量扫描添加资产项：</span></p>
+<p style="margin: 0px 0px 0px 48px;">按资产库界面上的 <img src="addfoldericon.gif" width="21" height="21" alt="addFolderIcon" style="border:none" />按钮即可打开&quot;从文件夹里批量读入资产项&quot;的对话框:<br />
+&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;"><img src="batchscanfoldertodb_ch.gif" width="775" height="165" alt="batchScanFolderToDB_ch" style="border:none" /><br />
+&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">扫描子目录：</span>扫描拾取目录的子目录。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">扫描深度：</span>搜索文件夹的深度，只搜索当前文件夹意味着深度值为1.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">同名则只用最新：</span>如果在不同目录下搜到同样名称的maya档案，则只列出修改日期最新的档案。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">MA/MB复选框：</span>搜寻的maya档案是否包括mb/ma档。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">拾取目录并扫描：</span>点击将弹出拾取目录的对话框，拾取一个目录按确定后将开始扫描，然后把扫描结果放到此行下面的列表里。</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span>每一行第一个勾勾上才会最终被导入资产管理器作为资产项。类别那一栏可以点击切换成其它类别。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  <img src="mgdbmanager_selall_cn.gif" width="52" height="20" alt="MGdbManager_selAll_cn" style="border:none" /></span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">：</span>将当前扫描出来的所有资产项勾选上以便导入到资产管理器。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  <img src="mgdbmanager_selnone_cn.gif" width="52" height="20" alt="MGdbManager_selNone_cn" style="border:none" /></span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">：</span>将当前扫描出来的所有资产项去掉勾选。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  <img src="mgdbmanager_selinvert_cn.gif" width="52" height="20" alt="MGdbManager_selInvert_cn" style="border:none" /></span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">：</span>将当前扫描出来的所有资产项反选，之前勾选的变不勾选，不勾选的勾选上。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> &nbsp;&quot;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">设置所选项为：设置按钮：</span>将当前高亮的项设置为特定的类别。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  <img src="mgdbmanager_input_cn.gif" width="42" height="20" alt="MGdbManager_input_cn" style="border:none" /></span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">：</span>将当前扫描出来的勾选上的项导入到资产管理器当前工程内相对应的类别里。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><img src="warning.gif" width="16" height="16" alt="Warning" style="border:none" /><span class="f_ImageCaption"> &nbsp; </span><span style="font-size: 9pt; color: #ff0000;">这个扫描操作往往会扫出很多的Maya档案项。请细心筛选它们，不必要或不常用的不要勾上。因为当前资产工程太多资产项的话，每次启动资产管理器会变地有点慢！</span></p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="assetlib_addcategory.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="scanassetpreviewimage.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

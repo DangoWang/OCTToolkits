@@ -1,0 +1,75 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Design Principle</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="picker design principle" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "designprinciple.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="quickworkflow.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="namespace.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_Heading1" style="font-size: 10pt;">Design Principle of pickers:</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">There are no rules for designing a picker, you are free to use your imagination to create you pickers.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Yet if you keep in minds these tips when you design your picker, the picker will be more decent and animator friendly.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-weight: bold;">One picker for one asset</span>, which could be a character, props or set. Also <span style="font-weight: bold;">organize the picker content with picker panels</span>, say one panel for facial, one for body, one for deformers, etc.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-weight: bold;"> Keep the picker panel small size. </span>Too large of picker panel will occupy more workspace of animator.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">They could zoom out the view for sure, but the ui won't display as good as the default size.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-weight: bold;">Tweak the color well</span>, so that all the button colors are decent and not too visually distracting. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">Select buttons and use &quot;CTRL + U&quot; to use button color adjuster to tweak the colors.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> Do not use any non-ascii characters for button labels, commands codes, picker names.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">Actually, <span style="font-weight: bold;">never use any non-ascii characters in your picker</span>, such as your own language other than English.<br />
+The reason for this is that in future the picker may be stored in maya scene say .ma file, and these .ma file may contain non-English characters,</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">these will cause the scene reading issue on environment that doesn't support that language.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-weight: bold;">Buttons and their layouts is better if they look like the original controls</span>, it is easier for animator to identify them.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">But do not over-do that, because you still want to keep the buttons simple, easy to be frame-selected by mouse.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-weight: bold;">One select-button for one maya control,</span> utilize the parent link and the select all command button to help selecting the multiple controls.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-weight: bold;">The initial namespace is better to be set to the string which animator will probably use</span>, so that they don't need to set the namespace.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">But of course if the picker is embed in the asset, when the asset been referenced, the reference namespace will be used instead.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-weight: bold;"> Fully utilize the mirror relationship. </span>Animator could mirror the selection using the ALT + LMB, move slider handles reflectively holding ALT + LMB.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-weight: bold;"> The density of buttons within a panl is better not too high. </span>That will make more it more difficult to be picked or frame selected by mouse.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;"> </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-weight: bold;"> Use attribute button for non-movable maya attributes, while use slider for movable maya attributes.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;<br />
+&nbsp;</p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="quickworkflow.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="namespace.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

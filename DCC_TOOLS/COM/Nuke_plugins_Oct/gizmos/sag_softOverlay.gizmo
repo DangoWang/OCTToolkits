@@ -1,0 +1,91 @@
+Gizmo {
+ tile_color 0xff7f00ff
+ addUserKnob {20 ctrl l Controls}
+ addUserKnob {7 inGamma l "Input Gamma" R 0 4}
+ inGamma 2.2
+ addUserKnob {26 "" +STARTLINE}
+ addUserKnob {7 warmWeight l "Warm Weight"}
+ warmWeight 0.3
+ addUserKnob {7 warmSoft l "Warm Softness" R 0 20}
+ warmSoft 8
+ addUserKnob {7 warmHue l "Warm Hue" R -180 180}
+ addUserKnob {26 "" +STARTLINE}
+ addUserKnob {7 coolWeight l "Cool Weight"}
+ coolWeight 0.3
+ addUserKnob {7 coolSoft l "Cool Softness" R 0 20}
+ coolSoft 8
+ addUserKnob {7 coolHue l "Cool Hue" R -180 180}
+ coolHue -180
+ addUserKnob {26 "" +STARTLINE}
+ addUserKnob {7 outGamma l "Output Gamma" R 0 4}
+ outGamma 0.4545
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos -625
+  ypos -48
+ }
+ Grade {
+  gamma {{parent.inGamma i}}
+  name inGamma_Grade
+  xpos -625
+  ypos -24
+ }
+set N194a76f0 [stack 0]
+ HueShift {
+  hue_rotation {{parent.warmHue i}}
+  name warmHue_HueShift
+  xpos -735
+  ypos -24
+ }
+ Blur {
+  channels rgb
+  size {{parent.warmSoft}}
+  name warmSoft_Blur
+  xpos -735
+ }
+push $N194a76f0
+ Merge2 {
+  inputs 2
+  operation overlay
+  output rgb
+  mix {{parent.warmWeight i}}
+  name warmWeight_Overlay
+  xpos -625
+ }
+set N194a8080 [stack 0]
+ HueShift {
+  hue_rotation {{parent.coolHue i}}
+  name coolHue_HueShift
+  xpos -515
+ }
+ Blur {
+  channels rgb
+  size {{parent.coolSoft i}}
+  name coolSoft_Blur
+  xpos -515
+  ypos 24
+ }
+push $N194a8080
+ Merge2 {
+  inputs 2
+  operation overlay
+  output rgb
+  mix {{parent.coolWeight i}}
+  name coolWeight_Overlay
+  xpos -625
+  ypos 24
+ }
+ Grade {
+  gamma {{parent.outGamma i}}
+  name outGamma_Grade
+  xpos -625
+  ypos 48
+ }
+ Output {
+  name Output1
+  xpos -625
+  ypos 72
+ }
+end_group

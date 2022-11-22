@@ -1,0 +1,135 @@
+# Tools:
+y : Switch Between Edit Tool And Other Tools
+g : Repeat Last Repeatable Action
+q : Preview Tool
+w : Generic Edit Tool
+e : Generic Edit Tool
+s : Select-Button Tool
+c : Command-Button Tool
+a : Attribute-Button Tool
+d : Slider Tool
+x : Text Tool
+l : Link Tool
+m : Mirror Tool
+i : Copy / Paste Property Tool
+t : Global Transform Tool
+r : Local Transform Tool
+p : Polygon Tool
+b : Bezier Tool
+
+enter : Confirm Edit, Hold Alt To Confirm Edit To Mirrored Items As Well
+up : Move Items Up 1, Hold Alt To Move Mirrored Items As Well
+dn : Move Items Down 1, Hold Alt To Move Mirrored Items As Well
+shift up : Move Items Up 5, Hold Alt To Move Mirrored Items As Well
+shift dn : Move Items Down 5, Hold Alt To Move Mirrored Items As Well
+lt : Move Items Left 1, Hold Alt To Move Mirrored Items As Well
+rt : Move Items Right 1, Hold Alt To Move Mirrored Items As Well
+shift lt : Move Items Left 5, Hold Alt To Move Mirrored Items As Well
+shift rt : Move Items Right 5, Hold Alt To Move Mirrored Items As Well
+
+
+# Picker menu:
+ctrl n : Create New Picker
+ctrl alt n : Create New Picker From Template
+ctrl shift n : Add New Picker Panel
+ctrl o : Open Picker
+ctrl alt shift s: Set Up Current Picker Namespace
+
+ctrl s : Save Picker
+ctrl shift s : Save Picker As
+ctrl alt s : Save Picker To Other Directory
+
+ctrl shift e : Save As Picker Node
+ctrl alt shift e : Export Picker File Path To Node
+ctrl alt e : Save To Current Scene
+
+f12 : Revert To Saved
+ctrl w : Close Picker
+ctrl shift w : Close All Pickers
+
+
+# Select menu:
+ctrl a : Select All
+ctrl shift a : Select None
+ctrl i : Select Invert
+
+# Edit menu:
+z : Undo Edit
+shift z : Redo Edit
+ctrl c : Copy Selected Item(s)
+ctrl v : Paste Item(s)
+ctrl d : Duplicate Selected Items (Vertically)
+ctrl shift d : Duplicate Selected Items (Horizontally)
+ctrl f : Show Find & Replace Dialog
+ctrl up : Bring Selected Items To Top Layer
+ctrl dn : Send Selected Items To Bottom Layer
+
+ctrl m : Mirror Selected Items
+ctrl alt m : Mark Two Items As Mirrored
+ctrl shift m : Apply Transform To Mirrored
+shift m : Apply Minimum Info To Mirrored
+
+del : Delete Selected Items, Or Delete Current Point During Polygon / Bezier Edit.
+
+ctrl r : Resize To Preferred Size
+ctrl shift r : Resize To Preferred Width
+ctrl alt r : Resize To Preferred Height
+
+
+ctrl shift v : Align Panel via Vertical Center
+ctrl shift h : Align Panel via Horizontal Center
+ctrl shift alt t : Align Top
+ctrl shift alt l : Align Left
+ctrl shift alt h : Align Horizontal Center
+ctrl shift alt v : Align Vertical Center
+ctrl shift alt r : Align Right
+ctrl shift alt b : Align Bottom
+
+ctrl alt h : Distribute Horizontally
+ctrl alt v : Distribute Vertically
+
+ctrl u : Adjust Button Color
+
+ctrl l : Label Selected Buttons Automatically
+backspace : Clear Label
+shift backspace : Delete Selected Items, Or Delete Current Point During Polygon / Bezier Edit.
+
+
+
+
+# View menu:
+f4 : Toggle 3D View
+f5 : Refresh To Show All Picker Content
+f7 : Switch Between Animator & Minimized UI Mode
+f8 : Switch Between Animator & Designer UI Mode
+f9 : Toggle Attribute Editor
+f10 : Toggle Menu Editor
+f : Frame On Selected Picker Items / Frame All Picker Items
+
+ctrl + : Zoom In
+ctrl - : Zoom Out
+ctrl 0 : Reset Zoom
+spacebar : Maximum One Area / Show All Areas
+
+# Misc Menu:
+ctrl k : Open Preference Setting Dialog
+
+# Help Menu:
+f1 : Read Designer Help Manual
+
+
+# other:
+ctrl tab : Switch To Next Picker View
+ctrl shift tab : Switch To Last Picker View
+~ : Active Panel-[0]
+0 : Active Panel-[0]
+1 : Active Panel-[1]
+2 : Active Panel-[2]
+3 : Active Panel-[3]
+4 : Active Panel-[4]
+5 : Active Panel-[5]
+6 : Active Panel-[6]
+7 : Active Panel-[7]
+8 : Active Panel-[8]
+9 : Active Panel-[9]
+

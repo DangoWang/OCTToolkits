@@ -1,0 +1,144 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "MGcBox.selMask.mi" "选择屏蔽切换";
+MG_displaySC "MGcBox.selMask.mi.anno" "在全部可选与只有动画控制器可选之间切换选择屏蔽.";
+MG_displaySC "MGcBox.cLayer.title" "新建显示层";
+MG_displaySC "MGcBox.cLayer.cEmpty" "新建空层";
+MG_displaySC "MGcBox.cLayer.cSel" "建层并加入选择";
+
+MG_displaySC "MGcBox.Layer.option.title" "层编辑器选项";
+MG_displaySC "MGcBox.Layer.option.annoText" "层编辑器加载模式";
+MG_displaySC "MGcBox.Layer.option.option1" "浮动";
+MG_displaySC "MGcBox.Layer.option.option2" "内置";
+
+MG_displaySC "MGcBox.Layer.mi.allT" "全部Template";
+MG_displaySC "MGcBox.Layer.mi.allN" "全部正常";
+MG_displaySC "MGcBox.Layer.mi.setT" "设层显示方式为Template:";
+MG_displaySC "MGcBox.Layer.mi.allR" "全部Reference";
+MG_displaySC "MGcBox.Layer.mi.setR" "设层显示方式为Reference:";
+MG_displaySC "MGcBox.Layer.mi.cAdd" "创建/加到层";
+MG_displaySC "MGcBox.Layer.mi.cLDot" "新建层..";
+MG_displaySC "MGcBox.Layer.mi.cL" "新建层";
+MG_displaySC "MGcBox.Layer.mi.addSelTo" "把选择物体放到:";
+MG_displaySC "MGcBox.Layer.mi.removeSel" "移除所选物体";
+MG_displaySC "MGcBox.Layer.mi.del" "删除层";
+MG_displaySC "MGcBox.Layer.mi.delNU" "删除无用层";
+MG_displaySC "MGcBox.Layer.mi.delA" "删除全部层";
+MG_displaySC "MGcBox.Layer.mi.delL" "删除层:";
+
+MG_displaySC "MGcBox.RLayer.mi" "设定当前渲染层:";
+
+MG_displaySC "MGcBox.title" "MG通道栏";
+MG_displaySC "MGcBox.option.title" "MG通道栏选项";
+MG_displaySC "MGcBox.option.miniMGTools" "运行MG通道栏时最小化MGTools";
+MG_displaySC "MGcBox.option.showMB" "显示MG通道栏的菜单栏";
+
+MG_displaySC "MGcBox.selAttr.war" "请从通道栏里选一些属性！";
+
+MG_displaySC "MGcBox.bakeAttr.war" "烘焙选项";
+MG_displaySC "MGcBox.bakeAttr.mes" "你想要隔多少帧来烘焙一个关键帧:";
+MG_displaySC "MGcBox.bakeAttr.btn" "烘焙 !";
+
+//===============CB MI ==========================
+//`MG_DualLan "MGcBox.mi.resetC"`
+MG_displaySC "MGcBox.menu.key" "关键帧";
+MG_displaySC "MGcBox.mi.resetC" "重置通道";
+MG_displaySC "MGcBox.mi.resetR" "旋转归零";
+MG_displaySC "MGcBox.mi.resetT" "位移归零";
+MG_displaySC "MGcBox.mi.resetS" "重置缩放";
+MG_displaySC "MGcBox.mi.resetA" "重置全部";
+MG_displaySC "MGcBox.mi.KeySel" "K 帧所选";
+MG_displaySC "MGcBox.mi.KeyA" "K 帧全部";
+MG_displaySC "MGcBox.mi.BreakdownS" "Breakdown 所选";
+MG_displaySC "MGcBox.mi.BreakdownA" "Breakdown 全部";
+MG_displaySC "MGcBox.mi.MuteS" "Mute 所选";
+MG_displaySC "MGcBox.mi.MuteA" "Mute 全部";
+MG_displaySC "MGcBox.mi.uMuteS" "Unmute 所选";
+MG_displaySC "MGcBox.mi.uMuteA" "Unmute 全部";
+MG_displaySC "MGcBox.mi.delSel" "删除所选动画";
+MG_displaySC "MGcBox.mi.cutSel" "剪切所选动画";
+MG_displaySC "MGcBox.mi.copySel" "复制所选动画";
+MG_displaySC "MGcBox.mi.pasteSel" "粘贴所选属性";
+MG_displaySC "MGcBox.mi.bakeSel" "烘焙所选属性";
+
+MG_displaySC "MGcBox.menu.attr" "属性";
+MG_displaySC "MGcBox.mi.bConnect" "打断连接";
+MG_displaySC "MGcBox.mi.aAttr" "添加属性";
+MG_displaySC "MGcBox.mi.eAttr" "编辑属性";
+MG_displaySC "MGcBox.mi.dAttr" "删除属性";
+MG_displaySC "MGcBox.mi.LHsel" "锁定并隐藏属性";
+MG_displaySC "MGcBox.mi.Lsel" "锁定属性";
+MG_displaySC "MGcBox.mi.uLsel" "解锁属性";
+MG_displaySC "MGcBox.mi.Hsel" "隐藏属性";
+MG_displaySC "MGcBox.mi.mNonKey" "使属性不可K帧";
+MG_displaySC "MGcBox.mi.mKey" "使属性可K帧";
+
+MG_displaySC "MGcBox.menu.editor" "编辑器";
+MG_displaySC "MGcBox.mi.connectE" "连接编辑器..";
+MG_displaySC "MGcBox.mi.consE" "约束管理器..";
+MG_displaySC "MGcBox.mi.ouL" "大纲视图..";
+MG_displaySC "MGcBox.mi.LE" "层编辑器..";
+MG_displaySC "MGcBox.mi.SDK" "驱动关键帧..";
+MG_displaySC "MGcBox.mi.CC" "通道编辑器..";
+MG_displaySC "MGcBox.mi.AE" "属性编辑器..";
+MG_displaySC "MGcBox.mi.Exp" "表达式..";
+MG_displaySC "MGcBox.mi.Ref" "Reference编辑器..";
+MG_displaySC "MGcBox.mi.SE" "脚本编辑器..";
+MG_displaySC "MGcBox.mi.HG" "超视图..";
+
+MG_displaySC "MGcBox.mi.Freeze" "冰结通道栏窗口";
+MG_displaySC "MGcBox.mi.GEPlaug" "曲线编辑器通道过滤插件开关";
+MG_displaySC "MGcBox.mi.sProject" "设定工程目录..";
+MG_displaySC "MGcBox.mi.nProject" "新建工程..";
+
+MG_displaySC "MGcBox.menu.Project" "工程目录";
+
+MG_displaySC "MGcBox.noPanel.anno" "点击在单面板与复合外观模式间切换MG通道栏.";
+MG_displaySC "MGcBox.Panel.Embed" "内置";
+MG_displaySC "MGcBox.Panel.Embed.anno" "选择以使该编辑器以内置模式启动.";
+MG_displaySC "MGcBox.Panel.PopUp" "弹窗";
+MG_displaySC "MGcBox.Panel.PopUp.anno" "选择以使该编辑器以弹窗模式启动.";
+MG_displaySC "MGcBox.Panel.lr.anno" "点击左右互换通道栏和编辑器.";
+MG_displaySC "MGcBox.Panel.selSet.anno" "打开选择集面板.";
+MG_displaySC "MGcBox.Panel.outliner.anno" "打开大纲视图.";
+MG_displaySC "MGcBox.Panel.ref.anno" "打开Reference编辑器.";
+MG_displaySC "MGcBox.Panel.ge.anno" "打开曲线编辑器.";
+MG_displaySC "MGcBox.Panel.ds.anno" "打开摄影表面板.";
+MG_displaySC "MGcBox.Panel.other.anno" "鼠标左键点我来加载其它面板.";
+
+MG_displaySC "MGcBox.Panel.cam" "摄像机";
+MG_displaySC "MGcBox.Panel.hg" "超视图";
+MG_displaySC "MGcBox.Panel.hs" "材质编辑器";
+MG_displaySC "MGcBox.Panel.tx" "非线性编辑器";
+MG_displaySC "MGcBox.Panel.uv" "UV编辑器";
+MG_displaySC "MGcBox.Panel.rv" "渲染窗口";
+
+MG_displaySC "MGcBox.ChannelFilter.mi" "在曲线编辑器里只显示所选通道";
+MG_displaySC "MGcBox.ChannelFilter.anno" "单击把通道栏上没选中的属性在曲线编辑器里过滤掉不显示.";
+MG_displaySC "MGcBox.TSFilter.anno" "单击把通道栏上没选中的属性在时间条里过滤掉不显示其关键帧.";
+//line 733-1093
+MG_displaySC "MGcBox.mi.animLib" "MG动作库..";
+MG_displaySC "MGcBox.mi.cValue" "拷贝数值";
+MG_displaySC "MGcBox.mi.pValue" "粘贴数值";
+
+MG_displaySC "MGcBox.mi.option.2011" "Maya2011及其后版本的特有选项:";
+MG_displaySC "MGcBox.mi.option.embed" "内置MG通道栏";
+MG_displaySC "MGcBox.mi.option.float" "浮动MG通道栏";
+MG_displaySC "MGcBox.mi.option.embed.l" "内置在左边";
+MG_displaySC "MGcBox.mi.option.embed.r" "内置在右边";
+
+
+MG_displaySC "MGcBox.mi.remember.3dView.ann" "点击切换到3D视图.";
+MG_displaySC "MGcBox.mi.remember.3dCamera.mi" "记住3d视图摄像机选择";
+MG_displaySC "MGcBox.mi.remember.3dCamera.ann" "记住3d视图所用的是哪个摄像机，这样下一次你点击这个图标，它将自动切换到该摄像机视图.";
+
+MG_displaySC "MGcBox.mi.Stereo" "立体视图";
+MG_displaySC "MGcBox.mi.nodeEditor" "节点编辑器";
+MG_displaySC "MGcBox.mi.camSequencer" "摄像机序列";

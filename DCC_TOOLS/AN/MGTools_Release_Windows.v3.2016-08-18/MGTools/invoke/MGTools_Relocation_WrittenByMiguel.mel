@@ -1,0 +1,314 @@
+//relocate MGTools when it's server side program file is lost.
+
+proc initMGRelocation_LangSource()
+{
+  global string $gMgtools_relocate_title;
+  global string $gMgtools_relocate_pickfile_lbl;
+  global string $gMgtools_relocate_nonAscii_war;
+  global string $gMgtools_relocate_nonAscii_war1;
+  global string $gMgtools_relocate_nocontaint;
+  global string $gMgtools_relocate_same1_war;
+  global string $gMgtools_relocate_success_rep;
+  global string $gMgtools_relocate_failed_rep;
+  global string $gMgtools_relocate_pick_lbl;
+  global string $gMgtools_relocate_ui_title;
+  global string $gMgtools_relocate_ui_ann1;
+  global string $gMgtools_relocate_ui_ann2;
+  global string $gMgtools_relocate_ui_ann3;
+  global string $gMgtools_relocate_ui_ann4;
+  global string $gMgtools_relocate_ui_ann5;
+  global string $gMgtools_relocate_cancel_lbl;
+  global string $gMgtools_relocate_mode_lbl;
+  global string $gMgtools_relocate_mode_ann;
+  
+  global int $MGtoolsLanguageChoice;
+  
+  //en only:
+  $gMgtools_relocate_title = "MGTools3 Relocation";
+  $gMgtools_relocate_pickfile_lbl= "You must pick a file called \"MGToolsLoader_WrittenByMiguel.mel\".";
+  $gMgtools_relocate_nonAscii_war = "The path you picked include Non-AscII character: ";
+  $gMgtools_relocate_nonAscii_war1 = "\n Path to server MGTools whould be pure AscII.";
+  $gMgtools_relocate_nocontaint = "The new path you picked does not contains full MGTools program files.";
+  $gMgtools_relocate_same1_war = "The path you picked is the same the local MGToools root path. Relocation done." ;
+  $gMgtools_relocate_success_rep = "Relocation successed.";
+  $gMgtools_relocate_failed_rep = "Relocation failed.";
+  $gMgtools_relocate_pick_lbl = "Pick";
+  $gMgtools_relocate_ui_title = "Reloate MGTools3";
+  $gMgtools_relocate_ui_ann1 = "* This tool is probably used as a failsafe system to find the missing MGTools program files. ";
+  $gMgtools_relocate_ui_ann2 = "Please only use it when you want to reference MGTools to a new server path.\n\n";
+  $gMgtools_relocate_ui_ann3 = "[Useage]\n> Click the \"Pick MGToolsLoader..\" button, pick the target file \"MGToolsLoader_WrittenByMiguel.mel\".\n";
+  $gMgtools_relocate_ui_ann4 = "> Then MGTools will be renewed as a server program, referencing the path you just picked. ";
+  $gMgtools_relocate_ui_ann5 = "If the new path is different from the local MGTools path, it will clean up all the local program files but keep the user datas.";
+  $gMgtools_relocate_cancel_lbl = "Cancel";
+  
+  $gMgtools_relocate_mode_lbl = "Use full server mode (Copy nothing)";
+  $gMgtools_relocate_mode_ann = "This mode copy nothing but uses full reference to server program files, and clean up all except the user datas in local MGTools side.";
+}
+initMGRelocation_LangSource;
+proc string reloacateMGTools_getStringNonAscIIPart(string $str)
+{
+  $str = strip($str);
+  string $eachChars [];
+  int $size=size ($str);
+  if(!$size)
+  {
+    return "";
+  }
+  for ($i=0;$i<$size;$i++)
+  {
+    $eachChars[$i]=`substring $str ($i+1) ($i+1)`;
+  }  
+  string $result;
+  int $lastIndex =-2;
+  string $eachChar;
+  for ($c=0; $c<$size; $c++)
+  {
+    $eachChar = $eachChars[$c];
+    if(`gmatch $eachChar "[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890.+/~`!@#$%^&()_={}:;'\"|<>,.]"`)
+    {
+      continue;
+    }
+    if($eachChar == "[" || $eachChar == "]" || $eachChar == "-" || $eachChar == "\\")
+    {
+      continue; 
+    }
+    if($lastIndex != ($c-1))
+    {
+      $result += " ";
+    }
+    $result += $eachChar;
+    $lastIndex = $c;
+  }
+  return $result;  
+}
+
+global proc int relocateMGTools_doit(string $file, int $fileMode)
+{
+    
+    global string $gMgtools_relocate_title;
+    global string $gMgtools_relocate_pickfile_lbl;
+    global string $gMgtools_relocate_nonAscii_war;
+    global string $gMgtools_relocate_nonAscii_war1;
+    global string $gMgtools_relocate_nocontaint;
+    global string $gMgtools_relocate_same1_war;
+    
+    global string $gMgtools_relocate_success_rep;
+    global string $gMgtools_relocate_failed_rep;
+    global string $gMgtools_relocate_pick_lbl;
+    global string $gMgtools_relocate_ui_title;
+    global string $gMgtools_relocate_ui_ann1;
+    global string $gMgtools_relocate_ui_ann2;
+    global string $gMgtools_relocate_ui_ann3;
+    global string $gMgtools_relocate_ui_ann4;
+    global string $gMgtools_relocate_ui_ann5;
+    global string $gMgtools_relocate_cancel_lbl;
+  global string $gMgtools_relocate_mode_lbl;
+  global string $gMgtools_relocate_mode_ann;
+    global int $gMgtools_relocate_useFullServerMode;
+  
+    string $baseName = `basenameEx $file`;
+    string $title = $gMgtools_relocate_title;
+    if($baseName != "MGToolsLoader_WrittenByMiguel")
+    {
+        confirmDialog -title $title 
+              -message $gMgtools_relocate_pickfile_lbl -button "OK";
+        return 0;
+    }
+    string $dirName = (`dirname $file` + "/");
+    string $nonAscii = `reloacateMGTools_getStringNonAscIIPart $dirName`;
+    if(size($nonAscii))
+    {
+        confirmDialog -title $title 
+              -message ($gMgtools_relocate_nonAscii_war+$nonAscii+$gMgtools_relocate_nonAscii_war1) -button "OK";
+        return 0;        
+    }
+    global string $GmgtoolsPath;    
+    eval ("source \""+$file+"\"");
+    if(!`exists refreshMGtoolAfterUpdate`)
+    {
+        confirmDialog -title $title -message $gMgtools_relocate_nocontaint -button "OK";
+        return 0;    
+    }
+    
+    string $defaultLocalMGToolsRoot = `internalVar -userScriptDir` + "MGTools/";   
+    
+    // if it is the default local path ,we clear the old local path:
+    if($dirName ==  $defaultLocalMGToolsRoot)
+    {    
+        MGToolsAutoLoader;
+        confirmDialog -title $title -message $gMgtools_relocate_same1_war -button "OK";
+        return 1;        
+    }
+    
+    control -e -vis 1 MGTools_RelocationProgressBar;
+    unloadAllMGToolsPlugins;
+    string $olditems [] = `getFileList -fld $defaultLocalMGToolsRoot`;
+    string $cPath;
+    for($oldItem in $olditems)
+    {
+        if($oldItem == "MGTools_LocalData")
+        {
+            continue;
+        }
+        $cPath = $defaultLocalMGToolsRoot + $oldItem;
+        if(`filetest -d $cPath`)
+        {
+            MG_DeleteFolder $cPath  MGTools_RelocationProgressBar "" 0 0;
+        }
+        else  if(`fileExtension $oldItem` == "mel")
+        {
+            sysFile -del  $cPath;
+        }
+    }
+    int $result = 1;
+    
+    if(!$gMgtools_relocate_useFullServerMode)
+    {
+        $result = `updateMGToolsFromServerSide_Doit $GmgtoolsPath MGTools_RelocationProgramUI MGTools_RelocationProgressBar ""`;
+    }
+    else
+    {
+        deleteUI MGTools_RelocationProgramUI;
+    }
+    if($result)
+    {
+      refreshMGtoolAfterUpdate;
+      eval ("source \""+$file+"\"");
+      MG_updateUserSetupFile;
+      MGToolsAutoLoader;
+      updateAllMGToolsShevels;
+      MG_submitUserCodeToServerSide 1;
+      
+      confirmDialog -title "MGTools3 Relocation" -message $gMgtools_relocate_success_rep -button "OK";
+    }
+    else
+    {
+      confirmDialog -title "MGTools3 Relocation" -message $gMgtools_relocate_failed_rep -button "OK";
+    }
+    return 1;
+}
+global proc relocateMGToolsPickFile()
+{
+  
+    global string $gMgtools_relocate_pickfile_lbl;
+    global string $gMgtools_relocate_pick_lbl;
+  
+    string $v=`about -v`;
+    string $temp [];
+    clear $temp;
+    tokenizeList($v,$temp);
+    string $temp1[];
+    clear $temp1;
+    tokenize $temp[0] "." $temp1;    
+    int $ver=$temp1[0];
+    
+    if($ver < 2011)
+    {
+        fileBrowserDialog -m 0 -fc "relocateMGTools_doit" -ft "mel" -an ($gMgtools_relocate_pick_lbl+" \"MGToolsLoader_WrittenByMiguel.mel\"") -om "Import";
+    }
+    else
+    {
+        string $lblf= ($gMgtools_relocate_pick_lbl+" \"MGToolsLoader_WrittenByMiguel.mel\"");
+        string $singleFilter = "MGToolsLoader MEL (*.mel)";
+        string $resultFile[] = `fileDialog2 -fileMode 1 -fileFilter $singleFilter -dialogStyle 2 -okc $lblf -caption $lblf`;
+        if(!size($resultFile))return;
+        relocateMGTools_doit $resultFile[0] 0;  
+    }
+}
+
+proc int isMgtoolsFullServerProgram()
+{
+    string $defaultLocalMGToolsPlugins = `internalVar -userScriptDir` + "MGTools/plug-ins/"; 
+    global int $mgtoolsOStype =0;
+    string $pluginsFiles[];
+  if(`about -mac`)
+  {
+      $pluginsFiles =`getFileList -fld $defaultLocalMGToolsPlugins -fs "*.bundle"`;
+  }  
+  else if(`about -li`)
+  {
+      $pluginsFiles =`getFileList -fld $defaultLocalMGToolsPlugins -fs  "*.so"`;
+  }
+  else
+  {
+      $pluginsFiles =`getFileList -fld $defaultLocalMGToolsPlugins -fs "*.mll"`;
+  }
+  if(size($pluginsFiles))
+  {
+      return 0;
+  }
+  return 1;
+}
+global proc relocateMGTools_ChangeServerMode()
+{    
+  global int $gMgtools_relocate_useFullServerMode;
+  $gMgtools_relocate_useFullServerMode = `checkBox -q -v MGTools_RelocationModeCB`;
+}
+global proc relocateMGToolsProgramFiles()
+{        
+      global string $gMgtools_relocate_title;
+      global string $gMgtools_relocate_pickfile_lbl;
+      global string $gMgtools_relocate_nonAscii_war;
+      global string $gMgtools_relocate_nonAscii_war1;
+      global string $gMgtools_relocate_nocontaint;
+      global string $gMgtools_relocate_same_war;
+      global string $gMgtools_relocate_same1_war;
+      
+      global string $gMgtools_relocate_success_rep;
+      global string $gMgtools_relocate_failed_rep;
+      global string $gMgtools_relocate_pick_lbl;
+      global string $gMgtools_relocate_ui_title;
+      global string $gMgtools_relocate_ui_ann1;
+      global string $gMgtools_relocate_ui_ann2;
+      global string $gMgtools_relocate_ui_ann3;
+      global string $gMgtools_relocate_ui_ann4;
+      global string $gMgtools_relocate_ui_ann5;
+      global string $gMgtools_relocate_cancel_lbl;
+      
+      global string $gMgtools_relocate_mode_lbl;
+      global string $gMgtools_relocate_mode_ann;
+      
+      global int $gMgtools_relocate_useFullServerMode;
+      $gMgtools_relocate_useFullServerMode = `isMgtoolsFullServerProgram`;
+    
+      if(`window -q -exists MGTools_RelocationProgramUI`)
+      {
+          deleteUI MGTools_RelocationProgramUI;
+      }
+      window -title $gMgtools_relocate_title MGTools_RelocationProgramUI;
+      string $mainF = `formLayout`;
+      string $rl = `rowLayout -nc 3 -cw3  1 5 150 -adj 1`;
+          string $lbl = $gMgtools_relocate_ui_ann1;
+          $lbl += $gMgtools_relocate_ui_ann2;
+          $lbl += $gMgtools_relocate_ui_ann3;
+          $lbl += $gMgtools_relocate_ui_ann4;
+          $lbl += $gMgtools_relocate_ui_ann5;
+          columnLayout -rs 5 -adj 1;
+          scrollField -ed 0 -text $lbl  -ww 1 -h 190;
+          checkBox 
+                -l $gMgtools_relocate_mode_lbl 
+                -ann $gMgtools_relocate_mode_ann 
+                -v $gMgtools_relocate_useFullServerMode
+                -cc "relocateMGTools_ChangeServerMode"
+                MGTools_RelocationModeCB;
+          setParent ..;
+          text -l "";
+          columnLayout -adj 1 -rs 6 -w 150;
+              button -w 146 -l ($gMgtools_relocate_pick_lbl+" MGToolsLoader..") -h 185 -bgc 0.737 0.204 0.231 -c "relocateMGToolsPickFile";
+              button -w 146 -l $gMgtools_relocate_cancel_lbl  -c "deleteUI MGTools_RelocationProgramUI" -h 25 -bgc 0.361 0.533 0.694 ;//-bgc 0.118 0.580 0.157 ;
+      setParent $mainF ;
+      progressBar -vis 0 -h 10 -min 0 -max 1 MGTools_RelocationProgressBar;
+      formLayout -e 
+                  -af $rl "top" 5
+                  -af $rl "left" 5
+                  -af $rl "right" 5
+                  -ac $rl "bottom" 5 MGTools_RelocationProgressBar
+                  
+                  -af MGTools_RelocationProgressBar "left" 3
+                  -af MGTools_RelocationProgressBar "right" 3
+                  -af MGTools_RelocationProgressBar "bottom" 5
+                  $mainF ;
+      showWindow MGTools_RelocationProgramUI;
+      window -e -wh 674 266 MGTools_RelocationProgramUI;
+}
+

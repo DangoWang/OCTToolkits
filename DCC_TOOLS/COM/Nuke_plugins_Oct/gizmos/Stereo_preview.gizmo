@@ -1,0 +1,49 @@
+#! C:/Program Files/Nuke9.0v8/nuke-9.0.8.dll -nx
+version 9.0 v8
+Gizmo {
+ addUserKnob {20 User}
+ addUserKnob {41 vertical T SideBySide1.vertical}
+ addUserKnob {41 view1 T SideBySide1.view1}
+ addUserKnob {41 view2 T SideBySide1.view2}
+ addUserKnob {41 swap T SideBySide1.swap}
+ addUserKnob {26 ""}
+ addUserKnob {41 format l "output format" T Reformat1.format}
+ addUserKnob {41 scale T Reformat1.scale}
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos 509
+  ypos 96
+ }
+ Crop {
+  box {0 0 {width} {height}}
+  reformat true
+  name Crop1
+  xpos 509
+  ypos 148
+ }
+ SideBySide {
+  name SideBySide1
+  xpos 509
+  ypos 190
+ }
+ Transform {
+  scale {{clamp(SideBySide1.vertical+0.5,0,1)} {clamp(SideBySide1.vertical+0.5,1,.5)}}
+  name Transform1
+  xpos 509
+  ypos 236
+ }
+ Reformat {
+  format "1024 435 0 0 1024 435 1 "
+  black_outside true
+  name Reformat1
+  xpos 509
+  ypos 301
+ }
+ Output {
+  name Output1
+  xpos 509
+  ypos 369
+ }
+end_group

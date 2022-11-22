@@ -1,0 +1,81 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>MG重定位器</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Relocator" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "relocator.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">MG重定位器</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="mganimrecorder.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="keyframeprobe.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> MG重定位器</span><span style="font-weight: bold; color: #191817;">功能：</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:94px; padding:0px;"><p style="text-align: center;"><img src="relocateoricon.gif" width="32" height="32" alt="relocateorIcon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:5px; padding:0px;"><br />
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">生成一个控制装置用来重新摆放要重定位的多个物体，</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">重摆导致的位置改变将融入到这些物体原有的关键帧中。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">* 这个工具启发于Indigo大人的relocator工具，因为原Layout同事要求，所以重写代码并加入。有作一些改进，如支持重定位器的动画等等(这个支持</span>相当于多了一个暂用的动画层! <span style="color: #3c3c39;">)。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> 典型</span><span style="font-weight: bold; color: #191817;">用法：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">1.</span>打开重定位工具界面如下图。<br />
+<img src="relocator_ui_ch.gif" width="396" height="236" alt="relocator_ui_ch" style="border:none" /><br />
+&nbsp;</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">2.</span>在场景里选择你想要重定位的物体。当然可以选多个。点上图中的+号按钮加入到下面的重定位列表中。<br />
+（如果在开启界面前有选物体则所选物体将自动被加入列表）</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">3.</span>点击上图中左下方&quot;开始重定位!&quot;按钮（该按钮会马上变成&quot;完成重定位!&quot;按钮，同时旁边的&quot;选择重定位器&quot;按钮被激活）。<br />
+场景中新生成并选择的空组即是重定位控制器，旋转，位移这个控制器以重新定位这些物体。<br />
+也可以Key动画，key的动画将融入重定位的物体原有的关键帧里。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">4.</span>点&quot;完成重定位&quot;按钮。做的所有改动将反应到被重定位的所有物体的关键帧中。</p><p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示：在重定位过程中，因为用来重定位的层级只是个空层，如果想重新选中重定位器，可以按&quot;选择重定位器&quot;按钮来重新选择以便接着旋转，位移。</span></p>
+<p>&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> 界面的按钮</span><span style="font-weight: bold; color: #191817;">：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="relocator_ui_ch.gif" width="396" height="236" alt="relocator_ui_ch" style="border:none" /><br />
+&nbsp;</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><img src="additemicon.gif" width="21" height="21" alt="addItemIcon" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> ：</span>将场景所选物体加入重定位的行列。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><img src="trashicon.gif" width="21" height="21" alt="trashIcon" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">：</span>将列表所选项从重定位的行列里删除，你也可以在列表里选中相应项，按键盘的del键删除。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><img src="refreshicon.gif" width="21" height="21" alt="refreshIcon" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">：</span>重新读取场景信息。有时点了完成重定位，但是又按了Undo，这时界面仍然显示开始重定位！可以点刷新按钮来刷新重定位界面。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  <img src="helpicon.gif" width="21" height="21" alt="helpIcon" style="border:none" /></span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">：</span>点击会在如图右方面出现简易的文本帮助框。再点击则是隐藏。每次开启UI都将记忆上次使用时这个帮助是否显示的状态。右键点击它可以打开本详细说明文档。 </p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="mganimrecorder.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="keyframeprobe.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

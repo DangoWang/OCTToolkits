@@ -1,0 +1,514 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+//`MG_DualLan "MGdbManager.noDataCheckOn.war"`
+//`MG_DualLanFormat_1 "" `
+//$annoString=`MG_DualLan "MGdbManager.doubleClickEdit.anno"`;
+MG_displaySC "MGdbManager.title.mi" "MG资产库..";
+MG_displaySC "MGdbManager.coverPy" "MG资产库已加载:)";
+
+MG_displaySC "MGdbManager.browseLib" "打开MG资产库目录..";
+MG_displaySC "MGdbManager.unknown" "未知";
+
+MG_displaySC "MGdbManager.noProj.notice" "注意";
+MG_displaySC "MGdbManager.noProj.build" "去新建一个工程";
+MG_displaySC "MGdbManager.noProj.mes" "执行该操作前必须要有一个工程被设立，是否现在新建一个?";
+MG_displaySC "MGdbManager.menu.setProjectTo.mi" "设置当前库工程为";
+
+MG_displaySC "MGdbManager.noDataToImport.war" "没有可导入的数据:(";
+MG_displaySC "MGdbManager.noDataCheckOn.war" "没有被勾上的资产项:(";
+MG_displaySC "MGdbManager.noImageDataCheckOn.war" "没有被勾上的预览图数据:(";
+MG_displaySC "MGdbManager.noActiveData.war" "没有当前被激活的资产项（粗体字显示的资产项）:(";
+
+MG_displaySC "MGdbManager.file.ano" "文件：";
+MG_displaySC "MGdbManager.ver.ano" "版本：";
+MG_displaySC "MGdbManager.size.ano" "大小：";
+MG_displaySC "MGdbManager.date.ano" "日期：";
+
+MG_displaySC "MGdbManager.pickMfile.anno" "选取一个Maya檔";
+MG_displaySC "MGdbManager.pickMfile.lbl" "选取";
+
+MG_displaySC "MGdbManager.doubleClickEdit.anno" "请双击我来编辑我:P";
+MG_displaySC "MGdbManager.doubleClickEdit.2011.anno" "请单击右边的编辑按钮来编辑我:P";
+MG_displaySC "MGdbManager.addNewItem.title" "添加一个新的资产项:";
+
+MG_displaySC "MGdbManager.treat.confirm" "请确认!";
+MG_displaySC "MGdbManager.del.confirm" "你真的要删除下面的资产项吗 :";
+MG_displaySC "MGdbManager.ref.confirm" "你真的要Reference下面的资产项吗 :(#次)";
+MG_displaySC "MGdbManager.imp.confirm" "你真的要导入下面的资产项吗 :(#次)";
+MG_displaySC "MGdbManager.open.confirm" "你真的要读取该资产项吗（此项操作只支持单个资产项一次）:";
+
+MG_displaySC "MGdbManager.sceneNotSaved.war" "当前场景未保存，你是要：";
+MG_displaySC "MGdbManager.saveOpen.label" "保存并继续";
+MG_displaySC "MGdbManager.justOpen.label" "不管,继续";
+MG_displaySC "MGdbManager.cancel.rep" "该操作已取消!";
+
+MG_displaySC "MGdbManager.changeNotSaved.war" "有对资产库工程的编辑未保存，你是要：";
+
+MG_displaySC "MGdbManager.goon.label" "继续";
+MG_displaySC "MGdbManager.del.rep" "所选资产项已移除！";
+
+MG_displaySC "MGdbManager.ProjName.title" "库工程名称";
+MG_displaySC "MGdbManager.defaultProjAnno" "项目:\n客户:\n注释:";
+MG_displaySC "MGdbManager.projDes.label" "项目描述:";
+
+MG_displaySC "MGdbManager.editDes.label" "编辑库工程";
+MG_displaySC "MGdbManager.newDes.label" "新建库工程";
+
+MG_displaySC "MGdbManager.emptyString.war" "输入的字符窜不能为空.";
+
+MG_displaySC "MGdbManager.repick.anno" "重新拾取资产项的文件.";
+MG_displaySC "MGdbManager.repick.anno.lbl" "重拾取";
+
+MG_displaySC "MGdbManager.ignoreDate.war" "忽略日期信息.";
+
+MG_displaySC "MGdbManager.scanData.title" "从文件夹里批量读入资产项";
+
+MG_displaySC "MGdbManager.scanData.scanSub.label" "扫描子目录";
+MG_displaySC "MGdbManager.scanData.latest.label" "同名则只用最新";
+
+MG_displaySC "MGdbManager.preview.current.label" "当前预览图: #";
+MG_displaySC "MGdbManager.preview.no.label" "无预览图.";
+
+MG_displaySC "MGdbManager.checkBox.anno" "许多操作如删除，reference,导入，开档等都需要先通过勾上我才起作用哦.";
+
+MG_displaySC "MGdbManager.pathTF.anno" "这一栏显示了资产文件的路径";
+MG_displaySC "MGdbManager.repickFile.anno" "点我来为该资产项重新指定一个maya档，同时资产项的大小/版本/日期等信息将更新";
+MG_displaySC "MGdbManager.sizeTF.anno" "这一栏显示资产文件的大小，单位是KB";
+MG_displaySC "MGdbManager.dateTF.anno" "这一栏显示资产文件的最近修改日期，显示的格式可能因系统不一样而不同";
+MG_displaySC "MGdbManager.verTF.anno"  "显示资产文件的Maya版本，如果你用的8.0前的Maya版本，那么MB档的版本无法自动获取，需要手动输入。";
+MG_displaySC "MGdbManager.avail.anno" "这一栏显示了资产文件是否实际存在";
+MG_displaySC "MGdbManager.editEnableDis.anno" "允许/禁止对该资产项的编辑动作";
+MG_displaySC "MGdbManager.browse.anno" "用资源管理器打开该资产文件的路径";
+
+MG_displaySC "MGdbManager.title" "MG-资产库 v2.0";
+MG_displaySC "MGdbManager.ann" "打开MG-资产库 v2.0。使用它来快速Reference/导入/开档资产文件，同时你可以看到一些资产的状态信息，对于Layout/Animation阶段很方便。";
+
+MG_displaySC "MGdbManager.newProject.menu" "库工程";
+MG_displaySC "MGdbManager.newProject.mi" "新建库工程..";
+MG_displaySC "MGdbManager.editProject.mi" "编辑当前库工程..";
+MG_displaySC "MGdbManager.delProject.mi" "删除库工程";
+MG_displaySC "MGdbManager.delTheProject.mi" "删除该库工程";
+MG_displaySC "MGdbManager.delTheProject.mess" "你确定要删除库工程\"#\"?";
+
+MG_displaySC "MGdbManager.setProject.mi" "设置当前库工程为";
+
+MG_displaySC "MGdbManager.category.menu" "类别";
+MG_displaySC "MGdbManager.setcategory1.mi" "设置所勾资产项类别为:角色";
+MG_displaySC "MGdbManager.setcategory2.mi" "设置所勾资产项类别为:道具";
+MG_displaySC "MGdbManager.setcategory3.mi" "设置所勾资产项类别为:场景";
+MG_displaySC "MGdbManager.setcategory4.mi" "设置所勾资产项类别为:其它";
+
+MG_displaySC "MGdbManager.dbitem.menu" "资产项";
+MG_displaySC "MGdbManager.scanFolder.mi" "从文件夹批量获取资产信息..";
+MG_displaySC "MGdbManager.scanimage.mi" "从文件夹批量获取资产预览图..";
+MG_displaySC "MGdbManager.scanimage.TITLE" "从文件夹批量获取资产预览图";
+MG_displaySC "MGdbManager.newItem.mi" "新建资产项..";
+MG_displaySC "MGdbManager.delItem.mi" "删除勾上的资产项..";
+
+MG_displaySC "MGdbManager.sel.menu" "选择";
+MG_displaySC "MGdbManager.selAll.mi" "选择全部(当前类别)";
+MG_displaySC "MGdbManager.selNone.mi" "去选全部(当前类别)";
+MG_displaySC "MGdbManager.selInvert.mi" "反选(当前类别)";
+
+MG_displaySC "MGdbManager.operation.menu" "操作";
+MG_displaySC "MGdbManager.saveAllEdit.mi" "保存所有编辑";
+MG_displaySC "MGdbManager.ref.mi" "Reference所有当前勾上的资产项";
+MG_displaySC "MGdbManager.Import.mi" "导入所有当前勾上的资产项";
+MG_displaySC "MGdbManager.open.mi" "打开勾上的第一个资产项";
+
+MG_displaySC "MGdbManager.porjEditCtl.anno" "双击我可重命名库工程名称";
+
+MG_displaySC "MGdbManager.porjEditDetail.anno" "编辑库工程名称有描述";
+MG_displaySC "MGdbManager.newProject.anno" "新建库工程，同时你也可以给库工程添加描述";
+MG_displaySC "MGdbManager.viewmode.anno" "资产库显示模式切换.(纯列表模式|带预览图模式)";
+MG_displaySC "MGdbManager.scanFoldder.anno" "从文件夹批量扫描MB/MA信息并导入，这是建立你自己的资产信息库最快的方法。";
+MG_displaySC "MGdbManager.scanImage.anno" "从文件夹批量扫描图片，通过可定制的自动匹配设置，可供当前库工程已有资产项使用为资产预览图.";
+MG_displaySC "MGdbManager.newitem.anno" "选择一个Reference物体，然后点我来将其信息创建为一个资产项.";
+MG_displaySC "MGdbManager.delItem.anno" "删除所有被勾上的资产项";
+MG_displaySC "MGdbManager.refreshAll.anno" "更新当前库工程所有资产项的大小/日期/版本/可用性信息.";
+MG_displaySC "MGdbManager.refreshCheck.anno" "更新当前库工程勾上的资产项的大小/日期/版本/可用性信息.";
+MG_displaySC "MGdbManager.saveall.anno" "保存所有对当前库工程所做的修改";
+MG_displaySC "MGdbManager.saveall.mi" "更新当前库工程所有资产项的信息";
+MG_displaySC "MGdbManager.savecheck.mi" "更新当前库工程勾上的资产项的信息";
+MG_displaySC "MGdbManager.time.anno" "设置Reference/导入操作的次数";
+//3417
+MG_displaySC "MGdbManager.refActive.mi" "Reference当前资产项";
+MG_displaySC "MGdbManager.ImportActive.mi" "导入当前资产项";
+MG_displaySC "MGdbManager.openActive.mi" "打开当前资产项";
+MG_displaySC "MGdbManager.checkOnOff.mi" "勾上/不勾当前资产项";
+MG_displaySC "MGdbManager.zoomin.mi" "放大";
+MG_displaySC "MGdbManager.zoomout.mi" "缩小";
+MG_displaySC "MGdbManager.cw.mi" "顺时针旋转";
+MG_displaySC "MGdbManager.ccw.mi" "逆时针旋转";
+MG_displaySC "MGdbManager.nextPix.mi" "下张图";
+MG_displaySC "MGdbManager.lastPix.mi" "上张图";
+MG_displaySC "MGdbManager.nextItem.mi" "下个资产项";
+MG_displaySC "MGdbManager.lastItem.mi" "上个资产项";
+MG_displaySC "MGdbManager.addPreview.mi" "给当前资产项添加预览图";
+MG_displaySC "MGdbManager.delPreview.mi" "删除预览图";
+//`MG_DualLan "MGdbManager.save.rep.title"`
+MG_displaySC "MGdbManager.help.anno" "点击查看帮助..";
+MG_displaySC "MGdbManager.save.rep.title" "库工程: \"#\"的所有资产项已保存:)";
+MG_displaySC "MGdbManager.save.category.rep.title""类别: #的所有资产项已保存:)";
+
+MG_displaySC "MGdbManager.scanImage.anno.label" "预览图扫描及自动与资产项匹配选项";
+MG_displaySC "MGdbManager.scanImage.supportFormat" " 要扫描的图片格式：";
+MG_displaySC "MGdbManager.scanImage.matchCondi" " 自动匹配条件：";
+MG_displaySC "MGdbManager.scanImage.cusCondi.label" "自定义:" ;
+
+MG_displaySC "MGdbManager.scanImage.cusCondi.anno" " 预览图与资产项自动匹配表达式.\"资产\"两字代表资产项的前缀名，可用*号通配符代表其它任何字母，支持所有gmatch命令支持的正则表达式。";
+MG_displaySC "MGdbManager.scanImage.eg1" "如： 预览图\"Killer.jpg\" 将会与资产项 \"Killer\"自动匹配";
+MG_displaySC "MGdbManager.scanImage.eg2" "如： 预览图\"Killer.previewImage.jpg\" 将会与资产项 \"Killer\"自动匹配";
+MG_displaySC "MGdbManager.scanImage.eg3" "如： 预览图\"Killer.previewImage.jpg\" 将会与资产项 \"Killer\"自动匹配";
+MG_displaySC "MGdbManager.scanImage.eg4" "如： 预览图\"Killer.jpg\" 将会与资产项 \"Killer\"自动匹配";
+MG_displaySC "MGdbManager.scanImage.begin.anno" " 拾取目录并开始扫描" ;
+MG_displaySC "MGdbManager.scanImage.input.anno" " 导入勾上的预览图数据到资产库" ;
+MG_displaySC "MGdbManager.scanImage.ready.rep" "已准备好扫描预览图:P" ;
+
+MG_displaySC "MGdbManager.checkbox.anno" "过后的导入动作只会对打上勾的资产项才起作用哦." ;
+MG_displaySC "MGdbManager.ns.anno" "这一栏显示了资产项";
+MG_displaySC "MGdbManager.preimagePath.anno" "这一栏显示了该资产项对应的预览图地址";
+MG_displaySC "MGdbManager.repickimagePath.anno" "点我来重新拾取一个预览用图片";
+MG_displaySC "MGdbManager.delmagePath.anno" "舍弃当前的预览图数据";
+
+MG_displaySC "MGdbManager.update.all.rep" "当前库工程所有资产项的大小/日期/版本/可用性信息已更新";
+
+MG_displaySC "MGdbManager.update.sel.rep" "当前库工程所选资产项的大小/日期/版本/可用性信息已更新";
+
+
+MG_displaySC "MGdbManager.option.ref.ann" "打开MG资产工具的Reference场景选项,注意它和Maya共享该选项.";
+MG_displaySC "MGdbManager.option.imp.ann" "打开MG资产工具的导入场景选项,注意它和Maya共享该选项.";
+MG_displaySC "MGdbManager.option.open.ann" "打开MG资产工具的打开场景选项,注意它和Maya共享该选项.";
+
+MG_displaySC "MGdbManager.option.annoText" "注意:如果打开\"Use namespaces\"，MG资产工具都将使用其界面上所显示的前缀名.";
+
+MG_displaySC "MGdbManager.configRoot.confirmCopy.message" "你需要把旧路径下的配置文件拷到新路径下吗?";
+MG_displaySC "MGdbManager.configRoot.done" "MG-资产库的配置文件路径已被成功变更.";
+MG_displaySC "MGdbManager.op.title" "MG-资产库选项";
+MG_displaySC "MGdbManager.op.path.lbl" "资产信息配置文件路径:";
+MG_displaySC "MGdbManager.op.path.pick" "拾取";
+MG_displaySC "MGdbManager.op.path.pick.ann" "拾取一个用来保存资产信息的新目录";
+MG_displaySC "MGdbManager.op.enableEdit" "允许编辑";
+MG_displaySC "MGdbManager.op.enableEdit.ann" "如果你不应该编辑大家一起共享的资产信息库,请不要打开允许编辑的选项,以免相互覆盖.";
+
+MG_displaySC "MGdbManager.ask.enableEdit.mes" "你是否亲自需要编辑资产信息库?还是只需要读取/使用别人准备好的资产信息库?\n过后你仍然可以编辑这个选项.(通过右键点击MG-资产库图标来访问其选项窗口)";
+MG_displaySC "MGdbManager.ask.enableEdit.no" "只需要读取并使用";
+
+MG_displaySC "MGdbManager.sort.assending" "升序排列";
+MG_displaySC "MGdbManager.sort.descending" "降序排列";
+MG_displaySC "MGdbManager.width.widen" "变宽";
+MG_displaySC "MGdbManager.width.tighten" "变窄";
+ 
+ 
+//MGTools3======================================================
+MG_displaySC "MGdbManager.local" "(本地)";
+MG_displaySC "MGdbManager.clearLibContent.local" "清除库内容(本地)";
+MG_displaySC "MGdbManager.clearLibContent.global" "清除库内容(全局)";
+MG_displaySC "MGdbManager.rename.cate.mi" "重命名当前类别..";
+MG_displaySC "MGdbManager.del.cate.mi" "删除当前类别...";
+MG_displaySC "MGdbManager.batch.makeimages.mi" "批量生成预览图..";
+MG_displaySC "MGdbManager.saveCate.mi" "保存当前类别";
+
+MG_displaySC "MGdbManager.checkOn.highlightItems.mi" "勾选所选项";
+MG_displaySC "MGdbManager.invert.highlightItems.mi" "反转所选项的勾选";
+MG_displaySC "MGdbManager.checkOff.highlightItems.mi" "去掉所选项的勾选";
+MG_displaySC "MGdbManager.highlightAllItems.mi" "选择所有项";
+
+MG_displaySC "MGdbManager.searchReplace.mi" "查找和替换..";
+MG_displaySC "MGdbManager.searchReplace.title" "查找和替换";
+MG_displaySC "MGdbManager.updnload.menu" "上传/下载";
+MG_displaySC "MGdbManager.updnload.checkItems.cCate.mi" "上传/下载当前类别里勾选的项";
+MG_displaySC "MGdbManager.updnload.checkItems.allCate.mi" "上传/下载所有类别里勾选的项";
+MG_displaySC "MGdbManager.updnload.cCate.mi" "上传/下载当前类别";
+MG_displaySC "MGdbManager.updnload.allCate.mi" "上传/下载所有类别";
+MG_displaySC "MGdbManager.updnload.projFile.mi" "上传/下载库工程文件";
+MG_displaySC "MGdbManager.updnload.previewImages.mi" "上传/下载所有预览图";
+MG_displaySC "MGdbManager.makeMA.mi" "生成MA..";
+MG_displaySC "MGdbManager.makeMA.lbl" "生成MA";
+ 
+
+MG_displaySC "MGdbManager.showCateStat.mi" "显示当前类别的统计信息";
+MG_displaySC "MGdbManager.switch.localGlobal.mi" "点击在本地/全局间切换当前库.";
+
+MG_displaySC "MGdbManager.checkAll.mi" "勾选所有项";
+MG_displaySC "MGdbManager.checkNone.mi" "去掉所有项勾选";
+MG_displaySC "MGdbManager.checkInvert.mi" "反转所有项勾选";
+
+MG_displaySC "MGdbManager.name.prefix" "名字: #   \t当前可用: ";
+MG_displaySC "MGdbManager.name.lbl" "名字";
+MG_displaySC "MGdbManager.path.lbl" "路径";
+MG_displaySC "MGdbManager.state.lbl" "状态";
+MG_displaySC "MGdbManager.ver.lbl" "版本";
+MG_displaySC "MGdbManager.size.lbl" "尺寸";
+MG_displaySC "MGdbManager.date.lbl" "日期";
+
+MG_displaySC "MGdbManager.relation.equal.lbl" "等于";
+MG_displaySC "MGdbManager.relation.largerThan.lbl" "大于";
+MG_displaySC "MGdbManager.relation.smallThan.lbl" "小于";
+MG_displaySC "MGdbManager.relation.euqalLarger.lbl" "等于 / 大于";
+MG_displaySC "MGdbManager.relation.equalSmaller.lbl" "等于 / 小于";
+
+MG_displaySC "MGdbManager.makeMA.ann" "生成MA文件，以勾选上的项为reference.";
+
+MG_displaySC "MGdbManager.warn.prefix" "警告: ";
+MG_displaySC "MGdbManager.err.prefix" "错误: ";
+
+MG_displaySC "MGdbManager.toolName" "MG-资产库";
+
+MG_displaySC "MGdbManager.noWriteAccess.war" "当前全局目录您没有写权限.";
+
+MG_displaySC "MGdbManager.renameToValid.lbl" "重命名为合法名称";
+MG_displaySC "MGdbManager.cateFileName.notValid.war" "类别文件: # 非法. \n它应该以\"_\"或英文字母开头，且只由\"_\",英文字母及数字组成. \n您是想要：";
+
+MG_displaySC "MGdbManager.yes.lbl" "是";
+MG_displaySC "MGdbManager.no.lbl" "否";
+MG_displaySC "MGdbManager.annoContent.prefix" "资产: #\t    当前可用: ";
+MG_displaySC "MGdbManager.path.notExist.war" "路径 :# 不存在.";
+
+MG_displaySC "MGdbManager.noDrag.war" "中键拖放将会把数据弄地一团糟。\n如果你已经用它重新排序过了，请拖放回来.";
+MG_displaySC "MGdbManager.scene.contain.nonStortable.chars.mi" "场景文件包含非法字符，比如";
+MG_displaySC "MGdbManager.newItem.makePreview.lbl" "创建预览图";
+
+MG_displaySC "MGdbManager.unsetable.lbl" "不可设置";
+
+MG_displaySC "MGdbManager.makeMA.readRefPreload.lbl" "正在读取Reference预加载信息..";
+MG_displaySC "MGdbManager.makeMA.loadRefReload.lbl" "加载Reference预加载..";
+MG_displaySC "MGdbManager.makeMA.readRefNSInfo.lbl" "正在读取Reference命名空间信息..";
+MG_displaySC "MGdbManager.makeMA.done.lbl" "已完成";
+MG_displaySC "MGdbManager.makeMA.done.rep" "Maya Ascii文件: # 已生成.";
+
+MG_displaySC "MGdbManager.makeMA.editMode.lbl" "编辑模式 ";
+MG_displaySC "MGdbManager.makeMA.simpleMode.lbl" "简单模式";
+MG_displaySC "MGdbManager.makeMA.advancedMode.lbl" "高级模式";
+
+MG_displaySC "MGdbManager.makeMA.highRef.deferred.lbl" "所选Reference不加载";
+MG_displaySC "MGdbManager.makeMA.highRef.load.lbl" "所选Reference加载";
+MG_displaySC "MGdbManager.makeMA.allRef.deferred.lbl" "所有Reference不加载";
+MG_displaySC "MGdbManager.makeMA.allRef.load.lbl" "所有Reference加载";
+
+MG_displaySC "MGdbManager.makeMA.ns.lbl" "命名空间" ;
+MG_displaySC "MGdbManager.makeMA.setNS.lbl" " 设置命名空间 " ;
+MG_displaySC "MGdbManager.makeMA.dialog.title" "输入Reference为MA文件";
+
+MG_displaySC "MGdbManager.moveCheckTo.mi" "移动勾选上的项到: ";
+MG_displaySC "MGdbManager.copyCheckTo.mi" "复制勾选上的项到: ";
+MG_displaySC "MGdbManager.renameCate.mi" "重命名类别: ";
+MG_displaySC "MGdbManager.delCate.mi" "删除类别: ";
+MG_displaySC "MGdbManager.showStat.mi" "显示统计: ";
+
+
+MG_displaySC "MGdbManager.proj.stateLblPreset.lbl" "状态预置:";
+MG_displaySC "MGdbManager.setStateTo.mi" "设置状态为: ";
+MG_displaySC "MGdbManager.proj.addStatePreset.lbl" "添加状态预置" ;
+MG_displaySC "MGdbManager.proj.addStatePreset.btn" "添加状态预置";
+MG_displaySC "MGdbManager.proj.removeStatePreset.lbl" "删除状态预置";
+MG_displaySC "MGdbManager.proj.addStatePresetArraw.lbl" "添加所选状态预置到工程  ->";
+MG_displaySC "MGdbManager.proj.state.color.lbl" "状态颜色";
+MG_displaySC "MGdbManager.proj.state.pickColor.lbl" "拾取颜色:";
+MG_displaySC "MGdbManager.proj.state.assignColor.lbl" "指定颜色 ->" ;
+MG_displaySC "MGdbManager.proj.projState.lbl" "库工程状态";
+MG_displaySC "MGdbManager.proj.delHighlightState.ann" "删除所选状态";
+MG_displaySC "MGdbManager.proj.stateSetting.lbl" "资产项状态设置";
+MG_displaySC "MGdbManager.proj.description.lbl" "库工程描述";
+MG_displaySC "MGdbManager.proj.path.customGlobalRoot.lbl" "自定义全局根目录: " ;
+MG_displaySC "MGdbManager.reset.lbl" "重置";
+
+MG_displaySC "MGdbManager.scanFolder.import" "输入数据到当前库工程..";
+MG_displaySC "MGdbManager.scroll.pageUP.mi" "向上翻页";
+MG_displaySC "MGdbManager.scroll.pageDn.mi" "向下翻页";
+MG_displaySC "MGdbManager.scroll.toTop.mi" "回到头部";
+MG_displaySC "MGdbManager.scroll.toBottom.mi" "去到底部";
+
+MG_displaySC "MGdbManager.scan.scaning.lbl"  "正在扫描...";
+MG_displaySC "MGdbManager.scan.processing.lbl"  "正在处理...";
+MG_displaySC "MGdbManager.scan.loading.lbl" "正在加载数据...";
+
+MG_displaySC "MGdbManager.delProj.msg1" "整个本地库工程将被擦除.";
+MG_displaySC "MGdbManager.delProj.msg2" "全局目录下的内容可能会被保留. 使用 \"库工程/清除库内容(全局)\" 来清除全局内容.";
+
+MG_displaySC "MGdbManager.local.lowerCase" "本地";
+MG_displaySC "MGdbManager.global.lowerCase" "全局";
+MG_displaySC "MGdbManager.delProj.war" "整个库工程 # 的内容: # 将被清除. \n您是想要:";
+MG_displaySC "MGdbManager.delProj.delPreviews.war" "你是否想要一起删除 \"Preview_Images\" 目录?";
+
+MG_displaySC "MGdbManager.search.wrapped.war" "搜索已到底.";
+MG_displaySC "MGdbManager.search.noMatch.war" "没有发现匹配." ;
+
+MG_displaySC "MGdbManager.search.empty.war" "搜索字符窜为空." ;
+MG_displaySC "MGdbManager.search.invalidChars.war" "搜索字符窜不能包含下面任一字母:";
+MG_displaySC "MGdbManager.search.invalidReplaceChars.war" "替换字符窜不能包含下面任一字母:";
+MG_displaySC "MGdbManager.search.same.war" "搜索跟替换字符窜是一样的." ;
+MG_displaySC "MGdbManager.replace.count.rep" " 个资产项被替代.";
+
+MG_displaySC "MGdbManager.search.cate.lbl" "搜索类别";
+MG_displaySC "MGdbManager.search.cCate.lbl" "当前类别";
+MG_displaySC "MGdbManager.search.allCate.lbl" "所有类别";
+MG_displaySC "MGdbManager.search.str.lbl" "搜索字符窜";
+MG_displaySC "MGdbManager.search.prev.lbl" "搜索上一个";
+MG_displaySC "MGdbManager.search.next.lbl" "搜索下一个";
+
+MG_displaySC "MGdbManager.replace.with.lbl" "替代成";
+MG_displaySC "MGdbManager.replace.prev.lbl" "替代上一个";
+MG_displaySC "MGdbManager.replace.next.lbl" "替代下一个";
+MG_displaySC "MGdbManager.replace.all.lbl" "替代全部";
+MG_displaySC "MGdbManager.search.filter.lbl" "隔离显示搜索结果";
+MG_displaySC "MGdbManager.search.toggleCheck.lbl" "开关勾选";
+MG_displaySC "MGdbManager.search.caseSensitive.lbl" "区分大小写";
+
+MG_displaySC "MGdbManager.saveCate.done.rep" "资产类别 : # 已被保存.";
+MG_displaySC "MGdbManager.cate.nameLength.war" "  * 类别的字符窜长度最好是小大于11个字符.";
+
+MG_displaySC "MGdbManager.create.lbl" "创建";
+MG_displaySC "MGdbManager.renameCate.war"  "重命名类别失败.";
+MG_displaySC "MGdbManager.renameCate.prefix" "重命名类别: ";
+MG_displaySC "MGdbManager.cateExists.war" "类别 :# 已存在，您是想要： ";
+MG_displaySC "MGdbManager.delCate.war" "您真的要删除类别 :#?";
+MG_displaySC "MGdbManager.delCate.cancel.war" "类别删除动作被用户取消.";
+MG_displaySC "MGdbManager.delCate.subfix" "类别删除动作失败.";
+MG_displaySC "MGdbManager.noCateActived.war" "当前没有激活任何类别.";
+
+MG_displaySC "MGdbManager.total.lbl" "全部共";
+MG_displaySC "MGdbManager.cates.lbl" "个类别";
+MG_displaySC "MGdbManager.cCate.assetCount.lbl" "当前类别资产项个数";
+MG_displaySC "MGdbManager.checkOn.mid" "被勾选: ";
+MG_displaySC "MGdbManager.cateExists1.war" "类别文件不存在:";
+
+MG_displaySC "MGdbManager.projNotExist.war" "库工程文件不存在:";
+
+MG_displaySC "MGdbManager.imageFile.ext.lbl" "预览图文件";
+
+MG_displaySC "MGdbManager.scanImage.matchCount.subfix" " 个匹配被发现.";
+MG_displaySC "MGdbManager.scanImage.importing.lbl" "导入数据...";
+MG_displaySC "MGdbManager.sort.done.rep" "资产项已排序!!";
+
+MG_displaySC "MGdbManager.batchMakeImage.log1" "开始批量生成预览图.";
+MG_displaySC "MGdbManager.batchMakeImage.log2" "\n正在处理 : ";
+MG_displaySC "MGdbManager.batchMakeImage.itemNoExist.war" " 资产项: # 不存在.";
+MG_displaySC "MGdbManager.batchMakeImage.fileNoExist.war" " 资产项Maya场景文件: # 不存在.";
+MG_displaySC "MGdbManager.batchMakeImage.openMA.rep" "开Maya档 : ";
+MG_displaySC "MGdbManager.batchMakeImage.errorRead.rep" "读取Maya档错误 : ";
+MG_displaySC "MGdbManager.batchMakeImage.applyDefaultBookmark.rep" "应用默认摄像机书签并返回，这样你可以进一步调整视图.";
+MG_displaySC "MGdbManager.batchMakeImage.applyTheBookmark.rep" "应用摄像机书签: ";
+MG_displaySC "MGdbManager.batchMakeImage.applyDefaultBookmark.rep" "应用默认摄像机书签.";
+MG_displaySC "MGdbManager.batchMakeImage.clearOldPreviewImage.lbl" "清除资产项的旧预览图文件: ";
+MG_displaySC "MGdbManager.batchMakeImage.making.lbl" "正在生成预览图文件给 : ";
+MG_displaySC "MGdbManager.batchMakeImage.failed.lbl" "预览图文件生成失败: ";
+MG_displaySC "MGdbManager.batchMakeImage.made.lbl" "预览图文件已生成:";
+MG_displaySC "MGdbManager.batchMakeImage.saveTheCate.lbl" "保存类别: ";
+MG_displaySC "MGdbManager.batchMakeImage.finished.lbl" "已完成对该资产项的处理: ";
+MG_displaySC "MGdbManager.batchMakeImage.makeNewScene.lbl" "开新档.";
+MG_displaySC "MGdbManager.batchMakeImage.log.lbl" "日志";
+MG_displaySC "MGdbManager.batchMakeImage.log.clear.lbl" "清除日志";
+MG_displaySC "MGdbManager.batchMakeImage.autosave.lbl" "每次图片生成自动保存改变";
+MG_displaySC "MGdbManager.batchMakeImage.beforeSnapshot.lbl" "拍屏之前";
+MG_displaySC "MGdbManager.batchMakeImage.chooseCamBookmark.lbl" "停住这样我可以选择一个视图摄像机书签";
+MG_displaySC "MGdbManager.batchMakeImage.useDefaultCamBookmark.lbl" "使用默认视图摄像机书签";
+MG_displaySC "MGdbManager.batchMakeImage.useBookmark.lbl" "使用视图摄像机书签:";
+MG_displaySC "MGdbManager.batchMakeImage.fileMode.lbl" "文件模式";
+MG_displaySC "MGdbManager.batchMakeImage.append.lbl" "追加到既有预览图";
+MG_displaySC "MGdbManager.batchMakeImage.replace.lbl" "替换既有预览图";
+
+MG_displaySC "MGdbManager.batchMakeImage.saveScene.war" "当前Maya场景还未被保存.\n批量生成图标将会用当前Maya以不提示的方式直接打开不同的Maya场景.\n\n您是否要保存当前场景?";
+MG_displaySC "MGdbManager.batchMakeImage.save.lbl" "保存";
+MG_displaySC "MGdbManager.batchMakeImage.saveAs.lbl" "另存为..";
+MG_displaySC "MGdbManager.batchMakeImage.donotSave.lbl" "不保存";
+MG_displaySC "MGdbManager.batchMakeImage.saved.lbl" "当前场景已保存.";
+MG_displaySC "MGdbManager.batchMakeImage.title" "批量生成资产项预览图";
+
+MG_displaySC "MGdbManager.noActiveProj.war" "没有当前工程.";
+MG_displaySC "MGdbManager.dnup.downloaded.lbl" "已下载";
+MG_displaySC "MGdbManager.dnup.downloading.lbl" "正下载";
+MG_displaySC "MGdbManager.dnup.uploaded.lbl" "已上传";
+MG_displaySC "MGdbManager.dnup.uploading.lbl" "正上传";
+MG_displaySC "MGdbManager.dnup.confirmProjFileUpload.war" "你真的要上传并共享您的库工程文件?";
+MG_displaySC "MGdbManager.dnup.same.war" "本地和全局的目录是一样的.";
+MG_displaySC "MGdbManager.dnup.done.rep" "库工程文件: #已被";
+MG_displaySC "MGdbManager.dnup.err.war" "错误发生：#库工程文件";
+
+MG_displaySC "MGdbManager.error.image.war" "错误发生： #预览图文件: ";
+MG_displaySC "MGdbManager.dnup.cateHasBeen.prefix" "类别: # 已被";
+MG_displaySC "MGdbManager.dnup.cate.err.war" "错误发生：#类别: ";
+MG_displaySC "MGdbManager.dnup.tolocal.lbl" "到本地资产库?";
+MG_displaySC "MGdbManager.dnup.toglobal.lbl" "到全局资产库?";
+
+MG_displaySC "MGdbManager.dnup.doReally.war" "您真的要";
+MG_displaySC "MGdbManager.dnup.checkInCCate.mid" " 当前类别勾选上的资产项 ";
+MG_displaySC "MGdbManager.dnup.checkInAllCate.mid" " 所有类别勾选上的资产项 ";
+MG_displaySC "MGdbManager.dnup.wholeCate.mid" " 整个当前类别: ";
+MG_displaySC "MGdbManager.dnup.allCates.mid" " 所有类别: ";
+
+MG_displaySC "MGdbManager.dnup.upCate.lbl" "更新类别";
+MG_displaySC "MGdbManager.dnup.repCate.lbl" "替换类别";
+
+MG_displaySC "MGdbManager.dnup.upAllCate.lbl" "更新所有类别";
+MG_displaySC "MGdbManager.dnup.repAllCate.lbl" "替换所有类别";
+
+MG_displaySC "MGdbManager.dnup.noChecked.lbl" "没有勾选上的资产项.";
+MG_displaySC "MGdbManager.dnup.upImages.confirm" "您真的要上传并共享您的资产项预览图像文件?";
+
+MG_displaySC "MGdbManager.dnup.upImages.war" "你真的要上传所有在Preview_Images目录里的预览图像文件到目标Preview_Images目录?";
+MG_displaySC "MGdbManager.dnup.err.war" "错误发生: # 库工程文件 ";
+
+MG_displaySC "MGdbManager.warnProjInvalidName.war" "库工程名称: # 非法. 转换成 :";
+MG_displaySC "MGdbManager.warnProjExist.war" "库工程 :# 在你的本地库目录里已存在.";
+MG_displaySC "MGdbManager.warnProjNotExist.lbl" "库工程 :# 不存在. 在添加类别前需要先创建库工程.";
+MG_displaySC "MGdbManager.warnProjNotExist1.lbl" "库工程  :# 不存在.";
+MG_displaySC "MGdbManager.warnCateNotExist.lbl" "类别 :# 在该项止不存在: ";
+MG_displaySC "MGdbManager.warnCateNotWrite.lbl" "类别 :# 对您来说不可写入.";
+MG_displaySC "MGdbManager.warnProjNotExist2.lbl" "库工程 :# 不存在. 在添加状态前需要先创建库工程.";
+MG_displaySC "MGdbManager.noStateToAdd.lbl" "没有要添加到工程的状态: ";
+MG_displaySC "MGdbManager.warnProjNotReadable.lbl" "库工程文件:# 不可读.";
+MG_displaySC "MGdbManager.warnProjNotWritable.lbl" "库工程文件:# 对您来说不可写入.";
+MG_displaySC "MGdbManager.warnCateNotExist1.lbl" "类别 :# 在您的库工程中不存在: #. 在添加资产项前你必须先添加类别.";
+
+MG_displaySC "MGdbManager.warnCateNotWritable.lbl" "类别文件:# 对您来说不可写入.";
+MG_displaySC "MGdbManager.makeMA.notSupportMB.war" "Maya二进制场景文件不支持:";
+MG_displaySC "MGdbManager.makeMA.alreadyExist.override.war" "Maya场景文件: # 已存在并且你已选择不要覆盖它.";
+
+
+MG_displaySC "MGdbManager.makeMA.refTimes.lbl" "Ref次数";
+MG_displaySC "MGdbManager.makeMA.top.ann" "这些资产将会被以Reference方式包含在生成的MA里:";
+
+
+//===============for the python api=================================================
+MG_displaySC "AssetPyAPI.searchDir.err.prefix" "该搜索目录: ";
+MG_displaySC "AssetPyAPI.searchDir.err.subfix" "不存在.";
+MG_displaySC "MGdbManager.patternPara.notString.error" "参数patternStr应该是一个str类型.";
+MG_displaySC "MGdbManager.patternPara.empty.error" "参数patternStr是空字符窜.";
+MG_displaySC "MGdbManager.neither.mbma.war" "你不可以把参数searchMA及searchMB都设为False.";
+MG_displaySC "MGdbManager.return.maExists.war" "因为ma档已存在所以返回: ";
+MG_displaySC "MGdbManager.onlyMa.war" "该函数只支持MA文件.";
+
+MG_displaySC "MGdbManager.invalidProjObj.war" "该库工程对象非法";
+MG_displaySC "MGdbManager.invalidProj.war" "该库工程非法.";
+MG_displaySC "MGdbManager.invalidProjName.empty.war" "非法的库工程名称. 它是不是空字符窜??";
+MG_displaySC "MGdbManager.initViaExistProj.lbl" "该库工程已存在. 将用已存在的库工程文件来初始化MGAssetProj对象.";
+MG_displaySC "MGdbManager.newStatePresets.parameterEmpty.war" "参数newStatePresets是空的.";
+MG_displaySC "MGdbManager.categoryName.parameterEmpty.war" "参数categoryName是空的.";
+
+MG_displaySC "MGdbManager.cateAdded.war" "类别已添加.";
+MG_displaySC "MGdbManager.invalidCateObj.war" "参数categoryObject是一个非法的MGAssetCategory对象.";
+MG_displaySC "MGdbManager.noCateToWrite.war" "没有要写入的类别对象.";
+MG_displaySC "MGdbManager.invalidCateObj.war1" "有非法的类别对象.";
+MG_displaySC "MGdbManager.param.categoryName.invalid.war" "参数非法 :categoryName, 它应该是str或MGAssetCategory类型.";
+MG_displaySC "MGdbManager.proj.prefix" "库工程: ";
+MG_displaySC "MGdbManager.cate.prefix" "类别: ";
+MG_displaySC "MGdbManager.state.prefix" "库工程状态: ";
+MG_displaySC "MGdbManager.ann.prefix" "库工程注释: ";
+
+MG_displaySC "MGdbManager.not2011.war" "抱歉，MG资产库只能在Maya2011及以后的Maya版本运行，造成不便还请见谅.";
+
+MG_displaySC "MGdbManager.searchDepth.lbl" "搜索深度:";
+MG_displaySC "MGdbManager.searchDepth.ann" "搜索文件夹的深度，只搜索当前文件夹意味着深度值为1.";
+MG_displaySC "MGdbManager.setSearchCate.lbl" "设置";
+MG_displaySC "MGdbManager.setSearchCate.ann" "设置列表所选的项类别为左边的类别。";
+
+MG_displaySC "MGdbManager.confirmBefore.lbl" "操作前确认";
+MG_displaySC "MGdbManager.noGlobal.war" "当前库工程没有全局库.如果您需要，请点击\"编辑当前库工程..\"按钮来指定一个库工程全局目录.";

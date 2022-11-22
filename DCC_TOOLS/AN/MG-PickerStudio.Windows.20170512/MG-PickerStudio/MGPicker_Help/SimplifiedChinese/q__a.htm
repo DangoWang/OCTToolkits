@@ -1,0 +1,74 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Q &amp; A</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "q__a.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="tipsforprogrammer.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="more_resource.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">Q: 如何避免硬写picker对象的id?</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt; font-weight: bold;">要获取当前正编辑或互动的picker对象的id</span><span style="font-size: 9pt;">, 比如你在编写一个命令按钮的命令，要获取这个命令按钮的id （下面是mel代码，python方式类似）： </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; color: #008000;">string $currentCmdBtn = `MGPicker -q -currentItem`;</span></p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt; font-weight: bold;">要获取其它特定的按钮id</span><span style="font-size: 9pt;">, 仍然最好避免id硬写。因为id会被确保在一个picker里面是唯一的，所以当一个按钮被复制粘贴到其它picker,它的按钮id很可能不一样。这样就有可能导致一些代码无法使用。为了让这些代码更健壮通用，可以试着用名字属性来获取这些id。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">对于每一个picker对象，都可以设置一个名字属性。这个属性是允许重复的，所以即使你复制粘贴按钮到不同picker,　这些名字属性值也不会变化。这样你就可以用这个名字作为标识， 来获取id。比如说你的按钮的名字设置为&quot;targetButton&quot;, 这样有这个picker的任意位置您都可以使用下面mel代码来获取其id(python方式类似）：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; color: #008000;">string $IDs[] =`MGPickerView -q -getIdFromName &quot;targetButton&quot;`;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">它将返回所有名字为&quot;targetButton&quot;的picker对象的id数组。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">如果你只有一个对象名字叫&quot;targetButton&quot;,它仍将返回一个只包含一个id的数组，你之后可以使用$IDs[0]来作为该对象的id.</span></p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">怎样遍历picker里所有的picker对象?</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">如果您想获取当前picker里所有的选择按钮:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; color: #008000;">string $selectButtons[] = `MGPickerView -q -list &quot;selectButton&quot;`;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">要列出所有类型的picker对象：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; color: #008000;">string $selectButtons[] = `MGPickerView -q -list &quot;&quot;`;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">要列出所有类型的连接：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; color: #008000;">string $allLinks[] = `MGPickerView -q -listLinks &quot;&quot;`;</span></p>
+<p style="line-height: 1.15; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">要了解更多，请查询<a href="mgpicker.htm" class="topiclink">MGPicker命令参考</a>。</span></p>
+<p style="line-height: 1.15; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">怎么查询或编辑picker view的东西，而不用激活它?</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;">从1.6版本开始，你可以通过：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; color: #008000;">string $currentViewId = `MGPicker -q -currentPickerView`; &nbsp; &nbsp; &nbsp; &nbsp;//这个currentPickerView只有在执行如picker加载后命令或鼠标进入命令期间才会被设置。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; color: #008000;">// 有了这个视图id,你就可以用这个新命令来编辑，查询: &nbsp; &nbsp;MGPickerView -q/-e ..$currentViewId;</span></p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="tipsforprogrammer.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="more_resource.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

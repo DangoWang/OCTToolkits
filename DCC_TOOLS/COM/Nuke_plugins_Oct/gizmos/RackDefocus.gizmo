@@ -1,0 +1,396 @@
+#! /Applications/Nuke5.2v1/Nuke5.2v1.app/Contents/MacOS/Nuke5.2v1 -nx
+version 5.2100
+Gizmo {
+ inputs 3
+ tile_color 0x268de2ff
+ addUserKnob {20 RackDefocus l User t "Rack focuses between the FG input and BG  optionally using diffrent channels as masks as well as an optional mask input."}
+ addUserKnob {6 bloomonoff l "bloom highlights" +STARTLINE}
+ bloomonoff true
+ addUserKnob {4 output_1 l output M {merge FG BG "" "" "" "" "" "" ""}}
+ addUserKnob {4 method_1 l "rack method" t "controls which node is used to calculate the rack defocus" -STARTLINE M {defocus blur "" "" ""}}
+ addUserKnob {41 rack t "0 = FG in focus\n10 = BG in focus\n5 = 50% each" T Defocus_FG.rack}
+ addUserKnob {41 defocusamount l scale T Defocus_FG.defocusamount}
+ addUserKnob {41 ratio l "aspect ratio" T Defocus_FG.ratio}
+ addUserKnob {4 mask l "mask defocus" M {none Input "FG (z)" "BG (z)" "FG (z) + BG (z)" R G B A "" "" "" "" "" "" "" "" ""}}
+ addUserKnob {41 channels T Defocus_FG.channels}
+ addUserKnob {41 quality T Defocus_FG.quality}
+ addUserKnob {41 method T Defocus_FG.method}
+ addUserKnob {41 mix_1 l "mix FG" T Defocus_FG.mix}
+ addUserKnob {41 mix_2 l "mix BG" T Defocus_BG.mix}
+ addUserKnob {6 premultfg l "premultiply FG" +STARTLINE}
+ addUserKnob {6 premultbg l "premultiply BG" -STARTLINE}
+ addUserKnob {26 signature l "" +STARTLINE T "\nv1.3 julian van mil 2010 "}
+ addUserKnob {20 Merge t "Merge settings for defocus node\n"}
+ addUserKnob {41 operation T Merge1.operation}
+ addUserKnob {41 sRGB l "Video colorspace" -STARTLINE T Merge1.sRGB}
+ addUserKnob {41 screen_alpha l "alpha masking" -STARTLINE T Merge1.screen_alpha}
+ addUserKnob {41 bbox l "set bbox to " T Merge1.bbox}
+ addUserKnob {41 metainput l "metadata from" -STARTLINE T Merge1.metainput}
+ addUserKnob {26 ""}
+ addUserKnob {41 Achannels l "A channels" T Merge1.Achannels}
+ addUserKnob {41 Bchannels l "B channels" T Merge1.Bchannels}
+ addUserKnob {41 output T Merge1.output}
+ addUserKnob {41 also_merge l "also merge" T Merge1.also_merge}
+ addUserKnob {26 ""}
+ addUserKnob {41 mix T Merge1.mix}
+ addUserKnob {20 Blooming t "Add Blooming to Hilights"}
+ addUserKnob {41 tint T Glow1.tint}
+ addUserKnob {41 tolerance T Glow1.tolerance}
+ addUserKnob {26 FG}
+ addUserKnob {41 brightness l "bloom FG" T Glow1.brightness}
+ addUserKnob {41 saturation T Glow1.saturation}
+ addUserKnob {41 size T Glow1.size}
+ addUserKnob {41 mix_3 l mix T Glow1.mix}
+ addUserKnob {26 BG}
+ addUserKnob {41 brightness_1 l "bloom BG" T Glow2.brightness}
+ addUserKnob {41 saturation_1 l saturation T Glow2.saturation}
+ addUserKnob {41 size_1 l size T Glow2.size}
+ addUserKnob {41 mix_4 l mix T Glow2.mix}
+}
+ BackdropNode {
+  inputs 0
+  name BackdropNode1
+  tile_color 0x5e5e3eff
+  label "mask generation"
+  note_font_size 30
+  xpos -1216
+  ypos -582
+  bdwidth 927
+  bdheight 729
+ }
+ StickyNote {
+  inputs 0
+  name StickyNote2
+  label "master merge"
+  xpos 177
+  ypos 125
+ }
+ StickyNote {
+  inputs 0
+  name StickyNote1
+  label "switch for output choice"
+  xpos 403
+  ypos 173
+ }
+ Input {
+  inputs 0
+  name FG
+  xpos -57
+  ypos -606
+ }
+ Premult {
+  name Premult1
+  xpos -57
+  ypos -533
+  disable {{!parent.premultfg i}}
+ }
+ AddChannels {
+  channels depth
+  name AddChannels1
+  xpos -57
+  ypos -410
+ }
+set N187becc0 [stack 0]
+push $N187becc0
+ Input {
+  inputs 0
+  name BG
+  xpos 247
+  ypos -611
+  number 1
+ }
+ Premult {
+  name Premult2
+  xpos 247
+  ypos -538
+  disable {{!parent.premultbg i}}
+ }
+ AddChannels {
+  channels depth
+  name AddChannels2
+  xpos 247
+  ypos -407
+ }
+set N1873fb70 [stack 0]
+ Copy {
+  inputs 2
+  from0 depth.Z
+  to0 depth.Z
+  name Copy1
+  xpos 247
+  ypos -351
+ }
+set N18751cf0 [stack 0]
+ Merge2 {
+  inputs 2
+  mix {{parent.Merge1.mix.main i}}
+  name Merge2
+  xpos 85
+  ypos -180
+ }
+ Dot {
+  name Dot2
+  xpos 119
+  ypos -487
+ }
+ Dot {
+  name Dot1
+  xpos -563
+  ypos -487
+ }
+set N1848b590 [stack 0]
+ Dot {
+  name Dot3
+  xpos -348
+  ypos -292
+ }
+push $N1848b590
+ Shuffle {
+  red blue
+  out alpha
+  name Shuffle_b
+  xpos -474
+  ypos -295
+ }
+push $N1848b590
+ Shuffle {
+  red green
+  out alpha
+  name Shuffle_g
+  xpos -580
+  ypos -296
+ }
+push $N1848b590
+ Shuffle {
+  out alpha
+  name Shuffle_r
+  xpos -674
+  ypos -299
+ }
+push $N187becc0
+push $N1873fb70
+ Merge2 {
+  inputs 2
+  operation plus
+  Achannels depth
+  Bchannels depth
+  output alpha
+  name Merge3
+  xpos -785
+  ypos -313
+ }
+push $N1873fb70
+ Shuffle {
+  in depth
+  out alpha
+  name Shuffle_BG_Z1
+  xpos -892
+  ypos -314
+ }
+push $N187becc0
+ Shuffle {
+  in depth
+  out alpha
+  name Shuffle_FG_Z
+  xpos -1012
+  ypos -316
+ }
+ Input {
+  inputs 0
+  name Mask
+  xpos -1018
+  ypos -170
+  number 2
+ }
+ AddChannels {
+  channels rgba
+  name AddChannels3
+  xpos -1018
+  ypos -131
+ }
+ Constant {
+  inputs 0
+  channels rgb
+  color 1
+  name Constant1
+  xpos -1160
+  ypos -204
+ }
+ Shuffle {
+  alpha white
+  name Shuffle1
+  xpos -1160
+  ypos -132
+ }
+ Switch {
+  inputs 9
+  which {{parent.mask i}}
+  name Switch1
+  xpos -691
+  ypos 79
+ }
+set N184b03f0 [stack 0]
+ Dot {
+  name Dot7
+  xpos 466
+  ypos -98
+ }
+set N28407e70 [stack 0]
+push $N28407e70
+push $N18751cf0
+add_layer {defocus_BG defocus_BG.red defocus_BG.green defocus_BG.blue defocus_BG.alpha}
+ ShuffleCopy {
+  inputs 2
+  alpha alpha2
+  black red
+  white green
+  red2 blue
+  green2 alpha
+  out2 defocus_BG
+  name ShuffleCopy2
+  xpos 247
+  ypos -203
+  disable {{!parent.method_1 i}}
+ }
+set N2832dc50 [stack 0]
+ Glow {
+  tint {{parent.Glow1.tint.main.r i} {parent.Glow1.tint.main.g i} {parent.Glow1.tint.main.b i}}
+  tolerance {{parent.Glow1.tolerance.main i}}
+  saturation 0
+  size 10
+  quality 10
+  name Glow2
+  xpos 247
+  ypos -140
+  disable {{!parent.bloomonoff i}}
+ }
+ Blur {
+  size {{"\[expression clamp((10-Defocus_FG.rack*parent.defocusamount),0,100)]" i}}
+  quality {{parent.Blur_FG.quality.main i}}
+  maskChannelInput defocus_BG.alpha
+  mix {{parent.Defocus_BG.mix.main i}}
+  name Blur_BG
+  xpos 247
+  ypos -100
+  disable {{!parent.method_1 i}}
+ }
+ Defocus {
+  inputs 1+1
+  defocus {{"\[expression clamp((10-Defocus_FG.rack),0,100)]" i x38 10}}
+  ratio {{Defocus_FG.ratio.main i}}
+  scale {{Defocus_FG.scale.main i}}
+  quality {{parent.Defocus_FG.quality.main i}}
+  maskChannelInput -depth.Z
+  name Defocus_BG
+  tile_color 0xff1995ff
+  xpos 247
+  ypos -52
+  disable {{parent.method_1 i}}
+ }
+set N1872da70 [stack 0]
+ Dot {
+  name Dot5
+  xpos 281
+  ypos 185
+ }
+push $N184b03f0
+ Dot {
+  name Dot6
+  xpos -199
+  ypos -73
+ }
+set N28321940 [stack 0]
+push $N28321940
+push $N187becc0
+add_layer {defocus_FG defocus_FG.red defocus_FG.green defocus_FG.blue defocus_FG.alpha}
+ ShuffleCopy {
+  inputs 2
+  alpha alpha2
+  black red
+  white green
+  red2 blue
+  green2 alpha
+  out2 defocus_FG
+  name ShuffleCopy1
+  xpos -57
+  ypos -199
+  disable {{!parent.method_1 i}}
+ }
+ Glow {
+  tolerance 0.9
+  saturation 0
+  size 10
+  quality 10
+  name Glow1
+  xpos -57
+  ypos -143
+  disable {{!parent.bloomonoff i}}
+ }
+ Blur {
+  size {{"\[expression clamp((Defocus_FG.rack*parent.defocusamount),0,100)]" i}}
+  quality {{parent.Defocus_FG.quality.main i}}
+  maskChannelInput defocus_FG.alpha
+  mix {{parent.Defocus_FG.mix.main i}}
+  name Blur_FG
+  xpos -57
+  ypos -97
+  disable {{!parent.method_1 i}}
+ }
+ Defocus {
+  inputs 1+1
+  defocus {{"\[expression clamp((rack),0,100)]" i}}
+  scale {{defocusamount i}}
+  quality 10
+  maskChannelInput -depth.Z
+  name Defocus_FG
+  tile_color 0xe21684ff
+  xpos -57
+  ypos -49
+  disable {{parent.method_1 i}}
+  addUserKnob {20 User}
+  addUserKnob {7 defocusamount R 0 10}
+  defocusamount 1
+  addUserKnob {7 rack t "defocus between fg and bg\n" R 0 10}
+ }
+set N1873f7b0 [stack 0]
+ Dot {
+  name Dot4
+  xpos -23
+  ypos 185
+ }
+push $N1873f7b0
+push $N1872da70
+ Merge2 {
+  inputs 2
+  name Merge1
+  xpos 87
+  ypos 124
+ }
+ Switch {
+  inputs 3
+  which {{parent.output_1 i}}
+  name Switch2
+  xpos 87
+  ypos 182
+ }
+ Remove {
+  channels defocus_BG
+  channels2 defocus_FG
+  name Remove1
+  xpos 87
+  ypos 236
+ }
+ Output {
+  name Output1
+  xpos 87
+  ypos 303
+ }
+push $N2832dc50
+ Viewer {
+  inputs 2
+  frame 28
+  name Viewer1
+  xpos -409
+  ypos 195
+ }
+end_group

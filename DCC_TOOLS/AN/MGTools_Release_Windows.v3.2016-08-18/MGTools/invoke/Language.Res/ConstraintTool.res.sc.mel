@@ -1,0 +1,148 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+MG_displaySC "ConsTool.selMaster" "选择约束物体";
+MG_displaySC "ConsTool.selMaster.anno" "点击帮你来选择约束当前物体的物体:)";
+MG_displaySC "ConsTool.selMaster.noMaster.war" "你所选择的物体没有被约束或者约束体列表为空:(";
+
+MG_displaySC "ConsTool.selSlave" "选择被约束物体";
+MG_displaySC "ConsTool.selSlave.anno" "点击帮你来选择被当前物体约束的物体:)";
+MG_displaySC "ConsTool.selSlave.noSlave.war" "你所选择的物体没有约束其它任何物体哦 :(";
+
+
+MG_displaySC "ConsTool.findJoint.anno" "点击根据所选软绑过的顶点来选择影响它最大的骨头";
+MG_displaySC "ConsTool.lister.anno" "选择被约束体然后点我来管理其约束";
+
+MG_displaySC "ConsTool.animConsP" "动画约束父层级";
+MG_displaySC "ConsTool.animConsP.anno" "用第一选择物体来动画约束第二选择物体的父层级";
+
+MG_displaySC "ConsTool.consWithOffset.anno" "点击来生成自动忽略锁定通道的# ";
+
+MG_displaySC "ConsTool.option.mi" "选项..";
+
+MG_displaySC "ConsTool.vc.mi" "顶点约束";
+MG_displaySC "ConsTool.vc.mi.anno" "选择多边形的顶点/边/面或Nurbs的控制顶点再点我来生成顶点约束器，该控制器可用来约束其它物体，因为它能代表原来所选次级对象的位置。";
+MG_displaySC "ConsTool.vc.nosel.war" "场景无选择哦。请先选择多边形的顶点/边/面或Nurbs的控制顶点再来执行俺。";
+MG_displaySC "ConsTool.vc.typeWrong.war" "忽略掉： #。该命令只支持多边形的顶点/边/面和Nurbs的控制顶点.\n";
+MG_displaySC "ConsTool.vc.clear.rep" " # 个顶点约束被清除.";
+MG_displaySC "ConsTool.vc.clear.mi" "清除所选顶点约束器";
+MG_displaySC "ConsTool.vc.clear.ann" "要干凈清除一个顶点约束，你必须先选择顶点约束控制器(那个nurbsCurve球)然后执行我。";
+
+MG_displaySC "ConsTool.pointConsP.mi" "点约束父层级";
+MG_displaySC "ConsTool.pointConsP.mi.anno" "用第一选择物体来点约束第二选择物体的父层级.";
+MG_displaySC "ConsTool.orientConsP.mi" "旋转约束父层级";
+MG_displaySC "ConsTool.orientConsP.mi.anno" "用第一选择物体来旋转约束第二选择物体的父层级.";
+MG_displaySC "ConsTool.aimConsP.mi" "目标约束父层级";
+MG_displaySC "ConsTool.aimConsP.mi.anno" "用第一选择物体来目标约束第二选择物体的父层级.";
+
+MG_displaySC "ConsTool.buildConsGrp.war" "请先选择一个物体:)";
+
+MG_displaySC "ConsTool.selectCosed.war" "请先选择一个被约束体:)";
+
+MG_displaySC "ConsTool.noConsSel.war" "场景无选择。请先选择约束体:)";
+MG_displaySC "ConsTool.noCondSel.war" "场景无选择。请先选择被约束体:)";
+
+MG_displaySC "ConsTool.selectCosedNodeInLeft.war" "请先在左列表里选择一个约束节点:)";
+MG_displaySC "ConsTool.selectMasterNodeInRight.war" "请先在右列表里选择一个约束物体:)";
+
+MG_displaySC "ConsTool.selectCosedObjToList.war" "请先选择一个被约束体来管理其约束:)";
+MG_displaySC "ConsTool.ConsLister.title" "约束管理器:)";
+MG_displaySC "ConsTool.CSlave.annoText" "*当前被约束体: #. 双击下面列表项目将选择相应的节点. ";
+
+MG_displaySC "ConsTool.ConsNode" "约束节点:";
+MG_displaySC "ConsTool.MasNode" "约束物体:";
+MG_displaySC "ConsTool.douClickSel.anno" "双击来选择相应的节点.";
+MG_displaySC "ConsTool.ConsLister.select" "选择";
+MG_displaySC "ConsTool.ConsLister.del" "删除";
+MG_displaySC "ConsTool.ConsLister.Clear" "清除";
+MG_displaySC "ConsTool.ConsLister.remFromTList" "从目标体列表里排除";
+MG_displaySC "ConsTool.ConsLister.resel" "重选被约束体并刷新";
+MG_displaySC "ConsTool.ConsLister.refresh" "刷新界面";
+MG_displaySC "ConsTool.ConsLister.Close" "关闭";
+MG_displaySC "ConsTool.ConsLister.exOff" "导出约束偏移..";
+MG_displaySC "ConsTool.ConsLister.imOff" "导入约束偏移..";
+
+MG_displaySC "ConsTool.ConsLister.noCons.war" "当前选择物体没有检测到约束节点.";
+MG_displaySC "ConsTool.corrctWName" "修正权重属性名";
+MG_displaySC "ConsTool.selTwoToCons.war" "您至少要选两个物体才能应用约束哦 :(";
+MG_displaySC "ConsTool.noParent.war" "您的第二选择物体没有父层级哦.";
+MG_displaySC "ConsTool.noPchannel.war" "您的约束目标没有可约束的轴向哦 :(";
+
+MG_displaySC "ConsTool.exportCons.rep" "约束相对距离导出完成,你可以在任何Maya里导入使用它.\n";
+MG_displaySC "ConsTool.exportCons.prompt.title" "导出 .# 文件";
+MG_displaySC "ConsTool.exportCons.prompt.Mes" "输入文件名:";
+MG_displaySC "ConsTool.exportCons.prompt.OK" "导出";
+
+MG_displaySC "ConsTool.importCons.annoText" "请选择一个文件来导入:";
+MG_displaySC "ConsTool.importCons.delSel" "删除所选";
+MG_displaySC "ConsTool.importCons.delAll" "删除所有";
+MG_displaySC "ConsTool.importCons.ImToSS" "导给场景所选";
+MG_displaySC "ConsTool.importCons.ImToLS" "导给列表所选";
+
+MG_displaySC "ConsTool.importCons.selFile.war" "请先文件列表里选一个项目";
+MG_displaySC "ConsTool.importCons.numMatch.war" "偏移信息文件里的约束体数目与当前约束节点的约束体数目不匹配.";
+MG_displaySC "ConsTool.importCons.done.rep" "成功导入 # 的约束偏移值信息.\n";
+
+MG_displaySC "ConsTool.findJoint.oneV.war" "囧..  请选一个软绑过的顶点,与想要选择的骨骼离地最近的一个顶点!!";
+MG_displaySC "ConsTool.findJoint.noSB.war" "囧..  你所选的顶点没有被软件绑过!!";
+MG_displaySC "ConsTool.findJoint.done.rep" "为你选到这顶点附近的骨头了! :)";
+
+MG_displaySC "ConsTool.setRelativeOffset.mi" "设置约束相对位置";
+MG_displaySC "ConsTool.setRelativeOffset.anno" "在视图位移/旋转被约束体到想要的状态，在使Maya重计算前，点我来设置约束相对位置.(先选被约束体再执行我)";
+
+MG_displaySC "ConsTool.makeRelativeOffsetCtl.mi" "添加被约束体位置控制器";
+MG_displaySC "ConsTool.makeRelativeOffsetCtl.anno" "在物体被约束的情况下,给被约束体添加一个位置控制器而不影响约束.(先选被约束体再执行我)";
+
+MG_displaySC "ConsTool.setRelativeOffset.repT" "被约束体\"#\"的相对位移已设置完毕\n";
+MG_displaySC "ConsTool.setRelativeOffset.ignoreT" "忽略：被约束体\"#\"的相对位移\n";
+
+MG_displaySC "ConsTool.setRelativeOffset.repR" "被约束体\"#\"的相对旋转值已设置完毕\n";
+MG_displaySC "ConsTool.setRelativeOffset.ignoreR" "忽略：被约束体\"#\"的相对旋转\n";
+
+MG_displaySC "ConsTool.setRelativeOffset.repP" "被约束体\"#\"的相对位置已设置完毕\n";
+MG_displaySC "ConsTool.setRelativeOffset.ignoreP" "忽略：被约束体\"#\"的相对位置\n";
+
+MG_displaySC "ConsTool.confirm.all.label" "全部" ;
+MG_displaySC "ConsTool.confirm.confirm.label" "确认：" ;
+MG_displaySC "ConsTool.confirm.whichNode.message" "请问你要设置哪个约束节点呢?" ;
+MG_displaySC "ConsTool.confirm.whichWeight.message" "请问你要设置该约束节点的哪个权重呢?" ;
+
+MG_displaySC "ConsTool.confirm.whichNodeToControl.message" "请问你将生成的控制器要控制哪个约束节点?" ;
+MG_displaySC "ConsTool.confirm.whichWeightToControl.message" "请问你将生成的控制器要控制该约束节点的哪个权重?" ;
+
+//add in MGtools3========================================================
+MG_displaySC  "ConsTool.bioCons.mi" "互相约束" ;
+MG_displaySC  "ConsTool.bioCons.noSel" "你要选择两个对象来互相约束.";
+MG_displaySC  "ConsTool.bioCons.ann" "使用Maya默认的父子约束节点, 建立起两个对象互相约束的机制，当然同一时间只能是其中一个控制器另一个." ;
+
+MG_displaySC  "ConsTool.bioCons.done.rep" "互相约束的机制已建立。使用互相约束的对象的 \"BioConstraint_Weight\" 属性来设置某一时间内控制及被控制的关系。" ;
+
+MG_displaySC  "ConsTool.consManagerNode.noPlugs.war" "你必须在 # 上选择一些属性通道." ;
+MG_displaySC  "ConsTool.consManagerNode.mgCB" "MG-通道栏" ;
+MG_displaySC  "ConsTool.consManagerNode.mayaCB" "Maya通道栏" ;
+
+MG_displaySC  "ConsTool.consManagerNode.notSupportAttrType.war" "所选属性的类型是: \"#\"， 但只支持下面的属性类型：#." ;
+MG_displaySC  "ConsTool.consManagerNode.title" "MG-约束管理节点" ;
+
+MG_displaySC  "ConsTool.consManagerNode.mi" "收集所选属性到约束管理节点.." ;
+MG_displaySC  "ConsTool.consManagerNode.maya.mi" "收集所选属性到约束管理节点.. (Maya通道栏)" ;
+MG_displaySC  "ConsTool.consManagerNode.maya.ann" "将Maya通道栏上所选属性，连接到MG场景约束管理节点上的同名属性，这样你可以用一个节点来管理多个属性。(原属性动画将被转移到新控制属性。)" ;
+MG_displaySC  "ConsTool.consManagerNode.mg.mi" "收集所选属性到约束管理节点.. (MG-通道栏)" ;
+MG_displaySC  "ConsTool.consManagerNode.mg.ann" "将MG-通道栏上所选属性，连接到MG场景约束管理节点上的同名属性，这样你可以用一个节点来管理多个属性。(原属性动画将被转移到新控制属性。)" ;
+MG_displaySC  "ConsTool.consManagerNode.sep.mi" "添加属性分隔横线到约束管理节点" ;
+MG_displaySC  "ConsTool.consManagerNode.sep.ann" "添加属性分隔横线到约束管理节点，这样属性有分组阅读起来比较爽。" ;
+MG_displaySC  "ConsTool.consManagerNode.sep.done.rep" "已添加一个属性分隔横线到约束管理节点！" ;
+
+MG_displaySC  "ConsTool.consManagerNode.attrName.mes" "请输入一个属性名，这个属性名将作为控制属性生成在约束管理节点上:" ;
+MG_displaySC  "ConsTool.consManagerNode.attrExist.mes" "该属性 \"#\" 在约束管理节点已存在，请尝试输入其它的名称。" ;
+MG_displaySC  "ConsTool.consManagerNode.attrLock.mes" "该属性 \"#\" 要么被锁定要么不可连接." ;
+MG_displaySC  "ConsTool.consManagerNode.done.rep" "该属性 \"#\" 已被收集到约束管理节点，其控制属性为 \"#\"." ;
+MG_displaySC  "ConsTool.consManagerNode.pin.notExist.war" "节点: 约束管理节点在你的场景里不存在。" ;
+
+MG_displaySC  "ConsTool.consManagerNode.pingToViewport.mi" "固定约束管理节点到当前视图";
+MG_displaySC  "ConsTool.consManagerNode.unping.mi" "解除约束管理节点视图固定";

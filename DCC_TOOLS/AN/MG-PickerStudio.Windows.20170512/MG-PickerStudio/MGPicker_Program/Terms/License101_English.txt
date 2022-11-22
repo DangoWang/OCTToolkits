@@ -1,0 +1,11 @@
+			MG-Picker Studio  License 101
+
+>> Free License: --------------------------------------------
+If you are just a picker user, MG-Picker Studio is totally free, the only feature limitation with free license is you can't save/export the picker.
+
+>> Commercial Node-Locked License: -----------------------------------------
+No feature limitation, including saving features. One license for one single machine, free to update except for the main version update, such as 1.0 to 1.5, 1.5 to 2.0, your have to pay a certain amount of fee to use the new feature that these upgrade bring you. 
+Different computers need different licenses, Different types of OS in the same computer also need different licenses, such as Windows, MacOS, Linux, they needs different license. For same OS type, same computer, one license could apply to different Maya versions.
+
+>> Commercial Floating License: -----------------------------------------
+No feature limitation, always free to upgrade, free to use in any machine, but the concurrent connection is limited to the number of license. It is based on internet login, so it requires a network access to certain global ip. The fee is paid recursively, eg. each month. 

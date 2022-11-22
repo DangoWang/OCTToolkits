@@ -1,0 +1,83 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>自动动画恢复</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Animation,animRescue,Keyframe" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "animrescue_autorecovery.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">自动动画恢复</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="animrescue_backup.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="animrescue_advancedrecovery.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #191817;">自动恢复向导：</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:13px; padding:0px;"><p style="text-align: center;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:1124px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">这个动画急救向导，有三个模式。一个是恢复之前实时备份的信息，一个是用来恢复动画连接，还有一个是场景定时保存的，不过这个模式是空的，因为用户可以自己找到之前定时保存的场景打开即可。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">目前是恢复之前实时备份的信息模式支持从Maya 8.5~2012的x86版，Maya 8.0~2012的x64版本。以后更新的版本将通过在线更新来提供支持。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">实时备份的信息恢复:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="animrescue_realtimerecovery_ch.gif" width="369" height="80" alt="animRescue_realTimeRecovery_ch" style="border:none" /><br />
+<span style="color: #3c3c39;">点击上图的按钮并点下一步进入动画恢复模式，接着出现两个恢复方式，一个是自动恢复模式的，一个是高级恢复模式的。</span><br />
+<span style="color: #3c3c39;">建议用户首先试过自动恢复模式，因为绝大多数情况下，它可以解决问题。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">自动恢复模式的原理是，在实时备份导出信息文件时，会以不同场景及同一场景不同保存时段为单位组织这些备份信息，即恢复点。在恢复时，你首先要打开手头上能找到并能正常打开的最新场景文件，（甚至layout场景都可以），然后不要做任何改变动画的操作，打开这个恢复向导，它将判断当前场景的修改日期，然后去找属于该场景的又比该日期新的所有备份信息（即恢复点）。它将自动使用这些备份信息恢复。在自动模式下，一直点下一步，最后点下图的&quot; 恢复！！&quot; 按钮即可开始恢复。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="animrescue_recoverydoit_ch.gif" width="490" height="188" alt="animRescue_RecoveryDoit_ch" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">比较多信息量情况下，会需要一些时间来进行恢复，完成后会提示你。</span></p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">动画连接恢复模式：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">之所以会有这个模式，是因为有时会遇到这样的情况，场景读取到某点就停滞了，这很多是因为场景没有保存完整，或者有的reference读取错误。但实际上场景可能已经有很多的动画节点，只是节点的连接动作一般记录在场景末尾，读取时往往是这一块没有被正确执行。所谓的动画连接恢复，原理其实是查找场景所有无连接的动画节点，然后查找他们可能连到的动画属性，把他们重新连接在一起从而找回动画。所以这种模式对于某reference读不进来的情况特别有效，因为你可以手动加同样的reference进来，然后用这个模式将动画节点连接到新reference。(因为在某reference读不进来处于unload的情况下，其动画节点实际是在场景里存在的只是未连接。)</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="animrescue_connectionrecovery_ch.gif" width="422" height="80" alt="animRescue_connectionRecovery_ch" style="border:none" /><br />
+&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">动画恢复向导里点击上面的按钮再点下一步进入连接恢复模式。再点&quot;下一步&quot;跳过说明。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">如果场景里有未连接的动画节点，则在界面上会显示出来它们的namespace。如果是没有namespace的动画节点，则显示为NoNamespace。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;">在后面的编辑框输入新的映射namespace，留空视同为不映射。点击获取按钮来快速将场景所选节点的namespace填入到映射namespace栏里。如果你有叫Tom的角色的reference读不进来，手动reference进Tom1的同样角色，在后面填入Tom1，则所有属于Tom角色的未连接动画节点将被连接到Tom1相应的控制器上去。</span><br />
+<img src="animrescue_connr01_ch.gif" width="477" height="83" alt="animRescue_connR01_ch" style="border:none" /></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption">  </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">如果属性已有动画则不连接.. ：</span>打开该选项，如果目标属性已经有动画连接，则不重新连接；</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;">点击下一步，再点恢复按钮即可进行恢复了。</p>
+<p style="margin: 0px 0px 0px 24px;">&nbsp;<br />
+<img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示：连接恢复模式不一定有效，它取决于你的场景的损坏程度，即场景实际保存了多少动画节点信息。</span></p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="animrescue_backup.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="animrescue_advancedrecovery.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

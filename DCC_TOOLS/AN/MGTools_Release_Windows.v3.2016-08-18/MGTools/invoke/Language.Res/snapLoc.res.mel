@@ -1,0 +1,37 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "snapLoc.snapLocMode.rep0" "Marker made for # in frame : ";
+MG_displayEN "snapLoc.snapLocMode.rep1" "Marker made for # 's translation in frame : ";
+MG_displayEN "snapLoc.snapLocMode.rep2" "Marker made for # 's rotation in frame : ";
+MG_displayEN "snapLoc.snapLocNum.rep" "There are now # markers in your scenes :)";
+
+MG_displayEN "snapLoc.markerManager.title" "Marker Manager";
+MG_displayEN "snapLoc.markerManager.help.menu" "Help";
+MG_displayEN "snapLoc.markerManager.help.mi" "Help..";
+MG_displayEN "snapLoc.markerManager.selSameMasterLoc" "Select Same MasterObject Marker";
+MG_displayEN "snapLoc.markerManager.selInvert" "Select invert";
+MG_displayEN "snapLoc.markerManager.hideSelItem" "Hide selected Item";
+MG_displayEN "snapLoc.markerManager.unhideSelItem" "Unhide selected Item";
+MG_displayEN "snapLoc.markerManager.hideAll" "Hide all Item";
+MG_displayEN "snapLoc.markerManager.unhideAll" "Unhide all Item";
+MG_displayEN "snapLoc.markerManager.deleteSel" "Delect Selected";
+MG_displayEN "snapLoc.markerManager.deleteAll" "Delect All";
+MG_displayEN "snapLoc.markerManager.Reload" "Reload";
+MG_displayEN "snapLoc.markerManager.Close" "Close";
+
+MG_displayEN "snapLoc.appendNoMarker.war" "= _ = No marker detected in current scene. ";
+MG_displayEN "snapLoc.sweepMarker.rep" " # snapLocators swept, # snapLocators skiped because of their/its output connections :P";
+
+MG_displayEN "snapLoc.multiMarker.message" "Hey!! You have select more than one object in your scene.\n Do you want to create multiple markers via your selection? ";
+MG_displayEN "snapLoc.multiMarker.No.btn" "O_o ||| No..";
+MG_displayEN "snapLoc.multiMarker.Yes.btn" "^0^  Yes!!";
+
+MG_displayEN "snapLoc.POsnap.war.message" "  O__O !! Please select two objects! select the master and then the slave to snap.";
+MG_displayEN "snapLoc.POsnap.war.ok" "O K";

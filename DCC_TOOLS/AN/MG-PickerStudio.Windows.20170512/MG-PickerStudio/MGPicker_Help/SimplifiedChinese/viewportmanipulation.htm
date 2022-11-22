@@ -1,0 +1,75 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>视图操作</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="picker view manipulation" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "viewportmanipulation.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="setnamespace.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="animatorinteractivity.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">Picker视图操作:  </span></p><p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-weight: bold;">-MG-Picker视图操作采用跟Maya的3D视图相似的操作规则:</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">鼠标中键: 平移视图，不管有没有按ALT键。</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">ALT + 鼠标右键: 放大/缩小视图。</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">CTRL + ALT + 鼠标左键: 框选的方式放大局部/重置到默认大小。</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">F 键: 放大选中的Picker对象，如果没选择任何Picker对象则是缩小视图以显示所有的Picker对象。</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">空格键：如果当前您处于多重Picker视图布局，快速按空格键并松开，会放大鼠标下的那个视图区域而隐藏其它区域，再按空格键来恢复。</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-weight: bold;">-在上同操作规则之外，还有其它的额外的规则:</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">ALT + 鼠标右键双击: 重置到默认大小。</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">鼠标中键滑轮: 取决于当前Picker内容的长宽比，可能在水平/垂直方向上平移视图。</span><br />
+<img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> &nbsp;在鼠标中键滑轮时，如果加按ALT 键则会以相反的方向平移视图。</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Ctrl + 鼠标中键滑轮: 放大/缩小视图。</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">0~9 键: 自动缩放及平移视图，来显示某一个Picker面板。每个Picker面板有一个0~9间的面板索引对应这0~9的快捷键。</span><br />
+<img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span class="f_ImageCaption" style="font-size: 9pt;"> </span><span style="font-size: 9pt;">您可以使用 ~ 键来代替0键.</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold;">-多重Picker视图:  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span style="font-weight: bold;">-通常一个Picker文件代表一个资产，如角色，道具或场景。要同时显示多个资产的Picker：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">鼠标左键点击Picker视图区右上角的布局切换按钮，并选择一个布局类型。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">除第一个是单一视图外，其它都是多重视图，最多同时显示四个。在多重视图情况下，按空格键来快速放大并隐藏一个视图区域。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">你可以用鼠标左键拖拽Picker标签，把相应的Picker视图拖到新加入的这些视图区。或直接用鼠标左键激活这些新区域，并加载Picker到这个区域。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="setnamespace.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="animatorinteractivity.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

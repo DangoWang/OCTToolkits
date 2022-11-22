@@ -1,0 +1,351 @@
+﻿<!DOCTYPE HTML>
+<html><head>
+   <title>MGtools Pro3 Manual</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+   <!-- This line includes the general project style sheet (not required) -->
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+   <!-- This block defines the styles of the TOC headings, change them as needed -->
+   <style type="text/css">
+       .navtitle { font-size: 14pt; font-weight: bold; margin-bottom: 16px; }
+       .navbar   { font-size: 10pt; }
+
+       .heading1 { font-family: Arial,Helvetica; font-weight: normal; font-size: 10pt; color: #000000; text-decoration: none; }
+       .heading2 { font-family: Arial,Helvetica; font-weight: normal; font-size: 9pt; color: #000000; text-decoration: none; }
+       .heading3 { font-family: Arial,Helvetica; font-weight: normal; font-size: 8pt; color: #000000; text-decoration: none; }
+       .heading4 { font-family: Arial,Helvetica; font-weight: normal; font-size: 8pt; color: #000000; text-decoration: none; }
+       .heading5 { font-family: Arial,Helvetica; font-weight: normal; font-size: 8pt; color: #000000; text-decoration: none; }
+       .heading6 { font-family: Arial,Helvetica; font-weight: normal; font-size: 8pt; color: #000000; text-decoration: none; }
+
+       .hilight1 { font-family: Arial,Helvetica; font-weight: normal; font-size: 10pt; color: #FFFFFF; background: #002682; text-decoration: none; }
+       .hilight2 { font-family: Arial,Helvetica; font-weight: normal; font-size: 9pt; color: #FFFFFF; background: #002682; text-decoration: none; }
+       .hilight3 { font-family: Arial,Helvetica; font-weight: normal; font-size: 8pt; color: #FFFFFF; background: #002682; text-decoration: none; }
+       .hilight4 { font-family: Arial,Helvetica; font-weight: normal; font-size: 8pt; color: #FFFFFF; background: #002682; text-decoration: none; }
+       .hilight5 { font-family: Arial,Helvetica; font-weight: normal; font-size: 8pt; color: #FFFFFF; background: #002682; text-decoration: none; }
+       .hilight6 { font-family: Arial,Helvetica; font-weight: normal; font-size: 8pt; color: #FFFFFF; background: #002682; text-decoration: none; }
+
+       TD.toc { padding-bottom: 0px; padding-right: 0px; padding-left: 0px  }
+  body {
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-left: 0px;	
+        }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript">
+     var parentScope = (parent.hmNavigationFrame);
+     if (!parentScope) {
+		      var s = document.createElement("script");
+		      s.setAttribute("type","text/javascript");
+		      s.setAttribute("src", "helpman_navigation.js");
+		      document.getElementsByTagName("head")[0].appendChild(s);
+	    }
+     else {
+       if (initialtocstate != "expandall") parent.hmAddCss(document, "#toc li ul { display: none }");
+     }
+     function loadicons() { var icons = new Array(); for (i=0; i<arguments.length; i++) { icons[i] = new Image(); icons[i].src = arguments[i]; } }
+     function loadtoc() { if (parentScope) parent.loadstate(document.getElementById("toc")); else loadstate(document.getElementById("toc")); }
+     function savetoc() { if (parentScope) parent.savestate(document.getElementById("toc")); else savestate(document.getElementById("toc")); }
+     function clicked(node, event) { deselect(); if (parentScope) parent.hmNodeClicked(node, event); else hmNodeClicked(node, event); }
+     function dblclicked(node) { if (parentScope) parent.hmNodeDblclicked(node); else hmNodeDblclicked(node); }
+     function deselect() { if (window.getSelection) window.getSelection().removeAllRanges(); else if (document.selection) document.selection.empty(); }
+     $(document).ready(function(){
+       loadtoc();
+       $(window).onunload = savetoc;
+     });
+   </script>
+</head>
+<body style="background: #e0e0e0; url(null) fixed no-repeat margin-top: 0px">
+<table  valign="bottom" width="100%"  height="25"  border="0" cellpadding="0" cellspacing="0" bgcolor="#d0d0d0">
+  <tr valign="bottom" align="left">
+    <td valign="bottom"  colspan="0"> 
+<img  border="0" src="../Common/images/MGtoolsHelp_pageInde_en.gif" width="61" height="25" alt="Contents" /></td>
+<td valign="bottom"  colspan="0"> 
+ <a href="mgtools_en_kwindex.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Index_en_dar.gif" width="56" height="25" alt="Index" /></a></td>
+  <td valign="top" colspan="0" width="100%" align="left"> 
+   <a href="mgtools_en_ftsearch.htm"><img  border="0" src="../Common/images/MGtoolsHelp_search_en_dar.gif" width="66" height="25" alt="Search" /></a></td>
+  </tr>
+</table>
+
+ <p >&nbsp;</p>
+<table  valign="middle" width="100%"  border="0" cellpadding="5" cellspacing="2" bgcolor="#e0e0e0">
+<tr valign="middle" align="left"  cellspacing="2" >
+   <td  cellspacing="2" >
+   <!--<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#d4d4d4">
+  <tr>
+    <td>                                                                      ececec
+ <table height="25" width="100%" border="0" cellspacing="0" cellpadding="2" bgcolor="#D0D0D0">
+  <tr valign="middle">
+    <td align="middle" height="25">
+     <img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools manual" />
+    </td>
+  </tr>
+</table>  --> 
+<!--<p class="navtitle">MGtools Pro3 Manual</p>-->
+
+<!--<p class="navbar">
+<b>Contents</b>   --><!--</p><hr size="1" />
+  <!--</td>
+  </tr>
+</table>  <td> -->
+<!-- Place holder for the TOC - this variable is REQUIRED! -->
+
+   <ul id="toc"style="list-style-type:none;display:block;padding-left:0;margin:0">
+<li class="heading1" id="i1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading1" id="a1" href="welcome_en.htm" target="hmcontent"><span class="heading1" id="s1">Welcome</span></a>
+</li>
+<li class="heading1" id="i2"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading1" id="a2" href="install_mgtools_en.htm" target="hmcontent"><span class="heading1" id="s2">Install MGtools</span></a>
+</li>
+<li class="heading1" id="i3"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading1" id="a3" href="distributemgtools_en.htm" target="hmcontent"><span class="heading1" id="s3">Distribute MGTools</span></a>
+</li>
+<li class="heading1" id="i4"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading1" id="a4" href="floatinglicence_en.htm" target="hmcontent"><span class="heading1" id="s4">Floating Licence</span></a>
+</li>
+<li class="heading1" id="i5" data-bg="book.gif;book_open.gif"style="background:url(book_open.gif) no-repeat;cursor:pointer;margin-top:2px;margin-left:0;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a5" href="mgtoolintroduction_en.htm" target="hmcontent"><span class="heading1" id="s5" ondblclick="return dblclicked(this)">MGTools</span></a>
+<ul id="ul5"style="list-style-type:none;margin-left:0px;padding:0">
+<li class="heading2" id="i5.1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.1" href="config_mgtools_en.htm" target="hmcontent"><span class="heading2" id="s5.1">Config MGtools</span></a>
+</li>
+<li class="heading2" id="i5.2"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.2" href="onlineupdatemgtools_en.htm" target="hmcontent"><span class="heading2" id="s5.2">Online Update MGtools</span></a>
+</li>
+<li class="heading2" id="i5.3"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.3" href="offlineupdatemgtools_en.htm" target="hmcontent"><span class="heading2" id="s5.3">Offline Update MGTools</span></a>
+</li>
+<li class="heading2" id="i5.4"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.4" href="updatefromserver_en.htm" target="hmcontent"><span class="heading2" id="s5.4">Update MGTools From Server</span></a>
+</li>
+<li class="heading2" id="i5.5"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.5" href="relocatemgtools_en.htm" target="hmcontent"><span class="heading2" id="s5.5">MGTools Relocation</span></a>
+</li>
+<li class="heading2" id="i5.6"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.6" href="registermgtools_en.htm" target="hmcontent"><span class="heading2" id="s5.6">Register MGTools</span></a>
+</li>
+<li class="heading2" id="i5.7"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.7" href="mgtools_shelf_installer_en.htm" target="hmcontent"><span class="heading2" id="s5.7">MGtools Installer</span></a>
+</li>
+<li class="heading2" id="i5.8"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.8" href="uninstallmgtools_en.htm" target="hmcontent"><span class="heading2" id="s5.8">MGTools Uninstaller</span></a>
+</li>
+<li class="heading2" id="i5.9"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a5.9" href="mgtools_menu_en.htm" target="hmcontent"><span class="heading2" id="s5.9">MGtools Menu</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i6" data-bg="book.gif;book_open.gif"style="background:url(book_open.gif) no-repeat;cursor:pointer;margin-top:2px;margin-left:0;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a6" href="mg_shelf_en.htm" target="hmcontent"><span class="heading1" id="s6" ondblclick="return dblclicked(this)">MG-Shelf</span></a>
+<ul id="ul6"style="list-style-type:none;margin-left:0px;padding:0">
+<li class="heading2" id="i6.1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a6.1" href="mg_shelfbar_en.htm" target="hmcontent"><span class="heading2" id="s6.1">MG_shelfBar</span></a>
+</li>
+<li class="heading2" id="i6.2"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a6.2" href="mg_shelf_manager_en.htm" target="hmcontent"><span class="heading2" id="s6.2">MG_shelf Manager</span></a>
+</li>
+<li class="heading2" id="i6.3"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a6.3" href="shelfconvertor_en.htm" target="hmcontent"><span class="heading2" id="s6.3">Shelf Convertor</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i7" data-bg="book.gif;book_open.gif"style="background:url(book_open.gif) no-repeat;cursor:pointer;margin-top:2px;margin-left:0;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a7" href="folder_shortcut_en.htm" target="hmcontent"><span class="heading1" id="s7" ondblclick="return dblclicked(this)">Folder ShortCut</span></a>
+<ul id="ul7"style="list-style-type:none;margin-left:0px;padding:0">
+<li class="heading2" id="i7.1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a7.1" href="edit_foldershortcut_en.htm" target="hmcontent"><span class="heading2" id="s7.1">Edit Folder ShortCut</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i8" data-bg="book.gif;book_open.gif"style="background:url(book_open.gif) no-repeat;cursor:pointer;margin-top:2px;margin-left:0;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a8" href="file_shortcut_en.htm" target="hmcontent"><span class="heading1" id="s8" ondblclick="return dblclicked(this)">File ShortCut</span></a>
+<ul id="ul8"style="list-style-type:none;margin-left:0px;padding:0">
+<li class="heading2" id="i8.1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a8.1" href="edit_fileshortcut_en.htm" target="hmcontent"><span class="heading2" id="s8.1">Edit File ShortCut</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i9" data-bg="book.gif;book_open.gif"style="background:url(book_open.gif) no-repeat;cursor:pointer;margin-top:2px;margin-left:0;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a9" href="mg_channelbox_en.htm" target="hmcontent"><span class="heading1" id="s9" ondblclick="return dblclicked(this)">MGchannelBox</span></a>
+<ul id="ul9"style="list-style-type:none;margin-left:0px;padding:0">
+<li class="heading2" id="i9.1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a9.1" href="reset_mgchallbox_channel_en.htm" target="hmcontent"><span class="heading2" id="s9.1">Reset Channel</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i10" data-bg="book.gif;book_open.gif"style="background:url(book_open.gif) no-repeat;cursor:pointer;margin-top:2px;margin-left:0;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a10" href="mg_selectionset_en.htm" target="hmcontent"><span class="heading1" id="s10" ondblclick="return dblclicked(this)">MG_SelectionSet</span></a>
+<ul id="ul10"style="list-style-type:none;margin-left:0px;padding:0">
+<li class="heading2" id="i10.1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a10.1" href="neworeditselset_en.htm" target="hmcontent"><span class="heading2" id="s10.1">New/Edit SelectionSet</span></a>
+</li>
+<li class="heading2" id="i10.2"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a10.2" href="sharingselectionset_en.htm" target="hmcontent"><span class="heading2" id="s10.2">Selection Set Sharing</span></a>
+</li>
+<li class="heading2" id="i10.3"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a10.3" href="selsetshelfconverter_en.htm" target="hmcontent"><span class="heading2" id="s10.3">SelectionSet Shelf coverter</span></a>
+</li>
+<li class="heading2" id="i10.4"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a10.4" href="selection_manager_en.htm" target="hmcontent"><span class="heading2" id="s10.4">Selection Manager</span></a>
+</li>
+<li class="heading2" id="i10.5"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a10.5" href="typeselector_en.htm" target="hmcontent"><span class="heading2" id="s10.5">typeSelector</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i11" data-bg="book.gif;book_open.gif"style="background:url(book_open.gif) no-repeat;cursor:pointer;margin-top:2px;margin-left:0;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a11" href="constraint_tool_en.htm" target="hmcontent"><span class="heading1" id="s11" ondblclick="return dblclicked(this)">ConstraintTools</span></a>
+<ul id="ul11"style="list-style-type:none;margin-left:0px;padding:0">
+<li class="heading2" id="i11.1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a11.1" href="sceneconstraintmanagernode_en.htm" target="hmcontent"><span class="heading2" id="s11.1">Constraint Manager Node</span></a>
+</li>
+<li class="heading2" id="i11.2"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a11.2" href="copyconstraintbetweenmaya_en.htm" target="hmcontent"><span class="heading2" id="s11.2">Copy/Paste Constraint</span></a>
+</li>
+<li class="heading2" id="i11.3"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a11.3" href="vertexconstraint_en.htm" target="hmcontent"><span class="heading2" id="s11.3">Vertex Constraint</span></a>
+</li>
+<li class="heading2" id="i11.4"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a11.4" href="uvconstraint_en.htm" target="hmcontent"><span class="heading2" id="s11.4">UV Constraint</span></a>
+</li>
+<li class="heading2" id="i11.5"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a11.5" href="bioconstraint_en.htm" target="hmcontent"><span class="heading2" id="s11.5">Bio-Constraint</span></a>
+</li>
+<li class="heading2" id="i11.6"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a11.6" href="findjointviavertex_en.htm" target="hmcontent"><span class="heading2" id="s11.6">Find Joint via vertex</span></a>
+</li>
+<li class="heading2" id="i11.7"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a11.7" href="constraint_lister_en.htm" target="hmcontent"><span class="heading2" id="s11.7">Constraint Lister</span></a>
+</li>
+<li class="heading2" id="i11.8"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a11.8" href="exportimportconstraintoffset_en.htm" target="hmcontent"><span class="heading2" id="s11.8">Export/Import constraint offset</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i12" data-bg="book.gif;book_open.gif"style="background:url(book_open.gif) no-repeat;cursor:pointer;margin-top:2px;margin-left:0;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a12" href="viewset_en.htm" target="hmcontent"><span class="heading1" id="s12" ondblclick="return dblclicked(this)">ViewSet</span></a>
+<ul id="ul12"style="list-style-type:none;margin-left:0px;padding:0">
+<li class="heading2" id="i12.1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a12.1" href="configviewset_en.htm" target="hmcontent"><span class="heading2" id="s12.1">Config ViewSet</span></a>
+</li>
+<li class="heading2" id="i12.2"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a12.2" href="displaylayer_set_en.htm" target="hmcontent"><span class="heading2" id="s12.2">DisplayLayerSet</span></a>
+</li>
+<li class="heading2" id="i12.3"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a12.3" href="attr_switch_en.htm" target="hmcontent"><span class="heading2" id="s12.3">Attribute-Switcher</span></a>
+</li>
+<li class="heading2" id="i12.4"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a12.4" href="smoothswitch_en.htm" target="hmcontent"><span class="heading2" id="s12.4">Smooth Switcher</span></a>
+</li>
+<li class="heading2" id="i12.5"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a12.5" href="camswitch_en.htm" target="hmcontent"><span class="heading2" id="s12.5">MG-CamSwitcher</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i13" data-bg="book.gif;book_open.gif"style="background:url(book_open.gif) no-repeat;cursor:pointer;margin-top:2px;margin-left:0;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a13" href="pathtracker_en.htm" target="hmcontent"><span class="heading1" id="s13" ondblclick="return dblclicked(this)">PathTracker</span></a>
+<ul id="ul13"style="list-style-type:none;margin-left:0px;padding:0">
+<li class="heading2" id="i13.1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a13.1" href="draw_curve_via_key_en.htm" target="hmcontent"><span class="heading2" id="s13.1">Draw curve via key</span></a>
+</li>
+<li class="heading2" id="i13.2"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a13.2" href="motionpath_en.htm" target="hmcontent"><span class="heading2" id="s13.2">MotionPath sticker</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i14" data-bg="book.gif;book_open.gif"style="background:url(book_open.gif) no-repeat;cursor:pointer;margin-top:2px;margin-left:0;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a14" href="posnap_en.htm" target="hmcontent"><span class="heading1" id="s14" ondblclick="return dblclicked(this)">MG POsnap tool</span></a>
+<ul id="ul14"style="list-style-type:none;margin-left:0px;padding:0">
+<li class="heading2" id="i14.1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a14.1" href="feetsnap_en.htm" target="hmcontent"><span class="heading2" id="s14.1">FootSnap</span></a>
+</li>
+<li class="heading2" id="i14.2"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a14.2" href="relative_snap_en.htm" target="hmcontent"><span class="heading2" id="s14.2">Relative Snap</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i15" data-bg="book.gif;book_open.gif"style="background:url(book_open.gif) no-repeat;cursor:pointer;margin-top:2px;margin-left:0;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a15" href="pivottool_en.htm" target="hmcontent"><span class="heading1" id="s15" ondblclick="return dblclicked(this)">Pivot Tool</span></a>
+<ul id="ul15"style="list-style-type:none;margin-left:0px;padding:0">
+<li class="heading2" id="i15.1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a15.1" href="pivot_stuff_manager_en.htm" target="hmcontent"><span class="heading2" id="s15.1">PivotStuff Manager</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i16" data-bg="book.gif;book_open.gif"style="background:url(book_open.gif) no-repeat;cursor:pointer;margin-top:2px;margin-left:0;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a16" href="mgposeanimlibrary_en.htm" target="hmcontent"><span class="heading1" id="s16" ondblclick="return dblclicked(this)">MG-PoseAnimLirbrary</span></a>
+<ul id="ul16"style="list-style-type:none;margin-left:0px;padding:0">
+<li class="heading2" id="i16.1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a16.1" href="poseanim_createproj_en.htm" target="hmcontent"><span class="heading2" id="s16.1">Create Library Project</span></a>
+</li>
+<li class="heading2" id="i16.2"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a16.2" href="poseanim_createcharacter.htm" target="hmcontent"><span class="heading2" id="s16.2">Create Character &amp; Category</span></a>
+</li>
+<li class="heading2" id="i16.3"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a16.3" href="poseanim_createposeanim_en.htm" target="hmcontent"><span class="heading2" id="s16.3">Create Pose &amp; Anim</span></a>
+</li>
+<li class="heading2" id="i16.4"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a16.4" href="mgsnapshotwidget_en.htm" target="hmcontent"><span class="heading2" id="s16.4">Snapshot Component</span></a>
+</li>
+<li class="heading2" id="i16.5"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a16.5" href="poseanim_manageeditlib_en.htm" target="hmcontent"><span class="heading2" id="s16.5">Edit &amp; Manage Library</span></a>
+</li>
+<li class="heading2" id="i16.6"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a16.6" href="poseanim_sharelib_en.htm" target="hmcontent"><span class="heading2" id="s16.6">Library Sharing</span></a>
+</li>
+<li class="heading2" id="i16.7"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a16.7" href="poseanim_previewpanel_en.htm" target="hmcontent"><span class="heading2" id="s16.7">Preview Panel</span></a>
+</li>
+<li class="heading2" id="i16.8"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a16.8" href="poseanim_usepose_en.htm" target="hmcontent"><span class="heading2" id="s16.8">Using Pose Library</span></a>
+</li>
+<li class="heading2" id="i16.9"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a16.9" href="poseanim_useanim_en.htm" target="hmcontent"><span class="heading2" id="s16.9">Using Anim Library</span></a>
+</li>
+<li class="heading2" id="i16.10"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a16.10" href="poseanim_config_en.htm" target="hmcontent"><span class="heading2" id="s16.10">Config Library Tool</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i17" data-bg="book.gif;book_open.gif"style="background:url(book_open.gif) no-repeat;cursor:pointer;margin-top:2px;margin-left:0;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a17" href="mganimationbank_en.htm" target="hmcontent"><span class="heading1" id="s17" ondblclick="return dblclicked(this)">MG-AnimationBank</span></a>
+<ul id="ul17"style="list-style-type:none;margin-left:0px;padding:0">
+<li class="heading2" id="i17.1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a17.1" href="copypasteanimpose_en.htm" target="hmcontent"><span class="heading2" id="s17.1">Copy/Paste Anim&amp;Pose</span></a>
+</li>
+<li class="heading2" id="i17.2"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a17.2" href="backup_restore_animation_en.htm" target="hmcontent"><span class="heading2" id="s17.2">BackUp/Restore Animation</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i18" data-bg="book.gif;book_open.gif"style="background:url(book_open.gif) no-repeat;cursor:pointer;margin-top:2px;margin-left:0;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a18" href="keyframetool_en.htm" target="hmcontent"><span class="heading1" id="s18" ondblclick="return dblclicked(this)">keyframeTools</span></a>
+<ul id="ul18"style="list-style-type:none;margin-left:0px;padding:0">
+<li class="heading2" id="i18.1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a18.1" href="mganimrecorder_en.htm" target="hmcontent"><span class="heading2" id="s18.1">MG_AnimRecorder</span></a>
+</li>
+<li class="heading2" id="i18.2"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a18.2" href="relocator_en.htm" target="hmcontent"><span class="heading2" id="s18.2">Relocator</span></a>
+</li>
+<li class="heading2" id="i18.3"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a18.3" href="keyframeprobe_en.htm" target="hmcontent"><span class="heading2" id="s18.3">Keyframe Probe</span></a>
+</li>
+<li class="heading2" id="i18.4"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a18.4" href="snapkeyframe_en.htm" target="hmcontent"><span class="heading2" id="s18.4">Snap Keyframes</span></a>
+</li>
+<li class="heading2" id="i18.5"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a18.5" href="scaleanimation_en.htm" target="hmcontent"><span class="heading2" id="s18.5">Scale Animation</span></a>
+</li>
+<li class="heading2" id="i18.6"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a18.6" href="grapheditor_channel_en.htm" target="hmcontent"><span class="heading2" id="s18.6">GraphEditor Plugin</span></a>
+</li>
+<li class="heading2" id="i18.7"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a18.7" href="setkeyframetool_en.htm" target="hmcontent"><span class="heading2" id="s18.7">SetKeyframe Tool</span></a>
+</li>
+<li class="heading2" id="i18.8"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a18.8" href="timingtool_en.htm" target="hmcontent"><span class="heading2" id="s18.8">Timing Tool</span></a>
+</li>
+<li class="heading2" id="i18.9"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a18.9" href="bdtool_en.htm" target="hmcontent"><span class="heading2" id="s18.9">BD Tool</span></a>
+</li>
+<li class="heading2" id="i18.10"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a18.10" href="tangenttool_en.htm" target="hmcontent"><span class="heading2" id="s18.10">Tangent Tool</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i19"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading1" id="a19" href="cam2dviewer_en.htm" target="hmcontent"><span class="heading1" id="s19">Cam2dViewer</span></a>
+</li>
+<li class="heading1" id="i20" data-bg="book.gif;book_open.gif"style="background:url(book_open.gif) no-repeat;cursor:pointer;margin-top:2px;margin-left:0;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a20" href="assetlibrary_en.htm" target="hmcontent"><span class="heading1" id="s20" ondblclick="return dblclicked(this)">MG-AssetLibrary</span></a>
+<ul id="ul20"style="list-style-type:none;margin-left:0px;padding:0">
+<li class="heading2" id="i20.1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a20.1" href="assetlib_createproject_en.htm" target="hmcontent"><span class="heading2" id="s20.1">Create Library Project</span></a>
+</li>
+<li class="heading2" id="i20.2"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a20.2" href="assetlib_addcategory_en.htm" target="hmcontent"><span class="heading2" id="s20.2">Add Asset Category</span></a>
+</li>
+<li class="heading2" id="i20.3"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a20.3" href="batchscanassetitems_en.htm" target="hmcontent"><span class="heading2" id="s20.3">Batch Add Asset Items</span></a>
+</li>
+<li class="heading2" id="i20.4"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a20.4" href="scanassetpreviewimage_en.htm" target="hmcontent"><span class="heading2" id="s20.4">Batch Add PreviewImages</span></a>
+</li>
+<li class="heading2" id="i20.5"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a20.5" href="assetlib_createassetitem_en.htm" target="hmcontent"><span class="heading2" id="s20.5">New Asset Item</span></a>
+</li>
+<li class="heading2" id="i20.6"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a20.6" href="assetlib_batchmakeicon_en.htm" target="hmcontent"><span class="heading2" id="s20.6">Batch Make PreviewImages</span></a>
+</li>
+<li class="heading2" id="i20.7"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a20.7" href="assetlib_previewpanel_en.htm" target="hmcontent"><span class="heading2" id="s20.7">Preview Panel</span></a>
+</li>
+<li class="heading2" id="i20.8"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a20.8" href="assetlib_sharing_en.htm" target="hmcontent"><span class="heading2" id="s20.8">Library Sharing</span></a>
+</li>
+<li class="heading2" id="i20.9"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a20.9" href="assetlib_useasset_en.htm" target="hmcontent"><span class="heading2" id="s20.9">Using Library</span></a>
+</li>
+<li class="heading2" id="i20.10"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a20.10" href="assetlib_melapi_en.htm" target="hmcontent"><span class="heading2" id="s20.10">AssetLib Mel API</span></a>
+</li>
+<li class="heading2" id="i20.11"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a20.11" href="assetlib_py_api_en.htm" target="hmcontent"><span class="heading2" id="s20.11">AssetLib Py API</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i21" data-bg="book.gif;book_open.gif"style="background:url(book_open.gif) no-repeat;cursor:pointer;margin-top:2px;margin-left:0;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a21" href="minitoolbox_en.htm" target="hmcontent"><span class="heading1" id="s21" ondblclick="return dblclicked(this)">MiniToolBox</span></a>
+<ul id="ul21"style="list-style-type:none;margin-left:0px;padding:0">
+<li class="heading2" id="i21.1"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a21.1" href="animrescue_backup_en.htm" target="hmcontent"><span class="heading2" id="s21.1">AnimRescue Backup</span></a>
+</li>
+<li class="heading2" id="i21.2"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a21.2" href="animrescue_autorecovery_en.htm" target="hmcontent"><span class="heading2" id="s21.2">AnimRescue Auto-Recovery</span></a>
+</li>
+<li class="heading2" id="i21.3"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a21.3" href="animrescue_advancedrecovery_en.htm" target="hmcontent"><span class="heading2" id="s21.3">AnimRescue Advanced Recovery</span></a>
+</li>
+<li class="heading2" id="i21.4"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a21.4" href="mgautosave_en.htm" target="hmcontent"><span class="heading2" id="s21.4">MG-Autosave</span></a>
+</li>
+<li class="heading2" id="i21.5"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a21.5" href="mgsaver_en.htm" target="hmcontent"><span class="heading2" id="s21.5">MG-Saver</span></a>
+</li>
+<li class="heading2" id="i21.6"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a21.6" href="mb_ma_covertor_en.htm" target="hmcontent"><span class="heading2" id="s21.6">MB-MA Converter</span></a>
+</li>
+<li class="heading2" id="i21.7"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a21.7" href="reference_tool_en.htm" target="hmcontent"><span class="heading2" id="s21.7">Reference ToolBox</span></a>
+</li>
+<li class="heading2" id="i21.8"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a21.8" href="mg-hud_display_en.htm" target="hmcontent"><span class="heading2" id="s21.8">MG-HUD Display</span></a>
+</li>
+<li class="heading2" id="i21.9"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a21.9" href="annotation_display_en.htm" target="hmcontent"><span class="heading2" id="s21.9">Annotation FrameCounter</span></a>
+</li>
+<li class="heading2" id="i21.10"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a21.10" href="make_it_sticky_en.htm" target="hmcontent"><span class="heading2" id="s21.10">Make Selection Sticky</span></a>
+</li>
+<li class="heading2" id="i21.11"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a21.11" href="make_sticky_viewport_en.htm" target="hmcontent"><span class="heading2" id="s21.11">Make Sticky View</span></a>
+</li>
+<li class="heading2" id="i21.12"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a21.12" href="marker_en.htm" target="hmcontent"><span class="heading2" id="s21.12">Marker</span></a>
+</li>
+<li class="heading2" id="i21.13"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a21.13" href="mg-timer_en.htm" target="hmcontent"><span class="heading2" id="s21.13">MG-Timer</span></a>
+</li>
+<li class="heading2" id="i21.14"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a21.14" href="insert_hierarchy_en.htm" target="hmcontent"><span class="heading2" id="s21.14">Insert Hierarchy</span></a>
+</li>
+<li class="heading2" id="i21.15"style="background:url(tag_blue.gif) no-repeat;margin-top:2px;margin-left:0;padding-left:24px" onclick="return clicked(this,event)"><a class="heading2" id="a21.15" href="superundo_en.htm" target="hmcontent"><span class="heading2" id="s21.15">Efficient Undo/Redo</span></a>
+</li>
+</ul>
+</li>
+</ul>
+<script type="text/javascript">loadicons('tag_blue.gif','book_open.gif','book.gif');</script>
+
+<hr size="1"  noshade="noshade" /><p style="font-size: 8pt" color="#666666" >&nbsp;© 2016 MGLAND animation studio</p>    
+</td>
+ </tr>  
+</table>    
+</body>
+</html>

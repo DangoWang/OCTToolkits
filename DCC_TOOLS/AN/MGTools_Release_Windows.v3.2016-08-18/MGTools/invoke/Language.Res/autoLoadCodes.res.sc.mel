@@ -1,0 +1,29 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "auloadC.MGTools.anno" "点击加载MGTools.";
+MG_displaySC "auloadC.MGTools.update.mi" "在线更新MGTools..";
+MG_displaySC "auloadC.MGTools.update.ann" "在线自动更新MGTools，需要输入更新密码（购买时有提供），同时Maya必须是8.0以上版本.";
+MG_displaySC "auloadC.MGTools.purchase.mi" "购买MGTools Pro授权..";
+MG_displaySC "auloadC.MGTools.purchase.ann" "点击购买一个MGTools专业版..";
+MG_displaySC "auloadC.snap.menu" "吸附";
+MG_displaySC "auloadC.sel.menu" "选择";
+MG_displaySC "auloadC.cons.menu" "约束";
+MG_displaySC "auloadC.displayL.menu" "显示层";
+MG_displaySC "auloadC.pivot.menu" "轴心动画";
+MG_displaySC "auloadC.animation.menu" "动画";
+MG_displaySC "auloadC.shortcut.menu" "快捷方式";
+MG_displaySC "auloadC.screenInfo.menu" "屏幕信息";
+MG_displaySC "auloadC.miniTB.menu" "迷你工具";
+MG_displaySC "auloadC.refresh.menu" "刷新该菜单";
+MG_displaySC "auloadC.refreshMGtools.mi" "刷新MGTools";
+MG_displaySC "auloadC.refreshMGtools.ann" "用于在线更新后刷新MGTools功能,有些工具如果没刷新重开即可.";
+MG_displaySC "auloadC.mgland.anno" "访问米古岛动画网站.";
+MG_displaySC "auloadC.mgland" "米古岛动画..";
+

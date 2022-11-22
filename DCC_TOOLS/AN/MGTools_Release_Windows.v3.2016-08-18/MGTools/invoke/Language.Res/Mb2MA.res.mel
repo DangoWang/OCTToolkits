@@ -1,0 +1,16 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "MBMA.warn.message" "This operation will delete all unknown non-readOnly nodes and maybe will take a bit long time depanding on your scene ,\n So trying maya's default \"Save Scenes As\" first is advisable.";
+MG_displayEN "MBMA.warn.cancel" "Cancel";
+MG_displayEN "MBMA.warn.next" "Next";
+MG_displayEN "MBMA.warn.ok" "OK";
+MG_displayEN "MBMA.done.title" "Notice!!";
+MG_displayEN "MBMA.done.message" "^0^ !!!   Save as .# file work done,Check it out~";
+MG_displayEN "MBMA.cancel.war" "Now try using maya's default \"Save Scene As\", \nIf it fails then you can use MBMAconvertor again and clicking next button to save targey fileType.";

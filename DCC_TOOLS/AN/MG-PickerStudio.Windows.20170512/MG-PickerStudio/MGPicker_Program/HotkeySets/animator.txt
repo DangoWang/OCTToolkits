@@ -1,0 +1,32 @@
+ctrl + : Zoom In
+ctrl - : Zoom Out
+ctrl 0 : Reset Zoom
+spacebar : Maximum One Area / Show All Areas
+
+f : Frame On Selected Picker Items / Frame All Picker Items
+ctrl f : Toggle Attribute / Node Finder
+ctrl alt shift s: Set Up Current Picker Namespace
+ctrl k : Open Preference Setting Dialog
+ctrl n : Create Temporary Picker
+ctrl tab : Switch To Next Picker View
+ctrl shift tab : Switch To Last Picker View
+
+
+~ : Active Panel-[0]
+0 : Active Panel-[0]
+1 : Active Panel-[1]
+2 : Active Panel-[2]
+3 : Active Panel-[3]
+4 : Active Panel-[4]
+5 : Active Panel-[5]
+6 : Active Panel-[6]
+7 : Active Panel-[7]
+8 : Active Panel-[8]
+9 : Active Panel-[9]
+
+f1 : Read Animator Help Manual
+f5 : Refresh To Show All Picker Content
+f7 : Switch Between Animator & Minimized UI Mode
+f8 : Switch Between Animator & Designer UI Mode
+
+

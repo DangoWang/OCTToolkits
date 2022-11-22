@@ -1,0 +1,142 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+//`MG_DualLan "MGShelf.bar.edit.mi"`
+MG_displayTS "MGShelf.ignorePython.print" "忽略MG工具架的Python支援因為當前Maya版本不支援Python。";
+MG_displayTS "MGShelf.startPython.print" "啟動MG工具架的Python支援。";
+
+MG_displayTS "MGShelf.welcome" "歡迎使用MG-工具架v2.0.";
+
+MG_displayTS "MGShelf.bar.anno" "點選最小化";
+MG_displayTS "MGShelf.bar.manager.mi" "MGshelf管理器";
+MG_displayTS "MGShelf.bar.manager.mi.anno" "點選用MGshelf管理器來管理使用者內建的mel";
+
+MG_displayTS "MGShelf.manager.welcome" "歡迎使用MG-工具架編輯器,你可以在這裡添加,編輯您內建的shelf工具 :)";
+MG_displayTS "MGShelf.manager.cShelf" "目前已內建的shelf";
+MG_displayTS "MGShelf.manager.annoText" "Ctrl加滑鼠中鍵來拖你的shelf進來.它們將通過MGTools的右鍵或者MGshelf條來呼叫";
+MG_displayTS "MGShelf.manager.refreshMenu" "重新整理編輯右鍵選單顯示";
+MG_displayTS "MGShelf.manager.save" "儲存";
+MG_displayTS "MGShelf.manager.help" "幫助..";
+MG_displayTS "MGShelf.manager.close" "關閉";
+MG_displayTS "MGShelf.manager.addEditNewS" "添加新的Shelf / 編輯已存在的Shelf                                     ";
+MG_displayTS "MGShelf.manager.cmdTextF.anno" " 命令區: (您用滑鼠中鍵拖shelf進來或者手動輸入程式碼)";
+MG_displayTS "MGShelf.manager.insertCodes.mi" "快速插入source Mel程式碼..";
+MG_displayTS "MGShelf.manager.insertCodes.war" "要插入source Mel指令碼檔案的程式碼，需要把當前程式碼模式切換成Mel，繼續？";
+
+MG_displayTS "MGShelf.manager.insertPyCodes.mi" "快速插入source Python程式碼..";
+MG_displayTS "MGShelf.manager.insertPyCodes.war" "要插入source Python指令碼檔案的程式碼，需要把當前程式碼模式切換成Python，繼續？";
+MG_displayTS "MGShelf.manager.insertPyCodes.No.war" "當前程式碼已是Mel程式碼或者當前Maya還不支援Python指令碼，所以操作取消";
+
+MG_displayTS "MGShelf.manager.testCodes.btn" "測試程式碼";
+MG_displayTS "MGShelf.manager.saveAsMel.btn" "存為mel檔案";
+MG_displayTS "MGShelf.manager.saveAsMel.fileName" "檔名:";
+MG_displayTS "MGShelf.manager.saveAsMel.folder" "Mel 目錄..";
+MG_displayTS "MGShelf.manager.pickIcon.anno"  " 拾取32X32的圖示:    Ctrl+中鍵拖進shelf來覆蓋指定左圖示.";
+MG_displayTS "MGShelf.manager.HIcon.anno"  "拾取32X32的滑鼠經過圖示:";
+MG_displayTS "MGShelf.manager.menuName"  "  右鍵選單名 :";
+MG_displayTS "MGShelf.manager.sLable"  "  shelf標籤 :";
+MG_displayTS "MGShelf.manager.annotation"  "          註釋 :";
+MG_displayTS "MGShelf.manager.add"  "添加";
+MG_displayTS "MGShelf.manager.edit" "編輯" ;
+
+MG_displayTS "MGShelf.openShelfFolder.mi" "開啟MG工具架資料夾.." ;
+MG_displayTS "MGShelf.openShelfFolder.mi.anno" "開啟MG工具架檔案所在的資料夾.." ;
+
+MG_displayTS "MGShelf.resetIcon" "重置圖示為默認" ;
+MG_displayTS "MGShelf.resetIcon.anno" "重置當前按鈕所用圖示為默認" ;
+MG_displayTS "MGShelf.manager.clone" "克隆" ;
+MG_displayTS "MGShelf.manager.clone.anno" "克隆當前按鈕。" ;
+MG_displayTS "MGShelf.manager.rename" "重新命名.." ;
+MG_displayTS "MGShelf.manager.rename.anno" "重新命名當前按鈕的標籤文字." ;
+
+MG_displayTS "MGShelf.manager.renameOveryLay" "更改圖示短名.." ;
+MG_displayTS "MGShelf.manager.renameOveryLay.anno" "更改當前圖示的圖示短名.." ;
+
+MG_displayTS "MGShelf.manager.saved.rep"  "MG工具架已儲存完畢.";
+
+MG_displayTS "MGShelf.addShelf.war" "囧 !!!   請您至少在mel命令區填一兩行程式碼及指定下選單名吧.." ;
+MG_displayTS "MGShelf.addFileMelShelf.war" "囧 !!!   請您至少輸入mel檔名吧.." ;
+
+MG_displayTS "MGShelf.shelfExisted.war.title" "該mel檔案已存在!!" ;
+MG_displayTS "MGShelf.shelfExisted.war.message" "該mel檔案已存在!!你是要:" ;
+MG_displayTS "MGShelf.shelfExisted.war.overlay" "覆寫" ;
+MG_displayTS "MGShelf.shelfExisted.war.cancel" "算了" ;
+
+MG_displayTS "MGShelf.bar.edit.mi" "編輯.." ;
+MG_displayTS "MGShelf.bar.edit.mi.anno" "編輯當前shelf." ;
+MG_displayTS "MGShelf.bar.delete.mi" "刪除.." ;
+MG_displayTS "MGShelf.bar.delete.mi.anno" "刪除當前shelf" ;
+
+MG_displayTS "MGShelf.manager.purge.war.title" "警告!!" ;
+MG_displayTS "MGShelf.manager.delCategory.war.mes" "你確定要刪除整個類別嗎？" ;
+MG_displayTS "MGShelf.manager.purge.war.mes" "這個編輯操作將沖掉當前在命令區的程式碼, 你想要:" ;
+MG_displayTS "MGShelf.manager.purge.war.go" "沒事" ;
+
+MG_displayTS "MGShelf.manager.delButton.rep" "當前按鈕已刪除.不過如果你沒按儲存按鈕，該操作就不算數哦." ;
+MG_displayTS "MGShelf.manager.whichToInstall.mes" "你想把工具架裝在哪裡？" ;
+MG_displayTS "MGShelf.manager.currentTab" "當前工具架" ;
+MG_displayTS "MGShelf.manager.allTab" "所有工具架" ;
+MG_displayTS "MGShelf.manager.sTab" "工具架:" ;
+
+MG_displayTS "MGShelf.manager.whatToInstall.mes" "你想安裝哪個到工具架?" ;
+MG_displayTS "MGShelf.manager.currentCate" "當前類別" ;
+MG_displayTS "MGShelf.manager.allCate" "所有類別" ;
+
+MG_displayTS "MGShelf.readyForInstallButton" "已裝備好安裝當前按鈕到工具架。" ;
+MG_displayTS "MGShelf.moveButtonToNewCate" "移動當前按鈕到新類別。" ;
+MG_displayTS "MGShelf.copyButtonToNewCate" "複製當前按鈕到新類別。" ;
+
+MG_displayTS "MGShelf.renameButton" "重新命名按鈕" ;
+MG_displayTS "MGShelf.renameButton.enterName.mes" "輸入新名字:" ;
+MG_displayTS "MGShelf.renameButton.enterName.war" "請輸入一個不同的新名字:" ;
+
+MG_displayTS "MGShelf.readyForEditCbutton" "已準備好編輯當前按鈕。" ;
+MG_displayTS "MGShelf.readyForCloneCbutton" "已準備好複製當前按鈕。" ;
+
+MG_displayTS "MGShelf.renameCate" "重新命名類別" ;
+MG_displayTS "MGShelf.newCate" "新建類別.." ;
+MG_displayTS "MGShelf.renameCate.cant.war" "沒辦法編輯類別，可能是因為Shelf檔案當前被Maya佔用著:(" ;
+
+MG_displayTS "MGShelf.InstallcurrentCate" "安裝當前類別到工具架。" ;
+MG_displayTS "MGShelf.InstallallCate" "安裝所有類別到工具架" ;
+MG_displayTS "MGShelf.InstallShelf.anno" "點選安裝當前/所有類別到工具架; 中鍵拖動按鈕到這邊將安裝該按鈕/類別到工具架。" ;
+
+MG_displayTS "MGShelf.newIssue.anno" "點選開啟MGshelf工具架管理器來添加新類別/按鈕。中鍵拖動按鈕到這邊將複製該按鈕" ;
+MG_displayTS "MGShelf.editIssue.anno" "點選開啟MGshelf工具架管理器來作編輯工作。中鍵拖動按鈕到這邊將單獨編輯該按鈕；中鍵拖動類別到這邊將重新命名該類別。" ;
+MG_displayTS "MGShelf.delIssue.anno" "中鍵拖動按鈕/類別到這上面來刪除前者。" ;
+MG_displayTS "MGShelf.saveIssue.anno" "儲存所有編輯（不儲存視同取消）。" ;
+
+MG_displayTS "MGShelf.extendButtonWidth.mi" "加寬按鈕寬度" ;
+MG_displayTS "MGShelf.shrinkButtonWidth.mi" "變窄按鈕寬度" ;
+MG_displayTS "MGShelf.extendButtonWidth.anno" "加寬所有按鈕寬度以顯示更多名字" ;
+MG_displayTS "MGShelf.shrinkButtonWidth.anno" "變窄所有按鈕寬度以節省空間" ;
+MG_displayTS "MGShelf.resetButtonWidth.mi" "重置為默認寬度" ;
+MG_displayTS "MGShelf.minWidth.mi" "最小寬度" ;
+MG_displayTS "MGShelf.miniMode.mi" "迷你/默認模式切換" ;
+
+MG_displayTS "MGShelf.unnamed.mi" "未命名Shelf" ;
+
+MG_displayTS "MGShelf.noSelItem.war" "在列表裡沒有任何項目被選擇。" ;
+
+MG_displayTS "MGShelf.manager.cate.title" "類別：" ;
+MG_displayTS "MGShelf.manager.mUp" "上移";
+MG_displayTS "MGShelf.manager.mDn" "下移";
+MG_displayTS "MGShelf.manager.new" "新建";
+MG_displayTS "MGShelf.manager.dup" "複製";
+MG_displayTS "MGShelf.manager.ren" "改名";
+MG_displayTS "MGShelf.manager.del" "刪除";
+MG_displayTS "MGShelf.manager.refresh" "重新整理";
+MG_displayTS "MGShelf.manager.cancelEdit" "取消編輯";
+
+MG_displayTS "MGShelf.mgtools.updateMenu.mi" "重新整理該選單";
+MG_displayTS "MGShelf.mgtools.updateMenu.ann" "重新整理顯示MG工具架在MGTools的右鍵選單項.";
+MG_displayTS "MGShelf.mgtools.updateMenu.rep" "MG工具架在MGTools的右鍵選單項都已更新.";
+
+
+MG_displayTS "MGShelf.manager.noCategory" "當前沒有存在任何類別,點選類別區的\"新建\"按鈕或者下面的\"新建類別..\"按鈕來先建立一個類別.";
+

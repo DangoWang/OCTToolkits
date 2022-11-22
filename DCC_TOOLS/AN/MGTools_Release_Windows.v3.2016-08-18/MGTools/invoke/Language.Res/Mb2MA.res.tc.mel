@@ -1,0 +1,16 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayTS "MBMA.warn.message" "該操作將刪除所有未知非參考節點,並且根據場景不同用到不同的時間來完成,\n如果可以建議先試過maya默認的另存哦.";
+MG_displayTS "MBMA.warn.cancel" "取消";
+MG_displayTS "MBMA.warn.next" "下一步";
+MG_displayTS "MBMA.warn.ok" "好的";
+MG_displayTS "MBMA.done.title" "注意啦";
+MG_displayTS "MBMA.done.message" "^0^ !!!   儲存 # 檔案成功,請查收~";
+MG_displayTS "MBMA.cancel.war" "好吧,你先試試Maya默認另存功能,如果不行的話再回來點下一步吧~~";

@@ -1,0 +1,104 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Animator Interactivity</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="animator interactivity" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "animatorinteractivity.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="viewportmanipulation.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="simpleediting.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">Animator interactivity:  </span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;">MG-Picker provide powerful and very rich ways for animator to interactive with pickers.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">Maker sure you are in animator interactive mode, which mean this button is being selected: <img src="animatorpreviewmode.jpg" width="25" height="24" alt="animatorPreviewMode" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold;">- Selecting:</span> <span style="font-weight: bold;">The same selecting rule as maya.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">LMB click on select-button / Frame selecting: Replace selection.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">CTRL + LMB click on select-button / Frame selecting: Deselect.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">SHIFT + LMB click on select-button / Frame selecting: Toggle Selection</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">Holding ALT while you doing selecting, the same select rule will applied to the select-buttons' mirror buttons, </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="font-size: 9pt;">which means hold ALT frame select a select-button, its mirror button's member will also be selected / deselected / toggle selection.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">LMB + Double clicking on a select-button, will select the clicked button's members, as well as all the child select-buttons' members.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="font-size: 9pt;">To utilize this feature, &nbsp;the select-buttons should be linked with parent links.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">CTRL / SHIFT + RMB click on select-button: will popup the button's member view to perform more in-depth selection. &nbsp;Same select rules applied to the member view.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">Click the tearoff button of the member view, you just made the popup member view inito a normal MG-Select Helper window.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt; font-weight: bold;">- Command Button: </span><span style="font-size: 9pt;">Just LMB click and release on a command button to execute its codes.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_Heading1" style="font-size: 9pt;">- Pose command button</span><span class="f_Heading1" style="font-size: 9pt; font-weight: normal;">： LMB click on it to apply 100% the pose, CTRL + LMB clicking on it to apply 20% for each click, SHIFT + LMB clicking on it to apply 50% for each click.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt; font-weight: bold;">- Attribute Button:</span><span style="font-size: 9pt;"> LMB click on value area of attribute button, will trigger its value change. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">Click on label area of attribute button will simple select that attribute button for MMB attr-nudging, unless the attribute button's fill color is transparent enough.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span style="font-size: 9pt; font-weight: bold;">- Each time an attribute button is selected:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">The current tool of maya will automatically be switched to attr-nudger tool comes with MG-Picker Studio,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">hence you could MMB drag in the 3d viewport, drag in horizontal direction to nudge the attribute controlled by the attribute button(s).</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt; font-weight: bold;">- Slider :</span><span style="font-size: 9pt;"> Same CTRL / SHIFT / Alt / Double Clicking select rule apply to slider handles regarding of the maya nodes selection.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-weight: bold;">- When moving a slider handle in picker view:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">SHIFT + LMB draging: Contraint the slider handle moving direction in horizontal / vertical. The only make sense for a 2D slider, for a 1D slider, only 1 direction available.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Alt + LMB draging: Moving the slider's mirror slider handle as well. Which means, for instance, you could tweak the left / right mouse control in reverse way regarding their values.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-weight: bold;">- To quickly reset the attribute value of a slider:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">Select all the sliders you want to reset their value, double clicking on the background one of the selected slider. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;">Be careful not double clicking the slider handle, which will select the clicked slider's maya members as well as the child slider handles'.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;">If the attribute that the slider stands for doesn't exist in your scene, the slider handle wont move if you double click its slot.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">If you directly LMB double click on a unselected slider's background, will only reset that clicked slider's attribute values.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt; font-weight: bold;">- Each time a slider handle is selected:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">The current tool of maya will automatically be switched to attr-nudger tool comes with MG-Picker Studio,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">hence you could MMB drag in the 3d viewport, drag in horizontal direction will nudge the H-attribute while drag in vertical direction nudges the V-attribute.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">The attr-nudger tool doesn't support ALT to nudge the mirrored slider attribute, since alt key in maya is for viewport navigation,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">but it does support SHIFT key while being MMB dragged, which constrains the dragging direction to horizontal / vertical, and the CTRL key to nudge the attributes in smaller steps. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt; font-weight: bold;">- Left / Right Clicking Menu of picker item:</span><span style="font-size: 9pt;"> Each picker item could be attached a left / right clicking menu with it, even the picker panel. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">This is done in picker designer phase.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">For each item that contains a right clicking menu, there will be a small solid triangle in the shape. Just right click on the item to pop the menu.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">For each item that contains a left clicking menu, there will be a small angle bracket sign in the shape. Just left click on the item to pop the menu.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span style="font-size: 9pt;">The menu could be a marking menu.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /><span style="font-size: 9pt;"> You could right click on a picker panel's content area to use its right clicking menu, for left clicking menu, the only choice is left clicking the panel's title area.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;<br />
+&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;<br />
+&nbsp;</p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="viewportmanipulation.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="simpleediting.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

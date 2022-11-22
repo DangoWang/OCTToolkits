@@ -1,0 +1,92 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>曲线动画</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Animation,Curve,MotionPath,Option,path,Reset,Snap,Keyframe" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "motionpath.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">曲线动画</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="draw_curve_via_key.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="posnap.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> 曲线动画</span><span style="font-weight: bold; color: #191817;">功能：</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:51px; padding:0px;"><p style="text-align: center;"><img src="pathanimicon.gif" width="32" height="32" alt="pathAnimIcon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:13px; padding:0px;"><br />
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">直接点击将打开motionPath不滑步计算器。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">为了在曲线路径动画中，计算出能尽量减小滑步的motionPath UV值动画。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">启动方法：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#3c3c39;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="color: #3c3c39;">点击在工具架上点</span><img src="pathanimicon.gif" width="32" height="32" alt="pathAnimIcon" style="border:none" /><span style="color: #3c3c39;">图标（如果你有装全MGTools工具shelf）</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#3c3c39;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="color: #3c3c39;">在MGTools工具条上右击</span><img src="minitoolboxicon.gif" width="32" height="32" alt="minitoolboxIcon" style="border:none" /><span style="color: #3c3c39;">，在右键菜单选择路径动画计算器..</span></p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#3c3c39;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="color: #3c3c39;">直接在迷你工具箱界面中点路径动画计算器..按钮。</span></p><p>&nbsp;</p>
+<p style="line-height: 2.0;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_ImageCaption" style="font-size: 10pt;">使用时机</span><span style="font-weight: bold;">：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">1.</span>已导入角色走路/跑步cycle。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">2.</span>角色在场景需要走来走去。适合用motionPath路径动画。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">3.</span>角色的global 层级做了路径动画，需要算出一个合适的UV值，让其滑步尽量减到最小。而后可以用MG定脚工具定脚。</p><p style="line-height: 2.0;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_ImageCaption" style="font-size: 10pt;">使用</span><span style="font-weight: bold;">方法：</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;">点击相应按钮/菜单，打开<span style="color: #3c3c39;">路径动画计算器</span>。</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 24px;">弹出如下界面：<br />
+<img src="motionpathstickerui_ch.gif" width="458" height="288" alt="MotionPathStickerUI_ch" style="border:none" /><br />
+这个界面看起来会比较头大。其实很简单，解释如下：<br />
+这个工具原理是，根据角色cycle中脚程长短，以及路径曲线长短，及走多久，来算尽量不滑步的motionPath U值。所以这个过程需要用户输入相关对像以获得必要信息。<br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">取样的脚位移控制器:</span><span class="f_ImageCaption" style="color: #808080;"> </span>填入角色动画cycle中脚的位移控制器名字，可以在场景里选择好然后点从选择获取按钮来快速获取。<br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">循环极张开始&amp;结束: </span>填入角色动画cycle中脚迈最前的帧数及最后的帧数.再过去是前进轴向，一般为Z轴。再过去的灰掉的输入框将显示出算出来的脚程。<br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">？号按钮：</span>点击显示MotionPath不滑步计算器的帮助。<br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">前进的开始&amp;结束: </span>路径动画的开始和结束帧。<br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">全局位移物体:</span><span style="font-weight: bold; color: #808080;"> </span>填入角色动画用来做路径动画的Global位移层级，可以在场景里选择好然后点从选择获取按钮来快速获取。<br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">全局向前的轴向 : </span>global 沿路径的那个轴向。<span class="f_ImageCaption"> </span><br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">上轴向:</span>代表global向上的轴向。<br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">路径动画曲线:</span>填入路径曲线名字，可以在场景里选择好然后点从选择获取按钮来快速获取。<br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">路径长度栏 : </span><span class="f_ImageCaption"> </span>将显示自动算出MotionPath曲线的长度。<br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">结果 -&gt;</span><span style="font-weight: bold; color: #808080;"> </span>这一栏将显示出计算结果。分别是motionPath最好在哪一帧结束，这一帧motionPath的U值最好设的值。<br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">应用计算结果:</span>点击后，如果未创建路径动画，将自动创建路径动画。如果已有，将改变其U值动画。<br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">从场景里读入: </span>点击将自动读取场景的motionPath信息进窗口。如果有多个则弹出对话框，双击其中一项后将自动读取其信息进界面。<br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">向前定脚吸附:</span> 放在这里是为了定脚方便。这个界面算出的U值，只能最大程度上保证不滑步，接下来用它来定脚。右键还有其它定脚方式。<a href="posnap.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a><br />
+<span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">重置: </span>清空所有输入框。<br />
+<img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示：</span><span class="f_ImageCaption" style="font-weight: normal;">关于循环极张开始&amp;结束怎么看，以下图为例。下图是角色脚位移控制器的向前轴向的动画曲线：</span></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><img src="motionpathpic.gif" width="396" height="93" alt="motionPathPic" style="border:none" /><br />
+&nbsp;</p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><span class="f_ImageCaption" style="font-weight: normal;">图中两淡蓝色的圈圈，代表了循环极张开始&amp;结束。这个信息的提供，主要是用来计算脚程长度。你可以把这两红点发生的两个帧数输入到循环极张开始&amp;结束输入框。</span></p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="draw_curve_via_key.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="posnap.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

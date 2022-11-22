@@ -1,0 +1,99 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+//`MG_DualLan "keyframeTool.title"`
+//`MG_DualLanFormat_1 "ID" repVar`
+//`MG_DualLan "selM.backUPSel.doit.nosel"`
+//`MG_DualLan "selM.backUPSel.doit.nosel"`
+MG_displayEN "keyframeTool.copyPasteAnimPose.mi" "Copy Anim/Pose between Maya..";
+MG_displayEN "keyframeTool.copyPasteAnimPose.cons.mi" "Copy Constraint between Maya..";
+MG_displayEN "keyframeTool.copyPasteAnimPose.cons.ann" "Load the tool that copies/pastes constraint between different Maya. Lots of quick access in rightClicking menu.";
+
+MG_displayEN "keyframeTool.copyPasteAnimPose.uiTitle" "MGCopyPastePro";
+MG_displayEN "keyframeTool.copyPasteAnimPose.ann" "Load the tool that copies/pastes animation/pose between different Maya. Lots of quick access in rightClicking menu.";
+MG_displayEN "keyframeTool.copyPasteAnimPose.copyAnim" "Copy Animation Only";
+MG_displayEN "keyframeTool.copyPasteAnimPose.copyPose" "Copy Pose Only";
+MG_displayEN "keyframeTool.copyPasteAnimPose.copyAnimPose" "Copy Animation&&Pose";
+MG_displayEN "keyframeTool.copyPasteAnimPose.paste" "Paste at original Frame";
+MG_displayEN "keyframeTool.copyPasteAnimPose.pasteTemp" "Paste on TempLocator";
+MG_displayEN "keyframeTool.copyPasteAnimPose.pasteCFrame" "Paste at Current Frame";
+MG_displayEN "keyframeTool.copyPasteAnimPose.pasteInRange" "Paste into Range(ScaleFit)";
+MG_displayEN "keyframeTool.copyPasteAnimPose.clipBoard" "View Clipboard..";
+MG_displayEN "keyframeTool.copyPasteAnimPose.selClipBoard" "Select Clipboard Objects";
+MG_displayEN "keyframeTool.copyPasteAnimPose.checkSel" "Check Currrent Selecion..";
+MG_displayEN "keyframeTool.copyPasteAnimPose.simDoc" "Simple HelpDoc..";
+MG_displayEN "keyframeTool.copyPasteAnimPose.detailDoc" "Detailed HelpDoc..";
+
+MG_displayEN "keyframeTool.copyPasteAnimPose.congra.mes" "The selected object numbers matches!";
+MG_displayEN "keyframeTool.copyPasteAnimPose.war" "warning!!";
+MG_displayEN "keyframeTool.copyPasteAnimPose.war.mes" "The selected object numbers does not match! \nThere are # objects in clipboard but # objects selected in your scene..";
+MG_displayEN "keyframeTool.copyPasteAnimPose.cons.war.mes" "The selected transform node numbers does not match! \nThere are # transform nodes in clipboard but # transform nodes selected in your scene..";
+MG_displayEN "copyPasteAnimPose.noClip.war" "No Clipboard data found.";
+MG_displayEN "copyPasteAnimPose.animClip.rep" "Objects:  #     Mode:  #\nRange:  #\nCopy at Frame:  # ";
+MG_displayEN "copyPasteAnimPose.consClip.rep" "Objects:  #     Mode:  # ";
+
+MG_displayEN "copyPasteAnimPose.clip.title" "MG-Clipboard";
+MG_displayEN "copyPasteAnimPose.clip.mem" "Clipboard Members:";
+MG_displayEN "copyPasteAnimPose.clip.update" "Refresh";
+MG_displayEN "copyPasteAnimPose.clip.selMem" "Select Members";
+MG_displayEN "copyPasteAnimPose.clip.Help" "SimpleHelp";
+MG_displayEN "copyPasteAnimPose.clip.animPose.info" "Anim/Pose Clipboard Info";
+MG_displayEN "copyPasteAnimPose.clip.cons.info" "Constraint Clipboard Info";
+MG_displayEN "copyPasteAnimPose.clip.getns.ann" "Get the scene selection's namespace into the textfield left.";
+MG_displayEN "copyPasteAnimPose.clip.retarget.lbl" "Retarget && Select";
+MG_displayEN "copyPasteAnimPose.clip.retarget.ann" "Retarget the clipboard objs with new namespace and select in your scene.";
+MG_displayEN "copyPasteAnimPose.clip.retarget.war" " # objects do not exist. May be problematic if you paste on current selection cos the size does not match :(" ;
+
+MG_displayEN "copyPasteAnimPose.copy.noKey" "No objects selected keyframed.";
+MG_displayEN "copyPasteAnimPose.copy.done.rep" "Selected Objects' # information has been copy to MG-Clipboard!";
+
+MG_displayEN "copyPasteAnimPose.paste.done.rep" "Pasting job done!Check it out!";
+
+MG_displayEN "copyPasteAnimPose.attr" "Attribute: ";
+MG_displayEN "copyPasteAnimPose.value" "    Value: ";
+
+MG_displayEN "copyPasteAnimPose.simHelp" "======== CopyPaste Pose/Anim SimpleHelp ========\nThe top left Button is the Pose/Anim copy button. Click to copy selections' animation only.Some other copy manners in right click menu:\n	Copy poseOnly:copy values of attributes only shown on channelBox.\n	Copy anim&pose:copy animation as well as static channel value.\n\nThe top right button is the paste Pose/Anim button. Click to paste clipboard data at the same place as your copy frame. Other paste manners:\n	Paste on TempLocator:Create temp locators and paste on them.\n	Paste on current Frame:paste on currentTime.\n	Paste into Range:Paste into selected timeRange of timeSlider in the scale fit manner.\n	Before pasting, you must select the same mount of selection as you did when you copied. Use \"Select clipboard Objects\" and \"Check Current Selections\" in rightClicking menu to help you ensure that:)";
+MG_displayEN "copyPasteAnimPose.simHelp1" "======= CopyPastePro Constraint SimpleHelp ======\nThe bottom left Button is the copy constraint button. Click to copy selections' constraint info, such as weight value, offset values.Some other copy manners in right click menu:\n	Copy Constraint & Constraint Key: Copy constraint info as well as the constraint node's animation.\n	Copy Constraint && Constraint Key && Slave Key: Copy constraint info ,constraint node's animation and the slave's pose & animation.\n\nThe bottom right button is the paste constraint button. Click to paste constraints to the selected transform nodes. Other paste manners:\n	Advanced Constraint Pasting: Show up a dialog, so you can assign the constraint masters one by one. \n	Before pasting,you must select the same mount of selection as you did when you copied. Use \"Select clipboard Objects\" and \"Check Current Selections\" in rightClicking menu to help you ensure that:)";
+
+
+//mgtools3 new--------------------------------
+MG_displayEN "keyframeTool.copyConstraint.mi" "Copy Constraint between Maya..";
+MG_displayEN "keyframeTool.pasteConstraint.mi" "Paste Constraint between Maya..";
+
+MG_displayEN "keyframeTool.copyPasteConstraint.ann" "Load the tool that copies/pastes constraint between different Maya. Lots of quick access in rightClicking menu.";
+MG_displayEN "keyframeTool.copyPasteConstraint.copyConsOnly" "Copy Constraint Only";
+MG_displayEN "keyframeTool.copyPasteConstraint.copyConsOnly.ann" "Copy Constraint infomation, such as offset values, weight values,etc.";
+MG_displayEN "keyframeTool.copyPasteConstraint.copyConsKey" "Copy Constraint && Constraint Key";
+MG_displayEN "keyframeTool.copyPasteConstraint.copyConsKey.ann" "Copy Constraint information as well as the keyframes on constraint nodes.";
+MG_displayEN "keyframeTool.copyPasteConstraint.copyConsSlaveKey" "Copy Constraint && Constraint Anim && Slave Anim";
+MG_displayEN "keyframeTool.copyPasteConstraint.copyConsSlaveKey.ann" "Copy Constraint information, keyframes on constraint nodes and pose & keyframes on slave objects";
+
+MG_displayEN "keyframeTool.copyPasteConstraint.paste" "Paste Constraint";
+MG_displayEN "keyframeTool.copyPasteConstraint.paste.ann" "Paste Constraint to scene selected transform nodes. Depends on the info that copied, keyframes may also be pasted.";
+MG_displayEN "keyframeTool.copyPasteConstraint.advPaste" "Advanced Constraint Pasting..";
+MG_displayEN "keyframeTool.copyPasteConstraint.advPaste.ann" "Click to open Advanced Constraint Pasting dialog, with with you can assign each master per constraint.";
+
+MG_displayEN "selM.backUPSel.doit.noTransformSel" "No selected transform nodes found.";
+MG_displayEN "copyPasteAnimPose.copyCons.done.rep" "Selected Transform nodes' # information has been copy to MG-Clipboard!";
+MG_displayEN "copyPasteAnimPose.copyCons.masterNotExist.war" "Error: The constraint master does not exist: ";
+MG_displayEN "copyPasteAnimPose.copyCons.alreadyConstrainted.war" "The object: # already have a #, what you wanna do?";
+MG_displayEN "copyPasteAnimPose.copyCons.pasted.rep" "Constraints have been pasted to the slave object : # .";
+MG_displayEN "copyPasteAnimPose.copyCons.pasted.total.rep" " objects been pasted constraint, totally # constraint nodes generated.";
+MG_displayEN "copyPasteAnimPose.pasteCons.objExist.rep" "The object: # exists.";
+MG_displayEN "copyPasteAnimPose.pasteCons.objNotExist.war" "!!! The object: # not exists.";
+
+MG_displayEN "copyPasteAnimPose.consClip.test.lbl" "Test";
+MG_displayEN "copyPasteAnimPose.consClip.pick.lbl" "Pick";
+
+MG_displayEN "copyPasteAnimPose.advPaste.title" "Advanced Constraint Pasting";
+MG_displayEN "copyPasteAnimPose.advPaste.topAnn" " * This dialog enable you to assign the constraint masters by hand.";
+MG_displayEN "copyPasteAnimPose.advPaste.slave.lbl" "Constraint Slaves (The Scene Selection)";
+MG_displayEN "copyPasteAnimPose.advPaste.nodeType.lbl" "Constraint Type";
+MG_displayEN "copyPasteAnimPose.advPaste.master.lbl" "Constraint Masters Replacement";
+MG_displayEN "copyPasteAnimPose.advPaste.paste.lbl" "Paste";

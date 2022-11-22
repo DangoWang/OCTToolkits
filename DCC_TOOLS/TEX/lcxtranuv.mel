@@ -1,0 +1,44 @@
+global proc lcxtranuv()
+{
+
+if(`window -exists lcxUvWin`)deleteUI lcxUvWin;
+
+string $winName = `window -title"传UV" lcxUvWin`;
+columnLayout -adj 1;
+
+text "选择分好UV的本体，再加选要传UV物体（可以是多个相同物体），单击传递按钮";
+button -l "UV传递" -c ap;
+button -l "物体UV问题传递" -c app;
+button -l "关闭" -command "deleteUI -window lcxUvWin";
+showWindow $winName;
+}
+global proc ap()
+{
+
+	string $s[] = `ls -sl`;
+	int $id = size($s);
+	$uv = $s[0];
+	int $k;
+	for($k=1;$k<$id;$k++)
+	{
+         polyTransfer -uv 1 -ao $uv $s[$k];
+         select $s[$k];
+	}
+ 
+}
+global proc app()
+{
+
+	string $s[] = `ls -sl`;
+	int $id = size($s);
+	$uv = $s[0];
+	int $k;
+	for($k=1;$k<$id;$k++)
+	{
+	 select -r $s[$k];
+         ReversePolygonNormals;
+         polyTransfer -uv 1 -ao $uv $s[$k];
+         ReversePolygonNormals;
+         select $s[$k];
+	}
+}

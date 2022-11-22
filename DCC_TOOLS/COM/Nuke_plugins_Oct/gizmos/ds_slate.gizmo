@@ -1,0 +1,329 @@
+#! C:/Program Files/Nuke9.0v8/nuke-9.0.8.dll -nx
+version 9.0 v8
+Gizmo {
+ addUserKnob {20 User t "current_time\nModify_time\ndate\nframe"}
+ addUserKnob {4 bottoml l bottom_left M {artist project_name project_range "" ""}}
+ addUserKnob {4 bottomc l bottom_center M {artist project_name project_range ""}}
+ bottomc project_name
+ addUserKnob {4 bottomr l bottom_right M {artist project_name project_range}}
+ bottomr project_range
+ addUserKnob {41 size l font_size T font_size_control.size}
+}
+ BackdropNode {
+  inputs 0
+  name BackdropNode1
+  tile_color 0x71c67100
+  label clock
+  note_font_size 42
+  xpos -1136
+  ypos -577
+  bdwidth 509
+  bdheight 246
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode4
+  tile_color 0x71c67100
+  label clock
+  note_font_size 42
+  xpos 2100
+  ypos -560
+  bdwidth 509
+  bdheight 246
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode8
+  tile_color 0x71c67100
+  label clock
+  note_font_size 42
+  xpos 378
+  ypos -611
+  bdwidth 509
+  bdheight 246
+ }
+ StickyNote {
+  inputs 0
+  name font_size_control
+  label font_size_control
+  note_font PMingLiU
+  xpos 1262
+  ypos 247
+  addUserKnob {20 User}
+  addUserKnob {12 position l text_position}
+  position {{root.format.w} {root.format.h}}
+  addUserKnob {7 size l font_size R 12 200}
+  size 15
+ }
+ Input {
+  inputs 0
+  name src
+  xpos 1354
+  ypos -1306
+  addUserKnob {20 User}
+  addUserKnob {14 framerange l framerange_input R 0 100}
+  framerange {{input.first} {input.last}}
+ }
+ Shuffle {
+  name Shuffle5
+  xpos 1354
+  ypos -1251
+ }
+ Transform {
+  translate {0 {font_size_control.size+5}}
+  center {512 214.5}
+  name Transform3
+  xpos 1434
+  ypos 1444
+ }
+ Constant {
+  inputs 0
+  channels rgb
+  name Constant1
+  xpos 1274
+  ypos -1149
+ }
+ Dot {
+  name Dot3
+  xpos 1308
+  ypos -1055
+ }
+set N3b86b400 [stack 0]
+ Text {
+  message "\[frame]/\[value root.last_frame] "
+  font C:/Windows/Fonts/arial.ttf
+  size {{parent.font_size_control.size}}
+  xjustify center
+  yjustify bottom
+  Transform 1
+  box {0 0 {parent.font_size_control.position.x} {parent.font_size_control.position.y}}
+  center {1024 778}
+  name project_range1
+  tile_color 0xff00ff
+  xpos 653
+  ypos -484
+ }
+push $N3b86b400
+ Text {
+  message "\[join \[lrange \[split \[basename \[value root.name]] .] 0 0]]"
+  font C:/Windows/Fonts/arial.ttf
+  size {{parent.font_size_control.size}}
+  xjustify center
+  yjustify bottom
+  Transform 1
+  box {0 0 {parent.font_size_control.position.x} {parent.font_size_control.position.y}}
+  center {1024 778}
+  name project_name1
+  tile_color 0xff00ff
+  xpos 533
+  ypos -488
+ }
+push $N3b86b400
+ Text {
+  message "\$env(username)_\[date %Y%m%d_%H:%M]"
+  font C:/Windows/Fonts/arial.ttf
+  size {{parent.font_size_control.size}}
+  xjustify center
+  yjustify bottom
+  Transform 1
+  box {0 0 {parent.font_size_control.position.x} {parent.font_size_control.position.y}}
+  center {1024 778}
+  name artist1
+  tile_color 0xff00ff
+  xpos 404
+  ypos -487
+ }
+ Switch {
+  inputs 3
+  which {{parent.bottomc}}
+  name bottom_center
+  tile_color 0xffff00ff
+  xpos 533
+  ypos -143
+ }
+ Shuffle {
+  red alpha
+  green alpha
+  blue alpha
+  name Shuffle1
+  xpos 533
+  ypos -83
+ }
+push $N3b86b400
+ Text {
+  message "\[frame]/\[value root.last_frame] "
+  font C:/Windows/Fonts/arial.ttf
+  size {{parent.font_size_control.size}}
+  xjustify right
+  yjustify bottom
+  Transform 1
+  box {0 0 {parent.font_size_control.position.x} {parent.font_size_control.position.y}}
+  center {1024 778}
+  name project_range2
+  tile_color 0xff00ff
+  xpos 2388
+  ypos -434
+ }
+push $N3b86b400
+ Text {
+  message "\[join \[lrange \[split \[basename \[value root.name]] .] 0 0]]"
+  font C:/Windows/Fonts/arial.ttf
+  size {{parent.font_size_control.size}}
+  xjustify right
+  yjustify bottom
+  Transform 1
+  box {0 0 {parent.font_size_control.position.x} {parent.font_size_control.position.y}}
+  center {1024 778}
+  name project_name2
+  tile_color 0xff00ff
+  xpos 2255
+  ypos -437
+ }
+push $N3b86b400
+ Text {
+  message "\$env(username)_\[date %Y%m%d_%H:%M]"
+  font C:/Windows/Fonts/arial.ttf
+  size {{parent.font_size_control.size}}
+  xjustify right
+  yjustify bottom
+  Transform 1
+  box {0 0 {parent.font_size_control.position.x} {parent.font_size_control.position.y}}
+  center {1024 778}
+  name artist2
+  tile_color 0xff00ff
+  xpos 2126
+  ypos -435
+ }
+ Switch {
+  inputs 3
+  which {{parent.bottomr}}
+  name bottom_right
+  tile_color 0xffff00ff
+  xpos 2255
+  ypos 217
+ }
+ Shuffle {
+  red alpha
+  green alpha
+  blue alpha
+  name Shuffle2
+  xpos 2255
+  ypos 277
+ }
+ Dot {
+  name Dot4
+  xpos 2289
+  ypos 905
+ }
+push 0
+push $N3b86b400
+ Text {
+  message "\[frame]/\[value root.last_frame] "
+  font C:/Windows/Fonts/arial.ttf
+  size {{parent.font_size_control.size}}
+  yjustify bottom
+  Transform 1
+  box {0 0 {parent.font_size_control.position.x} {parent.font_size_control.position.y}}
+  center {1024 778}
+  name project_range
+  tile_color 0xff00ff
+  xpos -868
+  ypos -463
+ }
+push $N3b86b400
+ Text {
+  message "\[join \[lrange \[split \[basename \[value root.name]] .] 0 0]]"
+  font C:/Windows/Fonts/arial.ttf
+  size {{parent.font_size_control.size}}
+  yjustify bottom
+  Transform 1
+  box {0 0 {parent.font_size_control.position.x} {parent.font_size_control.position.y}}
+  center {1024 778}
+  name project_name
+  tile_color 0xff00ff
+  xpos -988
+  ypos -465
+ }
+push $N3b86b400
+ Text {
+  message "\$env(username)_\[date %Y%m%d_%H:%M]"
+  font C:/Windows/Fonts/arial.ttf
+  size {{parent.font_size_control.size}}
+  yjustify bottom
+  Transform 1
+  box {0 0 {parent.font_size_control.position.x} {parent.font_size_control.position.y}}
+  center {1024 778}
+  name artist
+  tile_color 0xff00ff
+  xpos -1117
+  ypos -465
+ }
+ Switch {
+  inputs 3
+  which {{parent.bottoml}}
+  name bottom_left
+  tile_color 0xffff00ff
+  xpos -988
+  ypos 230
+ }
+ Shuffle {
+  red alpha
+  green alpha
+  blue alpha
+  name Shuffle3
+  xpos -988
+  ypos 367
+ }
+ Dot {
+  name Dot1
+  xpos -954
+  ypos 904
+ }
+push 0
+ Merge2 {
+  inputs 4+1
+  name Merge1
+  xpos 558
+  ypos 901
+ }
+ Dot {
+  name Dot5
+  xpos 592
+  ypos 1448
+ }
+ Transform {
+  translate {0 {-font_size_control.size-5}}
+  center {512 214.5}
+  name Transform2
+  xpos 694
+  ypos 1444
+ }
+ Crop {
+  box {0 {-font_size_control.size-5} {root.format.w} {root.format.h}}
+  reformat true
+  crop false
+  name Crop1
+  xpos 804
+  ypos 1444
+ }
+ Merge2 {
+  inputs 2
+  name Merge2
+  xpos 1229
+  ypos 1444
+ }
+ Reformat {
+  type "to box"
+  box_width {{root.format.w}}
+  box_height {{root.format.h+font_size_control.size+5}}
+  box_fixed true
+  name Reformat1
+  xpos 1229
+  ypos 1528
+ }
+ Output {
+  name Output1
+  xpos 1229
+  ypos 1627
+ }
+end_group

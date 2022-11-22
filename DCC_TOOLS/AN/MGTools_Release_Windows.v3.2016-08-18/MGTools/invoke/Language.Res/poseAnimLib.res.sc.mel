@@ -1,0 +1,703 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "poseAnimLib.toolName" "MG-Pose动作库";
+MG_displaySC "poseAnimLib.tool.mi" "MG-Pose动作库..";
+MG_displaySC "poseAnimLib.tool.ann" "点击加载MG-Pose动作库. 默认它将加载本地的Pose库. ";
+MG_displaySC "poseAnimLib.localAnim.ann" "点击加载本地的MG动作库.";
+MG_displaySC "poseAnimLib.globalPose.ann" "点击加载全局的MG-Pose库.";
+MG_displaySC "poseAnimLib.globalAnim.ann" "击加载服务器的MG动作库.";
+
+MG_displaySC "poseAnimLib.localPoseLib.mi" "本地Pose库..";
+MG_displaySC "poseAnimLib.globalPoseLib.mi" "全局Pose库..";
+MG_displaySC "poseAnimLib.localAnimLib.mi" "本地动作库..";
+MG_displaySC "poseAnimLib.globalAnimLib.mi" "全局动作库..";
+
+MG_displaySC "poseAnimLib.war.prefix" "警告: ";
+MG_displaySC "poseAnimLib.err.prefix" "错误: ";
+
+
+MG_displaySC "poseAnimLib.localRootBuilt" "本地默认根目录已建立 : ";
+MG_displaySC "poseAnimLib.noProj.war" "当前没有任何的库工程，您是要 :";
+MG_displaySC "poseAnimLib.existProj.war" "该库工程已存在，您是要 ：";
+MG_displaySC "poseAnimLib.noChar.war" "当前没有建立任何角色，您是要 :";
+MG_displaySC "poseAnimLib.noCate.war" "当前没有建立任何类别，您是要 :";
+MG_displaySC "poseAnimLib.createProj" "创建库工程..";
+MG_displaySC "poseAnimLib.createChar" "创建角色..";
+MG_displaySC "poseAnimLib.addCate" "添加类别..";
+MG_displaySC "poseAnimLib.openProj" "打开库工程..";
+MG_displaySC "poseAnimLib.openExProj" "打开已存在的工程";
+
+MG_displaySC "poseAnimLib.versionUp" "加版本号" ;
+MG_displaySC "poseAnimLib.override" "覆盖" ;
+MG_displaySC "poseAnimLib.skip" "跳过" ;
+MG_displaySC "poseAnimLib.ignore" "忽略" ;
+MG_displaySC "poseAnimLib.switchTo" "切换到"  ;
+MG_displaySC "poseAnimLib.create" "创建" ;
+MG_displaySC "poseAnimLib.merge" "合并"  ;
+MG_displaySC "poseAnimLib.overrideExistProjSetting" "覆盖已存在的工程的设置" ;
+MG_displaySC "poseAnimLib.Cancel" "取消";  //`MG_DualLan "poseAnimLib.Cancel"`
+MG_displaySC "poseAnimLib.StopCancel" "停止 && 取消";
+MG_displaySC "poseAnimLib.useSimilarChoice" "使用类似的选择";
+MG_displaySC "poseAnimLib.ignoreContinue" "忽略 && 继续";
+MG_displaySC "poseAnimLib.useContinue" "使用 && 继续";
+MG_displaySC "poseAnimLib.RealDelete" "永久删除";
+MG_displaySC "poseAnimLib.RecoverableDelete" "可恢复删除";
+
+MG_displaySC "poseAnimLib.duplicateControlFound.prefix" "发现重名的控制器: ";
+MG_displaySC "poseAnimLib.targetNotExist.prefix" "目标对象不存在: ";
+MG_displaySC "poseAnimLib.attributeNotExist.prefix" "属性不存在: ";
+MG_displaySC "poseAnimLib.attributeApplied.prefix" "已应用属性: ";
+MG_displaySC "poseAnimLib.noAttributeNeedApplied.war" "没有必要应用的属性.";
+MG_displaySC "poseAnimLib.attributeErrorApply.prefix" "应用属性时出错 : ";
+
+MG_displaySC "poseAnimLib.missingItemData.war" "该库文件的数据文件丢失.";
+MG_displaySC "poseAnimLib.missingItemData.prefix" "该库文件的数据文件不存在:";
+MG_displaySC "poseAnimLib.errorReadData.prefix" "读取文件出错:";
+
+MG_displaySC "poseAnimLib.itemIsEmpty.war" "该库文件没有涉及任何控制器!";
+MG_displaySC "poseAnimLib.controlsMatched.rep" "Pose文件的控制器与您的场景吻合!";
+MG_displaySC "poseAnimLib.theseControlNotExists.rep" "控制器在您的场景里不存在:";
+MG_displaySC "poseAnimLib.buttonNotExists.war" "库的按钮控件不存在.";
+
+MG_displaySC "poseAnimLib.error.seeScriptEditor.war" "出错了. 查看脚本编辑器来了解更多 :(";
+
+MG_displaySC "poseAnimLib.global" "全局";
+MG_displaySC "poseAnimLib.local" "本地";
+MG_displaySC "poseAnimLib.anim" "动作";
+MG_displaySC "poseAnimLib.pose" "Pose";
+MG_displaySC "poseAnimLib.poseAnim" "Pose/动作";
+
+MG_displaySC "poseAnimLib.proj" "库工程";
+MG_displaySC "poseAnimLib.proj.smallCase" "库工程";
+MG_displaySC "poseAnimLib.lib" "库";
+MG_displaySC "poseAnimLib.char" "角色";
+MG_displaySC "poseAnimLib.char.smallCase" "角色";
+MG_displaySC "poseAnimLib.cate" "类别";
+MG_displaySC "poseAnimLib.cate.smallCase" "类别";
+MG_displaySC "poseAnimLib.items" "项(s)";
+MG_displaySC "poseAnimLib.item" "项";
+
+MG_displaySC "poseAnimLib.createFrame" "创建帧";
+MG_displaySC "poseAnimLib.timeRange" "时间范围";
+MG_displaySC "poseAnimLib.noRange" "没有范围";
+MG_displaySC "poseAnimLib.metaInfo" "元信息";
+MG_displaySC "poseAnimLib.name" "名字";
+MG_displaySC "poseAnimLib.author" "作者";
+MG_displaySC "poseAnimLib.cDate" "创建日期";
+MG_displaySC "poseAnimLib.mayaInfo" "Maya信息";
+MG_displaySC "poseAnimLib.controls" "涉及控制器";
+MG_displaySC "poseAnimLib.mayaScene" "Maya场景";
+MG_displaySC "poseAnimLib.assets" "涉及资产";
+MG_displaySC "poseAnimLib.noAssets.war" "没有涉及到资产.";
+MG_displaySC "poseAnimLib.modificateionInfo" "修改历史";
+MG_displaySC "poseAnimLib.noModi.war" "没有修改历史.";
+MG_displaySC "poseAnimLib.modiTimes" "修改次数";
+MG_displaySC "poseAnimLib.modiBy" "修改人员:";
+MG_displaySC "poseAnimLib.modiAt" "修改日期:";
+MG_displaySC "poseAnimLib.reason" "原因:";
+
+MG_displaySC "poseAnimLib.noItemSel.war" "没有选择一个库按钮.";  //`MG_DualLan "poseAnimLib.noItemSel.war"`
+MG_displaySC "poseAnimLib.noCate.war" "没发现任何类别存在.";  
+MG_displaySC "poseAnimLib.noChar.war" "没发现任何角色存在.";  
+MG_displaySC "poseAnimLib.noObjSel.war" "场景里没选择任何物件.";
+MG_displaySC "poseAnimLib.noInputItemName.war" "请输入一个合法的名称.";
+MG_displaySC "poseAnimLib.sameAsOld.war" "跟旧名称一样，没有作任何改变.";
+
+MG_displaySC "poseAnimLib.playmovie.ann" "单击来播放视频，双击播放所有视频";
+
+MG_displaySC "poseAnimLib.bookmark.inputName.msg" "输入摄像机书签的名称:";
+MG_displaySC "poseAnimLib.bookmark.alreadyExist.war" "该摄像机书签已存在，您是想：" ;
+
+MG_displaySC "poseAnimLib.toShelf.inputName.msg" "输入一个pose工具架的短名称：";
+MG_displaySC "poseAnimLib.toShelf.done.rep" "该pose已被安装到当前工具架.";
+
+MG_displaySC "poseAnimLib.createItem.getCreateOption" "获取创建选项.." ;
+MG_displaySC "poseAnimLib.createItem.writingData" "写入数据文件:" ;
+MG_displaySC "poseAnimLib.createItem.finished" "库项目已创建:" ;
+
+MG_displaySC "poseAnimLib.applyItem.start" "开始应用库项目:";
+MG_displaySC "poseAnimLib.applyItem.startPercentage" "开始应用库项目: # 百分比: #%";
+MG_displaySC "poseAnimLib.applyItem.goFrame" "跳到库项目的创建帧: ";
+MG_displaySC "poseAnimLib.applyItem.cancelDueToDuplicate" "因为有重名物件，用户取消操作: ";
+MG_displaySC "poseAnimLib.applyItem.nonTransformNoNeedWorldApply" " 不是一个transform节点，所以不能应用全局变形信息.";
+MG_displaySC "poseAnimLib.applyItem.finished" "应用完库项目:";
+MG_displaySC "poseAnimLib.applyItem.finished.subfix" " 个物件已被应用了动画.";
+
+MG_displaySC "poseAnimLib.pick" "拾取";
+MG_displaySC  "poseAnimLib.current" "当前";
+MG_displaySC "poseAnimLib.createProj.validName.war" "请输入一个合法的库工程名.";
+MG_displaySC "poseAnimLib.readProj.overrideLocal" "覆盖本地的库工程: ";
+
+MG_displaySC "poseAnimLib.newCate.topAnn" "* 下面所选的类别将被添加.";
+MG_displaySC "poseAnimLib.newCate.custumCate" "自定义类别: ";
+MG_displaySC "poseAnimLib.newCate.addToPreset" "添加到预设";
+MG_displaySC "poseAnimLib.newCate.add" "添加";
+MG_displaySC "poseAnimLib.newCate.addCate" "添加类别";
+
+MG_displaySC "poseAnimLib.newChar.newChar" "新建角色";
+MG_displaySC "poseAnimLib.newChar.charName" "角色名称";
+MG_displaySC "poseAnimLib.newChar.addName" "添加角色类别:";
+MG_displaySC "poseAnimLib.newChar.topAnn" "* 下面所选的类别将被同时添加.";
+MG_displaySC "poseAnimLib.newChar.charDup.war" "叫 '#' 的角色已存在。您是要:";
+
+MG_displaySC "poseAnimLib.switchTo.local" "切换到本地";
+MG_displaySC "poseAnimLib.switchTo.global" "切换到全局";
+
+MG_displaySC "poseAnimLib.switchTo.pose" "切换到Pose库";
+MG_displaySC "poseAnimLib.switchTo.anim" "切换到动作库";
+
+MG_displaySC "poseAnimLib.newProj" "新建库工程..";
+MG_displaySC "poseAnimLib.newProjNoDot" "新建库工程";
+MG_displaySC "poseAnimLib.openProj" "打开库工程..";
+MG_displaySC "poseAnimLib.openProjNoDot" "打开库工程";
+
+MG_displaySC "poseAnimLib.itemNotSelectable" "在当前应用模式库项目不可选";
+
+MG_displaySC "poseAnimLib.mi.selItemControl" "选择库项目控制器(s)";
+MG_displaySC "poseAnimLib.mi.apply" "应用";
+MG_displaySC "poseAnimLib.mi.percentageApply" "百分比应用";
+MG_displaySC "poseAnimLib.mi.perviewItem" "预览该项";
+MG_displaySC "poseAnimLib.mi.downloadItem" "下载所选项到本地..";
+MG_displaySC "poseAnimLib.mi.uploadItem" "发布所选项到全局..";
+MG_displaySC "poseAnimLib.mi.editItem" "编辑项.." ;
+MG_displaySC "poseAnimLib.mi.resnapshotItem" "重新生成项预览图.." ;
+
+MG_displaySC "poseAnimLib.mi.selAll" "全选" ;
+MG_displaySC "poseAnimLib.mi.selNone" "去选" ;
+MG_displaySC "poseAnimLib.mi.selInvert" "反选" ;
+
+MG_displaySC "poseAnimLib.mi.delSelItems" "删除所选项(s) ..";
+MG_displaySC "poseAnimLib.mi.renameSelItems" "重命名所选项..";
+MG_displaySC "poseAnimLib.mi.moveCopySelItems" "移动/复制所选项(s)..";
+
+MG_displaySC "poseAnimLib.cantSetIcon.rep" "无法设置为图标.";
+MG_displaySC "poseAnimLib.imageBeenSet.rep" "当前图像 :# 已作为图标设置给: #";
+
+MG_displaySC "poseAnimLib.playblast.createPreview.start" "创建预览图象 / 视频..";
+MG_displaySC "poseAnimLib.make.writingToTemp" "写入临时动画缓存..";
+MG_displaySC "poseAnimLib.noMovie" "没有要播放的视频.";
+MG_displaySC "poseAnimLib.movieNotExist.war" "预览视频 \"#\" 不存在.";
+
+MG_displaySC "poseAnimLib.clearAnimCache.ignoreNSClearing" "忽略清理命名空间的步骤.";
+MG_displaySC "poseAnimLib.clearAnimCache.done" "MG动画缓存已被清理.";
+MG_displaySC "poseAnimLib.clearAnimCache.notImported" "MG动画缓存还未被读入.";
+
+MG_displaySC "poseAnimLib.newProj.name" "库工程名:";
+MG_displaySC "poseAnimLib.newProj.description" "库工程描述:";
+MG_displaySC "poseAnimLib.newProj.globalDirSetting" "全局目录设置";
+MG_displaySC "poseAnimLib.newProj.globalRootSetting" "全局根目录";
+MG_displaySC "poseAnimLib.newProj.noGlobal" "不需要全局库";
+MG_displaySC "poseAnimLib.newProj.useCustom" "使用自定义路径:";
+MG_displaySC "poseAnimLib.newProj.pick" "拾取..";
+MG_displaySC "poseAnimLib.newProj.globalPoseDirSetting" "全局Pose库设置:";
+MG_displaySC "poseAnimLib.newProj.useUnifiedProjRoot" "使用 [ 全局库工程目录 ]";
+MG_displaySC "poseAnimLib.newProj.globalAnimDirSetting" "全局动作库设置:";
+
+MG_displaySC "poseAnimLib.editProj.done" "库工程 \"#\" 的设置已保存.";
+MG_displaySC "poseAnimLib.editProj.localRootchanged" "更动本地根目录为: \"#\".";
+MG_displaySC "poseAnimLib.editProj.globalRootchanged" "更动全局根目录为: \"#\".";
+MG_displaySC "poseAnimLib.editProj.localRootReset" "重置本地根目录为默认.";
+MG_displaySC "poseAnimLib.editProj.globalRootReset" "重置全局根目录为默认.";
+
+MG_displaySC "poseAnimLib.changedConfig.prefix" "更动配置数值:";
+MG_displaySC "poseAnimLib.imageViewerMode" "图像浏览模式";
+MG_displaySC "poseAnimLib.customImageViewer" "自定义图片浏览器";
+MG_displaySC "poseAnimLib.moviePlayerMode" "视频播放模式";
+MG_displaySC "poseAnimLib.customMoviePlayer" "自定义视频播放器";
+
+MG_displaySC "poseAnimLib.editItem.errorDeleteBtn" "删除按钮时出错.";
+MG_displaySC "poseAnimLib.editItem.errorGetCate" "获取当前类别所在目录时出错.";
+MG_displaySC "poseAnimLib.editItem.deleteDone" "库项目: # 被成功删除.";
+MG_displaySC "poseAnimLib.editItem.deleteDone.rep" " # 个库项目被删除, # 个库项目被忽略.";
+MG_displaySC "poseAnimLib.editItem.deleteFailed" "库项目: # 删除失败. 当前库您是不是没有写权限?";
+MG_displaySC "poseAnimLib.editItem.deleteConfirm" "库项目删除确认:";
+MG_displaySC "poseAnimLib.editItem.deleteCanceled" "库项目删除动作被用户取消.";
+MG_displaySC "poseAnimLib.editItem.deleteWar.mes" "整个 # 将被移除. 您想要: ";
+MG_displaySC "poseAnimLib.editItem.deleteWar.notEmpty.mes" " #  非空. \n所有数据将被永久删除，继续?";
+
+MG_displaySC "poseAnimLib.editItem.errDelChar.prefix" "删除该角色时出错:";
+MG_displaySC "poseAnimLib.editItem.errDelCate.prefix" "删除该类别时出错:";
+
+MG_displaySC "poseAnimLib.uploadDownload.same.war" "当前本地 & 全局库在同一个目录，不需要任何的上传/下载.";
+MG_displaySC "poseAnimLib.uploadDownload.noItemTransfered.war" "没有选择任何库项目来上传/下载.";
+MG_displaySC "poseAnimLib.uploadDownload.downloaded" "已下载";
+MG_displaySC "poseAnimLib.uploadDownload.download" "下载";
+MG_displaySC "poseAnimLib.uploadDownload.uploaded" "已上传";
+MG_displaySC "poseAnimLib.uploadDownload.upload" "上传";
+MG_displaySC "poseAnimLib.uploadDownload.exist.war" "该目标 # 已存在，您是想要： ";
+MG_displaySC "poseAnimLib.uploadDownload.empty.war" "源/目标路径字符窜是空的.";
+MG_displaySC "poseAnimLib.uploadDownload.exist.war1" "目标已存在. 需要确认 ";
+
+MG_displaySC "poseAnimLib.uploadDownload.from" "从";
+MG_displaySC "poseAnimLib.uploadDownload.to" "到";
+
+MG_displaySC "poseAnimLib.actionCanceled.subfix" " 动作已被用户取消.";
+MG_displaySC "poseAnimLib.userSkip" "用户忽略 # 在 : #";
+MG_displaySC "poseAnimLib.success" "成功:";
+MG_displaySC "poseAnimLib.fail" "失败:";
+MG_displaySC "poseAnimLib.successfully" "成功地";
+MG_displaySC "poseAnimLib.failed" "已失败";
+MG_displaySC "poseAnimLib.skipped" "已忽略";
+
+
+MG_displaySC "poseAnimLib.renameSkipped" "名字没改变，忽略重命名的动作.";
+MG_displaySC "poseAnimLib.errRename" "重命名该文件时出错: ";
+MG_displaySC "poseAnimLib.renamed" "已重命名: ";
+MG_displaySC "poseAnimLib.rename" "重命名";
+MG_displaySC "poseAnimLib.rename.canceled" "重命名的动作被用户取消.";
+
+MG_displaySC "poseAnimLib.no.actived" "没有 # 被当前激活.";
+MG_displaySC "poseAnimLib.current.notExist" "当前 # 不存在.";
+
+MG_displaySC "poseAnimLib.new.existed" "新的 # :# 已存在。您是想要:";
+MG_displaySC "poseAnimLib.errorMerge" "合并两个目录时出错: ";
+MG_displaySC "poseAnimLib.errorDeleteAfterMerge" "命并后删除 # 出错:";
+MG_displaySC "poseAnimLib.errorOverridingTarget" "覆盖目标时出错: ";
+MG_displaySC "poseAnimLib.errRename1" "重命名时出错: ";
+MG_displaySC "poseAnimLib.successRename" "成功重命名 ";
+MG_displaySC "poseAnimLib.file" "文件:";
+
+MG_displaySC "poseAnimLib.op.noProjectSel" "在列表里没有选择任何的工程.";
+MG_displaySC "poseAnimLib.op.categoryExist.war" "该项在目标类别里已存在，您是要：";
+
+MG_displaySC "poseAnimLib.moveCopy.categoryExist.war" "目标类别: \n#\n 不存在. # 动作取消，并将会刷新界面.";
+MG_displaySC "poseAnimLib.moveCopy.same.war" "目标和源类别一样，不做任何改变.";
+
+MG_displaySC "poseAnimLib.userCanceled.war" "用户已取消.";
+MG_displaySC "poseAnimLib.moveCopy.success.rep" "成功地 # 库项目: # 到路径: ";
+MG_displaySC "poseAnimLib.moveCopy.faled.rep" "不成功  # 库项目: # 到路径: ";
+MG_displaySC "poseAnimLib.moveCopy.done.rep" "成功地 # 库项目: #,# 个错误发生.";
+MG_displaySC "poseAnimLib.moveCopy.newCharCate.mes" "输入新的 # 名称:";
+MG_displaySC "poseAnimLib.moveCopy.title" "移动/复制库项目";
+
+MG_displaySC "poseAnimLib.moveCopy.field" "域";
+MG_displaySC "poseAnimLib.moveCopy.sameAsSource" "跟源相同";
+MG_displaySC "poseAnimLib.moveCopy.copyTo" "复制到";
+MG_displaySC "poseAnimLib.moveCopy.moveTo" "移动到";
+
+
+MG_displaySC "poseAnimLib.imageNotExist" "图像文件:# 不存在.";
+
+MG_displaySC "poseAnimLib.selectCtl.objNotExist" "物件: # 不存在. 请试试你目标角色的任何一部分再来试试.";
+MG_displaySC "poseAnimLib.selectCtl.objSelected" " #个物件已选择, # 个因为不存在而忽略.";
+
+MG_displaySC "poseAnimLib.backUp.noBackup.war" "没有发现任何备份.";
+MG_displaySC "poseAnimLib.backUp.backNotExist.war" "备份出错: 数据文件: \n# 不存在.";
+MG_displaySC "poseAnimLib.backUp.noImages.war" "备份出错: 没发现任何图象文件.";
+MG_displaySC "poseAnimLib.backUp.unableCreateFolder.war" "备份出错: 无法创建目录: \n";
+MG_displaySC "poseAnimLib.backUp.unableBackup.war" "备份出错: 无法备份文件: \n";
+MG_displaySC "poseAnimLib.backUp.done" "备份到目录: # 完成 ";
+
+MG_displaySC "poseAnimLib.backUp.error.subfix" "但发生 # 个错误. 查看脚本编辑器来了解更多.";
+MG_displaySC "poseAnimLib.backUp.folderNotExist.war" "备份目录: # 不存在.";
+MG_displaySC "poseAnimLib.backUp.noDataFound.war" "备份目录里没发现任何数据: ";
+MG_displaySC "poseAnimLib.restore.confirm" "将要从 \"#\" 里还原, \n旧数据将被覆盖。您是想要：";
+MG_displaySC "poseAnimLib.restore.onlyData" "只还原数据文件";
+MG_displaySC "poseAnimLib.restore.onlyImage" "只还原预览图";
+MG_displaySC "poseAnimLib.restore.all" "还原全部";
+MG_displaySC "poseAnimLib.restore.restored" "已还原: ";
+MG_displaySC "poseAnimLib.restore.errRestore" "还原时出错: ";
+
+MG_displaySC "poseAnimLib.restore.noData" "出错: 没有任何数据被还原: ";
+MG_displaySC "poseAnimLib.restore.done" "还原备份: # 已完成 ";
+
+MG_displaySC "poseAnimLib.makeIcon.NewDone" "新预览图已生成: ";
+MG_displaySC "poseAnimLib.makeIcon.NoDone" "没生成任何预览图!!";
+MG_displaySC "poseAnimLib.makeIcon.wasMade" " 个预览图被生成";
+MG_displaySC "poseAnimLib.makeIcon.oldUpdate" " 并且旧预览文件被更新.";
+MG_displaySC "poseAnimLib.makeIcon.andAppend" " 并且被更新.";
+MG_displaySC "poseAnimLib.makeIcon.andDelete" " 及 # 个旧预览文件被删除.";
+
+MG_displaySC "poseAnimLib.advancedEdit.rebuilt" "全新重建.";
+MG_displaySC "poseAnimLib.advancedEdit.remSelListCtl" "移除列表所选控制器.";
+MG_displaySC "poseAnimLib.advancedEdit.remSelSceneCtl" "移除场景所选控制器.";
+MG_displaySC "poseAnimLib.advancedEdit.updateSelSceneCtl" "添加/更新场景所选控制器.";
+
+MG_displaySC "poseAnimLib.rebuild.writeTemp" "写入动画缓存..";
+MG_displaySC "poseAnimLib.advancedEdit.confirm" "实际编辑数据文件前需要确认: 是否继续?" ;
+MG_displaySC "poseAnimLib.advancedEdit.canceled" "数据文件编辑操作被用户取消.";
+MG_displaySC "poseAnimLib.advancedEdit.noSelInList" "左边列表没有选择任何项哦。";
+MG_displaySC "poseAnimLib.advancedEdit.noSelInScene" "场景里没有选择任何物件哦。";
+MG_displaySC "poseAnimLib.advancedEdit.successEdit" "库项目 \"#\" 已编辑。编辑模式: ";
+
+MG_displaySC "poseAnimLib.advancedEditUI.title" "高级编辑";
+MG_displaySC "poseAnimLib.advancedEditUI.editMode" "编辑模式";
+MG_displaySC "poseAnimLib.advancedEditUI.editMode.editData" "编辑项数据";
+MG_displaySC "poseAnimLib.advancedEditUI.editMode.editImage" "编辑项预览图";
+MG_displaySC "poseAnimLib.advancedEditUI.selItemInScene" "在场景里选择列表所选控制器";
+MG_displaySC "poseAnimLib.advancedEditUI.selAllItemInScene" "在场景里选择列表所有控制器";
+MG_displaySC "poseAnimLib.advancedEditUI.switch.ann" "点击来切换模式.";
+MG_displaySC "poseAnimLib.advancedEditUI.setIcon" "设置当前为图标";
+MG_displaySC "poseAnimLib.advancedEditUI.rename" "重命名";
+MG_displaySC "poseAnimLib.advancedEditUI.viaList" "基于列表";
+MG_displaySC "poseAnimLib.advancedEditUI.selAllListCtls" "选择列表所有控制器(s)";
+MG_displaySC "poseAnimLib.advancedEditUI.selSelListCtls" "选择列表所选控制器(s)";
+MG_displaySC "poseAnimLib.advancedEditUI.remSelListCtls" "移除列表所选控制器(s)";
+MG_displaySC "poseAnimLib.advancedEditUI.viaScene" "基于场景";
+MG_displaySC "poseAnimLib.advancedEditUI.remSelSceneCtls" "移除场景所选控制器(s)";
+MG_displaySC "poseAnimLib.advancedEditUI.updateSelSceneCtls" "添加/更新场景所选控制器(s)";
+MG_displaySC "poseAnimLib.advancedEditUI.rebuildOp" "重建整个数据";
+
+
+MG_displaySC "poseAnimLib.advancedEditUI.mode" "模式";
+MG_displaySC "poseAnimLib.advancedEditUI.selected" "所选物件";
+MG_displaySC "poseAnimLib.advancedEditUI.wholeRig" "整个Rig";
+MG_displaySC "poseAnimLib.advancedEditUI.time.all" "全部";
+MG_displaySC "poseAnimLib.advancedEditUI.time.selRange" "所选范围";
+MG_displaySC "poseAnimLib.advancedEditUI.time.startEnd" "开始/结束";
+MG_displaySC "poseAnimLib.advancedEditUI.rebuild" "重建整个数据";
+
+MG_displaySC "poseAnimLib.advancedEditUI.imageWriteMode" "图片覆写模式";
+MG_displaySC "poseAnimLib.advancedEditUI.replaceExImage" "替换已有图像";
+MG_displaySC "poseAnimLib.advancedEditUI.updateExImage" "更新已有图像";
+MG_displaySC "poseAnimLib.advancedEditUI.appendExImage" "追加到旧图像";
+MG_displaySC "poseAnimLib.advancedEditUI.keepIconIndex" "不影响图标索引";
+MG_displaySC "poseAnimLib.advancedEditUI.movie" "视频";
+MG_displaySC "poseAnimLib.advancedEditUI.lbl" "标签";
+MG_displaySC "poseAnimLib.advancedEditUI.time" "时间";
+MG_displaySC "poseAnimLib.advancedEditUI.makeIcon.go" "生成图片!!";
+
+MG_displaySC "poseAnimLib.advancedEditUI.resetFromBackUp" "从备份还原 >";
+
+MG_displaySC "poseAnimLib.advancedEditUI.backupData" "备份数据 >";
+MG_displaySC "poseAnimLib.advancedEditUI.backup.both" "备份两者..";
+MG_displaySC "poseAnimLib.advancedEditUI.backup.data" "备份数据..";
+MG_displaySC "poseAnimLib.advancedEditUI.backup.image" "备份预览图..";
+
+MG_displaySC "poseAnimLib.selCtl.rep" " 个库项目的物件在场景里被选择.";
+MG_displaySC "poseAnimLib.dontShowAgain" "不要再确认";
+
+MG_displaySC "poseAnimLib.noCamPresetSel" "列表里没有选择任何摄像机书签.";
+MG_displaySC "poseAnimLib.renameCamPreset.rename.lowerCase" "重命名";
+MG_displaySC "poseAnimLib.renameCamPreset.mes" "重命名摄像机书签:";
+MG_displaySC "poseAnimLib.renameCamPreset.canceled" "摄像机书签重命名动作被用户取消.";
+MG_displaySC "poseAnimLib.renameCamPreset.delete" "删除";
+MG_displaySC "poseAnimLib.renameCamPreset.failed" " # 摄像机书签失败: ";
+MG_displaySC "poseAnimLib.renameCamPreset.success" "成功地 # 了摄像机书: ";
+
+MG_displaySC "poseAnimLib.optionUI.title" " 选项";
+MG_displaySC "poseAnimLib.optionUI.unifiedLocalRoot" "统一的本地根路径:";
+MG_displaySC "poseAnimLib.optionUI.unifiedGlobalRoot" "统一的全局根路径:";
+MG_displaySC "poseAnimLib.optionUI.reset" "重置";
+MG_displaySC "poseAnimLib.optionUI.projs" "库工程:";
+MG_displaySC "poseAnimLib.optionUI.globalDirSetting" "全局目录设置";
+MG_displaySC "poseAnimLib.optionUI.globalProjDirSetting" "库工程全局目录设置:";
+
+MG_displaySC "poseAnimLib.optionUI.saveProjSetting" "保存库工程设置";
+MG_displaySC "poseAnimLib.optionUI.iconSize" "图标大小";
+
+MG_displaySC "poseAnimLib.optionUI.iconSize.small" "小 [50x50]";
+MG_displaySC "poseAnimLib.optionUI.iconSize.medium" "中 [90x90]";
+MG_displaySC "poseAnimLib.optionUI.iconSize.big" "大 [180x180]";
+MG_displaySC "poseAnimLib.optionUI.iconSize.custom" "自定义大小:";
+MG_displaySC "poseAnimLib.optionUI.iconSize.minMax" "(最小: 32x32, 最大: 512x512)";
+MG_displaySC "poseAnimLib.optionUI.captureAppearance" "拍屏外观";
+MG_displaySC "poseAnimLib.optionUI.capture.title" "拍屏";
+
+MG_displaySC "poseAnimLib.optionUI.avoidHilite" "自动去除选择高亮";
+MG_displaySC "poseAnimLib.optionUI.avoidNurbsCurve" "自动隐藏Nurbes曲线";
+MG_displaySC "poseAnimLib.optionUI.captureCam.title" "拍屏摄像机";
+MG_displaySC "poseAnimLib.optionUI.captureCam.userCamPreset" "用户摄像机书签";
+MG_displaySC "poseAnimLib.optionUI.captureCam.initialCam.title" "初始摄像机设置";
+MG_displaySC "poseAnimLib.optionUI.captureCam.ann" "不需要做初始摄像机设置，你只需调整摄像然后存为书签.";
+
+MG_displaySC "poseAnimLib.optionUI.itemDisplaySize.title" "项目显示大小";
+MG_displaySC "poseAnimLib.optionUI.itemDisplaySize.small" "小尺寸";
+MG_displaySC "poseAnimLib.optionUI.itemDisplaySize.medium" "中等尺寸";
+MG_displaySC "poseAnimLib.optionUI.itemDisplaySize.large" "大尺寸";
+
+MG_displaySC "poseAnimLib.optionUI.confirmation.title" "确认";
+MG_displaySC "poseAnimLib.optionUI.confirmation.beforeDel" "删除项前确认";
+MG_displaySC "poseAnimLib.optionUI.confirmation.beforeEdit" "编辑项前确认";
+MG_displaySC "poseAnimLib.optionUI.confirmation.beforeUploadDownload" "上传下载项目遇到已存在则确认";
+
+MG_displaySC "poseAnimLib.optionUI.reportDebug.title" "反馈 & 纠错";
+MG_displaySC "poseAnimLib.optionUI.reportDebug.statusLine" "状态栏反馈";
+MG_displaySC "poseAnimLib.optionUI.reportDebug.scriptEditor" "脚本编辑器反馈";
+MG_displaySC "poseAnimLib.optionUI.reportDebug.slience" "沉默";
+MG_displaySC "poseAnimLib.optionUI.reportDebug.intemediate" "适中";
+MG_displaySC "poseAnimLib.optionUI.reportDebug.verbose" "罗嗦";
+
+MG_displaySC "poseAnimLib.optionUI.dir.title" "库工程";
+MG_displaySC "poseAnimLib.optionUI.misc.title" "杂项";
+
+MG_displaySC "poseAnimLib.optionUI.advancedImageViewer.title" "高级图象浏览器";
+MG_displaySC "poseAnimLib.optionUI.advancedImageViewer.useDefault" "使用操作系统默认";
+MG_displaySC "poseAnimLib.optionUI.advancedImageViewer.useCustom" "使用自定义";
+
+MG_displaySC "poseAnimLib.optionUI.customImageViewer" "自定义图象浏览器:";
+MG_displaySC "poseAnimLib.optionUI.moviePlayer" "视频播放器";
+MG_displaySC "poseAnimLib.optionUI.moviePlayer.usePoseAnim" "使用工具自带";
+MG_displaySC "poseAnimLib.optionUI.customMoviePlayer.usePoseAnim" "自定义视频播放器:";
+MG_displaySC "poseAnimLib.optionUI.external.title" "外部";
+
+MG_displaySC "poseAnimLib.snapshotUI.previewCount" "预览图数量:";
+MG_displaySC "poseAnimLib.snapshotUI.iconUse" "图标使用:";
+MG_displaySC "poseAnimLib.snapshotUI.getActived" "< 设置为当前";
+MG_displaySC "poseAnimLib.snapshotUI.activeToPreset" "激活视图 -> 书签";
+MG_displaySC "poseAnimLib.snapshotUI.allToPreset" "全部4视图 -> 书签";
+MG_displaySC "poseAnimLib.snapshotUI.tweakCam" "调整激活视图摄像机..";
+
+MG_displaySC "poseAnimLib.snapshotUI.isoSelRig" "隔离显示所选Rig";
+MG_displaySC "poseAnimLib.snapshotUI.isoAllRig" "隔离显示所选物件";
+MG_displaySC "poseAnimLib.snapshotUI.cancelIso" "取消隔离";
+
+MG_displaySC "poseAnimLib.main.renameProj" "重命名库工程..";
+MG_displaySC "poseAnimLib.main.manageProj" "编辑当前库工程..";
+MG_displaySC "poseAnimLib.main.downloadUploadCurrentLib" "上传/下载当前库..";
+MG_displaySC "poseAnimLib.main.downloadUploadBothLib" "上传/下载Pose&&动作库..";
+
+MG_displaySC "poseAnimLib.main.browseProj" "浏览当前工程目录..";
+MG_displaySC "poseAnimLib.main.browseCLib" "浏览当前库目录..";
+
+MG_displaySC "poseAnimLib.main.newChar" "新建角色..";
+MG_displaySC "poseAnimLib.main.renameChar" "重命名角色..";
+MG_displaySC "poseAnimLib.main.removeChar" "移除角色..";
+MG_displaySC "poseAnimLib.main.downloadUploadChar" "上传/下载当前角色..";
+MG_displaySC "poseAnimLib.main.browseChar" "浏览当前角色目录..";
+
+MG_displaySC "poseAnimLib.main.newCate" "新建类别..";
+MG_displaySC "poseAnimLib.main.renameCate" "重命名类别..";
+MG_displaySC "poseAnimLib.main.removeCate" "移除类别..";
+MG_displaySC "poseAnimLib.main.downloadUploadCate" "上传/下载当前类别..";
+MG_displaySC "poseAnimLib.main.browseCate" "浏览当前类别目录..";
+
+MG_displaySC "poseAnimLib.main.newItem" "新建项..";
+MG_displaySC "poseAnimLib.main.editItem" "编辑所选项..";
+MG_displaySC "poseAnimLib.main.resnapshotItem" "重新拍屏所选项..";
+MG_displaySC "poseAnimLib.main.renameItem" "重命名所选项..";
+MG_displaySC "poseAnimLib.main.removeItem" "移除所选项(s)..";
+MG_displaySC "poseAnimLib.main.moveCopyItem" "移动/复制所选项(s)..";
+MG_displaySC "poseAnimLib.main.downloadUploadItem" "上传/下载所选项(s)..";
+MG_displaySC "poseAnimLib.main.browseItem" "浏览当前项目录..";
+
+MG_displaySC "poseAnimLib.main.selection" "选择";
+
+MG_displaySC "poseAnimLib.main.Config" "配置";
+MG_displaySC "poseAnimLib.main.Configuration" "配置..";
+
+MG_displaySC "poseAnimLib.main.help" "帮助";
+MG_displaySC "poseAnimLib.main.helpDot" "帮助..";
+
+MG_displaySC "poseAnimLib.main.switch.localGlobal" "切换本地/全局";
+MG_displaySC "poseAnimLib.main.switch.poseAnim" "切换Pose/动作";
+MG_displaySC "poseAnimLib.main.charcolumn" "角色:";
+
+MG_displaySC "poseAnimLib.main.itemClicked" "点击模式";
+MG_displaySC "poseAnimLib.main.itemClicked.libManage" "库管理";
+MG_displaySC "poseAnimLib.main.itemClicked.simpleApply" "简单应用";
+MG_displaySC "poseAnimLib.main.itemClicked.advancedApply" "高级应用";
+
+MG_displaySC "poseAnimLib.main.itemClicked.ctrl" "Ctrl点击";
+MG_displaySC "poseAnimLib.main.ns.use" "命名空间使用: ";
+MG_displaySC "poseAnimLib.main.ns.selNS" "所选物件命名空间";
+MG_displaySC "poseAnimLib.main.ns.poseNS" "Pose命名空间";
+MG_displaySC "poseAnimLib.main.ns.custom" "自定义";
+MG_displaySC "poseAnimLib.main.ns.getFromSel" "< 选择";
+
+MG_displaySC "poseAnimLib.main.testExist" "测试存在";
+MG_displaySC "poseAnimLib.main.selTarget" "选择控制器";
+
+MG_displaySC "poseAnimLib.main.applyOpl.title" "应用选项: ";
+MG_displaySC "poseAnimLib.main.applyOpl.cFrame" "到当前帧";
+MG_displaySC "poseAnimLib.main.applyOpl.poseFrame" "到pose创建帧 ";
+MG_displaySC "poseAnimLib.main.applyOpl.filterObj.lbl" "筛选对象: ";
+MG_displaySC "poseAnimLib.main.applyOpl.attr.lbl" "属性: ";
+MG_displaySC "poseAnimLib.main.applyOpl.unfilter" "不筛选";
+MG_displaySC "poseAnimLib.main.applyOpl.onlySelObj" "只有所选物件";
+MG_displaySC "poseAnimLib.main.applyOpl.ignoreSelObj" "忽略所选物件";
+MG_displaySC "poseAnimLib.main.applyOpl.onlySelAttr" "只有所选属性";
+MG_displaySC "poseAnimLib.main.applyOpl.ignoreSelAttr" "忽略所选属性";
+MG_displaySC "poseAnimLib.main.applyOpl.fromMayaCBox" "基于Maya通道栏";
+MG_displaySC "poseAnimLib.main.applyOpl.fromMGCBox" "基于MG-通道栏";
+MG_displaySC "poseAnimLib.main.applyOpl.worldSpace" "应用于世界坐标";
+MG_displaySC "poseAnimLib.main.applyOpl.advanced" "高级应用";
+
+MG_displaySC "poseAnimLib.createPoseUI.name" "Pose名称:";
+MG_displaySC "poseAnimLib.createPoseUI.finished" "已完成:";
+MG_displaySC "poseAnimLib.createPoseUI.finished.keepPanel" "保持界面";
+MG_displaySC "poseAnimLib.createPoseUI.finished.hidePanel" "隐藏界面";
+MG_displaySC "poseAnimLib.createPoseUI.finished.PreviewItem" "预览项";
+
+MG_displaySC "poseAnimLib.toShelf.mi" "安装Pose到工具架..";
+MG_displaySC "poseAnimLib.toShelf.ann" "安装当前所选控制器的pose到当前Maya工具架.";
+MG_displaySC "poseAnimLib.createPoseUI.toShelf" "到工具架";
+MG_displaySC "poseAnimLib.createPoseUI.closed" "关闭";
+MG_displaySC "poseAnimLib.createPoseUI.create" "创建!!";
+
+MG_displaySC "poseAnimLib.createPoseUI.animName" "动作名称";
+MG_displaySC "poseAnimLib.createPoseUI.movie" "视频";
+MG_displaySC "poseAnimLib.createPoseUI.hierarchy" "层级";
+
+MG_displaySC "poseAnimLib.preview.prevImage" "上一张图";
+MG_displaySC "poseAnimLib.preview.nextImage" "下一张图";
+MG_displaySC "poseAnimLib.preview.prevItem" "上一项";
+MG_displaySC "poseAnimLib.preview.nextItem" "下一项";
+MG_displaySC "poseAnimLib.preview.watchAllMovie" "播放所有视频(s)";
+MG_displaySC "poseAnimLib.preview.watchCMovie" "播放当前视频";
+MG_displaySC "poseAnimLib.preview.setAsIcon" "设置为图标";
+
+MG_displaySC "poseAnimLib.statusIdle" ">> 状态闲置.";
+
+MG_displaySC "poseAnimLib.crateItem.finished" "动作项应用完成.";
+MG_displaySC "poseAnimLib.crateItem.creatingImage" "创建预览图..";
+MG_displaySC "poseAnimLib.crateItem.newImageMade.prefix" "新预览图已生成: ";
+
+
+
+
+//---------control annotations.-------------------------------------------
+MG_displaySC "poseAnimLib.newCateUI.tsl.ann" "该列表显示了所有的类别预置.";
+
+MG_displaySC "poseAnimLib.topHierarchyUI.proj.ann" "该按钮显示了当前库工程（如果有）。直接单击来显示所有既有库工程，及新建新的库工程.";
+MG_displaySC "poseAnimLib.topHierarchyUI.proj.arrow.ann" "直接单击该箭头来显示所有既有库工程及新建新的库工程";
+MG_displaySC "poseAnimLib.topHierarchyUI.localGlobalSwitch.ann" "点击来切换本地/全局库.";
+MG_displaySC "poseAnimLib.topHierarchyUI.poseAnimSwitch.ann" "点击来切换Pose/动作库.";
+MG_displaySC "poseAnimLib.topHierarchyUI.char.ann" "该按钮显示了当前角色（如果有）. 直接单击来显示所有既有角色，及新建新的角色.";
+MG_displaySC "poseAnimLib.topHierarchyUI.char.arrow.ann" "直接单击该箭头来显示所有既有角色及新建新的角色.";
+MG_displaySC "poseAnimLib.topHierarchyUI.cate.ann" "该按钮显示了当前类别（如果有）. 直接单击来显示所有既有类别，及新建新的类别.";
+
+MG_displaySC "poseAnimLib.topHierarchyUI.frameLayout.ann" "该区域显示了当前类别的完成路径，右键来浏览不同层级的目录.";
+  
+MG_displaySC "poseAnimLib.newProjUI.description.ann" "这一栏是选填的，请输入一些库工程的描述.";
+MG_displaySC "poseAnimLib.newProjUI.noGlobal.ann" "采用该选项，则视为放弃全局库，因为这样全局库即等同于本地库。";
+MG_displaySC "poseAnimLib.newProjUI.customRoot.ann" "采用该选项，则可设置自定义的目录为该库工程的全局根目录。";
+MG_displaySC "poseAnimLib.newProjUI.RootPoseLib.ann" "采用该选项，则采用 [上面所设置的库全局根目录]/PoseLib 作为当前Pose库的全局目录.";
+MG_displaySC "poseAnimLib.newProjUI.customPoseRoot.ann" "采用该选项，则可设置自定义的目录为该Pose库全局目录。";
+MG_displaySC "poseAnimLib.newProjUI.RootAnimLib.ann" "采用该选项，则采用 [上面所设置的库全局根目录]/AnimLib 作为当前动作库的全局目录.";
+MG_displaySC "poseAnimLib.newProjUI.customAnimRoot.ann" "采用该选项，则可设置自定义的目录为该动作库全局目录。";
+
+MG_displaySC "poseAnimLib.copyMoveUI.refresh.ann" "点击来刷新复制/移动窗口，以显示新的角色及类别.";
+
+MG_displaySC "poseAnimLib.advancedEditUI.frameLayout.ann" "该区域显示了当前编辑项的完整层级路径.";
+MG_displaySC "poseAnimLib.advancedEditUI.openDirBtn.ann" "点击浏览当前编辑项的所在目录.";
+MG_displaySC "poseAnimLib.advancedEditUI.editMode.ann" "选择一个编辑模式: 是要编辑当前pose/动作库的数据文件，还是重新拍屏生成预览图.";
+MG_displaySC "poseAnimLib.advancedEditUI.list.ann" "这个列表列出了当前项所涉及到的控制器.";
+
+MG_displaySC "poseAnimLib.advancedEditUI.selListItem.ann" "将所选列表项所代表的控制器在场景里选择.";
+MG_displaySC "poseAnimLib.advancedEditUI.selAllListItem.ann" "将所有列表项所代表的控制器在场景里选择.";
+MG_displaySC "poseAnimLib.advancedEditUI.remListItem.ann" "将所选列表项所代表的控制器从成员列表里移除.";
+MG_displaySC "poseAnimLib.advancedEditUI.remSceneItem.ann" "将场景所选控制器从成员列表里移除.";
+MG_displaySC "poseAnimLib.advancedEditUI.updateScenetItem.ann" "在成员列表里添加/更新场景所选控制器.";
+MG_displaySC "poseAnimLib.advancedEditUI.rebuild.ann" "基于场景所选控制器来重新生成整个数据文件.";
+MG_displaySC "poseAnimLib.advancedEditUI.backup.ann" "在项被不可撤消编辑之前备份它。";
+
+MG_displaySC "poseAnimLib.advancedEditUI.prevImage.ann" "切换到该项的上一张预览图.";
+MG_displaySC "poseAnimLib.advancedEditUI.nextImage.ann" "切换到该项的下一张预览图.";
+MG_displaySC "poseAnimLib.advancedEditUI.setIcon.ann" "将当前预览图设置为当前项的图标.";
+MG_displaySC "poseAnimLib.advancedEditUI.renameFiled.ann" "重命名项.";
+
+MG_displaySC "poseAnimLib.advancedEditUI.animRebuild.hierarchyMode.ann" "为动作数据重建选择一个层级模式.";
+MG_displaySC "poseAnimLib.advancedEditUI.animRebuild.timeMode.ann" "为动作数据重建选择一个时间范围模式.";
+
+MG_displaySC "poseAnimLib.advancedEditUI.imageMode.replace.ann" "全部的预览文件将会被移除或被更新.";
+MG_displaySC "poseAnimLib.advancedEditUI.imageMode.update.ann" "更新同样名称的旧预览文件，其它旧预览文件保留.";
+MG_displaySC "poseAnimLib.advancedEditUI.imageMode.append.ann" "保留所有旧预览文件，只追求新的预览文件.";
+MG_displaySC "poseAnimLib.advancedEditUI.keepIconIndex.ann" "如果开启，则图标的采用索引不会被更动.";
+
+MG_displaySC "poseAnimLib.advancedEditUI.movieDimension.ann" "设置视频的长宽像素.";
+MG_displaySC "poseAnimLib.advancedEditUI.subfix.ann" "这些栏位设置预览图或视频的前缀名.";
+MG_displaySC "poseAnimLib.advancedEditUI.remakeIconGo.ann" "点击来拍屏.";
+
+MG_displaySC "poseAnimLib.dontShowAgain.ann" "如果开启，则该确认框下次不会再出现。你总是可以再通过\"配置/配置..\"菜单来重新打开。";
+
+MG_displaySC "poseAnimLib.optionUI.unifiedLocalRoot.ann" "设置统一的本地根目录，不建议您去更动它。";
+MG_displaySC "poseAnimLib.optionUI.unifiedGlobalRoot.ann" "设置统一的全局根目录. 不同的库工程可以放到这一个统一的根目录下面。";
+
+MG_displaySC "poseAnimLib.optionUI.newProj.ann" "点击创建新的库工程.";
+MG_displaySC "poseAnimLib.optionUI.renameProj.ann" "点击来重命名列表中高亮的库工程。";
+MG_displaySC "poseAnimLib.optionUI.projList.ann" "该列表列出了目前在本地库根目录中所有的库工程.";
+MG_displaySC "poseAnimLib.optionUI.resetProjEdit.ann" "重新读取库工程文件，以便重置所有修改.";
+
+MG_displaySC "poseAnimLib.optionUI.avoidHilite.ann" "在拍屏前自动去掉选择的高亮.";
+MG_displaySC "poseAnimLib.optionUI.avoidNurbsCurves.ann" "在拍屏前自动隐藏nurbs曲线.";
+
+MG_displaySC "poseAnimLib.optionUI.camPreset.rename.ann" "重命名列表中所选的摄像书签.";
+MG_displaySC "poseAnimLib.optionUI.camPreset.del.ann" "删除列表中所选的摄像书签.";
+
+MG_displaySC "poseAnimLib.optionUI.threeSize.ann" "该栏设置了项按钮的3个大中小尺寸，主界面的放大镜图标将在这三个尺寸间切换.";
+MG_displaySC "poseAnimLib.optionUI.statusReport.ann" "选择主界面状态栏的反馈罗嗦程度。罗嗦模式将拖慢速度，一般用于纠错.";
+MG_displaySC "poseAnimLib.optionUI.scriptEditReport.ann" "选择脚本编辑器的反馈罗嗦程度。罗嗦模式将拖慢速度，一般用于纠错.";
+
+MG_displaySC "poseAnimLib.optionUI.advancedImageViewer.ann" "选择预览图片的浏览器模式，当前该选项无效.";
+MG_displaySC "poseAnimLib.optionUI.moviePlayer.ann" "选择预览视频的播放器模式，目前你只能使用外部视频播放器.";
+
+MG_displaySC "poseAnimLib.snapshotUI.previewCount.ann" "点击来设置预览图的个数，一次性最多4个.";
+MG_displaySC "poseAnimLib.snapshotUI.iconUse.ann" "点击来设置用来做图标的视图索引. \n在四视图情况下，左上视图是#1, 右上视图是#2, 右下视图是#3, 左下视图是#4.";
+MG_displaySC "poseAnimLib.snapshotUI.getActiveAsIconUse.ann" "将当前激活的视图拍出的预览图作为图标.";
+
+MG_displaySC "poseAnimLib.snapshotUI.camPresetOMG.ann" "选择一个摄像机书签来应用到当前激活视图。\n以\"~\"开头的书签是预置书签，有\"[4]\"标识的书签包含全部4个视图的配置，将应用到4个视图.";
+MG_displaySC "poseAnimLib.snapshotUI.camPreset.saveActive.ann" "保存当前激活视图的摄像机配置为书签.";
+MG_displaySC "poseAnimLib.snapshotUI.camPreset.saveAll.ann" "保存所有4视图的摄像机配置为书签.";
+MG_displaySC "poseAnimLib.snapshotUI.camPreset.tweakCam.ann" "打开属性编辑器，这样你可以再细调视图摄像机.";
+
+MG_displaySC "poseAnimLib.snapshotUI.viewConfig.doubleClick.ann" "双击来在4个视图里同时开关.";
+MG_displaySC "poseAnimLib.snapshotUI.viewConfig.hud.ann" "开关视图HUD显示.";
+MG_displaySC "poseAnimLib.snapshotUI.viewConfig.nurbsCurve.ann" "开关视图Nurbs曲线显示.";
+MG_displaySC "poseAnimLib.snapshotUI.viewConfig.nurbsSurface.ann" "开关视图Nurbs曲面显示.";
+MG_displaySC "poseAnimLib.snapshotUI.viewConfig.grid.ann" "开关视图网格显示.";
+MG_displaySC "poseAnimLib.snapshotUI.viewConfig.highlight.ann" "开关视图选择高亮的显示.";
+MG_displaySC "poseAnimLib.snapshotUI.viewConfig.texture.ann" "开关视图贴图显示.";
+MG_displaySC "poseAnimLib.snapshotUI.viewConfig.wire.ann" "开关视图模型线框显示.";
+
+//$ann = `MG_DualLan "poseAnimLib.mainUI.animMode.ann"`;
+MG_displaySC "poseAnimLib.mainUI.openProj.ann" "点击来打开一个.libproj的库工程文件.";
+MG_displaySC "poseAnimLib.mainUI.browse.lib.ann" "浏览当前库根目录.";
+MG_displaySC "poseAnimLib.mainUI.browse.char.ann" "浏览当前角色目录.";
+MG_displaySC "poseAnimLib.mainUI.browse.cate.ann" "浏览当前类别目录.";
+MG_displaySC "poseAnimLib.mainUI.browse.item.ann" "浏览当前所选项所在目录.";
+
+MG_displaySC "poseAnimLib.mainUI.zoom.ann" "在大中小三个图标大小预置中切换。这三个尺寸可以通过\"配置/配置..\"菜单来设置.";
+MG_displaySC "poseAnimLib.mainUI.rename.ann" "重命名所选项.";
+MG_displaySC "poseAnimLib.mainUI.moveCopy.ann" "移动/复制所选项(s)到其它类别。";
+MG_displaySC "poseAnimLib.mainUI.del.ann" "删除所选项(s).";
+MG_displaySC "poseAnimLib.mainUI.add.ann" "新建项.";
+MG_displaySC "poseAnimLib.mainUI.preview.ann" "显示预览区以便预览项的预览图及元信息.";
+MG_displaySC "poseAnimLib.mainUI.switchArea.ann" "该区域标示了当前库是本地还是全局的，及是Pose库还是动作库。点击来切换它们.";
+MG_displaySC "poseAnimLib.mainUI.sizeSlider.ann" "拖动这个滑条来光滑缩放图标大小.";
+
+MG_displaySC "poseAnimLib.mainUI.poseMode.ann" "库管理模式，在该模式你无法应用Pose，不过可以用它来管理维护库.\n简单应用模式: 直接点击某项来应用Pose. \n高级应用模式: 需要先选择一个pose按钮，然后点击 \"高级应用\" 来应用它.";
+MG_displaySC "poseAnimLib.mainUI.poseOption.ctrl.ann" "该栏设置当您按\"Ctrl\"键应用时每次应用的百分比.";
+MG_displaySC "poseAnimLib.mainUI.poseOption.selNS.ann" "使用当前场景所选物件的命名空间.";
+MG_displaySC "poseAnimLib.mainUI.poseOption.poseNS.ann" "使用Pose数据文件里记录的命名空间.";
+MG_displaySC "poseAnimLib.mainUI.poseOption.customNS.ann" "使用用户输入的命名空间。可以通过在场景选择个节点，然后点击\"<选择\" 按钮来快速填入.";
+MG_displaySC "poseAnimLib.mainUI.testReport.ann" "根据当前命名空间选项来测试当前目录控制器在场景里是否存在。";
+MG_displaySC "poseAnimLib.mainUI.selectTarget.ann" "根据当前命名空间选项在场景里选择相应的pose控制器.";
+MG_displaySC "poseAnimLib.mainUI.poseOption.timeMode.ann" "选择pose是应用在当前帧还是pose创建时所在的帧.";
+MG_displaySC "poseAnimLib.mainUI.poseOption.onlySelAttr.ann" "只有在Maya通道栏/MG-通道栏里选择的属性才会被应用，其它属性不会被变动.";
+MG_displaySC "poseAnimLib.mainUI.poseOption.ignoreSelAttr.ann" "忽略在Maya通道栏/MG-通道栏里选择的属性，这些属性不会被变动.";
+MG_displaySC "poseAnimLib.mainUI.poseOption.wordspace.ann" "应用到世界坐标";
+
+MG_displaySC "poseAnimLib.mainUI.advancedApplyBtn.ann" "点击应用当前项，基于当前的应用选项.";
+MG_displaySC "poseAnimLib.mainUI.applySlider.ann" "拖动来从 0% 到 100% 间应用该Pose.";
+
+MG_displaySC "poseAnimLib.mainUI.animMode.ann" "库管理模式，在该模式你无法应用动作，不过可以用它来管理维护库.\n高级应用模式: 需要先选择一个动作按钮，然后点击 \"高级应用\" 来应用它.";
+MG_displaySC "poseAnimLib.mainUI.animNSMode.ann" "同一Rig/无命名空间: 不要映射替换命名空间. \n映射到其它Rig: 基于用户的输入来替换命名空间.";
+MG_displaySC "poseAnimLib.mainUI.poseOption.timeMode.ann" "选择动作是应用在当前帧还是动作创建时所在的帧.";
+
+MG_displaySC "poseAnimLib.mainUI.poseOption.times.ann" "设置应用次数，在应用动作循环时很有用，如果动作创建时没有一个时间范围，则该项无效.";
+
+MG_displaySC "poseAnimLib.mainUI.snapShot.close.ann" "关闭拍屏区域.";
+
+MG_displaySC "poseAnimLib.mainUI.previewArea.pix.ann" "该区域显示了预览图，直接左键点击来访问更多功能.";
+MG_displaySC "poseAnimLib.mainUI.previewMovieButton.ann" "单击播放视频，双击播放所有视频.";
+
+
+MG_displaySC "poseAnimLib.mainUI.itemArea.ann" "该区域列出库的内容. \n在库管理模式，按钮支持多选, ctrl及shift键可以用来多选.\n在高级应用模式，只支持单选.";
+MG_displaySC "poseAnimLib.mainUI.previewArea.nextItem.ann" "点击预览下一项.";
+MG_displaySC "poseAnimLib.mainUI.previewArea.prevItem.ann" "点击预览上一项.";
+
+MG_displaySC "poseAnimLib.mainUI.previewArea.info.ann" "该区显示了当前项的信息.";
+MG_displaySC "poseAnimLib.mainUI.refreshBtn.ann" "点击刷新库的显示.";
+
+MG_displaySC "poseAnimLib.not2011.war" "抱歉，MG-Pose动作库只能在Maya2011及以后的Maya版本运行，造成不便还请见谅.";
+
+
+MG_displaySC "poseAnimLib.noGlobal.war" "当前库工程没有全局库.如果您需要，请点击\"编辑当前库工程..\"按钮来指定一个库工程全局目录.";

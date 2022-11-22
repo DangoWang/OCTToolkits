@@ -1,0 +1,10 @@
+If you want to install MG-PickerStudio, please follow the steps below:
+  1: Do not change anything of the current folder and its content, left mouse button drag the "MGPicker_installer.mel" to Maya's 3d viewport then drop it.
+  2: The installation wizard will show up,just follow it to install. If it does not, manullay source "MGPicker_installer.mel" in maya's script editor.
+
+
+Feel free to visit http://mgland.com or http://twincodes.com, email to mgpickerstudio@gmail.com to provide any feedback.
+ 
+Thanks for using MG-PickerStudio! 
+Enjoy!
+Miguel

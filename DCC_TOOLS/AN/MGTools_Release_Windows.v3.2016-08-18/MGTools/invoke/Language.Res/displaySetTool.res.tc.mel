@@ -1,0 +1,54 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+
+MG_displayTS "displayTool.title" "顯示層集工具";
+MG_displayTS "displayTool.menu.title" "雜項";
+MG_displayTS "displayTool.menu.eval.mi" "使用當前所選";
+MG_displayTS "displayTool.menu.evalAll.mi" "使用全部集";
+MG_displayTS "displayTool.menu.rename.mi" "重新命名";
+MG_displayTS "displayTool.menu.delete.mi" "刪除";
+MG_displayTS "displayTool.menu.removeMem.mi" "從成員裡移除";
+MG_displayTS "displayTool.menu.removeMem.anno" "把當前場景所選物體從當前顯示層整合員裡移除";
+MG_displayTS "displayTool.menu.addSel.mi" "加入當前場景選擇";
+MG_displayTS "displayTool.menu.remSel.mi" "移除當前場景選擇";
+MG_displayTS "displayTool.menu.newFromSel.mi" "從當前場景選擇新建集";
+MG_displayTS "displayTool.menu.newFromLayer.mi" "從當前顯示層新建集";
+MG_displayTS "displayTool.menu.openSetFolder.mi" "開啟顯示層集資料夾";
+MG_displayTS "displayTool.menu.help.title" "幫助";
+MG_displayTS "displayTool.menu.help.mi" "幫助..";
+
+MG_displayTS "displayTool.textAnno" "* 雙擊左下列表項目來使用相應的集,右下列表項目來選擇成員物體: ";
+MG_displayTS "displayTool.Lliset.title" "顯示層集 (Layer):";
+MG_displayTS "displayTool.Lliset.anno" "雙擊我來使用我";
+MG_displayTS "displayTool.Rliset.title" "成員列表";
+MG_displayTS "displayTool.selMem.anno" "雙擊我來選擇相應成員物體";
+MG_displayTS "displayTool.selMem.mi" "選擇該成員物體";
+MG_displayTS "displayTool.refreshUI.btn" "重新整理介面";
+MG_displayTS "displayTool.close.btn" "關閉";
+
+MG_displayTS "displayTool.noSel.war" "在場景裡選過一些物體再來執行我吧 :)";
+MG_displayTS "displayTool.prompt.title" "顯示層集/顯示層名字";
+MG_displayTS "displayTool.prompt.message" "請輸入名字:";
+MG_displayTS "displayTool.prompt.OK" "確定";
+MG_displayTS "displayTool.prompt.no" "不";
+MG_displayTS "displayTool.prompt.Cancel" "取消";
+MG_displayTS "displayTool.prompt.war" "請輸入合法的顯示層名!!";
+
+MG_displayTS "displayTool.noMem.war" "你所選的顯示層集沒有成員在裡面哦 :(";
+MG_displayTS "displayTool.noSelectedSet.war" "你在顯示層編輯器裡沒有選中的顯示層哦 :P";
+
+MG_displayTS "displayTool.existed.war.title" "警報 !";
+MG_displayTS "displayTool.existed.war.message" "名叫#.set的顯示層集已存在，要覆蓋嗎?";
+MG_displayTS "displayTool.existed.war.war" "哈羅,請嘗試其它不一樣的名字, 謝謝 :)";
+
+MG_displayTS "displayTool.noSetSelectedOrNoSet.war" "左列表中沒有選中的顯示層集或者根本沒有顯示層集存在?  :P";
+MG_displayTS "displayTool.displayLayersNum.rep" " # 個顯示層被創建";
+MG_displayTS "displayTool.displayLayersNoNum.rep" "沒有顯示層集被創建哦 :(" ;
+

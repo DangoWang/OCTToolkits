@@ -1,0 +1,1345 @@
+/* This file downloaded from Highend3d.com
+''  
+''  Highend3d.com File Information:
+''  
+''    Script Name: ntMirrorBlendShape
+''    Author: nelsonteixeira 
+''    Last Updated: Sep 29, 2006
+''    Update/Change this file at:
+''    http://Highend3d.com/maya/downloads/mel_scripts/animation/813.html
+''  
+''  Please do not alter any information above this line
+''  it is generated dynamically by Highend3d.com and will
+''  be changed automatically on any updates.
+*/
+//-----------------------------------------------------------------//
+//-----------------------------------------------------------------//
+//	SCRIPT:	ntMBS.mel
+//	AUTHOR:	Nelson Teixeira
+//			MSN: nelson_atwork@hotmail.com
+//			e-mail: nelson3d@gmail.com
+//	
+//	CREATION DATE: FEB 17, 2005	
+//	LAST UPDATE: 	SEP 22, 2006	
+//
+//
+//	DESCRIPTION:	This script can be used to create
+//			mirrored blendshapes. So you don磘 have to
+//			make the job twice.	
+//
+//-----------------------------------------------------------------//
+//-----------------------------------------------------------------////
+
+global proc Mirror_BlendShapeUI()
+{  
+	global int $abSymTable[];
+	global string $abSbg;
+	int $sbgBnsEn = false; //bool for enabled state of sbg dependent buttons
+	string $selBaseGeo;
+	string $sel[]=`ls -sl`;
+	
+	$sel = `ls -sl`;
+	$win = "nt_MirrorBlendShape";
+	if (`window -exists $win`)
+		deleteUI $win;
+	window -t "ntMirrorBlendShape v2.0" $win;
+	columnLayout -w    250   -h    100  -rowSpacing 10;
+frameLayout	 -cll 0  -cl 0 -l "镜像模型" abSymForm;
+formLayout  kiyd;
+radioButtonGrp	-vis 0 -numberOfRadioButtons 3 -l1 "YZ" -l2 "XZ" -l3 "XY"
+		-select 1 -columnWidth3 70 70 70     
+		-columnAttach 1 "left" 30 
+		-columnAttach 2 "left" 30
+		-columnAttach 3 "left" 30
+		-onCommand "abSymCtl(\"saRbGrp\")" saRbGrp; 
+separator  -vis 0 -style "in" sep1;
+rowLayout	 -vis 0   -nc    2    -cw2    80    50     -columnAttach 1 "left" 20 -columnAttach 2 "left" 20;	 
+text -l "点的全局范围" -vis 0 tolTxt;
+textField -editable true -text ".001" -vis 0 tolFld;
+setParent..;	
+separator -vis 0 -style "in" sep2;
+rowLayout	   -nc    2    -cw2    50    80     -columnAttach 1 "left" 20 -columnAttach 2 "left" 20;
+button -l "选择模型" -vis 0   -w    60 -command "abSymCtl(\"sbgBn\")" sbgBn;	 
+textField -w    110  -vis 0   -editable true   -tx  "textField -e -tx \"ls -sl\"   sbgFld"  sbgFld;
+setParent..;
+separator -vis 0  -style "in" sep3;
+rowLayout	   -nc    2    -cw2    80    80     -columnAttach 1 "left" 10 -columnAttach 2 "left" 35 chaecex;
+checkBox   -vis 0 -l "-X to +X" -value 0 maChkBx;
+setParent..;
+rowLayout	   -nc    2    -cw2    80    80     -columnAttach 1 "left" 0 -columnAttach 2 "left" 10;
+button  -vis 0 -l "检查" -w    125 -command "checkSymmetry" msBn;
+button  -vis 0 -l "匹配"    -w    125  -command "abSymCtl(\"fsBn\")" fsBn;
+setParent..;
+separator -vis 1 -style "in"   -w 255 sep4;
+rowLayout	   -nc    2    -cw2    60    60     -columnAttach 1 "left" 0 -columnAttach 2 "left" 30 edfwee;
+//button  -l "检查对称" -w    240   -command "checkMain" csBn;
+button   -l "检查对称" -w    110   -command "abSymCtl(\"favBn\")" csBn;
+button   -l "匹配对称"  -w    110   -command "mirrorMeApply" smBn;
+setParent..;
+rowLayout	   -nc    2    -cw2    150   100     -columnAttach 1 "left" 0 -columnAttach 2 "left" -30 cccsdwedfwee;
+string $rg1 = `radioButtonGrp   -numberOfRadioButtons 2 -cw3 40 40 40 -ann "镜像轴" -label "Aixs:" -labelArray2 "-x" "+x" -select 2 mmui_rg1`;
+radioButtonGrp  -numberOfRadioButtons 2 -cw3 60 40 30 -ann "镜像UV" -label "Mirror UV:" -labelArray2 "V" "U" -select 2 UVCheck;
+setParent..;
+
+checkBox -vis 0   -l "Use Pivot as Origin" -value true upoChkBx;
+floatFieldGrp  -vis 0 -nf 1 -l "误差率" -value1 0.0001 -pre 4 -cw 1 80 tolField;
+
+		
+        //string $rg2 = `radioButtonGrp -vis 0  -numberOfRadioButtons 2 -cw3 40 40 40 -ann "镜像轴" -label "" -labelArray2 "-y" "+y"  -en 0 -shareCollection $rg1 mmui_rg2`;
+		//	string $rg3 = `radioButtonGrp -vis 0 -numberOfRadioButtons 2 -cw3 40 40 40 -ann "镜像轴" -label "" -labelArray2 "-z" "+z"  -en 0 -shareCollection $rg1 mmui_rg3`;
+  		checkBoxGrp -vis 0  -numberOfCheckBoxes 1 -cw2 60 50 -ann "自动缝合" -label "merge" -value1 true mergeCeck;
+  			checkBoxGrp -vis 0  -numberOfCheckBoxes 1 -cw2 60 50 -ann "删除历史" -label "del History" -value1 1 historyCheck;
+			
+
+            				floatFieldGrp  -vis 0 -numberOfFields 1 -en 0 -cw2 60 50 -ann "计算容差，越小越精确" -label "toleance" -precision 4 -value1 0.0001 mirrorBlendTolField;
+formLayout  -e 
+            -attachForm	sep4		"left"		10 
+            -attachForm		sep4		"top"		30
+            -attachForm	edfwee		"left"		10 
+            -attachForm		edfwee		"top"		38
+            -attachForm	cccsdwedfwee		"left"		5 
+            -attachForm		cccsdwedfwee		"top"		5
+
+
+            kiyd;
+                
+setParent..;	
+frameLayout  -cll 0  -cl 0 -l "镜像表情" Mirror_BlendShape_F; 
+formLayout     Mirror_blendsha    ;	
+	//text -label "1 - Pick base geometry";
+	textFieldButtonGrp 	-l "原始模型:" 
+						-bl "sel" 
+						-bc "PickBase" 
+                         -columnAttach 1 "left" 10
+                         -columnAttach 2 "left" 10
+                         -columnAttach 3 "left" 10
+						 -columnWidth3 60 90 90
+						//-tx $sel[0]	
+						TFBG1;
+	//button -w 60 -l "STEP1" -c STEP1 button1;
+	
+	//text -label "2 - Pick geometry to create mirror";
+	textFieldButtonGrp 	-l "表情元素:" 
+						-bl "sel" 
+						-bc "PickMirrorFrom" 
+						-columnAttach 1 "left" 10
+                         -columnAttach 2 "left" 10
+                         -columnAttach 3 "left" 10
+						-columnWidth3 60 90 90
+						//-tx $sel[1]
+						TFBG2;
+	
+
+	button -w 60    -h    50 -l "镜像表情" -c "MirrorBlendShape" buttonMBS;
+formLayout    -e
+                -attachForm		TFBG1		"left"		5 
+                -attachForm		TFBG1		"top"		5
+                -attachForm		TFBG2		"left"		5 
+                -attachForm		TFBG2		"top"		30
+                -attachForm		buttonMBS		"left"		200
+                -attachForm		buttonMBS		"top"		5
+            
+              Mirror_blendsha;	
+setParent..;
+frameLayout  -cll 0  -cl 0 -l "" endymForm;
+	showWindow $win;
+
+window -e -w 250  $win;
+
+//Query WindowSize
+//$w =  `window -q -w nt_MirrorBlendShape`;
+//$h =  `window -q -h nt_MirrorBlendShape`;
+//print ($w + " X " + $h);
+}
+
+//================================================
+
+global proc MirrorBlendShape()
+	{
+	$base = `textFieldButtonGrp -q -tx TFBG1`;
+	$shapeToMirror = `textFieldButtonGrp -q -tx TFBG2`;
+
+	$tx = `getAttr ($shapeToMirror + ".translateX")`;
+	$ty = `getAttr ($shapeToMirror + ".translateY")`;
+	$tz = `getAttr ($shapeToMirror + ".translateZ")`;
+
+	select -r $base;
+	$baseDup = `duplicate -rr -name baseDup`; 
+	DeleteHistory;
+	//FreezeTransformations;
+	$dup =  `duplicate -rr -n "ntNBS_rest_neg"`;
+	setAttr ($dup[0] + ".scaleX") -1;
+	
+	select -r $shapeToMirror;
+
+	$absShapePosition  = `xform -q -a -t $shapeToMirror`;	
+
+	select -r $baseDup $shapeToMirror; 
+	delete `pointConstraint -offset 0 0 0 -weight 1`; 	
+
+	DeleteHistory; 
+
+	select -r $shapeToMirror;
+
+	$dupTempNeg = `duplicate -rr -n "ntMBS_temp_neg"`;
+	setAttr ($dupTempNeg[0] + ".scaleX") -1;
+	
+	
+	select -r $dup ;
+	select -tgl $dupTempNeg ;
+	
+	$blend = `blendShape -parallel`;
+	
+	setAttr ($blend[0] + "." + $dup[0]) 1;
+
+	//======================================
+
+	select -r $baseDup ;
+	$dupNeg = `duplicate -rr -n "ntMBS_neg"`;
+
+	select -r $dupNeg ;
+	select -add $dupTempNeg ;
+
+	
+	CreateWrap;
+
+	setAttr ($blend[0] + "." + $dup[0]) 0;
+	select -r $dupNeg;
+			//ntMBS_neg ;
+	DeleteHistory;
+
+	// Clean-up
+
+	delete $dup[0]
+	       $dupTempNeg
+	       ($dupTempNeg[0] + "Base") ;
+
+
+	setAttr ($dupNeg[0] + ".translateX") (-$tx);
+	setAttr ($dupNeg[0] + ".translateY") ($ty);
+	setAttr ($dupNeg[0] + ".translateZ") ($tz);
+			
+	setAttr ($shapeToMirror + ".translateX") $tx;
+	setAttr ($shapeToMirror + ".translateY") $ty;
+	setAttr ($shapeToMirror + ".translateZ") $tz;
+	
+	rename $dupNeg[0] ("ntMBS_" + $shapeToMirror);
+	
+	delete $baseDup;
+
+	}
+
+//=======================================
+
+global proc PickBase()
+	{
+	string $objs[0];
+	$objs = `ls -sl`;
+	
+	// check and see if $objs[0] is a polygon object
+	if (size($objs) == 0)
+		error "You have nothing selected, try again.";
+	$shape = `listRelatives -f -c $objs[0]`;
+	if (`nodeType $shape[0]` != "mesh")
+		error "You don't have a polygon object selected.\n";
+	textFieldButtonGrp -e -tx $objs[0] TFBG1;
+	}
+
+global proc PickMirrorFrom()
+	{
+	string $objs[0];
+	$objs = `ls -sl`;
+	
+	// check and see if $objs[0] is a polygon object
+	if (size($objs) == 0)
+		error "You have nothing selected, try again.";
+	$shape = `listRelatives -f -c $objs[0]`;
+	if (`nodeType $shape[0]` != "mesh")
+		error "You don't have a polygon object selected.\n";
+	textFieldButtonGrp -e -tx $objs[0] TFBG2;
+	}
+global proc string[] abCheckSym (string $obj, int $axis, float $tol, int $bTable, int $usePiv) {
+	//$bTable is bool to use $obj to create and populate $abSymTable
+	//which goes a little like {obj.vtx[pos mAxis 1], obj.vtx[neg mAxis 1]}
+		
+	global int $abSymTable[];
+	string $aNegVerts[];
+	string $aPosVerts[];
+	string $aNonSymVerts[];
+	string $aStr[];
+	string $vtx;
+	string $str;
+	int $aPosVertsInt[];
+	int $aNegVertsInt[];
+	int $aInt[];
+	int $totVtx;
+	int $i;
+	int $j;
+	int $mAxisInd = $axis - 1; //mirror axis index (for xform)
+	int $axis2Ind = ($mAxisInd + 1) % 3;
+	int $axis3Ind = ($mAxisInd + 2) % 3;
+	int $mod;
+	int $prog;
+	int $vertCounter = 0;
+	float $aNegVertTrans[];
+	float $aPosVertTrans[];
+	float $aVtxTrans[];
+	float $aVtx2Trans[];
+	float $bBox[];
+	float $mid;
+	float $midOffset;
+	float $posOffset;
+	float $negOffset;
+	float $flt;
+	float $progNum;
+	float $progDenom;
+	float $test1;
+	float $test2;
+	
+	if ($usePiv){
+		$aVtxTrans = `xform -q -ws -t $obj`;
+		$mid = $aVtxTrans[$mAxisInd];
+	}else{
+		if ($bTable){
+			clear($abSymTable);
+			$bBox = `xform -q -ws -boundingBox $obj`;
+			$mid = $bBox[$mAxisInd] + (($bBox[($mAxisInd+3)] - $bBox[$mAxisInd])/2);
+		}else{
+			$mid = 0; //if object isn't symmetrical, it's got to be at the origin to measure symmetry
+		}
+	}
+		
+	$aInt = `polyEvaluate -v $obj`; 
+	$totVtx = $aInt[0];
+	waitCursor -state on;
+	progressWindow -title "Working" -progress 0 -status "Sorting";
+	$progDenom = $totVtx;
+	$flt = ceil($progDenom/50);
+	$mod = $flt;
+
+	for ($i=0;$i<$totVtx;$i++){
+		
+		//prog win
+		if (($i % $mod) == 0){ //make the progress bar a bit less resource intensive
+			$progNum = $i;
+			$prog = ($progNum/$progDenom)*100.0;
+			progressWindow -e -progress $prog;
+		}
+		//end prog win
+		
+		$vtx = $obj+".vtx["+$i+"]";
+		$aVtxTrans = `xform -q -ws -translation $vtx`;
+		$midOffset = $aVtxTrans[$mAxisInd] - $mid;
+		if ($midOffset >= 0){
+			$aPosVerts[size($aPosVerts)] = $vtx;
+			if ($bTable){$aPosVertsInt[size($aPosVertsInt)] = $i;}
+			$aVtxTrans = `xform -q -ws -t $vtx`;
+			$aPosVertTrans[size($aPosVertTrans)] = $aVtxTrans[$mAxisInd];
+		}else{
+			if ($midOffset < 0){
+				$aNegVerts[size($aNegVerts)] = $vtx;
+				if ($bTable){$aNegVertsInt[size($aNegVertsInt)] = $i;}
+				$aVtxTrans = `xform -q -ws -t $vtx`;
+				$aNegVertTrans[size($aNegVertTrans)] = $aVtxTrans[$mAxisInd];
+			}
+		}
+	}
+
+	if ($bTable){$str = "Building Symmetry Table";}else{$str = "Checking For Symmetry";}
+	progressWindow -e -progress 0 -status $str;
+	$progDenom = size($aPosVerts);
+	$flt = ceil($progDenom/50);
+	$mod = $flt;
+		
+	//now find nonsymverts
+	for ($i=0;$i<size($aPosVerts);$i++){
+		
+		//prog win
+		if (($i % $mod) == 0){ //make the progress bar a bit less resource intensive
+			$progNum = $i;
+			$prog = ($progNum/$progDenom)*100.0;
+			progressWindow -e -progress $prog;
+		}
+		//end prog win
+		
+		$vtx = $aPosVerts[$i];
+		$posOffset = ($aPosVertTrans[$i] - $mid);
+		if ($posOffset < $tol){
+			$aPosVerts[$i] = "m";
+			$vertCounter ++;
+			continue;
+		}
+		for ($j=0;$j<size($aNegVerts);$j++){
+			if ($aNegVerts[$j] == "m"){continue;}
+			$negOffset = $mid - $aNegVertTrans[$j];
+			if ($negOffset < $tol){
+				$aNegVerts[$j] = "m";
+				$vertCounter ++;
+				continue;
+			}
+			if (abs($posOffset - $negOffset) <= $tol){
+				$aVtxTrans = `xform -q -ws -t $vtx`;
+				$aVtx2Trans = `xform -q -ws -t $aNegVerts[$j]`;
+				$test1 = $aVtxTrans[$axis2Ind] - $aVtx2Trans[$axis2Ind];
+				$test2 = $aVtxTrans[$axis3Ind] - $aVtx2Trans[$axis3Ind];
+				if (abs($test1) < $tol && abs($test2) < $tol){
+					//match
+					if ($bTable){
+						//use this info to build symmetry table
+						$abSymTable[size($abSymTable)] = $aPosVertsInt[$i];
+						$abSymTable[size($abSymTable)] = $aNegVertsInt[$j];
+						$vertCounter += 2;
+					}
+					$aPosVerts[$i] = $aNegVerts[$j] = "m"; //m is for match
+					break;
+				}
+			}
+		}
+	}
+	//now strip out "m" from $aPosVerts and $aNegVerts, and we'll have asymmetry
+	$aStr = {"m"};
+	$aPosVerts = stringArrayRemove($aStr, $aPosVerts);
+	$aNegVerts = stringArrayRemove($aStr, $aNegVerts);
+	$aNonSymVerts = stringArrayCatenate($aPosVerts, $aNegVerts);
+
+	if ($bTable){$int = size($abSymTable) + $vertCounter;
+		if ($vertCounter != $totVtx){
+			//object is not symmetrical
+			warning "Base geometry is not symmetrical, not all vertices can be mirrored";
+		}else{
+			print "Base geometry is symmetrical";
+		}
+	}
+	progressWindow -endProgress;
+	waitCursor -state off;
+	return $aNonSymVerts;
+}
+
+
+global proc int abGetSymVtx (int $vtxInt){
+	//uses abSymTable, returns symmetrical vtx or -1 if failed
+	global int $abSymTable[];
+	int $mVtxInt = -1;
+	int $i;
+	
+	for ($i=0;$i<size($abSymTable);$i++){
+		if ($vtxInt == $abSymTable[$i]){
+			//match
+			if (($i % 2) == 0){
+				//even number, match is record above (it's a positive vert)
+				$mVtxInt = $abSymTable[$i+1];
+			}else{
+				$mVtxInt = $abSymTable[$i-1];
+			}
+			break;
+		}
+	}
+	return $mVtxInt;
+}
+
+
+global proc abMirrorSel (string $obj, string $baseObj, string $aSelVerts[], int $axis, int $negToPos, int $flip, int $usePiv, float $tol){
+	//$axis is 1, 2, 3 -- $negToPos is bool -- true mirrors negative (axis) to positive (axis)
+	//$flip is bool -- if true, selVerts are flipped instead of mirrored
+	//$usePiv is bool to use pivot on $obj as origin
+	global int $abSymTable[];
+	string $aStr[];
+	string $str;
+	string $vtx;
+	string $obj;
+	int $aPosVertsInt[];
+	int $aNegVertsInt[];
+	int $aZeroVertsInt[];
+	int $mAxisInd = $axis - 1; //mirror axis index (for xform)
+	int $axis2Ind = ($mAxisInd + 1) % 3;
+	int $axis3Ind = ($mAxisInd + 2) % 3;
+	int $vertNum;
+	int $i;
+	int $j;
+	int $prog;
+	int $mod;
+	int $showProg = false;  //don't show the progress bar
+	float $bBox[];
+	float $baseMid;
+	float $baseMidOffset;
+	float $aVtxTrans[];
+	float $aFlpVtxTrans[];
+	float $mid; //mirror axis midpoint
+	float $progNum;
+	float $progDenom;
+	float $flt;
+	
+	if ($usePiv){
+		$aVtxTrans = `xform -q -ws -t $obj`;
+		$mid = $aVtxTrans[$mAxisInd];
+		$aVtxTrans = `xform -q -ws -t $baseObj`;
+		$baseMid = $aVtxTrans[$mAxisInd];
+	}else{
+		$mid = 0;
+		$bBox = `xform -q -ws -boundingBox $baseObj`;
+		$baseMid = $bBox[$mAxisInd] + (($bBox[($mAxisInd+3)] - $bBox[$mAxisInd])/2);
+	}
+	
+	waitCursor -state on;
+	if (size($aSelVerts) > 200){ //show prog if more than this many verts being mirrored
+		$showProg = true;
+		$str = "Mirroring Vertices";
+		if ($flip){$str = "Flipping Vertices";}
+		progressWindow -title "Working" -progress 0 -status $str;
+		$progDenom = size($aSelVerts);
+		$flt = ceil($progDenom/50);
+		$mod = $flt;
+	}
+		
+	//strip out Pos verts if $negToPos is true (and vice versa)
+	//aposverts (and anegverts) are int arrays in this proc to simplify matching
+	//get pos neg info from base mesh
+	for ($i=0;$i<size($aSelVerts);$i++){
+		
+		//prog win
+		if ($showProg){
+			if (($i % $mod) == 0){ //make the progress bar a bit less resource intensive
+				$progNum = $i;
+				$prog = ($progNum/$progDenom)*50.0;
+				progressWindow -e -progress $prog;
+			}
+		}
+		//end prog win
+		
+		$vtx = $aSelVerts[$i];
+		//$aVtxTrans = `xform -q -ws -translation $vtx`;
+		$vertNum = match("([0-9])+", (match ("([0-9])+\\]", $vtx)));
+		$aVtxTrans = `xform -q -ws -translation ($baseObj+".vtx["+$vertNum+"]")`;
+		$baseMidOffset = $aVtxTrans[$mAxisInd] - $baseMid;
+		if (abs($baseMidOffset) < $tol){
+			$aZeroVertsInt[size($aZeroVertsInt)] = $vertNum;
+			continue;
+		}
+		if ($baseMidOffset > 0){
+			$aPosVertsInt[size($aPosVertsInt)] = $vertNum;
+			continue;
+		}
+		if ($baseMidOffset < 0){
+			$aNegVertsInt[size($aNegVertsInt)] = $vertNum;
+			continue;
+		}
+	}
+	
+	if ($negToPos){
+		$aPosVertsInt = $aNegVertsInt;
+	}
+	
+	if ($showProg){
+		$progDenom = size($aPosVertsInt);
+		$flt = ceil($progDenom/50);
+		$mod = $flt;
+	}
+	
+	for ($i=0;$i<size($aPosVertsInt);$i++){
+		
+		//prog win
+		if ($showProg){
+			if (($i % $mod) == 0){ //make the progress bar a bit less resource intensive
+				$progNum = $i;
+				$prog = ($progNum/$progDenom)*50.0 + 50;
+				progressWindow -e -progress $prog;
+			}
+		}
+		//end prog win
+		
+		$vertNum = abGetSymVtx($aPosVertsInt[$i]);
+		if ($vertNum != -1){
+			if (!$flip){ //mirror selected
+				$aVtxTrans = `xform -q -ws -t ($obj+".vtx["+$aPosVertsInt[$i]+"]")`;
+				$aVtxTrans[$mAxisInd] = 2*$mid - $aVtxTrans[$mAxisInd];
+				xform -ws -t $aVtxTrans[0] $aVtxTrans[1] $aVtxTrans[2] ($obj+".vtx["+$vertNum+"]");
+			}else{ //flip selected
+				$aVtxTrans = `xform -q -ws -t ($obj+".vtx["+$aPosVertsInt[$i]+"]")`;
+				$aVtxTrans[$mAxisInd] = 2*$mid - $aVtxTrans[$mAxisInd];
+				$aFlpVtxTrans = `xform -q -ws -t ($obj+".vtx["+$vertNum+"]")`;
+				$aFlpVtxTrans[$mAxisInd] = 2*$mid - $aFlpVtxTrans[$mAxisInd];
+				xform -ws -t $aVtxTrans[0] $aVtxTrans[1] $aVtxTrans[2] ($obj+".vtx["+$vertNum+"]");
+				xform -ws -t $aFlpVtxTrans[0] $aFlpVtxTrans[1] $aFlpVtxTrans[2] ($obj+".vtx["+$aPosVertsInt[$i]+"]");
+			}
+		}
+	}
+	for ($i=0;$i<size($aZeroVertsInt);$i++){ //flip middle verts too
+		if ($flip){
+			$aVtxTrans = `xform -q -ws -t ($obj+".vtx["+$aZeroVertsInt[$i]+"]")`;
+			$aVtxTrans[$mAxisInd] = 2*$mid - $aVtxTrans[$mAxisInd];
+			xform -ws -t $aVtxTrans[0] $aVtxTrans[1] $aVtxTrans[2] ($obj+".vtx["+$aZeroVertsInt[$i]+"]");
+		}else{
+			$aVtxTrans = `xform -q -ws -t ($obj+".vtx["+$aZeroVertsInt[$i]+"]")`;
+			$aVtxTrans[$mAxisInd] = $mid;
+			xform -ws -t $aVtxTrans[0] $aVtxTrans[1] $aVtxTrans[2] ($obj+".vtx["+$aZeroVertsInt[$i]+"]");
+		}
+	}
+	if ($showProg){progressWindow -endProgress;}
+	waitCursor -state off;
+}
+
+
+global proc abRevertSel(string $aSelVerts[], string $obj, string $baseObj){
+	//reverts selected verts to base -os trans
+	string $str;
+	string $vtx;
+	int $vertNum;
+	int $i;
+	int $prog;
+	int $mod;
+	int $showProg = false;  //don't show the progress bar
+	float $aBaseTrans[];
+	float $progNum;
+	float $progDenom;
+	float $flt;
+	
+	if (size($aSelVerts) > 200){ //show prog if more than this many verts being mirrored
+		$showProg = true;
+		progressWindow -title "Working" -progress 0 -status "Reverting Vertices";
+		$progDenom = size($aSelVerts);
+		$flt = ceil($progDenom/50);
+		$mod = $flt;
+	}
+	
+	waitCursor -state on;
+	for ($i=0;$i<size($aSelVerts);$i++){
+		//prog win
+		if ($showProg){
+			if (($i % $mod) == 0){ //make the progress bar a bit less resource intensive
+				$progNum = $i;
+				$prog = ($progNum/$progDenom)*100;
+				progressWindow -e -progress $prog;
+			}
+		}
+		//end prog win
+		$vtx = $aSelVerts[$i];
+		$vertNum = match("([0-9])+", (match ("([0-9])+\\]", $vtx)));
+		$aBaseTrans = `xform -q -os -t ($baseObj+".vtx["+$vertNum+"]")`;
+		xform -os -t $aBaseTrans[0] $aBaseTrans[1] $aBaseTrans[2] $vtx;
+	}
+	if ($showProg){progressWindow -endProgress;}	
+	waitCursor -state off;
+}
+
+
+global proc string[] abSelMovedVerts(string $obj, string $baseObj, float $tol){
+	//select repositioned verts (as compared to the base mesh)
+	int $aInt[];
+	int $totVtx;
+	int $i;
+	int $j;
+	int $posDif;
+	float $tFlt;
+	float $aVtxTrans[];
+	float $aVtx2Trans[];
+	string $objStr = $obj+".vtx[";
+	string $baseObjStr = $baseObj+".vtx[";
+	string $aRetSel[];
+	
+	$aInt = `polyEvaluate -v $obj`; 
+	$totVtx = $aInt[0];
+	for ($i=0;$i<$totVtx;$i++){
+		$posDif = false;
+		$aVtx2 = $objStr+$i+"]";
+		$aVtxTrans = `xform -q -os -t ($baseObjStr+$i+"]")`;
+		$aVtx2Trans = `xform -q -os -t $aVtx2`;
+		for ($j=0;$j<3;$j++){
+				$tFlt = $aVtxTrans[$j] - $aVtx2Trans[$j];
+				if (abs($tFlt) > $tol){
+					$posDif = true;
+				}
+		}
+		if ($posDif) {
+			$aRetSel[size($aRetSel)] = $aVtx2;
+		}	
+	}
+	return $aRetSel;
+}
+
+
+global proc string[] abSelSideVerts (string $obj, string $baseObj, int $mAxisInd, int $selNeg, int $usePiv, float $tol){
+	//selects a side of the object (located on origin) for faster mirroring (instead of having to find symmetrical verts)
+	//$selNeg true -- select Negative side of mesh, false -- select Pos side, 2 -- select all verts
+	int $aInt[];
+	int $totVtx;
+	int $i;
+	string $aRetSel[]; //return string of selected verts
+	string $vtxStr;
+	float $aVtxTrans[];
+	float $bBox[];
+	float $baseMid;
+	float $baseMidOffset;
+	
+	$mAxisInd -= 1; //from (1 to 3) to (0 to 2)
+	
+	$aInt = `polyEvaluate -v $obj`; 
+	$totVtx = $aInt[0];
+	
+	if ($selNeg == 2){ //return all verts
+		for ($i=0;$i<$totVtx;$i++){
+			$vtx = $obj+".vtx["+$i+"]";
+			$aRetSel[size($aRetSel)] = $vtx;
+		}
+		return $aRetSel;
+	}
+	
+	if ($usePiv){
+		$aVtxTrans = `xform -q -ws -t $baseObj`;
+		$baseMid = $aVtxTrans[$mAxisInd];
+	}else{
+		$bBox = `xform -q -ws -boundingBox $baseObj`;
+		$baseMid = $bBox[$mAxisInd] + (($bBox[($mAxisInd+3)] - $bBox[$mAxisInd])/2);
+	}
+
+	for ($i=0;$i<$totVtx;$i++){
+		$vtxStr = ".vtx["+$i+"]";
+		$aVtxTrans = `xform -q -ws -translation ($baseObj+$vtxStr)`;
+		$baseMidOffset = $aVtxTrans[$mAxisInd] - $baseMid;
+		if (abs($baseMidOffset) < $tol){
+			$aRetSel[size($aRetSel)] = $obj+$vtxStr;
+			continue;
+		}
+		if ($baseMidOffset > 0 && !$selNeg){
+			$aRetSel[size($aRetSel)] = $obj+$vtxStr;
+			continue;
+		}
+		if ($baseMidOffset < 0 && $selNeg){
+			$aRetSel[size($aRetSel)] = $obj+$vtxStr;
+			continue;
+		}
+	}
+	return $aRetSel;
+}
+
+
+global proc string[] abSelMirror (string $obj, string $aSelVerts[]){
+	//mirror selection (not selected)
+	global int $abSymTable[];
+	string $aRetVerts[];
+	string $vtxStr;
+	int $i;
+	int $vertNum;
+	int $mVertNum;
+	
+	if (size($abSymTable) == 0){
+		warning "No Base Geometry Selected";
+		return $aSelVerts;
+	}
+	waitCursor -state on;
+	$vtxStr = $obj+".vtx[";
+	for ($i=0;$i<size($aSelVerts);$i++){
+		$vertNum = match("([0-9])+", (match ("([0-9])+\\]", ($vtxStr+$aSelVerts[$i]+"]"))));
+		$mVertNum = abGetSymVtx($vertNum);
+		if ($mVertNum != -1){
+			$aRetVerts[size($aRetVerts)] = ($vtxStr+$mVertNum+"]");
+		}else{ //return non symverts too (zeros and others)
+			$aRetVerts[size($aRetVerts)] = ($vtxStr+$vertNum+"]");
+		}
+	}
+	waitCursor -state off;
+	return $aRetVerts;
+}
+
+
+
+
+
+global proc abSymCtl (string $action){
+	global int $abSymTable[];
+	global string $abSbg;
+	string $sel[] = `ls -sl -fl`;
+	string $aStr[];
+	string $aSelVerts[];
+	string $aHiliteObj[];
+	string $baseObj_sle = `textField -e -tx $sel[0]   "sbgFld"`;
+	string $baseObj = `textField -q -text sbgFld`;
+	string $str;
+	string $selMesh;
+	float $tol = `textField -q -text tolFld`;
+	int $axisSel = `radioButtonGrp -q -select saRbGrp`;
+	int $negToPos = `checkBox -q -value maChkBx`;
+	int $usePiv = `checkBox -q -value upoChkBx`;
+	int $warned = false; //set if warning has already been passed
+	
+	//get selection info
+	
+	$aStr = `filterExpand -sm 12 $sel`;
+	if (size($aStr) > 1){
+		warning "Select one polygon object";
+		$warned = true;
+	}else{
+		$selMesh = $aStr[0]; //if an object is selected
+	}
+	
+	//make sure selected components are on only one mesh
+	if ($selMesh == ""){
+		$aHiliteObj = `ls -hilite`;
+		if (size($aHiliteObj) == 1){
+			$selMesh = $aHiliteObj[0];
+			$aSelVerts = `filterExpand -sm 31 $sel`;
+		}else{
+			if (size($aHiliteObj) > 1){
+				clear($aSelVerts);
+				warning "Only one object can be hilited in component mode";
+				$warned = true;
+			}
+		}
+	}else{
+		select $selMesh; //if two objects are selected
+	}
+	
+	switch ($action){
+		
+		case "sbgBn":
+			if ($selMesh != ""){
+				abCheckSym($selMesh, $axisSel, $tol, true, $usePiv);
+				$abSbg = $selMesh;
+				textField -e -text $selMesh sbgFld;
+		
+			}else{
+				abClearSbg();
+			}
+			break;
+		
+		case "favBn":
+			if ($selMesh != ""){
+				$aSelVerts = abCheckSym($selMesh, $axisSel, $tol, false, $usePiv);
+				if (size($aSelVerts) > 0){
+					selectMode -component;
+					select $aSelVerts;
+					print (size($aSelVerts)+" asymmetric vert(s)");
+				}else{
+					select $selMesh;
+					print ($selMesh+" is symmetrical");
+				}
+				string $sel_pov[]=`ls -sl`;
+				warning "请查看所选择的点是否为对称点";
+				
+			}
+			break;
+			
+		case "smBn":
+			if (size($aSelVerts) > 0){
+				$aSelVerts = abSelMirror ($selMesh, $aSelVerts);
+				select $aSelVerts;
+			}
+			break;
+			
+		case "smvBn":
+			if ($selMesh != ""){
+				$aSelVerts = abSelMovedVerts($selMesh, $baseObj, $tol);
+				select $aSelVerts;
+			}
+			break;
+		
+		case "msBn":
+			if (size($aSelVerts) > 0){
+				abMirrorSel($selMesh, $baseObj, $aSelVerts, $axisSel, $negToPos, false, $usePiv, $tol);
+			}else{
+				if ($selMesh != ""){ //if object is selected, select half side verts then pass that as $aSelVerts
+					$aSelVerts = abSelSideVerts ($selMesh, $baseObj, $axisSel, $negToPos, $usePiv, $tol);
+					abMirrorSel($selMesh, $baseObj, $aSelVerts, $axisSel, $negToPos, false, $usePiv, $tol);
+				}
+			}
+			break;
+			
+		case "fsBn":
+			if (size($aSelVerts) > 0){
+				abMirrorSel($selMesh, $baseObj, $aSelVerts, $axisSel, $negToPos, true, $usePiv, $tol);
+			}else{
+				if ($selMesh != ""){ //if object is selected, select half side verts then pass that as $aSelVerts
+					$aSelVerts = abSelSideVerts ($selMesh, $baseObj, $axisSel, $negToPos, $usePiv, $tol);
+					abMirrorSel($selMesh, $baseObj, $aSelVerts, $axisSel, $negToPos, true, $usePiv, $tol);
+				}
+			}
+			break;
+					
+		case "rsBn":
+			if (size($aSelVerts) > 0){
+				abRevertSel($aSelVerts, $selMesh, $baseObj);
+			}else{
+				if ($selMesh != ""){ //if object is selected, select half side verts then pass that as $aSelVerts
+					$aSelVerts = abSelSideVerts ($selMesh, $baseObj, $axisSel, 2, $usePiv, $tol); //2 returns all verts
+					abRevertSel($aSelVerts, $selMesh, $baseObj);
+				}
+			}
+			break;
+				
+		case "cBn":
+			abClearSbg();
+			deleteUI -window abSymWin;
+			break;
+		
+		case "saRbGrp":
+			abClearSbg();
+			switch ($axisSel){
+				case 1:
+					$str = "X";
+					break;
+				case 2:
+					$str = "Y";
+					break;
+				case 3:
+					$str = "Z";
+					break;
+				
+			}
+			$str = "Operate -"+$str+" to +"+$str;
+			checkBox -e -l $str maChkBx;
+	}
+}	
+
+
+global proc checkMain()
+{
+float $tol=`floatFieldGrp -q -v1 tolField`;
+string $sel[]=`filterExpand -sm 12`;
+if(size($sel)==1)
+	{
+	string $info;
+	string $obj=$sel[0];
+	string $vtx[]=`ls -fl ($obj+".vtx[*]")`;
+	string $lPosArray[]={};
+	string $rPosArray[]={};
+	for($vtxIt in $vtx)
+		{
+		vector $vtxPos=`xform -q -ws -t $vtxIt`;
+		if($vtxPos.x>$tol)
+			$lPosArray[size($lPosArray)]=string($vtxPos);
+		if($vtxPos.x<-$tol)
+			$rPosArray[size($rPosArray)]=string($vtxPos);
+		}
+    if(size($lPosArray)==size($rPosArray))
+		{
+		int $amount = 0;
+		progressWindow -title "正在检查" -progress $amount -status "Sleeping: 0%";
+		for($i=0;$i<size($lPosArray);$i++)
+			{
+				
+			$amount=100-$amount;
+			progressWindow -e -progress $amount -status ("Sleeping: "+$amount+"%");
+			int $num=0;
+			vector $lPos=vector($lPosArray[$i]);
+			for($j=0;$j<size($rPosArray);$j++)
+				{
+				vector $rPos=vector($rPosArray[$j]);
+				vector $mPos=<<-$rPos.x,$rPos.y,$rPos.z>>;
+				if(mag($lPos-$mPos)<$tol)
+					{
+					stringArrayRemoveAtIndex($j,$rPosArray);
+					$num++;
+					break;
+					}
+				}
+				
+			if(!$num)
+				{
+				$info=$obj+"不是一个x轴对称模型";
+				progressWindow -endProgress;
+				ScriptEditor;
+				scriptEditorInfo -ch;
+				print $info;
+				return;
+				}
+			
+			}
+		$info=$obj+"是一个x轴对称模型";
+		}
+	else
+		$info=$obj+"不是一个x轴对称模型,左右点数量不一样";
+	progressWindow -endProgress;
+	ScriptEditor;
+	scriptEditorInfo -ch;
+	print $info;
+	}
+
+
+
+else if(size($sel)==2)
+	{
+	string $info;
+	string $sel[]=`filterExpand -sm 12`;
+	string $obj1=$sel[0];
+	string $obj2=$sel[1];
+	float $area1[]=`polyEvaluate -wa $obj1`;
+	float $area2[]=`polyEvaluate -wa $obj2`;
+	vector $cen1=`objectCenter $obj1`;
+	vector $cen2=`objectCenter $obj2`;
+	string $lVtx[]=`ls -fl ($obj1+".vtx[*]")`;
+	string $rVtx[]=`ls -fl ($obj2+".vtx[*]")`;
+	string $lPosArray[]={};
+	string $rPosArray[]={};
+	for($lp in $lVtx){
+		vector $p=`xform -q -ws -t $lp`;
+		$lPosArray[size($lPosArray)]=string($p);
+		}
+	for($rp in $rVtx){
+		vector $p=`xform -q -ws -t $rp`;
+		$rPosArray[size($rPosArray)]=string($p);
+		}
+
+	if(abs($area1[0]-$area2[0])<$tol&&abs($cen1.x+$cen2.x)<$tol&&abs($cen1.y-$cen2.y)<$tol&&abs($cen1.z-$cen2.z)<$tol&&size($lVtx)==size($rVtx))
+		{
+		int $amount = 0;
+		progressWindow -title "正在检查" -progress $amount -status "Sleeping: 0%";
+
+		for($i=0;$i<size($lPosArray);$i++)
+			{
+			$amount=100-$amount;
+			progressWindow -e -progress $amount -status ("Sleeping: "+$amount+"%");
+
+			int $num=0;
+			vector $lPos=vector($lPosArray[$i]);
+			for($j=0;$j<size($rPosArray);$j++)
+				{
+				vector $rPos=vector($rPosArray[$j]);
+				vector $mPos=<<-$rPos.x,$rPos.y,$rPos.z>>;
+				if(mag($lPos-$mPos)<$tol)
+					{
+					stringArrayRemoveAtIndex($j,$rPosArray);
+					$num++;
+					break;
+					}
+				}
+			if(!$num)
+				{
+				$info=$obj1+"和"+$obj1+"在x轴不对称";
+				progressWindow -endProgress;
+				ScriptEditor;	
+				scriptEditorInfo -ch;
+				print $info;
+				return;
+				}
+			}
+		$info=$obj1+"和"+$obj1+"在x轴对称";
+		}
+	else 
+		$info=$obj1+"和"+$obj1+"在x轴不对称";
+	progressWindow -endProgress;
+	ScriptEditor;
+	scriptEditorInfo -ch;
+	print $info;
+	}
+else warning "必须选择一个或者两个poly";
+}
+global proc mirrorMe (string $axis, float $tolerance, int $mustMerge, int $mirrorUV, int $delHistory)
+{
+
+	global int $mirror_IsSelect;
+
+	string $nameSym;
+	string $list[];
+
+	int $cpCount;
+
+	int $cpLinkZeroCount = 0;
+	int $cpLinkPosCount = 0;
+	int $cpLinkNegCount = 0;
+	int $cpLinksZero[];
+	int $cpLinksPositive[];
+	int $cpLinksNegative[];
+	string $cpNamePositive[];
+	string $cpNameNegative[];
+	string $cpNameZero[];
+	int $Buf;
+
+	float $cpSym[3];
+	float $cpBuf[3];
+	float $cpDef[3];
+
+	int $xAsist = 0;
+	int $yAsist = 1;
+	int $zAsist = 2;
+
+	int $xSign = -1;
+	int $ySign = 1;
+	int $zSign = 1;
+
+	int $xZero = 0;
+	int $yZero = 1;
+	int $zZero = 1;
+	
+	int $xVector = 0;
+	int $yVector = 0;
+	int $zVector = 0;
+
+	string $absAxis;
+
+	string $singleCpLinksNegative;
+	string $selGoodCV;
+	string $tempUV[];
+
+	if (($axis == "+x") || ($axis == "-x") || ($axis == "x"))
+	{
+		$absAxis = "x";
+	}
+
+	if (($axis == "+y") || ($axis == "-y") || ($axis == "y"))
+	{
+		$xAsist = 1;	$xSign = 1;		$xZero = 1;
+		$yAsist = 0;	$ySign = -1;	$yZero = 0;
+		$zAsist = 2;	$zSign = 1;		$zZero = 1;
+		$absAxis = "y";
+	}
+
+	if (($axis == "+z") || ($axis == "-z") || ($axis == "z"))
+	{
+		$xAsist = 2;	$xSign = 1;		$xZero = 1;
+		$yAsist = 1;	$ySign = 1;		$yZero = 1;
+		$zAsist = 0;	$zSign = -1;	$zZero = 0;
+		$absAxis = "z";
+	}
+	
+	//
+	if ($axis == "+x") $xVector = 1;
+	if ($axis == "-x") $xVector = -1;
+	if ($axis == "+y") $yVector = 1;
+	if ($axis == "-y") $yVector = -1;
+	if ($axis == "+z") $zVector = 1;
+	if ($axis == "-z") $zVector = -1;
+	
+
+	$list = `filterExpand -sm 10 -sm 12`;
+	if (`size $list` != 1)
+	{
+		error("No one geometry objects selected");
+		return;
+	}
+
+	$nameSym = $list[0];
+
+	
+	//place les vertex autour de 0, sur 0
+	string $middleVtxSet = ( $nameSym + "_middleVtx" );
+	string $selsList[];
+		
+
+		select -cl;
+
+		for ( $singleCpLinksZero in $cpLinksZero )
+		{
+			string $selGoodCV = ( $nameSym + ".vtx[" + $singleCpLinksZero + "]" );
+			select -add $selGoodCV;
+		}
+		move ( "-" + $absAxis ) 0;
+
+	
+	////////////////////////////////////////////////
+	// Sort points
+
+	$cpCount = `getAttr -size ($nameSym + ".cp")`;
+	
+	for ($currentPoint = 0; $currentPoint < $cpCount; $currentPoint++)
+	{
+		$cpSym = `xform -q -t -ws ($nameSym + ".cp[" + $currentPoint +"]")`;
+		if (abs($cpSym[$xAsist]) < $tolerance) 
+		{
+			$cpLinksZero[$cpLinkZeroCount] = $currentPoint;
+			$cpLinkZeroCount++;
+
+		}
+		else
+		{
+			if ($cpSym[$xAsist] > 0) 
+			{
+				$cpNamePositive[$cpLinkPosCount] = ( $nameSym + ".vtx[" + $currentPoint + "]" );
+				$cpLinkPosCount++;
+
+			}
+			else	
+			{
+				$cpNameNegative[$cpLinkNegCount] = ( $nameSym + ".vtx[" + $currentPoint + "]" );
+				$cpLinkNegCount++; 
+			} 
+		}
+
+	}
+
+	/////////////////////////////////////////
+	/////////////////////////////////////////
+
+	//on a besoin des faces
+	if ($mirror_IsSelect != 2)
+	{
+	
+		//selectionne les vertex a effacer
+
+		//print "//OP : select del vtx \n";
+		select -cl;	
+		
+		//	
+		if ( ($axis == "-x") || ($axis == "-y") || ($axis == "-z") )
+		{
+			select -r $cpNameNegative;
+		}
+		
+		//
+		if ( ($axis == "+x") || ($axis == "+y") || ($axis == "+z") )
+		{
+			select -r $cpNamePositive;
+		}
+																									
+		//face...
+		ConvertSelectionToFaces;hilite;
+		selectType -ocm -alc false;
+		selectType -ocm -polymeshFace true;
+	}
+	//ou pas pour les middle points
+	else
+	{
+		$cpLinkZeroCount = 0;
+		$cpCount = `getAttr -size ($nameSym + ".cp")`;
+
+		for ($currentPoint = 0; $currentPoint < $cpCount; $currentPoint++)
+		{
+			$cpSym = `xform -q -t -ws ($nameSym + ".cp[" + $currentPoint +"]")`;
+			if (abs($cpSym[$xAsist]) < $tolerance) 
+			{
+				$cpNameZero[$cpLinkZeroCount] = ( $nameSym + ".vtx[" + $currentPoint + "]" );
+				$cpLinkZeroCount++;
+
+			}
+		}
+
+		//et merge les points a 0 (operation sans risque : ils viennent detre placer a 0...)
+		select -r $cpNameZero;
+	}
+
+
+	//si on veut simmetriser
+	if ($mirror_IsSelect == 0)
+	{
+	if (`size $cpNameZero`)
+	delete;
+
+		//et symmetriser
+		select -r $nameSym;
+
+		//memorise la selection UV pour la symmetriser aussi
+		if (($mirrorUV == 2) || ($mirrorUV == 3))
+		{
+			PolySelectConvert 4;
+			$tempUV = `ls -sl`;
+		}
+		//print $tempUV;
+		
+		select -r $nameSym;
+		
+		//error;
+		
+		//mirror selection + UV
+		//polyMirror $xVector $yVector $zVector $mustMerge;
+		sg_MirrorObj_ck($nameSym);
+		if ($mirrorUV == 2)
+		{
+			select -r $tempUV[0];
+			invertSelection;
+			polyEditUV -pivotU 0.5 -scaleU -1;
+		}
+		if ($mirrorUV == 3)
+		{
+			select -r $tempUV[0];
+			invertSelection;
+			polyEditUV -pivotV 0.5 -scaleV -1;
+		}
+		
+		//repasse lobjet et reclasse les vrtx
+		$cpLinkZeroCount = 0;
+		$cpCount = `getAttr -size ($nameSym + ".cp")`;
+
+		for ($currentPoint = 0; $currentPoint < $cpCount; $currentPoint++)
+		{
+			$cpSym = `xform -q -t -ws ($nameSym + ".cp[" + $currentPoint +"]")`;
+			if (abs($cpSym[$xAsist]) < $tolerance) 
+			{
+				$cpNameZero[$cpLinkZeroCount] = ( $nameSym + ".vtx[" + $currentPoint + "]" );
+				$cpLinkZeroCount++;
+
+			}
+		}
+
+		select -r $cpNameZero;
+		
+		//merge or not
+		if ($mustMerge == 1 ) 
+		{	
+			polyMergeVertex -d $tolerance;
+		}
+
+		//fin...
+		select -r $nameSym;
+
+		if ($delHistory == 1) DeleteHistory;
+		
+	}
+
+
+
+	//par secu...
+	if ($mirror_IsSelect != 0)
+	{
+		$mirror_IsSelect = 0;
+	}
+
+}	
+
+
+global proc mirrorMeApply ()
+{
+	string $finAxis;
+
+	int $Xaxis = `radioButtonGrp -q -select mmui_rg1`;
+//	int $Yaxis = `radioButtonGrp -q -select mmui_rg2`;
+//	int $Zaxis = `radioButtonGrp -q -select mmui_rg3`;
+
+	float $tol = `floatFieldGrp -q -value1 mirrorBlendTolField`;
+	int $mergeOrNot = `checkBoxGrp -q -value1 mergeCeck`;
+	int $mirrorUV = `radioButtonGrp -q -select UVCheck`;
+	int $delHistory = `checkBoxGrp -q -value1 historyCheck`;
+
+	if ($Xaxis == 1) $finAxis = "-x";
+	if ($Xaxis == 2) $finAxis = "+x";
+	//if ($Yaxis == 1) $finAxis = "-y";
+	//if ($Yaxis == 2) $finAxis = "+y";
+	//if ($Zaxis == 1) $finAxis = "-z";
+//	if ($Zaxis == 2) $finAxis = "+z";
+
+	
+	mirrorMe ($finAxis , $tol , $mergeOrNot, $mirrorUV, $delHistory);
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

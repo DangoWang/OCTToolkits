@@ -1,0 +1,44 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "viewSet.defaultConfigChanged" "默认配置改变 :)";
+MG_displaySC "viewSet.Configsaved" "配置已保存 :)";
+MG_displaySC "viewSet.saveConfigAs.prompt.title" "另存配置为:";
+MG_displaySC "viewSet.saveConfigAs.prompt.message" "输入配置名:";
+MG_displaySC "viewSet.saveConfigAs.prompt.ok" "确定";
+MG_displaySC "viewSet.saveConfigAs.prompt.cancel" "取消";
+
+MG_displaySC "viewSet.openConfigAs.anno" "点我来打开配置文件: # ";
+
+MG_displaySC "viewSet.noActivePanel.war" "你当前激活窗口并非场景视图.";
+
+MG_displaySC "viewSet.configUI.title" "视图配置编辑器";
+MG_displaySC "viewSet.configUI.tab1" "配置一";
+MG_displaySC "viewSet.configUI.tab2"  "配置二";
+MG_displaySC "viewSet.configUI.tab3" "配置三";
+MG_displaySC "viewSet.configUI.disableAnno" "被禁用";
+MG_displaySC "viewSet.configUI.affectActive" "仅影响当前视图";
+MG_displaySC "viewSet.configUI.affectAll" "影响全部可见视图";
+MG_displaySC "viewSet.configUI.disableC3" "禁用配置三";
+MG_displaySC "viewSet.configUI.openConfig.btn" "打开配置->";
+MG_displaySC "viewSet.configUI.openConfigDir.btn" "打开配置文件目录..";
+MG_displaySC "viewSet.configUI.saveAsConfig.btn" "另存配置为..";
+MG_displaySC "viewSet.configUI.saveConfig.btn" "保存配置";
+MG_displaySC "viewSet.configUI.resetoreToDef.btn" "重置为默认";
+MG_displaySC "viewSet.configUI.saveAsDefault.btn" "保存为默认";
+MG_displaySC "viewSet.configUI.help.btn" "帮助..";
+MG_displaySC "viewSet.configUI.close.btn" "关闭";
+
+MG_displaySC "viewSet.configUI.preset" "预置:";
+MG_displaySC "viewSet.configUI.PlayBlast" "跑playBlast";
+MG_displaySC "viewSet.configUI.Animation" "动画";
+MG_displaySC "viewSet.configUI.Modeling" "模型";
+MG_displaySC "viewSet.configUI.Effect" "特效";
+MG_displaySC "viewSet.configUI.Lighting" "灯光";
+

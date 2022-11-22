@@ -1,0 +1,24 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayTS "AddCtl.nosel.war" "場景裡沒有選擇的物體。請選擇一個位移旋轉沒被約束的變形節點。";
+MG_displayTS "AddCtl.prompt.title" "插入層級..";
+MG_displayTS "AddCtl.anno" "在當前所選物體上面插入可動畫的層級，注意當前物體會被約束。";
+MG_displayTS "AddCtl.prompt.mes" "層級個數:";
+MG_displayTS "AddCtl.noSence.war" "層級個數小於2就沒有意義羅~";
+MG_displayTS "AddCtl.constrainted.war" "沒辦法插入層級，因為你所選的物體已被約束。";
+MG_displayTS "AddCtl.constrainted.noChannel.war" "沒辦法插入層級，因為你所選的物體的位移和旋轉通道都被鎖定了。";
+
+MG_displayTS "AddCtl.finish.rep" " # 個可被幹凈Key動畫的新層級已被插入完畢:)";
+
+MG_displayTS "AddCtl.stickNone.lbl" "正常模式";
+MG_displayTS "AddCtl.stickRotate.lbl" "定住旋轉";
+MG_displayTS "AddCtl.stickRotateComp.lbl" "徹底定住旋轉";
+MG_displayTS "AddCtl.stickAll.lbl" "定住位移和旋轉";
+MG_displayTS "AddCtl.addShape.lbl" "添加可見形狀";

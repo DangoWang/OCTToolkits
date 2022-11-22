@@ -1,0 +1,516 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+//`MG_DualLan "MGdbManager.noDataCheckOn.war"`
+//`MG_DualLanFormat_1 `
+//$annoString=`MG_DualLan "MGdbManager.doubleClickEdit.anno"`;
+MG_displayEN "MGdbManager.title.mi" "MG-AssetLibrary..";
+MG_displayEN "MGdbManager.coverPy" "MG-AssetLibrary Loaded.";
+
+MG_displayEN "MGdbManager.browseLib" "Browse Current Library Folder..";
+MG_displayEN "MGdbManager.unknown" "unknown";
+
+MG_displayEN "MGdbManager.noProj.notice" "Notice!";
+MG_displayEN "MGdbManager.noProj.build" "Go to Build One";
+MG_displayEN "MGdbManager.noProj.mes" "Current action need a project created.Build a project now?";
+MG_displayEN "MGdbManager.menu.setProjectTo.mi" "Set Curent Project to";
+
+MG_displayEN "MGdbManager.noDataToImport.war" "No data to import.";
+MG_displayEN "MGdbManager.noDataCheckOn.war" "No asset item checked on.";
+MG_displayEN "MGdbManager.noImageDataCheckOn.war" "No imageData checked on.";
+MG_displayEN "MGdbManager.noActiveData.war" "No asset item activated.";
+
+MG_displayEN "MGdbManager.file.ano" "File: ";
+MG_displayEN "MGdbManager.ver.ano" "Version: ";
+MG_displayEN "MGdbManager.size.ano" "Size: ";
+MG_displayEN "MGdbManager.date.ano" "Date: ";
+
+MG_displayEN "MGdbManager.pickMfile.anno" "Pick a Maya File";
+MG_displayEN "MGdbManager.pickMfile.lbl" "Pick";
+
+MG_displayEN "MGdbManager.doubleClickEdit.anno" "Double clicking to edit it.";
+MG_displayEN "MGdbManager.doubleClickEdit.2011.anno" "Click on the edit button right to edit me.";
+MG_displayEN "MGdbManager.addNewItem.title" "Add new item to AssetLibrary:";
+
+MG_displayEN "MGdbManager.treat.confirm" "Confirmation!";
+MG_displayEN "MGdbManager.del.confirm" "Do U really wanna remove the asset items below:";
+MG_displayEN "MGdbManager.ref.confirm" "Do U really wanna reference the asset items below:(# Times)";
+MG_displayEN "MGdbManager.imp.confirm" "Do U really wanna import the asset items below:(# Times)";
+MG_displayEN "MGdbManager.open.confirm" "Do U really wanna open the asset item below:(Just one file,for one time)";
+
+MG_displayEN "MGdbManager.sceneNotSaved.war" "Current scenes has not been saved.What U gonna do?";
+MG_displayEN "MGdbManager.saveOpen.label" "Save and Open";
+MG_displayEN "MGdbManager.justOpen.label" "Just Open";
+MG_displayEN "MGdbManager.cancel.rep" "Mission cancelled!";
+
+MG_displayEN "MGdbManager.changeNotSaved.war" "The edit on current project has not saved yet,What U want me to do?";
+
+MG_displayEN "MGdbManager.goon.label" "GoOn";
+MG_displayEN "MGdbManager.del.rep" "Selected asset items removed!";
+
+MG_displayEN "MGdbManager.ProjName.title" "Project Name";
+MG_displayEN "MGdbManager.defaultProjAnno" "Project:\nClient:\nAnnotation:";
+MG_displayEN "MGdbManager.projDes.label" "Project Description:";
+
+MG_displayEN "MGdbManager.editDes.label" "Edit Project";
+MG_displayEN "MGdbManager.newDes.label" "New Project";
+
+MG_displayEN "MGdbManager.emptyString.war" "The entered string cant be empty.";
+
+MG_displayEN "MGdbManager.repick.anno" "Repick asset item File";
+MG_displayEN "MGdbManager.repick.anno.lbl" "Repick";
+
+MG_displayEN "MGdbManager.ignoreDate.war" "Ignore date info.";
+
+MG_displayEN "MGdbManager.scanData.title" "Batch Scanning asset items from Folder";
+
+MG_displayEN "MGdbManager.scanData.scanSub.label" "Scan subfolder as well";
+MG_displayEN "MGdbManager.scanData.latest.label" "Only the latest version";
+
+MG_displayEN "MGdbManager.preview.current.label" "Current PreviewImage: #";
+MG_displayEN "MGdbManager.preview.no.label" "No Preview Data.";
+
+MG_displayEN "MGdbManager.checkBox.anno" "Lots of operation such as delete,set Category,reference,import,open only refer to the asset items that are check on through this control.";
+
+MG_displayEN "MGdbManager.pathTF.anno" "This field shows where the asset file is.";
+MG_displayEN "MGdbManager.repickFile.anno" "Click on it to repick a file of the asset item.This will automatically refresh the asset item attributes.";
+MG_displayEN "MGdbManager.sizeTF.anno" "The size of the asset file. Presented in KB.";
+MG_displayEN "MGdbManager.dateTF.anno" "The most recent date of the modification to the asset file. The presenting format may defer via different OS.";
+MG_displayEN "MGdbManager.verTF.anno" "Maya version info.MB file version wont be presented if U r using early-Maya8 version, so chances are U need to manually Type in it." ;
+MG_displayEN "MGdbManager.avail.anno" "This column shows whether the asset file is currently available or not.";
+MG_displayEN "MGdbManager.editEnableDis.anno" "Enable/Disable editing operation on this asset item.";
+MG_displayEN "MGdbManager.browse.anno" "Browse the asset file in windows explorer.";
+
+MG_displayEN "MGdbManager.title" "MG-AssetLibrary v2.0";
+MG_displayEN "MGdbManager.ann" "Load MG-AssetLibrary v2.0,which enable U to reference/import/open asset file more quickly. It will show U more asset informations as well. Specialized in Layout/animation phase:P";
+
+MG_displayEN "MGdbManager.newProject.menu" "Project";
+MG_displayEN "MGdbManager.newProject.mi" "New Project..";
+MG_displayEN "MGdbManager.editProject.mi" "Edit Current Project..";
+MG_displayEN "MGdbManager.delProject.mi" "Delete the Project";
+MG_displayEN "MGdbManager.delTheProject.mi" "Delete this Project";
+MG_displayEN "MGdbManager.delTheProject.mess" "Are you sure to delete the Project \"#\"?";
+
+MG_displayEN "MGdbManager.setProject.mi" "Set Curent Project to";
+
+MG_displayEN "MGdbManager.category.menu" "Category";
+MG_displayEN "MGdbManager.setcategory1.mi" "Set Selected Asset Items to CH";
+MG_displayEN "MGdbManager.setcategory2.mi" "Set Selected Asset Items to Props";
+MG_displayEN "MGdbManager.setcategory3.mi" "Set Selected Asset Items to Sets";
+MG_displayEN "MGdbManager.setcategory4.mi" "Set Selected Asset Items to Misc";
+
+MG_displayEN "MGdbManager.dbitem.menu" "Asset Item";
+MG_displayEN "MGdbManager.scanFolder.mi" "Scan Asset Items from Folder..";
+MG_displayEN "MGdbManager.scanimage.mi" "Scan PreviewImages from Folder..";
+MG_displayEN "MGdbManager.scanimage.TITLE" "Scan PreviewImages from Folder";
+MG_displayEN "MGdbManager.newItem.mi" "New Asset Item..";
+MG_displayEN "MGdbManager.delItem.mi" "Delete Selected Asset Items..";
+
+MG_displayEN "MGdbManager.sel.menu" "Select";
+MG_displayEN "MGdbManager.selAll.mi" "Check All on";
+MG_displayEN "MGdbManager.selNone.mi" "Check None";
+MG_displayEN "MGdbManager.selInvert.mi" "Reverse Check On/Off";
+
+MG_displayEN "MGdbManager.operation.menu" "Operation";
+MG_displayEN "MGdbManager.saveAllEdit.mi" "Save All Edit";
+MG_displayEN "MGdbManager.ref.mi" "Reference Selected Asset Items to scenes";
+MG_displayEN "MGdbManager.Import.mi" "Import Selected Asset Items to scenes";
+MG_displayEN "MGdbManager.open.mi" "Open The First Selected Asset Item";
+
+MG_displayEN "MGdbManager.porjEditCtl.anno" "DoubleClicking me to Edit the Project Name.";
+
+MG_displayEN "MGdbManager.porjEditDetail.anno" "Edit project name and description.";
+MG_displayEN "MGdbManager.newProject.anno" "Create new project,U can add description as well.";
+MG_displayEN "MGdbManager.viewmode.anno" "Switch AssetLibrary mode between list mode and preview mode.";
+MG_displayEN "MGdbManager.scanFoldder.anno" "Scan MB/MA Asset scene form a folder.It could be the fastest way to build up your Asset library.";
+MG_displayEN "MGdbManager.scanImage.anno" "Scan Asset Items previewImage data form a folder and autoMatch to DBitems.It could be the fastest way to add preview image to your Asset Items.";
+MG_displayEN "MGdbManager.newitem.anno" "Select a reference object and click me to make it a new Asset Item.";
+MG_displayEN "MGdbManager.delItem.anno" "Del all the checked asset items.";
+MG_displayEN "MGdbManager.refreshAll.anno" "Refresh All the asset items informations of current project,such as size/date/version/availbility.";
+MG_displayEN "MGdbManager.refreshCheck.anno" "Refresh the Checked On asset items informations of current project,such as size/date/version/availbility.";
+MG_displayEN "MGdbManager.saveall.anno" "Save all edit to thid project.";
+MG_displayEN "MGdbManager.saveall.mi" "Update All Asset Items Information.";
+MG_displayEN "MGdbManager.savecheck.mi" "Update the Checked On Asset Items Information.";
+MG_displayEN "MGdbManager.time.anno" "Set up how many times the Reference/Import operation will go for.";
+//3417
+MG_displayEN "MGdbManager.refActive.mi" "Reference Current Asset Item";
+MG_displayEN "MGdbManager.ImportActive.mi" "Import Current Asset Item";
+MG_displayEN "MGdbManager.openActive.mi" "Open Current Asset Item";
+MG_displayEN "MGdbManager.checkOnOff.mi" "Check On/Off Current Asset Item";
+MG_displayEN "MGdbManager.zoomin.mi" "Zoom In";
+MG_displayEN "MGdbManager.zoomout.mi" "Zoom Out";
+MG_displayEN "MGdbManager.cw.mi" "Rotate CW";
+MG_displayEN "MGdbManager.ccw.mi" "Rotate CCW";
+MG_displayEN "MGdbManager.nextPix.mi" "Next Pix";
+MG_displayEN "MGdbManager.lastPix.mi" "Last Pix";
+MG_displayEN "MGdbManager.nextItem.mi" "Next Asset Item";
+MG_displayEN "MGdbManager.lastItem.mi" "Last Asset Item";
+MG_displayEN "MGdbManager.addPreview.mi" "Add Preview Image..";
+MG_displayEN "MGdbManager.delPreview.mi" "Del Current PreviewImage";
+MG_displayEN "MGdbManager.help.anno" "Click me to view help doc..";
+MG_displayEN "MGdbManager.save.rep.title" "All asset item datas of the Project : \"#\" saved:)";
+MG_displayEN "MGdbManager.save.category.rep.title" "Asset item datas of the Category :# saved:)";
+
+MG_displayEN "MGdbManager.scanImage.anno.label" "Setting of Scanning for PreivewImage & AutoMatch to Asset Item";
+MG_displayEN "MGdbManager.scanImage.supportFormat" " Supported image formats:";
+MG_displayEN "MGdbManager.scanImage.matchCondi" " Match Condition:";
+MG_displayEN "MGdbManager.scanImage.cusCondi.label" "Custom:" ;
+
+MG_displayEN "MGdbManager.scanImage.cusCondi.anno" "Custom a match express for the image and the Asset Item.Use \"DB\" to stand for DBitems and the wildCard \"*\" to stand for any other characters.Also support any expressions that the command \"gmatch\" supports";
+MG_displayEN "MGdbManager.scanImage.eg1" "eg. The Image\"Killer.jpg\" will match the DBitem \"Killer\"";
+MG_displayEN "MGdbManager.scanImage.eg2" "eg. The Image\"Killer.previewImage.001.jpg\" will match the DBitem \"Killer\"";
+MG_displayEN "MGdbManager.scanImage.eg3" "eg. The Image\"PreviewImage_Killer.jpg\" will match the DBitem \"Killer\"";
+MG_displayEN "MGdbManager.scanImage.eg4" "eg. The Image\"PreviewImage_Killer.0001.jpg\" will match the DBitem \"Killer\"";
+MG_displayEN "MGdbManager.scanImage.begin.anno" "Pick a folder and start scanning" ;
+MG_displayEN "MGdbManager.scanImage.input.anno" "Import the checked on image data" ;
+MG_displayEN "MGdbManager.scanImage.ready.rep" "Ready for Scanning previewImages." ;
+
+MG_displayEN "MGdbManager.checkbox.anno" "The later import action only refer to the DBitems that are check on through this control." ;
+MG_displayEN "MGdbManager.ns.anno" "This field shows the DBitem.";
+MG_displayEN "MGdbManager.preimagePath.anno" "This field shows where the previewImage file is.";
+MG_displayEN "MGdbManager.repickimagePath.anno" "Click on it to repick a previewImage file of the DBitem.";
+MG_displayEN "MGdbManager.delmagePath.anno" "Abort this previewImageData";
+
+MG_displayEN "MGdbManager.update.all.rep" "All Asset Items' size/date/version/availability informations has been updated.";
+
+MG_displayEN "MGdbManager.update.sel.rep" "Selected Asset Items' size/date/version/availability informations has been updated.";
+
+
+MG_displayEN "MGdbManager.option.ref.ann" "Open MG-AssetLibrary reference option,It shares same option with Maya's.";
+MG_displayEN "MGdbManager.option.imp.ann" "Open MG-AssetLibrary import option,It shares same option with Maya's.";
+MG_displayEN "MGdbManager.option.open.ann" "Open MG-AssetLibrary open file option,It shares same option with Maya's.";
+
+MG_displayEN "MGdbManager.option.annoText" "Notice:MG-AssetLibrary always uses it's own prefix as namespaces if \"Use namespaces\"is on.";
+
+MG_displayEN "MGdbManager.configRoot.confirmCopy.message" "Do you want to copy the config from old path to the new one?";
+MG_displayEN "MGdbManager.configRoot.done" "The directory that MG-AssetLibrary store config files has been successfully changed.";
+MG_displayEN "MGdbManager.op.title" "MG-AssetLibrary Option";
+MG_displayEN "MGdbManager.op.path.lbl" "Asset Items config path:";
+MG_displayEN "MGdbManager.op.path.pick" "Pick";
+MG_displayEN "MGdbManager.op.path.pick.ann" "Pick a dir to store DB files in";
+MG_displayEN "MGdbManager.op.enableEdit" "Enable Edit";
+MG_displayEN "MGdbManager.op.enableEdit.ann" "If you are not supposed to edit the asset information which are shared among the pipeline,\nplease don't enable the edit ,this will help to avoid the accidently override.";
+
+MG_displayEN "MGdbManager.ask.enableEdit.mes" "Do you need to edit the asset information yourself? or just need to read and use them? \n(You can edit this option later on in MG-AssetLibrary option window through right clicking on MG-AssetLibrary icon.)";
+MG_displayEN "MGdbManager.ask.enableEdit.no" "Read Only";
+
+MG_displayEN "MGdbManager.sort.assending" "Sort Ascending";
+MG_displayEN "MGdbManager.sort.descending" "Sort Descending";
+MG_displayEN "MGdbManager.width.widen" "Widen";
+MG_displayEN "MGdbManager.width.tighten" "Tighten";
+ 
+ 
+//MGTools3======================================================
+MG_displayEN "MGdbManager.local" "(Local)";
+MG_displayEN "MGdbManager.clearLibContent.local" "Clear library contents(Local)";
+MG_displayEN "MGdbManager.clearLibContent.global" "Clear library contents(Global)";
+MG_displayEN "MGdbManager.rename.cate.mi" "Rename Current Category..";
+MG_displayEN "MGdbManager.del.cate.mi" "Delete Current Category..";
+MG_displayEN "MGdbManager.batch.makeimages.mi" "Batch Making Preview Images..";
+MG_displayEN "MGdbManager.saveCate.mi" "Save Current Category";
+
+MG_displayEN "MGdbManager.checkOn.highlightItems.mi" "Check On Hilighted Items";
+MG_displayEN "MGdbManager.invert.highlightItems.mi" "Invert Hilighted Items' Check Status";
+MG_displayEN "MGdbManager.checkOff.highlightItems.mi" "Check Off Hilighted Items";
+MG_displayEN "MGdbManager.highlightAllItems.mi" "Hilight All Items";
+
+MG_displayEN "MGdbManager.searchReplace.mi" "Search And Replace..";
+MG_displayEN "MGdbManager.searchReplace.title" "Search And Replace";
+MG_displayEN "MGdbManager.updnload.menu" "Upload/Download";
+MG_displayEN "MGdbManager.updnload.checkItems.cCate.mi" "Upload/Download Checked Items of Current Category";
+MG_displayEN "MGdbManager.updnload.checkItems.allCate.mi" "Upload/Download Checked Items of All Categories";
+MG_displayEN "MGdbManager.updnload.cCate.mi" "Upload/Download Current Category";
+MG_displayEN "MGdbManager.updnload.allCate.mi" "Upload/Download All Categories";
+MG_displayEN "MGdbManager.updnload.projFile.mi" "Upload/Download Project File";
+MG_displayEN "MGdbManager.updnload.previewImages.mi" "Upload/Download All Preview Images";
+MG_displayEN "MGdbManager.makeMA.mi" "Make MA..";
+MG_displayEN "MGdbManager.makeMA.lbl" "Make MA";
+
+MG_displayEN "MGdbManager.showCateStat.mi" "Show current category stats";
+MG_displayEN "MGdbManager.switch.localGlobal.mi" "Click to switch between local and global Asset Library of current project.";
+
+MG_displayEN "MGdbManager.checkAll.mi" "Check On All Items";
+MG_displayEN "MGdbManager.checkNone.mi" "Check Off All Items";
+MG_displayEN "MGdbManager.checkInvert.mi" "Invert Check All Items";
+
+MG_displayEN "MGdbManager.name.lbl" "Name";
+MG_displayEN "MGdbManager.name.prefix" "Name: #\tAvailability: ";
+MG_displayEN "MGdbManager.path.lbl" "Path";
+MG_displayEN "MGdbManager.state.lbl" "State";
+MG_displayEN "MGdbManager.ver.lbl" "Version";
+MG_displayEN "MGdbManager.size.lbl" "Size";
+MG_displayEN "MGdbManager.date.lbl" "Date";
+MG_displayEN "MGdbManager.previewImages.lbl" "Preview Images";
+
+MG_displayEN "MGdbManager.relation.equal.lbl" "Euqal";
+MG_displayEN "MGdbManager.relation.largerThan.lbl" "Larger Than";
+MG_displayEN "MGdbManager.relation.smallThan.lbl" "Smaller Than";
+MG_displayEN "MGdbManager.relation.euqalLarger.lbl" "Equal / Larger Than";
+MG_displayEN "MGdbManager.relation.equalSmaller.lbl" "Equal / Smaller Than";
+
+MG_displayEN "MGdbManager.makeMA.ann" "Make  Maya Ascii File, store checked asset items as reference.";
+
+MG_displayEN "MGdbManager.warn.prefix" "warning: ";
+MG_displayEN "MGdbManager.err.prefix" "error: ";
+
+MG_displayEN "MGdbManager.toolName" "MG-Asset Library";
+
+MG_displayEN "MGdbManager.noWriteAccess.war" "Current global library is not editable by you.";
+
+MG_displayEN "MGdbManager.renameToValid.lbl" "Rename to valid string";
+MG_displayEN "MGdbManager.cateFileName.notValid.war" "The category file: # is not valid. \nIt should starts with \"_\" or English letter, and only compose of \"_\", English letter and digit. \nWhat you want to do now?";
+
+MG_displayEN "MGdbManager.yes.lbl" "Yes";
+MG_displayEN "MGdbManager.no.lbl" "No";
+MG_displayEN "MGdbManager.annoContent.prefix" "Asset: #\t    Availability: ";
+MG_displayEN "MGdbManager.path.notExist.war" "The path :# not exist.";
+
+MG_displayEN "MGdbManager.noDrag.war" "Middle mouse button drag/drop will mess up the datas.\nIf you have reordered/reparented items with drag/drop, please reorder/reparent them back.";
+MG_displayEN "MGdbManager.scene.contain.nonStortable.chars.mi" "The scene file contains non-storable characters, such as";
+MG_displayEN "MGdbManager.newItem.makePreview.lbl" "Make Preview Icons";
+
+MG_displayEN "MGdbManager.unsetable.lbl" "Unsetable";
+
+MG_displayEN "MGdbManager.makeMA.readRefPreload.lbl" "Reading Reference Preload Info..";
+MG_displayEN "MGdbManager.makeMA.loadRefReload.lbl" "Load Reference Preload..";
+MG_displayEN "MGdbManager.makeMA.readRefNSInfo.lbl" "Reading Reference Namespace Infos..";
+MG_displayEN "MGdbManager.makeMA.done.lbl" "Done";
+MG_displayEN "MGdbManager.makeMA.done.rep" "Maya Ascii file: # made.";
+
+MG_displayEN "MGdbManager.makeMA.editMode.lbl" "Edit Mode ";
+MG_displayEN "MGdbManager.makeMA.simpleMode.lbl" "Simple Mode";
+MG_displayEN "MGdbManager.makeMA.advancedMode.lbl" "Advanced Mode";
+
+MG_displayEN "MGdbManager.makeMA.highRef.deferred.lbl" "Highlight Reference Deferred";
+MG_displayEN "MGdbManager.makeMA.highRef.load.lbl" "Highlight Reference Loaded";
+MG_displayEN "MGdbManager.makeMA.allRef.deferred.lbl" "All Reference Deferred";
+MG_displayEN "MGdbManager.makeMA.allRef.load.lbl" "All Reference Loaded";
+
+MG_displayEN "MGdbManager.makeMA.ns.lbl" "Namespace" ;
+MG_displayEN "MGdbManager.makeMA.setNS.lbl" " Set Namespace " ;
+MG_displayEN "MGdbManager.makeMA.dialog.title" "Export Reference Info as Ma File";
+
+MG_displayEN "MGdbManager.moveCheckTo.mi" "Move Checked Items To: ";
+MG_displayEN "MGdbManager.copyCheckTo.mi" "Copy Checked Items To: ";
+MG_displayEN "MGdbManager.renameCate.mi" "Rename Category: ";
+MG_displayEN "MGdbManager.delCate.mi" "Delete Category: ";
+MG_displayEN "MGdbManager.showStat.mi" "Show statistics: ";
+
+
+MG_displayEN "MGdbManager.proj.stateLblPreset.lbl" "State Label Preset:";
+MG_displayEN "MGdbManager.setStateTo.mi" "Set State To: ";
+MG_displayEN "MGdbManager.proj.addStatePreset.lbl" "Add State Preset" ;
+MG_displayEN "MGdbManager.proj.addStatePreset.btn" "Add State Preset" ;
+MG_displayEN "MGdbManager.proj.removeStatePreset.lbl" "Delete the state preset";
+MG_displayEN "MGdbManager.proj.addStatePresetArraw.lbl" "Add Selected State to Project  ->";
+MG_displayEN "MGdbManager.proj.state.color.lbl" "State Color";
+MG_displayEN "MGdbManager.proj.state.pickColor.lbl" "Pick a Color:";
+MG_displayEN "MGdbManager.proj.state.assignColor.lbl" "Assign Color" ;
+MG_displayEN "MGdbManager.proj.projState.lbl" "Project State";
+MG_displayEN "MGdbManager.proj.delHighlightState.ann" "Delete the highlighted states";
+MG_displayEN "MGdbManager.proj.stateSetting.lbl" "Asset Item State Setting";
+MG_displayEN "MGdbManager.proj.description.lbl" "Project Description";
+MG_displayEN "MGdbManager.proj.path.customGlobalRoot.lbl" "Custom Global Root: " ;
+MG_displayEN "MGdbManager.reset.lbl" "Reset";
+
+MG_displayEN "MGdbManager.scanFolder.import" "Import Data to current Asset Library...";
+MG_displayEN "MGdbManager.scroll.pageUP.mi" "Page UP";
+MG_displayEN "MGdbManager.scroll.pageDn.mi" "Page Down";
+MG_displayEN "MGdbManager.scroll.toTop.mi" "Scroll To Top";
+MG_displayEN "MGdbManager.scroll.toBottom.mi" "Scroll To Bottom";
+
+MG_displayEN "MGdbManager.scan.scaning.lbl"  "Scanning...";
+MG_displayEN "MGdbManager.scan.processing.lbl"  "Processing...";
+MG_displayEN "MGdbManager.scan.loading.lbl" "Loading Data...";
+
+MG_displayEN "MGdbManager.delProj.msg1" "The whole local project library will be earsed.";
+MG_displayEN "MGdbManager.delProj.msg2" "The global content maybe kept. Use \"Project/Clear library contents(Global)\" to clear the global contents.";
+
+MG_displayEN "MGdbManager.local.lowerCase" "local";
+MG_displayEN "MGdbManager.global.lowerCase" "global";
+MG_displayEN "MGdbManager.delProj.war" "The whole # contents of project: # will be earsed. \nAre you sure???";
+MG_displayEN "MGdbManager.delProj.delPreviews.war" "Do you wanna delete the \"Preview_Images\" folder as well ?";
+
+MG_displayEN "MGdbManager.search.wrapped.war" "The search been wrapped.";
+MG_displayEN "MGdbManager.search.noMatch.war" "No match found." ;
+
+MG_displayEN "MGdbManager.search.empty.war" "The search string is empty." ;
+MG_displayEN "MGdbManager.search.invalidChars.war" "The search string should not contain any of these characters:";
+MG_displayEN "MGdbManager.search.invalidReplaceChars.war" "The replace string should not contain any of these characters:";
+MG_displayEN "MGdbManager.search.same.war" "The search string and the replace string are the same." ;
+MG_displayEN "MGdbManager.replace.count.rep" " asset items been replaced.";
+
+MG_displayEN "MGdbManager.search.cate.lbl" "Search Category";
+MG_displayEN "MGdbManager.search.cCate.lbl" "Current Category";
+MG_displayEN "MGdbManager.search.allCate.lbl" "All Category";
+MG_displayEN "MGdbManager.search.str.lbl" "Search String";
+MG_displayEN "MGdbManager.search.prev.lbl" "Search Previous";
+MG_displayEN "MGdbManager.search.next.lbl" "Search Next";
+
+MG_displayEN "MGdbManager.replace.with.lbl" "Replace With";
+MG_displayEN "MGdbManager.replace.prev.lbl" "Replace Previous";
+MG_displayEN "MGdbManager.replace.next.lbl" "Replace Next";
+MG_displayEN "MGdbManager.replace.all.lbl" "Replace All";
+MG_displayEN "MGdbManager.search.filter.lbl" "Filter Search Result";
+MG_displayEN "MGdbManager.search.toggleCheck.lbl" "Toggle Check";
+MG_displayEN "MGdbManager.search.caseSensitive.lbl" "Case Sensitive";
+
+MG_displayEN "MGdbManager.saveCate.done.rep" "The asset category : # has been saved.";
+MG_displayEN "MGdbManager.cate.nameLength.war" "  * Category name should better less than 11 characters.";
+
+MG_displayEN "MGdbManager.create.lbl" "Create";
+MG_displayEN "MGdbManager.renameCate.war"  "Category renaming failed.";
+MG_displayEN "MGdbManager.renameCate.prefix" "Rename Category: ";
+MG_displayEN "MGdbManager.cateExists.war" "The category :# already exists. What you gonna do? ";
+MG_displayEN "MGdbManager.delCate.war" "Do you really want to delete the category :#?";
+MG_displayEN "MGdbManager.delCate.cancel.war" "Category deleting operation canceled by user.";
+MG_displayEN "MGdbManager.delCate.subfix" "Category deleting failed.";
+MG_displayEN "MGdbManager.noCateActived.war" "No Category activated.";
+
+MG_displayEN "MGdbManager.total.lbl" "Total";
+MG_displayEN "MGdbManager.cates.lbl" "categories";
+MG_displayEN "MGdbManager.cCate.assetCount.lbl" "Current Category Asset count";
+MG_displayEN "MGdbManager.checkOn.mid" "Checked on: ";
+MG_displayEN "MGdbManager.cateExists1.war" "The category file not exist:";
+
+MG_displayEN "MGdbManager.projNotExist.war" "The project file does not exist:";
+
+MG_displayEN "MGdbManager.imageFile.ext.lbl" "Image Files";
+
+MG_displayEN "MGdbManager.scanImage.matchCount.subfix" " matches found.";
+MG_displayEN "MGdbManager.scanImage.importing.lbl" "Importing Data...";
+MG_displayEN "MGdbManager.sort.done.rep" "Asset items sorted!!";
+
+MG_displayEN "MGdbManager.batchMakeImage.log1" "Start batch making preview images.";
+MG_displayEN "MGdbManager.batchMakeImage.log2" "\nProcessing : ";
+MG_displayEN "MGdbManager.batchMakeImage.itemNoExist.war" " The asset item: # no longer exists.";
+MG_displayEN "MGdbManager.batchMakeImage.fileNoExist.war" " The asset maya file: # no longer exists.";
+MG_displayEN "MGdbManager.batchMakeImage.openMA.rep" "Open Scene : ";
+MG_displayEN "MGdbManager.batchMakeImage.errorRead.rep" "Error reading scene : ";
+MG_displayEN "MGdbManager.batchMakeImage.applyDefaultBookmark.rep" "Apply default camera bookmark and return, so you can tweak the views further.";
+MG_displayEN "MGdbManager.batchMakeImage.applyTheBookmark.rep" "Apply the camera bookmark: ";
+MG_displayEN "MGdbManager.batchMakeImage.applyDefaultBookmark.rep" "Apply the default camera bookmark.";
+MG_displayEN "MGdbManager.batchMakeImage.clearOldPreviewImage.lbl" "Clear the old preview images for asset item: ";
+MG_displayEN "MGdbManager.batchMakeImage.making.lbl" "Making preview imaged for : ";
+MG_displayEN "MGdbManager.batchMakeImage.failed.lbl" "Preview image creation failed: ";
+MG_displayEN "MGdbManager.batchMakeImage.made.lbl" "Preview images make:";
+MG_displayEN "MGdbManager.batchMakeImage.saveTheCate.lbl" "Save the category: ";
+MG_displayEN "MGdbManager.batchMakeImage.finished.lbl" "Finished processing the asset item: ";
+MG_displayEN "MGdbManager.batchMakeImage.makeNewScene.lbl" "Make a new empty scene.";
+MG_displayEN "MGdbManager.batchMakeImage.log.lbl" "Log";
+MG_displayEN "MGdbManager.batchMakeImage.log.clear.lbl" "Clear Log";
+MG_displayEN "MGdbManager.batchMakeImage.autosave.lbl" "AutoSave Asset Project After Each Icon Made";
+MG_displayEN "MGdbManager.batchMakeImage.beforeSnapshot.lbl" "Before Snapshot";
+MG_displayEN "MGdbManager.batchMakeImage.chooseCamBookmark.lbl" "Stop So I Could Choose Camera Bookmark";
+MG_displayEN "MGdbManager.batchMakeImage.useDefaultCamBookmark.lbl" "Use Default Camera Bookmark";
+MG_displayEN "MGdbManager.batchMakeImage.useBookmark.lbl" "Use Camera Bookmark:";
+MG_displayEN "MGdbManager.batchMakeImage.fileMode.lbl" "File Mode";
+MG_displayEN "MGdbManager.batchMakeImage.append.lbl" "Append To Existed Images";
+MG_displayEN "MGdbManager.batchMakeImage.replace.lbl" "Replace Existed Images";
+
+MG_displayEN "MGdbManager.batchMakeImage.saveScene.war" "Current maya scene is not saved.\nBatch making icon will open different scenes without any confirmation in current maya.\n\nDo you wanna save the current maya scene?";
+MG_displayEN "MGdbManager.batchMakeImage.save.lbl" "Save";
+MG_displayEN "MGdbManager.batchMakeImage.saveAs.lbl" "Save As..";
+MG_displayEN "MGdbManager.batchMakeImage.donotSave.lbl" "Don't Save";
+MG_displayEN "MGdbManager.batchMakeImage.saved.lbl" "Current scene saved.";
+MG_displayEN "MGdbManager.batchMakeImage.title" "Batch Making Asset Preview Images";
+
+MG_displayEN "MGdbManager.noActiveProj.war" "No activated project.";
+MG_displayEN "MGdbManager.dnup.downloaded.lbl" "downloaded";
+MG_displayEN "MGdbManager.dnup.downloading.lbl" "downloading";
+MG_displayEN "MGdbManager.dnup.uploaded.lbl" "uploaded";
+MG_displayEN "MGdbManager.dnup.uploading.lbl" "uploading";
+MG_displayEN "MGdbManager.dnup.confirmProjFileUpload.war" "Do you really want to upload and share your project file?";
+MG_displayEN "MGdbManager.dnup.same.war" "The local and the global directories are the same.";
+MG_displayEN "MGdbManager.dnup.done.rep" "The project file: # has been ";
+MG_displayEN "MGdbManager.dnup.err.war" "Error # the project file ";
+
+MG_displayEN "MGdbManager.error.image.war" "Error # the image: ";
+MG_displayEN "MGdbManager.dnup.cateHasBeen.prefix" "The category: # has been ";
+MG_displayEN "MGdbManager.dnup.cate.err.war" "Error # the category: ";
+MG_displayEN "MGdbManager.dnup.tolocal.lbl" "to local asset library?";
+MG_displayEN "MGdbManager.dnup.toglobal.lbl" "to global asset library?";
+
+MG_displayEN "MGdbManager.dnup.doReally.war" "Do you really want to ";
+MG_displayEN "MGdbManager.dnup.checkInCCate.mid" " checked items in current category ";
+MG_displayEN "MGdbManager.dnup.checkInAllCate.mid" " checked items in all categories ";
+MG_displayEN "MGdbManager.dnup.wholeCate.mid" " the whole activated cateogry: ";
+MG_displayEN "MGdbManager.dnup.allCates.mid" " all the cateogries: ";
+
+MG_displayEN "MGdbManager.dnup.upCate.lbl" "Update The Category";
+MG_displayEN "MGdbManager.dnup.repCate.lbl" "Replace The Category";
+
+MG_displayEN "MGdbManager.dnup.upAllCate.lbl" "Update All Categories";
+MG_displayEN "MGdbManager.dnup.repAllCate.lbl" "Replace All Categories";
+
+MG_displayEN "MGdbManager.dnup.noChecked.lbl" "No asset items checked on.";
+MG_displayEN "MGdbManager.dnup.upImages.confirm" "Do you really want to upload and share all your local preview images?";
+
+MG_displayEN "MGdbManager.dnup.upImages.war" "Do you want to upload all the related preview images in the source Preview_Images folder to the target Preview_Images folder?";
+MG_displayEN "MGdbManager.dnup.err.war" "Error # the project file ";
+
+MG_displayEN "MGdbManager.warnProjInvalidName.war" "The project name: # is invalid. Truncate to :";
+MG_displayEN "MGdbManager.warnProjExist.war" "The project :# already exists in your local asset library.";
+MG_displayEN "MGdbManager.warnProjNotExist.lbl" "The project :# does not exists. You must create the project before adding category.";
+MG_displayEN "MGdbManager.warnProjNotExist1.lbl" "The project :# does not exists.";
+MG_displayEN "MGdbManager.warnCateNotExist.lbl" "The category :# does not exist in the project: ";
+MG_displayEN "MGdbManager.warnCateNotWrite.lbl" "The category :# is not writable to you.";
+MG_displayEN "MGdbManager.warnProjNotExist2.lbl" "The project :# does not exists. You must create the project before adding states.";
+MG_displayEN "MGdbManager.noStateToAdd.lbl" "No states to add to the project: ";
+MG_displayEN "MGdbManager.warnProjNotReadable.lbl" "The project file:# is not readable.";
+MG_displayEN "MGdbManager.warnProjNotWritable.lbl" "The project file:# is not writable by you.";
+MG_displayEN "MGdbManager.warnCateNotExist1.lbl" "The category :# does not exists in the project: #. You must add the category before adding asset.";
+
+MG_displayEN "MGdbManager.warnCateNotWritable.lbl" "The category file:# is not writable by you.";
+MG_displayEN "MGdbManager.makeMA.notSupportMB.war" "The maya binary file is not supported:";
+MG_displayEN "MGdbManager.makeMA.alreadyExist.override.war" "The maya file: # already exists and you have chosen to not override.";
+
+MG_displayEN "MGdbManager.makeMA.refTimes.lbl" "Ref Times";
+
+MG_displayEN "MGdbManager.makeMA.top.ann" "These assets will be included as reference in the MA file:";
+
+//===============for the python api=================================================
+MG_displayEN "AssetPyAPI.searchDir.err.prefix" "The search directory: ";
+MG_displayEN "AssetPyAPI.searchDir.err.subfix" " does not exists.";
+MG_displayEN "MGdbManager.patternPara.notString.error" "The patternStr parameter should be of str type.";
+MG_displayEN "MGdbManager.patternPara.empty.error" "The patternStr parameter is empty.";
+MG_displayEN "MGdbManager.neither.mbma.war" "You should not set both searchMA and searchMB parameter to False.";
+MG_displayEN "MGdbManager.return.maExists.war" "Return because the ma file already exists: ";
+MG_displayEN "MGdbManager.onlyMa.war" "Only maya ascii file is supported by this function.";
+
+MG_displayEN "MGdbManager.invalidProjObj.war" "Invalid Project object";
+MG_displayEN "MGdbManager.invalidProj.war" "The project is invalid.";
+MG_displayEN "MGdbManager.invalidProjName.empty.war" "Invalid project name. It is empty??";
+MG_displayEN "MGdbManager.initViaExistProj.lbl" "The project exists. Will initialize the MGAssetProj object with existed project file.";
+MG_displayEN "MGdbManager.newStatePresets.parameterEmpty.war" "The parameter newStatePresets is empty.";
+MG_displayEN "MGdbManager.categoryName.parameterEmpty.war" "The parameter categoryName is an empty string.";
+
+MG_displayEN "MGdbManager.cateAdded.war" "The category alreay added.";
+MG_displayEN "MGdbManager.invalidCateObj.war" "The parameter categoryObject is an invalid MGAssetCategory object.";
+MG_displayEN "MGdbManager.noCateToWrite.war" "No category object to write to disk.";
+MG_displayEN "MGdbManager.invalidCateObj.war1" "Got invalid category object.";
+MG_displayEN "MGdbManager.param.categoryName.invalid.war" "Invalid parameter :categoryName, it should be only of type str or MGAssetCategory.";
+MG_displayEN "MGdbManager.proj.prefix" "Project: ";
+MG_displayEN "MGdbManager.cate.prefix" "Category: ";
+MG_displayEN "MGdbManager.state.prefix" "Project States: ";
+MG_displayEN "MGdbManager.ann.prefix" "Project Annotation: ";
+
+
+MG_displayEN "MGdbManager.not2011.war" "Sorry, MG-Asset Library is only available on Maya 2011 and later Maya version.";
+
+MG_displayEN "MGdbManager.searchDepth.lbl" "Search Depth:";
+MG_displayEN "MGdbManager.searchDepth.ann" "The search depth, only skip current folder means the search depth 1.";
+MG_displayEN "MGdbManager.setSearchCate.lbl" "Set";
+MG_displayEN "MGdbManager.setSearchCate.ann" "Set the categories of the highlight items the cateogry you choose left.";
+
+
+MG_displayEN "MGdbManager.confirmBefore.lbl" "Confirm Before Operation";
+
+
+MG_displayEN "MGdbManager.noGlobal.war" "Current library project doesn't have a global library.\nIf you need one, press the \"Edit Current Project..\" button and edit the \"Custom Global Root\" setting.";

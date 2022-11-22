@@ -1,0 +1,84 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>MG路径描绘器</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Animation,MotionPath,path" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "pathtracker.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">MG路径描绘器</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="camswitch.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="draw_curve_via_key.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span style="font-weight: bold; color: #191817;"> 路径描绘器按钮功能：</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:51px; padding:0px;"><p style="text-align: right;"><img src="pathtracker.gif" width="32" height="32" alt="pathTracker" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:13px; padding:0px;"><br />
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">直接点击打开MG路径描绘器。</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">其功能主要是为了追踪显示物体的运动路径，并且可以以摄像机视角进行追踪。</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold;">启动方法：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span>点击MGTools工具条的<img src="pathtracker.gif" width="32" height="32" alt="pathTracker" style="border:none" />按钮。</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#9642;</span>直接点工具架上的<img src="pathtracker.gif" width="32" height="32" alt="pathTracker" style="border:none" />图标(如果你有装全MGTools的Shelf)。</p><p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_ImageCaption" style="font-size: 10pt;">界面</span><span style="font-weight: bold; color: #191817;">：</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><img src="pathtracker_ch.gif" width="266" height="274" alt="pathTracker_ch" style="border:none" /></p>
+<p style="line-height: 2.0; margin: 0px 0px 0px 48px;"><img src="additemicon.gif" width="21" height="21" alt="addItemIcon" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">:  </span>点击来把当前场景所选物体添加到描绘列表。将生成该物体的运动曲线。描绘选项将以当前列表所选描绘项的选项为准。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="trashicon.gif" width="21" height="21" alt="trashIcon" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">: </span>将列表所选的描绘项从要描绘的列表里删掉，场景的动画路径也将被删除。也可以选列表项再按del键来做同样的事。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="refreshicon.gif" width="21" height="21" alt="refreshIcon" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">: </span>手动刷新当前列表所选描绘项的曲线。你也可以双击该列表项来手动刷新。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="locktocamicon.gif" width="21" height="21" alt="lockToCamIcon" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">: </span>对摄像机的链接开关。后面显示了链接的摄像机名字。所谓的链接摄像机，就是当摄像机运动的情况下，描述出在该摄像机画面中所显示的<br />
+<span style="width:48px">&nbsp;</span>物体运动路径。所以需要将之设置为“与该摄像机链接”。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">&quot;&lt;&quot; 按钮：</span>选择一个摄像机，然后按该按钮将之与当前所选列表项链接。如果没选择摄像机，点击则将当前激活的视图摄像机自动加入。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="refreshuiicon.gif" width="21" height="21" alt="refreshUIIcon" style="border:none" /><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">: </span>刷新界面，以显示当前场景里已有的描绘项。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 列表：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 48px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">描绘对象：</span>显示了要追踪描绘的节点对象名。双击这一项来手动刷新该项描绘结果。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 48px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">自动：</span>开关是否自动更新该项描绘。打开时，如果你有改变追踪对象的位移则会自动更新路径曲线。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 48px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">路径：</span>开关是否显示路径曲线。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 48px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">帧：</span>开关是否显示表示帧的圆球型曲线。</p><p style="text-align: left; padding: 0px 0px 0px 61px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">Key：</span>开关是否显示表示关键帧的圆球型曲线。</p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;"> 选项栏 ：</span>这一栏的标题显示了当前设置选项的描绘对象名字。</p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 48px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">时间范围：</span>显示了要追踪描绘的时间范围，点&quot;&lt;&quot;按钮来将描绘时间范围设为当前Maya时间条显示的时间范围。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 48px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">=Maya范围：</span>按下后，每次更动Maya时间显示范围，则自动刷新该描绘结果。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 48px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">路径 / 帧 / Key颜色：</span>拖动后面滑条来实时改变相对应描绘组件的颜色。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 48px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span class="f_MI_TitleStyle" style="font-size: 9pt; color: #404040;">大小：</span>拖动后面滑条来实时放大 / 缩小帧/关键帧的大小。</p><p style="line-height: 1.50; margin: 0px 0px 0px 96px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;">&nbsp;</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="camswitch.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="draw_curve_via_key.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

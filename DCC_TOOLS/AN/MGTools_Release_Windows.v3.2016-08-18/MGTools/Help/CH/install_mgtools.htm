@@ -1,0 +1,139 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>安装MGTools</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Install,Menu,Option,Shelf" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "install_mgtools.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">安装MGTools(2.0更新)</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="distributemgtools.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">初次安装 MGTools：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">1.</span>到 http://mgland.com下载MGTools最新压缩包并解压到本地；</p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">2.</span>不要更动里面的目录结构，直接拖InstallMGTools_WrittenByMiguel.mel这个mel进maya窗口；</p><p style="text-align: left; padding: 0px 0px 0px 48px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">3.</span>按弹出来的安装对话框操作。<br />
+&nbsp;</p><p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">MGTools 的三个安装模式：</span><img src="v3new.gif" width="37" height="11" alt="v3New" style="border:none" /></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">1.</span>如果是以本地模式来安装，则安装好的MGTools跟安装源是相互独立的。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">2.</span>如果是以服务器模式来安装，则安装过程中只会安装必要的，频繁使用的plugin进本地，其它文件都依赖于安装源里的。<br />
+在服务器上的文件有更新后，可以使用&quot;从服务器端更新MGTools..&quot;来获取最新的程序。<a href="updatefromserver.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">3.</span>如果是以完全服务器模式来安装，则安装过程不拷贝任何程序文件，只有用户配置及数据放到本地。<br />
+在服务器上的文件有更新后，只需要重启maya就好。<br />
+不过这个安装模式会导致服务器的文件有时难以更新，特别在Windows, .mll插件一旦被客户端加载，在服务器就不能用更新的版本覆盖。</p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">不同 Maya 版本间安装MGTools：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">1.</span>先在已安装MGTools的Maya的用户脚本文件夹下面找到MGTools安装文件夹。<br />
+如果该Maya是以服务器端方式安装的MGTools, 则需要找到服务器端的MGTools安装源。</p><p style="text-align: left; padding: 0px 0px 0px 15px; margin: 0px 0px 0px 24px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">2.</span>在MGTools文件夹里找到invoke文件夹，可以找到InstallMGTools_WrittenByMiguel.mel;</p><p style="text-align: left; padding: 0px 0px 0px 39px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">3.</span>把这个mel拖进你想安装的不同版本的maya窗口，按弹出来的安装对话框操作。</p><p style="text-align: left; padding: 0px 0px 0px 39px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial';color:#000000;display:inline-block;width:15px;margin-left:-15px">4.</span>注意新版本Maya装好的MGTools, &nbsp;如果是以本地方式安装的则与原版本Maya的MGTools是互相独立的。<br />
+这种情况下，如果要更新，要全部版本Maya更新过。<br />
+所以这边推荐以服务器模式来安装，这样只需要在线/离线更新一个版本Maya的MGTools, 其它Maya采用&quot;从服务器端更新MGTools..&quot;。<a href="updatefromserver.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a><br />
+&nbsp;</p><p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">点击左侧的&quot;分发MGTools &quot;栏来了解，如何在一个流程中多个机子中分发MGTools，并批量注册。</span><a href="distributemgtools.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">MGTools 安装界面详解：</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none;border-spacing:0px;padding:0px;line-height: 1.50;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:24px"></td><td style="border:none;padding:0">拖InstallMGTools_WrittenByMiguel.mel进maya窗口，即可弹出欢迎安装界面。</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none;border-spacing:0px;padding:0px;line-height: 1.50;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:24px"></td><td style="border:none;padding:0">点击下一步，出现MGTools最终用户许可协议，请阅读并点击下一步按钮。</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none;border-spacing:0px;padding:0px;line-height: 1.50;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:24px"></td><td style="border:none;padding:0">出现MGTools专业版授权说明，请阅读并点击下一步按钮。</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none;border-spacing:0px;padding:0px;line-height: 1.50;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:24px"></td><td style="border:none;padding:0">出现此安装选项界面：</td></tr></table></div><div style="text-align: left; text-indent: -24px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:296px; height:60px; padding:0px;"><p style="line-height: 1.50;"><img src="installmgtoolslanoption_ch.gif" width="494" height="55" alt="InstallMGtoolsLanOption_ch" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:747px; height:60px; padding:0px;"><p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">这一栏决定了MGTools的界面语言，你也可以在安装完后在MGTools配置窗口里更改。</span><a href="config_mgtools.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">默认将根据当前Windows系统来自动选择语言。</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:296px; height:60px; padding:0px;"><p style="line-height: 1.50;"><img src="installmode.gif" width="297" height="86" alt="installMode" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:747px; height:60px; padding:0px;"><p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">这一栏决定了，MGTools安装后的独立性。</span><a href="config_mgtools.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">以本地模式来安装，则安装好的MGTools跟安装源是相互独立的。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">以服务器模式来安装，则只安装必要的，频繁使用的plugin进本地，其它文件都依赖安装源里的。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">这一选项在安装MGTools到流程里所有机子时就很重要，详见分发MGTools这一栏。<a href="distributemgtools.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">如果以完全服务器模式来安装，则完全不拷贝程序文件到本地，只有配置档仍存在本地。</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:296px; height:156px; padding:0px;"><p style="line-height: 1.50;"><img src="installer_shelf.gif" width="297" height="86" alt="installer_shelf" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:747px; height:156px; padding:0px;"><p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">这一栏决定了shelf的安装方式:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">第一项，</span>将新生成&quot;MGTools&quot;工具架，同时安装几十个图标；</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">第二项，</span>将安装全部MGTools相关功能图标到当前工具架，目前一共有几十个图标；<br />
+<span class="f_MI_TitleStyle" style="color: #404040;">第三项，</span>只安装一个图标，即加载MGTools的shelf图标；<br />
+如果已存在已上图标，将删除旧的安装新的以更新；<br />
+以上操作可以在MGTools工具架安装器进行方便的清理，更新，安装。<a href="mgtools_shelf_installer.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:296px; height:198px; padding:0px;"><p style="line-height: 1.50;"><img src="installer_autoload.gif" width="297" height="171" alt="installer_autoLoad" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:747px; height:198px; padding:0px;"><p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">这一栏决定了MGTools的Maya启动自加载项目:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">第一项：</span>安装MGTools菜单栏菜单；<a id="installmenu"></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">第二项：</span>Maya启动后自动加载MGTools；<br />
+<span class="f_MI_TitleStyle" style="color: #404040;">第三项：</span>以最小化的方式自动加载MGTools；<br />
+<span class="f_MI_TitleStyle" style="color: #404040;">第四项：</span>Maya启动后自动加载MG通道栏；<br />
+<span class="f_MI_TitleStyle" style="color: #404040;">第五项：</span>Maya启动后自动加载MG外部Shelf条；</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">第六项：</span>Maya启动后自动加载约束工具。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">第七项：</span>Maya启动后自动加载帧工具箱。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">第八项：</span>Maya启动后自动加载MG选择集工具。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">以上自启动项目可以在MGTools配置<a href="config_mgtools.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a> 里自由设定，设定自启动不会影响即有的用户自启动项目。</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:296px; height:69px; padding:0px;"><p style="line-height: 1.50;"><img src="autoloadvia.gif" width="389" height="27" alt="autoloadVia" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:747px; height:69px; padding:0px;"><p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">这一栏决定了MGTools的Maya启动自加载项目信息是写在哪个文件: </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">第一项：</span>基于用户script目录下的userSetup.mel 文件；</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">第二项：</span>基于用户script目录下的userSetup.py 文件；</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:296px; height:118px; padding:0px;"><p style="line-height: 1.50;"><img src="installer_afterinstall.gif" width="389" height="64" alt="installer_afterInstall" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:747px; height:118px; padding:0px;"><p style="line-height: 1.50;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle" style="color: #404040;"> 这一栏决定了安装完后行为:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">第一项：</span>安装后即加载MGTools；</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">第二项：</span>安装后查看MGTools帮助。<br />
+<span class="f_MI_TitleStyle" style="color: #404040;">第三项：</span>安装后即加载MGTools配置进行设定；<a href="config_mgtools.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">第四项：</span>安装后即启动注册窗口，显示用户码以便用户输入激活码；<a href="registermgtools.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a> </p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; width:747px; padding:0px;"><p style="line-height: 1.50;">设定完后，点击开始安装按钮进行安装。</p>
+<p style="line-height: 1.50;">如果当前已有MGTools的旧的Plugin在被使用中，会提示您是否将这些Plugin先去掉加载。</p>
+<p style="line-height: 1.50;">如果发现旧的MGTools1 或MGToolsPro2的文件，将提示你是否卸载。旧的程序文件将被卸载，但是用户配置文件将被保留。<br />
+程序将自动拷贝相应的MGTools文件到你当前Maya的script目录下；同时安装相应的shelf；自启动设置。<br />
+安装成功后会弹出对话框提示安装成功。</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="warning.gif" width="16" height="16" alt="Warning" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> &nbsp; </span><span style="color: #ff0000;">安装完后，如果发现有些程序提示警告(有可能新旧MGTools程序参数定义不一样)，只需正常关闭Maya并重新启动就好。</span></p>
+</td>
+</tr>
+</table>
+</div>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="distributemgtools.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

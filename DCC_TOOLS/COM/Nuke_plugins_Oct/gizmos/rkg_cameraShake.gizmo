@@ -1,0 +1,244 @@
+#! //desktop-024/f/CG_BIN/Nuke6.3v2/Nuke6.3.exe -nx
+version 6.3 v2
+Gizmo {
+ help "v2.0\nSetup mode was added.\nv1.0\nAdd random camera shake, including motion blur with sub-frame motion and without.\n\nP.S. Remember, this motion blur  implementation (in fast mode of couse) work's faster then default motion blur in transform node."
+ tile_color 0x3f007fff
+ label "rkg_CS v2.1"
+ note_font Verdana
+ mapsize {0.15 0.15}
+ addUserKnob {20 cameraShake}
+ addUserKnob {6 dispPath l "Display transform locator path few frames ahead and behind" t "Setup mode. Display locator (white dot) on center of the screen for easyly frequency adjustments. It works by sub-frame motion only." +STARTLINE}
+ dispPath true
+ addUserKnob {3 frRange l "Frame range for locator display"}
+ frRange 10
+ addUserKnob {7 dotSize l "Locator size" R 0 100}
+ dotSize 1
+ addUserKnob {6 fastMode l "Fast mode" t "Disable sub-frame motion blur but it's realy fast.\nBe wary: samples doesn't matter if fast mode are switched on." +STARTLINE}
+ fastMode true
+ addUserKnob {14 amplitude t "Size of the shake, in pixels." R 0 100}
+ amplitude 10
+ addUserKnob {7 rotation t "Aplitude of rotation about the center, in degrees" R 0 10}
+ rotation 1
+ addUserKnob {7 scaling t "Aplitude of scale fluctuations" R 0 0.2}
+ scaling 0.05
+ addUserKnob {7 frequency t "Lowest frequency of the shake, in cycles per frame."}
+ frequency 0.5
+ addUserKnob {3 octaves t "Add higher frequency shaking to the basic shake (make it more like Brownian motion)"}
+ octaves 1
+ addUserKnob {7 shutter t "Length of motion blur. Set to zero to disable motion blur."}
+ shutter 0.4
+ addUserKnob {3 samples t "Number of blurred images to merge together per frame. This is needed to show higher frequencies than .5 or to show curved motion blur.\nIn fastMode it does'nt matter!"}
+ samples 1
+ addUserKnob {7 scale l "fixed scale" t "Extra scale to keep the edges from entiring the picture" R 1 1.2}
+ scale 1.05
+ addUserKnob {41 filter T Transform1.filter}
+ addUserKnob {41 crop l "black outside" +INVISIBLE T Transform1.crop}
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos 0
+  ypos -191
+ }
+ Dot {
+  name Dot1
+  xpos 34
+  ypos -84
+ }
+set N54ee940 [stack 0]
+ Shuffle {
+  red black
+  green black
+  blue black
+  alpha black
+  name Shuffle1
+  xpos -167
+  ypos -87
+ }
+ Rectangle {
+  area {{width/2-dotSize/2 i} {height/2-dotSize/2 i} {width/2+dotSize/2 i} {height/2+dotSize/2 i}}
+  name Rectangle2
+  xpos -167
+  ypos -63
+ }
+ Rectangle {
+  area {{width/4-dotSize/2 i} {height/4-dotSize/2 i} {width/4+dotSize/2 i} {height/4+dotSize/2 i}}
+  name Rectangle1
+  xpos -167
+  ypos -39
+ }
+ Rectangle {
+  area {{width-width/4-dotSize/2 i} {height-height/4-dotSize/2 i} {width-width/4+dotSize/2 i} {height-height/4+dotSize/2 i}}
+  name Rectangle3
+  xpos -167
+  ypos -15
+ }
+ Rectangle {
+  area {{width-width/4-dotSize/2 i} {height/4-dotSize/2 i} {width-width/4+dotSize/2 i} {height/4+dotSize/2 i}}
+  name Rectangle4
+  xpos -167
+  ypos 9
+ }
+ Rectangle {
+  area {{width/4-dotSize/2 i} {height-height/4-dotSize/2 i} {width/4+dotSize/2 i} {height-height/4+dotSize/2 i}}
+  name Rectangle5
+  xpos -167
+  ypos 33
+ }
+ Transform {
+  translate {{fBm(frame*frequency,2.5,3.5,octaves,2,.5)*amplitude.w i} {fBm(frame*frequency+100,10.5,11.5,octaves,2,.5)*amplitude.h i}}
+  rotate {{fBm(frame*frequency,20.5,21.5,octaves,2,.5)*parent.rotation i}}
+  scale {{(fBm(frame*frequency,30.5,31.5,octaves,2,.5)*parent.scaling+parent.scale) i}}
+  center {{width/2 i} {height/2 i}}
+  black_outside false
+  shutter {{parent.shutter i}}
+  shutteroffset centred
+  shuttercustomoffset {{-parent.shutter/2 i}}
+  name Transform2
+  xpos -167
+  ypos 89
+ }
+ Grade {
+  white 100
+  name Grade1
+  xpos -167
+  ypos 114
+ }
+set N11542ab0 [stack 0]
+ Dot {
+  name Dot2
+  xpos -256
+  ypos 117
+ }
+ Grade {
+  white {1 0 0 1}
+  name Grade2
+  xpos -290
+  ypos 168
+ }
+ Grade {
+  channels alpha
+  whitepoint 0.2
+  white_clamp true
+  name Grade3
+  xpos -290
+  ypos 192
+ }
+ FilterErode {
+  size -2
+  name FilterErode1
+  xpos -290
+  ypos 228
+ }
+set N11542780 [stack 0]
+push $N11542ab0
+ VectorBlur {
+  uv motion
+  constant {{Transform1.translate.x(frame+shutter/samples/2)-Transform1.translate.x(frame-shutter/samples/2) i} {Transform1.translate.y(frame+shutter/samples/2)-Transform1.translate.y(frame-shutter/samples/2) i}}
+  name VectorBlur3
+  xpos -167
+  ypos 138
+ }
+ TimeBlur {
+  divisions {{samples*frRange i}}
+  shutter {{parent.frRange i}}
+  shutteroffset {{-shutter/2 i}}
+  shuttercustomoffset {{-parent.frRange/2 i}}
+  name TimeBlur2
+  xpos -167
+  ypos 174
+ }
+ Clamp {
+  name Clamp1
+  xpos -167
+  ypos 198
+ }
+ Merge2 {
+  inputs 2
+  name Merge2
+  xpos -167
+  ypos 234
+ }
+push $N54ee940
+ NoTimeBlur {
+  name NoTimeBlur1
+  xpos 0
+  ypos 121
+ }
+ Transform {
+  translate {{fBm(frame*frequency,2.5,3.5,octaves,2,.5)*amplitude.w i} {fBm(frame*frequency+100,10.5,11.5,octaves,2,.5)*amplitude.h i}}
+  rotate {{fBm(frame*frequency,20.5,21.5,octaves,2,.5)*parent.rotation i}}
+  scale {{(fBm(frame*frequency,30.5,31.5,octaves,2,.5)*parent.scaling+parent.scale) i}}
+  center {{width/2 i} {height/2 i}}
+  black_outside false
+  shutter {{parent.shutter i}}
+  shutteroffset centred
+  shuttercustomoffset {{-parent.shutter/2 i}}
+  name Transform1
+  xpos 0
+  ypos 147
+ }
+set N54f0f80 [stack 0]
+ VectorBlur {
+  uv motion
+  constant {{Transform1.translate.x(frame+shutter/samples/2)-Transform1.translate.x(frame-shutter/samples/2) i} {Transform1.translate.y(frame+shutter/samples/2)-Transform1.translate.y(frame-shutter/samples/2) i}}
+  name VectorBlur1
+  xpos 0
+  ypos 173
+ }
+ TimeBlur {
+  divisions {{samples i}}
+  shutter {{parent.shutter i}}
+  shutteroffset {{-shutter/2 i}}
+  shuttercustomoffset {{-parent.shutter/2 i}}
+  name TimeBlur1
+  xpos 0
+  ypos 210
+ }
+push $N54f0f80
+push $N54f0f80
+ MotionBlur2D {
+  inputs 2
+  shutter {{parent.shutter}}
+  shutteroffset centred
+  name MotionBlur2D1
+  xpos 157
+  ypos 147
+ }
+ VectorBlur {
+  uv motion
+  name VectorBlur2
+  xpos 157
+  ypos 174
+ }
+ Switch {
+  inputs 2
+  which {{(shutter>0)&&(!parent.fastMode) i}}
+  name Switch1
+  xpos 157
+  ypos 210
+ }
+ Merge2 {
+  inputs 2
+  mix {{dispPath i}}
+  name Merge1
+  xpos 157
+  ypos 234
+ }
+set N54f1f70 [stack 0]
+ Output {
+  name Output1
+  xpos 157
+  ypos 284
+ }
+push $N11542780
+push $N54f1f70
+ Viewer {
+  inputs 2
+  frame 63
+  input_process false
+  name Viewer1
+  xpos -352
+  ypos 293
+ }
+end_group

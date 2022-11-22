@@ -1,0 +1,67 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayTS "motionPathCalc.UI.title" "路徑動畫計算器";
+MG_displayTS "motionPathCalc.mpManager.mi" "路徑動畫管理器..";
+MG_displayTS "motionPathCalc.sampleFoot" "取樣的腳位移控製器";
+MG_displayTS "motionPathCalc.sampleFoot.anno" "填入用來位移的腳控製器,你也可以按從選擇獲取來快速填入";
+MG_displayTS "motionPathCalc.cycleExtreme" "迴圈極張開始&結束:";
+MG_displayTS "motionPathCalc.cycleExtreme.anno" "輸入迴圈中腳程極張的開始結束幀和前進方向,最後一個框將自動顯示腳程距離";
+MG_displayTS "motionPathCalc.directAxis.anno" "請在這裡選擇代表前進的軸向.";
+MG_displayTS "motionPathCalc.stepLen.anno" "腳程長度";
+MG_displayTS "motionPathCalc.refresh" "重新整理";
+MG_displayTS "motionPathCalc.getFromSel" "        從選擇獲取        ";
+MG_displayTS "motionPathCalc.animLen.input" "前進的開始和結束幀";
+MG_displayTS "motionPathCalc.animLen.input.anno" "請輸入前進的開始和結束幀";
+MG_displayTS "motionPathCalc.usePathLen" "使用路徑曲線長度";
+MG_displayTS "motionPathCalc.usePathLen.anno" "如果開開,角色將前進到曲線結束,它將自動計算開始和結束幀";
+MG_displayTS "motionPathCalc.globalObj" "全局位移物體:";
+MG_displayTS "motionPathCalc.globalObj.anno" "輸入角色的整體位移層級,即將用來或者已用來做路徑動畫的層級，你可以用從選擇獲取來快速輸入.";
+MG_displayTS "motionPathCalc.globalFrontAxis" "         全局向前的軸向:";
+MG_displayTS "motionPathCalc.selectGlobalFrontAxis.anno" "選擇一個能代表角色前進的軸向:";
+MG_displayTS "motionPathCalc.GupAsis" "  上軸向:";
+MG_displayTS "motionPathCalc.GupAsis.anno" "選擇一個代表向上的軸向:";
+MG_displayTS "motionPathCalc.pathLen" "  路徑長度:";
+MG_displayTS "motionPathCalc.pathLen.anno" "  路徑動畫曲線的長度";
+MG_displayTS "motionPathCalc.MPname" "路徑動畫曲線:";
+MG_displayTS "motionPathCalc.MPname.anno" "輸入用來做路徑動畫的曲線的名字,你可以先選它再用從選擇獲取按鈕來快速輸入.";
+MG_displayTS "motionPathCalc.result" "結果 -->    結束幀: ";
+MG_displayTS "motionPathCalc.Uvalue" "結束幀U值: ";
+MG_displayTS "motionPathCalc.apply" "應用計算結果";
+MG_displayTS "motionPathCalc.readFromScene" "從場景裡讀入";
+MG_displayTS "motionPathCalc.reset" "重置";
+
+MG_displayTS "motionPathCalc.footSticker" "向前定腳吸附";
+
+MG_displayTS "motionPathCalc.noFoot.war.title" "提醒一下..";
+MG_displayTS "motionPathCalc.noFoot.war.mess" "0_o||| 請輸入代表位移的腳控製器!!";
+MG_displayTS "motionPathCalc.noSel.war.mess" "0_o||| 請輸入一個變形節點的名字!!";
+MG_displayTS "motionPathCalc.noCurve.war.mess" "0_o||| 請選擇一個曲線節點,謝謝 !!";
+MG_displayTS "motionPathCalc.ok" "好的";
+
+MG_displayTS "motionPathCalc.Manager.title" "路徑曲線節點管理器";
+MG_displayTS "motionPathCalc.Manager.annoText" "場景中的路徑曲線節點:";
+MG_displayTS "motionPathCalc.Manager.readInClac" "讀入計算器中";
+MG_displayTS "motionPathCalc.Manager.select" "選擇節點";
+MG_displayTS "motionPathCalc.Manager.del" "刪除";
+MG_displayTS "motionPathCalc.Manager.reload" "重新整理";
+
+MG_displayTS "motionPathCalc.DrawKey.title" "繪制動畫路徑曲線";
+MG_displayTS "motionPathCalc.DrawKey.annoText" "* 你可以在時間滑條上選個時間區段來繪製該區段動畫路徑曲線";
+MG_displayTS "motionPathCalc.DrawKey.drawMethod" "繪製方法:";
+MG_displayTS "motionPathCalc.DrawKey.drawMethod.l1" "關鍵幀";
+MG_displayTS "motionPathCalc.DrawKey.drawMethod.l2" "逐幀";
+MG_displayTS "motionPathCalc.DrawKey.curveDegree" "曲線角度:   ";
+MG_displayTS "motionPathCalc.DrawKey.motionPath" "路徑動畫:";
+MG_displayTS "motionPathCalc.DrawKey.CmotionPath" "創建路徑動畫";
+MG_displayTS "motionPathCalc.DrawKey.Draw" "描繪";
+MG_displayTS "motionPathCalc.DrawKey.Close" "關閉";
+MG_displayTS "motionPathCalc.DrawKey.progress.sta" "進度: 0%";
+MG_displayTS "motionPathCalc.DrawKey.progress.head" "進度: ";
+

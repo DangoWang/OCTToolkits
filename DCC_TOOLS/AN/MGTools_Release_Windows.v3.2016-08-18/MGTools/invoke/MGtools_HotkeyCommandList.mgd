@@ -1,0 +1,218 @@
+
+#Refresh_MGTools#3.0,1,1,1#// Refresh MGTools scripts. 
+//@@@
+	refreshMGtoolAfterUpdate;	
+	
+#Relocate_MGTools_Server#3.0,1,1,0#// Pick a pack as MGTools server directory, this will make MGTools installed as a server program.
+//@@@
+	eval (`MG_sourceCommand "MGTools_WrittenByMiguel.mel"`);
+	MG_ReloacateMGToolsServer;	
+	
+#Register_MGTools#3.0,1,1,1#// Register MGTools Pro.
+//@@@
+	eval (`MG_sourceCommand "MGLicenseReminder_WrittenByMiguel.mel"`);
+	MGLicenseReminder_registerDialog;		
+#Isolate_Selected_AnimCurve#3.0,1,1,0#//Isolate selected animCurve and hide other animCurves, Do it again to recover.
+//@@@
+	eval (`MG_sourceCommand "GE_PlugIn_writtenByMiguel.mel"`);
+	MGSelectCurveNodeOrObject;
+#Align_Selected_Keys#3.0,1,1,0#//Snap selected keys to the value of last selected key value.
+//@@@
+	eval (`MG_sourceCommand "GE_PlugIn_writtenByMiguel.mel"`);
+	MGSelKey_alignValue 0;
+#Align_Selected_Keys_To_Previous#3.0,1,1,0#//Snap selected keys to the each last keyframe values in GraphEditor.
+//@@@
+	eval (`MG_sourceCommand "GE_PlugIn_writtenByMiguel.mel"`);
+	MGSelKey_alignValue -1;
+#Align_Selected_Keys_To_Next#3.0,1,1,0#//Snap selected keys to the each next keyframe values in GraphEditor.
+//@@@
+	eval (`MG_sourceCommand "GE_PlugIn_writtenByMiguel.mel"`);
+	MGSelKey_alignValue 1;
+
+#MGTools_Installer#3.0,1,1,1#// Install MGTools features to Maya Shelf.
+//@@@
+	eval (`MG_sourceCommand "MGtools_config_about_WrittenByMiguel.mel"`);
+	installMGtoolsToShelfManager;	
+#MGTools_Uninstaller#3.0,1,1,1#// Uninstall MGTools.
+//@@@
+	eval (`MG_sourceCommand "MGTools_WrittenByMiguel.mel"`);
+	uninstallMGTools;
+#About_MGTools#3.0,1,1,1#// Show MGTools about dialog.
+//@@@
+	eval (`MG_sourceCommand "MGtools_config_about_WrittenByMiguel.mel"`);
+	MGtoolsAbout;
+
+#Open_Project_Dir#3.0,1,1,1#// Browse the directory of current maya project.
+//@@@
+	eval (`MG_sourceCommand "MGTools_WrittenByMiguel.mel"`);
+	openProject 0;
+#Open_Project_Image_Dir#3.0,1,1,1#// Browse the directory of current maya project images.
+//@@@
+	eval (`MG_sourceCommand "MGTools_WrittenByMiguel.mel"`);
+	openProject 1;
+#Open_Current_Scene_Dir#3.0,1,1,1#// Browse the directory of current opened scene.
+//@@@
+	eval (`MG_sourceCommand "MGTools_WrittenByMiguel.mel"`);
+	MG_openCurrentSceneDir;
+#Open_Selected_ReferenceNode_Dir#3.0,1,1,1#// Browse the directory of current selected referened nodes.
+//@@@
+	eval (`MG_sourceCommand "MGTools_WrittenByMiguel.mel"`);
+	MG_openCurrentReferenceDir;
+#Open_Maya_Failsave_Dir#3.0,1,1,1#// Browse the directory of user temp dir.
+//@@@
+	eval (`MG_sourceCommand "MGTools_WrittenByMiguel.mel"`);
+	MG_OpenTempDir;
+#Open_User_Script_Dir#3.0,1,1,1#// Browse the user script directory.
+//@@@
+	eval (`MG_sourceCommand "MGTools_WrittenByMiguel.mel"`);
+	openScriptDir;
+#Open_Maya_Program_Dir#3.0,1,1,1#// Browse the directory where Maya was installed.
+//@@@
+	eval (`MG_sourceCommand "MGTools_WrittenByMiguel.mel"`);
+	openMayaInstallFolder;
+#Open_Maya_Plugin_Dir#3.0,1,1,1#// Browse the directory where Maya plugin files stay.
+//@@@
+	eval (`MG_sourceCommand "MGTools_WrittenByMiguel.mel"`);
+	openMayaPluginFolder;
+#Open_User_Prefs_Dir#3.0,1,1,1#// Browse the directory where Maya user preference files stay.
+//@@@
+	eval (`MG_sourceCommand "MGTools_WrittenByMiguel.mel"`);
+	openUserPrefDir;
+#Open_User_Icons_Dir#3.0,1,1,1#// Browse the directory where Maya user icon files stay.
+//@@@
+	eval (`MG_sourceCommand "MGTools_WrittenByMiguel.mel"`);
+	openUserIconFolder;
+#Open_User_Shelf_Dir#3.0,1,1,1#// Browse the directory where Maya user shelf files stay.
+//@@@
+	eval (`MG_sourceCommand "MGTools_WrittenByMiguel.mel"`);
+	openUserShelfFolder;
+#Open_MGTools_Dir#3.0,1,1,1#// Browse current MGTools installation folder.
+//@@@
+	eval (`MG_sourceCommand "MGTools_WrittenByMiguel.mel"`);
+	openMgtoolFolder;
+#Add_Folder_Shortcut#3.0,1,1,1#// Add a folder shortcut to MGTools openFolder tool.
+//@@@
+	eval (`MG_sourceCommand "OpenDirectory_WrittenByMiguel.mel"`);
+	MG_OpenFolder_pickPath;
+#Edit_Folder_Shortcut#3.0,1,1,1#// Edit folder shortcut with MGTools openFolder tool.
+//@@@
+	eval (`MG_sourceCommand "OpenDirectory_WrittenByMiguel.mel"`);
+	folderMenuEdit;
+	
+#Open_Exterial_FileProgram#3.0,1,1,1#// Open a file or load a program in your computer.
+//@@@
+	eval (`MG_sourceCommand "ExternalTool_WrittenByMiguel.mel"`);
+	ExternalExeBtnCommand;
+
+#Hide_Show_All_DisplayLayers#3.0,1,1,1#// Turn all display layers on or off.
+//@@@
+	int $i;setLayerTo all\".visibility\" $i;$i=1-$i;	
+
+#MG_Anim_Library_Local#3.0,1,1,0#//MG-PoseAnimation global Library. Build up your pose and animation libraries.
+//@PoseAnimLib_Icon.bmp@PoseAnim_Icon_h.bmp@PoseAnim_Icon_h_en.bmp
+  eval (`MG_sourceCommand "MG_PoseAnimLibrary_WrittenByMiguel.mel"`);
+	MG_PoseAnimLibrary 1 0;
+	
+#MG_Anim_Library_Global#3.0,1,1,0#//MG-PoseAnimation global Library. Build up your pose and animation libraries.
+//@PoseAnimLib_Icon.bmp@PoseAnim_Icon_h.bmp@PoseAnim_Icon_h_en.bmp
+  eval (`MG_sourceCommand "MG_PoseAnimLibrary_WrittenByMiguel.mel"`);
+	MG_PoseAnimLibrary 1 1;
+	
+#MG_Pose_Library_Global#3.0,1,1,0#//MG-PoseAnimation global Library. Build up your pose and animation libraries.
+//@PoseAnimLib_Icon.bmp@PoseAnim_Icon_h.bmp@PoseAnim_Icon_h_en.bmp
+  eval (`MG_sourceCommand "MG_PoseAnimLibrary_WrittenByMiguel.mel"`);
+	MG_PoseAnimLibrary 0 1;
+	
+
+#Copy_AnimationPose_BetweenMayas#3.0,1,1,0#//Copy selected nodes animation and poses so you can paste in other mayas.
+//@@@
+  eval (`MG_sourceCommand "copyPasteAnimPose_WrittenByMiguel.mel"`);
+	MGCopyAnimationBetweenMaya 2;
+#Copy_Animation_BetweenMayas#3.0,1,1,0#//Copy selected nodes animation so you can paste in other mayas.
+//@@@
+  eval (`MG_sourceCommand "copyPasteAnimPose_WrittenByMiguel.mel"`);
+	MGCopyAnimationBetweenMaya 0;
+#Copy_Pose_BetweenMayas#3.0,1,1,0#//Copy selected nodes pose so you can paste in other mayas.
+//@@@
+  eval (`MG_sourceCommand "copyPasteAnimPose_WrittenByMiguel.mel"`);
+	MGCopyAnimationBetweenMaya 1;
+#Copy_Value_BetweenMayas#3.0,1,1,0#//Copy selected channel attribute values so you can paste in other mayas.
+//@@@
+  eval (`MG_sourceCommand "AnimationTool_WrittenByMiguel.mel"`);
+	MG_copyValueBetweenMayas 1;
+	
+#Paste_At_CurrentFrame#3.0,1,1,0#//Paste previously copied animation or poses to selected nodes in the scenem, at current frame.
+//@@@
+  eval (`MG_sourceCommand "copyPasteAnimPose_WrittenByMiguel.mel"`);
+	MGPasteAnimationBetweenMaya 2;
+#Paste_At_OriginalFrame#3.0,1,1,0#//Paste previously copied animation or poses to selected nodes in the scene, at the frame they are copied.
+//@@@
+  eval (`MG_sourceCommand "copyPasteAnimPose_WrittenByMiguel.mel"`);
+	MGPasteAnimationBetweenMaya 0;
+#Paste_At_TempLocator#3.0,1,1,0#//Paste previously copied animation or poses to the locators that will be created.
+//@@@
+  eval (`MG_sourceCommand "copyPasteAnimPose_WrittenByMiguel.mel"`);
+	MGPasteAnimationBetweenMaya 1;
+	
+#SetKeyframe_At_Each_Key#3.0,1,1,0#//Set keyframe at each keys, this will make sure each selecte object all have keys at same frames.
+//@@@
+  eval (`MG_sourceCommand "KeyFrameTool_WrittenByMiguel.mel"`);
+	MG_setKeyframeAction;	
+	
+#AnimRescue_Backup_Wizard#3.0,1,1,0#//Open animRescue backup wizard to turn on off the backups.
+//@@@
+  eval (`MG_sourceCommand "AnimRescue_writtenByMiguel.mel"`);
+	animRescue_backupWizard;	
+#AnimRescue_Auto_Recovery_Wizard#3.0,1,1,0#//Open animRescue recovery wizard to use the backups.
+//@@@
+  eval (`MG_sourceCommand "AnimRescue_writtenByMiguel.mel"`);
+	animRescue_recoveryWizard;	
+#AnimRescue_Advanced_Recovery_Wizard#3.0,1,1,0#//Open animRescue advanced recovery wizard to use the backups.
+//@@@
+  eval (`MG_sourceCommand "AnimRescue_writtenByMiguel.mel"`);
+	runUseRescueAdvanced;	
+			
+#Make_Sticky_View#3.0,1,1,0#//Create a camera view to lock to the selected nodes in your scene.
+//@@@
+  eval (`MG_sourceCommand "miniToolBox_WrittenByMiguel.mel"`);
+	createCamStickToSel;	
+#Clear_MGHUD#3.0,1,1,0#//Clear all MG-Hud Display.
+//@@@
+  eval (`MG_sourceCommand "miniToolBox_WrittenByMiguel.mel"`);
+	clearALLMGHUD;	
+#Clear_MGHUD#3.0,1,1,0#//Clear all MG-Hud Display.
+//@@@
+  eval (`MG_sourceCommand "miniToolBox_WrittenByMiguel.mel"`);
+	clearALLMGHUD;	
+	
+#CopyConstraint_betweenMaya#3.0,1,1,1#// Copy Constraint infomation, such as offset values, weight values,etc.
+//@@@
+	eval (`MG_sourceCommand "copyPasteAnimPose_WrittenByMiguel.mel"`);
+	MGCopyConstraintBetweenMaya 0;	
+#CopyConstraint_ConstraintKeyframe_betweenMaya#3.0,1,1,1#// Copy Constraint information as well as the keyframes on constraint nodes.
+//@@@
+	eval (`MG_sourceCommand "copyPasteAnimPose_WrittenByMiguel.mel"`);
+	MGCopyConstraintBetweenMaya 1;	
+#CopyConstraint_ConstraintAnim_SlaveAnim_betweenMaya#3.0,1,1,1#//Copy Constraint information, keyframes on constraint nodes and pose & keyframes on slave objects
+//@@@
+	eval (`MG_sourceCommand "copyPasteAnimPose_WrittenByMiguel.mel"`);
+	MGCopyConstraintBetweenMaya 2;	
+#PasteConstraint_betweenMaya#3.0,1,1,1#//Paste Constraint to scene selected transform nodes. Depends on the info that copied, keyframes may also be pasted.
+//@@@
+	eval (`MG_sourceCommand "copyPasteAnimPose_WrittenByMiguel.mel"`);
+	MGPasteConstraintBetweenMaya;	
+	
+#AdvancedPasteConstraint_betweenMaya#3.0,1,1,1#//Open Advanced Constraint Pasting dialog, with with you can assign each master per constraint.
+//@@@
+	eval (`MG_sourceCommand "copyPasteAnimPose_WrittenByMiguel.mel"`);
+	MGAdvancedPasteConstraintBetweenMaya;
+	
+#MGChannelBox_SwitchSingleMulti#3.0,1,1,1#//Click to switch MGChannelBox to multiple/single mode.
+//@@@
+	eval (`MG_sourceCommand "MGChannelBox_WrittenByMiguel.mel"`);
+  toggleMGchannelBoxSingleMultiple;
+  
+#MGTools_Help#3.0,1,1,1#// View MGTools help manual.
+//@@@
+	MGtoolsHelp "index.htm";
+

@@ -1,0 +1,84 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Using Pose Library</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "poseanim_usepose_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">Using Pose Library</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="poseanim_previewpanel_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="poseanim_useanim_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold; color: #191817;">Using Pose Library: </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #191817;">The apply option panel is at the bottom of the PoseAnim Library UI.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="applyposeoption_en.gif" width="557" height="173" alt="applyPoseOption_en" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">Item Clicked:  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_ImageCaption" style="font-size: 10pt;">Library Management: </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">The mode is for managing the library, in this mode, you can ctrl/shift select multiple items, edit them, upload/download , copy/move and delete them.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_ImageCaption" style="font-size: 10pt;">Simply Apply: </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">In this mode, single clicking a pose item will actually apply the pose.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_ImageCaption" style="font-size: 10pt;">Advanced Apply:</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;"> In this mode, you have to select one pose item first, tweak the apply options, then click the &quot;Advanced Apply&quot; button.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption" style="font-size: 10pt;">The options describe below are only available in Simple Apply mode and Advanced Apply mode.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">[Ctrl Click : %]: </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">Input a percentage, which will decide, when you hold ctrl key, and press the item button in simple apply mode, the percentage the pose will be applied.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">In advanced mode, this percentage will affect the percentage you apply the pose, when you hold ctrl key and press on the &quot;Advanced Apply&quot; button.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">Namespace Use: Selection Namespace:</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;"> Use the namespace of the scene selection, map the objects in the pose, get the target objects that will be applied the pose.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 288px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">Say you select CharB:body, and the controllers involved in pose data are CharA:hand, CharA:feet, then the CharB:hand and CharB:feet will be applied pose.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span class="f_ImageCaption" style="font-size: 10pt;">Pose Namespace:</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;"> Do no namespace mapping, apply pose to the controllers recorded in the pose data.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span class="f_ImageCaption" style="font-size: 10pt;">Custom:</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;"> Enable the input field at the right side, where you could input a namespace, or input the namespce use the &quot;&lt; Selection&quot; button. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">Then tool will use the namespace to map and get the target objects to apply the pose.</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 72px;"><img src="warning.gif" width="16" height="16" alt="Warning" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span style="color: #ff0000;">Current the PoseAnim Library tool grabs the target objects to apply pose/anim via their names. </span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="color: #ff0000;">So when apply a pose, if you want to apply to the same the pose/anim are created, you actually don't need select anything.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption" style="font-size: 10pt;">Options below only available in Advanced Apply mode:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">Filter Object: </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">The target object list has been nailed down by the namespace mapping rule above, but we could filter them again: </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_ImageCaption" style="font-size: 10pt;">Unfiltered:</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;"> Apply to all the target objects mapping from the pose data. &nbsp; </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_ImageCaption" style="font-size: 10pt;">Only Selected Objects:</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;"> Only the target objects been selected will be applied.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_ImageCaption" style="font-size: 10pt;">Ignore Selected Objects:</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;"> &nbsp;Only the target objects not been selected will be applied.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">Attribute: </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">As the target objects been filtered, we could filter the attribute again:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_ImageCaption" style="font-size: 10pt;">Unfiltered:</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;"> Apply the pose to all the attributes of the target objects. &nbsp; </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_ImageCaption" style="font-size: 10pt;">Only Selected Attrs:</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;"> Only apply the pose to the selected attributes of the target objects via Maya/MG-Channelbox.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span class="f_ImageCaption" style="font-size: 10pt;">Ignore Selected Attrs:</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;"> &nbsp;Only apply the pose to the unselected attributes of the target objects via Maya/MG-Channelbox.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span style="font-weight: bold;">Channelbox Icon:</span> click to decide the tool should get the attributes selected/not selected info from MG-Channelbox or Maya channelbox. Maya channelbox is used by default.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span style="font-weight: bold;">Apply Options:</span> <span style="font-weight: bold;">At Current Frame:</span> Apply the pose at current frame.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-weight: bold;">At Frame Pose Created: </span>Apply the pose at the original frame that the pose was recorded.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-weight: bold;">Apply in Worldspace:</span> When the pose was created, if the recorded object is transform, the world transformation will also be recorded.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 240px;">So when applying it, if the target object are transform nodes, this option will make the pose info been applied in world space.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span style="font-weight: bold;">Advanced Apply Button:</span> In Advanced Apply mode, you have to select one pose item first, tweak the apply options, then click this button to actually apply the pose.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span style="font-weight: bold;">The slider below: </span>Drag it to instantly apply the pose in the range 0%~100%.</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="poseanim_previewpanel_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="poseanim_useanim_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

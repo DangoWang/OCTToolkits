@@ -1,0 +1,68 @@
+Gizmo {
+ inputs 2
+ help "Produce disparity channel.\nIt will works only in Nuke default stereoscopic views setup ('left' and 'right' views)\n\n Used two inputs(data listed below):\n\nImage:\n    Depth channel with mentalray-like Z (by default).\nCamera:\n    Position\n    FilmAperture\n    Focal\n    FilmTranslate (in case offaxis stereo. If parallel rig , filmtranslate=0)\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - \nMentalray-like Z means that pixels store true distance from \ncamera to point in 3D space. So, if you have Z that \nis z coordinate for 3D point in camera local space - you need to play with checkboxes.\n\nhave a fun, and play basketball!\n\nmade by russiaman"
+ note_font Verdana
+ mapsize {0.15 0.15}
+ addUserKnob {20 User}
+ addUserKnob {41 invertedZ l "Z is inverted distance (like NukeScanlineRender does)" T s3d_DisparityExtractor_math.invertedZ}
+ addUserKnob {41 zIsDistance l "z Is Distance" T s3d_DisparityExtractor_math.zIsDistance}
+}
+ Input {
+  inputs 0
+  name Image
+  xpos 259
+  ypos 95
+ }
+ Expression {
+  temp_name0 fbX
+  temp_expr0 (x+0.5-(hrez-hrez*filmHTranslate)/2)*(fbW/hrez)
+  temp_name1 fbY
+  temp_expr1 (y+0.5-vrez/2)*(fbH/vrez)
+  temp_name2 localZ
+  temp_expr2 "zIsDistance!=1 ? (invertedZ==1? 1/z : z) : (invertedZ==1? 1/z : z)*focal/sqrt(focal*focal+fbX*fbX + fbY*fbY)"
+  temp_name3 var1
+  temp_expr3 "zeroParallax==0?(- (localZ!=0?1/localZ:0))*alpha : ((1/zeroParallax) - (localZ!=0?1/localZ:0))*alpha"
+  channel0 {disparityL.x -disparityL.y -disparityR.x none}
+  expr0 -1*hrez/fbW*2*(focal*interaxial/2*var1)
+  channel1 {-disparityL.x -disparityL.y disparityR.x none}
+  expr1 hrez/fbW*2*(focal*interaxial/2*var1)
+  channel2 {-disparityL.x disparityL.y -disparityR.x disparityR.y}
+  expr2 0
+  channel3 none
+  name s3d_DisparityExtractor_math
+  xpos 397
+  ypos 95
+  addUserKnob {20 User}
+  addUserKnob {6 invertedZ l "Z is inverted distance (like NukeScanlineRender does)" t "in some cases (Nuke ScanlineRender and other) Z captured as 1/distance\nwhere <distance> is distance from camera to point in 3D space.\n\nIn that case you need to set this checkbox on.\n\nBy default is off." +STARTLINE}
+  addUserKnob {6 zIsDistance l "z Is Distance" t "There is several ways to store Z channel.\nMentalRay store Z as distance from camera to actual point in 3D space.\n\nBut in some cases Z is captured as Z coordinate of 3D point in camera space and as result we get  little different values than actual distance from cam to that point.\n\nSo, if you have a depth channel as local coordinate for points in camera space - check this OFF \n\nBy default is \"On\"" +STARTLINE}
+  zIsDistance true
+  addUserKnob {7 filmHTranslate}
+  filmHTranslate {{input1.win_translate}}
+  addUserKnob {7 zeroParallax t "Zero parallax"}
+  zeroParallax {{filmHTranslate==0?0:abs(interaxial*focal/(filmHTranslate*fbW))}}
+  addUserKnob {7 interaxial t "interaxial separation"}
+  interaxial {{sqrt(pow(input1.translate.left.x-input1.translate.right.x,2)+pow(input1.translate.left.y-input1.translate.right.y,2)+pow(input1.translate.left.z-input1.translate.right.z,2))}}
+  addUserKnob {7 focal t "camera focal"}
+  focal {{input1.focal}}
+  addUserKnob {7 fbW t "film back width"}
+  fbW {{input1.haperture}}
+  addUserKnob {7 fbH}
+  fbH {{input1.haperture*(height/width)}}
+  addUserKnob {7 hrez t "image horizontal resolution"}
+  hrez {{width}}
+  addUserKnob {7 vrez t "vertical image rezolution"}
+  vrez {{height}}
+ }
+ Output {
+  name Output1
+  xpos 567
+  ypos 95
+ }
+ Input {
+  inputs 0
+  name Camera
+  xpos 257
+  ypos 146
+  number 1
+ }
+end_group

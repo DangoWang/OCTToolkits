@@ -1,0 +1,705 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "poseAnimLib.toolName" "MG-PoseAnimLib";
+MG_displayEN "poseAnimLib.tool.mi" "MG-PoseAnim Library..";
+MG_displayEN "poseAnimLib.tool.ann" "Click to load MG-PoseAnim Library.By default, it loads lcoal Pose Library.";
+MG_displayEN "poseAnimLib.localAnim.ann" "Click to load MG-PoseAnim local animation Library.";
+MG_displayEN "poseAnimLib.globalPose.ann" "Click to load MG-PoseAnim global pose Library.";
+MG_displayEN "poseAnimLib.globalAnim.ann" "Click to load MG-PoseAnim global animation Library.";
+
+MG_displayEN "poseAnimLib.localPoseLib.mi" "Local Pose Library..";
+MG_displayEN "poseAnimLib.globalPoseLib.mi" "Global Pose Library..";
+MG_displayEN "poseAnimLib.localAnimLib.mi" "Local Animation Library..";
+MG_displayEN "poseAnimLib.globalAnimLib.mi" "Global Animation Library..";
+
+MG_displayEN "poseAnimLib.war.prefix" "Warning: ";
+MG_displayEN "poseAnimLib.err.prefix" "Error: ";
+
+
+MG_displayEN "poseAnimLib.localRootBuilt" "Local default root dir built : ";
+MG_displayEN "poseAnimLib.noProj.war" "Current no project created. What you wanna do?";
+MG_displayEN "poseAnimLib.existProj.war" "The project already exists,what you wanna do?";
+MG_displayEN "poseAnimLib.noChar.war" "Current no character created. What you wanna do?";
+MG_displayEN "poseAnimLib.noCate.war" "Current no category created. What you wanna do?";
+MG_displayEN "poseAnimLib.createProj" "Create Project..";
+MG_displayEN "poseAnimLib.createChar" "Create Character..";
+MG_displayEN "poseAnimLib.addCate" "Add Category..";
+MG_displayEN "poseAnimLib.openProj" "Open Project..";
+MG_displayEN "poseAnimLib.openExProj" "Open the Existed Project";
+
+MG_displayEN "poseAnimLib.versionUp" "Version Up" ;
+MG_displayEN "poseAnimLib.override" "Override" ;
+MG_displayEN "poseAnimLib.skip" "Skip" ;
+MG_displayEN "poseAnimLib.ignore" "Ignore" ;
+MG_displayEN "poseAnimLib.switchTo" "Switch To"  ;
+MG_displayEN "poseAnimLib.create" "Create" ;
+MG_displayEN "poseAnimLib.merge" "Merge"  ;
+MG_displayEN "poseAnimLib.overrideExistProjSetting" "Override the exist Project Setting" ;
+MG_displayEN "poseAnimLib.Cancel" "Cancel";  //`MG_DualLan "poseAnimLib.Cancel"`
+MG_displayEN "poseAnimLib.StopCancel" "Stop && Cancel";
+MG_displayEN "poseAnimLib.useSimilarChoice" "Use Similar Choice";
+MG_displayEN "poseAnimLib.ignoreContinue" "Ignore && Continue";
+MG_displayEN "poseAnimLib.useContinue" "Use && Continue";
+MG_displayEN "poseAnimLib.RealDelete" "Permernent Delete";
+MG_displayEN "poseAnimLib.RecoverableDelete" "Recoverable Delete";
+
+MG_displayEN "poseAnimLib.duplicateControlFound.prefix" "Duplicate controls found: ";
+MG_displayEN "poseAnimLib.targetNotExist.prefix" "Target Object not exits: ";
+MG_displayEN "poseAnimLib.attributeNotExist.prefix" "Attribute not exits: ";
+MG_displayEN "poseAnimLib.attributeApplied.prefix" "Attribute applied: ";
+MG_displayEN "poseAnimLib.noAttributeNeedApplied.war" "No attributes values need to applied.";
+MG_displayEN "poseAnimLib.attributeErrorApply.prefix" "Error applying the attribute : ";
+
+MG_displayEN "poseAnimLib.missingItemData.war" "Missing item data file.";
+MG_displayEN "poseAnimLib.missingItemData.prefix" "The data file not exists:";
+MG_displayEN "poseAnimLib.errorReadData.prefix" "Error reading file:";
+
+MG_displayEN "poseAnimLib.itemIsEmpty.war" "The item have no control included!";
+MG_displayEN "poseAnimLib.controlsMatched.rep" "The controls in the pose match your scene!";
+MG_displayEN "poseAnimLib.theseControlNotExists.rep" "The controls not exist in your scene:";
+MG_displayEN "poseAnimLib.buttonNotExists.war" "The item button no longer exits.";
+
+MG_displayEN "poseAnimLib.error.seeScriptEditor.war" "Error occur.See scriptEditor to know more :(";
+
+MG_displayEN "poseAnimLib.global" "Global";
+MG_displayEN "poseAnimLib.local" "Local";
+MG_displayEN "poseAnimLib.anim" "Animation";
+MG_displayEN "poseAnimLib.pose" "Pose";
+MG_displayEN "poseAnimLib.poseAnim" "Pose/Anim";
+
+MG_displayEN "poseAnimLib.proj" "Project";
+MG_displayEN "poseAnimLib.proj.smallCase" "project";
+MG_displayEN "poseAnimLib.lib" "library";
+MG_displayEN "poseAnimLib.char" "Character";
+MG_displayEN "poseAnimLib.char.smallCase" "character";
+MG_displayEN "poseAnimLib.cate" "Category";
+MG_displayEN "poseAnimLib.cate.smallCase" "category";
+MG_displayEN "poseAnimLib.items" "item(s)";
+MG_displayEN "poseAnimLib.item" "Item";
+
+MG_displayEN "poseAnimLib.createFrame" "Create Frame";
+MG_displayEN "poseAnimLib.timeRange" "Time Range";
+MG_displayEN "poseAnimLib.noRange" "No Range";
+MG_displayEN "poseAnimLib.metaInfo" "Meta Info";
+MG_displayEN "poseAnimLib.name" "Name";
+MG_displayEN "poseAnimLib.author" "Author";
+MG_displayEN "poseAnimLib.cDate" "Create Date";
+MG_displayEN "poseAnimLib.mayaInfo" "Maya Info";
+MG_displayEN "poseAnimLib.controls" "Control Involved";
+MG_displayEN "poseAnimLib.mayaScene" "Maya Scene";
+MG_displayEN "poseAnimLib.assets" "Asset Involved";
+MG_displayEN "poseAnimLib.noAssets.war" "No asset involved.";
+MG_displayEN "poseAnimLib.modificateionInfo" "Modification Info";
+MG_displayEN "poseAnimLib.noModi.war" "No modification info found.";
+MG_displayEN "poseAnimLib.modiTimes" "Modifying Times";
+MG_displayEN "poseAnimLib.modiBy" "Modified by:";
+MG_displayEN "poseAnimLib.modiAt" "Modified at:";
+MG_displayEN "poseAnimLib.reason" "Reason:";
+
+MG_displayEN "poseAnimLib.noItemSel.war" "No item selected.";  //`MG_DualLan "poseAnimLib.noItemSel.war"`
+MG_displayEN "poseAnimLib.noCate.war" "No category found.";  
+MG_displayEN "poseAnimLib.noChar.war" "No character found.";  
+MG_displayEN "poseAnimLib.noObjSel.war" "No controls selected in your scene.";
+MG_displayEN "poseAnimLib.noInputItemName.war" "Please input a valid Name.";
+MG_displayEN "poseAnimLib.sameAsOld.war" "Same name as before. No change made.";
+
+MG_displayEN "poseAnimLib.playmovie.ann" "Click to play movie, Double click to play all movies.";
+
+MG_displayEN "poseAnimLib.bookmark.inputName.msg" "Input a name for cam bookmark:";
+MG_displayEN "poseAnimLib.bookmark.alreadyExist.war" "The bookmark already exists,what you wanna do?" ;
+
+MG_displayEN "poseAnimLib.toShelf.inputName.msg" "Input a name for pose shelf's short name:";
+MG_displayEN "poseAnimLib.toShelf.done.rep" "The pose has been installed to current shelf tab.";
+
+MG_displayEN "poseAnimLib.createItem.getCreateOption" "Getting creation options.." ;
+MG_displayEN "poseAnimLib.createItem.writingData" "Writing the data file:" ;
+MG_displayEN "poseAnimLib.createItem.finished" "Finished creating the item:" ;
+
+MG_displayEN "poseAnimLib.applyItem.start" "Start applying the item:";
+MG_displayEN "poseAnimLib.applyItem.startPercentage" "Start applying the item: # with percentage: #%";
+MG_displayEN "poseAnimLib.applyItem.goFrame" "Go to the frame that item was created: ";
+MG_displayEN "poseAnimLib.applyItem.cancelDueToDuplicate" "Task terminated by user due to duplicated controls: ";
+MG_displayEN "poseAnimLib.applyItem.nonTransformNoNeedWorldApply" " is not a transform node,hance can't apply the world attribute.";
+MG_displayEN "poseAnimLib.applyItem.finished" "Finished applying the item:";
+MG_displayEN "poseAnimLib.applyItem.finished.subfix" " objects has been applyed animation.";
+
+MG_displayEN "poseAnimLib.pick" "Pick";
+MG_displayEN  "poseAnimLib.current" "Current";
+MG_displayEN "poseAnimLib.createProj.validName.war" "Please input an vlid project name.";
+MG_displayEN "poseAnimLib.readProj.overrideLocal" "Override the local project file: ";
+
+MG_displayEN "poseAnimLib.newCate.topAnn" "* Categories selected below will be created.";
+MG_displayEN "poseAnimLib.newCate.custumCate" "Custom Category: ";
+MG_displayEN "poseAnimLib.newCate.addToPreset" "Add to Preset";
+MG_displayEN "poseAnimLib.newCate.add" "Add";
+MG_displayEN "poseAnimLib.newCate.addCate" "Add Category";
+
+MG_displayEN "poseAnimLib.newChar.newChar" "New Character";
+MG_displayEN "poseAnimLib.newChar.charName" "Character Name";
+MG_displayEN "poseAnimLib.newChar.addName" "Add Category name:";
+MG_displayEN "poseAnimLib.newChar.topAnn" "* Categories selected below will also be created.";
+MG_displayEN "poseAnimLib.newChar.charDup.war" "Character with the name '#' already exists. what do you wanna do?";
+
+MG_displayEN "poseAnimLib.switchTo.local" "Switch to Local";
+MG_displayEN "poseAnimLib.switchTo.global" "Switch to Global";
+
+MG_displayEN "poseAnimLib.switchTo.pose" "Switch to Pose-Library";
+MG_displayEN "poseAnimLib.switchTo.anim" "Switch to Animation-Library";
+
+MG_displayEN "poseAnimLib.newProj" "New Project..";
+MG_displayEN "poseAnimLib.newProjNoDot" "New Project";
+MG_displayEN "poseAnimLib.openProj" "Open Project..";
+MG_displayEN "poseAnimLib.openProjNoDot" "Open Project";
+
+MG_displayEN "poseAnimLib.itemNotSelectable" "Item is not selectable in this mode";
+
+MG_displayEN "poseAnimLib.mi.selItemControl" "Select Item Control(s)";
+MG_displayEN "poseAnimLib.mi.apply" "Apply";
+MG_displayEN "poseAnimLib.mi.percentageApply" "Percentage Apply";
+MG_displayEN "poseAnimLib.mi.perviewItem" "Preview Item";
+MG_displayEN "poseAnimLib.mi.downloadItem" "Download Selected Items to Local..";
+MG_displayEN "poseAnimLib.mi.uploadItem" "Publish Selected Items to Global..";
+MG_displayEN "poseAnimLib.mi.editItem" "Edit Item.." ;
+MG_displayEN "poseAnimLib.mi.resnapshotItem" "ReSnapshot Item.." ;
+
+MG_displayEN "poseAnimLib.mi.selAll" "Select All" ;
+MG_displayEN "poseAnimLib.mi.selNone" "Select None" ;
+MG_displayEN "poseAnimLib.mi.selInvert" "Reverse Selection" ;
+
+MG_displayEN "poseAnimLib.mi.delSelItems" "Delete Selected Item(s) ..";
+MG_displayEN "poseAnimLib.mi.renameSelItems" "Rename Selected Item..";
+MG_displayEN "poseAnimLib.mi.moveCopySelItems" "Move/Copy Selected Item(s)..";
+
+MG_displayEN "poseAnimLib.cantSetIcon.rep" "Can't set the icon.";
+MG_displayEN "poseAnimLib.imageBeenSet.rep" "Current image :# has been set as icon of the item: #";
+
+MG_displayEN "poseAnimLib.playblast.createPreview.start" "Creating the preview images & movies..";
+MG_displayEN "poseAnimLib.make.writingToTemp" "Writing to temp animation cache..";
+MG_displayEN "poseAnimLib.noMovie" "No movie to play.";
+MG_displayEN "poseAnimLib.movieNotExist.war" "The preview movie \"#\" not exists.";
+
+MG_displayEN "poseAnimLib.clearAnimCache.ignoreNSClearing" "Ignored clearing namespace.";
+MG_displayEN "poseAnimLib.clearAnimCache.done" "Animation cache has been cleared.";
+MG_displayEN "poseAnimLib.clearAnimCache.notImported" "The animation cache has not been imported yet.";
+
+MG_displayEN "poseAnimLib.newProj.name" "Project Name:";
+MG_displayEN "poseAnimLib.newProj.description" "Project Description:";
+MG_displayEN "poseAnimLib.newProj.globalDirSetting" "Global Directories Settings";
+MG_displayEN "poseAnimLib.newProj.globalRootSetting" "Global Root Settings";
+MG_displayEN "poseAnimLib.newProj.noGlobal" "No Need A Global Library";
+MG_displayEN "poseAnimLib.newProj.useCustom" "Use Custom:";
+MG_displayEN "poseAnimLib.newProj.pick" "Pick..";
+MG_displayEN "poseAnimLib.newProj.globalPoseDirSetting" "Global PoseLib Settings:";
+MG_displayEN "poseAnimLib.newProj.useUnifiedProjRoot" "Use [ Global Project Root ]";
+MG_displayEN "poseAnimLib.newProj.globalAnimDirSetting" "Global AnimLib Settings:";
+
+MG_displayEN "poseAnimLib.editProj.done" "The setting of the prject \"#\" has been saved.";
+MG_displayEN "poseAnimLib.editProj.localRootchanged" "Change local root path to: \"#\".";
+MG_displayEN "poseAnimLib.editProj.globalRootchanged" "Change global root path to: \"#\".";
+MG_displayEN "poseAnimLib.editProj.localRootReset" "Reset local root path to default.";
+MG_displayEN "poseAnimLib.editProj.globalRootReset" "Reset global root path to default.";
+
+MG_displayEN "poseAnimLib.changedConfig.prefix" "Changed config value:";
+MG_displayEN "poseAnimLib.imageViewerMode" "Image Viewer mode";
+MG_displayEN "poseAnimLib.customImageViewer" "Custom Image Viewer";
+MG_displayEN "poseAnimLib.moviePlayerMode" "Movie Player mode";
+MG_displayEN "poseAnimLib.customMoviePlayer" "Custom Movie Player";
+
+MG_displayEN "poseAnimLib.editItem.errorDeleteBtn" "Error deleting the button.";
+MG_displayEN "poseAnimLib.editItem.errorGetCate" "Error getting current category directory.";
+MG_displayEN "poseAnimLib.editItem.deleteDone" "Item: # deleted successfully.";
+MG_displayEN "poseAnimLib.editItem.deleteDone.rep" " # items deleted, # items skipped.";
+MG_displayEN "poseAnimLib.editItem.deleteFailed" "Item: # fail to be deleted. Maybe you have no write access to the directory?";
+MG_displayEN "poseAnimLib.editItem.deleteConfirm" "Item delete confirmation:";
+MG_displayEN "poseAnimLib.editItem.deleteCanceled" "Item deleting operation canceled by user.";
+MG_displayEN "poseAnimLib.editItem.deleteWar.mes" "The whole # will be removed. What you wanna do?";
+MG_displayEN "poseAnimLib.editItem.deleteWar.notEmpty.mes" "The #  is not empty. \nAll datas will be deleted permernently. Go ahead?";
+
+MG_displayEN "poseAnimLib.editItem.errDelChar.prefix" "Error while deleting the character:";
+MG_displayEN "poseAnimLib.editItem.errDelCate.prefix" "Error while deleting the category:";
+
+MG_displayEN "poseAnimLib.uploadDownload.same.war" "Currently local & global directory are the same, no upload/download action performed.";
+MG_displayEN "poseAnimLib.uploadDownload.noItemTransfered.war" "No items needed to be uploaded/downloaded.";
+MG_displayEN "poseAnimLib.uploadDownload.downloaded" "Downloaded";
+MG_displayEN "poseAnimLib.uploadDownload.download" "Download";
+MG_displayEN "poseAnimLib.uploadDownload.uploaded" "Uploaded";
+MG_displayEN "poseAnimLib.uploadDownload.upload" "Upload";
+MG_displayEN "poseAnimLib.uploadDownload.exist.war" "The target # already exists. What do you gonna do?";
+MG_displayEN "poseAnimLib.uploadDownload.empty.war" "The source/target path is empty.";
+MG_displayEN "poseAnimLib.uploadDownload.exist.war1" "Target exists. Need confirmation to ";
+
+MG_displayEN "poseAnimLib.uploadDownload.from" "from";
+MG_displayEN "poseAnimLib.uploadDownload.to" "to";
+
+MG_displayEN "poseAnimLib.actionCanceled.subfix" " action canceled by user.";
+MG_displayEN "poseAnimLib.userSkip" "User skip # on : #";
+MG_displayEN "poseAnimLib.success" "succeed:";
+MG_displayEN "poseAnimLib.fail" "failed:";
+MG_displayEN "poseAnimLib.successfully" "successfully";
+MG_displayEN "poseAnimLib.failed" "failed";
+MG_displayEN "poseAnimLib.skipped" "skipped";
+
+
+MG_displayEN "poseAnimLib.renameSkipped" "Name unchanged. Skip renaming operation.";
+MG_displayEN "poseAnimLib.errRename" "Error rename the file: ";
+MG_displayEN "poseAnimLib.renamed" "Renamed: ";
+MG_displayEN "poseAnimLib.rename" "Rename";
+MG_displayEN "poseAnimLib.rename.canceled" "Rename operation canceled by user.";
+
+MG_displayEN "poseAnimLib.no.actived" "No # currently activated.";
+MG_displayEN "poseAnimLib.current.notExist" "Currently # not exists.";
+
+MG_displayEN "poseAnimLib.new.existed" "The new # :# already exists. What you gonna do?";
+MG_displayEN "poseAnimLib.errorMerge" "Error merging two folders: ";
+MG_displayEN "poseAnimLib.errorDeleteAfterMerge" "Error deleting the old # after merging:";
+MG_displayEN "poseAnimLib.errorOverridingTarget" "Error overriding the target ";
+MG_displayEN "poseAnimLib.errRename1" "Error renaming the ";
+MG_displayEN "poseAnimLib.successRename" "Successfully renaming the ";
+MG_displayEN "poseAnimLib.file" "file:";
+
+MG_displayEN "poseAnimLib.op.noProjectSel" "No project selected in the list.";
+MG_displayEN "poseAnimLib.op.categoryExist.war" "The item in target category already exists,what you wanna do?";
+
+MG_displayEN "poseAnimLib.moveCopy.categoryExist.war" "The target category: \n#\n not exist. The # action canceled, and will perform a ui refresh.";
+MG_displayEN "poseAnimLib.moveCopy.same.war" "Target and source category are the same. No change made.";
+
+MG_displayEN "poseAnimLib.userCanceled.war" "User canceled.";
+MG_displayEN "poseAnimLib.moveCopy.success.rep" "Successfully # the item: # to path: ";
+MG_displayEN "poseAnimLib.moveCopy.faled.rep" "Fail to  # the item: # to path: ";
+MG_displayEN "poseAnimLib.moveCopy.done.rep" "Successfully # the item: #,# error occured.";
+MG_displayEN "poseAnimLib.moveCopy.newCharCate.mes" "Input new # name:";
+MG_displayEN "poseAnimLib.moveCopy.title" "Move/Copy Item";
+
+MG_displayEN "poseAnimLib.moveCopy.field" "Field";
+MG_displayEN "poseAnimLib.moveCopy.sameAsSource" "Same As Source";
+MG_displayEN "poseAnimLib.moveCopy.copyTo" "Copy To";
+MG_displayEN "poseAnimLib.moveCopy.moveTo" "Move To";
+
+
+MG_displayEN "poseAnimLib.imageNotExist" "The image:# not exist.";
+
+MG_displayEN "poseAnimLib.selectCtl.objNotExist" "Object: # not exist. Try select some node of your target character and try again.";
+MG_displayEN "poseAnimLib.selectCtl.objSelected" " #objects selected, # ignored due to nonexistance.";
+
+MG_displayEN "poseAnimLib.backUp.noBackup.war" "No Backup Found.";
+MG_displayEN "poseAnimLib.backUp.backNotExist.war" "Backup Error: Data file: \n# not exists.";
+MG_displayEN "poseAnimLib.backUp.noImages.war" "Backup Error: No image files detected.";
+MG_displayEN "poseAnimLib.backUp.unableCreateFolder.war" "Backup Error: Unable to create the folder: \n";
+MG_displayEN "poseAnimLib.backUp.unableBackup.war" "Backup Error: Unable to backup the file: \n";
+MG_displayEN "poseAnimLib.backUp.done" "Backup to the folder: # finished ";
+
+MG_displayEN "poseAnimLib.backUp.error.subfix" "with # errors. Check out scriptEditor to know more.";
+MG_displayEN "poseAnimLib.backUp.folderNotExist.war" "Backup folder: # not exist.";
+MG_displayEN "poseAnimLib.backUp.noDataFound.war" "No data found in the backup folder: ";
+MG_displayEN "poseAnimLib.restore.confirm" "Goona restore datas from \"#\", \nold data probably wil be overrided. \nWhat you wanna do?";
+MG_displayEN "poseAnimLib.restore.onlyData" "Restore Only Data";
+MG_displayEN "poseAnimLib.restore.onlyImage" "Restore Only Images";
+MG_displayEN "poseAnimLib.restore.all" "Restore All";
+MG_displayEN "poseAnimLib.restore.restored" "Restored: ";
+MG_displayEN "poseAnimLib.restore.errRestore" "Error restoring: ";
+
+MG_displayEN "poseAnimLib.restore.noData" "Error: No data been restored from backup: ";
+MG_displayEN "poseAnimLib.restore.done" "Restore the backup: # finished ";
+
+MG_displayEN "poseAnimLib.makeIcon.NewDone" "New preview file made: ";
+MG_displayEN "poseAnimLib.makeIcon.NoDone" "No new preview file made!!";
+MG_displayEN "poseAnimLib.makeIcon.wasMade" " preview files was newly made";
+MG_displayEN "poseAnimLib.makeIcon.oldUpdate" " and old ones are updated.";
+MG_displayEN "poseAnimLib.makeIcon.andAppend" " and appended.";
+MG_displayEN "poseAnimLib.makeIcon.andDelete" " and # old preview files are deleted.";
+
+MG_displayEN "poseAnimLib.advancedEdit.rebuilt" "Completely rebuilt.";
+MG_displayEN "poseAnimLib.advancedEdit.remSelListCtl" "Remove selected list controls.";
+MG_displayEN "poseAnimLib.advancedEdit.remSelSceneCtl" "Remove selected scene controls.";
+MG_displayEN "poseAnimLib.advancedEdit.updateSelSceneCtl" "Add/Update selected scene controls.";
+
+MG_displayEN "poseAnimLib.rebuild.writeTemp" "Writing to temp animation cache..";
+MG_displayEN "poseAnimLib.advancedEdit.confirm" "Need a confirm before performing editing item data. Go ahead?" ;
+MG_displayEN "poseAnimLib.advancedEdit.canceled" "Item data editing canceled by user.";
+MG_displayEN "poseAnimLib.advancedEdit.noSelInList" "Nothing selected in the left list.";
+MG_displayEN "poseAnimLib.advancedEdit.noSelInScene" "Nothing selected in your scene.";
+MG_displayEN "poseAnimLib.advancedEdit.successEdit" "The library item \"#\" is edited. Edit method: ";
+
+MG_displayEN "poseAnimLib.advancedEditUI.title" "AdvancedEdit";
+MG_displayEN "poseAnimLib.advancedEditUI.editMode" "Edit Mode";
+MG_displayEN "poseAnimLib.advancedEditUI.editMode.editData" "Edit Item Data";
+MG_displayEN "poseAnimLib.advancedEditUI.editMode.editImage" "Edit Item Preview Images";
+MG_displayEN "poseAnimLib.advancedEditUI.selItemInScene" "Select Selected List Items In Scene";
+MG_displayEN "poseAnimLib.advancedEditUI.selAllItemInScene" "Select All List Items In Scene";
+MG_displayEN "poseAnimLib.advancedEditUI.switch.ann" "Click to switch the editing mode.";
+MG_displayEN "poseAnimLib.advancedEditUI.setIcon" "Set Current As Icon";
+MG_displayEN "poseAnimLib.advancedEditUI.rename" "Rename";
+MG_displayEN "poseAnimLib.advancedEditUI.viaList" "Via List";
+MG_displayEN "poseAnimLib.advancedEditUI.selAllListCtls" "Select All ListControl(s)";
+MG_displayEN "poseAnimLib.advancedEditUI.selSelListCtls" "Select Sel ListControl(s)";
+MG_displayEN "poseAnimLib.advancedEditUI.remSelListCtls" "Remove Sel ListControl(s)";
+MG_displayEN "poseAnimLib.advancedEditUI.viaScene" "Via Scene";
+MG_displayEN "poseAnimLib.advancedEditUI.remSelSceneCtls" "Remove Sel SceneControl(s)";
+MG_displayEN "poseAnimLib.advancedEditUI.updateSelSceneCtls" "Add/Update Sel SceneControl(s)";
+MG_displayEN "poseAnimLib.advancedEditUI.rebuildOp" "Rebuild Data Option";
+
+
+MG_displayEN "poseAnimLib.advancedEditUI.mode" "Mode";
+MG_displayEN "poseAnimLib.advancedEditUI.selected" "Selected Objects";
+MG_displayEN "poseAnimLib.advancedEditUI.wholeRig" "Whole Rig";
+MG_displayEN "poseAnimLib.advancedEditUI.time.all" "All";
+MG_displayEN "poseAnimLib.advancedEditUI.time.selRange" "Sel-Range";
+MG_displayEN "poseAnimLib.advancedEditUI.time.startEnd" "Start/End";
+MG_displayEN "poseAnimLib.advancedEditUI.rebuild" "Rebuild Whole Data";
+
+MG_displayEN "poseAnimLib.advancedEditUI.imageWriteMode" "Image WriteMode";
+MG_displayEN "poseAnimLib.advancedEditUI.replaceExImage" "Replace Exist Images";
+MG_displayEN "poseAnimLib.advancedEditUI.updateExImage" "Update Exist Images";
+MG_displayEN "poseAnimLib.advancedEditUI.appendExImage" "Append to old Images";
+MG_displayEN "poseAnimLib.advancedEditUI.keepIconIndex" "Keep the icon index";
+MG_displayEN "poseAnimLib.advancedEditUI.movie" "Movie";
+MG_displayEN "poseAnimLib.advancedEditUI.lbl" "Label";
+MG_displayEN "poseAnimLib.advancedEditUI.time" "Time";
+MG_displayEN "poseAnimLib.advancedEditUI.makeIcon.go" "Make Icons!!";
+
+MG_displayEN "poseAnimLib.advancedEditUI.resetFromBackUp" "Reset From Backup >";
+
+MG_displayEN "poseAnimLib.advancedEditUI.backupData" "Backup Data >";
+MG_displayEN "poseAnimLib.advancedEditUI.backup.both" "Backup Both..";
+MG_displayEN "poseAnimLib.advancedEditUI.backup.data" "Backup Data..";
+MG_displayEN "poseAnimLib.advancedEditUI.backup.image" "Backup Preview Images..";
+
+MG_displayEN "poseAnimLib.selCtl.rep" " objects from current item select in your scene.";
+MG_displayEN "poseAnimLib.dontShowAgain" "Don't Show This Dialog Again";
+
+MG_displayEN "poseAnimLib.noCamPresetSel" "No camera bookmark item selected in the list.";
+MG_displayEN "poseAnimLib.renameCamPreset.rename.lowerCase" "rename";
+MG_displayEN "poseAnimLib.renameCamPreset.mes" "Rename camera bookmark:";
+MG_displayEN "poseAnimLib.renameCamPreset.canceled" "Cam bookmark renaming action canceled by use.";
+MG_displayEN "poseAnimLib.renameCamPreset.delete" "delete";
+MG_displayEN "poseAnimLib.renameCamPreset.failed" "Fail to # the camera bookmark: ";
+MG_displayEN "poseAnimLib.renameCamPreset.success" "Success to # the camera bookmark: ";
+
+MG_displayEN "poseAnimLib.optionUI.title" " Option";
+MG_displayEN "poseAnimLib.optionUI.unifiedLocalRoot" "Unified Local Root Path:";
+MG_displayEN "poseAnimLib.optionUI.unifiedGlobalRoot" "Unified Global Root Path:";
+MG_displayEN "poseAnimLib.optionUI.reset" "Reset";
+MG_displayEN "poseAnimLib.optionUI.projs" "Projects:";
+MG_displayEN "poseAnimLib.optionUI.globalDirSetting" "Global Directories Setting";
+MG_displayEN "poseAnimLib.optionUI.globalProjDirSetting" "Global Project Path Settings:";
+
+MG_displayEN "poseAnimLib.optionUI.saveProjSetting" "Save Project Setting";
+MG_displayEN "poseAnimLib.optionUI.iconSize" "Icon Size";
+
+MG_displayEN "poseAnimLib.optionUI.iconSize.small" "Small [50x50]";
+MG_displayEN "poseAnimLib.optionUI.iconSize.medium" "Midiem [90x90]";
+MG_displayEN "poseAnimLib.optionUI.iconSize.big" "Big [180x180]";
+MG_displayEN "poseAnimLib.optionUI.iconSize.custom" "Custom size:";
+MG_displayEN "poseAnimLib.optionUI.iconSize.minMax" "(Min: 32x32, Max: 512x512)";
+MG_displayEN "poseAnimLib.optionUI.captureAppearance" "Capturing apperance";
+MG_displayEN "poseAnimLib.optionUI.capture.title" "Capturing";
+
+MG_displayEN "poseAnimLib.optionUI.avoidHilite" "Auto-avoid Selection Hilite";
+MG_displayEN "poseAnimLib.optionUI.avoidNurbsCurve" "Auto-avoid Nurbes Curves";
+MG_displayEN "poseAnimLib.optionUI.captureCam.title" "Capturing Camera";
+MG_displayEN "poseAnimLib.optionUI.captureCam.userCamPreset" "User Camera Bookmark";
+MG_displayEN "poseAnimLib.optionUI.captureCam.initialCam.title" "Initial Camera Setting";
+MG_displayEN "poseAnimLib.optionUI.captureCam.ann" "No initial camera setting needed, just tweak the camera and save as bookmark.";
+
+MG_displayEN "poseAnimLib.optionUI.itemDisplaySize.title" "Item Display Size";
+MG_displayEN "poseAnimLib.optionUI.itemDisplaySize.small" "Small Size";
+MG_displayEN "poseAnimLib.optionUI.itemDisplaySize.medium" "Medium Size";
+MG_displayEN "poseAnimLib.optionUI.itemDisplaySize.large" "large Size";
+
+MG_displayEN "poseAnimLib.optionUI.confirmation.title" "Confirmation";
+MG_displayEN "poseAnimLib.optionUI.confirmation.beforeDel" "Confirm Before Deleting Items";
+MG_displayEN "poseAnimLib.optionUI.confirmation.beforeEdit" "Confirm Before Editing Item";
+MG_displayEN "poseAnimLib.optionUI.confirmation.beforeUploadDownload" "Confirm when target exists when uploading/downloading Items";
+
+MG_displayEN "poseAnimLib.optionUI.reportDebug.title" "Reporting & Debugging";
+MG_displayEN "poseAnimLib.optionUI.reportDebug.statusLine" "Status Line Reporting";
+MG_displayEN "poseAnimLib.optionUI.reportDebug.scriptEditor" "Script Editor Reporting";
+MG_displayEN "poseAnimLib.optionUI.reportDebug.slience" "Slience";
+MG_displayEN "poseAnimLib.optionUI.reportDebug.intemediate" "Intermediate";
+MG_displayEN "poseAnimLib.optionUI.reportDebug.verbose" "Verbose";
+
+MG_displayEN "poseAnimLib.optionUI.dir.title" "Library Project";
+MG_displayEN "poseAnimLib.optionUI.misc.title" "Miscellaneous";
+
+MG_displayEN "poseAnimLib.optionUI.advancedImageViewer.title" "Advanced Image Viewer";
+MG_displayEN "poseAnimLib.optionUI.advancedImageViewer.useDefault" "Use System Default";
+MG_displayEN "poseAnimLib.optionUI.advancedImageViewer.useCustom" "Use Custom";
+
+MG_displayEN "poseAnimLib.optionUI.customImageViewer" "Custom Image Viewer:";
+MG_displayEN "poseAnimLib.optionUI.moviePlayer" "Movie Player";
+MG_displayEN "poseAnimLib.optionUI.moviePlayer.usePoseAnim" "Use Tools Default";
+MG_displayEN "poseAnimLib.optionUI.customMoviePlayer.usePoseAnim" "Custom Video Player:";
+MG_displayEN "poseAnimLib.optionUI.external.title" "External";
+
+MG_displayEN "poseAnimLib.snapshotUI.previewCount" "PreviewCount:";
+MG_displayEN "poseAnimLib.snapshotUI.iconUse" "Icon use:";
+MG_displayEN "poseAnimLib.snapshotUI.getActived" "< Get Active";
+MG_displayEN "poseAnimLib.snapshotUI.activeToPreset" "Active Camera -> Preset";
+MG_displayEN "poseAnimLib.snapshotUI.allToPreset" "All 4 Cameras -> Preset";
+MG_displayEN "poseAnimLib.snapshotUI.tweakCam" "Tweak Current Active Camera..";
+
+MG_displayEN "poseAnimLib.snapshotUI.isoSelRig" "Isoloate Selected Rig";
+MG_displayEN "poseAnimLib.snapshotUI.isoAllRig" "Isoloate Selected objects";
+MG_displayEN "poseAnimLib.snapshotUI.cancelIso" "Cancel Isolation";
+
+MG_displayEN "poseAnimLib.main.renameProj" "Rename Project..";
+MG_displayEN "poseAnimLib.main.manageProj" "Edit Current Project..";
+MG_displayEN "poseAnimLib.main.downloadUploadCurrentLib" "Upload/Download Current Lib..";
+MG_displayEN "poseAnimLib.main.downloadUploadBothLib" "Upload/Download Anim&&Pose Libs..";
+
+MG_displayEN "poseAnimLib.main.browseProj" "Browse Current Project..";
+MG_displayEN "poseAnimLib.main.browseCLib" "Browse Current Library..";
+
+MG_displayEN "poseAnimLib.main.newChar" "New Character..";
+MG_displayEN "poseAnimLib.main.renameChar" "Rename Character..";
+MG_displayEN "poseAnimLib.main.removeChar" "Remove Character..";
+MG_displayEN "poseAnimLib.main.downloadUploadChar" "Upload/Download Current Character..";
+MG_displayEN "poseAnimLib.main.browseChar" "Browse Current Character..";
+
+MG_displayEN "poseAnimLib.main.newCate" "New Category..";
+MG_displayEN "poseAnimLib.main.renameCate" "Rename Category..";
+MG_displayEN "poseAnimLib.main.removeCate" "Remove Category..";
+MG_displayEN "poseAnimLib.main.downloadUploadCate" "Upload/Download Current Category..";
+MG_displayEN "poseAnimLib.main.browseCate" "Browse Current Category..";
+
+MG_displayEN "poseAnimLib.main.newItem" "New Item..";
+MG_displayEN "poseAnimLib.main.editItem" "Edit Selected Item..";
+MG_displayEN "poseAnimLib.main.resnapshotItem" "Resnapshot Selected Item..";
+MG_displayEN "poseAnimLib.main.renameItem" "Rename Selected Item..";
+MG_displayEN "poseAnimLib.main.removeItem" "Remove Selected Item(s)..";
+MG_displayEN "poseAnimLib.main.moveCopyItem" "Move/Copy Selected Item(s)..";
+MG_displayEN "poseAnimLib.main.downloadUploadItem" "Upload/Download Selected Item(s)..";
+MG_displayEN "poseAnimLib.main.browseItem" "Browse Selected Item..";
+
+MG_displayEN "poseAnimLib.main.selection" "Selection";
+
+MG_displayEN "poseAnimLib.main.Config" "Config";
+MG_displayEN "poseAnimLib.main.Configuration" "Configuration..";
+
+MG_displayEN "poseAnimLib.main.help" "Help";
+MG_displayEN "poseAnimLib.main.helpDot" "Help..";
+
+MG_displayEN "poseAnimLib.main.switch.localGlobal" "Switch Local/Global";
+MG_displayEN "poseAnimLib.main.switch.poseAnim" "Switch Pose/Anim";
+MG_displayEN "poseAnimLib.main.charcolumn" "Character:";
+
+MG_displayEN "poseAnimLib.main.itemClicked" "Item Clicked";
+MG_displayEN "poseAnimLib.main.itemClicked.libManage" "Library Management";
+MG_displayEN "poseAnimLib.main.itemClicked.simpleApply" "Simply Apply";
+MG_displayEN "poseAnimLib.main.itemClicked.advancedApply" "Advanced Apply";
+
+MG_displayEN "poseAnimLib.main.itemClicked.ctrl" "Ctrl Click";
+MG_displayEN "poseAnimLib.main.ns.use" "Namespace Use: ";
+MG_displayEN "poseAnimLib.main.ns.selNS" "Selection Namespace";
+MG_displayEN "poseAnimLib.main.ns.poseNS" "Pose Namespace";
+MG_displayEN "poseAnimLib.main.ns.custom" "Custom";
+MG_displayEN "poseAnimLib.main.ns.getFromSel" "< Selection";
+
+MG_displayEN "poseAnimLib.main.testExist" "Test Existance";
+MG_displayEN "poseAnimLib.main.selTarget" "Select Target";
+
+MG_displayEN "poseAnimLib.main.applyOpl.title" "Apply Options: ";
+MG_displayEN "poseAnimLib.main.applyOpl.cFrame" "At Current Frame";
+MG_displayEN "poseAnimLib.main.applyOpl.poseFrame" "At Frame Pose Created ";
+MG_displayEN "poseAnimLib.main.applyOpl.filterObj.lbl" "Filter Object: ";
+MG_displayEN "poseAnimLib.main.applyOpl.attr.lbl" "Attribute: ";
+MG_displayEN "poseAnimLib.main.applyOpl.unfilter" "Unfiltered";
+MG_displayEN "poseAnimLib.main.applyOpl.onlySelObj" "Only Selected Objects";
+MG_displayEN "poseAnimLib.main.applyOpl.ignoreSelObj" "Ignore Selected Objects";
+MG_displayEN "poseAnimLib.main.applyOpl.onlySelAttr" "Only Selected Attrs";
+MG_displayEN "poseAnimLib.main.applyOpl.ignoreSelAttr" "Ignore Selected Attrs";
+MG_displayEN "poseAnimLib.main.applyOpl.fromMayaCBox" "From Maya ChannelBox";
+MG_displayEN "poseAnimLib.main.applyOpl.fromMGCBox" "From MG-ChannelBox";
+MG_displayEN "poseAnimLib.main.applyOpl.worldSpace" "Apply in Worldspace";
+MG_displayEN "poseAnimLib.main.applyOpl.advanced" "Advanced Apply";
+
+MG_displayEN "poseAnimLib.createPoseUI.name" "PoseName:";
+MG_displayEN "poseAnimLib.createPoseUI.finished" "Finished:";
+MG_displayEN "poseAnimLib.createPoseUI.finished.keepPanel" "Keep Panel";
+MG_displayEN "poseAnimLib.createPoseUI.finished.hidePanel" "Hide Panel";
+MG_displayEN "poseAnimLib.createPoseUI.finished.PreviewItem" "Preview Item";
+
+MG_displayEN "poseAnimLib.toShelf.mi" "Install Pose To Shelf..";
+MG_displayEN "poseAnimLib.toShelf.ann" "Install current selected controls' pose To current maya shelf tab.";
+MG_displayEN "poseAnimLib.createPoseUI.toShelf" "To Shelf";
+MG_displayEN "poseAnimLib.createPoseUI.closed" "Close";
+MG_displayEN "poseAnimLib.createPoseUI.create" "Create!!";
+
+MG_displayEN "poseAnimLib.createPoseUI.animName" "AnimName";
+MG_displayEN "poseAnimLib.createPoseUI.movie" "Movie";
+MG_displayEN "poseAnimLib.createPoseUI.hierarchy" "Hierarchy";
+
+MG_displayEN "poseAnimLib.preview.prevImage" "Previous Image";
+MG_displayEN "poseAnimLib.preview.nextImage" "Next Image";
+MG_displayEN "poseAnimLib.preview.prevItem" "Previous Item";
+MG_displayEN "poseAnimLib.preview.nextItem" "Next Item";
+MG_displayEN "poseAnimLib.preview.watchAllMovie" "Watch all movie(s)";
+MG_displayEN "poseAnimLib.preview.watchCMovie" "Watch current movie";
+MG_displayEN "poseAnimLib.preview.setAsIcon" "Set as Icon";
+
+MG_displayEN "poseAnimLib.statusIdle" ">> Status idle.";
+
+MG_displayEN "poseAnimLib.crateItem.finished" "Finish creating the animation library item.";
+MG_displayEN "poseAnimLib.crateItem.creatingImage" "Creating the preview images..";
+MG_displayEN "poseAnimLib.crateItem.newImageMade.prefix" "New snapshot image made: ";
+
+
+
+
+//---------control annotations.-------------------------------------------
+MG_displayEN "poseAnimLib.newCateUI.tsl.ann" "This list shows all category name presets.";
+
+MG_displayEN "poseAnimLib.topHierarchyUI.proj.ann" "This button shows the current project if available.Click it to show all available projects / to create new project.";
+MG_displayEN "poseAnimLib.topHierarchyUI.proj.arrow.ann" "Click this arrow to show all available projects.";
+MG_displayEN "poseAnimLib.topHierarchyUI.localGlobalSwitch.ann" "Click to switch between Local/Global library.";
+MG_displayEN "poseAnimLib.topHierarchyUI.poseAnimSwitch.ann" "Click to switch between Pose/Animation library.";
+MG_displayEN "poseAnimLib.topHierarchyUI.char.ann" "This button shows the current character if available.Click it to show all available characters / to create new character.";
+MG_displayEN "poseAnimLib.topHierarchyUI.char.arrow.ann" "Click this arrow to show all available characters.";
+MG_displayEN "poseAnimLib.topHierarchyUI.cate.ann" "This button shows the current category if available.Click it to show all available categories / to create new category.";
+
+MG_displayEN "poseAnimLib.topHierarchyUI.frameLayout.ann" "This area shows the current path throught to category. Right click on it to browse different level of hierarchies.";
+
+  
+MG_displayEN "poseAnimLib.newProjUI.description.ann" "This field is optional. Just input something to describe the project.";
+MG_displayEN "poseAnimLib.newProjUI.noGlobal.ann" "Pick this option to abandon the global libraries in this project. Because in the case the global library is the same as the local library";
+MG_displayEN "poseAnimLib.newProjUI.customRoot.ann" "Pick this option to assign a custom directory as the root directory for the global libraries in this project.";
+MG_displayEN "poseAnimLib.newProjUI.RootPoseLib.ann" "Pick this option to use the [library root directory you set above]/poseLib as the root directory of global pose library in this project.";
+MG_displayEN "poseAnimLib.newProjUI.customPoseRoot.ann" "Pick this option to assign a custom directory as the root directory for the global pose library in this project.";
+MG_displayEN "poseAnimLib.newProjUI.RootAnimLib.ann" "Pick this option to use the [library root directory you set above]/animLib as the root directory of global animation library in this project.";
+MG_displayEN "poseAnimLib.newProjUI.customAnimRoot.ann" "Pick this option to assign a custom directory as the root directory for the global animation library in this project.";
+
+MG_displayEN "poseAnimLib.copyMoveUI.refresh.ann" "Click to refresh this copy/move window, to show all the latest characters and categories.";
+
+MG_displayEN "poseAnimLib.advancedEditUI.frameLayout.ann" "This area shows the path throught to the currently editing item.";
+MG_displayEN "poseAnimLib.advancedEditUI.openDirBtn.ann" "Click it to browse the currently editing item's directory.";
+MG_displayEN "poseAnimLib.advancedEditUI.editMode.ann" "Choose a edit mode: to edit the pose/Animation data file, or to remake its preview images.";
+MG_displayEN "poseAnimLib.advancedEditUI.list.ann" "This list shows the member controls of current editing item.";
+
+MG_displayEN "poseAnimLib.advancedEditUI.selListItem.ann" "Select in scene the hilighted controls within the list .";
+MG_displayEN "poseAnimLib.advancedEditUI.selAllListItem.ann" "Select in scene all the controls within the list .";
+MG_displayEN "poseAnimLib.advancedEditUI.remListItem.ann" "Remove the hilighted controls in the list from the item member.";
+MG_displayEN "poseAnimLib.advancedEditUI.remSceneItem.ann" "Remove the selected controls in scene from the item member.";
+MG_displayEN "poseAnimLib.advancedEditUI.updateScenetItem.ann" "Add/Update the selected controls in scene to the item member.";
+MG_displayEN "poseAnimLib.advancedEditUI.rebuild.ann" "Rebuild current editing item data base on the selected controls in scene.";
+MG_displayEN "poseAnimLib.advancedEditUI.backup.ann" "Backup the editing item before it is unrecoverably changed.";
+
+MG_displayEN "poseAnimLib.advancedEditUI.prevImage.ann" "Switch to the previous preview image of this item.";
+MG_displayEN "poseAnimLib.advancedEditUI.nextImage.ann" "Switch to the next preview image of this item.";
+MG_displayEN "poseAnimLib.advancedEditUI.setIcon.ann" "Set curent shown image as the icon of the item.";
+MG_displayEN "poseAnimLib.advancedEditUI.renameFiled.ann" "Rename the item's name.";
+
+MG_displayEN "poseAnimLib.advancedEditUI.animRebuild.hierarchyMode.ann" "Choose a hierarchy mode for animation data building.";
+MG_displayEN "poseAnimLib.advancedEditUI.animRebuild.timeMode.ann" "Choose a time range mode for animation data building.";
+
+MG_displayEN "poseAnimLib.advancedEditUI.imageMode.replace.ann" "All old preview iamges & movies will be deleted and replaced with new ones.";
+MG_displayEN "poseAnimLib.advancedEditUI.imageMode.update.ann" "Update duplicate old preview iamges & movies but keep the non-duplicate ones.";
+MG_displayEN "poseAnimLib.advancedEditUI.imageMode.append.ann" "Keep all the old preview iamges & movies and add new ones.";
+MG_displayEN "poseAnimLib.advancedEditUI.keepIconIndex.ann" "If on, the used icon name won't be changed.";
+
+MG_displayEN "poseAnimLib.advancedEditUI.movieDimension.ann" "Set the width and height of the movie in pixel.";
+MG_displayEN "poseAnimLib.advancedEditUI.subfix.ann" "These fields set the subfix for each preview images and movies.";
+MG_displayEN "poseAnimLib.advancedEditUI.remakeIconGo.ann" "Click to resnapshot the item.";
+
+MG_displayEN "poseAnimLib.dontShowAgain.ann" "If turned on,this dialog won't show again next time. You can always to turn it back on in Config/Configuration.. menu.";
+
+MG_displayEN "poseAnimLib.optionUI.unifiedLocalRoot.ann" "Set a unified root directory for local libraries. Please keep it default value, setting it is not advised.";
+MG_displayEN "poseAnimLib.optionUI.unifiedGlobalRoot.ann" "Set a unified root directory for global libraries.";
+
+MG_displayEN "poseAnimLib.optionUI.newProj.ann" "Click to create new library project.";
+MG_displayEN "poseAnimLib.optionUI.renameProj.ann" "Click to rename the highlighted library project in the list below.";
+MG_displayEN "poseAnimLib.optionUI.projList.ann" "The list shows all availabled projects in local library root directory.";
+MG_displayEN "poseAnimLib.optionUI.resetProjEdit.ann" "Reset the project editing to the saved disk project file.";
+
+MG_displayEN "poseAnimLib.optionUI.avoidHilite.ann" "Auto avoid the selection highlighting before snapshot images and movies.";
+MG_displayEN "poseAnimLib.optionUI.avoidNurbsCurves.ann" "Auto hide the nurbes curves before snapshot images and movies.";
+
+MG_displayEN "poseAnimLib.optionUI.camPreset.rename.ann" "Rename the camera bookmark highlighted in the list.";
+MG_displayEN "poseAnimLib.optionUI.camPreset.del.ann" "Delete the camera bookmark highlighted in the list.";
+
+MG_displayEN "poseAnimLib.optionUI.threeSize.ann" "These fields and sliders set the three different size of item display.The zoom button in main ui will switch items display size between these three sizes.";
+MG_displayEN "poseAnimLib.optionUI.statusReport.ann" "Choose a verbose level of the reporting in poseAnimLib tool ui's status line.The verbose mode will may make operation much slower, it is for debugging purpose.";
+MG_displayEN "poseAnimLib.optionUI.scriptEditReport.ann" "Choose a verbose level of the reporting in script editor.The verbose mode will may make operation much slower, it is for debugging purpose.";
+
+MG_displayEN "poseAnimLib.optionUI.advancedImageViewer.ann" "Choose a image viewer program for previewing images.Curently this option is of no use.";
+MG_displayEN "poseAnimLib.optionUI.moviePlayer.ann" "Choose a movie player program for playing movies.Curently you have to use external player program.";
+
+//$ann = `MG_DualLan "poseAnimLib.snapshotUI.camPresetOMG.ann"`;
+MG_displayEN "poseAnimLib.snapshotUI.previewCount.ann" "Click to switch different count of previews you want to make. 4 maximum at a time.";
+MG_displayEN "poseAnimLib.snapshotUI.iconUse.ann" "Click to set the view index, that is snapshoted image will be set as icon. \nIn four view snapshot, the top left view is #1, top right view is #2, bottom right view is #3, bottom left view is #4.";
+MG_displayEN "poseAnimLib.snapshotUI.getActiveAsIconUse.ann" "Click to set the activated view index as the used icon index.";
+
+MG_displayEN "poseAnimLib.snapshotUI.camPresetOMG.ann" "Select a camera bookmark to quick change the view camera setting.\nPreset starts with \"~\" is the factory default bookmark, bookmark have a lable \"[4]\" will apply to all 4 snapshot cameras.";
+MG_displayEN "poseAnimLib.snapshotUI.camPreset.saveActive.ann" "Save the current active snapshot camera as bookmark.";
+MG_displayEN "poseAnimLib.snapshotUI.camPreset.saveAll.ann" "Save all 4 snapshot cameras as bookmark.";
+MG_displayEN "poseAnimLib.snapshotUI.camPreset.tweakCam.ann" "Open up attribute editor of current activated camera, so you can tweak it in depth.";
+
+MG_displayEN "poseAnimLib.snapshotUI.viewConfig.doubleClick.ann" "Double click to apply the toggling to all 4 snapshot cameras.";
+MG_displayEN "poseAnimLib.snapshotUI.viewConfig.hud.ann" "Toggle the display the HUD of the snapshot camera.";
+MG_displayEN "poseAnimLib.snapshotUI.viewConfig.nurbsCurve.ann" "Toggle the display the Nurbs Curves of the activated snapshot camera.";
+MG_displayEN "poseAnimLib.snapshotUI.viewConfig.nurbsSurface.ann" "Toggle the display the Nurbs Surface of the activated snapshot camera.";
+MG_displayEN "poseAnimLib.snapshotUI.viewConfig.grid.ann" "Toggle the display the Grid of the activated snapshot camera.";
+MG_displayEN "poseAnimLib.snapshotUI.viewConfig.highlight.ann" "Toggle the display the Selection Highlighting of the activated snapshot camera.";
+MG_displayEN "poseAnimLib.snapshotUI.viewConfig.texture.ann" "Toggle the display the Texture of the activated snapshot camera.";
+MG_displayEN "poseAnimLib.snapshotUI.viewConfig.wire.ann" "Toggle the display the Wire on Framed of the activated snapshot camera.";
+
+//$ann = `MG_DualLan "poseAnimLib.mainUI.animMode.ann"`;
+MG_displayEN "poseAnimLib.mainUI.openProj.ann" "Click to open a .libproj library project file.";
+MG_displayEN "poseAnimLib.mainUI.browse.lib.ann" "Open explorer to browse current library root directory.";
+MG_displayEN "poseAnimLib.mainUI.browse.char.ann" "Open explorer to browse current character directory.";
+MG_displayEN "poseAnimLib.mainUI.browse.cate.ann" "Open explorer to browse current category directory.";
+MG_displayEN "poseAnimLib.mainUI.browse.item.ann" "Open explorer to browse current selected item directory.";
+
+MG_displayEN "poseAnimLib.mainUI.zoom.ann" "Zoom the item display size among three different size.These size could be set throught Config/Configuration.. menu.";
+MG_displayEN "poseAnimLib.mainUI.rename.ann" "Rename the selected item.";
+MG_displayEN "poseAnimLib.mainUI.moveCopy.ann" "Move/Copy the selected item(s) to other categories";
+MG_displayEN "poseAnimLib.mainUI.del.ann" "Delete selected item(s).";
+MG_displayEN "poseAnimLib.mainUI.add.ann" "Create new library item.";
+MG_displayEN "poseAnimLib.mainUI.preview.ann" "Open the preview area to preview the selected item.";
+MG_displayEN "poseAnimLib.mainUI.switchArea.ann" "The area shows the Local/Global and Pose/Animation status of current library.Left click on it to swith these status.";
+MG_displayEN "poseAnimLib.mainUI.sizeSlider.ann" "This slider zoom in/out the item display size smoothly.";
+
+MG_displayEN "poseAnimLib.mainUI.poseMode.ann" "Library Management Mode: You can't apply the item in this mode,but use this mode to manage the library items.\nSimply Apply Mode: Click the pose item will apply the pose. \n Advanced Apply Mode: Select a pose item, and click the \"Advanced Apply\" button to apply it in advanced mode.";
+MG_displayEN "poseAnimLib.mainUI.poseOption.ctrl.ann" "The filed set the percentage of application when use hold the \"Ctrl\" key";
+MG_displayEN "poseAnimLib.mainUI.poseOption.selNS.ann" "Use namespace from current scene selection.";
+MG_displayEN "poseAnimLib.mainUI.poseOption.poseNS.ann" "Use namespace from pose data.";
+MG_displayEN "poseAnimLib.mainUI.poseOption.customNS.ann" "Use namespace that user inputed. A quick way to do so is select something and click the \"<Selection\" button.";
+MG_displayEN "poseAnimLib.mainUI.testReport.ann" "Test target controls existance base on the namespace options.";
+MG_displayEN "poseAnimLib.mainUI.selectTarget.ann" "Select target controls in scene base on the namespace options.";
+MG_displayEN "poseAnimLib.mainUI.poseOption.timeMode.ann" "Choose to apply pose at current frame or at the frame that the pose was created.";
+MG_displayEN "poseAnimLib.mainUI.poseOption.onlySelAttr.ann" "Only the selected attribute on Maya Channelbox/MG-Channelbox will be applied.Other attributes won't be affected.";
+MG_displayEN "poseAnimLib.mainUI.poseOption.ignoreSelAttr.ann" "Ignore the selected attribute on Maya Channelbox/MG-Channelbox.These attributes won't be affected.";
+MG_displayEN "poseAnimLib.mainUI.poseOption.wordspace.ann" "Apply the pose in wordspace.";
+
+MG_displayEN "poseAnimLib.mainUI.advancedApplyBtn.ann" "Click to apply curent item based on advanced options.";
+MG_displayEN "poseAnimLib.mainUI.applySlider.ann" "Drag to apply the pose from 0% percentage to 100% percentage.";
+
+MG_displayEN "poseAnimLib.mainUI.animMode.ann" "Library Management Mode: You can't apply the item in this mode,but use this mode to manage the library items.\nAdvanced Apply Mode: Select a pose item, and click the \"Advanced Apply\" button to apply it in advanced mode.";
+MG_displayEN "poseAnimLib.mainUI.animNSMode.ann" "Same Rigs/No Namespace: Do not map the namespace. \nMap to Another Rig: Replace the namespace baseon the namespace input in the field.";
+MG_displayEN "poseAnimLib.mainUI.poseOption.timeMode.ann" "Choose to apply animation at current frame or at the frame that the animation data was created.";
+
+MG_displayEN "poseAnimLib.mainUI.poseOption.times.ann" "Set the apply times. Useful when appling cycles. Not used when the animation item is not built with a time range.";
+
+MG_displayEN "poseAnimLib.mainUI.snapShot.close.ann" "Close this snapshot area.";
+
+MG_displayEN "poseAnimLib.mainUI.previewArea.pix.ann" "This area shows the preview images.Left click to access to more features.";
+MG_displayEN "poseAnimLib.mainUI.previewMovieButton.ann" "Click to play the preview movie, double click to play all available movies.";
+
+
+MG_displayEN "poseAnimLib.mainUI.itemArea.ann" "The area lists the library items. \nIn Library Management Mode, Multiple selection is allowed, ctrl and shift keys help the item selection.\nIn Advanced Apply Mode, only single selection is allowed.";
+MG_displayEN "poseAnimLib.mainUI.previewArea.nextItem.ann" "Click to preview the next library item.";
+MG_displayEN "poseAnimLib.mainUI.previewArea.prevItem.ann" "Click to preview the previous library item.";
+
+MG_displayEN "poseAnimLib.mainUI.previewArea.info.ann" "The area shows the information of curent item.";
+MG_displayEN "poseAnimLib.mainUI.refreshBtn.ann" "Click to refresh the display of current library.";
+
+MG_displayEN "poseAnimLib.not2011.war" "Sorry, MG-PoseAnim Library is only available on Maya 2011 and later Maya version.";
+
+
+MG_displayEN "poseAnimLib.noGlobal.war" "Current library project doesn't have a global library.\nIf you need one, press the \"Edit Current Project..\" button and edit the \"Global Project Path Settings\".";

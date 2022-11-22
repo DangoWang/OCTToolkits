@@ -1,0 +1,30 @@
+Choose any one of the solution to install MGTools Pro:
+> If you want to install MGTools Pro brand new from zip installation package, please follow the steps below:
+
+  1: Unzip files to proper named directory of your local disk, be aware that the path should only be composed of ASCII characters.
+  2: Do not change anything inside, left mouse button drag the "InstallMGTools_WrittenByMiguel.mel" to Maya's 3d viewport then drop it.
+  3: The installation wizard will pop out,just follow it to install.
+
+
+> If you have installed MGTools Pro in one version of Maya, now want to install it to another version of Maya, please follow steps below:
+  1: Find the "invoke/InstallMGTools_WrittenByMiguel.mel" from source MGtools installation folder. 
+     Left mouse button drag it to the target Maya's 3d viewport then drop it.
+  2: The installation wizard will pop out,just follow it to install.
+
+> If you want to distribute MGTools Pro to all the computers through out your pipeline, these steps may helps a little bit:
+  1: Upload the unzipped installation files to a server path that is available to each target computer. 
+     The path should only be composed of ASCII.
+  2: Set up the file "InstallMGTools_InstallOptionPresets.txt", it is the initial install option presets for the installation wizard.
+  3: Use the  "InstallMGTools_WrittenByMiguel.mel" from the server path to install, 
+     now you just click "Next" button in the installation wizard all the way to install MGTools Pro, 
+     no need to customize the install options any more.
+
+
+
+
+
+Feel free to visit http://mgland.com or http://twincodes.com, email to mgtoolspro@gmail.com to provide any feedback.
+ 
+Thanks for trying MGTools Pro! 
+Enjoy!
+Miguel

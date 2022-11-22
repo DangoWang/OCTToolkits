@@ -1,0 +1,15 @@
+//To-Do: hardcode this button id. The id won't not changed once it is created.
+string $pickerButtonID = "";
+//below the full edit flags are listed, feel free to remove unwanted lines.
+MGPickerItem -e						//with/without -e is the same;
+						 -visible 1  	//set the visibility of the button;
+						 -label ""   	//set the label of the button,repace the string with your desired label string;
+						 -x 0					//set the x position of your button;
+						 -y 0					//set the y position of your button;
+						 -w 20				//set the width of your button;
+						 -h 20				//set the height of your button;
+						 -fillColor 1 0 0 1		//set the fill color of your button;
+						 -labelColor 0 0 0 1	//set the label color of your button;
+						 -valueColor 1 1 1 1	//set the value color of your button. only make sense when it is a attribute button;
+						 -opacity 1		//set the opacity of your button, you could also set this through the last parameter of "-fillColor" flag;			
+						 $pickerButtonID; 

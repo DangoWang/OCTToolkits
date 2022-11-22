@@ -1,0 +1,37 @@
+/*
+
+    MEL-callbacks for the scriptedPanelType used by Nightshade UV Editor (NSUV) v2.1.3
+    
+    NSUV offers extended utility to Maya´s native UV Editor.
+    Made by Martin (Nightshade) Dahlin - martin.dahlin@live.com - martin.dahlin.net
+    
+    Special thanks to:
+    Nathan Roberts, Robert Kovach, David Johnson and Viktoras Makauskas on CGTalk, 
+    Robert White and Steve Theodore on Tech-Artists.org
+    Anton Palmqvist, Malcolm Andrieshyn and my friends Alexander Lilja and Elin Rudén
+    for all the feedback, criticism, bug reports and feature ideas. 
+    Thank you all!
+
+    Script downloaded from Creative Crash
+    
+*/
+
+// Import NSUV module
+python("import NSUV.UI");
+
+
+// Create callbacks for the scriptedPanelType
+global proc addTextureWindow_NSUV(string $var)
+{
+    python("NSUV.UI.addTextureWindow()");
+}
+    
+global proc createTextureWindow_NSUV(string $var)
+{
+    python("NSUV.UI.createTextureWindow()");
+}
+
+global proc removeTextureWindow_NSUV(string $var)
+{
+    python("NSUV.UI.removeTextureWindow()");
+}

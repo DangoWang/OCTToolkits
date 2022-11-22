@@ -1,0 +1,99 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+//`MG_DualLan "keyframeTool.title"`
+//`MG_DualLanFormat_1 repVar`
+//`MG_DualLan "selM.backUPSel.doit.nosel"`
+//`MG_DualLan "selM.backUPSel.doit.nosel"`
+MG_displayTS "keyframeTool.copyPasteAnimPose.mi" "Maya間復制動畫/Pose..";
+MG_displayTS "keyframeTool.copyPasteAnimPose.cons.mi" "Maya間復制約束..";
+MG_displayTS "keyframeTool.copyPasteAnimPose.cons.ann" "在不同的Maya間複製/貼粘約束，約束節點上的幀及被約束體的幀.";
+MG_displayTS "keyframeTool.copyPasteAnimPose.uiTitle" "跨Maya複製貼上";
+MG_displayTS "keyframeTool.copyPasteAnimPose.ann" "在不同的Maya間複製/貼粘動畫/Pose.右鍵裡有很多快速操作方式.";
+MG_displayTS "keyframeTool.copyPasteAnimPose.copyAnim" "只復制動畫";
+MG_displayTS "keyframeTool.copyPasteAnimPose.copyPose" "只複製Pose";
+MG_displayTS "keyframeTool.copyPasteAnimPose.copyAnimPose" "復制動畫和Pose";
+MG_displayTS "keyframeTool.copyPasteAnimPose.paste" "貼上在原始位置";
+MG_displayTS "keyframeTool.copyPasteAnimPose.pasteTemp" "貼上在暫用的Locator";
+MG_displayTS "keyframeTool.copyPasteAnimPose.pasteCFrame" "貼上在當前幀";
+MG_displayTS "keyframeTool.copyPasteAnimPose.pasteInRange" "貼上進所選範圍(縮放適配)";
+MG_displayTS "keyframeTool.copyPasteAnimPose.clipBoard" "檢視剪貼簿..";
+MG_displayTS "keyframeTool.copyPasteAnimPose.selClipBoard" "選擇剪貼簿物體";
+MG_displayTS "keyframeTool.copyPasteAnimPose.checkSel" "測試當前選擇..";
+MG_displayTS "keyframeTool.copyPasteAnimPose.simDoc" "檢視簡易幫助檔案..";
+MG_displayTS "keyframeTool.copyPasteAnimPose.detailDoc" "檢視詳細幫助檔案..";
+
+MG_displayTS "keyframeTool.copyPasteAnimPose.congra.mes" "所選的物體個數與剪貼簿裡的個數匹配!";
+MG_displayTS "keyframeTool.copyPasteAnimPose.war" "警報!!";
+MG_displayTS "keyframeTool.copyPasteAnimPose.war.mes" "所選的物體個數不匹配! 在剪貼簿裡有 # 個物體，但是場景裡有 # 個物體被選擇!";
+MG_displayTS "keyframeTool.copyPasteAnimPose.cons.war.mes" "所選的變形節點個數不匹配! 在剪貼簿裡有 # 個變形節點，但是場景裡有 # 個變形節點被選擇!";
+MG_displayTS "copyPasteAnimPose.noClip.war" "俺沒發現有剪貼簿資料存在.";
+MG_displayTS "copyPasteAnimPose.animClip.rep" "物體:  #     模式:  #\n範圍:  #\n複製時在幀數:  # ";
+MG_displayTS "copyPasteAnimPose.consClip.rep" "物體:  #     模式:  # ";
+
+MG_displayTS "copyPasteAnimPose.clip.title" "MG-剪貼簿";
+MG_displayTS "copyPasteAnimPose.clip.mem" "剪貼簿裡的成員:";
+MG_displayTS "copyPasteAnimPose.clip.update" "重新整理";
+MG_displayTS "copyPasteAnimPose.clip.selMem" "選擇成員";
+MG_displayTS "copyPasteAnimPose.clip.Help" "簡易幫助";
+MG_displayTS "copyPasteAnimPose.clip.animPose.info" "動畫剪貼簿資訊";
+MG_displayTS "copyPasteAnimPose.clip.cons.info" "約束剪貼簿資訊";
+MG_displayTS "copyPasteAnimPose.clip.getns.ann" "獲取場景所選物體的namespace.";
+MG_displayTS "copyPasteAnimPose.clip.retarget.lbl" "重定向並選擇";
+MG_displayTS "copyPasteAnimPose.clip.retarget.ann" "將剪貼簿物體換成新namespace並在場景裡選擇.";
+MG_displayTS "copyPasteAnimPose.clip.retarget.war" " #個物體在您的場景不存在哦.用現有選擇個數來貼上可能有問題哦:(" ;
+
+MG_displayTS "copyPasteAnimPose.copy.noKey" "所選物體沒有被Key幀的噢.";
+MG_displayTS "copyPasteAnimPose.copy.done.rep" "所選物體的 # 已被拷貝到MG-剪貼簿!";
+
+MG_displayTS "copyPasteAnimPose.paste.done.rep" "貼上任務完成，請查收!";
+
+MG_displayTS "copyPasteAnimPose.attr" "屬性: ";
+MG_displayTS "copyPasteAnimPose.value" "    值: ";
+
+
+MG_displayTS "copyPasteAnimPose.simHelp" "======== 跨Maya間複製貼上Pose/動畫簡易幫助 ========\n左上按鈕為複製Pose/動畫按鈕,點選將複製場景所選物體的動畫.在上麵點右鍵,可以看到更多的複製方式:\n	只複製Pose:只複製所選擇物體在通道欄裡有顯示的屬性值.\n	復制動畫和Pose:復制動畫同時複製未key幀的屬性值.\n\n右上按鈕為貼上Pose/動畫按鈕. 點選將MG剪貼簿的內容在原本位置原位貼上. 右鍵裡有更多的貼上方式:\n	貼上在暫用的Locator:創建臨時的locator,並把剪貼簿資料原位貼上在這些locator上.\n	貼上在當前幀:在當前幀貼上剪貼簿內容.\n	貼上進所選範圍(縮放適配):以縮放適配的方式將剪貼簿資料貼進時間滑條上所選時間範圍.\n	如果沒有選擇範圍,則貼在當前幀. \n注意在貼上前選最好跟複製時一樣數量的物體. 可以用 \"選擇剪貼簿物體\" 和 \"檢查選擇\" 功能來幫你做到這一點.(右鍵選單裡)";
+MG_displayTS "copyPasteAnimPose.simHelp1" "========== 跨Maya間複製貼上約束簡易幫助 ===========\n左下按鈕為復制約束按鈕,點選將複製場景所選物體的約束資訊及權重值. 在上麵點右鍵,可以看到更多的複製方式:\n	復制約束 && 約束的幀: 復制約束資訊，同時復制約束節點上的動畫.\n	復制約束 && 約束的幀 && 被約束體的幀: 復制約束資訊, 約束節點上的動畫及被約束體的Pose及動畫資訊. \n\n右下按鈕為貼上約束按鈕. 點選將MG剪貼簿的約束貼上在當前所選的物體上. 右鍵裡有更多的貼上方式:\n	高階約束貼上..: 將開啟一個對話方塊，您可以在裡面分別指定每一個約束的約束體. \n注意在貼上前最好要先選擇跟複製時一樣數量的物體. 可以用 \"選擇剪貼簿物體\" 和 \"檢查選擇\" 功能來幫你做到這一點.(右鍵選單裡)";
+
+
+
+//mgtools3 new--------------------------------
+MG_displayTS "keyframeTool.copyConstraint.mi" "跨Maya復制約束..";
+MG_displayTS "keyframeTool.pasteConstraint.mi" "跨Maya貼上約束..";
+
+MG_displayTS "keyframeTool.copyPasteConstraint.ann" "在不同的Maya間複製/貼粘約束.右鍵裡有很多快速操作方式.";
+MG_displayTS "keyframeTool.copyPasteConstraint.copyConsOnly" "只復制約束";
+MG_displayTS "keyframeTool.copyPasteConstraint.copyConsOnly.ann" "只復制約束資訊，包括約束偏移值，權重值等等";
+MG_displayTS "keyframeTool.copyPasteConstraint.copyConsKey" "復制約束 && 約束的幀";
+MG_displayTS "keyframeTool.copyPasteConstraint.copyConsKey.ann" "復制約束資訊及約束節點上的動畫.";
+MG_displayTS "keyframeTool.copyPasteConstraint.copyConsSlaveKey" "復制約束 && 約束的幀 && 被約束體的幀";
+MG_displayTS "keyframeTool.copyPasteConstraint.copyConsSlaveKey.ann" "復制約束資訊, 約束節點上的動畫及被約束體上的Pose&動畫.";
+
+MG_displayTS "keyframeTool.copyPasteConstraint.paste" "貼上約束";
+MG_displayTS "keyframeTool.copyPasteConstraint.paste.ann" "貼上約束到場景所選變形節點。貼上進的資訊取決於複製時複製的資訊";
+MG_displayTS "keyframeTool.copyPasteConstraint.advPaste" "高階約束貼上..";
+MG_displayTS "keyframeTool.copyPasteConstraint.advPaste.ann" "點選開啟高階約束貼上對話方塊，你可以手動為每個約束一一指定約束體.";
+MG_displayTS "selM.backUPSel.doit.noTransformSel" "場景無選擇變形節點.";
+MG_displayTS "copyPasteAnimPose.copyCons.done.rep" "場景所選變形節點的 # 資訊已被複製到MG-剪貼簿!";
+MG_displayTS "copyPasteAnimPose.copyCons.masterNotExist.war" "出錯: 約束體不存在: ";
+MG_displayTS "copyPasteAnimPose.copyCons.alreadyConstrainted.war" "物件: # 已經有一個 #, 您是要?";
+MG_displayTS "copyPasteAnimPose.copyCons.pasted.rep" "約束節點已經被貼上到被約束體 : # .";
+MG_displayTS "copyPasteAnimPose.copyCons.pasted.total.rep" " 個物件被貼上約束, 總共生成了 # 個約束節點.";
+MG_displayTS "copyPasteAnimPose.pasteCons.objExist.rep" "物件: # 存在.";
+MG_displayTS "copyPasteAnimPose.pasteCons.objNotExist.war" "!!! 物件: # 不存在.";
+
+MG_displayTS "copyPasteAnimPose.consClip.test.lbl" "測試";
+MG_displayTS "copyPasteAnimPose.consClip.pick.lbl" "拾取";
+
+MG_displayTS "copyPasteAnimPose.advPaste.title" "高階約束貼上";
+MG_displayTS "copyPasteAnimPose.advPaste.topAnn" " * 這個對話方塊讓您可以分別指定每一個約束體.";
+MG_displayTS "copyPasteAnimPose.advPaste.slave.lbl" "被約束體 (場景所選變形節點)";
+MG_displayTS "copyPasteAnimPose.advPaste.nodeType.lbl" "約束類型";
+MG_displayTS "copyPasteAnimPose.advPaste.master.lbl" "約束體替換";
+MG_displayTS "copyPasteAnimPose.advPaste.paste.lbl" "貼上";

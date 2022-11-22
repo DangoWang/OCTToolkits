@@ -1,0 +1,52 @@
+global proc cam2dViewerValues(string $toolName) 
+{
+	global int $MGTools_2011_orNot;
+	string $icon = "cam2Dviewer_Icon.xpm";
+	if($MGTools_2011_orNot)$icon = "cam2Dviewer_Icon.png";
+	global string $GmgtoolsPath;
+	string $helpHtml =($GmgtoolsPath+"Help/EN/cam2dviewer_en.htm");
+	global int $MGtoolsLanguageChoice;
+	if($MGtoolsLanguageChoice)$helpHtml = ($GmgtoolsPath+"Help/CH/cam2dviewer.htm");
+	string $help = " -a \""+$helpHtml+"\"";
+	toolPropertySetCommon $toolName $icon $help;
+
+	cam2dViewerOptionValues($toolName);
+	toolPropertySelect cam2dViewer;
+	string $reset = `toolPropertyWindow -query -resetButton`;
+	button -edit -command "cam2dViewerOptionReset" $reset;
+}
+global proc cam2dViewerOptionReset()
+{
+	checkBox -e -v 1 cam2dViewerResetCB;
+	cam2dViewerToolContext -e -re 1 cam2dViewerToolContext1;
+	optionVar -rm cam2dViewerToolContext_resetBeforeSave ;
+	
+	checkBox -e -v 1 cam2dViewerSnapCB;
+	cam2dViewerToolContext -e -snap 1 cam2dViewerToolContext1;
+	optionVar -rm cam2dViewerToolContext_SnapOrNot ;	
+	
+}
+global proc cam2dViewerOptionValues(string $toolName)
+{
+  int $resetBeforeSave =1;
+	if(`optionVar -ex cam2dViewerToolContext_resetBeforeSave `)
+	{
+		$resetBeforeSave =`optionVar -q cam2dViewerToolContext_resetBeforeSave` ;
+	}
+	else
+	{
+		$resetBeforeSave = eval("cam2dViewerToolContext  -q -re "+$toolName);
+	}	
+	
+  int $snap =1;
+	if(`optionVar -ex cam2dViewerToolContext_SnapOrNot `)
+	{
+		$snap =`optionVar -q cam2dViewerToolContext_SnapOrNot` ;
+	}
+	else
+	{
+		$snap = eval("cam2dViewerToolContext  -q -snap "+$toolName);
+	}		
+	checkBox -e	-v $snap cam2dViewerSnapCB;
+	cam2dViewerToolContext -e -snap $snap cam2dViewerToolContext1;
+}

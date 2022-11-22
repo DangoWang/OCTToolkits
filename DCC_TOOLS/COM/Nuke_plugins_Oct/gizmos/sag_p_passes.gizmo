@@ -1,0 +1,313 @@
+Gizmo {
+ tile_color 0x7f7f7fff
+}
+ BackdropNode {
+  inputs 0
+  name passes_assembly
+  tile_color 0x4c4c4cff
+  xpos -1390
+  ypos -484
+  bdwidth 2176
+  bdheight 573
+ }
+ Input {
+  inputs 0
+  name Input1
+  xpos -747
+  ypos -605
+ }
+ Dot {
+  name Dot21
+  xpos -713
+  ypos -528
+ }
+ Dot {
+  name Dot1
+  xpos -713
+  ypos -433
+ }
+set N302412b0 [stack 0]
+ Dot {
+  name Dot7
+  xpos -1019
+  ypos -433
+ }
+set N30241620 [stack 0]
+ Dot {
+  name Dot11
+  xpos -1211
+  ypos -433
+ }
+set N30241990 [stack 0]
+ Dot {
+  name Dot20
+  xpos -1321
+  ypos -433
+ }
+ Dot {
+  name Dot19
+  xpos -1321
+  ypos -1
+ }
+push $N302412b0
+ Dot {
+  name Dot4
+  xpos -403
+  ypos -433
+ }
+set N30242ac0 [stack 0]
+ Dot {
+  name Dot2
+  xpos -164
+  ypos -433
+ }
+set N302423e0 [stack 0]
+ Dot {
+  name Dot3
+  xpos 139
+  ypos -433
+ }
+set N30242750 [stack 0]
+ Dot {
+  name Dot5
+  xpos 370
+  ypos -433
+ }
+set N30242e30 [stack 0]
+ Dot {
+  name Dot6
+  xpos 598
+  ypos -433
+ }
+add_layer {tk_refract tk_refract.red tk_refract.green tk_refract.blue}
+ Shuffle {
+  in tk_refract
+  alpha black
+  name tk_refract1
+  xpos 564
+  ypos -368
+ }
+ Dot {
+  name Dot12
+  xpos 598
+  ypos -78
+ }
+push $N30242e30
+add_layer {tk_reflect tk_reflect.red tk_reflect.green tk_reflect.blue}
+ Shuffle {
+  in tk_reflect
+  alpha black
+  name tk_reflect1
+  xpos 336
+  ypos -368
+ }
+ Dot {
+  name Dot13
+  xpos 370
+  ypos -96
+ }
+ NoOp {
+  inputs 0
+  name add_shadows1
+  tile_color 0xff7f00ff
+  gl_color 0xffffffff
+  label "Integrate additional shadows\n"
+  selected true
+  xpos -592
+  ypos -209
+ }
+set N303ed1f0 [stack 0]
+push $N30242ac0
+add_layer {tk_spec_shd tk_spec_shd.red tk_spec_shd.green tk_spec_shd.blue}
+ Shuffle {
+  in tk_spec_shd
+  alpha black
+  name tk_spec_shd1
+  xpos -437
+  ypos -368
+ }
+ sag_deNanInf {
+  name sag_deNanInf1
+  xpos -437
+  ypos -344
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  output rgb
+  name Merge7
+  xpos -437
+  ypos -203
+  disable true
+ }
+ Dot {
+  name Dot15
+  xpos -403
+  ypos -119
+ }
+push $N30242750
+add_layer {tk_incand tk_incand.red tk_incand.green tk_incand.blue}
+ Shuffle {
+  in tk_incand
+  alpha black
+  name tk_incand1
+  xpos 105
+  ypos -368
+ }
+ Dot {
+  name Dot16
+  xpos 139
+  ypos -115
+ }
+push 0
+ NoOp {
+  inputs 0
+  name add_occl1
+  tile_color 0xff7f00ff
+  gl_color 0xffffffff
+  label "Integrate additional occlusion\n"
+  xpos -49
+  ypos -211
+ }
+push $N302423e0
+add_layer {tk_indirect tk_indirect.red tk_indirect.green tk_indirect.blue}
+ Shuffle {
+  in tk_indirect
+  alpha black
+  name tk_indirect1
+  xpos -198
+  ypos -368
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  output rgb
+  name Merge6
+  xpos -198
+  ypos -205
+  disable true
+ }
+ Dot {
+  name Dot17
+  xpos -164
+  ypos -121
+ }
+ NoOp {
+  inputs 0
+  name remove_occl1
+  tile_color 0xff7f00ff
+  label "Mask to remove occlusion\n"
+  xpos -970
+  ypos -210
+ }
+push $N30241620
+add_layer {tk_color tk_color.red tk_color.green tk_color.blue}
+ Shuffle {
+  in tk_color
+  alpha alpha2
+  name tk_color1
+  xpos -1053
+  ypos -370
+ }
+set N303ec0c0 [stack 0]
+push $N30241990
+add_layer {tk_diff_occl tk_diff_occl.red tk_diff_occl.green tk_diff_occl.blue}
+ Shuffle {
+  in tk_diff_occl
+  in2 rgba
+  alpha alpha2
+  name tk_diff_occl1
+  xpos -1245
+  ypos -368
+ }
+ Merge2 {
+  inputs 2
+  operation divide
+  output rgb
+  name Merge1
+  xpos -1245
+  ypos -165
+ }
+ Premult {
+  name Premult1
+  xpos -1245
+  ypos -141
+ }
+push $N303ec0c0
+ Keymix {
+  inputs 3
+  name Keymix1
+  xpos -1053
+  ypos -147
+ }
+push $N303ed1f0
+push $N302412b0
+add_layer {tk_shading tk_shading.red tk_shading.green tk_shading.blue}
+ Shuffle {
+  in tk_shading
+  in2 rgba
+  alpha alpha2
+  name tk_shading1
+  xpos -747
+  ypos -394
+ }
+push $N303ec0c0
+ Merge2 {
+  inputs 2
+  operation divide
+  name Merge2
+  xpos -747
+  ypos -370
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  output rgb
+  name Merge5
+  xpos -747
+  ypos -203
+  disable true
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  output rgb
+  name Merge3
+  xpos -747
+  ypos -141
+ }
+ Merge2 {
+  inputs 6+1
+  operation plus
+  output rgb
+  name Merge4
+  xpos -747
+  ypos -81
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy2
+  xpos -747
+  ypos -10
+ }
+ Crop {
+  box {0 0 {input.width} {input.height}}
+  reformat true
+  crop false
+  name Crop1
+  xpos -747
+  ypos 26
+ }
+ Dot {
+  name Dot8
+  xpos -713
+  ypos 128
+ }
+ Output {
+  name Output1
+  xpos -747
+  ypos 210
+ }
+end_group

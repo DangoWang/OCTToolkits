@@ -1,0 +1,317 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "MGtools.mi.help" "Help..";
+MG_displayEN "MGtools.mi.help.anno" "Click to view the tool help.";
+MG_displayEN "MGtools.mi.MGtoolshelp.anno" "Click to view the MGTools help.";
+MG_displayEN "MGtools.menu.help" "Help";
+MG_displayEN "MGtools.update.help" "Help on Online Update..";
+MG_displayEN "MGtools.update.help.anno" "Read the manual of Online Update..";
+
+MG_displayEN "MGtools.MGtools.min.anno" "Click to minimize MGTools.";
+MG_displayEN "MGtools.MGtools.mi.config" "MGTools Config..";
+MG_displayEN "MGtools.MGtools.mi.config.anno" "Config MGTools.";
+MG_displayEN "MGtools.MGtools.mi.shelf" "MGTools Installer..";
+MG_displayEN "MGtools.MGtools.mi.shelf.anno" "Install/Update/Remove MGTools items to shelf.";
+MG_displayEN "MGtools.MGtools.mi.about" "About MGTools..";
+MG_displayEN "MGtools.MGtools.mi.about.anno" "Click to view MGTools release info.";
+
+MG_displayEN "MGtools.MGshelf" "MGshelf v2..";
+MG_displayEN "MGtools.MGshelf.anno" "Click it to load MGshelf v2.0, A floating,easy manageable ShelfContainer.";
+MG_displayEN "MGtools.MGshelf.mi.config" "MGShelf Manager..";
+MG_displayEN "MGtools.MGshelf.mi.config.anno" "Click to  MGShelf manager to manage shelves.";
+
+MG_displayEN "MGtools.Folder.anno" "Click to open a folder really quickly,default is to open current project's image folder.";
+MG_displayEN "MGtools.Folder.mi.currentScene" "Open current scene dir..";
+MG_displayEN "MGtools.Folder.mi.failsave" "Open maya failSave dir..";
+MG_displayEN "MGtools.Folder.mi.script" "Open maya script dir..";
+MG_displayEN "MGtools.Folder.mi.plugin" "Open maya plugin dir..";
+MG_displayEN "MGtools.Folder.mi.pref" "Open maya preference dir..";
+MG_displayEN "MGtools.Folder.mi.icon" "Open maya icon dir..";
+MG_displayEN "MGtools.Folder.mi.shelf" "Open maya shelf dir..";
+MG_displayEN "MGtools.Folder.mi.program" "Open maya program dir..";
+
+
+MG_displayEN "MGtools.Folder.mi.mgtools" "Open MGTools Local Folder..";
+MG_displayEN "MGtools.Folder.mi.mgtools.server" "Open MGTools Server Folder..";
+MG_displayEN "MGtools.Folder.mi.add" "Add custom directory..";
+MG_displayEN "MGtools.Folder.mi.edit" "Edit existed directory..";
+
+MG_displayEN "MGtools.File.mi.calc" "windows Calculator..";
+MG_displayEN "MGtools.File.mi.calc.anno" "Click to load windows Calculator..";
+MG_displayEN "MGtools.File.mi.add" "Add Custom tool..";
+MG_displayEN "MGtools.File.mi.edit" "Edit existed tool..";
+MG_displayEN "MGtools.File.mi.removeDefault" "Remove default";
+MG_displayEN "MGtools.File.mi.removeDefault.anno" "Reset the default clicking action of this tool to add a file.";
+MG_displayEN "MGtools.File.mi.noDefault.anno" "You havent set default action,Click it to set.";
+
+MG_displayEN "MGtools.channelBox" "MGChannelBox..";
+MG_displayEN "MGtools.channelBox.anno" "Click to load MGChannelBox which can be moved free.";
+MG_displayEN "MGtools.channelBox.mi.hideshowLayer" "Hide/Show all layers";
+MG_displayEN "MGtools.channelBox.mi.resetC" "Reset channel";
+MG_displayEN "MGtools.channelBox.mi.resetC.anno" "Reset selected attributes in current channelBox to their respective default value.";
+MG_displayEN "MGtools.channelBox.mi.putInNewLayer" "Put into new layer and hide";
+MG_displayEN "MGtools.channelBox.mi.LE" "Layer Editor..";
+MG_displayEN "MGtools.channelBox.mi.setProject" "SetProject..";
+MG_displayEN "MGtools.channelBox.mi.newProject" "NewProject..";
+MG_displayEN "MGtools.channelBox.mi.toggleGEPlug" "Toggle graphEditor plugin";
+MG_displayEN "MGtools.channelBox.mi.toggleGEPlug.anno" "Click to toggle channel filter plugin in GraphEditor";
+MG_displayEN "MGtools.channelBox.mi.option" "MGchanelBox option..";
+
+MG_displayEN "MGtools.selection" "SelectionSet v2..";
+MG_displayEN "MGtools.selection.anno" "Use .sel file to share selection between maya.";
+MG_displayEN "MGtools.selection.mi.sManager" "Selection Manager..";
+MG_displayEN "MGtools.selection.mi.newSelSet" "New set from selection..";
+MG_displayEN "MGtools.selection.mi.newSelSet.anno" "Save current selection to a set.";
+MG_displayEN "MGtools.selection.mi.retarget" "Retarget selection..";
+MG_displayEN "MGtools.selection.mi.retarget.anno" "Click to shift selection from one character to another.Base on namespace replacing.";
+MG_displayEN "MGtools.selection.mi.backUP" "BackUp selection..";
+MG_displayEN "MGtools.selection.mi.backUP.anno" "BackUp selection with your scenes. Base on locators.";
+MG_displayEN "MGtools.selection.mi.Restore" "Restore selection..";
+MG_displayEN "MGtools.selection.mi.Restore.anno" "Restore selection from your scenes.";
+MG_displayEN "MGtools.selection.mi.assign" "Assign MG-SelSet MM Hotkey..";
+MG_displayEN "MGtools.selection.mi.assign.anno" "When u are using MGselectionSet, it will generate a markingMenu contains evaling these selection set.Assign a Hotkey to use it in your viewport.";
+
+MG_displayEN "MGtools.constraint" "Constraint Tool..";
+MG_displayEN "MGtools.constraint.anno" "Click to Load constraintTools.";
+MG_displayEN "MGtools.constraint.mi.pconParent" "ParentConstraint parent";
+MG_displayEN "MGtools.constraint.mi.pconParent.anno" "Click to Parent Constraint the second selection's parent hierarchy with the first selection.";
+MG_displayEN "MGtools.constraint.mi.findJoint" "Find Joint via vertex";
+MG_displayEN "MGtools.constraint.mi.findJoint.anno" "Select a smoothBinded vertex and use it to select Joint";
+MG_displayEN "MGtools.constraint.mi.conLister" "Constraint Lister..";
+MG_displayEN "MGtools.constraint.mi.pcons" "Parent constraint";
+MG_displayEN "MGtools.constraint.mi.anim" "AnimConstraint";
+MG_displayEN "MGtools.constraint.mi.anim.anno" "AnimConstraint:Beside normal parentConstraint,There is a locator insert between the constraint master and slave,which u can use to tweak the animation without turn off the constraint weight. ";
+MG_displayEN "MGtools.constraint.mi.point" "PointConstraint";
+MG_displayEN "MGtools.constraint.mi.orient" "OrientConstraint";
+MG_displayEN "MGtools.constraint.mi.aim" "AimConstraint";
+MG_displayEN "MGtools.constraint.mi.clear" "Clear constraint";
+MG_displayEN "MGtools.constraint.mi.consAxis" "Modify constraint Axis..";
+MG_displayEN "MGtools.constraint.mi.weightName" "Correct weight name";
+MG_displayEN "MGtools.constraint.mi.export" "Export constraint offset..";
+MG_displayEN "MGtools.constraint.mi.export.anno" "Select the constrained object and use it to export constraint offset to a file so u can use it in another maya.";
+MG_displayEN "MGtools.constraint.mi.import" "Import constraint offset..";
+MG_displayEN "MGtools.constraint.mi.import.anno" "Select the constrained object and use it to reuse the imported constraint offset..";
+MG_displayEN "MGtools.constraint.mi.clearOffset" "Clear offsetFile";
+MG_displayEN "MGtools.constraint.mi.clearOffset.anno" "Clear all the offsetFile in maya temp folder.";
+
+MG_displayEN "MGtools.viewSwitch.mi" "Viewport Switch";
+MG_displayEN "MGtools.viewSwitch.anno" "Click to switch viewport config.";
+MG_displayEN "MGtools.viewSwitch.mi.editV" "Edit viewSwitch config..";
+MG_displayEN "MGtools.viewSwitch.mi.disTool" "DisplaySet Tool..";
+MG_displayEN "MGtools.viewSwitch.mi.newdisSet" "New displaySet form sel..";
+MG_displayEN "MGtools.viewSwitch.mi.evalAllDis" "Eval all displaySel";
+MG_displayEN "MGtools.viewSwitch.mi.evalAllDis.anno" "Test all displaySel if their member exists in your scenes.If exists,then create the displayLayer and add the respective members.";
+
+MG_displayEN "MGtools.snap" "POSnap foreward";
+MG_displayEN "MGtools.snap.anno" "Click it to make your feet sticky,once clicking it ,you can press \"G\" to redo to keep sticking forward.";
+MG_displayEN "MGtools.snap.mi.pointSnapF" "PointSnap forward";
+MG_displayEN "MGtools.snap.mi.Marker" "Marker";
+MG_displayEN "MGtools.snap.mi.Marker.anno" "Creat a locator in the right position of the current selection and mark down the frame info as well.If range selected in your timeSlider, if will mark all the keyframe Position.";
+MG_displayEN "MGtools.snap.mi.poSnapB" "POSnap backward";
+MG_displayEN "MGtools.snap.mi.rSnapF" "RelativeSnap forward";
+MG_displayEN "MGtools.snap.mi.rSnapB" "RelativeSnap backward";
+MG_displayEN "MGtools.snap.mi.pointSnapB" "PointSnap backward";
+MG_displayEN "MGtools.snap.mi.orientSnapF" "OrientSnap forward";
+MG_displayEN "MGtools.snap.mi.orientSnapB" "OrientSnap backward";
+MG_displayEN "MGtools.snap.mi.POsnap" "POSnap";
+MG_displayEN "MGtools.snap.mi.POsnap.anno" "Snap the second selection to the position and oriention to the first selection";
+MG_displayEN "MGtools.snap.mi.PointSnap" "PointSnap";
+MG_displayEN "MGtools.snap.mi.OrientSnap" "OrientSnap";
+MG_displayEN "MGtools.snap.mi.rpointSnapF" "RelativePointSnap forward";
+MG_displayEN "MGtools.snap.mi.rpointSnapB" "RelativePointSnap backward";
+MG_displayEN "MGtools.snap.mi.clearSLoc" "Clear snaplocators";
+MG_displayEN "MGtools.snap.mi.markerM" "Marker manager..";
+MG_displayEN "MGtools.snap.mi.backUPAnim" "BackUp Animation";
+MG_displayEN "MGtools.snap.mi.backUPAnim.anno" "Select the object and use it to backUp its Animation with your scenes";
+MG_displayEN "MGtools.snap.mi.RestoreAnim" "Restore Animation";
+MG_displayEN "MGtools.snap.mi.RestoreAnim.anno" "Select the animation backuped object and use it to restore Animation";
+
+MG_displayEN "MGtools.pivot" "PivotTool..";
+MG_displayEN "MGtools.pivot.anno" "Click to load PivotTool.It makes your baby owns unlimited animatable pivot.";
+MG_displayEN "MGtools.pivot.mi.create" "Create PivotStuff";
+MG_displayEN "MGtools.pivot.mi.delete" "Delete PivotStuff";
+MG_displayEN "MGtools.pivot.mi.bind" "Bind to selection";
+MG_displayEN "MGtools.pivot.mi.bind.anno" "Select new object and the existed pivot stuff then click me to rebind the pivot stuff";
+MG_displayEN "MGtools.pivot.mi.pstuffLister" "PivotStuff lister..";
+MG_displayEN "MGtools.pivot.mi.snapMov" "Snap to Pivot_mov";
+MG_displayEN "MGtools.pivot.mi.snapMov.anno" "Snap the Roll  povit to the position of Pivot_mov";
+MG_displayEN "MGtools.pivot.mi.snapSel" "Snap to first Selection";
+MG_displayEN "MGtools.pivot.mi.snapSel.anno" "Snap the Roll pivot to the position of the first Selection";
+MG_displayEN "MGtools.pivot.mi.BacksnapSel" "Snap BackWord to first Selection";
+MG_displayEN "MGtools.pivot.mi.BacksnapSel.anno" "Snap backWord the Roll pivot to the position of the first Selection";
+
+MG_displayEN "MGtools.pivot.mi.snapB" "Snap BackWord";
+MG_displayEN "MGtools.pivot.mi.snapB.anno" "Snap the Roll  povit to the position of Pivot_mov in the former frame";
+MG_displayEN "MGtools.pivot.mi.selectAll" "Select All three";
+MG_displayEN "MGtools.pivot.mi.selectAll.anno" "Select All three controller of the pivot stuff";
+MG_displayEN "MGtools.pivot.mi.SelectPivotRoll" "Select Pivot&Roll";
+MG_displayEN "MGtools.pivot.mi.SelectPivotMov" "Select Pivot_mov";
+
+MG_displayEN "MGtools.animLib" "MG-PoseAnim Library..";
+MG_displayEN "MGtools.animLib.anno" "Click to load MG-PoseAnim Library.";
+MG_displayEN "MGtools.animBank" "MG-Animation Bank..";
+MG_displayEN "MGtools.animBank.anno" "Click to load MG-Animation Bank to export/import animation between different Maya scenes.";
+MG_displayEN "MGtools.animLib.mi.clearImport" "Clear Imported AnimData";
+MG_displayEN "MGtools.animLib.mi.clearImport.anno" "After importing animation,the read data wont be cleared automatically. Click me to clear Imported AnimData.Would be ok if u leave it.";
+MG_displayEN "MGtools.animLib.mi.import" "Import Animation..";
+MG_displayEN "MGtools.animLib.mi.copyV" "Copy value";
+MG_displayEN "MGtools.animLib.mi.copyV.anno" "Copy the selected attribute value from the current channelBox.If no attributes selected,all the shown attributes coped value will be copyed.U can use these values between maya.";
+MG_displayEN "MGtools.animLib.mi.pasteV" "Paste value";
+MG_displayEN "MGtools.animLib.mi.clearBackuped" "Clear BackUped AnimData";
+MG_displayEN "MGtools.animLib.mi.clearBackuped.anno" "Clear the BackUped AnimData.";
+MG_displayEN "MGtools.animLib.mi.browseLib" "Browse AnimationBank Root Dir..";
+MG_displayEN "MGtools.animLib.mi.browseLib.anno" "Use windows explorer to browse AnimationLibrary.";
+MG_displayEN "MGtools.animLib.mi.markAnim" "Mark Animation";
+
+MG_displayEN "MGtools.miniToolBox" "MGminiToolBox..";
+MG_displayEN "MGtools.miniToolBox.anno" "Click to load MGminiToolBox.";
+MG_displayEN "MGtools.miniToolBox.mi.timer" "MG_Timer&Calc 2.0..";
+MG_displayEN "MGtools.miniToolBox.mi.timer.anno" "Click to open MG_Timer 1.0,U can recored/convert timing in any frame rate.";
+MG_displayEN "MGtools.miniToolBox.mi.MBMA" "MB-MA convertor..";
+MG_displayEN "MGtools.miniToolBox.mi.MBMA.anno" "Sometime Maya's default \"save as\" will fail if there are unknown nodes,Use this to convert MB-MA by force.";
+MG_displayEN "MGtools.miniToolBox.mi.exRef" "Export reference Info";
+MG_displayEN "MGtools.miniToolBox.mi.exRef.anno" "Export reference namespace,path Information to a file.";
+MG_displayEN "MGtools.miniToolBox.mi.imRef" "Reuse reference Info";
+MG_displayEN "MGtools.miniToolBox.mi.imRef.anno" "Reuse exported reference Info";
+MG_displayEN "MGtools.miniToolBox.mi.remRef" "Remove reference";
+MG_displayEN "MGtools.miniToolBox.mi.remRef.anno" "Remove reference and clear the namespace as well.";
+MG_displayEN "MGtools.miniToolBox.mi.repNS" "Replace namespace..";
+MG_displayEN "MGtools.miniToolBox.mi.HUD" "MG-HUD Display";
+MG_displayEN "MGtools.miniToolBox.mi.HUD.anno" "Click me to open MG-HUD Display";
+MG_displayEN "MGtools.miniToolBox.mi.configHUD" "Config MG-HUD..";
+MG_displayEN "MGtools.miniToolBox.mi.clearHUD" "Clear MG-HUD Display";
+MG_displayEN "MGtools.miniToolBox.mi.annoFC" "Annotation frameCounter..";
+MG_displayEN "MGtools.miniToolBox.mi.annoFC.anno" "Click to generate a frameCounter based on Annotation.";
+MG_displayEN "MGtools.miniToolBox.mi.stickObj" "Make it sticky in viewPort";
+MG_displayEN "MGtools.miniToolBox.mi.stickObj.anno" "Select the object and click me to make it fixed in viewPort,will be handy while dealing with the facial animation.";
+MG_displayEN "MGtools.miniToolBox.mi.stickObjConfig" "Make Sticky option..";
+MG_displayEN "MGtools.miniToolBox.mi.stickView" "Create sticky viewPort";
+MG_displayEN "MGtools.miniToolBox.mi.stickView.anno" "Create sticky viewPort,will be handy while dealing with the intersection.";
+MG_displayEN "MGtools.miniToolBox.mi.drawKey" "Draw Curve via Key (Simple)..";
+MG_displayEN "MGtools.miniToolBox.mi.drawKey.anno" "Draw a animtion path Curve via the selected object animation.";
+MG_displayEN "MGtools.miniToolBox.mi.MPSticker" "MotionPath Sticker..";
+MG_displayEN "MGtools.miniToolBox.mi.MPSticker.anno" "Open the MotionPath claculator to clac the proper v value of the path animation.";
+
+MG_displayEN "MGtools.createNewHideLayer.war" "No selection found.";
+
+//----------------------MGTools3-------------------
+
+MG_displayEN "MGtools.update.menu" "Update";
+MG_displayEN "MGtools.update.offline.mi" "Offline Update MGTools..";
+MG_displayEN "MGtools.update.offline.ann" "Update MGTools using the offline MGTools update packages (*.mgu) in the \"MGTools_LocalData/MG_UpdatePackages/UpdatePackages\" folder.";
+MG_displayEN "MGtools.update.server.mi" "Update MGTools From Server..";
+MG_displayEN "MGtools.update.server.ann" "If your MGTools is installed as server program, you could update from server directory, to keep your local MGTools latest.";
+MG_displayEN "MGtools.relocateServer.mi" "Relocate MGTools Server...";
+MG_displayEN "MGtools.relocateServer.ann" "Change MGTools installation mode to a server program mode, if it already is, you can change the server directory.";
+
+MG_displayEN "MGtools.register.menu" "Register";
+MG_displayEN "MGtools.register.mg.mi" "Register MGTools..";
+MG_displayEN "MGtools.register.submitUC.mi" "Submit UserCode to ServerSide..";
+MG_displayEN "MGtools.register.submitUC.ann" "Submit your computer's UserCode to MGTools server side \"MGTools_LicenseData\" foler, so software administrator could use these infos to batch register MGTools pro.";
+
+MG_displayEN "MGtools.register.batch.mi" "Batch Register MGTools..";
+MG_displayEN "MGtools.register.batch.ann" "Batch register MGTools of multiple computers. Should only be accessed by software administrator.";
+MG_displayEN "MGtools.register.de.mi" "Deregister MGTools..";
+MG_displayEN "MGtools.register.de.ann" "Clear the MGTools registry info.(Registry infor in sever side won't be removed.)";
+
+MG_displayEN "MGtools.install.menu" "Install/Uninstall";
+MG_displayEN "MGtools.install.uninstall.mi" "MGTools Uninstaller..";
+
+MG_displayEN "MGtools.help.menu" "Help";
+MG_displayEN "MGtools.help.offline.mi" "View Offline Help..";
+MG_displayEN "MGtools.help.server.mi" "View Server Update Help..";
+
+MG_displayEN "MGtools.uninstall.finished.msg" "MGTools uninstallation has been finished.";
+MG_displayEN "MGtools.uninstall.btn" "Uninstall";
+MG_displayEN "MGtools.uninstall.cancel.btn" "Cancel";
+MG_displayEN "MGtools.uninstall.goAhead.btn" "Go Ahead";
+MG_displayEN "MGtools.uninstall.keepUserConfig.btn" "Keep User Config";
+MG_displayEN "MGtools.uninstall.all.btn" "Uninstall All";
+MG_displayEN "MGtools.uninstall.title" "MGTools Pro 3 Uninstallation Wizard";
+
+MG_displayEN "MGtools.uninstall.poseAnimAssetLib.msg" "Do you really want to clear the MG-PoseAnim and MG-Asset Libraries? \nOther version of Maya in your local machine may also need it.";
+MG_displayEN "MGtools.uninstall.poseAnim.msg" "Do you really want to clear the MG-PoseAnim Libraries? \nOther version of Maya in your local machine may also need it.";
+MG_displayEN "MGtools.uninstall.assetLib.msg" "Do you really want to clear the MG-Asset Libraries? \nOther version of Maya in your local machine may also need it.";
+
+MG_displayEN "MGtools.uninstall.confirm.msg" "Do you really want to uninstall MGTools pro? ";
+MG_displayEN "MGtools.uninstall.dereg.done.rep" "Your MGTools registry has been cleared.";
+MG_displayEN "MGtools.uninstall.unloadAllPlugins.done.rep" "Unload all MGTools plugin.";
+MG_displayEN "MGtools.uninstall.clearShelf.done.rep" "Clear MGTools shelves.";
+MG_displayEN "MGtools.uninstall.clearHotkey.done.rep" "Clear MGTools hotkey things.";
+MG_displayEN "MGtools.uninstall.clearAutoload.done.rep" "Clear MGTools autoload codes.";
+MG_displayEN "MGtools.uninstall.removePoseAnimLib.done.rep" "Remove MG-PoseAnim Library.";
+MG_displayEN "MGtools.uninstall.clearConfigs.done.rep" "Clear all MGTools program files and configs.";
+MG_displayEN "MGtools.uninstall.remOtherFiles.done.rep" "Remove other files: ";
+MG_displayEN "MGtools.uninstall.remAnimBank.done.rep" "Remove MG-AnimationBank data.";
+MG_displayEN "MGtools.uninstall.remSelset.done.rep" "Remove MG-SelectionSet data.";
+MG_displayEN "MGtools.uninstall.remShelf.done.rep" "Remove MG-Shelves data.";
+MG_displayEN "MGtools.uninstall.remAssetLib.done.rep" "Remove MG-AssetLibrary data.";
+MG_displayEN "MGtools.uninstall.remOldConfigs.done.rep" "Remove MGTools config data.";
+MG_displayEN "MGtools.uninstall.remOtherFolders.done.rep" "Remove other folder in MGTools root directory: ";
+MG_displayEN "MGtools.uninstall.remMenu.done.rep" "Remove MGTools menubar menu.";
+
+MG_displayEN "MGtools.uninstall.remOtherFolders.server.war" "* Current MGTools was installed as a server program.\n   The MGTools files in servers side won't be uninstalled, you could just delete them manually.\n";
+MG_displayEN "MGtools.uninstall.clearProgram.lbl" "Clear MGTools Program Files";
+MG_displayEN "MGtools.uninstall.dereg.lbl" "Clear MGTools Register Information";
+MG_displayEN "MGtools.uninstall.clearAll.lbl" "Clear All User Datas";
+MG_displayEN "MGtools.uninstall.clearPoseAnim.lbl" "Clear Local MG-PoseAnim Library";
+MG_displayEN "MGtools.uninstall.clearAnimbank.lbl" "Clear MG-AnimationBank";
+MG_displayEN "MGtools.uninstall.clearSelset.lbl" "Clear MG-SelectionSet";
+MG_displayEN "MGtools.uninstall.clearMGShelf.lbl" "Clear MG-Shelves";
+MG_displayEN "MGtools.uninstall.clearAssetLib.lbl" "Clear MG-AssetLibrary"; 
+MG_displayEN "MGtools.uninstall.clearOther.lbl" "Clear All Other Datas"; 
+
+
+MG_displayEN "MGtools.config.help" "Help on MG-Config..";
+
+MG_displayEN "MGtools.relocateMG.help" "Help on Relocating..";
+MG_displayEN "MGtools.register.help" "Help on Register..";
+MG_displayEN "MGtools.distribution.help" "Help on Distributing MGTools..";
+MG_displayEN "MGtools.floatingLicence.help" "Help on Floating Licence..";
+
+MG_displayEN "MGtools.selSharing.help" "Help on Selection Set Sharing..";
+
+MG_displayEN "MGtools.poseAnimSharing.help" "Help on PoseAnim Library Sharing..";
+MG_displayEN "MGtools.assetSharing.help" "Help on Asset Library Sharing..";
+
+MG_displayEN "MGtools.MGSaver.help" "MG-Saver Help..";
+
+//add mg-picker studio language resource @ 2015/05/13
+MG_displayEN "MGtools.appName" "MGTools Pro";
+
+
+MG_displayEN "MGtools.picker.designer.lbl" "MG-Picker Studio..(Design Mode)";
+MG_displayEN "MGtools.picker.designer.ann" "Click to load MG-Picker Studio in designer Mode.";
+MG_displayEN "MGtools.picker.animator.ann" "Click to load MG-Picker Studio in animator Mode.";
+
+MG_displayEN "MGtools.picker.notInstalled.msg" "MG-Picker Studio is a powerful maya picker gui and picker designer tool, it is totally free for maya animator.\n\nCurrently it hasn't been installed for current maya, do you want to download the tool?";
+MG_displayEN "MGtools.picker.notProperlyInstalled.msg" "MG-Picker Studio is not properly installed, do you want to download and reinstall the tool?";
+
+
+
+//after float license @20160107
+MG_displayEN "MGtools.nodeLock.menu" "Node-Locked Licence";
+MG_displayEN "MGtools.floatLic.menu" "Floating Licence";
+MG_displayEN "MGtools.floatLic.login.lbl" "Login..";
+MG_displayEN "MGtools.floatLic.login.ann" "Load up the MG-LicenceConnector to login the float licence.";
+MG_displayEN "MGtools.floatLic.logout.lbl" "Logout..";
+MG_displayEN "MGtools.floatLic.logout.ann" "Logout the float licence, this will affect all the MGTools in local running mayas.";
+
+MG_displayEN "MGtools.pick.program.lbl" "Please pick the \"#\"";
+MG_displayEN "MGtools.pick.program.pick" "Pick";
+MG_displayEN "MGtools.pick.program.pickDot" "Pick..";
+MG_displayEN "MGtools.close.lbl" "Close";
+MG_displayEN "MGtools.whereis.lbl" "Where is the \"#\"";
+MG_displayEN "MGtools.newProgramLoc.lbl" "News Program Location";
+MG_displayEN "MGtools.connector.config.title" "Config Floating Licence Connector";
+MG_displayEN "MGtools.connector.location.lbl" "Connector Location" ;
+
+
+MG_displayEN "MGtools.news.mi" "MGLAND|Twincodes News.." ;

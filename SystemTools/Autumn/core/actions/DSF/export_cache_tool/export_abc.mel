@@ -1,0 +1,12 @@
+python "import sys";
+python "import os";
+python "print sys.argv";
+python "sys.path.append(os.path.dirname(sys.argv[-3]))";
+python "import export_abc";//
+python "reload(export_abc)";
+
+python "export_abc.abc_out(sys.argv[-1])";
+//sys.argv[-2],publishPath = sys.argv[-1]
+//print "OK";
+//python "print sys.argv";
+

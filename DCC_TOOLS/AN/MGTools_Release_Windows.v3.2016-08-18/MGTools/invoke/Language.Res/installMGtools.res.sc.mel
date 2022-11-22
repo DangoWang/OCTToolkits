@@ -1,0 +1,78 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+global string $MG_simplifiedChinese_Marker = "当";
+
+global string $MG_simplifiedChinese_title = "MGTools Pro3 安装向导";	
+global string $MG_simplifiedChinese_welcome = "欢迎启动MGTools Pro3安装向导";
+global string $MG_simplifiedChinese_installTo = "安装/更新 MGTools shelf 至：";
+global string $MG_simplifiedChinese_currentShelf = "装到当前Shelf工具架";
+global string $MG_simplifiedChinese_allShelf = "全部装到当前Shelf工具架";
+global string $MG_simplifiedChinese_MGtoolsShelf = "全部装到\"MGtools\"工具架(没有则新建)";
+
+global string $MG_simplifiedChinese_nextAutoload = "当Maya下次启动时要自动加载以下项目：";
+global string $MG_simplifiedChinese_mgtoolsMenu = "MGTools 菜单栏菜单";
+global string $MG_simplifiedChinese_mgtoolsBar = "MGTools 工具条";
+global string $MG_simplifiedChinese_minimize = "加载工具条后最小化";
+global string $MG_simplifiedChinese_mgChannelbox = "MG通道栏";
+global string $MG_simplifiedChinese_mgShelf = "MGShelf工具条";
+global string $MG_simplifiedChinese_constraint = "约束工具条";
+global string $MG_simplifiedChinese_keyframeTool = "帧工具箱";
+global string $MG_simplifiedChinese_selection = "MG选择集工具";
+
+global string $MG_simplifiedChinese_afterInstall= "装完后你想要:";
+global string $MG_simplifiedChinese_afterInstall_mgtools= "加载MGTools工具条";
+global string $MG_simplifiedChinese_afterInstall_config= "配置MGTools工具条";
+global string $MG_simplifiedChinese_afterInstall_help= "查看MGTools帮助";
+global string $MG_simplifiedChinese_uiLan= "UI界面语言:";
+
+global string $MG_simplifiedChinese_wip_title= "正在安装中，可能会花些时间，请耐心等候:)";
+global string $MG_simplifiedChinese_wip_00= "  当前MGTools 安装进度：\n\n";
+global string $MG_simplifiedChinese_wip_01= "  步骤一: 获取相关文件信息\n";
+global string $MG_simplifiedChinese_wip_02= "  步骤二: 准备拷贝MGTools文件夹到相应目录\n";
+global string $MG_simplifiedChinese_wip_03= "  步骤三: 安装相应的MGTools工具架\n";
+global string $MG_simplifiedChinese_wip_04= "  步骤四: 设置自动加载\n";
+global string $MG_simplifiedChinese_wip_05= "  步骤五: 安装初步完成，正在启动一些工具\n";
+global string $MG_simplifiedChinese_wip_06= "安装完成 !!";
+global string $MG_simplifiedChinese_wip_07= "MGTools安装完毕，您可以访问mgland.com来了解更多 :)";
+
+
+global string $MG_simplifiedChinese_OSMismatch_title= "OS Mismatch | 系统版本错误 !";
+global string $MG_simplifiedChinese_OSMismatch_message= "Sorry, the MGTools version your are installing is not for this OS platform. \n抱歉,你当前的MGTools版本不适于当前的操作系统.";
+global string $MG_simplifiedChinese_nonAscii_message1="源MGTools安装包是在该目录: \n\n";
+global string $MG_simplifiedChinese_nonAscii_message2="\n\n这个目录存在着非AscII字符:   ";
+global string $MG_simplifiedChinese_nonAscii_message3="\n\n为了避免潜在的程序问题，请重命名目录或移到纯AscII字符的目录里去, 否则您无法以服务器模式来安装MGTools.";
+
+global string $MG_simplifiedChinese_TIP = "* 点击 \"下一步\" 按钮来接触用户端许可协议并继续; 点\"取消\" 来拒绝并退出安装.";
+global string $MG_simplifiedChinese_EULA_missing = "MGTools最终用户许可协议丢失，安装取消.";
+global string $MG_simplifiedChinese_101_missing = "MGTools授权说明文件丢失，安装取消.";
+global string $MG_simplifiedChinese_EULA_topLbl =  "   MGTools最终用户许可协议:";
+global string $MG_simplifiedChinese_101_topLbl = "   MGTools专业版授权说明:";
+
+global string $MG_simplifiedChinese_cleanUpOld = "清除MGTools3本地文件.";
+global string $MG_simplifiedChinese_cleanUp_lbl = "准备卸载旧的MGTools v";
+global string $MG_simplifiedChinese_cleanUp_cont = "继续";
+global string $MG_simplifiedChinese_cleanUp_cancel = "取消";
+global string $MG_simplifiedChinese_cleanUp_theOld = "检测到旧的MGTools v";
+global string $MG_simplifiedChinese_cleanUp_war = " . \n继续安装将卸载旧的MGTools程序文件，不过配置文件将保留. \n\n您要继续吗 ?";
+global string $MG_simplifiedChinese_cleanUp_uninstalling_scripts = "卸载旧的MGTools脚本.";
+global string $MG_simplifiedChinese_cleanUp_uninstalling_folders = "卸载旧的MGTools文件夹.";
+global string $MG_simplifiedChinese_cleanUp_uninstalling_folder_rep = "正在卸载旧文件夹: ";
+global string $MG_simplifiedChinese_cleanUp_uninstalling_transfering_rep = "升级MGTools旧的配置档.";
+global string $MG_simplifiedChinese_cleanUp_uninstalling_shelfHotkeys = "清理旧的MGTools工具架并更新快捷键.";
+
+global string $MG_simplifiedChinese_afterInstall_register = "立即注册MGTools";
+
+global string $MG_simplifiedChinese_errorReplace_oldFiles = "替换旧文件时出错 :";
+global string $MG_simplifiedChinese_installMode = "安装模式:";
+global string $MG_simplifiedChinese_installAsLocal = "本地模式";
+global string $MG_simplifiedChinese_installAsGlobal = "服务器模式";
+global string $MG_simplifiedChinese_installAsFullGlobal = "完全服务器模式";
+global string $MG_simplifiedChinese_autoloadVia = "自动加载基于：";
+

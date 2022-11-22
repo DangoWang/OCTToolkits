@@ -1,0 +1,92 @@
+//==============================================================//
+//                   MGPicker 
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback/E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+//============== Loader scripts for MG-Picker Studio =========================
+
+global proc MGPicker_GPS()
+{
+}
+
+proc mgp_initOSVar()
+{
+    global int $MGPKR_OStype;
+    $MGPKR_OStype =0;
+    if(`about -mac`)
+    {
+        $MGPKR_OStype =1;
+    }
+    else 
+    {
+        if(!`about -win`)
+        {
+            $MGPKR_OStype =2;
+        }
+    }
+}
+
+proc string mgp_getProgramRootDir()
+{
+	mgp_initOSVar();
+    global int $MGPKR_OStype;
+    
+    string $place=`whatIs "MGPicker_GPS"`;
+    $place = substituteAllString($place, "\\","/");
+    string $buffer[];
+    $numTokens = `tokenize $place ":" $buffer`;
+    if(!$MGPKR_OStype)
+    {
+        if($numTokens >= 3)
+        {
+            $place=strip ($buffer[1]+":"+$buffer[2]);
+        }
+        else
+        {
+            $place=strip ($buffer[1]);
+        }       
+        $place=dirname ($place);        
+    }
+    else
+    {
+        $place=dirname (strip($buffer[1]));     
+    }
+    $place = dirname($place) + "/";
+    return  $place; 
+}
+
+proc mgp_initEntryGlobalVars()
+{
+	global string $MGPicker_ProgramPath;
+	$MGPicker_ProgramPath = `mgp_getProgramRootDir`;
+  
+	global string $MGPicker_ProgramFolder;
+	$MGPicker_ProgramFolder = "MGPicker_Program";
+
+	global string $MGPicker_ScriptEntry; 
+	$MGPicker_ScriptEntry = "MG_PickerStudio";
+}
+
+proc mgp_initMGPickerScripts()
+{
+	mgp_initEntryGlobalVars;
+
+	global string $MGPicker_ProgramPath;
+	global string $MGPicker_ProgramFolder;
+	global string $MGPicker_ScriptEntry; 
+
+	if(`exists $MGPicker_ScriptEntry`)
+	{
+		return;
+	}	
+
+	string $mel = $MGPicker_ProgramPath + $MGPicker_ProgramFolder+"/UI/MGPickerUI_WrittenByMiguel.mel";
+	string $cmd = "source \""+$mel+"\"";
+	eval $cmd;
+}
+
+mgp_initMGPickerScripts;
+

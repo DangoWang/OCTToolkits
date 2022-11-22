@@ -1,0 +1,45 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "openFile.AddUI.title" "Add Your Custom FileShortcut";
+MG_displayEN "openFile.AddUI.textAnno" "You have select the File below:";
+MG_displayEN "openFile.AddUI.openAnno" "Open";
+MG_displayEN "openFile.AddUI.MIAnno" "Name you want to show in popMenu:";
+MG_displayEN "openFile.AddUI.MIAnno1" "Shelf Label:";
+MG_displayEN "openFile.AddUI.saveAsDefault" "Set as Default";
+MG_displayEN "openFile.AddUI.saveToMenu" "Save to Menu";
+MG_displayEN "openFile.AddUI.saveToShelf" "Add to Shelf";
+MG_displayEN "openFile.AddUI.close" "Close";
+
+MG_displayEN "openFile.pickPath.pickAFile" "Select a File below:";
+MG_displayEN "openFile.EditUI.defaultAnno" "Click to load ";
+MG_displayEN "openFile.EditUI.useddefaultAnno" "\"Open ";
+
+MG_displayEN "openFile.EditUI.title" "File shortCut Manager";
+MG_displayEN "openFile.EditUI.misc.menu" "Misc";
+MG_displayEN "openFile.EditUI.reload.mi" "Reload";
+MG_displayEN "openFile.EditUI.addNew.mi" "Add New..";
+MG_displayEN "openFile.EditUI.setDefault.mi" "Set Default";
+MG_displayEN "openFile.EditUI.removeDefault.mi" "Remove Default";
+MG_displayEN "openFile.EditUI.DefaultAction" "Default Action:";
+MG_displayEN "openFile.EditUI.help.mi" "Help";
+MG_displayEN "openFile.EditUI.MenuName" "Menu Name:";
+MG_displayEN "openFile.EditUI.FilePath" "File Path:";
+MG_displayEN "openFile.EditUI.Annotation" "Annotation:";
+MG_displayEN "openFile.EditUI.edit" "Edit";
+MG_displayEN "openFile.EditUI.mUp" "Move UP";
+MG_displayEN "openFile.EditUI.mDn" "Move DN";
+MG_displayEN "openFile.EditUI.del" "Delete";
+MG_displayEN "openFile.EditMenu.title" "Edit Section:";
+MG_displayEN "openFile.EditMenu.text" "  Edit Menu:";
+MG_displayEN "openFile.EditMenu.submit.btn" "Submit Current Content Edit";
+MG_displayEN "openFile.EditMenu.appAllEdit.btn" "Apply All Edit";
+MG_displayEN "openFile.EditMenu.close.btn" "Close";
+
+MG_displayEN "openFile.selectItem.war" "Select a item from the list please :(";

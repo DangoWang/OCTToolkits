@@ -1,0 +1,4 @@
+//get current mouse interactiving picker item name:
+//When you want to change the item itself within its script type property, such as color or position, use this to query its id.
+string $currentPickerItem = `MGP_GetCurrentInteractiveItem`;  
+			

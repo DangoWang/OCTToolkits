@@ -1,0 +1,269 @@
+global string $TrS_objWithShader[] = {};
+global string $TrS_objWithoutShader[] = {};
+
+
+
+
+global proc TransferShaderWindow()
+{
+	$UI_Width = 300;
+	if ((`window -ex transferShader_UI`) == true) deleteUI transferShader_UI;
+	$AutoDoIt_Window = `window -title "传递材质" -w $UI_Width transferShader_UI`;
+	Build_transferShader_UI();
+	showWindow transferShader_UI;
+}
+
+
+global proc Build_transferShader_UI()
+{
+    columnLayout -adjustableColumn true;
+    button -label "有材质模型" -c "SelectObjectWithShader()";
+    button -label "没材质模型" -c "SelectObjectWithoutShader()";
+    button -label "开始传递" -c "DoTransferShader()";
+}
+
+
+global proc SelectObjectWithShader()
+{
+    global string $TrS_objWithShader[];
+    $TrS_objWithShader = {};
+    string $objs[] = `ls -sl -l`;
+    string $obj;
+    
+    for( $obj in $objs )
+    {
+        select -cl;
+        select -r $obj;
+        pickWalk -d down;
+        string $shapeNodes[] = `ls -sl -l`;
+        $TrS_objWithShader[size($TrS_objWithShader)] = $shapeNodes[0];
+    }
+}
+
+
+global proc SelectObjectWithoutShader()
+{
+    global string $TrS_objWithoutShader[];
+    $TrS_objWithoutShader = {};
+    string $objs[] = `ls -sl -l`;
+    string $obj;
+    
+    for( $obj in $objs )
+    {
+        select -cl;
+        select -r $obj;
+        pickWalk -d down;
+        string $shapeNodes[] = `ls -sl -l`;
+        $TrS_objWithoutShader[size($TrS_objWithoutShader)] = $shapeNodes[0];
+    }
+}
+
+
+global proc DoTransferShader()
+{
+    global string $TrS_objWithShader[];
+    global string $TrS_objWithoutShader[];
+    
+    if( size($TrS_objWithShader)<1 || size($TrS_objWithoutShader)<1 )
+        return;
+
+
+    string $mesh;
+    string $ShadingEngines[] = {};
+
+    for( $mesh in $TrS_objWithShader )
+    {
+        string $SHEs[] = `listConnections -s 0 -d 1 -type "shadingEngine" $mesh`;
+		$ShadingEngines = stringArrayCatenate($SHEs, $ShadingEngines);
+    }
+	string $noDupSHEs[] = stringArrayRemoveDuplicates($ShadingEngines);
+    string $shadingEngine;
+	
+	for( $shadingEngine in $noDupSHEs )
+	{
+		string $mayaShader[];
+        
+        if( `connectionInfo -isDestination ($shadingEngine+".surfaceShader")` )
+        {
+            $mayaShader = `listConnections -s 1 -d 0 ($shadingEngine+".surfaceShader")`;
+        }
+        else if( `connectionInfo -isDestination ($shadingEngine+".miMaterialShader")` )
+        {
+            $mayaShader = `listConnections -s 1 -d 0 ($shadingEngine+".miMaterialShader")`;
+        }
+
+        if( size($mayaShader) > 0 )
+        {
+            select -cl;
+			hyperShade -objects $mayaShader[0];
+            string $selObjs[] = `ls -sl -l`;
+            string $selObj;
+            
+            for( $selObj in $selObjs )
+            {
+                string $objParents[] = stringToStringArray($selObj,"|");
+                int $numParents = size($objParents) - 1;
+                //if shader is assigned by faces, cut string with ".f[",second with ":",then we get the object name
+                string $objName1[] = stringToStringArray($selObj,".");
+                
+                if( size( $objName1 ) > 1 )
+                {
+                    select -cl;
+					string $objShortName[] = stringToStringArray($objName1[0],"|");
+                    
+                    //because at this moment we just get the object's name of transform node,so we should get shape node's name at first
+                    select -cl;
+                    //should use long name to select objects
+                    select -r $objName1[0];
+                    pickWalk -d down;
+                    string $objName2_shape[] = `ls -sl -l`;
+                    string $shapeName[] = {};
+                    string $shortName[] = {};
+                    
+                    if( size($objName2_shape)>0 )
+                    {
+                        $shortName = stringToStringArray( $objName2_shape[0],"|" );
+                        $shapeName = stringToStringArray( $shortName[size($shortName)-1],":" );
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    
+                    // find the object in group2 which match the name of current shape node
+                    string $object;
+                    
+                    for( $object in $TrS_objWithoutShader )
+                    {
+                        if( gmatch( $object, ( "*"+$shapeName[size($shapeName)-1] ) ) )
+                        {
+                            string $objParents_1[] = stringToStringArray($object,"|");
+                            
+                            //check if the objects are at same group level to prevent same name but not same object
+                            string $objParentGrpName_source[] = {};
+                            string $objParentGrpName_des[] = {};
+                            
+                            if( size($shortName) > 2 )
+                            {
+                                $objParentGrpName_source = stringToStringArray( $shortName[size($shortName)-3],":" );
+                            }
+                            if( size($objParents_1) > 2 )
+                            {
+                                $objParentGrpName_des = stringToStringArray( $objParents_1[size($objParents_1)-3],":" );
+                            }
+                            if( gmatch( $objParentGrpName_des[size($objParentGrpName_des)-1],$objParentGrpName_source[size($objParentGrpName_source)-1] ) )
+                            {
+                                select -cl;
+                                select -r $object;
+                                pickWalk -d up;
+                                string $transNodeName[] = `ls -sl -l`;
+                                select -cl;
+                                select -r ( $transNodeName[0] + "." + $objName1[size($objName1)-1] );
+                                sets -e -forceElement $shadingEngine;
+                                //break;
+                            }
+                        }
+                        else if( size($object) > size( $shapeName[size($shapeName)-1] ) )
+                        {
+                            string $realName = `substring $object ( size($object) - size( $shapeName[size($shapeName)-1] ) + 1 ) (size($object))`;
+                            
+                            if( gmatch( $realName, ( "*"+$shapeName[size($shapeName)-1] ) ) )
+                            {
+                                string $objParents_1[] = stringToStringArray($object,"|");
+                            
+                                //check if the objects are at same group level to prevent same name but not same object
+                                string $objParentGrpName_source[] = {};
+                                string $objParentGrpName_des[] = {};
+                                
+                                if( size($shortName) > 2 )
+                                {
+                                    $objParentGrpName_source = stringToStringArray( $shortName[size($shortName)-3],":" );
+                                }
+                                if( size($objParents_1) > 2 )
+                                {
+                                    $objParentGrpName_des = stringToStringArray( $objParents_1[size($objParents_1)-3],":" );
+                                }
+                                if( gmatch( $objParentGrpName_des[size($objParentGrpName_des)-1],("*"+$objParentGrpName_source[size($objParentGrpName_source)-1]) ) )
+                                {
+                                    select -cl;
+                                    select -r $object;
+                                    pickWalk -d up;
+                                    string $transNodeName[] = `ls -sl -l`;
+                                    select -cl;
+                                    select -r ( $transNodeName[0] + "." + $objName1[size($objName1)-1] );
+                                    sets -e -forceElement $shadingEngine;
+                                    //break;
+                                }
+                            }
+                        }
+                    }
+                }
+                //
+                else//shader is assigned by object
+                {
+                    select -cl;
+					string $objShortName[] = stringToStringArray($objName1[0],"|");
+					string $objName2[] = stringToStringArray( $objShortName[size($objShortName)-1], ":" );
+                    string $object;
+                    
+                    for( $object in $TrS_objWithoutShader )
+                    {
+						if( gmatch( $object, ( "*"+$objName2[size($objName2)-1] ) ) )
+                        {
+                            string $objParents_1[] = stringToStringArray($object,"|");
+                            //check if the objects are at same group level to prevent same name but not same object
+                            string $objParentGrpName_source[] = {};
+                            string $objParentGrpName_des[] = {};
+                            
+                            if( size($objShortName) > 1 )
+                            {
+                                $objParentGrpName_source = stringToStringArray( $objShortName[size($objShortName)-2],":" );
+                            }
+                            if( size($objParents_1) > 1 )
+                            {
+                                $objParentGrpName_des = stringToStringArray( $objParents_1[size($objParents_1)-2],":" );
+                            }
+                            if( gmatch( $objParentGrpName_des[size($objParentGrpName_des)-1],("*"+$objParentGrpName_source[size($objParentGrpName_source)-1]) ) )
+                            {
+                                select -cl;
+                                select -r $object;
+                                sets -e -forceElement $shadingEngine;
+                                //break;
+                            }
+                        }
+                        else if( size($object) > size( $objName2[size($objName2)-1] ) )
+                        {
+                            string $realName = `substring $object ( size($object) - size( $objName2[size($objName2)-1] ) + 1 ) (size($object))`;
+                            
+                            if( gmatch( $realName, ( "*"+$objName2[size($objName2)-1] ) ) )
+                            {
+                                string $objParents_1[] = stringToStringArray($object,"|");
+                                
+                                //check if the objects are at same group level to prevent same name but not same object
+                                string $objParentGrpName_source[] = {};
+                                string $objParentGrpName_des[] = {};
+                                if( size($objShortName) > 1 )
+                                {
+                                    $objParentGrpName_source = stringToStringArray( $objShortName[size($objShortName)-2],":" );
+                                }
+                                if( size($objParents_1) > 1 )
+                                {
+                                    $objParentGrpName_des = stringToStringArray( $objParents_1[size($objParents_1)-2],":" );
+                                }
+                                if( gmatch( $objParentGrpName_des[size($objParentGrpName_des)-1],("*"+$objParentGrpName_source[size($objParentGrpName_source)-1]) ) )
+                                {
+                                    select -cl;
+                                    select -r $object;
+                                    sets -e -forceElement $shadingEngine;
+                                    //break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+	}
+    confirmDialog -title "传递结束" -message "传递结束!" -button "Yes" -defaultButton "Yes";
+}

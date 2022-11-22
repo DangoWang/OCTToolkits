@@ -1,0 +1,2 @@
+//Reset all the keyable attribute of the selected objects.
+MGP_ResetSelectionAttributes;

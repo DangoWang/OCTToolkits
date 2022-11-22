@@ -1,0 +1,44 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "footStepSnap.warnSelect.title" "点我点我点我";
+MG_displaySC "footStepSnap.warnSelect.message" "囧 !!!   请您选择一个物体(自我吸附)或两个物体(吸附后者) :)";
+MG_displaySC "footStepSnap.rela.warnSelect.message" "囧 !!!   请您选择两个物体(相对吸附后者) :)";
+MG_displaySC "footStepSnap.warnSelect.ok" "囧> 好吧..";
+
+MG_displaySC "attrSwitch.ui.title" "无跳属性切换";
+MG_displaySC "attrSwitch.mi" "无跳属性切换..";
+MG_displaySC "attrSwitch.anno" "无跳切换一些会引起其它控制器/本身跳动的属性，如跟不跟随的属性，约束权重的属性。";
+
+MG_displaySC "attrSwitch.nocb.war" "没有发现通道栏:(";
+MG_displaySC "attrSwitch.attr" "要切换的属性:";
+MG_displaySC "attrSwitch.attr.anno" "改变值后会导致其它控制器/本身跳掉的属性，如follow属性，约束权重属性。";
+
+MG_displaySC "attrSwitch.attr.get" "从通道栏获取";
+MG_displaySC "attrSwitch.attr.get.anno" "从通道栏获取第一个所选的属性。支持Maya通道栏及MG通道栏.";
+
+MG_displaySC "attrSwitch.value" "要切换的属性值:";
+MG_displaySC "attrSwitch.value.anno" "要切换的属性的目标值.";
+
+MG_displaySC "attrSwitch.guessValue" "从属性猜";
+MG_displaySC "attrSwitch.guessValue.anno" "从要切换的属性猜，假如该属性当前值为其最小值，则目标属性将设为其最大值，反之亦然.";
+
+MG_displaySC "attrSwitch.add" "把场景所选物体加入自动消除跳动的列表";
+MG_displaySC "attrSwitch.del" "把场景所选物体从自动消除跳动的列表里去掉";
+
+MG_displaySC "attrSwitch.switchObj" "要消除跳动的物体:";
+MG_displaySC "attrSwitch.switchObj.anno" "要消除跳动的物体，目标属性会引起哪些物体跳动，就把那些物体加进来。";
+
+MG_displaySC "attrSwitch.switch" "切换!";
+
+MG_displaySC "feetSnap.option.clearDeciKey" "清除经过的非整数的位移旋转帧";
+MG_displaySC "snapTool.name" "吸附工具";
+
+//-------added in MGTools 3-------------------------------------
+MG_displaySC "feetSnap.option.SnapRange" "当时间条上有选择范围时吸附整个范围";

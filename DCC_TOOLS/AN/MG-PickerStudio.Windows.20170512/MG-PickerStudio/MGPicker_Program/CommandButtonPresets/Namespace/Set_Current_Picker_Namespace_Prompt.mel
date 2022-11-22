@@ -1,0 +1,2 @@
+//Pop up namespace editor to set current picker's namespace:
+MGP_SetCurrentPickerNamespace_WithUI;

@@ -1,0 +1,13 @@
+// ngSkinTools shelf
+// www.ngskintools.com
+
+global proc shelf_ngSkinTools () {
+    shelfButton
+    	-enable 1 -visible 1 -preventOverride 0
+    	-label "ngst" -annotation "ngSkinTools UI"
+    	-image "ngSkinToolsShelfIcon.png" -style "iconOnly" -noBackground 1
+    	-align "center" -marginWidth 1 -marginHeight 1
+        -command "from ngSkinTools.ui.mainwindow import MainWindow\nMainWindow.open()"
+        -sourceType "python"
+        -commandRepeatable 0;
+}

@@ -1,0 +1,17 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayTS "ConsTool.uv.mi" "UV約束器";
+MG_displayTS "ConsTool.uv.mi.anno" "選擇多邊形的頂點/邊/面再點我來生成UV約束器，該控製器可用來約束其它物體，因為它能代表原來所選次級物件的位置(UV位置)。";
+MG_displayTS "ConsTool.uv.nosel.war" "場景無選擇哦。請先選擇多邊形的頂點/邊/面再來執行俺。";
+MG_displayTS "ConsTool.uv.typeWrong.war" "忽略掉： #。該命令只支援多邊形的頂點/邊/面.\n";
+MG_displayTS "ConsTool.uv.done.rep" "生成了 # 個UV約束.";
+
+MG_displayTS "ConsTool.uv.notUnlimited.war" "抱歉,你的maya並不是無限版的,所以無法使用UV約束器 :(";
+

@@ -1,0 +1,52 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayTS "PivotTool.create.anno" "點選為所選物體創建一個可動畫軸心裝置";
+MG_displayTS "PivotTool.selectPivot.mi" "選擇Pivot";
+MG_displayTS "PivotTool.selectRoll.mi" "選擇Roll";
+
+MG_displayTS "PivotTool.NoStuff.war" "你的場景裡沒有可動畫軸心裝置哦 :P";
+MG_displayTS "PivotTool.existStuff.title" "已存在的可動畫軸心裝置:";
+MG_displayTS "PivotTool.pivotFor" "軸心裝置的控制物件:";
+MG_displayTS "PivotTool.pivotStuff" "軸心裝置:";
+
+
+MG_displayTS "PivotTool.help" "幫助";
+
+MG_displayTS "PivotTool.manager.clickSelect3.anno" "雙擊來選擇該套軸心裝置全部三個控製器.";
+MG_displayTS "PivotTool.manager.select" "選擇";
+MG_displayTS "PivotTool.manager.Delete" "刪除";
+MG_displayTS "PivotTool.manager.clickMeToSelect.anno" "雙擊我來選擇我.";
+MG_displayTS "PivotTool.manager.anno" "* 雙擊左下列表項目來選擇整套裝置,雙擊右下列表項目來選擇對應控製器*";
+MG_displayTS "PivotTool.manager.close" "關閉";
+
+MG_displayTS "PivotTool.selectStuff.war" "--_-- |||    請選擇裝置的一個控製器先 ~";
+
+MG_displayTS "PivotTool.channel.war" "--_-- |||    請選擇一個位移和旋轉可被約束的物體 ~";
+MG_displayTS "PivotTool.alreadyC.war" "--_-- |||    你老早前就已經為它創建過軸心裝置了 ~";
+
+MG_displayTS "PivotTool.snapToSel.war" "--_-- |||    請選擇目標物體及你要重新繫結的軸心裝置的一部分先 ~";
+
+MG_displayTS "PivotTool.channelLocked.war" "你所選的物體的位移或旋轉被鎖定或被連線控制了";
+
+MG_displayTS "PivotTool.bindDone.rep" "成功與#完成了繫結";
+
+MG_displayTS "PivotTool.earse.war" "警告!! 這個操作將沖掉與裝置相關的即有動畫";
+MG_displayTS "PivotTool.earse.cancel" "取消";
+MG_displayTS "PivotTool.earse.next" "沒關係";
+
+MG_displayTS "PivotTool.copyPivotDone.rep" "當前選擇軸心位置已記錄，你可以在任何時間，任何Maya裡利用這個資訊。";
+MG_displayTS "PivotTool.pastePivotDone.rep" "已匯入軸心位置資訊並應用於當前選擇，請查收";
+MG_displayTS "PivotTool.copyPivot.noPivotFile.war" "沒發現任何之前匯出的軸心位置資訊";
+
+MG_displayTS "PivotTool.copypivot.mi" "匯出軸心位置";
+MG_displayTS "PivotTool.copypivot.mi.anno" "匯出軸心位置資訊到一個外部檔案，這樣另外一個Maya也可用這些資訊。";
+MG_displayTS "PivotTool.pastepivot.mi" "匯入軸心位置";
+MG_displayTS "PivotTool.pastepivot.mi.anno" "用之前匯出的軸心位置資訊，來改變當前場景選擇的軸心位置。";
+

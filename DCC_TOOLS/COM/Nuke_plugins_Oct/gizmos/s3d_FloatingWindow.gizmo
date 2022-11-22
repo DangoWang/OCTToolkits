@@ -1,0 +1,84 @@
+Gizmo {
+ addUserKnob {20 User}
+ addUserKnob {26 floatingWindow l "" +STARTLINE T "Floating Window tool"}
+ addUserKnob {26 "" +STARTLINE}
+ addUserKnob {26 LeftView l "" t "here you can crop left view" +STARTLINE T "Left view :"}
+ addUserKnob {41 Left l "eat Left" T s3d_FloatingWindow_Left_expr.Left}
+ addUserKnob {41 Right l "eat Right" T s3d_FloatingWindow_Left_expr.Right}
+ addUserKnob {26 rightView l "" +STARTLINE T "Right view :"}
+ addUserKnob {41 Left_1 l "eat Left" T s3d_FloatingWindow_Right_expr.Left}
+ addUserKnob {41 Right_1 l "eat Right" T s3d_FloatingWindow_Right_expr.Right}
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos 384
+  ypos -111
+ }
+ Dot {
+  name Dot1
+  xpos 413
+  ypos -71
+ }
+set N78e90f0 [stack 0]
+ OneView {
+  view right
+  name OneView2
+  label right
+  xpos 438
+  ypos -12
+ }
+ Expression {
+  temp_name0 left
+  temp_expr0 1-(x<=input.width*Left)
+  temp_name1 right
+  temp_expr1 x<=input.width*Right
+  expr0 right*left*r
+  expr1 right*left*g
+  expr2 right*left*b
+  name s3d_FloatingWindow_Right_expr
+  xpos 438
+  ypos 85
+  addUserKnob {20 User}
+  addUserKnob {7 Left}
+  Left 0.02197265625
+  addUserKnob {7 Right}
+  Right 0.9780273438
+ }
+push $N78e90f0
+ OneView {
+  name OneView1
+  label left
+  xpos 338
+  ypos -12
+ }
+ Expression {
+  temp_name0 left
+  temp_expr0 1-(x<=input.width*Left)
+  temp_name1 right
+  temp_expr1 x<=input.width*Right
+  expr0 right*left*r
+  expr1 right*left*g
+  expr2 right*left*b
+  name s3d_FloatingWindow_Left_expr
+  xpos 338
+  ypos 86
+  addUserKnob {20 User}
+  addUserKnob {7 Left}
+  Left 0.02197265625
+  addUserKnob {7 Right}
+  Right 0.9780273438
+ }
+ JoinViews {
+  inputs 2
+  name JoinViews1
+  xpos 384
+  ypos 184
+  viewassoc "left\nright"
+ }
+ Output {
+  name Output1
+  xpos 384
+  ypos 284
+ }
+end_group

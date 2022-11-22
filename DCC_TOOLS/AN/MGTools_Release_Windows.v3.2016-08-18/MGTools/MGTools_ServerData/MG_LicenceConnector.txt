@@ -1,0 +1,13 @@
+# Input the directory that contains MG-LicenceConnector at the left of = sign.
+# If user did not manually pick MG-LicenceConnector from other path,
+# then the path here will be used by MGTools, MG-PickerStudio, etc.
+# Both absolute and relative path are supported.
+
+# Example of relative path:
+# 	ConnectorDirectory = ./connector
+#	ConnectorDirectory = ../../../myconnector
+
+# tips: both "/" or "\" are ok, whether or not the path ends with / does not matter.
+#       Please input raw path at the right side of "=", do not wrap path with "".
+
+ConnectorDirectory = 

@@ -1,0 +1,24 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "AddCtl.nosel.war" "场景里没有选择的物体。请选择一个位移旋转没被约束的变形节点。";
+MG_displaySC "AddCtl.prompt.title" "插入层级..";
+MG_displaySC "AddCtl.anno" "在当前所选物体上面插入可动画的层级，注意当前物体会被约束。";
+MG_displaySC "AddCtl.prompt.mes" "层级个数:";
+MG_displaySC "AddCtl.noSence.war" "层级个数小于2就没有意义罗~";
+MG_displaySC "AddCtl.constrainted.war" "没办法插入层级，因为你所选的物体已被约束。";
+MG_displaySC "AddCtl.constrainted.noChannel.war" "没办法插入层级，因为你所选的物体的位移和旋转通道都被锁定了。";
+
+MG_displaySC "AddCtl.finish.rep" " # 个可被干凈Key动画的新层级已被插入完毕:)";
+
+MG_displaySC "AddCtl.stickNone.lbl" "正常模式";
+MG_displaySC "AddCtl.stickRotate.lbl" "定住旋转";
+MG_displaySC "AddCtl.stickRotateComp.lbl" "彻底定住旋转";
+MG_displaySC "AddCtl.stickAll.lbl" "定住位移和旋转";
+MG_displaySC "AddCtl.addShape.lbl" "添加可见形状";

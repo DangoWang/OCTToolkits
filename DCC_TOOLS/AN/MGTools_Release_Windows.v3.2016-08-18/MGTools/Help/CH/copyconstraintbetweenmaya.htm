@@ -1,0 +1,106 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>跨Maya复制粘贴约束</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Constraint,Copy" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "copyconstraintbetweenmaya.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Pro用户手册" /></a>&nbsp;
+        <h1 class="p_Heading1"><span class="f_Heading1">跨Maya复制粘贴约束</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="sceneconstraintmanagernode.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="vertexconstraint.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 11pt;"> Maya间复制/粘贴约束</span><span style="font-weight: bold; color: #191817;">：</span></p>
+<p>&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:81px; padding:0px;"><p style="text-align: center;"><img src="copypasteproicon.gif" width="32" height="32" alt="copyPasteProIcon" style="border:none" /></p>
+<p style="text-align: center;">&nbsp;</p>
+</td>
+<td style="vertical-align:middle; width:1px; padding:0px;"><br />
+</td>
+<td style="vertical-align:top; width:899px; padding:0px;"><p style="line-height: 1.50;">跨Maya场景间复制约束，及约束相关联的动画帧。</p>
+<p style="line-height: 1.50;">这个工具跟旧的Maya间复制动画/Pose工具合并在一起，在同一界面上。</p>
+</td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_ImageCaption" style="font-size: 11pt;">访问方式：</span></p>
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 21px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>在MGTools主工具条的约束工具图标上右键 / Maya间复制约束..。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 21px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>在约束工具条上点Maya间复制约束图标。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 21px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>在帧工具箱上点 Maya间复制动画/Pose图标。</p><p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 21px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span>在MGTools主工具条的动画银行图标上右键 / Maya间复制动画/Pose...。</p><p style="text-indent: 21px; line-height: 1.50;">&nbsp;</p>
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span class="f_ImageCaption" style="font-size: 11pt;">工具界面：</span></p>
+<p><span class="f_ImageCaption" style="font-size: 11pt;"> &nbsp; &nbsp; &nbsp; </span><img src="copypasteproui_ch.gif" width="136" height="134" alt="copyPasteProUI_ch" style="border:none" /></p>
+<p>&nbsp;</p>
+<p style="line-height: 2.0;"><span style="color: #3c3c39;"> &nbsp; &nbsp; 上方是跨Maya间复制动画/Pose工具</span><a href="copypasteanimpose.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a><span style="color: #3c3c39;">，下方是跨Maya间复制约束工具。</span></p>
+<p style="line-height: 2.0;"><span style="color: #3c3c39;"> &nbsp; &nbsp; 左下方是直接复制约束按钮，右下方是直接粘贴约束按钮。</span></p>
+<p style="line-height: 2.0;"><span style="color: #3c3c39;"> &nbsp; &nbsp; </span><span style="font-weight: bold; color: #3c3c39;">右键点击左下方的复制约束按钮：</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span style="font-weight: bold; color: #3c3c39;">只复制约束</span><span style="color: #3c3c39;">：复制约束前都需要选择一些被约束体。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="color: #3c3c39;">只复制约束节点，约束节点上的属性的数值也将被复制。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="color: #3c3c39;">这也是直接点击复制约束按钮的行为。 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span style="color: #3c3c39;"> </span><span style="font-weight: bold; color: #3c3c39;">复制约束 &amp; 约束的帧</span><span style="color: #3c3c39;">：复制约束前都需要选择一些被约束体。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="color: #3c3c39;">复制约束节点及约束节点上的属性的数值，同时约束节点上的属性动画也被复制。 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span style="color: #3c3c39;"> </span><span style="font-weight: bold; color: #3c3c39;">复制约束 &amp; 约束的帧 &amp; 被约束体的帧</span><span style="color: #3c3c39;">：复制约束前都需要选择一些被约束体。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="color: #3c3c39;">复制约束节点及约束节点上的属性的数值及动画，同时被约束体的数值跟动画，包含blendParent等属性的动画也会被复制。</span><br />
+<span style="color: #3c3c39;">&nbsp;</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-weight: bold; color: #3c3c39;">右键点击右下方的直接粘贴约束按钮：</span><span style="color: #3c3c39;"> &nbsp; </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span style="font-weight: bold; color: #3c3c39;">粘贴约束:</span><span style="color: #3c3c39;"> 粘贴前要选择要粘贴约束的被约束体。如果该被约束体已有约束，则工具会提问用户看是否覆盖还是跳过。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="color: #3c3c39;">这个是一一对应的关系，即复制时选了几个被约束体，粘贴时最好也要选几个被约束体。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="color: #3c3c39;">而约束被约束体的约束体，必须在场景里已存在。否则将跳过。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span style="font-weight: bold; color: #3c3c39;">高级约束粘贴:</span><span style="color: #3c3c39;"> 粘贴前要在场景里选择要粘贴约束的被约束体。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="color: #3c3c39;">一旦窗口已打开，则可以不用保持这个选择。因为数据已抓取。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="color: #3c3c39;">将弹出对话框，这个对话框，主要让你可以为每个被约束体，指定每个约束权重的约束体名称。</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;"><span style="color: #3c3c39;">如果遇到场景里约束体不存在，可以用这个方式重新指定过。</span></p>
+<p><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption"> </span><span style="font-weight: bold; color: #3c3c39;">高级约束粘贴:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none;border-spacing:0px;padding:0px;line-height: 1.50;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:24px"></td><td style="border:none;padding:0"><img src="advancedpasteconstraintui_ch.gif" width="565" height="306" alt="advancedPasteConstraintUI_ch" style="border:none" /></td></tr></table></div><p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span style="font-weight: bold; color: #3c3c39;">被约束体: </span><span style="color: #3c3c39;">这一栏，显示了目前场景里已选择的变形节点。</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none;border-spacing:0px;padding:0px;line-height: 1.50;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:24px"></td><td style="border:none;padding:0"><span style="color: #3c3c39;">注意，列表显示的个数是约束剪贴板数据里的被约束体个数，及场景所选变形节点个数的较小值。</span></td></tr></table></div><p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span style="font-weight: bold; color: #3c3c39;">约束类型：</span><span style="color: #3c3c39;"> 显示在剪贴板里，相应的被约束体的约束节点的类型。</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span style="font-weight: bold; color: #3c3c39;">约束体替换：</span><span style="color: #3c3c39;"> 这一栏将显示，所选的被约束体，它将被应用的约束类型，所涉及到的约束体名称。</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;你可以通过每一项的测试按钮，来测试这个约束体在场景是否存在。</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;或者选择到要替换成的场景里的约束体，然后点拾取按钮来指定。</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;"> &nbsp; &nbsp;  </span><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span style="font-weight: bold; color: #3c3c39;">粘贴按钮</span><span style="color: #3c3c39;">：粘贴到列表里的约束体。在点此按钮前可以不用在场景补选补约束体，它是抓被约束体这一栏的物件作为约束粘贴的对象。</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="color: #3c3c39;"> &nbsp; &nbsp;  </span><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span style="font-weight: bold; color: #3c3c39;">取消按钮</span><span style="color: #3c3c39;">：关闭窗口，取消粘贴。</span></p>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示： 复制约束时，会自动从选择物件中，筛选出有被约束的变形节点来复制约束。</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none;border-spacing:0px;padding:0px;line-height: 1.50;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:24px"><span style="font-size: 9pt;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span></td><td style="border:none;padding:0"><span style="font-size: 9pt;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 没有约束的物件会被忽略，所以并不是选择多少物件就一定被导几套约束出去。 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></td></tr></table></div><p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> <span style="font-size: 9pt;">提示： 粘贴约束时，可以点击中间的约束剪贴板按钮，来打开约束剪贴板，上面有提供namespace替换等，让你选择到正确的被约束体个数。</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none;border-spacing:0px;padding:0px;line-height: 1.50;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:24px"><span style="font-size: 9pt;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span></td><td style="border:none;padding:0"><span style="font-size: 9pt;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;也可以直接右键点击这个约束剪贴板按钮，里面也有一些功能，帮你选择当时复制时的一些被约束体。</span></td></tr></table></div><p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="font-size: 9pt;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;这个在场景间互导约束时就很有用。约束剪贴板的用法跟Pose/动画剪贴板的用法基本一样。 </span><a href="copypasteanimpose.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a><span style="font-size: 9pt;"> &nbsp; &nbsp;  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome.htm"><img  border="0" src="../Common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="帮助主页" /></a><a href="sceneconstraintmanagernode.htm"><img  border="0" src="../Common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="上一篇" /><a href="vertexconstraint.htm"><img  border="0" src="../Common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="下一篇" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

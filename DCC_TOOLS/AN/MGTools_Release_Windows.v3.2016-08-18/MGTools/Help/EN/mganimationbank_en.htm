@@ -1,0 +1,150 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>MG-AnimationBank</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Animation,Export,Import,Keyframe" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "mganimationbank_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span style="font-weight: bold; color: #191817;">MG-AnimationBank</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="poseanim_config_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="copypasteanimpose_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_Heading1" style="font-size: 10pt;">File/Program shortCut: </span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:51px; padding:0px;"><p style="text-align: center; line-height: 1.50;"><img src="animbank_icon.gif" width="32" height="32" alt="animBank_icon" style="border:none" /></p>
+</td>
+<td style="vertical-align:middle; width:13px; padding:0px;"><p style="line-height: 1.50;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:802px; padding:0px;"><p style="line-height: 1.50;"><span style="color: #3c3c39;">Click the icon on the MGTools UI to load MG-Animation Library .</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">All features of this icon have something to do with &quot;File&quot;. U can embed your own file shortcut into it as well.</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">MG-Animation library file is a marked MA file which can be opened by maya . But other MA wont be able to be imported through import UI as library file does. So u must use export animation feature of MG-Animation library to build up your own library.</span></p>
+<p style="line-height: 1.50;"><span style="color: #3c3c39;">In MGTools 2.5, the tools get some performance improvement and got some bug fixed. </span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50;"><span class="f_MI_TitleStyle" style="color: #404040;">  </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> Tips: In MGTools 2.0 pro, Animation Library file support &quot;.MB&quot; format.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">Sometime when your scene got unknown nodes and is not currently a ma file, exporting a ma will failed. &nbsp;use mb file instead.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">Another issue to be noticed,is that for efficiency sake , MGTools 2.0 animation library tool wont check if the a maya file is a standard MG-animation library file or not ,you should judge that by yourself. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold;">Right mouse button clicking on the icon:</span><br />
+<span style="font-weight: bold;"> &nbsp; &nbsp; &nbsp; </span><img src="mi_mganimlib.gif" width="501" height="460" alt="MI_MGanimLib" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;">BackUp / Restore Animation: </span>Use locator to backup scenes selection's animation so that u have a fallback in future.<a href="backup_restore_animation_en.htm" class="topiclink"><img src="more.gif" width="37" height="11" alt="more" style="border:none" /></a></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;"> Copy / Paste value: </span>Copy object's attributes value between Maya.When copying ,if u have selected some attributes in channelBox, it will only copy (export , exactly ) the selected attributes.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 168px;">If not ,it will copy ( Export ) all the attributes that u can see in channelBox. (Attributes that not being shown will be ignored.) will be copied. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 168px;">When doing pasting value, just make sure the attributes you want to paste in is rightly shown in channeoBox.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 168px;">U can use the copy data whenever u start maya in future. It is stored in an external &nbsp;file in Maya temp directory.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;">Clear Imported AnimData:  </span>After imported animation through MG-Animation Library, the read data wont be clear automatically .( In case u wanna to reuse them)</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">These data are just a hidden group of locators which will not affect your scenes really. but just for scenes size consideration , U can use this command to clear them.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">Notice that when your import new animation through animation library, these existed data will be replace by new read data.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;">Clear BackUped AnimData: </span>Clear the animation data which generated by &quot;Backup animation&quot; function.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;">Import Animation : </span>Load MG-Animation Library to import animation.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;">Browse Animaton Library: </span>Use Windows explorer to open MG-Animation Library .</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> MG Animation Library UI:</span></p>
+<p style="line-height: 1.50;">&nbsp;</p>
+<p style="line-height: 1.50;"><span style="font-weight: bold; color: #191817;"> &nbsp; &nbsp; &nbsp; </span><img src="mganimlib.gif" width="467" height="365" alt="MGAnimLib" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;">Section A: </span>The library browser, which pretty like Microsoft Windows explorer, just for easy to be get along with. Double click the folder icon to get in the folder.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;">double click the ma file to read the library file. There are rename/copy/cut/paste/delete file/folder features in the right clicking popup menu as well. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;">If current directory is not the root of the library, there will be a folder follow by &quot;..&quot; , which can be double clicked to go to the parent directory. As shown below:<br />
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <img src="mganimlib_path.gif" width="328" height="64" alt="MGAnimLib_Path" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;">As shown above, The little buttons in the first row,which are just the same usage as windows explorer . The homePage button is used to return to the root of the library.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 96px;">The path show in the right is current directory that U are in. Right mouse button click on the path:<br />
+<span class="f_ImageCaption" style="font-size: 10pt;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;">Reset Library Path to Default: </span>If U have used Browse button to pick another library root path, use this feature to reset to default path.  </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 264px;">If u haven't set the default path ,it will be &quot;My Documents\maya\version\scripts\MGTools\Animation_Bank&quot;.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption" style="font-size: 10pt;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;">Save Current Path as Default: </span>Use it to save current directory as default library path. What directory have picked as library root path ,use &quot;reset Library Path to Default &quot; feature will</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 264px;">set back the library root path to this path.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;">Section B: </span>The animation library generate and the user.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"> &nbsp; &nbsp; <img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle" style="color: #404040;">Export Animation:</span><br />
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="mganimlib_ex.gif" width="467" height="147" alt="MGAnimLib_ex" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span class="f_ImageCaption" style="font-size: 10pt;"> &nbsp; &nbsp; &nbsp;  </span><span class="f_MI_TitleStyle" style="color: #404040;">Hierarchy : </span>Decide which objects will be exported animation. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"><span class="f_MI_TitleStyle" style="color: #404040;">Selected:</span> only selected controller will be exported animation. Using this option ,u can select controllers from different characters and export them into one library file.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">The Whole Character: The whole character of the select controller will be exported animation. Only one character in one time.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span class="f_ImageCaption" style="font-size: 10pt;"> &nbsp; &nbsp; &nbsp;  </span><span class="f_MI_TitleStyle" style="color: #404040;">Namespace: </span>If your character has no Namespace then please leave it blank . </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">If it has ,please do fill in correctly. Use &quot; GuessFromSel &quot; button to automatically fill in the namespace.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">This is for accuracy of the future character mapping work, but if u wont import the animation to another character ,leave it blank too. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span class="f_ImageCaption" style="font-size: 10pt;"> &nbsp; &nbsp; &nbsp;  </span><span class="f_MI_TitleStyle" style="color: #404040;">Time Range: </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-weight: bold;">All :</span> Will export all the animation data of the objects. NO time limitation.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-weight: bold;">SelectRange:</span> Only export the animation data between the select range of &nbsp;time slider. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 168px;">If no select range in time slider, it will export the animation data in current time range.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-weight: bold;">Start / End:</span> Input a start and end point, the animation data between the range will be exported.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span class="f_ImageCaption" style="font-size: 10pt;"> &nbsp; &nbsp; &nbsp;  </span><span class="f_MI_TitleStyle" style="color: #404040;">Export !! : </span>Actually export the animation. The pop up export browser will be automatically set to current path in section A. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">The section A will be updated after u export the animation.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span style="width:24px">&nbsp;</span><span class="f_ImageCaption" style="font-size: 10pt;"> &nbsp; &nbsp; &nbsp;  </span><span class="f_MI_TitleStyle" style="color: #404040;">End progress: </span>When the tool is calculating , there is a progress bar appear in the bottom area of the UI. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">This is feature is just for stop the progress if the calculation meets an error.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"> &nbsp; &nbsp; <img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle" style="color: #404040;">Import Animation:</span><br />
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="mganimlib_im.gif" width="470" height="343" alt="MGAnimLib_im" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Animation File: </span>The path of the read animation library file .Click &quot; Repick &quot; to pick a new library ma file or double click the ma/mb file in the upper browser area. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">If there is no read data, the whole import animation area will be gray out.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">If your double click a ma/mb file that is generated by a higher version of maya, a warning dialog will pop up. &nbsp; &nbsp; &nbsp; </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Source animation data area: </span>As shown above. It show your the details of &nbsp;the read animation data. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">Such as the time range, the length ,the number of the objects. then list the objects name below. This could be a reference of importing animation.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Clear Imported AnimData: </span>Right Clicking on the source animation data area and this feature is available.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">After imported animation through MG-Animation Library, the read data wont be clear automatically .( In case u wanna to reuse them)</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">These data are just a hidden group of locators which will not affect your scenes really. but just for scenes size consideration , U can use this command to clear them.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 192px;">Notice that when your import new animation through animation library, these existed data will be replace by new read data.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Character: </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span class="f_MI_TitleStyle" style="color: #404040;">Same Rig / NoNamespace:</span> The label says everything. if u are importing the animation to a character which is just as the same rig as what u pick when u export the animation, do use this option.It will not do the namespace replacing job. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span class="f_MI_TitleStyle" style="color: #404040;">Map to another Rig:</span> If u need to export the animation to another rig. use this option. It will be to namespace replacing job, which will map &nbsp;the controller between the source and target character.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Namespace Type: </span>&quot; : &quot; type or &nbsp;&quot;_&quot; type namespace. Depends on your target character. It will be grayed out unless u select &quot; Map to another Rig&quot; option.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Namespace: </span>Fill in the target namespace. U can select one part of the target character and use &quot;GuessFromSel&quot; button to quick fill in.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Test Existence: </span>Base on current character option ,test whether everything in source animation data exists in current scenes. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;">If they match perfectly,it will return a prompt dialog:<br />
+<span style="width:24px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="mganimlib_match.gif" width="374" height="112" alt="MGAnimLib_match" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;"> IF there are some objects not existed in your current scenes, it will pop up a windows shows which objects not exists.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">This feature is just a pretest before u import the animation.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Select Target:  </span>Select the target objects in the scene that will be imported animation to.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Method: </span> The options is just the same as the option u paste animation in maya :</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-weight: bold;">Replace</span>: The new animation will replace the original animation in the range of the new animation.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-weight: bold;">Insert</span>: New animation insert in the paste point. The original animation after the paste point will stay behind the new animation data.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-weight: bold;">Replace all</span>: Will delete the original animation and apply the new animation.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Paste In:  </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-weight: bold;">CurrentFrame</span>: &nbsp;Put the new animation right in the current frame.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span style="font-weight: bold;">InputedData</span>: The new animation will be put in the right place as the source animation does.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Copy: </span>How many times the new animation will be copied. If the animation to import is a cycle ,this option will be handy.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Preserve selection: </span>If u wanna some controllers not be imported animation (such as global controller, mostly ). </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">U select the objects and with this option on then import animation.The selection animation will stay unchanged.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">selection only: </span>If u wanna only some controllers to be imported animation. </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 144px;">U select the objects and with this option on then import animation. Only these objects that match the names will be imported animation.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Import !! button: </span> Do the actual importing action via the options.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">  &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_MI_TitleStyle" style="color: #404040;"> &nbsp; &nbsp; &nbsp;  </span><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> Tips: After importing the animation ,the controllers that have been imported animation will be selected for U . U can edit the animation in the time slider and graphEditor.</p>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="poseanim_config_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="copypasteanimpose_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

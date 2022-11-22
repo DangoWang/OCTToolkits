@@ -1,0 +1,260 @@
+#! D:/Nuke/5.1v5_x32/Nuke5.1.exe -nx
+version 5.1500
+Gizmo {
+ tile_color 0x6d0000ff
+ note_font "Helvetica italics Italic Italic Italic Italic"
+ note_font_color 0xffcd0000
+ addUserKnob {20 slateTab l "Slate Settings"}
+ addUserKnob {1 job l "Job name"}
+ job md_icb
+ addUserKnob {1 artists l Artists}
+ artists DAR
+ addUserKnob {1 description l Description}
+ description "Cracks v01a"
+ addUserKnob {3 frameoffset l "Frame Offset"}
+ addUserKnob {20 overlaysgrp l Overlays n 1}
+ overlaysgrp 0
+ addUserKnob {6 overlaysboolean l Overlays -STARTLINE}
+ overlaysboolean true
+ addUserKnob {18 overlayscolor l Color}
+ overlayscolor 1
+ addUserKnob {7 overlayopacity l Opacity}
+ overlayopacity 1
+ addUserKnob {7 typesize l "Font size" R 10 60}
+ typesize 20
+ addUserKnob {7 typeoffset.x l "Offset X" R 0 100}
+ typeoffset.x 15
+ addUserKnob {7 typeoffset.y l "Offset Y" R 0 100}
+ typeoffset.y 15
+ addUserKnob {20 endGroup_1 l endGroup n -1}
+ addUserKnob {20 masksgrp l Masks n 1}
+ masksgrp 0
+ addUserKnob {6 maskboolean l Mask -STARTLINE}
+ maskboolean true
+ addUserKnob {7 aspect l "Aspect ratio" R 0 3}
+ aspect 1.77
+ addUserKnob {7 maskopacity l "Mask opacity"}
+ maskopacity 0.4
+ addUserKnob {7 linescolor l "Lines color"}
+ linescolor 1
+ addUserKnob {7 linesopacity l "Lines opacity"}
+ linesopacity 0.2
+ addUserKnob {20 endGroup_2 l endGroup n -1}
+}
+ Input {
+  inputs 0
+  name Input
+  xpos -285
+  ypos 100
+ }
+set N14201d80 [stack 0]
+ Dot {
+  name Dot1
+  xpos -142
+  ypos 104
+ }
+set N14202800 [stack 0]
+ Clamp {
+  maximum 0
+  name Clamp1
+  xpos 69
+  ypos 94
+ }
+set N14204258 [stack 0]
+ Text {
+  message "\[subst \[knob parent.job]]"
+  Font 1
+  font "\[getenv WINDIR]/Fonts/arialbd.ttf"
+  size {{"input.height/480 *25" i}}
+  xjustify center
+  translate {{input.width/2 i} {input.height*.72 i}}
+  color 0.8
+  name jobNameZero
+  tile_color 0xffff00
+  xpos 246
+  ypos 100
+ }
+ Text {
+  message "\[clock format \[clock sec] -format %Y.%m.%d]"
+  Font 1
+  font "\[getenv WINDIR]/Fonts/arial.ttf"
+  size {{"input.height/480 *20" i}}
+  xjustify center
+  translate {{input.width/2 i} {"(input.translate.y) - ((input.height/480) *45)" i}}
+  color 0.8
+  name dateZero
+  tile_color 0xffff00
+  xpos 246
+  ypos 129
+ }
+ Text {
+  message "\[subst \[knob parent.description]]"
+  Font 1
+  font "\[getenv WINDIR]/Fonts/arial.ttf"
+  size {{"input.height/480 *18" i}}
+  xjustify center
+  translate {{input.width/2 i} {"(input.translate.y) - ((input.height/480) *100)" i}}
+  color 0.2
+  name descriptionZero
+  tile_color 0xffff00
+  xpos 246
+  ypos 156
+ }
+ Text {
+  message "\[subst \[knob parent.artists]]"
+  Font 1
+  font "\[getenv WINDIR]/Fonts/arialbd.ttf"
+  size {{"input.height/480 *20" i}}
+  xjustify center
+  translate {{input.width/2 i} {"(input.translate.y) - ((input.height/480) *120)" i}}
+  color 0.8
+  name artistsZero
+  tile_color 0xffff00
+  xpos 246
+  ypos 183
+ }
+ Crop {
+  box {0 0 {parent.actual_format.width i} {parent.actual_format.height i}}
+  reformat true
+  crop false
+  name Crop6
+  xpos 246
+  ypos 229
+ }
+push $N14204258
+ Text {
+  message "\[clock format \[clock sec] -format %Y.%m.%d]"
+  Font 1
+  font "\[getenv WINDIR]/Fonts/arialbd.ttf"
+  size {{parent.typesize i}}
+  yjustify bottom
+  translate {{parent.typeoffset.x i} {parent.typeoffset.y i}}
+  color {{parent.overlayscolor i} {parent.overlayscolor i} {parent.overlayscolor i} 1}
+  name currentDate
+  tile_color 0xff0000
+  xpos 69
+  ypos 144
+ }
+ Text {
+  message "\[frame] of \[value root.last_frame] shot"
+  Font 1
+  font "\[getenv WINDIR]/Fonts/arialbd.ttf"
+  size {{parent.typesize}}
+  xjustify right
+  yjustify bottom
+  translate {{parent.width-parent.typeoffset.x} {parent.typeoffset.y}}
+  color {{parent.overlayscolor} {parent.overlayscolor} {parent.overlayscolor} 1}
+  name frameRange
+  tile_color 0xff0000
+  xpos 69
+  ypos 168
+ }
+ Text {
+  message "\[subst \[knob parent.job]]"
+  Font 1
+  font "\[getenv WINDIR]/Fonts/arialbd.ttf"
+  size {{parent.typesize i}}
+  yjustify bottom
+  translate {{parent.typeoffset.x i} {parent.height-parent.typeoffset.y-parent.typesize i}}
+  color {{parent.overlayscolor i} {parent.overlayscolor i} {parent.overlayscolor i} 1}
+  name jobName
+  tile_color 0xff0000
+  xpos 69
+  ypos 192
+ }
+ Text {
+  message "\[subst \[knob parent.artists]]"
+  Font 1
+  font "\[getenv WINDIR]/Fonts/arialbd.ttf"
+  size {{parent.typesize i}}
+  xjustify right
+  yjustify bottom
+  translate {{parent.width-parent.typeoffset.x i} {parent.height-parent.typeoffset.y-parent.typesize i}}
+  color {{parent.overlayscolor i} {parent.overlayscolor i} {parent.overlayscolor i} 1}
+  name artists
+  tile_color 0xff0000
+  xpos 69
+  ypos 216
+ }
+push $N14204258
+ Rectangle {
+  area {{"int ( clamp ( ( ( parent.width - ( ( parent.height / parent.pixel_aspect ) * aspect ) ) / 2 ) , 0 , parent.width ) )" i} {"int ( clamp ( ( ( parent.height - ( ( parent.width * parent.pixel_aspect ) / aspect ) ) / 2 ) , 0 , parent.height ) )-1" i} {"int ( clamp (parent.width -  ( ( parent.width - ( ( parent.height / parent.pixel_aspect ) * aspect ) ) / 2 ) , 0 , parent.width ) )" i} {"int ( clamp (parent.height -  ( ( parent.height - (  ( parent.width * parent.pixel_aspect ) / aspect )  ) / 2 ) , 0 , parent.height ) )+1" i}}
+  color {{parent.linescolor i} {parent.linescolor i} {parent.linescolor i} {parent.linesopacity i}}
+  name Rectangle1
+  xpos -54
+  ypos 125
+ }
+ Rectangle {
+  area {{"int ( clamp ( ( ( parent.width - ( ( parent.height / parent.pixel_aspect ) * aspect ) ) / 2 ) , 0 , parent.width ) )" i} {"int ( clamp ( ( ( parent.height - ( ( parent.width * parent.pixel_aspect ) / aspect ) ) / 2 ) , 0 , parent.height ) )+1" i} {"int ( clamp (parent.width -  ( ( parent.width - ( ( parent.height / parent.pixel_aspect ) * aspect ) ) / 2 ) , 0 , parent.width ) )" i} {"int ( clamp (parent.height -  ( ( parent.height - (  ( parent.width * parent.pixel_aspect ) / aspect )  ) / 2 ) , 0 , parent.height ) )-1" i}}
+  color 0
+  name Rectangle2
+  xpos -54
+  ypos 152
+ }
+ Premult {
+  name Premult1
+  xpos -54
+  ypos 179
+ }
+ Crop {
+  box {0 0 {parent.width i} {parent.height i}}
+  reformat true
+  crop false
+  name Crop1
+  xpos -54
+  ypos 206
+ }
+push $N14201d80
+ Crop {
+  box {{"int ( clamp ( ( ( parent.width - ( ( parent.height / parent.pixel_aspect ) * aspect ) ) / 2 ) , 0 , parent.width ) )" i} {"int ( clamp ( ( ( parent.height - ( ( parent.width * parent.pixel_aspect ) / aspect ) ) / 2 ) , 0 , parent.height ) )" i} {"int ( clamp (parent.width -  ( ( parent.width - ( ( parent.height / parent.pixel_aspect ) * aspect ) ) / 2 ) , 0 , parent.width ) )" i} {"int ( clamp (parent.height -  ( ( parent.height - (  ( parent.width * parent.pixel_aspect ) / aspect )  ) / 2 ) , 0 , parent.height ) )" i}}
+  name Crop5
+  xpos -285
+  ypos 227
+ }
+ Crop {
+  box {0 0 {parent.width i} {parent.height i}}
+  reformat true
+  crop false
+  name Crop2
+  xpos -285
+  ypos 262
+ }
+push $N14202800
+ Dissolve {
+  inputs 2
+  which {{"parent.maskboolean * parent.maskopacity" i}}
+  name Mask
+  tile_color 0xffe60000
+  label Transparency
+  xpos -175
+  ypos 249
+ }
+ Merge2 {
+  inputs 2
+  name Merge2
+  xpos -54
+  ypos 262
+ }
+ Merge {
+  inputs 2
+  mix {{parent.overlayopacity*parent.overlaysboolean i}}
+  name Merge1
+  tile_color 0x4b5ec600
+  xpos 69
+  ypos 262
+  disable {{!parent.overlays i}}
+ }
+ Dissolve {
+  inputs 2
+  which {{"frame == frameoffset"}}
+  name "Slate Frame"
+  tile_color 0xff8c0000
+  xpos 246
+  ypos 256
+ }
+ Output {
+  name Output
+  xpos 246
+  ypos 334
+ }
+end_group

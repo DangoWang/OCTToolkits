@@ -1,0 +1,1128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mg-picker version="1">
+    <namespace></namespace>
+    <author>miguel</author>
+    <email></email>
+    <website></website>
+    <message></message>
+    <date>2015-04-28 13:56:46</date>
+    <item id="panel1">
+        <type>panel</type>
+        <parent></parent>
+        <zValue>0</zValue>
+        <interactive>1</interactive>
+        <position>
+            <x>0</x>
+            <y>0</y>
+        </position>
+        <size>
+            <width>404</width>
+            <height>422</height>
+        </size>
+        <margin>
+            <left>5</left>
+            <right>5</right>
+            <top>3</top>
+            <bottom>3</bottom>
+        </margin>
+        <fillColor>
+            <r>25</r>
+            <g>25</g>
+            <b>25</b>
+            <alaph>255</alaph>
+        </fillColor>
+        <stroke>
+            <width>1</width>
+            <color>
+                <r>0</r>
+                <g>0</g>
+                <b>0</b>
+                <alaph>200</alaph>
+            </color>
+        </stroke>
+        <label>
+            <text>Light Switcher</text>
+            <font>Tahoma</font>
+            <bold>0</bold>
+            <italic>0</italic>
+            <size>11</size>
+            <hAlign>left</hAlign>
+            <vAlign>center</vAlign>
+            <color>
+                <r>200</r>
+                <g>200</g>
+                <b>200</b>
+                <alaph>255</alaph>
+            </color>
+        </label>
+        <bevel>1</bevel>
+        <gradient>1</gradient>
+        <gradientMode>0</gradientMode>
+        <notes></notes>
+        <boolState>0</boolState>
+        <intState>0</intState>
+        <floatState>0</floatState>
+        <stringState></stringState>
+        <panelIndex>0</panelIndex>
+        <frameColor>
+            <r>30</r>
+            <g>30</g>
+            <b>30</b>
+            <alaph>255</alaph>
+        </frameColor>
+        <frameVisible>1</frameVisible>
+        <bgImage>darkGrayBG.png</bgImage>
+        <drawCrossLine>1</drawCrossLine>
+        <bgImageHAlign>left</bgImageHAlign>
+        <bgImageVAlign>top</bgImageVAlign>
+        <bgImageMargin>
+            <left>0</left>
+            <right>0</right>
+            <top>0</top>
+            <bottom>0</bottom>
+        </bgImageMargin>
+        <scaleBGToFit>1</scaleBGToFit>
+        <keepBGImageRatio>1</keepBGImageRatio>
+        <shape>
+            <type>rectangle</type>
+            <roundness>2</roundness>
+        </shape>
+    </item>
+    <item id="text1">
+        <type>text</type>
+        <parent>panel1</parent>
+        <zValue>0.0008</zValue>
+        <interactive>0</interactive>
+        <position>
+            <x>123</x>
+            <y>165</y>
+        </position>
+        <size>
+            <width>157</width>
+            <height>69</height>
+        </size>
+        <margin>
+            <left>3</left>
+            <right>3</right>
+            <top>2</top>
+            <bottom>2</bottom>
+        </margin>
+        <fillColor>
+            <r>25</r>
+            <g>25</g>
+            <b>25</b>
+            <alaph>255</alaph>
+        </fillColor>
+        <stroke>
+            <width>0</width>
+            <color>
+                <r>0</r>
+                <g>0</g>
+                <b>0</b>
+                <alaph>200</alaph>
+            </color>
+        </stroke>
+        <label>
+            <text>After saved, in preview mode,
+LMB click on the bulb
+to turn the light on/off, 
+also use the command property
+to control the real lights' state.</text>
+            <font>Tahoma</font>
+            <bold>0</bold>
+            <italic>0</italic>
+            <size>11</size>
+            <hAlign>center</hAlign>
+            <vAlign>top</vAlign>
+            <color>
+                <r>102</r>
+                <g>102</g>
+                <b>102</b>
+                <alaph>255</alaph>
+            </color>
+        </label>
+        <bevel>0</bevel>
+        <gradient>0</gradient>
+        <gradientMode>0</gradientMode>
+        <notes></notes>
+        <boolState>0</boolState>
+        <intState>0</intState>
+        <floatState>0</floatState>
+        <stringState></stringState>
+        <bgRect>0</bgRect>
+        <shape>
+            <type>rectangle</type>
+            <roundness>2</roundness>
+        </shape>
+    </item>
+    <item id="commandButton6">
+        <type>commandButton</type>
+        <parent>panel1</parent>
+        <zValue>0.0046</zValue>
+        <mirror>commandButton3</mirror>
+        <interactive>1</interactive>
+        <position>
+            <x>242</x>
+            <y>248</y>
+        </position>
+        <size>
+            <width>71</width>
+            <height>50</height>
+        </size>
+        <margin>
+            <left>3</left>
+            <right>3</right>
+            <top>35</top>
+            <bottom>2</bottom>
+        </margin>
+        <fillColor>
+            <r>101</r>
+            <g>101</g>
+            <b>101</b>
+            <alaph>255</alaph>
+        </fillColor>
+        <stroke>
+            <width>1</width>
+            <color>
+                <r>31</r>
+                <g>31</g>
+                <b>31</b>
+                <alaph>255</alaph>
+            </color>
+        </stroke>
+        <label>
+            <text>btmright light</text>
+            <font>Tahoma</font>
+            <bold>0</bold>
+            <italic>0</italic>
+            <size>11</size>
+            <hAlign>center</hAlign>
+            <vAlign>top</vAlign>
+            <color>
+                <r>102</r>
+                <g>102</g>
+                <b>102</b>
+                <alaph>255</alaph>
+            </color>
+        </label>
+        <bevel>1</bevel>
+        <gradient>1</gradient>
+        <gradientMode>0</gradientMode>
+        <notes></notes>
+        <boolState>0</boolState>
+        <intState>0</intState>
+        <floatState>0</floatState>
+        <stringState></stringState>
+        <command type="mel">//get current mouse interactiving picker item name:
+//When you want to change the item itself within its script type property, such as color or position, use this to query its id.
+string $currentPickerItem = `MGP_GetCurrentInteractiveItem`;  
+int $state = 1 - (`MGPickerItem -q -boolState $currentPickerItem`);
+if($state)
+{
+    MGPickerItem -e -image &quot;Bolb_on_btmRight.png&quot; -boolState $state $currentPickerItem;
+}
+else
+{
+    MGPickerItem -e -image &quot;Bolb_off_btmRight.png&quot; -boolState $state $currentPickerItem;
+}
+</command>
+        <shape>
+            <type>image</type>
+            <imageMargin>
+                <left>0</left>
+                <right>0</right>
+                <top>0</top>
+                <bottom>0</bottom>
+            </imageMargin>
+            <image>Bolb_off_btmRight.png</image>
+            <pressedImage>Bolb_on_btmRight.png</pressedImage>
+            <selectedHImage></selectedHImage>
+            <drawBGShape>0</drawBGShape>
+        </shape>
+    </item>
+    <item id="commandButton5">
+        <type>commandButton</type>
+        <parent>panel1</parent>
+        <zValue>0.0046</zValue>
+        <mirror>commandButton7</mirror>
+        <interactive>1</interactive>
+        <position>
+            <x>288</x>
+            <y>178</y>
+        </position>
+        <size>
+            <width>93</width>
+            <height>32</height>
+        </size>
+        <margin>
+            <left>44</left>
+            <right>3</right>
+            <top>2</top>
+            <bottom>35</bottom>
+        </margin>
+        <fillColor>
+            <r>101</r>
+            <g>101</g>
+            <b>101</b>
+            <alaph>255</alaph>
+        </fillColor>
+        <stroke>
+            <width>1</width>
+            <color>
+                <r>31</r>
+                <g>31</g>
+                <b>31</b>
+                <alaph>255</alaph>
+            </color>
+        </stroke>
+        <label>
+            <text>right light</text>
+            <font>Tahoma</font>
+            <bold>0</bold>
+            <italic>0</italic>
+            <size>11</size>
+            <hAlign>left</hAlign>
+            <vAlign>center</vAlign>
+            <color>
+                <r>102</r>
+                <g>102</g>
+                <b>102</b>
+                <alaph>255</alaph>
+            </color>
+        </label>
+        <bevel>1</bevel>
+        <gradient>1</gradient>
+        <gradientMode>0</gradientMode>
+        <notes></notes>
+        <boolState>0</boolState>
+        <intState>0</intState>
+        <floatState>0</floatState>
+        <stringState></stringState>
+        <command type="mel">//get current mouse interactiving picker item name:
+//When you want to change the item itself within its script type property, such as color or position, use this to query its id.
+string $currentPickerItem = `MGP_GetCurrentInteractiveItem`;  
+int $state = 1 - (`MGPickerItem -q -boolState $currentPickerItem`);
+if($state)
+{
+    MGPickerItem -e -image &quot;Bolb_on_right.png&quot; -boolState $state $currentPickerItem;
+}
+else
+{
+    MGPickerItem -e -image &quot;Bolb_off_right.png&quot; -boolState $state $currentPickerItem;
+}
+</command>
+        <shape>
+            <type>image</type>
+            <imageMargin>
+                <left>0</left>
+                <right>0</right>
+                <top>0</top>
+                <bottom>0</bottom>
+            </imageMargin>
+            <image>Bolb_off_right.png</image>
+            <pressedImage>Bolb_on_right.png</pressedImage>
+            <selectedHImage></selectedHImage>
+            <drawBGShape>0</drawBGShape>
+        </shape>
+    </item>
+    <item id="commandButton4">
+        <type>commandButton</type>
+        <parent>panel1</parent>
+        <zValue>0.0046</zValue>
+        <mirror>commandButton2</mirror>
+        <interactive>1</interactive>
+        <position>
+            <x>253</x>
+            <y>89</y>
+        </position>
+        <size>
+            <width>52</width>
+            <height>50</height>
+        </size>
+        <margin>
+            <left>3</left>
+            <right>3</right>
+            <top>2</top>
+            <bottom>35</bottom>
+        </margin>
+        <fillColor>
+            <r>101</r>
+            <g>101</g>
+            <b>101</b>
+            <alaph>255</alaph>
+        </fillColor>
+        <stroke>
+            <width>1</width>
+            <color>
+                <r>31</r>
+                <g>31</g>
+                <b>31</b>
+                <alaph>255</alaph>
+            </color>
+        </stroke>
+        <label>
+            <text>Key Light</text>
+            <font>Tahoma</font>
+            <bold>0</bold>
+            <italic>0</italic>
+            <size>11</size>
+            <hAlign>center</hAlign>
+            <vAlign>bottom</vAlign>
+            <color>
+                <r>224</r>
+                <g>163</g>
+                <b>46</b>
+                <alaph>255</alaph>
+            </color>
+        </label>
+        <bevel>1</bevel>
+        <gradient>1</gradient>
+        <gradientMode>0</gradientMode>
+        <notes></notes>
+        <boolState>1</boolState>
+        <intState>0</intState>
+        <floatState>0</floatState>
+        <stringState></stringState>
+        <command type="mel">//get current mouse interactiving picker item name:
+//When you want to change the item itself within its script type property, such as color or position, use this to query its id.
+string $currentPickerItem = `MGP_GetCurrentInteractiveItem`;  
+int $state = 1 - (`MGPickerItem -q -boolState $currentPickerItem`);
+if($state)
+{
+    MGPickerItem -e -image &quot;Bolb_on_topRight.png&quot; -boolState $state $currentPickerItem;
+}
+else
+{
+    MGPickerItem -e -image &quot;Bolb_off_topRight.png&quot; -boolState $state $currentPickerItem;
+}
+</command>
+        <shape>
+            <type>image</type>
+            <imageMargin>
+                <left>0</left>
+                <right>0</right>
+                <top>0</top>
+                <bottom>0</bottom>
+            </imageMargin>
+            <image>Bolb_on_topRight.png</image>
+            <pressedImage>Bolb_off_topRight.png</pressedImage>
+            <selectedHImage></selectedHImage>
+            <drawBGShape>0</drawBGShape>
+        </shape>
+    </item>
+    <item id="commandButton3">
+        <type>commandButton</type>
+        <parent>panel1</parent>
+        <zValue>0.0046</zValue>
+        <mirror>commandButton6</mirror>
+        <interactive>1</interactive>
+        <position>
+            <x>90</x>
+            <y>248</y>
+        </position>
+        <size>
+            <width>65</width>
+            <height>50</height>
+        </size>
+        <margin>
+            <left>3</left>
+            <right>3</right>
+            <top>35</top>
+            <bottom>2</bottom>
+        </margin>
+        <fillColor>
+            <r>101</r>
+            <g>101</g>
+            <b>101</b>
+            <alaph>255</alaph>
+        </fillColor>
+        <stroke>
+            <width>1</width>
+            <color>
+                <r>31</r>
+                <g>31</g>
+                <b>31</b>
+                <alaph>255</alaph>
+            </color>
+        </stroke>
+        <label>
+            <text>btmleft light</text>
+            <font>Tahoma</font>
+            <bold>0</bold>
+            <italic>0</italic>
+            <size>11</size>
+            <hAlign>center</hAlign>
+            <vAlign>top</vAlign>
+            <color>
+                <r>102</r>
+                <g>102</g>
+                <b>102</b>
+                <alaph>255</alaph>
+            </color>
+        </label>
+        <bevel>1</bevel>
+        <gradient>1</gradient>
+        <gradientMode>0</gradientMode>
+        <notes></notes>
+        <boolState>0</boolState>
+        <intState>0</intState>
+        <floatState>0</floatState>
+        <stringState></stringState>
+        <command type="mel">//get current mouse interactiving picker item name:
+//When you want to change the item itself within its script type property, such as color or position, use this to query its id.
+string $currentPickerItem = `MGP_GetCurrentInteractiveItem`;  
+int $state = 1 - (`MGPickerItem -q -boolState $currentPickerItem`);
+if($state)
+{
+    MGPickerItem -e -image &quot;Bolb_on_btmleft.png&quot; -boolState $state $currentPickerItem;
+}
+else
+{
+    MGPickerItem -e -image &quot;Bolb_off_btmleft.png&quot; -boolState $state $currentPickerItem;
+}
+</command>
+        <shape>
+            <type>image</type>
+            <imageMargin>
+                <left>0</left>
+                <right>0</right>
+                <top>0</top>
+                <bottom>0</bottom>
+            </imageMargin>
+            <image>Bolb_off_btmleft.png</image>
+            <pressedImage>Bolb_on_btmleft.png</pressedImage>
+            <selectedHImage></selectedHImage>
+            <drawBGShape>0</drawBGShape>
+        </shape>
+    </item>
+    <item id="commandButton2">
+        <type>commandButton</type>
+        <parent>panel1</parent>
+        <zValue>0.0046</zValue>
+        <mirror>commandButton4</mirror>
+        <interactive>1</interactive>
+        <position>
+            <x>91</x>
+            <y>89</y>
+        </position>
+        <size>
+            <width>63</width>
+            <height>50</height>
+        </size>
+        <margin>
+            <left>3</left>
+            <right>3</right>
+            <top>2</top>
+            <bottom>35</bottom>
+        </margin>
+        <fillColor>
+            <r>101</r>
+            <g>101</g>
+            <b>101</b>
+            <alaph>255</alaph>
+        </fillColor>
+        <stroke>
+            <width>1</width>
+            <color>
+                <r>31</r>
+                <g>31</g>
+                <b>31</b>
+                <alaph>255</alaph>
+            </color>
+        </stroke>
+        <label>
+            <text>topleft light</text>
+            <font>Tahoma</font>
+            <bold>0</bold>
+            <italic>0</italic>
+            <size>11</size>
+            <hAlign>center</hAlign>
+            <vAlign>bottom</vAlign>
+            <color>
+                <r>102</r>
+                <g>102</g>
+                <b>102</b>
+                <alaph>255</alaph>
+            </color>
+        </label>
+        <bevel>1</bevel>
+        <gradient>1</gradient>
+        <gradientMode>0</gradientMode>
+        <notes></notes>
+        <boolState>0</boolState>
+        <intState>0</intState>
+        <floatState>0</floatState>
+        <stringState></stringState>
+        <command type="mel">//get current mouse interactiving picker item name:
+//When you want to change the item itself within its script type property, such as color or position, use this to query its id.
+string $currentPickerItem = `MGP_GetCurrentInteractiveItem`;  
+int $state = 1 - (`MGPickerItem -q -boolState $currentPickerItem`);
+if($state)
+{
+    MGPickerItem -e -image &quot;Bolb_on_topleft.png&quot; -boolState $state $currentPickerItem;
+}
+else
+{
+    MGPickerItem -e -image &quot;Bolb_off_topleft.png&quot; -boolState $state $currentPickerItem;
+}
+</command>
+        <shape>
+            <type>image</type>
+            <imageMargin>
+                <left>0</left>
+                <right>0</right>
+                <top>0</top>
+                <bottom>0</bottom>
+            </imageMargin>
+            <image>Bolb_off_topleft.png</image>
+            <pressedImage>Bolb_on_topleft.png</pressedImage>
+            <selectedHImage></selectedHImage>
+            <drawBGShape>0</drawBGShape>
+        </shape>
+    </item>
+    <item id="commandButton1">
+        <type>commandButton</type>
+        <parent>panel1</parent>
+        <zValue>0.0046</zValue>
+        <interactive>1</interactive>
+        <position>
+            <x>174</x>
+            <y>47</y>
+        </position>
+        <size>
+            <width>47</width>
+            <height>53</height>
+        </size>
+        <margin>
+            <left>3</left>
+            <right>3</right>
+            <top>2</top>
+            <bottom>38</bottom>
+        </margin>
+        <fillColor>
+            <r>101</r>
+            <g>101</g>
+            <b>101</b>
+            <alaph>255</alaph>
+        </fillColor>
+        <stroke>
+            <width>1</width>
+            <color>
+                <r>31</r>
+                <g>31</g>
+                <b>31</b>
+                <alaph>255</alaph>
+            </color>
+        </stroke>
+        <label>
+            <text>top light</text>
+            <font>Tahoma</font>
+            <bold>0</bold>
+            <italic>0</italic>
+            <size>11</size>
+            <hAlign>center</hAlign>
+            <vAlign>bottom</vAlign>
+            <color>
+                <r>102</r>
+                <g>102</g>
+                <b>102</b>
+                <alaph>255</alaph>
+            </color>
+        </label>
+        <bevel>1</bevel>
+        <gradient>1</gradient>
+        <gradientMode>0</gradientMode>
+        <notes></notes>
+        <boolState>0</boolState>
+        <intState>0</intState>
+        <floatState>0</floatState>
+        <stringState></stringState>
+        <command type="mel">//get current mouse interactiving picker item name:
+//When you want to change the item itself within its script type property, such as color or position, use this to query its id.
+string $currentPickerItem = `MGP_GetCurrentInteractiveItem`;  
+int $state = 1 - (`MGPickerItem -q -boolState $currentPickerItem`);
+if($state)
+{
+    MGPickerItem -e -image &quot;Bolb_on_down.png&quot; -boolState $state $currentPickerItem;
+}
+else
+{
+    MGPickerItem -e -image &quot;Bolb_off_down.png&quot; -boolState $state $currentPickerItem;
+}
+</command>
+        <shape>
+            <type>image</type>
+            <imageMargin>
+                <left>0</left>
+                <right>0</right>
+                <top>0</top>
+                <bottom>0</bottom>
+            </imageMargin>
+            <image>Bolb_off_down.png</image>
+            <pressedImage>Bolb_on_down.png</pressedImage>
+            <selectedHImage></selectedHImage>
+            <drawBGShape>0</drawBGShape>
+        </shape>
+    </item>
+    <item id="commandButton8">
+        <type>commandButton</type>
+        <parent>panel1</parent>
+        <zValue>0.0046</zValue>
+        <interactive>1</interactive>
+        <position>
+            <x>171</x>
+            <y>286</y>
+        </position>
+        <size>
+            <width>51</width>
+            <height>53</height>
+        </size>
+        <margin>
+            <left>3</left>
+            <right>3</right>
+            <top>38</top>
+            <bottom>2</bottom>
+        </margin>
+        <fillColor>
+            <r>101</r>
+            <g>101</g>
+            <b>101</b>
+            <alaph>255</alaph>
+        </fillColor>
+        <stroke>
+            <width>1</width>
+            <color>
+                <r>31</r>
+                <g>31</g>
+                <b>31</b>
+                <alaph>255</alaph>
+            </color>
+        </stroke>
+        <label>
+            <text>Rim Light</text>
+            <font>Tahoma</font>
+            <bold>0</bold>
+            <italic>0</italic>
+            <size>11</size>
+            <hAlign>center</hAlign>
+            <vAlign>top</vAlign>
+            <color>
+                <r>135</r>
+                <g>87</g>
+                <b>160</b>
+                <alaph>255</alaph>
+            </color>
+        </label>
+        <bevel>1</bevel>
+        <gradient>1</gradient>
+        <gradientMode>0</gradientMode>
+        <notes></notes>
+        <boolState>1</boolState>
+        <intState>0</intState>
+        <floatState>0</floatState>
+        <stringState></stringState>
+        <command type="mel">//get current mouse interactiving picker item name:
+//When you want to change the item itself within its script type property, such as color or position, use this to query its id.
+string $currentPickerItem = `MGP_GetCurrentInteractiveItem`;  
+int $state = 1 - (`MGPickerItem -q -boolState $currentPickerItem`);
+if($state)
+{
+    MGPickerItem -e -image &quot;Bolb_on_up.png&quot; -boolState $state $currentPickerItem;
+}
+else
+{
+    MGPickerItem -e -image &quot;Bolb_off_up.png&quot; -boolState $state $currentPickerItem;
+}
+</command>
+        <shape>
+            <type>image</type>
+            <imageMargin>
+                <left>0</left>
+                <right>0</right>
+                <top>0</top>
+                <bottom>0</bottom>
+            </imageMargin>
+            <image>Bolb_on_up.png</image>
+            <pressedImage>Bolb_off_up.png</pressedImage>
+            <selectedHImage></selectedHImage>
+            <drawBGShape>0</drawBGShape>
+        </shape>
+    </item>
+    <item id="commandButton7">
+        <type>commandButton</type>
+        <parent>panel1</parent>
+        <zValue>0.0046</zValue>
+        <mirror>commandButton5</mirror>
+        <interactive>1</interactive>
+        <position>
+            <x>23</x>
+            <y>177</y>
+        </position>
+        <size>
+            <width>86</width>
+            <height>32</height>
+        </size>
+        <margin>
+            <left>3</left>
+            <right>44</right>
+            <top>2</top>
+            <bottom>35</bottom>
+        </margin>
+        <fillColor>
+            <r>101</r>
+            <g>101</g>
+            <b>101</b>
+            <alaph>255</alaph>
+        </fillColor>
+        <stroke>
+            <width>1</width>
+            <color>
+                <r>31</r>
+                <g>31</g>
+                <b>31</b>
+                <alaph>255</alaph>
+            </color>
+        </stroke>
+        <label>
+            <text>Fill Light</text>
+            <font>Tahoma</font>
+            <bold>0</bold>
+            <italic>0</italic>
+            <size>11</size>
+            <hAlign>right</hAlign>
+            <vAlign>center</vAlign>
+            <color>
+                <r>102</r>
+                <g>128</g>
+                <b>179</b>
+                <alaph>255</alaph>
+            </color>
+        </label>
+        <bevel>1</bevel>
+        <gradient>1</gradient>
+        <gradientMode>0</gradientMode>
+        <notes></notes>
+        <boolState>1</boolState>
+        <intState>0</intState>
+        <floatState>0</floatState>
+        <stringState></stringState>
+        <command type="mel">//get current mouse interactiving picker item name:
+//When you want to change the item itself within its script type property, such as color or position, use this to query its id.
+string $currentPickerItem = `MGP_GetCurrentInteractiveItem`;  
+int $state = 1 - (`MGPickerItem -q -boolState $currentPickerItem`);
+if($state)
+{
+    MGPickerItem -e -image &quot;Bolb_on_left.png&quot; -boolState $state $currentPickerItem;
+}
+else
+{
+    MGPickerItem -e -image &quot;Bolb_off_left.png&quot; -boolState $state $currentPickerItem;
+}
+</command>
+        <shape>
+            <type>image</type>
+            <imageMargin>
+                <left>0</left>
+                <right>0</right>
+                <top>0</top>
+                <bottom>0</bottom>
+            </imageMargin>
+            <image>Bolb_on_left.png</image>
+            <pressedImage>Bolb_off_left.png</pressedImage>
+            <selectedHImage></selectedHImage>
+            <drawBGShape>0</drawBGShape>
+        </shape>
+    </item>
+    <item id="attributeButton1">
+        <type>attributeButton</type>
+        <parent>panel1</parent>
+        <zValue>0.0047</zValue>
+        <interactive>0</interactive>
+        <position>
+            <x>323</x>
+            <y>27</y>
+        </position>
+        <size>
+            <width>90</width>
+            <height>19</height>
+        </size>
+        <margin>
+            <left>3</left>
+            <right>3</right>
+            <top>3</top>
+            <bottom>3</bottom>
+        </margin>
+        <fillColor>
+            <r>51</r>
+            <g>51</g>
+            <b>51</b>
+            <alaph>255</alaph>
+        </fillColor>
+        <stroke>
+            <width>0</width>
+            <color>
+                <r>0</r>
+                <g>0</g>
+                <b>0</b>
+                <alaph>200</alaph>
+            </color>
+        </stroke>
+        <label>
+            <text>Synchronizer</text>
+            <font>Tahoma</font>
+            <bold>0</bold>
+            <italic>0</italic>
+            <size>11</size>
+            <hAlign>center</hAlign>
+            <vAlign>center</vAlign>
+            <color>
+                <r>127</r>
+                <g>127</g>
+                <b>127</b>
+                <alaph>255</alaph>
+            </color>
+        </label>
+        <bevel>0</bevel>
+        <gradient>1</gradient>
+        <gradientMode>1</gradientMode>
+        <notes></notes>
+        <boolState>0</boolState>
+        <intState>0</intState>
+        <floatState>0</floatState>
+        <stringState></stringState>
+        <valueColor>
+            <r>200</r>
+            <g>200</g>
+            <b>200</b>
+            <alaph>255</alaph>
+        </valueColor>
+        <attribute>
+            <attrCategory>bool</attrCategory>
+            <node></node>
+            <attrType>bool</attrType>
+            <attrShortName></attrShortName>
+            <attrLongName></attrLongName>
+            <attrNiceName>Attr</attrNiceName>
+            <value>0</value>
+            <min>-100000</min>
+            <max>100000</max>
+            <default>0</default>
+            <enum></enum>
+            <preChangeCommandType>mel</preChangeCommandType>
+            <preChangeCommand></preChangeCommand>
+            <postChangeCommandType>mel</postChangeCommandType>
+            <postChangeCommand></postChangeCommand>
+            <updateCommandType>mel</updateCommandType>
+            <updateCommand>/*To-Do:
+ Get the real light nodes states using
+ maya's mel/python api, and use MG-Picker Studio
+ mel/python api to update the button images &amp; state
+ to sync with real lights states.
+*/</updateCommand>
+        </attribute>
+        <shape>
+            <type>roundedAttriuteButton</type>
+            <roundness>2</roundness>
+        </shape>
+    </item>
+    <item id="text2">
+        <type>text</type>
+        <parent></parent>
+        <zValue>0.0048</zValue>
+        <interactive>0</interactive>
+        <position>
+            <x>410</x>
+            <y>24</y>
+        </position>
+        <size>
+            <width>241</width>
+            <height>82</height>
+        </size>
+        <margin>
+            <left>3</left>
+            <right>3</right>
+            <top>2</top>
+            <bottom>2</bottom>
+        </margin>
+        <fillColor>
+            <r>25</r>
+            <g>25</g>
+            <b>25</b>
+            <alaph>255</alaph>
+        </fillColor>
+        <stroke>
+            <width>0</width>
+            <color>
+                <r>0</r>
+                <g>0</g>
+                <b>0</b>
+                <alaph>200</alaph>
+            </color>
+        </stroke>
+        <label>
+            <text>The synchronizer attr-button is used to sync the 
+value of switcher item to real light node. 
+Use its udpate command property to do the job,
+then each time mouse enter the picker view,
+udpate command is executed and 
+the switcher items could update itself.</text>
+            <font>Tahoma</font>
+            <bold>0</bold>
+            <italic>0</italic>
+            <size>11</size>
+            <hAlign>left</hAlign>
+            <vAlign>top</vAlign>
+            <color>
+                <r>102</r>
+                <g>102</g>
+                <b>102</b>
+                <alaph>255</alaph>
+            </color>
+        </label>
+        <bevel>0</bevel>
+        <gradient>0</gradient>
+        <gradientMode>0</gradientMode>
+        <notes></notes>
+        <boolState>0</boolState>
+        <intState>0</intState>
+        <floatState>0</floatState>
+        <stringState></stringState>
+        <bgRect>0</bgRect>
+        <shape>
+            <type>rectangle</type>
+            <roundness>2</roundness>
+        </shape>
+    </item>
+    <item id="text4">
+        <type>text</type>
+        <parent></parent>
+        <zValue>0.0049</zValue>
+        <interactive>0</interactive>
+        <position>
+            <x>12</x>
+            <y>429</y>
+        </position>
+        <size>
+            <width>377</width>
+            <height>56</height>
+        </size>
+        <margin>
+            <left>3</left>
+            <right>3</right>
+            <top>2</top>
+            <bottom>2</bottom>
+        </margin>
+        <fillColor>
+            <r>25</r>
+            <g>25</g>
+            <b>25</b>
+            <alaph>255</alaph>
+        </fillColor>
+        <stroke>
+            <width>0</width>
+            <color>
+                <r>0</r>
+                <g>0</g>
+                <b>0</b>
+                <alaph>200</alaph>
+            </color>
+        </stroke>
+        <label>
+            <text>* Also you could draw your own light bulb image to indicate different types of
+   light node.
+   By utilizing the script properties and MG-Picker Studio mel/python API, 
+   you could accomplish whatever you want.</text>
+            <font>Tahoma</font>
+            <bold>0</bold>
+            <italic>0</italic>
+            <size>11</size>
+            <hAlign>left</hAlign>
+            <vAlign>top</vAlign>
+            <color>
+                <r>102</r>
+                <g>102</g>
+                <b>102</b>
+                <alaph>255</alaph>
+            </color>
+        </label>
+        <bevel>0</bevel>
+        <gradient>0</gradient>
+        <gradientMode>0</gradientMode>
+        <notes></notes>
+        <boolState>0</boolState>
+        <intState>0</intState>
+        <floatState>0</floatState>
+        <stringState></stringState>
+        <bgRect>0</bgRect>
+        <shape>
+            <type>rectangle</type>
+            <roundness>2</roundness>
+        </shape>
+    </item>
+    <item id="text5">
+        <type>text</type>
+        <parent>panel1</parent>
+        <zValue>0.005</zValue>
+        <interactive>0</interactive>
+        <position>
+            <x>8</x>
+            <y>358</y>
+        </position>
+        <size>
+            <width>392</width>
+            <height>56</height>
+        </size>
+        <margin>
+            <left>3</left>
+            <right>3</right>
+            <top>2</top>
+            <bottom>2</bottom>
+        </margin>
+        <fillColor>
+            <r>25</r>
+            <g>25</g>
+            <b>25</b>
+            <alaph>255</alaph>
+        </fillColor>
+        <stroke>
+            <width>0</width>
+            <color>
+                <r>0</r>
+                <g>0</g>
+                <b>0</b>
+                <alaph>200</alaph>
+            </color>
+        </stroke>
+        <label>
+            <text>!! When creating a picker via this template, you have to save the new picker 
+first then click and testing the picker, otherwise if you click on the item in preview
+ mode, the image will be gone.
+That's because all the images are set in programing way in this picker template.</text>
+            <font>Tahoma</font>
+            <bold>0</bold>
+            <italic>0</italic>
+            <size>11</size>
+            <hAlign>left</hAlign>
+            <vAlign>top</vAlign>
+            <color>
+                <r>194</r>
+                <g>90</g>
+                <b>99</b>
+                <alaph>255</alaph>
+            </color>
+        </label>
+        <bevel>0</bevel>
+        <gradient>0</gradient>
+        <gradientMode>0</gradientMode>
+        <notes></notes>
+        <boolState>0</boolState>
+        <intState>0</intState>
+        <floatState>0</floatState>
+        <stringState></stringState>
+        <bgRect>0</bgRect>
+        <shape>
+            <type>rectangle</type>
+            <roundness>2</roundness>
+        </shape>
+    </item>
+</mg-picker>

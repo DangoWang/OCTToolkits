@@ -1,0 +1,43 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+
+MG_displayEN "tpeSelector.title" "MG-TypeSelector..";
+MG_displayEN "tpeSelector.anno" "Select objects base on some type conditions,such as keyframed/constrained/referenced/etc";
+
+MG_displayEN "tpeSelector.UItitle" "MG-TypeSelector";
+MG_displayEN "tpeSelector.topAnno" "Select all objects that meet the conditions:";
+	
+MG_displayEN "tpeSelector.option.label.keyframed" "Keyframed";
+MG_displayEN "tpeSelector.option.label.nonkeyframed" "Non-Keyframed";
+MG_displayEN "tpeSelector.option.label.Reference" "Reference";
+MG_displayEN "tpeSelector.option.label.nonReference" "Non-Reference";
+MG_displayEN "tpeSelector.option.label.Hidden" "Hidden";
+MG_displayEN "tpeSelector.option.label.NonHidden" "Non-Hidde";
+MG_displayEN "tpeSelector.option.label.Constrainted" "Constrained";
+MG_displayEN "tpeSelector.option.label.NonConstrainted" "Non-Constrained";
+MG_displayEN "tpeSelector.option.label.SelectedRig" "SelectedRig";
+MG_displayEN "tpeSelector.option.label.NonSelectedRig" "Non-SelectedRig";
+MG_displayEN "tpeSelector.option.label.SelectedObjs" "SelectedObjs";
+MG_displayEN "tpeSelector.option.label.NonSelectedObjs" "Non-SelectedObjs";
+
+MG_displayEN "tpeSelector.option.label.TypeFilter" "Type Filter :";
+MG_displayEN "tpeSelector.option.label.All" "All";
+MG_displayEN "tpeSelector.option.label.None" "None";
+MG_displayEN "tpeSelector.option.label.Invert" "Invert";
+MG_displayEN "tpeSelector.option.label.Custom" "Custom:";
+MG_displayEN "tpeSelector.option.label.Custom.get" "<-GET";
+MG_displayEN "tpeSelector.option.label.Custom.get.ann" "Get the node type string of current selected objects into the textfield left as a custom type.";
+
+MG_displayEN "tpeSelector.option.label.Select" "Select";
+MG_displayEN "tpeSelector.option.label.close" "Close";
+
+MG_displayEN "tpeSelector.ivalidType.war" "Igone the type:# ,It is a invalid maya node type!";
+MG_displayEN "tpeSelector.noneEqualToAll.war" "No Condition checked on,so select all for U :)";
+MG_displayEN "tpeSelector.done.rep" " # objects that meet this condition selected for U :)";

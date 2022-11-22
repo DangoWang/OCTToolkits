@@ -1,0 +1,35 @@
+proc string getMaterialInfo( string $shaderNode )
+{
+    string $connections[] = `listConnections ($shaderNode+".message")`;
+
+    for ($item in $connections)
+        if (`objectType $item` == "materialInfo")
+            return $item;
+
+    return "";
+}
+
+proc disconnectMaterialInfo( string $shaderNode, 
+	string $newShaderNode )
+{
+	$materialInfoNode = getMaterialInfo($shaderNode);
+	if ($materialInfoNode == "")
+	{
+		// The materialInfoNode doesn't exist... fail silently.
+		return;
+	}
+
+	disconnectAttr ($shaderNode+".message") ($materialInfoNode+".material");
+}
+
+global proc replaceAllShaderToLambert()
+{
+    string $sels[] = `ls -mat`;
+    string $shaderNode;
+    for($shaderNode in $sels)
+    {
+        string $replaceNode = `createNode lambert`;
+        disconnectMaterialInfo($shaderNode, $replaceNode);
+        replaceNode $shaderNode $replaceNode;
+    }
+}

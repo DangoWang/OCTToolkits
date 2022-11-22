@@ -1,0 +1,321 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "MGtools.mi.help" "帮助..";
+MG_displaySC "MGtools.mi.help.anno" "点击查看该工具的帮助.";
+MG_displaySC "MGtools.mi.MGtoolshelp.anno" "点击查看MGTools的帮助.";
+MG_displaySC "MGtools.menu.help" "帮助";
+MG_displaySC "MGtools.update.help" "查看在线更新帮助..";
+MG_displaySC "MGtools.update.help.anno" "查看关于在线更新功能的帮助.";
+
+MG_displaySC "MGtools.MGtools.min.anno" "点击最小化MGTools.";
+MG_displaySC "MGtools.MGtools.mi.config" "MGTools配置..";
+MG_displaySC "MGtools.MGtools.mi.config.anno" "配置MGTools.";
+MG_displaySC "MGtools.MGtools.mi.shelf" "MGTools工具安装器..";
+MG_displaySC "MGtools.MGtools.mi.shelf.anno" "安装/更新/移除MGTools工具到工具架..";
+MG_displaySC "MGtools.MGtools.mi.about" "关于MGTools..";
+MG_displaySC "MGtools.MGtools.mi.about.anno" "点击查看MGTools版本历史.";
+
+MG_displaySC "MGtools.MGshelf" "MG工具架 v2..";
+MG_displaySC "MGtools.MGshelf.anno" "点击加载MG工具架2.0，浮动的易于管理的Maya Shelf工具架。";
+MG_displaySC "MGtools.MGshelf.mi.config" "MGShelf管理器..";
+MG_displaySC "MGtools.MGshelf.mi.config.anno" "点击使用MGShelf管理器来管理内置shelf.";
+
+MG_displaySC "MGtools.Folder.anno" "单击打开当前工程目录，双击打开当前工程目录及其下的image目录.";
+MG_displaySC "MGtools.Folder.mi.currentScene" "打开当前场景文件夹..";
+MG_displaySC "MGtools.Folder.mi.failsave" "打开Maya崩溃暂存文件夹..";
+MG_displaySC "MGtools.Folder.mi.script" "打开Maya脚本文件夹..";
+MG_displaySC "MGtools.Folder.mi.plugin" "打开Maya插件文件夹..";
+MG_displaySC "MGtools.Folder.mi.pref" "打开Maya配置文件夹..";
+MG_displaySC "MGtools.Folder.mi.icon" "打开Maya图标文件夹..";
+MG_displaySC "MGtools.Folder.mi.shelf" "打开Maya工具架文件夹..";
+MG_displaySC "MGtools.Folder.mi.program" "打开Maya安装文件夹..";
+
+
+MG_displaySC "MGtools.Folder.mi.mgtools" "打开MGTools本地文件夹..";
+MG_displaySC "MGtools.Folder.mi.mgtools.server" "打开MGTools服务器文件夹..";
+MG_displaySC "MGtools.Folder.mi.add" "添加自定义文件夹..";
+MG_displaySC "MGtools.Folder.mi.edit" "编辑自定义文件夹..";
+
+MG_displaySC "MGtools.File.mi.calc" "windows计算器..";
+MG_displaySC "MGtools.File.mi.calc.anno" "点击打开windows计算器..";
+MG_displaySC "MGtools.File.mi.add" "添加自定义文件..";
+MG_displaySC "MGtools.File.mi.edit" "编辑自定义文件..";
+MG_displaySC "MGtools.File.mi.removeDefault" "移除默认行为";
+MG_displaySC "MGtools.File.mi.removeDefault.anno" "重置该工具图标默认行为添加自定义文件";
+MG_displaySC "MGtools.File.mi.noDefault.anno" "你还未定制该工具图标默认点击行为，点击我来添加默认打开的自定义文件";
+
+MG_displaySC "MGtools.channelBox" "MG通道栏..";
+MG_displaySC "MGtools.channelBox.anno" "单击打开可自由移动的MG通道栏.";
+MG_displaySC "MGtools.channelBox.mi.hideshowLayer" "隐藏/显示所有显示层";
+MG_displaySC "MGtools.channelBox.mi.resetC" "重置所选属性";
+MG_displaySC "MGtools.channelBox.mi.resetC.anno" "重置在当前通道栏所选属性至各自的默认值";
+MG_displaySC "MGtools.channelBox.mi.putInNewLayer" "藏入新层";
+MG_displaySC "MGtools.channelBox.mi.LE" "层编辑器..";
+MG_displaySC "MGtools.channelBox.mi.setProject" "设置工程目录";
+MG_displaySC "MGtools.channelBox.mi.newProject" "新建工程";
+MG_displaySC "MGtools.channelBox.mi.toggleGEPlug" "曲线编辑器插件开关";
+MG_displaySC "MGtools.channelBox.mi.toggleGEPlug.anno" "点击生成/删除曲线编辑器的通道过滤插件.";
+MG_displaySC "MGtools.channelBox.mi.option" "MG通道栏选项..";
+
+MG_displaySC "MGtools.selection" "选择集工具 v2..";
+MG_displaySC "MGtools.selection.anno" "用.sel文件来在maya间共享选择集";
+MG_displaySC "MGtools.selection.mi.sManager" "选择管理器..";
+MG_displaySC "MGtools.selection.mi.newSelSet" "新建选择集..";
+MG_displaySC "MGtools.selection.mi.newSelSet.anno" "把当前场景选择存成一个选择集..";
+MG_displaySC "MGtools.selection.mi.retarget" "转移选择..";
+MG_displaySC "MGtools.selection.mi.retarget.anno" "将当前选择从一个角色转移到另一个角色.";
+MG_displaySC "MGtools.selection.mi.backUP" "备份选择..";
+MG_displaySC "MGtools.selection.mi.backUP.anno" "备份当前选择信息并随场景保存.";
+MG_displaySC "MGtools.selection.mi.Restore" "恢复选择..";
+MG_displaySC "MGtools.selection.mi.Restore.anno" "从之前的备份中还原当初选择.";
+MG_displaySC "MGtools.selection.mi.assign" "指定选择集MarkingMenu快捷键..";
+MG_displaySC "MGtools.selection.mi.assign.anno" "当你在用选择集功能时，它会在后台生成/实时更新一个markingMenu,只要给它指定一个快捷键就可以在视图窗口里使用它.";
+
+MG_displaySC "MGtools.constraint" "约束工具..";
+MG_displaySC "MGtools.constraint.anno" "点击打开约束工具条";
+MG_displaySC "MGtools.constraint.mi.pconParent" "父子约束父层级";
+MG_displaySC "MGtools.constraint.mi.pconParent.anno" "用第一选择物体来父子约束第二选择物体的父层级";
+MG_displaySC "MGtools.constraint.mi.findJoint" "查找骨骼";
+MG_displaySC "MGtools.constraint.mi.findJoint.anno" "先选软绑过的模型顶点，然后点它来选择相应的软绑骨骼";
+MG_displaySC "MGtools.constraint.mi.conLister" "约束管理器..";
+MG_displaySC "MGtools.constraint.mi.pcons" "父子约束";
+MG_displaySC "MGtools.constraint.mi.anim" "动画约束";
+MG_displaySC "MGtools.constraint.mi.anim.anno" "动画约束：在父子约束所选的两个物体之外,将生成一个locator层级夹在中间,可使被约束体在被约束的同时依然有调整的余地.";
+MG_displaySC "MGtools.constraint.mi.point" "点约束";
+MG_displaySC "MGtools.constraint.mi.orient" "旋转约束";
+MG_displaySC "MGtools.constraint.mi.aim" "目标约束";
+MG_displaySC "MGtools.constraint.mi.clear" "清除约束";
+MG_displaySC "MGtools.constraint.mi.consAxis" "修改约束轴向..";
+MG_displaySC "MGtools.constraint.mi.weightName" "修正约束权重属性名";
+MG_displaySC "MGtools.constraint.mi.export" "导出约束偏移..";
+MG_displaySC "MGtools.constraint.mi.export.anno" "选择被约束物体然后用它导出约束偏移数值，以便跨maya使用.";
+MG_displaySC "MGtools.constraint.mi.import" "导入约束偏移..";
+MG_displaySC "MGtools.constraint.mi.import.anno" "选择被约束物体然后重新利用之前导出的约束偏移信息.";
+MG_displaySC "MGtools.constraint.mi.clearOffset" "清除约束偏移文件";
+MG_displaySC "MGtools.constraint.mi.clearOffset.anno" "清除maya暂存文件夹里所有之前导出的约束偏移文件";
+
+MG_displaySC "MGtools.viewSwitch.mi" "视图配置切换";
+MG_displaySC "MGtools.viewSwitch.anno" "点击切换视图配置";
+MG_displaySC "MGtools.viewSwitch.mi.editV" "编辑视图切换配置..";
+MG_displaySC "MGtools.viewSwitch.mi.disTool" "显示层集工具..";
+MG_displaySC "MGtools.viewSwitch.mi.newdisSet" "新建显示层集..";
+MG_displaySC "MGtools.viewSwitch.mi.evalAllDis" "测试所有显示层集";
+MG_displaySC "MGtools.viewSwitch.mi.evalAllDis.anno" "测试所有显示层集,如果其成员有在场景中存在则创建相应显示层并加入成员.";
+
+MG_displaySC "MGtools.snap" "向前定脚吸附";
+MG_displaySC "MGtools.snap.anno" "点击进行向前定脚吸附，之后你可以按\"G\"键继续向前吸附";
+MG_displaySC "MGtools.snap.mi.pointSnapF" "向前点吸附";
+MG_displaySC "MGtools.snap.mi.Marker" "标记器";
+MG_displaySC "MGtools.snap.mi.Marker.anno" "点击创建当前所选物体的位置和时间的标记器(locator),如果你在时间滑条上有时间段选择，则标记所有关键帧的位置和时间.";
+MG_displaySC "MGtools.snap.mi.poSnapB" "向后定脚吸附";
+MG_displaySC "MGtools.snap.mi.rSnapF" "向前相对吸附";
+MG_displaySC "MGtools.snap.mi.rSnapB" "向后相对吸附";
+MG_displaySC "MGtools.snap.mi.pointSnapB" "向后点吸附";
+MG_displaySC "MGtools.snap.mi.orientSnapF" "向前旋转吸附";
+MG_displaySC "MGtools.snap.mi.orientSnapB" "向后旋转吸附";
+MG_displaySC "MGtools.snap.mi.POsnap" "定位吸附";
+MG_displaySC "MGtools.snap.mi.POsnap.anno" "吸附第二选择的物体到第一选择物体的位置和旋转";
+MG_displaySC "MGtools.snap.mi.PointSnap" "点吸附";
+MG_displaySC "MGtools.snap.mi.OrientSnap" "旋转吸附";
+MG_displaySC "MGtools.snap.mi.rpointSnapF" "向前相对点吸附";
+MG_displaySC "MGtools.snap.mi.rpointSnapB" "向后相对点吸附";
+MG_displaySC "MGtools.snap.mi.clearSLoc" "清除吸附标记器";
+MG_displaySC "MGtools.snap.mi.markerM" "标记器管理器..";
+MG_displaySC "MGtools.snap.mi.backUPAnim" "备份动画";
+MG_displaySC "MGtools.snap.mi.backUPAnim.anno" "备份所选对象的动画，并随场景保存.";
+MG_displaySC "MGtools.snap.mi.RestoreAnim" "还原动画";
+MG_displaySC "MGtools.snap.mi.RestoreAnim.anno" "选择备份过动画的对象点它来从备份中还原动画";
+
+MG_displaySC "MGtools.pivot" "可动画轴心工具..";
+MG_displaySC "MGtools.pivot.anno" "点击打开轴心工具,使单个对象有无数个可动画的轴心.";
+MG_displaySC "MGtools.pivot.mi.create" "创建轴心装置";
+MG_displaySC "MGtools.pivot.mi.delete" "删除轴心装置";
+MG_displaySC "MGtools.pivot.mi.bind" "绑定轴心装置";
+MG_displaySC "MGtools.pivot.mi.bind.anno" "选择新目标,加选轴心装置，点它来重新建立绑定关系.";
+MG_displaySC "MGtools.pivot.mi.pstuffLister" "轴心装置管理器..";
+MG_displaySC "MGtools.pivot.mi.snapMov" "吸附轴心到Pivot_mov";
+MG_displaySC "MGtools.pivot.mi.snapMov.anno" "吸附Roll控制器的轴心到Pivot_mov的位置.将在前一帧key帧，并在这一帧转移轴心到新位置.";
+MG_displaySC "MGtools.pivot.mi.snapSel" "吸附轴心到选择";
+MG_displaySC "MGtools.pivot.mi.snapSel.anno" "吸附轴心到第一选择的物体轴心位置";
+MG_displaySC "MGtools.pivot.mi.BacksnapSel" "向后吸附轴心到选择";
+MG_displaySC "MGtools.pivot.mi.BacksnapSel.anno" "向后吸附轴心到第一选择的物体轴心位置";
+
+MG_displaySC "MGtools.pivot.mi.snapB" "向后吸附到Pivot_mov";
+MG_displaySC "MGtools.pivot.mi.snapB.anno" "吸附Roll控制器的轴心到Pivot_mov的位置.将在当前帧key帧，并在上一帧转移轴心到新位置.";
+MG_displaySC "MGtools.pivot.mi.selectAll" "选择该套轴心装置";
+MG_displaySC "MGtools.pivot.mi.selectAll.anno" "选择该套轴心装置的全部三个控制器";
+MG_displaySC "MGtools.pivot.mi.SelectPivotRoll" "选择Pivot&Roll";
+MG_displaySC "MGtools.pivot.mi.SelectPivotMov" "选择Pivot_mov";
+
+MG_displaySC "MGtools.animLib" "MG-Pose动作库..";
+MG_displaySC "MGtools.animLib.anno" "点击打开MG-Pose动作库";
+MG_displaySC "MGtools.animBank" "MG-动画银行..";
+MG_displaySC "MGtools.animBank.anno" "点击打开MG-动画银行来导入导出动画。";
+MG_displaySC "MGtools.animLib.mi.clearImport" "清除已读入的动画数据";
+MG_displaySC "MGtools.animLib.mi.clearImport.anno" "清除在导动画时已读入的动画数据,(留着也没关系).";
+MG_displaySC "MGtools.animLib.mi.import" "导入动画..";
+MG_displaySC "MGtools.animLib.mi.copyV" "拷贝数值";
+MG_displaySC "MGtools.animLib.mi.copyV.anno" "跨maya拷贝在当前通道栏所选的属性数值,如果没有选择属性，则全部在通栏栏显示的属性值将被拷贝.";
+MG_displaySC "MGtools.animLib.mi.pasteV" "粘贴数值";
+MG_displaySC "MGtools.animLib.mi.clearBackuped" "清除备份的动画数据";
+MG_displaySC "MGtools.animLib.mi.clearBackuped.anno" "清除之前备份的动画数据.";
+MG_displaySC "MGtools.animLib.mi.browseLib" "浏览动画银行..";
+MG_displaySC "MGtools.animLib.mi.browseLib.anno" "用windows资源管理器来浏览动作库.";
+MG_displaySC "MGtools.animLib.mi.markAnim" "标记动画";
+
+MG_displaySC "MGtools.miniToolBox" "MG迷你工具箱..";
+MG_displaySC "MGtools.miniToolBox.anno" "点击打开迷你工具箱";
+MG_displaySC "MGtools.miniToolBox.mi.timer" "MG记时计算器 2.0..";
+MG_displaySC "MGtools.miniToolBox.mi.timer.anno" "点击打开MG记时器，你可以用它以任何单位来记录/转换计算时间";
+MG_displaySC "MGtools.miniToolBox.mi.MBMA" "MB-MA强制转存..";
+MG_displaySC "MGtools.miniToolBox.mi.MBMA.anno" "有时用maya的另存会提醒有未知节点而失败，用它来强制另存MA,MB";
+MG_displaySC "MGtools.miniToolBox.mi.exRef" "导出Reference信息";
+MG_displaySC "MGtools.miniToolBox.mi.exRef.anno" "导出Reference的namespace,路径信息到一个位部文件";
+MG_displaySC "MGtools.miniToolBox.mi.imRef" "重用Reference信息";
+MG_displaySC "MGtools.miniToolBox.mi.imRef.anno" "重用之前导出的Reference信息，重新以同样的namespace来reference同一个物体.";
+MG_displaySC "MGtools.miniToolBox.mi.remRef" "清除该Reference";
+MG_displaySC "MGtools.miniToolBox.mi.remRef.anno" "清除该Reference,同时将尽量删除该reference所占用的namespace";
+MG_displaySC "MGtools.miniToolBox.mi.repNS" "修改NameSpace..";
+MG_displaySC "MGtools.miniToolBox.mi.HUD" "打开MG屏幕信息显示";
+MG_displaySC "MGtools.miniToolBox.mi.HUD.anno" "打开MG屏幕信息显示,在其选项里你可以设置显示帧数,摄像机名,作者,场景名等.";
+MG_displaySC "MGtools.miniToolBox.mi.configHUD" "配置MG屏幕信息..";
+MG_displaySC "MGtools.miniToolBox.mi.clearHUD" "清除MG屏幕信息显示";
+MG_displaySC "MGtools.miniToolBox.mi.annoFC" "帧数计数器注释..";
+MG_displaySC "MGtools.miniToolBox.mi.annoFC.anno" "点击产生帧数计数的注释物体.你可像操作对象那样任意位移它.";
+MG_displaySC "MGtools.miniToolBox.mi.stickObj" "固定所选于视图";
+MG_displaySC "MGtools.miniToolBox.mi.stickObj.anno" "把所选物体于当前视图，有时调表情时可以把浮动的表情面板固定在当前视图以便调动画.";
+MG_displaySC "MGtools.miniToolBox.mi.stickObjConfig" "固定选项..";
+MG_displaySC "MGtools.miniToolBox.mi.stickView" "创建固定视图";
+MG_displaySC "MGtools.miniToolBox.mi.stickView.anno" "先选择一个物体,点击它来创建因定于这个物体的视图,便于查穿帮等等";
+MG_displaySC "MGtools.miniToolBox.mi.drawKey" "描绘动画路径 (简单)..";
+MG_displaySC "MGtools.miniToolBox.mi.drawKey.anno" "根据所选物体的动画来描绘其动画路径曲线.";
+MG_displaySC "MGtools.miniToolBox.mi.MPSticker" "路径动画计算器..";
+MG_displaySC "MGtools.miniToolBox.mi.MPSticker.anno" "路径动画计算器，用它来计算尽量不滑步的路径动画.";
+
+MG_displaySC "MGtools.createNewHideLayer.war" "场景没有物体被选择哦.";
+
+//----------------------MGTools3-------------------
+
+MG_displaySC "MGtools.update.menu" "更新";
+MG_displaySC "MGtools.update.offline.mi" "离线更新MGTools..";
+MG_displaySC "MGtools.update.offline.ann" "使用\"MGTools_LocalData/MG_UpdatePackages/UpdatePackages\"文件夹里的离线更新包(*.mgu)来离线更新MGTools.";
+MG_displaySC "MGtools.update.server.mi" "从服务器端更新MGTools..";
+MG_displaySC "MGtools.update.server.ann" "如果你的MGTools以服务器端模式安装，你可以从服务器的MGTools获取更新的文件.";
+MG_displaySC "MGtools.relocateServer.mi" "重新定位MGTools程序...";
+MG_displaySC "MGtools.relocateServer.ann" "将MGTools安装模式改为服务器端模式，如果已经是，你可以用这个工具来修改服务器MGTools的地址.";
+
+MG_displaySC "MGtools.register.menu" "注册";
+MG_displaySC "MGtools.register.mg.mi" "注册MGTools..";
+MG_displaySC "MGtools.register.submitUC.mi" "向服务器端提交用户码..";
+MG_displaySC "MGtools.register.submitUC.ann" "向你的MGTools服务器的 \"MGTools_LicenseData\" 目录提交你的机子用户码，这样你的软件管理员可以用这些信息来批量注册MGTools.";
+
+MG_displaySC "MGtools.register.batch.mi" "批量注册MGTools..";
+MG_displaySC "MGtools.register.batch.ann" "批量注册多台机子的MGTools. 这个只能由你的软件管理员来执行。";
+MG_displaySC "MGtools.register.de.mi" "清除MGTools注册信息..";
+MG_displaySC "MGtools.register.de.ann" "清除你本机的MGTools注册信息.(服务器端的注册信息不会清除)";
+
+MG_displaySC "MGtools.install.menu" "安装/卸载";
+MG_displaySC "MGtools.install.uninstall.mi" "MGTools工具卸载器..";
+
+MG_displaySC "MGtools.help.menu" "帮助";
+MG_displaySC "MGtools.help.offline.mi" "查看离线更新帮助..";
+MG_displaySC "MGtools.help.server.mi" "查看服务器更新帮助..";
+
+
+MG_displaySC "MGtools.uninstall.finished.msg" "MGTools卸载完成.";
+MG_displaySC "MGtools.uninstall.btn" "卸载";
+MG_displaySC "MGtools.uninstall.cancel.btn" "取消";
+MG_displaySC "MGtools.uninstall.goAhead.btn" "继续";
+MG_displaySC "MGtools.uninstall.keepUserConfig.btn" "保留用户配置";
+MG_displaySC "MGtools.uninstall.all.btn" "卸载全部";
+MG_displaySC "MGtools.uninstall.title" "MGTools专业版卸载向导";
+
+MG_displaySC "MGtools.uninstall.poseAnimAssetLib.msg" "您真的要清除MG-Pose动作库及资产库吗? \n有可能这样你本机的其它版本的Maya也会用到这些库.";
+MG_displaySC "MGtools.uninstall.poseAnim.msg" "您真的要清除MG-Pose动作库吗? \n有可能这样你本机的其它版本的Maya也会用到这些库.";
+MG_displaySC "MGtools.uninstall.assetLib.msg" "您真的要清除MG-资产库吗? \n有可能这样你本机的其它版本的Maya也会用到这些库.";
+
+MG_displaySC "MGtools.uninstall.confirm.msg" "您真的要卸载MGTools专业版吗? ";
+MG_displaySC "MGtools.uninstall.dereg.done.rep" "您的MGTools注册信息已清除.";
+MG_displaySC "MGtools.uninstall.unloadAllPlugins.done.rep" "卸载全部MGTools插件.";
+MG_displaySC "MGtools.uninstall.clearShelf.done.rep" "清理MGTools工具架.";
+MG_displaySC "MGtools.uninstall.clearHotkey.done.rep" "清理MGTools快捷键相关数据.";
+MG_displaySC "MGtools.uninstall.clearAutoload.done.rep" "清理MGTools自动加载的代码.";
+MG_displaySC "MGtools.uninstall.removePoseAnimLib.done.rep" "移除MG-Pose动作库.";
+MG_displaySC "MGtools.uninstall.clearConfigs.done.rep" "清理全部MGTools程序文件及用户配置.";
+MG_displaySC "MGtools.uninstall.remOtherFiles.done.rep" "移除其它文件: ";
+MG_displaySC "MGtools.uninstall.remAnimBank.done.rep" "移除MG-动画银行数据.";
+MG_displaySC "MGtools.uninstall.remSelset.done.rep" "移除MG-选择集.";
+MG_displaySC "MGtools.uninstall.remShelf.done.rep" "移除MG工具架.";
+MG_displaySC "MGtools.uninstall.remAssetLib.done.rep" "移除MG-资产库.";
+MG_displaySC "MGtools.uninstall.remOldConfigs.done.rep" "移除MGTools用户配置.";
+MG_displaySC "MGtools.uninstall.remOtherFolders.done.rep" "移除在MGTools根目录下的其它目录: ";
+MG_displaySC "MGtools.uninstall.remMenu.done.rep" "移除MGTools菜单栏菜单.";
+
+MG_displaySC "MGtools.uninstall.remOtherFolders.server.war" "* 当前MGTools是以服务器模式安装.\n   在服务器端的MGTools程序文件等不会被卸载, 你可以直接手动删除它们.\n";
+MG_displaySC "MGtools.uninstall.clearProgram.lbl" "清除MGTools程序文件";
+MG_displaySC "MGtools.uninstall.dereg.lbl" "清除MGTools注册信息";
+MG_displaySC "MGtools.uninstall.clearAll.lbl" "清除所有用户数据";
+MG_displaySC "MGtools.uninstall.clearPoseAnim.lbl" "清除本地MG-Pose动画库";
+MG_displaySC "MGtools.uninstall.clearAnimbank.lbl" "清除MG-动画银行";
+MG_displaySC "MGtools.uninstall.clearSelset.lbl" "清除MG选择集";
+MG_displaySC "MGtools.uninstall.clearMGShelf.lbl" "清除MG工具架";
+MG_displaySC "MGtools.uninstall.clearAssetLib.lbl" "清除MG-资产库"; 
+MG_displaySC "MGtools.uninstall.clearOther.lbl" "清除其它全部数据"; 
+
+
+MG_displaySC "MGtools.config.help" "查看MG-配置帮助..";
+
+MG_displaySC "MGtools.relocateMG.help" "查看重定向MGTools帮助..";
+MG_displaySC "MGtools.register.help" "查看MGTools注册帮助..";
+MG_displaySC "MGtools.distribution.help" "查看MGTools分发帮助..";
+MG_displaySC "MGtools.floatingLicence.help" "查看MGTools浮动授权帮助..";
+
+MG_displaySC "MGtools.selSharing.help" "查看选择集共享帮助..";
+
+MG_displaySC "MGtools.poseAnimSharing.help" "查看Pose动作库共享帮助..";
+MG_displaySC "MGtools.assetSharing.help" "查看资产库共享帮助..";
+
+MG_displaySC "MGtools.MGSaver.help" "MG保存器帮助..";
+
+
+
+//add mg-picker studio language resource @ 2015/05/13
+MG_displaySC "MGtools.appName" "MGTools专业版";
+
+
+MG_displaySC "MGtools.picker.designer.lbl" "MG-Picker工作室..(设计师模式)";
+MG_displaySC "MGtools.picker.designer.ann" "点击以设计师模式启动MG-Picker工作室.";
+MG_displaySC "MGtools.picker.animator.ann" "点击以动画师模式启动MG-Picker工作室.";
+
+MG_displaySC "MGtools.picker.notInstalled.msg" "MG-Picker工作室是一个强大直观的maya picker工具及picker设计器，并且对动画师完全免费。\n\n它并没有在当前maya版本安装，您需要访问网站并免费下载该程序吗？";
+MG_displaySC "MGtools.picker.notProperlyInstalled.msg" "MG-Picker工作室没有被正确安装，您需要访问网站免费下载并重装该程序吗？";
+
+
+
+
+//after float license @20160107
+MG_displaySC "MGtools.nodeLock.menu" "单机授权";
+MG_displaySC "MGtools.floatLic.menu" "浮动授权";
+MG_displaySC "MGtools.floatLic.login.lbl" "登陆..";
+MG_displaySC "MGtools.floatLic.login.ann" "加载MG-授权连接器来登陆浮动授权。";
+MG_displaySC "MGtools.floatLic.logout.lbl" "退出..";
+MG_displaySC "MGtools.floatLic.logout.ann" "退出浮动授权，注意这个会影响所有本机运行maya的MGTools。";
+
+MG_displaySC "MGtools.pick.program.lbl" "请拾取\"#\"";
+MG_displaySC "MGtools.pick.program.pick" "拾取";
+MG_displaySC "MGtools.pick.program.pickDot" "拾取..";
+MG_displaySC "MGtools.close.lbl" "关闭";
+MG_displaySC "MGtools.whereis.lbl" "\"#\"在哪里";
+MG_displaySC "MGtools.newProgramLoc.lbl" "新闻程序位置";
+MG_displaySC "MGtools.connector.config.title" "配置MG-授权连接器";
+MG_displaySC "MGtools.connector.location.lbl" "连接器位置" ;
+
+
+MG_displaySC "MGtools.news.mi" "MGLAND|Twincodes资讯..";

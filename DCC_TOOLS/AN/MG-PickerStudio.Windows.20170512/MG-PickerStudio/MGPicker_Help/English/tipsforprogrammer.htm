@@ -1,0 +1,73 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Tips For Programmer</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="coding,programming,tips for programmer" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #F8F8F8; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "tipsforprogrammer.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:0px; background:#D0D0D0">
+  <tr style="vertical-align:middle">
+    <td style="text-align:right">
+     <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>&nbsp;
+     <a href="customeloaderandlister.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+     <a href="q__a.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="text-align: left; padding: 0px 0px 0px 13px; margin: 0px 0px 0px 0px;"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:13px;margin-left:-13px">&#9642;</span><span style="font-weight: bold;">Tips for the programming in MG-Picker Studio :</span></p><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> Frequently visited commands be made into command button, and parent them to the picker panel.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> For the viewport manipulation, such as pan &amp; zoom to frame a certain picker panel, you make the command into right clicking menu of the picker panels.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">Which means, you attach the same marking menu to all the picker panels.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">For panel switching code:</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span style="font-size: 9pt;">MGPickerView -activePanelIndex 2; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//2 is the panel index</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">Now animator could right click on any free space of panel, drag left and release to return to main panel, drag right switch to body panel,</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">drag up to switch to fingers panel, down to switch to facial panel.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">Animator could still use 0~3 hotkey for panel switching for sure, but using marking menu is a bit more intuitive way.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">If you keep all the panel design adopt the same marking menu, animator could switch to a certain panel even without thinking.  </p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> To get current picker item that a command belong to, use &nbsp;command:</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">string $currentItem = `MGPicker -q -currentItem`;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">//after this you could use $currentItem to call the MGPickerItem command.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> To get attribute of the attribute-button, use command:</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">string $attr = `MGPicker -q -currentAttributeName`;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="lightbulb.png" width="16" height="16" alt="lightbulb" style="border:none" /> To support your own functionality, you may need some scripts be auto-sourced when MG-Picker Studio loads.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">put these scripts, including mel / python scripts, into the folder: <span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">Maya's user script folder/MG-PickerStudio/MGPicker_UserConfig/AutoSourced.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_Heading1" style="font-size: 10pt; font-weight: normal;">The mel scripts within the folder will be auto-sourced, while python scripts will be imported by the function call: execfile().</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+
+</td></tr></table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" >
+    <a href="welcome.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a>
+    <a href="customeloaderandlister.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /></a>
+    <a href="q__a.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></a></td>
+  </tr>
+  </table>
+
+</body>
+</html>

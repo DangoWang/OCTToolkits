@@ -1,0 +1,71 @@
+Gizmo {
+ tile_color 0x7f7f7fff
+ addUserKnob {20 User}
+ addUserKnob {7 spread l "Area Spread" R 0 5}
+ spread 2
+ addUserKnob {7 filter l "Filter Size" R 0 5}
+ filter 3
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos 465
+  ypos -247
+ }
+ Dot {
+  name Dot22
+  xpos 499
+  ypos -177
+ }
+set N263869f0 [stack 0]
+ Dot {
+  name Dot21
+  xpos 585
+  ypos -177
+ }
+ Expression {
+  expr3 isnan(r+g+b)?1:isinf(r+g+b)?1:0
+  name mask_nan_inf
+  xpos 551
+  ypos -135
+ }
+set N263870d0 [stack 0]
+ Dilate {
+  channels alpha
+  size 1
+  name Dilate2
+  xpos 551
+  ypos -93
+ }
+push $N263870d0
+push $N263869f0
+ Expression {
+  expr0 isnan(r)?0:isinf(r)?0:r
+  expr1 isnan(g)?0:isinf(g)?0:g
+  expr2 isnan(b)?0:isinf(b)?0:b
+  name black_nan_inf
+  xpos 465
+  ypos -159
+ }
+ Dilate {
+  inputs 1+1
+  channels rgb
+  size {{parent.spread}}
+  name Dilate1
+  xpos 465
+  ypos -135
+ }
+ Median {
+  inputs 1+1
+  size {{parent.filter}}
+  ignore_top_line false
+  name Median1
+  xpos 465
+  ypos -87
+ }
+ Output {
+  name Output1
+  xpos 465
+  ypos -15
+ }
+end_group

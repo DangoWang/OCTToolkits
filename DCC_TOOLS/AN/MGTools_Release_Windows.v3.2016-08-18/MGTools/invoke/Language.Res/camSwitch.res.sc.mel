@@ -1,0 +1,28 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displaySC "camSwitch.exCam.annoText" "当前场景摄像机：";
+MG_displaySC "camSwitch.switchCam.annoText" "用于切换的摄像机：";
+
+MG_displaySC "camSwitch.camNoExist.war" "在切换列表里的摄像机：# 不存在于你的场景，忽略~~";
+
+MG_displaySC "camSwitch.switchCam.mi" "MG摄像机切换";
+MG_displaySC "camSwitch.switch.label" "切换!";
+MG_displaySC "camSwitch.switchCam.mi.anno" "用可定义的摄像机集来切换当前视图的摄像机。主要用来提高视图切换效率。";
+MG_displaySC "camSwitch.switchCam.option.title" "MG摄像机切换选项";
+MG_displaySC "camSwitch.switchCam.option.switchTsl.anno" "可以直接按键盘上的Del键来删除该列表的所选项目";
+
+MG_displaySC "camSwitch.switchCam.noValidCam.war" "囧>  好像没有可用的摄像机来切换..也有可能你还没有建摄像机切换集..请用该命令的配置框来建立切换集。";
+
+MG_displaySC "camSwitch.clear.mi" "清空所有项目";
+MG_displaySC "camSwitch.del.mi" "删除所选项目";
+
+MG_displaySC "camSwitch.refresh.mi" "刷新";
+MG_displaySC "camSwitch.reset.mi" "取消此次编辑";
+MG_displaySC "camSwitch.save" "保存配置";

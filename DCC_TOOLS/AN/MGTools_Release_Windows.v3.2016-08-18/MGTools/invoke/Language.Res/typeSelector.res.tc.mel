@@ -1,0 +1,44 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+
+MG_displayTS "tpeSelector.title" "MG類型選擇器..";
+MG_displayTS "tpeSelector.anno" "根據勾選出來的類別條件來選擇場景裡的物體，如選擇所有K了動畫的物體等等";
+
+MG_displayTS "tpeSelector.UItitle" "MG類型選擇器";
+MG_displayTS "tpeSelector.topAnno" "選擇場景中任何符合下列選中條件的物體:";
+	
+MG_displayTS "tpeSelector.option.label.keyframed" "有Key 幀物體";
+MG_displayTS "tpeSelector.option.label.nonkeyframed" "沒被Key 幀物體";
+MG_displayTS "tpeSelector.option.label.Reference" "Reference 物體";
+MG_displayTS "tpeSelector.option.label.nonReference" "非Reference 物體";
+MG_displayTS "tpeSelector.option.label.Hidden" "被隱藏物體";
+MG_displayTS "tpeSelector.option.label.NonHidden" "沒被隱藏物體";
+MG_displayTS "tpeSelector.option.label.Constrainted" "被約束物體";
+MG_displayTS "tpeSelector.option.label.NonConstrainted" "沒被約束物體";
+MG_displayTS "tpeSelector.option.label.SelectedRig" "所選Rig 物體";
+MG_displayTS "tpeSelector.option.label.NonSelectedRig" "非所選Rig 物體";
+MG_displayTS "tpeSelector.option.label.SelectedObjs" "所選物體";
+MG_displayTS "tpeSelector.option.label.NonSelectedObjs" "未選物體";
+
+MG_displayTS "tpeSelector.option.label.TypeFilter" "類型過濾 :";
+MG_displayTS "tpeSelector.option.label.All" "全選";
+MG_displayTS "tpeSelector.option.label.None" "去選";
+MG_displayTS "tpeSelector.option.label.Invert" "反選";
+MG_displayTS "tpeSelector.option.label.Custom" "自定義:";
+MG_displayTS "tpeSelector.option.label.Custom.get" "<- 獲取";
+MG_displayTS "tpeSelector.option.label.Custom.get.ann" "獲取當前場景所選的第一物體的類型，並且填入左邊的類型輸入框作為自定義類型。";
+
+MG_displayTS "tpeSelector.option.label.Select" "選擇";
+MG_displayTS "tpeSelector.option.label.close" "關閉";
+
+MG_displayTS "tpeSelector.ivalidType.war" "忽略您所輸入的類型 # ，因為它不是一個合法的Maya類型!";
+MG_displayTS "tpeSelector.noneEqualToAll.war" "您沒有勾上任何篩選條件，所以我就為您選到場景裡的全部節點哦:)";
+MG_displayTS "tpeSelector.done.rep" " # 個物體符合您所開出的所有條件併為您順利選擇 :)";
+

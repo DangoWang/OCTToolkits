@@ -1,0 +1,49 @@
+#! //192.168.50.210/c_$/_appz/myPhotoManager/Nuke6.3.exe -nx
+version 6.3 v4
+Gizmo {
+ addUserKnob {20 User}
+ addUserKnob {41 xyzPicker T xyz_mask_expression1.xyzPicker}
+ addUserKnob {41 scale T xyz_mask_expression1.scale}
+ addUserKnob {41 xscale T xyz_mask_expression1.xscale}
+ addUserKnob {41 yscale T xyz_mask_expression1.yscale}
+ addUserKnob {41 zscale T xyz_mask_expression1.zscale}
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos 308
+  ypos 160
+ }
+ Expression {
+  temp_name0 px
+  temp_expr0 xyzPicker.r
+  temp_name1 py
+  temp_expr1 xyzPicker.g
+  temp_name2 pz
+  temp_expr2 xyzPicker.b
+  channel0 {rgba.red rgba.green rgba.blue rgba.alpha}
+  expr0 1-sqrt(pow(r-px,2)/xscale+pow(g-py,2)/yscale+pow(b-pz,2)/zscale)/scale
+  channel2 {-rgba.red -rgba.green -rgba.blue}
+  channel3 {none none none -rgba.alpha}
+  expr3 expr0
+  name xyz_mask_expression1
+  xpos 308
+  ypos 200
+  addUserKnob {20 User}
+  addUserKnob {18 xyzPicker}
+  xyzPicker {0 0 0}
+  addUserKnob {7 scale t "uniform scale"}
+  scale 100
+  addUserKnob {7 xscale}
+  xscale 1
+  addUserKnob {7 yscale}
+  yscale 1
+  addUserKnob {7 zscale}
+  zscale 1
+ }
+ Output {
+  name Output1
+  xpos 308
+  ypos 300
+ }
+end_group

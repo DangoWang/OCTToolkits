@@ -1,0 +1,185 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>MG-HUD Display</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Add,FrameCounter,HUD,Manager,Option,Reset,ViewPort" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "mg-hud_display_en.htm");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #e9e9e9;">
+
+
+<table height="22" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="middle">
+   <!--   <td align="left" height="25">
+      <a href="welcome_en.htm"><img  border="0" src="mgtoolshelp_manual_ch.gif" width="90" height="24" alt="MGtools Manual" /></a>&nbsp;
+        <h1 class="p_Heading1"><span style="font-weight: bold; color: #191817;">MG-HUD Display</span></h1>
+   
+    </td>    -->
+    <td align="right"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="reference_tool_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="annotation_display_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" />
+     <!-- </span>  -->
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0"  cellspacing="0" cellpadding="8" bgcolor="#e9e9e9"><tr valign="top"><td align="left">
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold; color: #191817;">MG-HeadUpDisplay:</span></p>
+<div style="text-align: left; text-indent: -24px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 24px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1075px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="hudbuttonui.gif" width="118" height="47" alt="HUDButtonUI" style="border:none" /></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1075px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  </span><span class="f_MI_TitleStyle" style="color: #404040;">HUD display &nbsp;:</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> It will show hud display in your mode panel view via MG HUD &nbsp;config. The Default config is: Show Animator name at the right top screen , current / total frame at right bottom corner, camera name in the left bottom position. All these config could be customized. When U set customized config to default ,click this button will display HUD in your custom way.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Right mouse button clicking on it :</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span class="f_MI_TitleStyle" style="color: #404040;">Clear HUD Display : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Clear all MG-HUD display .</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 120px;"><span class="f_MI_TitleStyle" style="color: #404040;">Conifg Folder: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Open the directory where MG-HUD config files are stored.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;">  <img src="optionboxicon.gif" width="21" height="21" alt="optionBoxIcon" style="border:none" />  </span><span class="f_MI_TitleStyle" style="color: #404040;">HUD display Config button: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Click to load MG-HUD display config window.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="text-indent: -24px; line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<p style="line-height: 1.50;"><img src="bookmark.png" width="16" height="16" alt="bookmark" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span style="font-weight: bold; color: #191817;">HUD Config UI:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><img src="hudoptionui_en.gif" width="759" height="463" alt="HUDOptionUI_en" style="border:none" /></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="color: #404040;">Section A:  </span>Maya divide a model panel view into ten sections. In each section u can only display one HUD display. So I design the nine config options.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">The section of the left bottom corner is always used by maya default view axis display. If user occupies this section by force, Once loading maya preference window ,all Maya UI will clash and restarting it will end in nothing but a script window. So I keep this section for security sake.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">All section has five options: None, Frame count, Animator, scene name, camera.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;">Select one of the options then more options in detail will be shown and selecting none will hide these options.</p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle" style="color: #404040;">Section B: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Two color slider indicate the color of HUD display label color and value color.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">SaveConfig.. : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Save current setting as external config file. After that u can reuse these config through load config button .</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">LoadConfig-&gt; : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Click it and a list of config will pop up. Select one of them to reuse.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Save As Default : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Set current setting as default. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Reset to Default: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Reset all setting to default.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">All set to None :</span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;"> Set all section display none.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Clear MG_HUD : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Delete all MG-HUD display in your model panel screen. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle" style="color: #404040;">Section C:</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Help.. : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Show MG-HUD help doc.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Don't clear other HUD of the section when it's set to none: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Keep the hud display that are no generate by MG-HUD, when this section is set to none.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Create/Edit : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Create / Edit current MG-HUD display in your screen by current setting.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 72px;"><span class="f_MI_TitleStyle" style="color: #404040;">Close : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Close MG-HUD config window.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="flag_blue.gif" width="16" height="16" alt="flag_blue" style="border:none" /><span class="f_ImageCaption" style="font-size: 10pt;"> </span><span class="f_MI_TitleStyle" style="color: #404040;">Options in detail:</span></p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 48px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:166px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="hud_dateoption_en.gif" width="153" height="106" alt="HUD_dateOption_en" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:1088px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Date:  </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Show current date.</span><span class="f_MI_TitleStyle" style="color: #404040;"> </span><span class="f_ImageCaption" style="font-size: 10pt;"> </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Label: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">The label of this HUD display.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">TextField below: </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">Shows the date string which gonna be shown in viewport. It is not editable.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 48px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:166px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="hud_frameoption_en.gif" width="156" height="168" alt="HUD_frameOption_en" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:1088px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">CurrentFrame : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Show only current frame.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Current/TotalFrames : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Show current frame / Total frames.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Current/TotalFr./FPS : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Show current frame / Total frames/Frame rate.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Label: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">The label of this HUD display.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Camera Sequence Frame: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Decide if the frame info &nbsp;to be shown is camera sequence frame. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Append Duration: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Append a frame duration info to the end. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="color: #404040;">EndFr: Range End: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Calculate the duration using the timeslider visible range.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_MI_TitleStyle" style="color: #404040;">EndFr: Playback End: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Calculate the duration using the timeslider playback range.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 48px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:166px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="hud_animatoroption_en.gif" width="155" height="120" alt="HUD_animatorOption_en" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:1088px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Label :</span><span class="f_MI_TitleStyle"> </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">The label of this HUD display.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Default / custom :</span><span class="f_MI_TitleStyle"> </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">To use Windows user name as animator name or use a custom name.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Value: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">The name of user. By default it will show the login name of your windows account. U can customize it here .</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 48px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:166px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="hudscenenameoption_en.gif" width="154" height="123" alt="HUDsceneNameOption_en" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:1088px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Scene Name : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Show Current scene name.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Full Name or chopped : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Use current scene name or use a chopped scene name.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Ext : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Use current scene name with or without a extend name.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Start..End... : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Sometime u don't want to display all the scene name string. use start and end num to chop the part of string to be displayed.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 48px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:166px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="hudcameraoption_en.gif" width="156" height="171" alt="HUDCameraOption_en" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:1088px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">CameraName : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Show camera name.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Cam/FocalLength : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Show camera name / focal Length.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Cam/AspectRatio : </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Show camera name / aspect ratio.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Label: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">The label of this HUD display.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Camera Sequence: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Decide if the camera name info to be shown is the camera sequence camera name. </span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 48px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:166px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="hudtimecodeoption_en.gif" width="155" height="135" alt="HUDtimeCodeOption_en" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:687px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">StartFrame : </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">The calculation start from which frame.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Offset: </span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">The offset base of the timeCode.Give it four numbers: hour,minute,second,frame. </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Camera Sequence Time: </span><span class="f_MI_TitleStyle" style="font-weight: normal; color: #404040;">Decide if the timecode to be shown is the camera sequence timecode. </span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; line-height: 1.50; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 48px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:166px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><img src="hudanystringoption_en.gif" width="156" height="168" alt="HUDanyStringOption_en" style="border:none" /></p>
+</td>
+<td style="vertical-align:top; width:687px; padding:0px;"><p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_MI_TitleStyle" style="color: #404040;">Any String :</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;"> Show static texts in your screen. </span><br />
+<span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;The text can contain new line character.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption" style="font-size: 10pt;">Use Global Procecure:</span><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;"> </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">If checked on, and input a mel global proc name in the textfield below,</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">then MG-HUD will use the string returned by the global procedure as the content of Any String HUD.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">If the global proc is empty then this option is skipped, the static content of any string field will still be used.</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 48px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;">The mel global proc should return a string, and has no arguments, (If you really need to parse arguments, maybe global variable could be a backup plan.)</span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;"><span class="f_ImageCaption" style="font-size: 10pt; font-weight: normal;"> &nbsp; &nbsp; </span></p>
+<p style="line-height: 1.50; margin: 0px 0px 0px 24px;">&nbsp;</p>
+</td>
+</tr>
+</table>
+</div>
+
+</td></tr>
+</table>    
+<table height="30" width="100%" border="0" cellspacing="" cellpadding="0" bgcolor="#D0D0D0">
+  <tr valign="bottom" bgcolor="#D0D0D0" >      
+    <td align="left"  valign="middle" ><a href="welcome_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_Home.gif" width="34" height="22" alt="Home" /></a><a href="reference_tool_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_previous.gif" width="34" height="22" alt="Previous" /><a href="annotation_display_en.htm"><img  border="0" src="../common/images/MGtoolsHelp_next.gif" width="34" height="22" alt="Next" /></td>
+  </tr>
+</table>
+                   
+</body>
+</html>

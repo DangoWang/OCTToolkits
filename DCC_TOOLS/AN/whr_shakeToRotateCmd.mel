@@ -1,0 +1,83 @@
+global proc whr_shakeToRotateCmd()
+{
+    string $sel[] = `ls -sl`;
+    addAttr -ln "shakeH"  -at double  -dv 0 $sel[0];
+    addAttr -ln "shakeV"  -at double  -dv 0 $sel[0];
+    addAttr -ln "shake"  -at double  -dv 0 $sel[0];
+    setAttr -e-keyable true ($sel[0]+".shake");
+    setAttr ($sel[0]+".shake") 1;
+    print $sel;
+    string $shape[] = `listRelatives $sel[0]` ;
+    string $shake = `createNode transform -n ($sel[0]+"_shake")`;
+    addAttr -ln "StandardCamera"  -at "enum" -en "Main Camera:";
+    setAttr -lock true ($shake+".tx");
+    setAttr -lock true ($shake+".ty");
+    setAttr -lock true ($shake+".tz");
+    setAttr -lock true ($shake+".rz");
+    setAttr -lock true ($shake+".sx");
+    setAttr -lock true ($shake+".sy");
+    setAttr -lock true ($shake+".sz");
+    setAttr -lock true ($shake+".v");
+    
+    createNode nurbsCurve -n "CAM_CTLShape" -p $sel[0];
+	setAttr -k off ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 17;
+	setAttr ".cc" -type "nurbsCurve" 
+		1 27 0 no 3
+		28 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27
+		
+		28
+		0.29241830110549927 0.66113805770874023 1.5120635032653809
+		0.29241830110549927 0.66113805770874023 -0.0068118572235107422
+		-0.29241830110549927 0.66113805770874023 -0.0068118572235107422
+		-0.29241830110549927 0.36014792323112488 -0.0068118572235107422
+		-0.38808643817901611 0.54529058933258057 -0.37863010168075562
+		-0.38808643817901611 -0.22527951002120972 -0.37863010168075562
+		0.38808643817901611 -0.22527951002120972 -0.37863010168075562
+		0.38808643817901611 0.54529058933258057 -0.37863010168075562
+		0.29241830110549927 0.36014792323112488 -0.0068118572235107422
+		0.29241830110549927 0.66113805770874023 -0.0068118572235107422
+		0.29241830110549927 -0.26167768239974976 -0.0068118572235107422
+		-0.29241830110549927 -0.26167768239974976 -0.0068118572235107422
+		-0.29241830110549927 -0.040136769413948059 -0.0068118572235107422
+		-0.38808643817901611 -0.22527951002120972 -0.37863010168075562
+		-0.38808643817901611 0.54529058933258057 -0.37863010168075562
+		0.38808643817901611 0.54529058933258057 -0.37863010168075562
+		0.38808643817901611 -0.22527951002120972 -0.37863010168075562
+		0.29241830110549927 -0.040136769413948059 -0.0068118572235107422
+		0.29241830110549927 -0.26167768239974976 -0.0068118572235107422
+		0.29241830110549927 -0.26167768239974976 1.5120635032653809
+		0.29241830110549927 0.66113805770874023 1.5120635032653809
+		-0.29241830110549927 0.66113805770874023 1.5120635032653809
+		-0.29241830110549927 -0.26167768239974976 1.5120635032653809
+		0.29241830110549927 -0.26167768239974976 1.5120635032653809
+		-0.29241830110549927 -0.26167768239974976 1.5120635032653809
+		-0.29241830110549927 -0.26167768239974976 -0.0068118572235107422
+		-0.29241830110549927 0.66113805770874023 -0.0068118572235107422
+		-0.29241830110549927 0.66113805770874023 1.5120635032653809
+		;
+	setAttr ".oclr" -type "float3" 0.065573774 0.065573774 0.065573774 ;
+    
+    parent -s -add $shape[0] $shake;
+    parent -s -rm $shape[0];
+    parent $shake $sel[0];
+    
+    string $h = `connectionInfo -sourceFromDestination ($shape[0]+".horizontalShake")`;
+    string $v = `connectionInfo -sourceFromDestination ($shape[0]+".verticalShake")`;
+    disconnectAttr $h ($shape[0]+".horizontalShake");
+    disconnectAttr $v ($shape[0]+".verticalShake");
+        
+    connectAttr -f $h ($sel[0]+".shakeH");
+    connectAttr -f $v ($sel[0]+".shakeV");
+
+    setAttr ($shape[0]+".horizontalShake") 0;
+    setAttr ($shape[0]+".verticalShake") 0;
+    
+    expression -s ($shake+".rotateX = "+$sel[0]+".shakeV*50*"+$sel[0]+".shake;\n"+$shake+".rotateY = "+$sel[0]+".shakeH*-50*"+$sel[0]+".shake;")  -o $sel[0] -ae 1 -uc all ;
+    
+    string $newName = $sel[0];
+    rename $sel[0] "Camera_Ctrl";
+    rename $shake $newName;
+    
+}

@@ -1,0 +1,43 @@
+#! C:/Program Files/Nuke8.0v1/nuke-8.0.v1.dll -nx
+version 8.0 v1
+Gizmo {
+ inputs 0
+ addUserKnob {20 User}
+ addUserKnob {41 offset T Expression4.offset}
+ addUserKnob {41 size T Expression4.size}
+ addUserKnob {41 center T Expression4.center}
+}
+ Constant {
+  inputs 0
+  channels rgb
+  name Constant1
+  xpos 80
+  ypos 29
+ }
+ Expression {
+  expr0 "#sin(sqrt((x-center.x) * (x-center.x) + (y-center.y) * (y-center.y) )/frame) "
+  expr1 "#sin(hypot(x-center.x, y-center.y ) / size) "
+  expr2 "sin((atan(x-center.x, y-center.y)+offset)*size)"
+  inject {{parent.Expression4_inject}}
+  invert_mask {{parent.Expression4_invert_mask}}
+  fringe {{parent.Expression4_fringe}}
+  invert_unpremult {{parent.Expression4_invert_unpremult}}
+  enable_mix_luminance {{parent.Expression4_enable_mix_luminance}}
+  mix_luminance {{parent.Expression4_mix_luminance}}
+  mix {1}
+  name Expression4
+  xpos 80
+  ypos 121
+  addUserKnob {20 User}
+  addUserKnob {7 offset R 0 100}
+  addUserKnob {7 size R 0.1 20}
+  size 15
+  addUserKnob {12 center}
+  center {1026 546}
+ }
+ Output {
+  name Output1
+  xpos 80
+  ypos 221
+ }
+end_group

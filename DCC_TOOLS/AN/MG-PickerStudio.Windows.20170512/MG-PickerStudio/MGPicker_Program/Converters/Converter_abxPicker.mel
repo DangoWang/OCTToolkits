@@ -1,0 +1,643 @@
+/*
+	You need to implement these mel procedures to make the converter fully function, if you don't need some of them, return a empty stirng/int of 0/empty string array: 
+	
+	    //picker node converter API:	
+	    
+					global proc int  filename_autoReadNode();   //return 0~1 value, indicate if MG-Picker should invoke this converter to autoload your in-scene picker node.
+					
+					global proc string  filename_nodeType();   //return string value, the type string of picker node.
+					
+					global proc int  filename_isPickerNode(string $node);   //return 0~1 value, indicate the node is of the picker node.
+					
+					global proc string filename_getNamespace(string $node);   //return the namespace from a picker node. The proc is used in find&Load feature of MG-Picker studio.
+				
+					global proc string[] filename_nodeLister(); //list all the picker nodes in the scene.
+					
+					global proc int filename_readNode(string $node); 		//the actual reader for each picker node.
+						
+		 //picker file converter API:	
+		 
+					global proc int filename_isPickerFile(string $fileFullPath); 		//Return 1 if the file is the picker file, 0 if not.
+					
+					global proc int filename_readFile(string $fileFullPath); 		//the actual reader for each picker file.
+		 	
+		 			
+ 	"filename" above stands for the actual base name of this mel file. (file name without extension)		
+ 	The base name of the mel file does not necessary start with "Converter_", we just add it for better readability.	
+ 	The global proc starts with "Converter_" below domonstrate these API procs:
+*/
+
+//--------------some helper proc first:----------------------------------------
+proc int isAbxPickerNode (string $picker)
+{
+	if(!`objExists $picker`)
+	{
+		return 0;
+	}
+	string $attrs[]={"bgImage","bgColor",
+										"count","data", 
+										"width","height",
+										"overlay","command",
+										"image","charPrefix"}; //"label",
+	for($at in $attrs)
+	{
+		if(!`attributeExists $at $picker`)
+		{
+			return 0;
+		}
+	}
+	return 1;
+}
+
+proc string[] getPicker_CharacterAndSubName(string $node)
+{
+	string $tokenBuffer[];
+	string $tokenBuffer2[];
+	string $tokenBufferNS[];
+	
+	string $charName = "";
+	string $charName2 = "";
+	string $subName = "";
+	tokenize $node ":" $tokenBufferNS;
+	if (size($tokenBufferNS)<2)
+	{
+		tokenize $node "_" $tokenBuffer;
+		if (size($tokenBuffer) >= 3)
+		{
+			$charName = ($tokenBuffer[0]);
+			$charName2 = ($tokenBuffer[0]+"_");
+			for ($i=1;$i<size($tokenBuffer)-2;$i++)
+			{
+				$charName = ($charName + $tokenBuffer[$i]);
+			}
+			$subName = $tokenBuffer[size($tokenBuffer)-2];
+		}
+		else if (size($tokenBuffer) == 2)
+		{
+			$charName = "";
+			$charName2 = "";
+			$subName = $tokenBuffer[0];
+		}	
+	}
+	else
+	{
+			$charName = $tokenBufferNS[0];
+			$charName2 = ($tokenBufferNS[0]+"_");
+			tokenize $tokenBufferNS[1] "_" $tokenBuffer2;
+			$subName = $tokenBuffer2[size($tokenBuffer2)-2];
+	}
+	string $result[];
+	$result[0] = $charName;
+	$result[1] = $subName;
+	return $result;
+}
+
+
+//codes from abxPicker to support its on stack functions----------------------------------
+global proc abxPicker_MGPToggle (string $selList, string $attrList)
+{
+
+	//print($selList);
+
+	string $pickrPrefix = `MGPickerView -q -ns`;
+	if(size($pickrPrefix))
+	{
+		$pickrPrefix += ":";
+	}
+	string $tokenBufferNodes[];
+	string $tokenBufferAttrs[];
+	
+	//print($pickrPrefix + "\n");
+	
+	tokenize $selList " " $tokenBufferNodes;
+	tokenize $attrList " " $tokenBufferAttrs;
+	
+	for ($each in $tokenBufferNodes)
+	{
+		if ($pickrPrefix != "")
+		{
+			if(`objExists ($pickrPrefix+$each)`)
+			{
+				for ($every in $tokenBufferAttrs)
+				{
+					if(`attributeExists $every ($pickrPrefix+$each)`)
+					{
+						$oldVal = `getAttr ($pickrPrefix+$each+"."+$every)`;
+						if ($oldVal == 1)
+							setAttr ($pickrPrefix+$each+"."+$every) 0;
+						else if ($oldVal == 0)
+							setAttr ($pickrPrefix+$each+"."+$every) 1;
+					}
+				}
+			}
+			else if ($each == "top_ctrl")
+			{
+				//print("$each is " + $each + "\n");
+				string $topNode[];
+				$topNode = `ls -assemblies`;
+				string $targetTopNode[];
+				
+				for ($i=0; $i<size($topNode); $i++)
+				{
+					if ((`gmatch $topNode[$i] ($pickrPrefix+"*")`) && ((`gmatch $topNode[$i] "*_PIKR"`)==0))
+					{
+						$targetTopNode[size($targetTopNode)] = $topNode[$i];
+					}
+				}
+				
+				//print("$targetTopNode : \n");
+				//print($targetTopNode);
+				
+				if (size($targetTopNode) == 1)
+				{
+					for ($every in $tokenBufferAttrs)
+					{
+						if(`attributeExists $every ($targetTopNode[0])`)
+						{
+							$oldVal = `getAttr ($targetTopNode[0]+"."+$every)`;
+							if ($oldVal == 1)
+								setAttr ($targetTopNode[0]+"."+$every) 0;
+							else if ($oldVal == 0)
+								setAttr ($targetTopNode[0]+"."+$every) 1;
+						}
+					}
+				}
+			}
+		}
+		else
+		{
+			if(`objExists $each`)
+			{
+				for ($every in $tokenBufferAttrs)
+				{
+					if(`attributeExists $every $each`)
+					{
+						$oldVal = `getAttr ($each+"."+$every)`;
+						if ($oldVal == 1)
+							setAttr ($each+"."+$every) 0;
+						else if ($oldVal == 0)
+							setAttr ($each+"."+$every) 1;
+					}
+				}
+			}
+		}
+	}
+}
+  
+global proc MGP_abxPicker_MGPSelect (string $selList)
+{
+	string $selListBuffer[];
+	string $pickrPrefix = `MGPickerView -q -ns`;
+	if(size($pickrPrefix))
+	{
+		$pickrPrefix += ":";
+	}
+	tokenize $selList " " $selListBuffer;
+	if ($pickrPrefix != "")
+	{
+		for ($i=0;$i<size($selListBuffer);$i++)
+		{
+			$selListBuffer[$i] = ($pickrPrefix+$selListBuffer[$i]);
+		}
+	}
+	
+	
+	int $mods = `getModifiers`;
+	
+	// shift
+	if (($mods / 1) %2) {
+		for($i=0; $i<size($selListBuffer); $i++)
+		{
+			if (`objExists $selListBuffer[$i]`)
+			{			
+				select -add $selListBuffer[$i];
+			}
+			else
+			{
+				if($selListBuffer[$i] == ($pickrPrefix + "top_ctrl"))
+				{
+					string $topNode[];
+					$topNode = `ls -assemblies`;
+					string $targetTopNode[];
+					
+					for ($i=0; $i<size($topNode); $i++)
+					{
+						if ((`gmatch $topNode[$i] ($pickrPrefix+"*")`) && ((`gmatch $topNode[$i] "*_PIKR"`)==0))
+						{
+							$targetTopNode[size($targetTopNode)] = $topNode[$i];
+						}
+					}
+					
+					if (size($targetTopNode) == 1)
+					{
+						select -add $targetTopNode[0];
+					}
+				}
+				else
+				{
+					MGP_ScriptEditorFeedback ($selListBuffer[$i] + "is not Exists!\n") 0;
+				}
+			}
+		}
+	}
+	// ctrl
+	else if (($mods / 4) %2) 
+	{
+		for($i=0; $i<size($selListBuffer); $i++)
+		{
+			if (`objExists $selListBuffer[$i]`)
+			{
+				if($i == 0)
+					select -toggle $selListBuffer[$i];
+				else
+					select -add -toggle $selListBuffer[$i];
+			}
+			else
+			{
+				if($selListBuffer[$i] == ($pickrPrefix + "top_ctrl"))
+				{
+					string $topNode[];
+					$topNode = `ls -assemblies`;
+					string $targetTopNode[];
+					
+					for ($i=0; $i<size($topNode); $i++)
+					{
+						if ((`gmatch $topNode[$i] ($pickrPrefix+"*")`) && ((`gmatch $topNode[$i] "*_PIKR"`)==0))
+						{
+							$targetTopNode[size($targetTopNode)] = $topNode[$i];
+						}
+					}
+					
+					if (size($targetTopNode) == 1)
+					{
+						select -add -toggle $targetTopNode[0];
+					}
+				}
+				else
+				{
+					MGP_ScriptEditorFeedback ($selListBuffer[$i] + "is not Exists!\n") 0;
+				}
+			}
+		}
+	}
+	// nothing
+	else{
+		for($i=0; $i<size($selListBuffer); $i++)
+		{
+			if (`objExists $selListBuffer[$i]`)
+			{
+				if($i == 0)
+					select $selListBuffer[$i];
+				else
+					select -add $selListBuffer[$i];
+			}
+			else
+			{
+				if($selListBuffer[$i] == ($pickrPrefix + "top_ctrl"))
+				{
+					string $topNode[];
+					$topNode = `ls -assemblies`;
+					string $targetTopNode[];
+					
+					for ($i=0; $i<size($topNode); $i++)
+					{
+						if ((`gmatch $topNode[$i] ($pickrPrefix+"*")`) && ((`gmatch $topNode[$i] "*_PIKR"`)==0))
+						{
+							$targetTopNode[size($targetTopNode)] = $topNode[$i];
+						}
+					}
+					
+					if (size($targetTopNode) == 1)
+					{
+						select -add $targetTopNode[0];
+					}
+				}
+				else
+				{
+					MGP_ScriptEditorFeedback ($selListBuffer[$i] + "is not Exists!\n") 0;
+				}
+			}
+		}
+	}
+}
+// called when clicking the buttons, allows for additive/toggle selection
+global proc MGP_abxPicker_MGPKey (string $selList)
+{
+
+	string $selListBuffer[];
+	global string $pickrPrefix;
+	tokenize $selList " " $selListBuffer;
+	if ($pickrPrefix != "")
+	{
+		for ($i=0;$i<size($selListBuffer);$i++)
+		{
+			$selListBuffer[$i] = ($pickrPrefix+$selListBuffer[$i]);
+		}
+	}
+	
+	for($i=0; $i<size($selListBuffer); $i++)
+	{
+		if (`objExists $selListBuffer[$i]`)
+		{
+		
+			setKeyframe $selListBuffer[$i];
+		}
+		else
+		{
+			if($selListBuffer[$i] == ($pickrPrefix + "top_ctrl"))
+			{
+				string $topNode[];
+				$topNode = `ls -assemblies`;
+				string $targetTopNode[];
+				
+				for ($i=0; $i<size($topNode); $i++)
+				{
+					if ((`gmatch $topNode[$i] ($pickrPrefix+"*")`) && ((`gmatch $topNode[$i] "*_PIKR"`)==0))
+					{
+						$targetTopNode[size($targetTopNode)] = $topNode[$i];
+					}
+				}
+				
+				if (size($targetTopNode) == 1)
+				{
+					setKeyframe $targetTopNode[0];
+				}
+			}
+			else
+			{
+				MGP_ScriptEditorFeedback ($selListBuffer[$i] + "is not Exists!\n") 0;
+			}
+		}
+	}	
+}
+//ends codes from abxPicker to support its on stack functions----------------------------------
+proc string replaceStringDoit(string $code, string $matchExp, string $replaceString)
+{
+	string $repStr = `substitute $matchExp $code $replaceString`;
+	string $currentRep;
+	int $times = 0;
+	while($currentRep != $repStr)
+	{
+		$currentRep = `substitute $matchExp $repStr $replaceString`;
+		$times ++;
+		if($times > 5)
+		{
+			break;
+		}
+	}
+	return $currentRep;
+}
+proc string replaceGetNSCode(string $code)
+{
+	//string $str = "string $currentChara=` textField  -q -tx abxPickerCharText`;";
+	string $match = "textField *-q *-tx *abxPickerCharText";
+	string $result = `replaceStringDoit $code $match "MGPickerView -q -ns"`;
+	$match = "textField *-q *-text *abxPickerCharText";
+	return `replaceStringDoit $result $match "MGPickerView -q -ns"`;
+}
+
+proc string replaceFunctionCode(string $code)
+{
+	string $match = "abxPickerToggle";
+	string $result = `replaceStringDoit $code $match "abxPicker_MGPToggle"`;
+	$match = "abxPickerSelect";
+	$result = `replaceStringDoit $result $match "MGP_abxPicker_MGPSelect"`;
+	$match = "abxPickerKey";
+	$result = `replaceStringDoit $result $match "MGP_abxPicker_MGPKey"`;
+	return $result;
+}
+//------------------------------picker converter apis:----------------------------------------------------
+global proc int Converter_abxPicker_autoReadNode()
+//it returns 1, means the type of in-scene picker will be autoloaded when MG-PickerStudio loaded.
+//return 0 if you don't want it is auto-loaded.
+{
+	return 1;
+}
+global proc string Converter_abxPicker_nodeType()
+//return the node type of your picker.
+{
+	return "geometryVarGroup";
+}
+
+global proc int Converter_abxPicker_isPickerNode(string $node)
+{
+	if(!`objExists $node`)
+	{
+		return 0;
+	}
+	if(`nodeType $node` != `Converter_abxPicker_nodeType`)
+	{
+		return 0;
+	}
+	return `isAbxPickerNode $node`;
+}
+
+global proc string Converter_abxPicker_getNamespace(string $node)
+{
+	string $namespace = "";
+	if(`Converter_abxPicker_isPickerNode $node`)
+	{
+		string $names[] =`getPicker_CharacterAndSubName $node`;
+		$namespace = $names[0];
+		return $namespace;
+	}
+	return $namespace;
+}
+
+global proc string [] Converter_abxPicker_nodeLister()
+//return valid in-scene picker nodes of your picker type
+{
+	string $abxPickers[];
+	string $type = `Converter_abxPicker_nodeType`;
+	string $pickers[] =`ls -type $type`;
+	if(!size($pickers))
+	{
+		return $abxPickers;
+	}
+	clear $abxPickers;
+	for($pkr in $pickers)
+	{
+		if(!`isAbxPickerNode $pkr`)
+		{
+			continue;
+		}		
+		$abxPickers[size($abxPickers)] = $pkr;			
+	}
+	if(!size($abxPickers))
+	{
+		return $abxPickers;
+	}
+	$abxPickers = sort($abxPickers);
+	return $abxPickers;
+}
+global proc int Converter_abxPicker_readNode(string $node)
+//the reader procedure to read a single picker node of your picker type.
+//return 1 on success, 0 on failed.
+{
+		int $charPrefix =  `getAttr ($node+".charPrefix")`;
+		
+		string $names[] =`getPicker_CharacterAndSubName $node`;
+		string $namespace = $names[0];
+		
+		//first of all, if it is alreay opened and its namesapce matches, we just activate its tab:
+		if(`MGPicker -e -activate $node $namespace`)
+		{
+			return 1;
+		}  
+		//get datas form the node:
+		string $bgColorBuffer[];
+		string $bgPic;
+		int $count = `getAttr ($node+".count")`;
+		string $bgImage = `getAttr ($node+".bgImage")`;
+		string $bgColor = `getAttr ($node+".bgColor")`;
+		string $data[] = `getAttr ($node+".data")`;
+		int $width[] = `getAttr ($node+".width")`;
+		int $height[] = `getAttr ($node+".height")`;
+		string $overlay[] = `getAttr ($node+".overlay")`;
+		string $command[] = `getAttr ($node+".command")`;
+		string $image[] = `getAttr ($node+".image")`;
+		string $label[];clear $label;
+		if (attributeExists("label",$node))
+		{
+			$label = `getAttr ($node+".label")`;
+		}
+		
+		string $panelName = $names[1];
+		
+		//the $pickername below will be the title of the picker view tab:
+		string $pickerName = $namespace;		
+		if(size($pickerName))
+		{
+			$pickerName += "_";
+		}
+		$pickerName += $panelName;
+		
+		tokenize $bgColor ":" $bgColorBuffer;
+		float $bgr = $bgColorBuffer[0];
+		float $bgg = $bgColorBuffer[1];
+		float $bgb = $bgColorBuffer[2];
+		
+		//create a picker view for this node. If failed we return directly.
+		//MGPicker -e -createPicker comes with four string arguments: picker name, namespace, file path, node. All of them could be empty string.
+		//$pickerName will be the tab title of the picker view, 
+		//$node will be the marking of your picker view, in future you could use this to test if the node is already opened.
+		string $viewId = `MGPicker -e -createPicker $pickerName "" "" $node`;
+		if(!`size $viewId`)  
+		{
+			return 0;
+		}
+		MGPickerView -e  -namespace $namespace $viewId;
+		//to support the background image of your picker, we create a panel item:
+		string $panel = `MGPickerItem -view $viewId -type "panel" -label $panelName -bi $bgImage -fc $bgr $bgg $bgb 1`;
+		
+		string $tokenBuffer[];
+		for ($i=0;$i<$count;$i++)
+		{
+			tokenize $data[$i] ":" $tokenBuffer;
+			int $xPos = $tokenBuffer[0];
+			int $yPos = $tokenBuffer[1];
+			float $bgr = $tokenBuffer[2];
+			float $bgg = $tokenBuffer[3];
+			float $bgb = $tokenBuffer[4];
+			int $w = $width[$i];
+			int $h = $height[$i];
+			//string $img = strip($image[$i]);  //image value seems not used in abxPicker?
+			string $cmd = $command[$i];	
+			string $lbl = $label[$i];
+			
+			string $cmdLines[]=`stringToStringArray $cmd ";"`;
+			string $firstCmd = $cmdLines[0];
+			int $cmdSize = size($cmdLines);
+			string $lastCmd;
+			if($cmdSize)
+			{
+				$lastCmd = $cmdLines[size($cmdLines)-1];
+			}
+			string $type = "selectButton";
+			
+			string $btn;
+			//if the selectButton in MG-Picker fit it ,we create a selectButton item:
+			if(`startsWith $firstCmd "abxPickerSelect"`)
+			{
+				$type = "selectButton";	
+				string $temp[] = `stringToStringArray $firstCmd "\""`;
+				string $objStr = strip($temp[1]);
+				$btn = `MGPickerItem -type $type -view $viewId 
+														-p $panel
+														-x $xPos -y $yPos 
+														-w $w -h $h 
+														-label $lbl 
+														-fc $bgr $bgg $bgb 1
+														-selectMembers $objStr
+														`;				
+				//now we convert the post action after user click the select button:						
+				if(`startsWith $lastCmd "setToolTo"`)
+				{
+				   $temp = `stringToStringArray $lastCmd " "`;
+				   if($temp[1] == "moveSuperContext")
+				   {
+				   		MGPickerItem -e -view $viewId -postAction "translate" $btn;
+				   }
+				   else if($temp[1] == "RotateSuperContext")
+				   {
+				   		MGPickerItem -e -view $viewId -postAction "rotate" $btn;
+				   }
+				   else if($temp[1] == "scaleSuperContext")
+				   {
+				   		MGPickerItem -e -view $viewId -postAction "scale" $btn;
+				   }
+				   else
+				   {
+				   		MGPickerItem -e -view $viewId -postAction "nothing" $btn;
+				   }
+				}
+							
+			}
+			else  //other else ,we use commandButton:
+			{
+				//we replace the namespace getter if needed:
+				if(`startsWith $firstCmd "global string $pickrPrefix"`)
+				{
+						$firstCmd = "global string $pickrPrefix;";
+						$firstCmd += "$pickrPrefix = `MGPicker -q -ns`+\":\"";
+						$cmdLines[0] = $firstCmd;
+						$cmd = `stringArrayToString $cmdLines ";"`;
+				}
+				$cmd = replaceGetNSCode($cmd);
+				$cmd = replaceFunctionCode($cmd);
+				$type = "commandButton";
+				$btn = `MGPickerItem -type $type -view $viewId 
+														-p $panel
+														-x $xPos -y $yPos 
+														-w $w -h $h 
+														-label $lbl 
+														-fc $bgr $bgg $bgb 1
+														-commandType "mel"
+														-command $cmd`;
+			}
+		}	
+		
+		//you must invoke this call, to extend the panel item to the size of all its children items:
+		MGPickerItem -view $viewId -e -resizePreferSize $panel;
+		
+		//also, update the scene boundary of the picker view, so it shows all the items you just created:
+		MGPickerView -e -updateSceneBoundary $viewId ;
+		
+		//Make sure the picker not appeared unsaved: (actually no need to do so, cos undo/redo wont be recorded in commandline.)
+		//MGPicker -e -setPickerClean;
+		
+		//append to recent file menu:
+		MGPicker -e -appendRecentPickerNode $node;
+		return 1;
+}
+
+global proc int Converter_abxPicker_isPickerFile(string $fileFullPath)
+{
+	//test if the file is a abxPicker file:
+	return 0;
+}
+global proc int Converter_abxPicker_readFile(string $fileFullPath)
+{
+	//since abxPicker has no external file, we return 0 all the time:
+	return 0;
+}

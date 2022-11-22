@@ -1,0 +1,12 @@
+//==============================================================//
+//                   MGTools Language source
+//==============================================================//
+//Author: Miguel (Wenfeng Gao) 
+//website: http://mgland.com
+//Feedback: http://mgland.com/works/mel.asp
+//E-mail: mgtoolspro@gmail.com 
+//CopyRight Miguel @ mgland animation studio.
+
+MG_displayEN "resetTransform.warn.message" "--_-- |||   Do select something,baby~";
+MG_displayEN "resetTransform.warnNoAttrSelected.message" "--_-- |||   Do select some attribute from the channelBox,baby~";
+
